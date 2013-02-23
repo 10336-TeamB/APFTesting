@@ -25,5 +25,15 @@ namespace APFTestingModel
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Exam> Exams { get; set; }
+        public DbSet<PossibleAnswer> PossibleAnswers { get; set; }
+        public DbSet<PracticalComponent> PracticalComponents { get; set; }
+        public DbSet<PracticalComponentItem> PracticalComponentItems { get; set; }
+        public DbSet<PracticalComponentItemResult> PracticalComponentItemResults { get; set; }
+        public DbSet<PracticalComponentTemplate> PracticalComponentTemplates { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<SelectedOption> SelectedOptions { get; set; }
+        public DbSet<TheoryComponent> TheoryComponents { get; set; }
+        public DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
     }
 }
