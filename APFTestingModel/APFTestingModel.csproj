@@ -66,6 +66,12 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Partials\Exam.cs" />
+    <Compile Include="Partials\Options.cs" />
+    <Compile Include="Partials\Question.cs" />
+    <Compile Include="Partials\SelectedOption.cs" />
+    <Compile Include="Partials\Test.cs" />
+    <Compile Include="Partials\TheoryComponent.cs" />
+    <Compile Include="Partials\TheoryComponentFormat.cs" />
     <Compile Include="PossibleAnswer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

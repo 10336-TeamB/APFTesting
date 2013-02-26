@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APFTestingModel {
-    internal partial class Exam {
-
-
+namespace APFTestingModel.Partials
+{
+    internal partial class SelectedOption
+    {
     }
 }
