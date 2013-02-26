@@ -754,3 +754,9 @@ tr.pager td {
             margin: 0;
         }
 }
+
+/* Added by Adam and Joshua */
+#ExamContainer {
+    width: 800px;
+    margin: 0 auto;
+}
