@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class SelectedOption
+    internal partial class SelectedOption
     {
         public System.Guid QuestionId { get; set; }
         public System.Guid ExamId { get; set; }

@@ -50,9 +50,12 @@
     <Compile Include="Exam.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ExamManager.cs" />
     <Compile Include="Facade.cs" />
-    <Compile Include="Interfaces\IPossibleAnswer.cs" />
-    <Compile Include="Interfaces\ITheoryQuestion.cs" />
+    <Compile Include="Interface\IExam.cs" />
+    <Compile Include="Interface\IPossibleAnswer.cs" />
+    <Compile Include="Interface\IQuestion.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,6 +73,7 @@
     </Compile>
     <Compile Include="Partials\Exam.cs" />
     <Compile Include="Partials\Options.cs" />
+    <Compile Include="Partials\PracticalComponent.cs" />
     <Compile Include="Partials\Question.cs" />
     <Compile Include="Partials\SelectedOption.cs" />
     <Compile Include="Partials\Test.cs" />
@@ -87,6 +91,7 @@
     <Compile Include="PracticalComponentItemResult.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PracticalComponentManager.cs" />
     <Compile Include="PracticalComponentTemplate.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -103,6 +108,8 @@
     <Compile Include="TheoryComponentFormat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="TheoryComponentManager.cs" />
+    <Compile Include="TheoryQuestionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

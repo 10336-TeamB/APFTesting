@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class PracticalComponentItemResult
+    internal partial class PracticalComponentItemResult
     {
         public System.Guid PracticalComponentId { get; set; }
         public System.Guid PracticalQuestionId { get; set; }

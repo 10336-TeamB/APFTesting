@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public partial class TheoryComponent
+    internal partial class TheoryComponent
     {
+        public TheoryComponent(Guid examinerId, Guid theoryFormatId)
+        {
+            this.ExaminerId = examinerId;
+            this.TheoryFormatId = theoryFormatId;
+        }
+
         private int currentQuestionIndex = 0;
 
         public Question FetchNextQuestion(ref bool isLastQuestion)
@@ -31,7 +37,7 @@ namespace APFTestingModel
         {
             if (index < 0 || index >= Questions.Count)
             {
-                throw new Exception("What are you doing?");
+                throw new Exception("What are you doing Josh?");
             }
             isFirstQuestion = (index == 0) ? true : false;
             isLastQuestion = (Questions.Count - 1 == index) ? true : false;
