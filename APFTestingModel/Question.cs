@@ -25,6 +25,7 @@ namespace APFTestingModel
         public int NumberOfCorrectAnswer { get; set; }
         public bool IsActive { get; set; }
         public int ExamTypeId { get; set; }
+        public string Description { get; set; }
     
         public virtual ICollection<SelectedOption> SelectedOptions { get; set; }
         public virtual ICollection<PossibleAnswer> PossibleAnswers { get; set; }

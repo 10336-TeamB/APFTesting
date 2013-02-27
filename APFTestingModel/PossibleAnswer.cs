@@ -23,6 +23,7 @@ namespace APFTestingModel
         public System.Guid Id { get; set; }
         public string Description { get; set; }
         public bool IsCorrect { get; set; }
+        public int Order { get; set; }
     
         public virtual ICollection<SelectedOption> SelectedOptions { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
