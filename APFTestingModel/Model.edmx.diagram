@@ -4,30 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="944a0c386c6e4e9e9923040f4becd3d5" Name="Diagram1">
-        <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="1.5" PointX="6.125" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PossibleAnswer" Width="1.75" PointX="8.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponent" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentItem" Width="2.25" PointX="1.5" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentItemResult" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplate" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Question" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.SelectedOption" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponent" Width="1.75" PointX="3.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormat" Width="2.25" PointX="0.5" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="APFTestingDBModel.FK_Exam_PracticalComponent" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.FK_Exam_TheoryComponent" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.FK_SelectedOption_Option" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponent" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponentItem" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.FK_SelectedOption_Question" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.FK_SelectedOption_TheoryComponent" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.FK_Exam_ExamFormat" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.PracticalComponentTemplateItems" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.QuestionOptions" ManuallyRouted="false" />
-        <AssociationConnector Association="APFTestingDBModel.TheoryComponentQuestions" ManuallyRouted="false" />
+      <Diagram DiagramId="944a0c386c6e4e9e9923040f4becd3d5" Name="Diagram1" ZoomLevel="101">
+        <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="2.125" PointX="8.625" PointY="15" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PossibleAnswer" Width="1.5" PointX="11.377171173401724" PointY="31.308419033562959" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponent" Width="2.375" PointX="15" PointY="18" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentItem" Width="1.5" PointX="1.1294633080854375" PointY="28.647313280332515" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentItemResult" Width="1.5" PointX="1.9941958775716815" PointY="18.664790937055269" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplate" Width="1.5" PointX="5.7341623388855538" PointY="10.821063300045703" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Question" Width="1.5" PointX="3.3770656824936465" PointY="3.2336812630452596" />
+        <EntityTypeShape EntityType="APFTestingDBModel.SelectedOption" Width="1.5" PointX="9.12840263039265" PointY="29.919830157384197" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponent" Width="2.375" PointX="11.375" PointY="27" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormat" Width="2.25" PointX="15" PointY="28.5" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Exam_PracticalComponent" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Exam_TheoryComponent" />
+        <AssociationConnector Association="APFTestingDBModel.FK_SelectedOption_Option" />
+        <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" />
+        <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponent" />
+        <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponentItem" />
+        <AssociationConnector Association="APFTestingDBModel.FK_SelectedOption_Question" />
+        <AssociationConnector Association="APFTestingDBModel.FK_SelectedOption_TheoryComponent" />
         <AssociationConnector Association="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" />
+        <AssociationConnector Association="APFTestingDBModel.PracticalComponentTemplateItems" />
+        <AssociationConnector Association="APFTestingDBModel.QuestionOptions" />
+        <AssociationConnector Association="APFTestingDBModel.TheoryComponentQuestions" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Examiner" Width="1.5" PointX="11.75" PointY="30.75" />
+        <AssociationConnector Association="APFTestingDBModel.FK_TheoryComponent_Examiner" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Candidate" Width="1.5" PointX="5.75" PointY="15.625" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Exam_Candidate" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

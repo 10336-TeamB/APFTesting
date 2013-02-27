@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace APFTestingModel {
-    public partial class Exam {
+    public partial class Exam 
+	{
+		public Exam(Candidate candidate, TheoryComponent theoryComponent)
+		{
 
+		}
     }
 }

@@ -23,5 +23,6 @@ namespace APFTestingModel
     
         public virtual PracticalComponent PracticalComponent { get; set; }
         public virtual TheoryComponent TheoryComponent { get; set; }
+        public virtual Candidate Candidate { get; set; }
     }
 }
