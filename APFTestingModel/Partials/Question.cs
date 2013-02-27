@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class Question : IQuestion
+    public partial class Question : IQuestion
     {
         public bool WasCorrectlyAnswered()
         {
@@ -30,6 +30,17 @@ namespace APFTestingModel
         public void SelectOption(List<SelectedOption> selectedOptions)
         {
             SelectedOptions = selectedOptions;
+        }
+
+
+        IEnumerable<IPossibleAnswer> IQuestion.PossibleAnswers
+        {
+            get { return PossibleAnswers; }
+        }
+
+        public int QuestionNumber
+        {
+            get { throw new NotImplementedException(); }
         }
     }
 }

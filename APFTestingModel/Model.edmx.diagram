@@ -28,6 +28,7 @@
         <AssociationConnector Association="APFTestingDBModel.QuestionOptions" ManuallyRouted="false" />
         <AssociationConnector Association="APFTestingDBModel.TheoryComponentQuestions" ManuallyRouted="false" />
         <AssociationConnector Association="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" />
+        <AssociationConnector Association="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,9 +12,21 @@
     </hgroup>
 
     <form>
-        @Html
+        @foreach (var option in Model.PossibleAnswers)
+        {
+            <div class="OptionContainer">
+                @if (Model.NumCorrectAnswers == 1)
+                {
+                    <input type="radio" class="Option-Radiobutton" name="SelectedOption" value="@option.Order"/>
+                }
+                else
+                {
+                    <input type="checkbox" class="Option-Checkbox" name="SelectedOption" value="@option.Order"/>
+                }
+                <span class="Option-Description">@option.Description</span>
+            </div>
+        }
         <input type="submit" value="Next Question" />
     </form>
-
 
 </div>

@@ -1,4 +1,4 @@
-﻿using APFTestingModel.Interfaces;
+﻿using APFTestingModel;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,9 +11,10 @@ namespace APFTestingUI.Models.Exam
             Description = "This is an example question";
             QuestionNumber = 1;
             PossibleAnswers = createMockAnswerList();
+            NumCorrectAnswers = 1;
         }
 
-        public TheoryQuestion(ITheoryQuestion question)
+        public TheoryQuestion(IQuestion question)
         {
             Description = question.Description;
             QuestionNumber = question.QuestionNumber;
@@ -24,7 +25,7 @@ namespace APFTestingUI.Models.Exam
         public string Description { get; set; }
         public int QuestionNumber { get; set; }
         public IEnumerable<PossibleAnswer> PossibleAnswers { get; set; }
-        public List<int> SelectedOptions { get; set; }
+        public List<int> SelectedOption { get; set; }
         public int NumCorrectAnswers { get; set; }
 
         private IEnumerable<PossibleAnswer> createMockAnswerList()

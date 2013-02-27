@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="Partials\Exam.cs" />
     <Compile Include="Partials\Options.cs" />
+    <Compile Include="Partials\PossibleAnswer.cs" />
     <Compile Include="Partials\PracticalComponent.cs" />
     <Compile Include="Partials\Question.cs" />
     <Compile Include="Partials\SelectedOption.cs" />

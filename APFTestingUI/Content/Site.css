@@ -587,6 +587,47 @@ tr.pager td {
 }
 
 
+/* Added by Adam and Joshua */
+#ExamContainer {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.OptionContainer {
+    
+}
+
+.Option-Checkbox {
+    width: 20px;
+    border: none;
+}
+
+.Option-Radiobutton {
+    width: 20px;
+    border: none;
+
+}
+
+.Option-Description {
+    
+}
+
+header {
+    height: 150px;
+
+    /* Gradients don't work in IE!!! Grrrr   */
+    background-image: linear-gradient(to bottom, #449CC5 7%, #99CDDB 77%);
+    background-image: -o-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -moz-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -webkit-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -ms-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+}
+
+
+
+
+
+
 /********************
 *   Mobile Styles   *
 ********************/
@@ -755,8 +796,3 @@ tr.pager td {
         }
 }
 
-/* Added by Adam and Joshua */
-#ExamContainer {
-    width: 800px;
-    margin: 0 auto;
-}
