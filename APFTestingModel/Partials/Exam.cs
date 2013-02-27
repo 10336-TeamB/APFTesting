@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace APFTestingModel {
-    internal partial class Exam {
-
+    public partial class Exam {
 
     }
 }

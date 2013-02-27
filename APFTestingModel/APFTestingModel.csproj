@@ -51,6 +51,8 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Facade.cs" />
+    <Compile Include="Interfaces\IPossibleAnswer.cs" />
+    <Compile Include="Interfaces\ITheoryQuestion.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

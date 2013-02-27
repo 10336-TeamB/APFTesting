@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APFTestingUI.Models.Exam;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult Start()
         {
+            var test =_facade.TestQuestion();
             //TODO: relate start page to a specifc exam
             //TODO: Based on Exam use exam format information in view
             //TODO: Handle exception of unknown Guid
@@ -26,8 +28,9 @@ namespace APFTestingUI.Controllers
         public ActionResult NextQuestion()
         {
             //TODO: Fetch next question from Model
-            //Question q = _facade.FetchNextQuestion(examId);
-            return View("DisplayQuestion");
+            //var model = new TheoryQuestion(facade.FetchNextQuestion(examId));
+            var model = new TheoryQuestion();
+            return View("DisplayQuestion", model);
         }
 
         //

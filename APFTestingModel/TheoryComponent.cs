@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class TheoryComponent
+    public partial class TheoryComponent
     {
         public TheoryComponent()
         {

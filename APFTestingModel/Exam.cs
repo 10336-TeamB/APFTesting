@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class Exam
+    public partial class Exam
     {
         public System.Guid Id { get; set; }
         public int ExamStatusId { get; set; }

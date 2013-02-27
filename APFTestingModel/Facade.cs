@@ -8,20 +8,28 @@ namespace APFTestingModel
 {
     public class Facade : IDisposable
     {
-        private ExamManager examMananger = new ExamManager();
-        private TheoryComponentManager theoryComponentManager = new TheoryComponentManager();
-        private TheoryQuestionManager theoryQuestionManager = new TheoryQuestionManager();
-        private PracticalComponentManager practicalComponentManager = new PracticalComponentManager();
-        
-        public Question FetchNextQuestion(Guid examId, ref bool isLastQuestion)
+    //    private ExamManager examMananger = new ExamManager();
+    //    private TheoryComponentManager theoryComponentManager = new TheoryComponentManager();
+    //    private TheoryQuestionManager theoryQuestionManager = new TheoryQuestionManager();
+    //    private PracticalComponentManager practicalComponentManager = new PracticalComponentManager();
+        private APFTestingEntities _context = new APFTestingEntities();
+
+        public string TestQuestion()
         {
-            return null;
+            return _context.Questions.ToList().First().Description;
+
         }
 
-        public Exam FetchExam(Guid id)
-        {
-            return examMananger.FetchExam(id);
-        }
+
+        //public Question FetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        //{
+        //    return null;
+        //}
+
+        //public Exam FetchExam(Guid id)
+        //{
+        //    return examMananger.FetchExam(id);
+        //}
 
         public void Dispose()
         {
