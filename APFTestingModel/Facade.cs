@@ -8,6 +8,7 @@ namespace APFTestingModel
 {
     public class Facade : IDisposable
     {
+
         private ExamManager examManager = new ExamManager();
 
         public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType) 
@@ -60,3 +61,4 @@ namespace APFTestingModel
         }
     }
 }
+

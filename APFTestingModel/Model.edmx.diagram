@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+
       <Diagram DiagramId="944a0c386c6e4e9e9923040f4becd3d5" Name="Diagram1">
         <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="1.5" PointX="6.125" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="APFTestingDBModel.PossibleAnswer" Width="1.75" PointX="8.25" PointY="1.875" IsExpanded="true" />
@@ -28,7 +29,6 @@
         <AssociationConnector Association="APFTestingDBModel.QuestionOptions" ManuallyRouted="false" />
         <AssociationConnector Association="APFTestingDBModel.TheoryComponentQuestions" ManuallyRouted="false" />
         <AssociationConnector Association="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" />
-        <AssociationConnector Association="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -16,6 +16,14 @@ namespace APFTestingModel
 
         private int currentQuestionIndex = 0;
 
+		public TheoryComponent(TheoryComponentFormat format, Examiner examiner, IEnumerable<Question> randomQuestions)
+		{
+			TheoryComponentFormat = format;
+			Examiner = examiner;
+			Questions = (ICollection<Question>)randomQuestions;
+			
+		}
+
         public Question FetchNextQuestion(ref bool isLastQuestion)
         {
             if (currentQuestionIndex < Questions.Count - 1) {

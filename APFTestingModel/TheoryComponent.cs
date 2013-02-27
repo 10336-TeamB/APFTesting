@@ -23,11 +23,12 @@ namespace APFTestingModel
     
         public System.Guid Id { get; set; }
         public System.Guid ExaminerId { get; set; }
-        public System.Guid TheoryFormatId { get; set; }
+        public System.Guid FormatId { get; set; }
     
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<SelectedOption> SelectedOptions { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
         public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
+        public virtual Examiner Examiner { get; set; }
     }
 }
