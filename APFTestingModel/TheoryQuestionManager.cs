@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APFTestingModel.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace APFTestingModel
         {
             get
             {
-                return context.Questions.Where(q => q.ExamTypeId == 1).ToList();
+                return _context.Questions.Where(q => q.ExamTypeId == 1).ToList();
             }
         }
 
@@ -20,7 +21,7 @@ namespace APFTestingModel
         {
             get
             {
-                return context.Questions.Where(q => q.ExamTypeId == 2).ToList();
+                return _context.Questions.Where(q => q.ExamTypeId == 2).ToList();
             }
         }
     }

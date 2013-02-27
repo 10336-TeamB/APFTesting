@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ECF00D40-4554-4DA2-AF68-848FF0B6D169}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>APFTestingModel</RootNamespace>
     <AssemblyName>APFTestingModel</AssemblyName>
@@ -56,25 +56,17 @@
     <Compile Include="Exam.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-
     <Compile Include="Examiner.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Facade.cs" />
+    <Compile Include="Interfaces\IExam.cs" />
     <Compile Include="Interfaces\IPossibleAnswer.cs" />
-    <Compile Include="Interfaces\ITheoryQuestion.cs" />
+    <Compile Include="Interfaces\IQuestion.cs" />
     <Compile Include="Managers\ExamManager.cs" />
     <Compile Include="Managers\Manager.cs" />
     <Compile Include="Managers\TheoryComponentManager.cs" />
     <Compile Include="Managers\TheoryQuestionManager.cs" />
-
-
-
-    <Compile Include="Interface\IExam.cs" />
-
-    <Compile Include="Interface\IQuestion.cs" />
-
-
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

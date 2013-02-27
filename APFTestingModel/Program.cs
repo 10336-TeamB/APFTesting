@@ -11,17 +11,18 @@ namespace APFTestingModel
 	{
 		public static void Main(string[] args)
 		{
-			APFTestingEntities _context = new APFTestingEntities();
+            //TODO: Commented out as it is preventing compilation - ADAM
+            //APFTestingEntities _context = new APFTestingEntities();
 
-			TheoryQuestionManager _tqm = new TheoryQuestionManager();
-			var randomQuestions = _tqm.FetchRandomQuestions(1);
+            //TheoryQuestionManager _tqm = new TheoryQuestionManager();
+            //var randomQuestions = _tqm.FetchRandomQuestions(1);
 
-			foreach (var item in randomQuestions)
-			{
-				Console.WriteLine("{0}\n",item.Description);
-			}
+            //foreach (var item in randomQuestions)
+            //{
+            //    Console.WriteLine("{0}\n",item.Description);
+            //}
 
-			Console.Read();
+            //Console.Read();
 		}
 	}
 }

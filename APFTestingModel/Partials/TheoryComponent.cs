@@ -11,7 +11,7 @@ namespace APFTestingModel
         public TheoryComponent(Guid examinerId, Guid theoryFormatId)
         {
             this.ExaminerId = examinerId;
-            this.TheoryFormatId = theoryFormatId;
+            this.FormatId = theoryFormatId;
         }
 
         private int currentQuestionIndex = 0;
@@ -19,7 +19,8 @@ namespace APFTestingModel
 		public TheoryComponent(TheoryComponentFormat format, Examiner examiner, IEnumerable<Question> randomQuestions)
 		{
 			TheoryComponentFormat = format;
-			Examiner = examiner;
+			//TODO: Commented out as Examiner naviagtion property does not yet exist preventing compilation - ADAM
+            //Examiner = examiner;
 			Questions = (ICollection<Question>)randomQuestions;
 			
 		}

@@ -24,7 +24,7 @@ namespace APFTestingModel
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public DbSet<Exam> Exams { get; set; }
         public DbSet<PossibleAnswer> PossibleAnswers { get; set; }
         public DbSet<PracticalComponent> PracticalComponents { get; set; }

@@ -29,6 +29,5 @@ namespace APFTestingModel
         public virtual ICollection<SelectedOption> SelectedOptions { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
         public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
-        public virtual Examiner Examiner { get; set; }
     }
 }

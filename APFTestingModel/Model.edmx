@@ -154,7 +154,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ExamTypeId" Type="int" />
         </EntityType>
         <EntityType Name="PracticalComponentTemplateItems">
           <Key>
@@ -197,11 +196,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="TheoryFormatId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ExaminerId" Type="uniqueidentifier" Nullable="false" />
-
           <Property Name="FormatId" Type="uniqueidentifier" Nullable="false" />
-
         </EntityType>
         <EntityType Name="TheoryComponentFormat">
           <Key>
@@ -421,7 +417,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TheoryComponent">
-              <PropertyRef Name="TheoryFormatId" />
+              <PropertyRef Name="FormatId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -566,7 +562,6 @@
           <Property Type="Guid" Name="Id" Nullable="false" />
           <NavigationProperty Name="PracticalComponents" Relationship="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" FromRole="PracticalComponentTemplate" ToRole="PracticalComponent" />
           <NavigationProperty Name="PracticalComponentItems" Relationship="APFTestingDBModel.PracticalComponentTemplateItems" FromRole="PracticalComponentTemplate" ToRole="PracticalComponentItem" />
-          <Property Type="Int32" Name="ExamTypeId" />
         </EntityType>
         <EntityType Name="Question" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
@@ -603,7 +598,7 @@
           <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="TheoryComponent" ToRole="Exam" />
           <NavigationProperty Name="SelectedOptions" Relationship="APFTestingDBModel.FK_SelectedOption_TheoryComponent" FromRole="TheoryComponent" ToRole="SelectedOption" />
           <NavigationProperty Name="Questions" Relationship="APFTestingDBModel.TheoryComponentQuestions" FromRole="TheoryComponent" ToRole="Question" />
-          <Property Type="Guid" Name="TheoryFormatId" Nullable="false" />
+          <Property Type="Guid" Name="FormatId" Nullable="false" />
           <NavigationProperty Name="TheoryComponentFormat" Relationship="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" FromRole="TheoryComponent" ToRole="TheoryComponentFormat" />
         </EntityType>
         <EntityType Name="TheoryComponentFormat" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
@@ -835,7 +830,6 @@
           <EntitySetMapping Name="PracticalComponentTemplates">
             <EntityTypeMapping TypeName="APFTestingDBModel.PracticalComponentTemplate">
               <MappingFragment StoreEntitySet="PracticalComponentTemplate">
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -863,7 +857,7 @@
           <EntitySetMapping Name="TheoryComponents">
             <EntityTypeMapping TypeName="APFTestingDBModel.TheoryComponent">
               <MappingFragment StoreEntitySet="TheoryComponent">
-                <ScalarProperty Name="TheoryFormatId" ColumnName="TheoryFormatId" />
+                <ScalarProperty Name="FormatId" ColumnName="FormatId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ExaminerId" ColumnName="ExaminerId" />
               </MappingFragment>

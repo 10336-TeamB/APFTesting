@@ -21,7 +21,6 @@ namespace APFTestingModel
         }
     
         public System.Guid Id { get; set; }
-        public Nullable<int> ExamTypeId { get; set; }
     
         public virtual ICollection<PracticalComponent> PracticalComponents { get; set; }
         public virtual ICollection<PracticalComponentItem> PracticalComponentItems { get; set; }

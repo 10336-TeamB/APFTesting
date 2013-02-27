@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace APFTestingModel.Interfaces
+namespace APFTestingModel
 {
     public interface IPossibleAnswer
     {

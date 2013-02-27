@@ -8,14 +8,15 @@ namespace APFTestingModel
 {
     public partial class Exam : IExam 
     {
-        public Exam(Guid examinerId, Guid candidateId, Guid theoryFormatId, Guid practicalTemplateId, ExamType examType)
-        {
-            TheoryComponent = new TheoryComponent(examinerId, theoryFormatId);
-            PracticalComponent = new PracticalComponent(examinerId, practicalTemplateId);
-            CandidateId = candidateId;
-            ExamTypeId = (int)examType;
-            ExamStatusId = 1;
-        }
+        // TODO: Commented out as EmaxType does not exist preventing compilation - ADAM
+        //public Exam(Guid examinerId, Guid candidateId, Guid theoryFormatId, Guid practicalTemplateId, ExamType examType)
+        //{
+        //    TheoryComponent = new TheoryComponent(examinerId, theoryFormatId);
+        //    PracticalComponent = new PracticalComponent(examinerId, practicalTemplateId);
+        //    CandidateId = candidateId;
+        //    ExamTypeId = (int)examType;
+        //    ExamStatusId = 1;
+        //}
 
         public Question FetchNextQuestion(ref bool isLastQuestion)
         {
