@@ -15,7 +15,6 @@ namespace APFTestingUI.Controllers
 
         public ActionResult Start()
         {
-            var test =_facade.TestQuestion();
             //TODO: relate start page to a specifc exam
             //TODO: Based on Exam use exam format information in view
             //TODO: Handle exception of unknown Guid
