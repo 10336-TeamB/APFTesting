@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APFTestingModel.Managers
+namespace APFTestingModel
 {
-	class Manager
+	internal class Manager
 	{
-		protected APFTestingEntities _context = new APFTestingEntities();
+		protected static APFTestingEntities _context = new APFTestingEntities();
 	}
 }

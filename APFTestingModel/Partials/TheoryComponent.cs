@@ -16,12 +16,12 @@ namespace APFTestingModel
 
         private int currentQuestionIndex = 0;
 
-		public TheoryComponent(TheoryComponentFormat format, Examiner examiner, IEnumerable<Question> randomQuestions)
+		public TheoryComponent(TheoryComponentFormat format, Examiner examiner, ICollection<Question> randomQuestions)
 		{
 			TheoryComponentFormat = format;
 			//TODO: Commented out as Examiner naviagtion property does not yet exist preventing compilation - ADAM
             //Examiner = examiner;
-			Questions = (ICollection<Question>)randomQuestions;
+			Questions = randomQuestions;
 			
 		}
 

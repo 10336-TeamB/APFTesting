@@ -12,50 +12,50 @@ namespace APFTestingModel
 
         private ExamManager examManager = new ExamManager();
 
-        // TODO: Commented out as ExamType does not exist and none of the ExamManager methods preventing compilation. - ADAM
+         
         //public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType) 
         //{
-        //    return (IExam)examManager.GenerateExam(examinerId, candidateId, examType);
+        //    return examManager.GenerateExam(examinerId, candidateId, examType);
         //}
 
-        //private Question fetchNextQuestion(Guid examId, ref bool isLastQuestion)
-        //{
-        //    return examManager.FetchNextQuestion(examId, ref isLastQuestion);
-        //}
+        private Question fetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        {
+            return examManager.FetchNextQuestion(examId, ref isLastQuestion);
+        }
 
-        //public IQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)
-        //{
-        //    return (IQuestion)fetchNextQuestion(examId, ref isLastQuestion);
-        //}
+        public IQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        {
+            return fetchNextQuestion(examId, ref isLastQuestion);
+        }
 
-        //private Question fetchPreviousQuestion(Guid examId, ref bool isFirstQuestion)
-        //{
-        //    return examManager.FetchPreviousQuestion(examId, ref isFirstQuestion);
-        //}
+        private Question fetchPreviousQuestion(Guid examId, ref bool isFirstQuestion)
+        {
+            return examManager.FetchPreviousQuestion(examId, ref isFirstQuestion);
+        }
 
-        //public IQuestion FetchPrevQuestion(Guid examId, ref bool isFirstQuestion)
-        //{
-        //    return (IQuestion)fetchPreviousQuestion(examId, ref isFirstQuestion);
-        //}
+        public IQuestion FetchPrevQuestion(Guid examId, ref bool isFirstQuestion)
+        {
+            return fetchPreviousQuestion(examId, ref isFirstQuestion);
+        }
 
-        //private Question fetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
-        //{
-        //    return examManager.FetchQuestion(examId, questionIndex, ref isFirstQuestion, ref isLastQuestion);
-        //}
+        private Question fetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
+        {
+            return examManager.FetchQuestion(examId, questionIndex, ref isFirstQuestion, ref isLastQuestion);
+        }
 
-        //public IQuestion FetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
-        //{
-        //    return (IQuestion)fetchQuestion(examId, questionIndex, ref isFirstQuestion, ref isLastQuestion);
-        //}
+        public IQuestion FetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
+        {
+            return fetchQuestion(examId, questionIndex, ref isFirstQuestion, ref isLastQuestion);
+        }
 
-        //private Exam fetchExam(Guid id) {
-        //    return examManager.FetchExam(id);
-        //}
+        private Exam fetchExam(Guid id) {
+            return examManager.FetchExam(id);
+        }
 
-        //public IExam FetchExam(Guid id)
-        //{
-        //    return (IExam)fetchExam(id);
-        //}
+        public IExam FetchExam(Guid id)
+        {
+            return fetchExam(id);
+        }
 
         public void Dispose()
         {
