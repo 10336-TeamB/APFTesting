@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class PossibleAnswer
+    internal partial class PossibleAnswer
     {
         public PossibleAnswer()
         {

@@ -8,21 +8,52 @@ namespace APFTestingModel
 {
     public class Facade : IDisposable
     {
-		//private ExamManager examMananger = new ExamManager();
-		//private TheoryComponentManager theoryComponentManager = new TheoryComponentManager();
-		//private TheoryQuestionManager theoryQuestionManager = new TheoryQuestionManager();
-		//private PracticalComponentManager practicalComponentManager = new PracticalComponentManager();
 
+        private ExamManager examManager = new ExamManager();
 
-		//public Question FetchNextQuestion(Guid examId, ref bool isLastQuestion)
-		//{
-		//	return null;
-		//}
+        public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType) 
+        {
+            return (IExam)examManager.GenerateExam(examinerId, candidateId, examType);
+        }
 
-		//public Exam FetchExam(Guid id)
-		//{
-		//	return examMananger.FetchExam(id);
-		//}
+        private Question fetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        {
+            return examManager.FetchNextQuestion(examId, ref isLastQuestion);
+        }
+
+        public IQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        {
+            return (IQuestion)fetchNextQuestion(examId, ref isLastQuestion);
+        }
+
+        private Question fetchPreviousQuestion(Guid examId, ref bool isFirstQuestion)
+        {
+            return examManager.FetchPreviousQuestion(examId, ref isFirstQuestion);
+        }
+
+        public IQuestion FetchPrevQuestion(Guid examId, ref bool isFirstQuestion)
+        {
+            return (IQuestion)fetchPreviousQuestion(examId, ref isFirstQuestion);
+        }
+
+        private Question fetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
+        {
+            return examManager.FetchQuestion(examId, questionIndex, ref isFirstQuestion, ref isLastQuestion);
+        }
+
+        public IQuestion FetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
+        {
+            return (IQuestion)fetchQuestion(examId, questionIndex, ref isFirstQuestion, ref isLastQuestion);
+        }
+
+        private Exam fetchExam(Guid id) {
+            return examManager.FetchExam(id);
+        }
+
+        public IExam FetchExam(Guid id)
+        {
+            return (IExam)fetchExam(id);
+        }
 
         public void Dispose()
         {
@@ -30,3 +61,4 @@ namespace APFTestingModel
         }
     }
 }
+

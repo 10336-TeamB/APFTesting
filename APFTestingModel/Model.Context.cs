@@ -37,5 +37,6 @@ namespace APFTestingModel
         public DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
         public DbSet<Examiner> Examiners { get; set; }
         public DbSet<Candidate> Candidates { get; set; }
+
     }
 }

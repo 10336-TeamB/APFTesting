@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class PracticalComponentTemplate
+    internal partial class PracticalComponentTemplate
     {
         public PracticalComponentTemplate()
         {
@@ -21,6 +21,7 @@ namespace APFTestingModel
         }
     
         public System.Guid Id { get; set; }
+        public Nullable<int> ExamTypeId { get; set; }
     
         public virtual ICollection<PracticalComponent> PracticalComponents { get; set; }
         public virtual ICollection<PracticalComponentItem> PracticalComponentItems { get; set; }
