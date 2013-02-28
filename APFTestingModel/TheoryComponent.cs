@@ -12,13 +12,13 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class TheoryComponent
+    internal partial class TheoryComponent
     {
         public TheoryComponent()
         {
             this.Exams = new HashSet<Exam>();
-            this.SelectedOptions = new HashSet<SelectedOption>();
-            this.Questions = new HashSet<Question>();
+            this.SelectedAnswers = new HashSet<SelectedAnswer>();
+            this.TheoryQuestions = new HashSet<TheoryQuestion>();
         }
     
         public System.Guid Id { get; set; }
@@ -26,8 +26,9 @@ namespace APFTestingModel
         public System.Guid FormatId { get; set; }
     
         public virtual ICollection<Exam> Exams { get; set; }
-        public virtual ICollection<SelectedOption> SelectedOptions { get; set; }
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual Examiner Examiner { get; set; }
+        public virtual ICollection<SelectedAnswer> SelectedAnswers { get; set; }
         public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
+        public virtual ICollection<TheoryQuestion> TheoryQuestions { get; set; }
     }
 }

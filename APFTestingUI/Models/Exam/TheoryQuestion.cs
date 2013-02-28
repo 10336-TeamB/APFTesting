@@ -14,7 +14,7 @@ namespace APFTestingUI.Models.Exam
             NumCorrectAnswers = 1;
         }
 
-        public TheoryQuestion(IQuestion question)
+        public TheoryQuestion(ITheoryQuestion question)
         {
             Description = question.Description;
             QuestionNumber = question.QuestionNumber;
@@ -25,7 +25,7 @@ namespace APFTestingUI.Models.Exam
         public string Description { get; set; }
         public int QuestionNumber { get; set; }
         public IEnumerable<PossibleAnswer> PossibleAnswers { get; set; }
-        public List<int> SelectedOption { get; set; }
+        public List<int> SelectedAnswer { get; set; }
         public int NumCorrectAnswers { get; set; }
 
         private IEnumerable<PossibleAnswer> createMockAnswerList()

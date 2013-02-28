@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class PracticalComponentTemplate
+    internal partial class PracticalComponentTemplate
     {
         public PracticalComponentTemplate()
         {
@@ -20,7 +20,9 @@ namespace APFTestingModel
             this.PracticalComponentItems = new HashSet<PracticalComponentItem>();
         }
     
+        public bool IsActive { get; set; }
         public System.Guid Id { get; set; }
+        public int ExamTypeId { get; set; }
     
         public virtual ICollection<PracticalComponent> PracticalComponents { get; set; }
         public virtual ICollection<PracticalComponentItem> PracticalComponentItems { get; set; }

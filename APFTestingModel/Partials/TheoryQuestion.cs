@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public partial class Question : IQuestion
+    internal partial class TheoryQuestion : ITheoryQuestion
     {
         public bool WasCorrectlyAnswered()
         {
             int numOfCorrectlySelected = 0;
 
-            foreach (var selectionOption in SelectedOptions)
+            foreach (var selectedAnswer in SelectedAnswers)
             {
-                if (selectionOption.PossibleAnswer.IsCorrect)
+                if (selectedAnswer.PossibleAnswer.IsCorrect)
                 {
                     ++numOfCorrectlySelected;
                 }
@@ -27,13 +27,13 @@ namespace APFTestingModel
             return (numOfCorrectlySelected == NumberOfCorrectAnswer) ? true : false ;
         }
 
-        public void SelectOption(List<SelectedOption> selectedOptions)
+        public void SelectOption(List<SelectedAnswer> selectedOptions)
         {
-            SelectedOptions = selectedOptions;
+            SelectedAnswers = selectedOptions;
         }
 
 
-        IEnumerable<IPossibleAnswer> IQuestion.PossibleAnswers
+        IEnumerable<IPossibleAnswer> ITheoryQuestion.PossibleAnswers
         {
             get { return PossibleAnswers; }
         }

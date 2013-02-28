@@ -17,11 +17,11 @@
             <div class="OptionContainer">
                 @if (Model.NumCorrectAnswers == 1)
                 {
-                    <input type="radio" class="Option-Radiobutton" name="SelectedOption" value="@option.Order"/>
+                    <input type="radio" class="Option-Radiobutton" name="SelectedAnswer" value="@option.Order"/>
                 }
                 else
                 {
-                    <input type="checkbox" class="Option-Checkbox" name="SelectedOption" value="@option.Order"/>
+                    <input type="checkbox" class="Option-Checkbox" name="SelectedAnswer" value="@option.Order"/>
                 }
                 <span class="Option-Description">@option.Description</span>
             </div>

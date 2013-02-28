@@ -1,5 +1,4 @@
-﻿using APFTestingModel.Managers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,41 +8,40 @@ namespace APFTestingModel
 {
     public class Facade : IDisposable
     {
-
         private ExamManager examManager = new ExamManager();
 
-         
+        //TODO: Implement Functionality - Pradipna
         //public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType) 
         //{
         //    return examManager.GenerateExam(examinerId, candidateId, examType);
         //}
 
-        private Question fetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        private TheoryQuestion fetchNextQuestion(Guid examId, ref bool isLastQuestion)
         {
             return examManager.FetchNextQuestion(examId, ref isLastQuestion);
         }
 
-        public IQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        public ITheoryQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)
         {
             return fetchNextQuestion(examId, ref isLastQuestion);
         }
 
-        private Question fetchPreviousQuestion(Guid examId, ref bool isFirstQuestion)
+        private TheoryQuestion fetchPreviousQuestion(Guid examId, ref bool isFirstQuestion)
         {
             return examManager.FetchPreviousQuestion(examId, ref isFirstQuestion);
         }
 
-        public IQuestion FetchPrevQuestion(Guid examId, ref bool isFirstQuestion)
+        public ITheoryQuestion FetchPrevQuestion(Guid examId, ref bool isFirstQuestion)
         {
             return fetchPreviousQuestion(examId, ref isFirstQuestion);
         }
 
-        private Question fetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
+        private TheoryQuestion fetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
         {
             return examManager.FetchQuestion(examId, questionIndex, ref isFirstQuestion, ref isLastQuestion);
         }
 
-        public IQuestion FetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
+        public ITheoryQuestion FetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
         {
             return fetchQuestion(examId, questionIndex, ref isFirstQuestion, ref isLastQuestion);
         }

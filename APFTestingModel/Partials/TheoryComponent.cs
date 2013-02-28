@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public partial class TheoryComponent
+    internal partial class TheoryComponent
     {
         public TheoryComponent(Guid examinerId, Guid theoryFormatId)
         {
@@ -16,50 +16,51 @@ namespace APFTestingModel
 
         private int currentQuestionIndex = 0;
 
-		public TheoryComponent(TheoryComponentFormat format, Examiner examiner, ICollection<Question> randomQuestions)
+		public TheoryComponent(TheoryComponentFormat format, Examiner examiner, ICollection<TheoryQuestion> randomQuestions)
 		{
-			TheoryComponentFormat = format;
-			//TODO: Commented out as Examiner naviagtion property does not yet exist preventing compilation - ADAM
-            //Examiner = examiner;
-			Questions = randomQuestions;
+			TheoryComponentFormat = format;			
+            Examiner = examiner;
+			TheoryQuestions = randomQuestions;
 			
 		}
 
-        public Question FetchNextQuestion(ref bool isLastQuestion)
+        public TheoryQuestion FetchNextQuestion(ref bool isLastQuestion)
         {
-            if (currentQuestionIndex < Questions.Count - 1) {
-                isLastQuestion = (Questions.Count - 1 == ++currentQuestionIndex) ? true : false;
+            if (currentQuestionIndex < TheoryQuestions.Count - 1)
+            {
+                isLastQuestion = (TheoryQuestions.Count - 1 == ++currentQuestionIndex) ? true : false;
             }
-            return Questions.ElementAt(currentQuestionIndex);
+            return TheoryQuestions.ElementAt(currentQuestionIndex);
         }
 
-        public Question FetchPreviousQuestion(ref bool isFirstQuestion)
+        public TheoryQuestion FetchPreviousQuestion(ref bool isFirstQuestion)
         {
             if (currentQuestionIndex != 0)
             {
                 isFirstQuestion = (--currentQuestionIndex == 0) ? true : false;
             }
-            return Questions.ElementAt(currentQuestionIndex);
+            return TheoryQuestions.ElementAt(currentQuestionIndex);
         }
 
-        public Question FetchQuestion(int index, ref bool isFirstQuestion, ref bool isLastQuestion)
+        public TheoryQuestion FetchQuestion(int index, ref bool isFirstQuestion, ref bool isLastQuestion)
         {
-            if (index < 0 || index >= Questions.Count)
+            if (index < 0 || index >= TheoryQuestions.Count)
             {
                 throw new Exception("What are you doing Josh?");
             }
             isFirstQuestion = (index == 0) ? true : false;
-            isLastQuestion = (Questions.Count - 1 == index) ? true : false;
+            isLastQuestion = (TheoryQuestions.Count - 1 == index) ? true : false;
 
             currentQuestionIndex = index;
-            return Questions.ElementAt(index);
+            return TheoryQuestions.ElementAt(index);
         }
 
         public float CalculateResult()
         {
             int correctlyAnswered = 0;
 
-            foreach (var question in Questions) {
+            foreach (var question in TheoryQuestions)
+            {
                 if (question.WasCorrectlyAnswered())
                 {
                     ++correctlyAnswered;
@@ -71,9 +72,9 @@ namespace APFTestingModel
             return percentage;
         }
 
-        public void SelectOption(List<SelectedOption> selectedOptions)
+        public void SelectOption(List<SelectedAnswer> selectedOptions)
         {
-            Questions.ElementAt(currentQuestionIndex).SelectOption(selectedOptions);
+            TheoryQuestions.ElementAt(currentQuestionIndex).SelectOption(selectedOptions);
         }
     }
 }

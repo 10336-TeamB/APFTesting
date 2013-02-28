@@ -4,44 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APFTestingModel.Managers
+namespace APFTestingModel
 {
 	class TheoryQuestionManager : Manager
 	{
-        public IEnumerable<Question> FetchRandomQuestions(int examTypeId)
-        {
-            var questionList = _context.Questions.Where(question => question.ExamTypeId == examTypeId).ToList();
-            List<Question> randomQuestionList = new List<Question>();
-
-            Random random = new Random();
-            do
-            {
-                int randomIndex = random.Next(0, questionList.Count);
-                var randomQuestion = questionList[randomIndex];
-                randomQuestionList.Add(randomQuestion);
-                questionList.Remove(randomQuestion);
-            } while (randomQuestionList.Count < 10);
-
-            //TODO: replace 10 with TheoryComponentFormat number of questions
-
-            return randomQuestionList;
-
-        }
-
-
-        public List<Question> PackerQuestions
+        public List<TheoryQuestion> PackerQuestions
         {
             get
             {
-                return _context.Questions.Where(q => q.ExamTypeId == 1).ToList();
+                return _context.TheoryQuestions.Where(q => q.ExamTypeId == 1).ToList();
             }
         }
 
-        public List<Question> PilotQuestions
+        public List<TheoryQuestion> PilotQuestions
         {
             get
             {
-                return _context.Questions.Where(q => q.ExamTypeId == 2).ToList();
+                return _context.TheoryQuestions.Where(q => q.ExamTypeId == 2).ToList();
             }
         }
 	}

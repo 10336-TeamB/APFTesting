@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public interface IQuestion
+    public interface ITheoryQuestion
     {
         Guid Id { get; }
         int NumberOfCorrectAnswer { get; }

@@ -18,6 +18,19 @@ namespace APFTestingModel
         public APFTestingEntities()
             : base("name=APFTestingEntities")
         {
+    		Candidates = Set<Candidate>();	
+    		Exams = Set<Exam>();	
+    		Examiners = Set<Examiner>();	
+    		PossibleAnswers = Set<PossibleAnswer>();	
+    		PracticalComponents = Set<PracticalComponent>();	
+    		PracticalComponentItems = Set<PracticalComponentItem>();	
+    		PracticalComponentItemResults = Set<PracticalComponentItemResult>();	
+    		PracticalComponentTemplates = Set<PracticalComponentTemplate>();	
+    		SelectedAnswers = Set<SelectedAnswer>();	
+    		TheoryComponents = Set<TheoryComponent>();	
+    		TheoryComponentFormats = Set<TheoryComponentFormat>();	
+    		TheoryQuestions = Set<TheoryQuestion>();	
+    
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -25,17 +38,17 @@ namespace APFTestingModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Exam> Exams { get; set; }
-        public DbSet<PossibleAnswer> PossibleAnswers { get; set; }
-        public DbSet<PracticalComponent> PracticalComponents { get; set; }
-        public DbSet<PracticalComponentItem> PracticalComponentItems { get; set; }
-        public DbSet<PracticalComponentItemResult> PracticalComponentItemResults { get; set; }
-        public DbSet<PracticalComponentTemplate> PracticalComponentTemplates { get; set; }
-        public DbSet<Question> Questions { get; set; }
-        public DbSet<SelectedOption> SelectedOptions { get; set; }
-        public DbSet<TheoryComponent> TheoryComponents { get; set; }
-        public DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
-        public DbSet<Examiner> Examiners { get; set; }
-        public DbSet<Candidate> Candidates { get; set; }
+        internal DbSet<Candidate> Candidates { get; set; }
+        internal DbSet<Exam> Exams { get; set; }
+        internal DbSet<Examiner> Examiners { get; set; }
+        internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
+        internal DbSet<PracticalComponent> PracticalComponents { get; set; }
+        internal DbSet<PracticalComponentItem> PracticalComponentItems { get; set; }
+        internal DbSet<PracticalComponentItemResult> PracticalComponentItemResults { get; set; }
+        internal DbSet<PracticalComponentTemplate> PracticalComponentTemplates { get; set; }
+        internal DbSet<SelectedAnswer> SelectedAnswers { get; set; }
+        internal DbSet<TheoryComponent> TheoryComponents { get; set; }
+        internal DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
+        internal DbSet<TheoryQuestion> TheoryQuestions { get; set; }
     }
 }

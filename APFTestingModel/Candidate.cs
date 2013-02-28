@@ -12,14 +12,14 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Candidate
+    internal partial class Candidate
     {
         public Candidate()
         {
             this.Exams = new HashSet<Exam>();
         }
     
-        public System.Guid id { get; set; }
+        public System.Guid Id { get; set; }
     
         public virtual ICollection<Exam> Exams { get; set; }
     }

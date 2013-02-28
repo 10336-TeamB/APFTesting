@@ -60,6 +60,15 @@ using System.Linq;
         : base("name=<#=container.Name#>")
     {
 <#
+    foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
+    {
+#>
+		<#=codeStringGenerator.InstantiateEntitySet(entitySet)#>	
+<#
+	}
+#>
+
+<#
 if (!loader.IsLazyLoadingEnabled(container))
 {
 #>
@@ -163,6 +172,14 @@ public class CodeStringGenerator
         _typeMapper = typeMapper;
         _ef = ef;
     }
+
+	public string InstantiateEntitySet(EntitySet entitySet)
+	{
+		return string.Format(CultureInfo.InvariantCulture,
+		"{0} = Set<{1}>();",_code.Escape(entitySet),
+        _typeMapper.GetTypeName(entitySet.ElementType)
+        );
+	}
 
     public string Property(EdmProperty edmProperty)
     {

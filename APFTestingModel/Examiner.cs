@@ -12,14 +12,14 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Examiner
+    internal partial class Examiner
     {
         public Examiner()
         {
             this.TheoryComponents = new HashSet<TheoryComponent>();
         }
     
-        public System.Guid id { get; set; }
+        public System.Guid Id { get; set; }
     
         public virtual ICollection<TheoryComponent> TheoryComponents { get; set; }
     }

@@ -63,7 +63,7 @@
     <Compile Include="Facade.cs" />
     <Compile Include="Interfaces\IExam.cs" />
     <Compile Include="Interfaces\IPossibleAnswer.cs" />
-    <Compile Include="Interfaces\IQuestion.cs" />
+    <Compile Include="Interfaces\ITheoryQuestion.cs" />
     <Compile Include="Managers\Manager.cs" />
     <Compile Include="Managers\TheoryComponentManager.cs" />
     <Compile Include="Managers\TheoryQuestionManager.cs" />
@@ -86,8 +86,8 @@
     <Compile Include="Partials\Options.cs" />
     <Compile Include="Partials\PossibleAnswer.cs" />
     <Compile Include="Partials\PracticalComponent.cs" />
-    <Compile Include="Partials\Question.cs" />
-    <Compile Include="Partials\SelectedOption.cs" />
+    <Compile Include="Partials\TheoryQuestion.cs" />
+    <Compile Include="Partials\SelectedAnswer.cs" />
     <Compile Include="Partials\Test.cs" />
     <Compile Include="Partials\TheoryComponent.cs" />
     <Compile Include="Partials\TheoryComponentFormat.cs" />
@@ -103,16 +103,12 @@
     <Compile Include="PracticalComponentItemResult.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PracticalComponentManager.cs" />
+    <Compile Include="Managers\PracticalComponentManager.cs" />
     <Compile Include="PracticalComponentTemplate.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SelectedOption.cs">
+    <Compile Include="SelectedAnswer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TheoryComponent.cs">
@@ -121,8 +117,9 @@
     <Compile Include="TheoryComponentFormat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="TheoryComponentManager.cs" />
-    <Compile Include="TheoryQuestionManager.cs" />
+    <Compile Include="TheoryQuestion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">

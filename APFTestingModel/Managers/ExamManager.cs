@@ -8,7 +8,7 @@ namespace APFTestingModel
 {
     public enum ExamType
     {
-        PACKER_EXAM = 2, PILOT_EXAM = 1
+        PilotExam = 1, PackerExam = 2
     }
 
     internal class ExamManager : Manager
@@ -21,24 +21,25 @@ namespace APFTestingModel
             return _context.Exams.FirstOrDefault(e => e.Id == examId);
         }
 
-        public Question FetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        public TheoryQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)
         {
             Exam exam = FetchExam(examId);
             return exam.FetchNextQuestion(ref isLastQuestion);
         }
 
-        public Question FetchPreviousQuestion(Guid examId, ref bool isLastQuestion)
+        public TheoryQuestion FetchPreviousQuestion(Guid examId, ref bool isLastQuestion)
         {
             Exam exam = FetchExam(examId);
             return exam.FetchPreviousQuestion(ref isLastQuestion);
         }
 
-        public Question FetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
+        public TheoryQuestion FetchQuestion(Guid examId, int questionIndex, ref bool isFirstQuestion, ref bool isLastQuestion)
         {
             Exam exam = FetchExam(examId);
             return exam.FetchQuestion(questionIndex, ref isFirstQuestion, ref isLastQuestion);
         }
 
+        //TODO: Create GenerateExam Method
         //public Exam GenerateExam(Guid examinerId, Guid candidateId, ExamType examType)
         //{
           

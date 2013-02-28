@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APFTestingModel.Partials
+namespace APFTestingModel
 {
-    internal partial class SelectedOption
+    internal class PracticalComponentManager : Manager
     {
     }
 }

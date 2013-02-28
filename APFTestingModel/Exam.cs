@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Exam
+    internal partial class Exam
     {
         public System.Guid Id { get; set; }
         public int ExamStatusId { get; set; }
@@ -21,8 +21,8 @@ namespace APFTestingModel
         public System.Guid CandidateId { get; set; }
         public int ExamTypeId { get; set; }
     
+        public virtual Candidate Candidate { get; set; }
         public virtual PracticalComponent PracticalComponent { get; set; }
         public virtual TheoryComponent TheoryComponent { get; set; }
-        public virtual Candidate Candidate { get; set; }
     }
 }
