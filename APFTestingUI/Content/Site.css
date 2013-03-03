@@ -1,14 +1,10 @@
 ﻿html {
-    background-color: #e2e2e2;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #fff;
-    border-top: solid 10px #000;
     color: #333;
-    font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
@@ -27,9 +23,6 @@ a {
         color: #333;
     }
 
-    a:hover {
-        background-color: #c7d1d6;
-    }
 
 header, footer, hgroup,
 nav, section {
@@ -58,7 +51,7 @@ mark {
     visibility: hidden;
 }
 
-h1, h2, h3,
+/*h1, h2, h3,
 h4, h5, h6 {
     color: #000;
     margin-bottom: 0;
@@ -88,7 +81,7 @@ h5, h6 {
     h5 a:link, h5 a:visited, h5 a:active {
         padding: 0;
         text-decoration: none;
-    }
+    }*/
 
 
 /* main layout
@@ -118,12 +111,6 @@ header .content-wrapper {
     padding-top: 20px; 
 }
 
-footer {
-    clear: both;
-    background-color: #e2e2e2;
-    font-size: .8em;
-    height: 100px;
-}
 
 
 /* site title
@@ -587,45 +574,6 @@ tr.pager td {
 }
 
 
-/* Added by Adam and Joshua */
-#ExamContainer {
-    width: 800px;
-    margin: 0 auto;
-}
-
-.OptionContainer {
-    
-}
-
-.Option-Checkbox {
-    width: 20px;
-    border: none;
-}
-
-.Option-Radiobutton {
-    width: 20px;
-    border: none;
-
-}
-
-.Option-Description {
-    
-}
-
-header {
-    height: 150px;
-
-    /* Gradients don't work in IE!!! Grrrr   */
-    background-image: linear-gradient(to bottom, #449CC5 7%, #99CDDB 77%);
-    background-image: -o-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
-    background-image: -moz-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
-    background-image: -webkit-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
-    background-image: -ms-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
-}
-
-
-
-
 
 
 /********************
@@ -794,5 +742,370 @@ header {
         footer p {
             margin: 0;
         }
+}
+
+
+/* --------- NEW STYLES ---------  */
+/** RESET */
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+	display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+img
+{
+    border: none;
+}
+
+/* INSERT A RESET STYLE SHEET */
+/** BASE */
+html
+{
+    background-color: #303030;
+}
+
+body
+{
+    text-align:center;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #303030;
+    color: #ffffff;
+}
+
+#global-wrapper
+{
+    text-align: left;
+}
+
+#header
+{
+    background-image: linear-gradient(to bottom, #449CC5 7%, #99CDDB 77%);
+    background-image: -o-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -moz-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -webkit-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -ms-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#449CC5', EndColorStr='#99CDDB');
+}
+
+    #header .size-wrapper
+    {
+        position: relative;
+        min-height: 106px;
+    }
+
+    #logo-area
+    {
+        line-height:0;
+        position: absolute;
+        left: 0;
+        top: 7px;
+    }
+
+    #header .right
+    {
+        float: right;
+    }
+
+        #login-area
+        {
+            float: right;
+            padding-top: 10px;
+        }
+
+            #login-area ul
+            {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                float:left;
+            }
+
+                #login-area li
+                {
+                    margin: 0;
+                    padding: 0 10px 0 0;
+                    float: left;
+                }
+
+                #login-area a
+                {
+                    display: block;
+                    padding: 5px 20px;
+                    background-color: #34B34A;
+                    text-decoration: none;
+                    color: #ffffff;
+                }
+
+                #login-area a:hover
+                {
+                    text-decoration: none;
+                }
+
+.gradient-wrapper
+{
+    background-image: linear-gradient(to bottom, #111111 7%, #303030 77%);
+    background-image: -o-linear-gradient(top, #111111 7%, #303030 77%);
+    background-image: -moz-linear-gradient(top, #111111 7%, #303030 77%);
+    background-image: -webkit-linear-gradient(top, #111111 7%, #303030 77%);
+    background-image: -ms-linear-gradient(top, #111111 7%, #303030 77%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#111111', EndColorStr='#303030');
+}
+
+#menu
+{
+    font-size: 1em;
+    line-height: 2em;
+}
+
+    #menu .size-wrapper
+    {
+        padding-left: 170px;
+        padding-right: 10px;
+        max-width: 820px;
+    }
+
+    #menu ul
+    {
+        background-color: #0D4923;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        float: left;
+        width: 100%;
+    }
+
+    #menu li
+    {
+        padding: 0;
+        margin: 0;
+        float: left;
+    }
+
+    #menu a
+    {
+        display: block;
+        padding: 0 10px;
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    #menu a:hover
+    {
+        text-decoration: none;
+        background-color: #34B34A;
+    }
+
+
+
+#content
+{
+    font-size: 0.75em;
+    line-height: 1.333em;
+}
+
+    #content .size-wrapper
+    {
+        padding: 50px 10px 50px;
+        max-width: 980px;
+    }
+
+    #content h1
+    {
+        margin: 0 0 1em;
+        font-size: 2em;
+        font-weight: normal;
+    }
+
+    #content h2
+    {
+        margin: 0 0 1em;
+        font-size: 1.6em;
+        font-weight: normal;
+    }
+
+    #content h3
+    {
+        margin: 0 0 1em;
+        font-size: 1.2em;
+        font-weight: normal;
+    }
+
+    #content h4, #content h5, #content h6
+    {
+        margin: 0 0 1em;
+        font-size: 1.0em;
+        font-weight: bold;
+    }
+
+    #content p
+    {
+        margin: 0 0 1em;
+    }
+
+    #content ul
+    {
+        margin: 0 0 1em;
+    }
+
+    #content a
+    {
+        text-decoration: none;
+        color: #5AA8FD;
+    }
+
+    #content a:hover
+    {
+        text-decoration: underline;
+    }
+
+#footer
+{
+    
+}
+    #footer .size-wrapper
+    {
+        padding: 10px;
+        max-width: 980px;
+        background-color: #0D4923;
+    }
+
+    #copy
+    {
+        margin: 0;
+        text-align: right;
+    }
+
+
+.size-wrapper
+{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.clear
+{
+    clear: both;
+}
+
+/* Added by Adam and Joshua */
+#ExamContainer {
+    
+}
+
+.OptionContainer {
+    
+}
+
+.Option-Checkbox {
+    width: 20px;
+    border: none;
+}
+
+.Option-Radiobutton {
+    width: 20px;
+    border: none;
+
+}
+
+.Option-Description {
+    
 }
 
