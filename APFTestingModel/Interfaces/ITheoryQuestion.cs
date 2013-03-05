@@ -9,9 +9,8 @@ namespace APFTestingModel
     public interface ITheoryQuestion
     {
         Guid Id { get; }
-        int NumberOfCorrectAnswer { get; }
+        int NumberOfCorrectAnswers { get; }
         bool IsActive { get; }
-        int ExamTypeId { get; }
         string Description { get; }
         IEnumerable<IPossibleAnswer> PossibleAnswers { get; }
         int QuestionNumber { get; }

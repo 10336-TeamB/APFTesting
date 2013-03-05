@@ -8,6 +8,6 @@ namespace APFTestingModel
 {
 	internal class Manager
 	{
-		protected static APFTestingEntities _context = new APFTestingEntities();
+		protected static APFTestingDBEntities _context = new APFTestingDBEntities();
 	}
 }

@@ -13,10 +13,10 @@ namespace APFTestingUI.Models.Exam {
         public PossibleAnswer(IPossibleAnswer possibleAnswer)
         {
             Description = possibleAnswer.Description;
-            Order = possibleAnswer.Order;
+            DisplayOrderIndex = possibleAnswer.DisplayOrderIndex;
         }
 
         public string Description { get; set; }
-        public int Order { get; set; }
+        public int DisplayOrderIndex { get; set; }
     }
 }

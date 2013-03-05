@@ -13,6 +13,5 @@ namespace APFTestingModel
         Guid TheoryComponentId { get; }
         Guid PracticalComponentId { get; }
         Guid CandidateId { get; }
-        int ExamTypeId { get; }
     }
 }

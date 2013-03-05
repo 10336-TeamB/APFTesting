@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class PracticalComponent
+    internal abstract partial class PracticalComponent
     {
         public PracticalComponent()
         {

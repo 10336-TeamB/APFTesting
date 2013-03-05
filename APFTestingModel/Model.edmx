@@ -100,7 +100,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="CanopyType" Type="varchar" Nullable="false" MaxLength="100" />
@@ -114,7 +114,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Details" Type="varchar(max)" Nullable="false" />
           <Property Name="MaxScore" Type="int" Nullable="false" />
@@ -123,7 +123,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ExamTypeId" Type="int" Nullable="false" />
           <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PracticalComponentId" Type="uniqueidentifier" />
@@ -135,7 +135,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IsCorrect" Type="bit" Nullable="false" />
           <Property Name="DisplayOrderIndex" Type="int" Nullable="false" />
@@ -145,7 +145,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CreationDate" Type="date" Nullable="false" />
           <Property Name="TemplateId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
@@ -165,7 +165,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="PracticalComponentTemplateAssessmentTask">
           <Key>
@@ -200,7 +200,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AssessmentTaskPilotId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Comment" Type="varchar(max)" Nullable="false" />
@@ -210,7 +210,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionIndex" Type="int" Nullable="false" />
@@ -220,7 +220,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FormatId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CurrentQuestionIndex" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
@@ -230,7 +230,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NumberOfQuestions" Type="int" Nullable="false" />
           <Property Name="PassMark" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
@@ -241,7 +241,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NumberOfCorrectAnswers" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="ImagePath" Type="varchar(max)" />
@@ -469,17 +469,17 @@
     <edmx:ConceptualModels>
       <Schema Namespace="APFTestingDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="APFTestingDBEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="AssessmentTaskPackers" EntityType="APFTestingDBModel.AssessmentTaskPacker" />
-          <EntitySet Name="AssessmentTaskPilots" EntityType="APFTestingDBModel.AssessmentTaskPilot" />
-          <EntitySet Name="Exams" EntityType="APFTestingDBModel.Exam" />
-          <EntitySet Name="PossibleAnswers" EntityType="APFTestingDBModel.PossibleAnswer" />
-          <EntitySet Name="PracticalComponents" EntityType="APFTestingDBModel.PracticalComponent" />
-          <EntitySet Name="PracticalComponentTemplates" EntityType="APFTestingDBModel.PracticalComponentTemplate" />
-          <EntitySet Name="SelectedAssessmentTasks" EntityType="APFTestingDBModel.SelectedAssessmentTask" />
-          <EntitySet Name="SelectedTheoryQuestions" EntityType="APFTestingDBModel.SelectedTheoryQuestion" />
-          <EntitySet Name="TheoryComponents" EntityType="APFTestingDBModel.TheoryComponent" />
-          <EntitySet Name="TheoryComponentFormats" EntityType="APFTestingDBModel.TheoryComponentFormat" />
-          <EntitySet Name="TheoryQuestions" EntityType="APFTestingDBModel.TheoryQuestion" />
+          <EntitySet Name="AssessmentTaskPackers" EntityType="APFTestingDBModel.AssessmentTaskPacker" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="AssessmentTaskPilots" EntityType="APFTestingDBModel.AssessmentTaskPilot" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="Exams" EntityType="APFTestingDBModel.Exam" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="PossibleAnswers" EntityType="APFTestingDBModel.PossibleAnswer" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="PracticalComponents" EntityType="APFTestingDBModel.PracticalComponent" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="PracticalComponentTemplates" EntityType="APFTestingDBModel.PracticalComponentTemplate" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="SelectedAssessmentTasks" EntityType="APFTestingDBModel.SelectedAssessmentTask" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="SelectedTheoryQuestions" EntityType="APFTestingDBModel.SelectedTheoryQuestion" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="TheoryComponents" EntityType="APFTestingDBModel.TheoryComponent" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="TheoryComponentFormats" EntityType="APFTestingDBModel.TheoryComponentFormat" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="TheoryQuestions" EntityType="APFTestingDBModel.TheoryQuestion" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <AssociationSet Name="FK_AssessmentTaskPacker_PracticalComponentPacker" Association="APFTestingDBModel.FK_AssessmentTaskPacker_PracticalComponentPacker">
             <End Role="PracticalComponentPacker" EntitySet="PracticalComponents" />
             <End Role="AssessmentTaskPacker" EntitySet="AssessmentTaskPackers" />
@@ -529,11 +529,11 @@
             <End Role="PracticalComponentTemplatePilot" EntitySet="PracticalComponentTemplates" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="AssessmentTaskPacker">
+        <EntityType Name="AssessmentTaskPacker" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PracticalComponentId" Type="Guid" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="CanopyType" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
@@ -544,22 +544,22 @@
           <Property Name="Note" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="PracticalComponentPacker" Relationship="APFTestingDBModel.FK_AssessmentTaskPacker_PracticalComponentPacker" FromRole="AssessmentTaskPacker" ToRole="PracticalComponentPacker" />
         </EntityType>
-        <EntityType Name="AssessmentTaskPilot">
+        <EntityType Name="AssessmentTaskPilot" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="MaxScore" Type="Int32" Nullable="false" />
           <NavigationProperty Name="SelectedAssessmentTasks" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_AssessmentTaskPilot" FromRole="AssessmentTaskPilot" ToRole="SelectedAssessmentTask" />
           <NavigationProperty Name="PracticalComponentTemplatePilots" Relationship="APFTestingDBModel.PracticalComponentTemplateAssessmentTask1" FromRole="AssessmentTaskPilot" ToRole="PracticalComponentTemplatePilot" />
         </EntityType>
-        <EntityType Name="Exam" Abstract="true">
+        <EntityType Name="Exam" Abstract="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TheoryComponentId" Type="Guid" Nullable="false" />
           <Property Name="PracticalComponentId" Type="Guid" />
           <Property Name="ExaminerId" Type="Guid" />
@@ -568,11 +568,11 @@
           <NavigationProperty Name="PracticalComponent" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="Exam" ToRole="PracticalComponent" />
           <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="Exam" ToRole="TheoryComponent" />
         </EntityType>
-        <EntityType Name="PossibleAnswer">
+        <EntityType Name="PossibleAnswer" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IsCorrect" Type="Boolean" Nullable="false" />
           <Property Name="DisplayOrderIndex" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -580,40 +580,40 @@
           <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
           <NavigationProperty Name="TheoryQuestion" Relationship="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion" FromRole="PossibleAnswer" ToRole="TheoryQuestion" />
         </EntityType>
-        <EntityType Name="PracticalComponent" Abstract="true">
+        <EntityType Name="PracticalComponent" Abstract="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="TemplateId" Type="Guid" Nullable="false" />
           <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="PracticalComponent" ToRole="Exam" />
           <NavigationProperty Name="PracticalComponentTemplate" Relationship="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" FromRole="PracticalComponent" ToRole="PracticalComponentTemplate" />
         </EntityType>
-        <EntityType Name="PracticalComponentPacker" BaseType="APFTestingDBModel.PracticalComponent">
+        <EntityType Name="PracticalComponentPacker" BaseType="APFTestingDBModel.PracticalComponent" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <NavigationProperty Name="AssessmentTaskPackers" Relationship="APFTestingDBModel.FK_AssessmentTaskPacker_PracticalComponentPacker" FromRole="PracticalComponentPacker" ToRole="AssessmentTaskPacker" />
         </EntityType>
-        <EntityType Name="PracticalComponentPilot" BaseType="APFTestingDBModel.PracticalComponent">
+        <EntityType Name="PracticalComponentPilot" BaseType="APFTestingDBModel.PracticalComponent" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <NavigationProperty Name="SelectedAssessmentTasks" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_PracticalComponentPilot" FromRole="PracticalComponentPilot" ToRole="SelectedAssessmentTask" />
         </EntityType>
-        <EntityType Name="PracticalComponentTemplate" Abstract="true">
+        <EntityType Name="PracticalComponentTemplate" Abstract="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="PracticalComponents" Relationship="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" FromRole="PracticalComponentTemplate" ToRole="PracticalComponent" />
         </EntityType>
-        <EntityType Name="PracticalComponentTemplatePacker" BaseType="APFTestingDBModel.PracticalComponentTemplate">
+        <EntityType Name="PracticalComponentTemplatePacker" BaseType="APFTestingDBModel.PracticalComponentTemplate" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Property Name="NumOfRequiredAssessmentTasks" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="PracticalComponentTemplatePilot" BaseType="APFTestingDBModel.PracticalComponentTemplate">
+        <EntityType Name="PracticalComponentTemplatePilot" BaseType="APFTestingDBModel.PracticalComponentTemplate" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <NavigationProperty Name="AssessmentTaskPilots" Relationship="APFTestingDBModel.PracticalComponentTemplateAssessmentTask1" FromRole="PracticalComponentTemplatePilot" ToRole="AssessmentTaskPilot" />
         </EntityType>
-        <EntityType Name="SelectedAssessmentTask">
+        <EntityType Name="SelectedAssessmentTask" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PracticalComponentId" Type="Guid" Nullable="false" />
           <Property Name="AssessmentTaskPilotId" Type="Guid" Nullable="false" />
           <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -621,11 +621,11 @@
           <NavigationProperty Name="AssessmentTaskPilot" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_AssessmentTaskPilot" FromRole="SelectedAssessmentTask" ToRole="AssessmentTaskPilot" />
           <NavigationProperty Name="PracticalComponentPilot" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_PracticalComponentPilot" FromRole="SelectedAssessmentTask" ToRole="PracticalComponentPilot" />
         </EntityType>
-        <EntityType Name="SelectedTheoryQuestion">
+        <EntityType Name="SelectedTheoryQuestion" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TheoryComponentId" Type="Guid" Nullable="false" />
           <Property Name="TheoryQuestionId" Type="Guid" Nullable="false" />
           <Property Name="QuestionIndex" Type="Int32" Nullable="false" />
@@ -634,11 +634,11 @@
           <NavigationProperty Name="TheoryQuestion" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" FromRole="SelectedTheoryQuestion" ToRole="TheoryQuestion" />
           <NavigationProperty Name="PossibleAnswers" Relationship="APFTestingDBModel.SelectedAnswer" FromRole="SelectedTheoryQuestion" ToRole="PossibleAnswer" />
         </EntityType>
-        <EntityType Name="TheoryComponent" Abstract="true">
+        <EntityType Name="TheoryComponent" Abstract="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FormatId" Type="Guid" Nullable="false" />
           <Property Name="CurrentQuestionIndex" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
@@ -646,22 +646,22 @@
           <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent" FromRole="TheoryComponent" ToRole="SelectedTheoryQuestion" />
           <NavigationProperty Name="TheoryComponentFormat" Relationship="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" FromRole="TheoryComponent" ToRole="TheoryComponentFormat" />
         </EntityType>
-        <EntityType Name="TheoryComponentFormat" Abstract="true">
+        <EntityType Name="TheoryComponentFormat" Abstract="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NumberOfQuestions" Type="Int32" Nullable="false" />
           <Property Name="PassMark" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="TimeLimit" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TheoryComponents" Relationship="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" FromRole="TheoryComponentFormat" ToRole="TheoryComponent" />
         </EntityType>
-        <EntityType Name="TheoryQuestion" Abstract="true">
+        <EntityType Name="TheoryQuestion" Abstract="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NumberOfCorrectAnswers" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="ImagePath" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -781,8 +781,8 @@
           <End Role="PossibleAnswer" Type="APFTestingDBModel.PossibleAnswer" Multiplicity="*" />
           <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.SelectedTheoryQuestion" Multiplicity="*" />
         </Association>
-        <EntityType Name="TheoryQuestionPilot" BaseType="APFTestingDBModel.TheoryQuestion" />
-        <EntityType Name="TheoryQuestionPacker" BaseType="APFTestingDBModel.TheoryQuestion" />
+        <EntityType Name="TheoryQuestionPilot" BaseType="APFTestingDBModel.TheoryQuestion" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EntityType Name="TheoryQuestionPacker" BaseType="APFTestingDBModel.TheoryQuestion" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <Association Name="FK_PossibleAnswer_TheoryQuestion">
           <End Type="APFTestingDBModel.TheoryQuestion" Role="TheoryQuestion" Multiplicity="1" />
           <End Type="APFTestingDBModel.PossibleAnswer" Role="PossibleAnswer" Multiplicity="*" />
@@ -795,12 +795,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="TheoryComponentPilot" BaseType="APFTestingDBModel.TheoryComponent" />
-        <EntityType Name="TheoryComponentPacker" BaseType="APFTestingDBModel.TheoryComponent" />
-        <EntityType Name="TheoryComponentFormatPilot" BaseType="APFTestingDBModel.TheoryComponentFormat" />
-        <EntityType Name="TheoryComponentFormatPacker" BaseType="APFTestingDBModel.TheoryComponentFormat" />
-        <EntityType Name="ExamPilot" BaseType="APFTestingDBModel.Exam" />
-        <EntityType Name="ExamPacker" BaseType="APFTestingDBModel.Exam" />
+        <EntityType Name="TheoryComponentPilot" BaseType="APFTestingDBModel.TheoryComponent" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EntityType Name="TheoryComponentPacker" BaseType="APFTestingDBModel.TheoryComponent" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EntityType Name="TheoryComponentFormatPilot" BaseType="APFTestingDBModel.TheoryComponentFormat" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EntityType Name="TheoryComponentFormatPacker" BaseType="APFTestingDBModel.TheoryComponentFormat" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EntityType Name="ExamPilot" BaseType="APFTestingDBModel.Exam" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EntityType Name="ExamPacker" BaseType="APFTestingDBModel.Exam" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <Association Name="PracticalComponentTemplateAssessmentTask1">
           <End Type="APFTestingDBModel.AssessmentTaskPilot" Role="AssessmentTaskPilot" Multiplicity="*" />
           <End Type="APFTestingDBModel.PracticalComponentTemplatePilot" Role="PracticalComponentTemplatePilot" Multiplicity="*" />

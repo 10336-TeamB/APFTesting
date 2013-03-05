@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class AssessmentTaskPilot
+    internal partial class AssessmentTaskPilot
     {
         public AssessmentTaskPilot()
         {

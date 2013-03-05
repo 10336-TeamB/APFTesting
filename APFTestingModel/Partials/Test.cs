@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 //This class and Namespace are not part of the project however are just here for testing purposes
 
-namespace APFTestingModel.Partials
+namespace APFTestingModel.Test
 {
     class Test
     {
-        public void TestMethod()
-        {
-            TheoryComponentFormat tcf = new TheoryComponentFormat();
-            tcf.NumberOfQuestions = 5;
+        // Commented out to allow compilation
+        //public void TestMethod()
+        //{
+        //    TheoryComponentFormat tcf = new TheoryComponentFormat();
+        //    tcf.NumberOfQuestions = 5;
 
-        }
+        //}
         
     }
 }

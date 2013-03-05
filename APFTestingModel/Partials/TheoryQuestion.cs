@@ -6,41 +6,42 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public partial class TheoryQuestion : ITheoryQuestion
+    internal partial class TheoryQuestion
     {
-        public bool WasCorrectlyAnswered()
-        {
-            int numOfCorrectlySelected = 0;
+        // Commented out to allow compilation with new model
+        //public bool WasCorrectlyAnswered()
+        //{
+        //    int numOfCorrectlySelected = 0;
 
-            foreach (var selectedAnswer in SelectedAnswers)
-            {
-                if (selectedAnswer.PossibleAnswer.IsCorrect)
-                {
-                    ++numOfCorrectlySelected;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+        //    foreach (var selectedAnswer in SelectedAnswers)
+        //    {
+        //        if (selectedAnswer.PossibleAnswer.IsCorrect)
+        //        {
+        //            ++numOfCorrectlySelected;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
 
-            return (numOfCorrectlySelected == NumberOfCorrectAnswer) ? true : false ;
-        }
+        //    return (numOfCorrectlySelected == NumberOfCorrectAnswers) ? true : false ;
+        //}
 
-        public void SelectOption(List<SelectedAnswer> selectedOptions)
-        {
-            SelectedAnswers = selectedOptions;
-        }
+        //public void SelectOption(List<SelectedAnswer> selectedOptions)
+        //{
+        //    SelectedAnswers = selectedOptions;
+        //}
 
 
-        IEnumerable<IPossibleAnswer> ITheoryQuestion.PossibleAnswers
-        {
-            get { return PossibleAnswers; }
-        }
+        //IEnumerable<IPossibleAnswer> ITheoryQuestion.PossibleAnswers
+        //{
+        //    get { return PossibleAnswers; }
+        //}
 
-        public int QuestionNumber
-        {
-            get { throw new NotImplementedException(); }
-        }
+        //public int QuestionNumber
+        //{
+        //    get { throw new NotImplementedException(); }
+        //}
     }
 }

@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class Exam
+    internal abstract partial class Exam
     {
         public System.Guid Id { get; set; }
         public System.Guid TheoryComponentId { get; set; }

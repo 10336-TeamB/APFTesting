@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingUI.Tests", "APFTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingModel", "APFTestingModel\APFTestingModel.csproj", "{ECF00D40-4554-4DA2-AF68-848FF0B6D169}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingHookIn", "APFTestingHookIn\APFTestingHookIn.csproj", "{2A30001C-95A0-435F-AC33-9DA03759F798}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{ECF00D40-4554-4DA2-AF68-848FF0B6D169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF00D40-4554-4DA2-AF68-848FF0B6D169}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF00D40-4554-4DA2-AF68-848FF0B6D169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A30001C-95A0-435F-AC33-9DA03759F798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A30001C-95A0-435F-AC33-9DA03759F798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A30001C-95A0-435F-AC33-9DA03759F798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A30001C-95A0-435F-AC33-9DA03759F798}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

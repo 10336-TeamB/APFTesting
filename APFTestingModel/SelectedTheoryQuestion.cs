@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class SelectedTheoryQuestion
+    internal partial class SelectedTheoryQuestion
     {
         public SelectedTheoryQuestion()
         {

@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class AssessmentTaskPacker
+    internal partial class AssessmentTaskPacker
     {
         public System.Guid Id { get; set; }
         public System.Guid PracticalComponentId { get; set; }

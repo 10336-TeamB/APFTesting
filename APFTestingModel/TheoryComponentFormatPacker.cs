@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class TheoryComponentFormatPacker : TheoryComponentFormat
+    internal partial class TheoryComponentFormatPacker : TheoryComponentFormat
     {
     }
 }

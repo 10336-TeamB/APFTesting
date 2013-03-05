@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    public partial class PracticalComponentTemplatePacker : PracticalComponentTemplate
+    internal partial class PracticalComponentTemplatePacker : PracticalComponentTemplate
     {
         public int NumOfRequiredAssessmentTasks { get; set; }
     }

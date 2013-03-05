@@ -6,6 +6,6 @@ namespace APFTestingModel
     {
         Guid Id { get; }
         string Description { get; }
-        int Order { get; }
+        int DisplayOrderIndex { get; }
     }
 }

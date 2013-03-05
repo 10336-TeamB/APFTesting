@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public partial class PracticalComponent
+    internal partial class PracticalComponent
     {
-        public PracticalComponent(Guid examinerId, Guid practicalTemplateId)
-        {
-            this.ExaminerId = examinerId;
-            this.PracticalTemplateId = practicalTemplateId;
-        }
+        // Commented out to allow compilation
+        //public PracticalComponent(Guid examinerId, Guid practicalTemplateId)
+        //{
+        //    this.ExaminerId = examinerId;
+        //    this.PracticalTemplateId = practicalTemplateId;
+        //}
     }
 }

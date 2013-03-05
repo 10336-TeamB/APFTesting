@@ -19,7 +19,7 @@ namespace APFTestingUI.Models.Exam
             Description = question.Description;
             QuestionNumber = question.QuestionNumber;
             PossibleAnswers = question.PossibleAnswers.Select(pa => new PossibleAnswer(pa));
-            NumCorrectAnswers = question.NumberOfCorrectAnswer;
+            NumCorrectAnswers = question.NumberOfCorrectAnswers;
         }
 
         public string Description { get; set; }
@@ -30,10 +30,10 @@ namespace APFTestingUI.Models.Exam
 
         private IEnumerable<PossibleAnswer> createMockAnswerList()
         {
-            yield return new PossibleAnswer { Description = "First option", Order = 1 };
-            yield return new PossibleAnswer { Description = "Second option", Order = 2 };
-            yield return new PossibleAnswer { Description = "Third option", Order = 3 };
-            yield return new PossibleAnswer { Description = "Fourth option", Order = 4 };
+            yield return new PossibleAnswer { Description = "First option", DisplayOrderIndex = 1 };
+            yield return new PossibleAnswer { Description = "Second option", DisplayOrderIndex = 2 };
+            yield return new PossibleAnswer { Description = "Third option", DisplayOrderIndex = 3 };
+            yield return new PossibleAnswer { Description = "Fourth option", DisplayOrderIndex = 4 };
         }
     }
 }
