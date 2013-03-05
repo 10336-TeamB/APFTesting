@@ -59,7 +59,7 @@ using System.Linq;
     public <#=code.Escape(container)#>()
         : base("name=<#=container.Name#>")
     {
-<#
+	<#
     foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
     {
 #>

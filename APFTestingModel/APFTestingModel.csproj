@@ -49,13 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Candidate.cs">
+    <Compile Include="AssessmentTaskPacker.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssessmentTaskPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Exam.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Examiner.cs">
+    <Compile Include="ExamPacker.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExamPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Managers\ExamManager.cs" />
@@ -90,24 +96,33 @@
     <Compile Include="Partials\Test.cs" />
     <Compile Include="Partials\TheoryComponent.cs" />
     <Compile Include="Partials\TheoryComponentFormat.cs" />
+    <Compile Include="Managers\PracticalComponentManager.cs" />
     <Compile Include="PossibleAnswer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PracticalComponent.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PracticalComponentItem.cs">
+    <Compile Include="PracticalComponentPacker.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PracticalComponentItemResult.cs">
+    <Compile Include="PracticalComponentPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Managers\PracticalComponentManager.cs" />
     <Compile Include="PracticalComponentTemplate.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PracticalComponentTemplatePacker.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PracticalComponentTemplatePilot.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectedAnswer.cs">
+    <Compile Include="SelectedAssessmentTask.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectedTheoryQuestion.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TheoryComponent.cs">
@@ -116,7 +131,25 @@
     <Compile Include="TheoryComponentFormat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="TheoryComponentFormatPacker.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryComponentFormatPilot.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryComponentPacker.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryComponentPilot.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="TheoryQuestion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryQuestionPacker.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryQuestionPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>

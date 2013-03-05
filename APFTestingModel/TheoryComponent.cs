@@ -12,23 +12,21 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class TheoryComponent
+    public abstract partial class TheoryComponent
     {
         public TheoryComponent()
         {
             this.Exams = new HashSet<Exam>();
-            this.SelectedAnswers = new HashSet<SelectedAnswer>();
-            this.TheoryQuestions = new HashSet<TheoryQuestion>();
+            this.SelectedTheoryQuestions = new HashSet<SelectedTheoryQuestion>();
         }
     
         public System.Guid Id { get; set; }
-        public System.Guid ExaminerId { get; set; }
         public System.Guid FormatId { get; set; }
+        public int CurrentQuestionIndex { get; set; }
+        public System.DateTime Date { get; set; }
     
         public virtual ICollection<Exam> Exams { get; set; }
-        public virtual Examiner Examiner { get; set; }
-        public virtual ICollection<SelectedAnswer> SelectedAnswers { get; set; }
+        public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
         public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
-        public virtual ICollection<TheoryQuestion> TheoryQuestions { get; set; }
     }
 }

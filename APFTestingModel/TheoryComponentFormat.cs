@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class TheoryComponentFormat
+    public abstract partial class TheoryComponentFormat
     {
         public TheoryComponentFormat()
         {
@@ -23,7 +23,7 @@ namespace APFTestingModel
         public int NumberOfQuestions { get; set; }
         public int PassMark { get; set; }
         public bool IsActive { get; set; }
-        public int ExamTypeId { get; set; }
+        public int TimeLimit { get; set; }
     
         public virtual ICollection<TheoryComponent> TheoryComponents { get; set; }
     }

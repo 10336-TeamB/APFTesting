@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel 
 {
-    internal partial class Exam : IExam 
+    public partial class Exam : IExam 
     {
         public Exam(Guid examinerId, Guid candidateId, Guid theoryFormatId, Guid practicalTemplateId, ExamType examType)
         {

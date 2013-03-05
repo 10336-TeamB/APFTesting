@@ -12,14 +12,8 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class SelectedAnswer
+    public partial class PracticalComponentTemplatePacker : PracticalComponentTemplate
     {
-        public System.Guid TheoryQuestionId { get; set; }
-        public System.Guid ExamId { get; set; }
-        public System.Guid PossibleAnswerId { get; set; }
-    
-        public virtual PossibleAnswer PossibleAnswer { get; set; }
-        public virtual TheoryQuestion TheoryQuestion { get; set; }
-        public virtual TheoryComponent TheoryComponent { get; set; }
+        public int NumOfRequiredAssessmentTasks { get; set; }
     }
 }

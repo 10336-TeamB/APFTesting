@@ -13,20 +13,19 @@ namespace APFTestingModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class APFTestingEntities : DbContext
+    public partial class APFTestingDBEntities : DbContext
     {
-        public APFTestingEntities()
-            : base("name=APFTestingEntities")
+        public APFTestingDBEntities()
+            : base("name=APFTestingDBEntities")
         {
-    		Candidates = Set<Candidate>();	
+    			AssessmentTaskPackers = Set<AssessmentTaskPacker>();	
+    		AssessmentTaskPilots = Set<AssessmentTaskPilot>();	
     		Exams = Set<Exam>();	
-    		Examiners = Set<Examiner>();	
     		PossibleAnswers = Set<PossibleAnswer>();	
     		PracticalComponents = Set<PracticalComponent>();	
-    		PracticalComponentItems = Set<PracticalComponentItem>();	
-    		PracticalComponentItemResults = Set<PracticalComponentItemResult>();	
     		PracticalComponentTemplates = Set<PracticalComponentTemplate>();	
-    		SelectedAnswers = Set<SelectedAnswer>();	
+    		SelectedAssessmentTasks = Set<SelectedAssessmentTask>();	
+    		SelectedTheoryQuestions = Set<SelectedTheoryQuestion>();	
     		TheoryComponents = Set<TheoryComponent>();	
     		TheoryComponentFormats = Set<TheoryComponentFormat>();	
     		TheoryQuestions = Set<TheoryQuestion>();	
@@ -38,17 +37,16 @@ namespace APFTestingModel
             throw new UnintentionalCodeFirstException();
         }
     
-        internal DbSet<Candidate> Candidates { get; set; }
-        internal DbSet<Exam> Exams { get; set; }
-        internal DbSet<Examiner> Examiners { get; set; }
-        internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
-        internal DbSet<PracticalComponent> PracticalComponents { get; set; }
-        internal DbSet<PracticalComponentItem> PracticalComponentItems { get; set; }
-        internal DbSet<PracticalComponentItemResult> PracticalComponentItemResults { get; set; }
-        internal DbSet<PracticalComponentTemplate> PracticalComponentTemplates { get; set; }
-        internal DbSet<SelectedAnswer> SelectedAnswers { get; set; }
-        internal DbSet<TheoryComponent> TheoryComponents { get; set; }
-        internal DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
-        internal DbSet<TheoryQuestion> TheoryQuestions { get; set; }
+        public DbSet<AssessmentTaskPacker> AssessmentTaskPackers { get; set; }
+        public DbSet<AssessmentTaskPilot> AssessmentTaskPilots { get; set; }
+        public DbSet<Exam> Exams { get; set; }
+        public DbSet<PossibleAnswer> PossibleAnswers { get; set; }
+        public DbSet<PracticalComponent> PracticalComponents { get; set; }
+        public DbSet<PracticalComponentTemplate> PracticalComponentTemplates { get; set; }
+        public DbSet<SelectedAssessmentTask> SelectedAssessmentTasks { get; set; }
+        public DbSet<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
+        public DbSet<TheoryComponent> TheoryComponents { get; set; }
+        public DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
+        public DbSet<TheoryQuestion> TheoryQuestions { get; set; }
     }
 }

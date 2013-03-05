@@ -12,19 +12,15 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class PracticalComponentTemplate
+    public abstract partial class PracticalComponentTemplate
     {
         public PracticalComponentTemplate()
         {
             this.PracticalComponents = new HashSet<PracticalComponent>();
-            this.PracticalComponentItems = new HashSet<PracticalComponentItem>();
         }
     
-        public bool IsActive { get; set; }
         public System.Guid Id { get; set; }
-        public int ExamTypeId { get; set; }
     
         public virtual ICollection<PracticalComponent> PracticalComponents { get; set; }
-        public virtual ICollection<PracticalComponentItem> PracticalComponentItems { get; set; }
     }
 }

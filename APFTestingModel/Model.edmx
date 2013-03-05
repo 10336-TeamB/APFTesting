@@ -4,26 +4,28 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="APFTestingDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="APFTestingDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="APFTestingDBModelStoreContainer">
-          <EntitySet Name="Candidate" EntityType="APFTestingDBModel.Store.Candidate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AssessmentTaskPacker" EntityType="APFTestingDBModel.Store.AssessmentTaskPacker" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AssessmentTaskPilot" EntityType="APFTestingDBModel.Store.AssessmentTaskPilot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Exam" EntityType="APFTestingDBModel.Store.Exam" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Examiner" EntityType="APFTestingDBModel.Store.Examiner" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PossibleAnswer" EntityType="APFTestingDBModel.Store.PossibleAnswer" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PracticalComponent" EntityType="APFTestingDBModel.Store.PracticalComponent" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PracticalComponentItem" EntityType="APFTestingDBModel.Store.PracticalComponentItem" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PracticalComponentItemResult" EntityType="APFTestingDBModel.Store.PracticalComponentItemResult" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PracticalComponentPacker" EntityType="APFTestingDBModel.Store.PracticalComponentPacker" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PracticalComponentPilot" EntityType="APFTestingDBModel.Store.PracticalComponentPilot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PracticalComponentTemplate" EntityType="APFTestingDBModel.Store.PracticalComponentTemplate" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PracticalComponentTemplateItems" EntityType="APFTestingDBModel.Store.PracticalComponentTemplateItems" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="QuestionPossibleAnswers" EntityType="APFTestingDBModel.Store.QuestionPossibleAnswers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PracticalComponentTemplateAssessmentTask" EntityType="APFTestingDBModel.Store.PracticalComponentTemplateAssessmentTask" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PracticalComponentTemplatePacker" EntityType="APFTestingDBModel.Store.PracticalComponentTemplatePacker" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PracticalComponentTemplatePilot" EntityType="APFTestingDBModel.Store.PracticalComponentTemplatePilot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SelectedAnswer" EntityType="APFTestingDBModel.Store.SelectedAnswer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SelectedAssessmentTask" EntityType="APFTestingDBModel.Store.SelectedAssessmentTask" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SelectedTheoryQuestion" EntityType="APFTestingDBModel.Store.SelectedTheoryQuestion" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TheoryComponent" EntityType="APFTestingDBModel.Store.TheoryComponent" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TheoryComponentFormat" EntityType="APFTestingDBModel.Store.TheoryComponentFormat" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TheoryComponentQuestions" EntityType="APFTestingDBModel.Store.TheoryComponentQuestions" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TheoryQuestion" EntityType="APFTestingDBModel.Store.TheoryQuestion" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Exam_Candidate" Association="APFTestingDBModel.Store.FK_Exam_Candidate">
-            <End Role="Candidate" EntitySet="Candidate" />
-            <End Role="Exam" EntitySet="Exam" />
+          <AssociationSet Name="FK_AssessmentTaskPacker_PracticalComponentPacker" Association="APFTestingDBModel.Store.FK_AssessmentTaskPacker_PracticalComponentPacker">
+            <End Role="PracticalComponentPacker" EntitySet="PracticalComponentPacker" />
+            <End Role="AssessmentTaskPacker" EntitySet="AssessmentTaskPacker" />
           </AssociationSet>
           <AssociationSet Name="FK_Exam_PracticalComponent" Association="APFTestingDBModel.Store.FK_Exam_PracticalComponent">
             <End Role="PracticalComponent" EntitySet="PracticalComponent" />
@@ -33,163 +35,196 @@
             <End Role="TheoryComponent" EntitySet="TheoryComponent" />
             <End Role="Exam" EntitySet="Exam" />
           </AssociationSet>
-          <AssociationSet Name="FK_ExamQuestions_Exam" Association="APFTestingDBModel.Store.FK_ExamQuestions_Exam">
-            <End Role="TheoryComponent" EntitySet="TheoryComponent" />
-            <End Role="TheoryComponentQuestions" EntitySet="TheoryComponentQuestions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ExamQuestions_Question" Association="APFTestingDBModel.Store.FK_ExamQuestions_Question">
+          <AssociationSet Name="FK_PossibleAnswer_TheoryQuestion" Association="APFTestingDBModel.Store.FK_PossibleAnswer_TheoryQuestion">
             <End Role="TheoryQuestion" EntitySet="TheoryQuestion" />
-            <End Role="TheoryComponentQuestions" EntitySet="TheoryComponentQuestions" />
+            <End Role="PossibleAnswer" EntitySet="PossibleAnswer" />
           </AssociationSet>
           <AssociationSet Name="FK_PracticalComponent_PracticalComponentTemplate" Association="APFTestingDBModel.Store.FK_PracticalComponent_PracticalComponentTemplate">
             <End Role="PracticalComponentTemplate" EntitySet="PracticalComponentTemplate" />
             <End Role="PracticalComponent" EntitySet="PracticalComponent" />
           </AssociationSet>
-          <AssociationSet Name="FK_PracticalComponentItemResult_PracticalComponent" Association="APFTestingDBModel.Store.FK_PracticalComponentItemResult_PracticalComponent">
+          <AssociationSet Name="FK_PracticalComponentAssessmentTask_AssessmentTaskPilot" Association="APFTestingDBModel.Store.FK_PracticalComponentAssessmentTask_AssessmentTaskPilot">
+            <End Role="AssessmentTaskPilot" EntitySet="AssessmentTaskPilot" />
+            <End Role="PracticalComponentTemplateAssessmentTask" EntitySet="PracticalComponentTemplateAssessmentTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PracticalComponentPacker_PracticalComponent" Association="APFTestingDBModel.Store.FK_PracticalComponentPacker_PracticalComponent">
             <End Role="PracticalComponent" EntitySet="PracticalComponent" />
-            <End Role="PracticalComponentItemResult" EntitySet="PracticalComponentItemResult" />
+            <End Role="PracticalComponentPacker" EntitySet="PracticalComponentPacker" />
           </AssociationSet>
-          <AssociationSet Name="FK_PracticalComponentItemResult_PracticalComponentItem" Association="APFTestingDBModel.Store.FK_PracticalComponentItemResult_PracticalComponentItem">
-            <End Role="PracticalComponentItem" EntitySet="PracticalComponentItem" />
-            <End Role="PracticalComponentItemResult" EntitySet="PracticalComponentItemResult" />
+          <AssociationSet Name="FK_PracticalComponentPilot_PracticalComponent" Association="APFTestingDBModel.Store.FK_PracticalComponentPilot_PracticalComponent">
+            <End Role="PracticalComponent" EntitySet="PracticalComponent" />
+            <End Role="PracticalComponentPilot" EntitySet="PracticalComponentPilot" />
           </AssociationSet>
-          <AssociationSet Name="FK_PracticalComponentTemplateItems_PracticalComponentItem" Association="APFTestingDBModel.Store.FK_PracticalComponentTemplateItems_PracticalComponentItem">
-            <End Role="PracticalComponentItem" EntitySet="PracticalComponentItem" />
-            <End Role="PracticalComponentTemplateItems" EntitySet="PracticalComponentTemplateItems" />
+          <AssociationSet Name="FK_PracticalComponentTemplateAssessmentTask_PracticalComponentTemplatePilot" Association="APFTestingDBModel.Store.FK_PracticalComponentTemplateAssessmentTask_PracticalComponentTemplatePilot">
+            <End Role="PracticalComponentTemplatePilot" EntitySet="PracticalComponentTemplatePilot" />
+            <End Role="PracticalComponentTemplateAssessmentTask" EntitySet="PracticalComponentTemplateAssessmentTask" />
           </AssociationSet>
-          <AssociationSet Name="FK_PracticalComponentTemplateItems_PracticalComponentTemplate" Association="APFTestingDBModel.Store.FK_PracticalComponentTemplateItems_PracticalComponentTemplate">
+          <AssociationSet Name="FK_PracticalComponentTemplatePacker_PracticalComponentTemplate" Association="APFTestingDBModel.Store.FK_PracticalComponentTemplatePacker_PracticalComponentTemplate">
             <End Role="PracticalComponentTemplate" EntitySet="PracticalComponentTemplate" />
-            <End Role="PracticalComponentTemplateItems" EntitySet="PracticalComponentTemplateItems" />
+            <End Role="PracticalComponentTemplatePacker" EntitySet="PracticalComponentTemplatePacker" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionOptions_Option" Association="APFTestingDBModel.Store.FK_QuestionOptions_Option">
-            <End Role="PossibleAnswer" EntitySet="PossibleAnswer" />
-            <End Role="QuestionPossibleAnswers" EntitySet="QuestionPossibleAnswers" />
+          <AssociationSet Name="FK_PracticalComponentTemplatePilot_PracticalComponentTemplate" Association="APFTestingDBModel.Store.FK_PracticalComponentTemplatePilot_PracticalComponentTemplate">
+            <End Role="PracticalComponentTemplate" EntitySet="PracticalComponentTemplate" />
+            <End Role="PracticalComponentTemplatePilot" EntitySet="PracticalComponentTemplatePilot" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuestionOptions_Question" Association="APFTestingDBModel.Store.FK_QuestionOptions_Question">
-            <End Role="TheoryQuestion" EntitySet="TheoryQuestion" />
-            <End Role="QuestionPossibleAnswers" EntitySet="QuestionPossibleAnswers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SelectedOption_Option" Association="APFTestingDBModel.Store.FK_SelectedOption_Option">
+          <AssociationSet Name="FK_SelectedAnswer_PossibleAnswer" Association="APFTestingDBModel.Store.FK_SelectedAnswer_PossibleAnswer">
             <End Role="PossibleAnswer" EntitySet="PossibleAnswer" />
             <End Role="SelectedAnswer" EntitySet="SelectedAnswer" />
           </AssociationSet>
-          <AssociationSet Name="FK_SelectedOption_Question" Association="APFTestingDBModel.Store.FK_SelectedOption_Question">
+          <AssociationSet Name="FK_SelectedAnswer_SelectedTheoryQuestion" Association="APFTestingDBModel.Store.FK_SelectedAnswer_SelectedTheoryQuestion">
+            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestion" />
+            <End Role="SelectedAnswer" EntitySet="SelectedAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SelectedAssessmentTask_AssessmentTaskPilot" Association="APFTestingDBModel.Store.FK_SelectedAssessmentTask_AssessmentTaskPilot">
+            <End Role="AssessmentTaskPilot" EntitySet="AssessmentTaskPilot" />
+            <End Role="SelectedAssessmentTask" EntitySet="SelectedAssessmentTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SelectedAssessmentTask_PracticalComponentPilot" Association="APFTestingDBModel.Store.FK_SelectedAssessmentTask_PracticalComponentPilot">
+            <End Role="PracticalComponentPilot" EntitySet="PracticalComponentPilot" />
+            <End Role="SelectedAssessmentTask" EntitySet="SelectedAssessmentTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SelectedTheoryQuestion_TheoryComponent" Association="APFTestingDBModel.Store.FK_SelectedTheoryQuestion_TheoryComponent">
+            <End Role="TheoryComponent" EntitySet="TheoryComponent" />
+            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SelectedTheoryQuestion_TheoryQuestion" Association="APFTestingDBModel.Store.FK_SelectedTheoryQuestion_TheoryQuestion">
             <End Role="TheoryQuestion" EntitySet="TheoryQuestion" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SelectedOption_TheoryComponent" Association="APFTestingDBModel.Store.FK_SelectedOption_TheoryComponent">
-            <End Role="TheoryComponent" EntitySet="TheoryComponent" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TheoryComponent_Examiner" Association="APFTestingDBModel.Store.FK_TheoryComponent_Examiner">
-            <End Role="Examiner" EntitySet="Examiner" />
-            <End Role="TheoryComponent" EntitySet="TheoryComponent" />
+            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestion" />
           </AssociationSet>
           <AssociationSet Name="FK_TheoryComponent_TheoryComponentFormat" Association="APFTestingDBModel.Store.FK_TheoryComponent_TheoryComponentFormat">
             <End Role="TheoryComponentFormat" EntitySet="TheoryComponentFormat" />
             <End Role="TheoryComponent" EntitySet="TheoryComponent" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Candidate">
+        <EntityType Name="AssessmentTaskPacker">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CanopyType" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="CanopyTypeSerialNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SupervisorId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="HarnessContainerType" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="HarnessContainerSerialNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Note" Type="text" />
+        </EntityType>
+        <EntityType Name="AssessmentTaskPilot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Details" Type="varchar(max)" Nullable="false" />
+          <Property Name="MaxScore" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ExamStatusId" Type="int" Nullable="false" />
-          <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CandidateId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ExamTypeId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Examiner">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PracticalComponentId" Type="uniqueidentifier" />
+          <Property Name="ExaminerId" Type="uniqueidentifier" />
+          <Property Name="CandidateId" Type="uniqueidentifier" />
+          <Property Name="ExamStatusId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PossibleAnswer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IsCorrect" Type="bit" Nullable="false" />
-          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="DisplayOrderIndex" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="PracticalComponent">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ExaminerId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PracticalTemplateId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
+          <Property Name="TemplateId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <EntityType Name="PracticalComponentItem">
+        <EntityType Name="PracticalComponentPacker">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="MaxScore" Type="int" Nullable="false" />
-          <Property Name="Details" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="PracticalComponentItemResult">
+        <EntityType Name="PracticalComponentPilot">
           <Key>
-            <PropertyRef Name="PracticalComponentId" />
-            <PropertyRef Name="PracticalComponentItemId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PracticalComponentItemId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="PracticalComponentTemplate">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ExamTypeId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="PracticalComponentTemplateItems">
+        <EntityType Name="PracticalComponentTemplateAssessmentTask">
           <Key>
-            <PropertyRef Name="PracticalComponentTemplateId" />
-            <PropertyRef Name="PracticalComponentId" />
+            <PropertyRef Name="PracticalComponentTemplatePilotId" />
+            <PropertyRef Name="AssessmentTaskPilotId" />
           </Key>
-          <Property Name="PracticalComponentTemplateId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PracticalComponentTemplatePilotId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssessmentTaskPilotId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <EntityType Name="QuestionPossibleAnswers">
+        <EntityType Name="PracticalComponentTemplatePacker">
           <Key>
-            <PropertyRef Name="TheoryQuestionId" />
-            <PropertyRef Name="PossibleAnswerId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PossibleAnswerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NumOfRequiredAssessmentTasks" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PracticalComponentTemplatePilot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="SelectedAnswer">
           <Key>
-            <PropertyRef Name="TheoryQuestionId" />
-            <PropertyRef Name="ExamId" />
+            <PropertyRef Name="SelectedTheoryQuestionId" />
             <PropertyRef Name="PossibleAnswerId" />
           </Key>
-          <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ExamId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SelectedTheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PossibleAnswerId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SelectedAssessmentTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssessmentTaskPilotId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Comment" Type="varchar(max)" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SelectedTheoryQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionIndex" Type="int" Nullable="false" />
+          <Property Name="IsMarkedForReview" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TheoryComponent">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ExaminerId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="FormatId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CurrentQuestionIndex" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="ExamTypeId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TheoryComponentFormat">
           <Key>
@@ -199,40 +234,34 @@
           <Property Name="NumberOfQuestions" Type="int" Nullable="false" />
           <Property Name="PassMark" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="TimeLimit" Type="int" Nullable="false" />
           <Property Name="ExamTypeId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TheoryComponentQuestions">
-          <Key>
-            <PropertyRef Name="TheoryComponentId" />
-            <PropertyRef Name="TheoryQuestionId" />
-          </Key>
-          <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="TheoryQuestion">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="NumberOfCorrectAnswer" Type="int" Nullable="false" />
+          <Property Name="NumberOfCorrectAnswers" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar(max)" />
           <Property Name="ExamTypeId" Type="int" Nullable="false" />
-          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="350" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Exam_Candidate">
-          <End Role="Candidate" Type="APFTestingDBModel.Store.Candidate" Multiplicity="1" />
-          <End Role="Exam" Type="APFTestingDBModel.Store.Exam" Multiplicity="*" />
+        <Association Name="FK_AssessmentTaskPacker_PracticalComponentPacker">
+          <End Role="PracticalComponentPacker" Type="APFTestingDBModel.Store.PracticalComponentPacker" Multiplicity="1" />
+          <End Role="AssessmentTaskPacker" Type="APFTestingDBModel.Store.AssessmentTaskPacker" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Candidate">
+            <Principal Role="PracticalComponentPacker">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Exam">
-              <PropertyRef Name="CandidateId" />
+            <Dependent Role="AssessmentTaskPacker">
+              <PropertyRef Name="PracticalComponentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Exam_PracticalComponent">
-          <End Role="PracticalComponent" Type="APFTestingDBModel.Store.PracticalComponent" Multiplicity="1" />
+          <End Role="PracticalComponent" Type="APFTestingDBModel.Store.PracticalComponent" Multiplicity="0..1" />
           <End Role="Exam" Type="APFTestingDBModel.Store.Exam" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponent">
@@ -255,26 +284,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ExamQuestions_Exam">
-          <End Role="TheoryComponent" Type="APFTestingDBModel.Store.TheoryComponent" Multiplicity="1" />
-          <End Role="TheoryComponentQuestions" Type="APFTestingDBModel.Store.TheoryComponentQuestions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TheoryComponent">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TheoryComponentQuestions">
-              <PropertyRef Name="TheoryComponentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ExamQuestions_Question">
+        <Association Name="FK_PossibleAnswer_TheoryQuestion">
           <End Role="TheoryQuestion" Type="APFTestingDBModel.Store.TheoryQuestion" Multiplicity="1" />
-          <End Role="TheoryComponentQuestions" Type="APFTestingDBModel.Store.TheoryComponentQuestions" Multiplicity="*" />
+          <End Role="PossibleAnswer" Type="APFTestingDBModel.Store.PossibleAnswer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TheoryQuestion">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TheoryComponentQuestions">
+            <Dependent Role="PossibleAnswer">
               <PropertyRef Name="TheoryQuestionId" />
             </Dependent>
           </ReferentialConstraint>
@@ -287,83 +304,83 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="PracticalComponent">
-              <PropertyRef Name="PracticalTemplateId" />
+              <PropertyRef Name="TemplateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PracticalComponentItemResult_PracticalComponent">
+        <Association Name="FK_PracticalComponentAssessmentTask_AssessmentTaskPilot">
+          <End Role="AssessmentTaskPilot" Type="APFTestingDBModel.Store.AssessmentTaskPilot" Multiplicity="1" />
+          <End Role="PracticalComponentTemplateAssessmentTask" Type="APFTestingDBModel.Store.PracticalComponentTemplateAssessmentTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssessmentTaskPilot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PracticalComponentTemplateAssessmentTask">
+              <PropertyRef Name="AssessmentTaskPilotId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PracticalComponentPacker_PracticalComponent">
           <End Role="PracticalComponent" Type="APFTestingDBModel.Store.PracticalComponent" Multiplicity="1" />
-          <End Role="PracticalComponentItemResult" Type="APFTestingDBModel.Store.PracticalComponentItemResult" Multiplicity="*" />
+          <End Role="PracticalComponentPacker" Type="APFTestingDBModel.Store.PracticalComponentPacker" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponent">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="PracticalComponentItemResult">
-              <PropertyRef Name="PracticalComponentId" />
+            <Dependent Role="PracticalComponentPacker">
+              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PracticalComponentItemResult_PracticalComponentItem">
-          <End Role="PracticalComponentItem" Type="APFTestingDBModel.Store.PracticalComponentItem" Multiplicity="1" />
-          <End Role="PracticalComponentItemResult" Type="APFTestingDBModel.Store.PracticalComponentItemResult" Multiplicity="*" />
+        <Association Name="FK_PracticalComponentPilot_PracticalComponent">
+          <End Role="PracticalComponent" Type="APFTestingDBModel.Store.PracticalComponent" Multiplicity="1" />
+          <End Role="PracticalComponentPilot" Type="APFTestingDBModel.Store.PracticalComponentPilot" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="PracticalComponentItem">
+            <Principal Role="PracticalComponent">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="PracticalComponentItemResult">
-              <PropertyRef Name="PracticalComponentItemId" />
+            <Dependent Role="PracticalComponentPilot">
+              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PracticalComponentTemplateItems_PracticalComponentItem">
-          <End Role="PracticalComponentItem" Type="APFTestingDBModel.Store.PracticalComponentItem" Multiplicity="1" />
-          <End Role="PracticalComponentTemplateItems" Type="APFTestingDBModel.Store.PracticalComponentTemplateItems" Multiplicity="*" />
+        <Association Name="FK_PracticalComponentTemplateAssessmentTask_PracticalComponentTemplatePilot">
+          <End Role="PracticalComponentTemplatePilot" Type="APFTestingDBModel.Store.PracticalComponentTemplatePilot" Multiplicity="1" />
+          <End Role="PracticalComponentTemplateAssessmentTask" Type="APFTestingDBModel.Store.PracticalComponentTemplateAssessmentTask" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PracticalComponentItem">
+            <Principal Role="PracticalComponentTemplatePilot">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="PracticalComponentTemplateItems">
-              <PropertyRef Name="PracticalComponentId" />
+            <Dependent Role="PracticalComponentTemplateAssessmentTask">
+              <PropertyRef Name="PracticalComponentTemplatePilotId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PracticalComponentTemplateItems_PracticalComponentTemplate">
+        <Association Name="FK_PracticalComponentTemplatePacker_PracticalComponentTemplate">
           <End Role="PracticalComponentTemplate" Type="APFTestingDBModel.Store.PracticalComponentTemplate" Multiplicity="1" />
-          <End Role="PracticalComponentTemplateItems" Type="APFTestingDBModel.Store.PracticalComponentTemplateItems" Multiplicity="*" />
+          <End Role="PracticalComponentTemplatePacker" Type="APFTestingDBModel.Store.PracticalComponentTemplatePacker" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponentTemplate">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="PracticalComponentTemplateItems">
-              <PropertyRef Name="PracticalComponentTemplateId" />
+            <Dependent Role="PracticalComponentTemplatePacker">
+              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuestionOptions_Option">
-          <End Role="PossibleAnswer" Type="APFTestingDBModel.Store.PossibleAnswer" Multiplicity="1" />
-          <End Role="QuestionPossibleAnswers" Type="APFTestingDBModel.Store.QuestionPossibleAnswers" Multiplicity="*" />
+        <Association Name="FK_PracticalComponentTemplatePilot_PracticalComponentTemplate">
+          <End Role="PracticalComponentTemplate" Type="APFTestingDBModel.Store.PracticalComponentTemplate" Multiplicity="1" />
+          <End Role="PracticalComponentTemplatePilot" Type="APFTestingDBModel.Store.PracticalComponentTemplatePilot" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="PossibleAnswer">
+            <Principal Role="PracticalComponentTemplate">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="QuestionPossibleAnswers">
-              <PropertyRef Name="PossibleAnswerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QuestionOptions_Question">
-          <End Role="TheoryQuestion" Type="APFTestingDBModel.Store.TheoryQuestion" Multiplicity="1" />
-          <End Role="QuestionPossibleAnswers" Type="APFTestingDBModel.Store.QuestionPossibleAnswers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TheoryQuestion">
+            <Dependent Role="PracticalComponentTemplatePilot">
               <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="QuestionPossibleAnswers">
-              <PropertyRef Name="TheoryQuestionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SelectedOption_Option">
+        <Association Name="FK_SelectedAnswer_PossibleAnswer">
           <End Role="PossibleAnswer" Type="APFTestingDBModel.Store.PossibleAnswer" Multiplicity="1" />
           <End Role="SelectedAnswer" Type="APFTestingDBModel.Store.SelectedAnswer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -375,39 +392,63 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SelectedOption_Question">
-          <End Role="TheoryQuestion" Type="APFTestingDBModel.Store.TheoryQuestion" Multiplicity="1" />
+        <Association Name="FK_SelectedAnswer_SelectedTheoryQuestion">
+          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.Store.SelectedTheoryQuestion" Multiplicity="1" />
           <End Role="SelectedAnswer" Type="APFTestingDBModel.Store.SelectedAnswer" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TheoryQuestion">
+            <Principal Role="SelectedTheoryQuestion">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="TheoryQuestionId" />
+              <PropertyRef Name="SelectedTheoryQuestionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SelectedOption_TheoryComponent">
+        <Association Name="FK_SelectedAssessmentTask_AssessmentTaskPilot">
+          <End Role="AssessmentTaskPilot" Type="APFTestingDBModel.Store.AssessmentTaskPilot" Multiplicity="1" />
+          <End Role="SelectedAssessmentTask" Type="APFTestingDBModel.Store.SelectedAssessmentTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssessmentTaskPilot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SelectedAssessmentTask">
+              <PropertyRef Name="AssessmentTaskPilotId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SelectedAssessmentTask_PracticalComponentPilot">
+          <End Role="PracticalComponentPilot" Type="APFTestingDBModel.Store.PracticalComponentPilot" Multiplicity="1" />
+          <End Role="SelectedAssessmentTask" Type="APFTestingDBModel.Store.SelectedAssessmentTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PracticalComponentPilot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SelectedAssessmentTask">
+              <PropertyRef Name="PracticalComponentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SelectedTheoryQuestion_TheoryComponent">
           <End Role="TheoryComponent" Type="APFTestingDBModel.Store.TheoryComponent" Multiplicity="1" />
-          <End Role="SelectedAnswer" Type="APFTestingDBModel.Store.SelectedAnswer" Multiplicity="*" />
+          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.Store.SelectedTheoryQuestion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TheoryComponent">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="ExamId" />
+            <Dependent Role="SelectedTheoryQuestion">
+              <PropertyRef Name="TheoryComponentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TheoryComponent_Examiner">
-          <End Role="Examiner" Type="APFTestingDBModel.Store.Examiner" Multiplicity="1" />
-          <End Role="TheoryComponent" Type="APFTestingDBModel.Store.TheoryComponent" Multiplicity="*" />
+        <Association Name="FK_SelectedTheoryQuestion_TheoryQuestion">
+          <End Role="TheoryQuestion" Type="APFTestingDBModel.Store.TheoryQuestion" Multiplicity="1" />
+          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.Store.SelectedTheoryQuestion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Examiner">
+            <Principal Role="TheoryQuestion">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TheoryComponent">
-              <PropertyRef Name="ExaminerId" />
+            <Dependent Role="SelectedTheoryQuestion">
+              <PropertyRef Name="TheoryQuestionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -423,27 +464,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="APFTestingDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="APFTestingEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Candidates" EntityType="APFTestingDBModel.Candidate" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="Exams" EntityType="APFTestingDBModel.Exam" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="Examiners" EntityType="APFTestingDBModel.Examiner" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="PossibleAnswers" EntityType="APFTestingDBModel.PossibleAnswer" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="PracticalComponents" EntityType="APFTestingDBModel.PracticalComponent" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="PracticalComponentItems" EntityType="APFTestingDBModel.PracticalComponentItem" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="PracticalComponentItemResults" EntityType="APFTestingDBModel.PracticalComponentItemResult" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="PracticalComponentTemplates" EntityType="APFTestingDBModel.PracticalComponentTemplate" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="SelectedAnswers" EntityType="APFTestingDBModel.SelectedAnswer" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="TheoryComponents" EntityType="APFTestingDBModel.TheoryComponent" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="TheoryComponentFormats" EntityType="APFTestingDBModel.TheoryComponentFormat" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="TheoryQuestions" EntityType="APFTestingDBModel.TheoryQuestion" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <AssociationSet Name="FK_Exam_Candidate" Association="APFTestingDBModel.FK_Exam_Candidate">
-            <End Role="Candidate" EntitySet="Candidates" />
-            <End Role="Exam" EntitySet="Exams" />
+        <EntityContainer Name="APFTestingDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AssessmentTaskPackers" EntityType="APFTestingDBModel.AssessmentTaskPacker" />
+          <EntitySet Name="AssessmentTaskPilots" EntityType="APFTestingDBModel.AssessmentTaskPilot" />
+          <EntitySet Name="Exams" EntityType="APFTestingDBModel.Exam" />
+          <EntitySet Name="PossibleAnswers" EntityType="APFTestingDBModel.PossibleAnswer" />
+          <EntitySet Name="PracticalComponents" EntityType="APFTestingDBModel.PracticalComponent" />
+          <EntitySet Name="PracticalComponentTemplates" EntityType="APFTestingDBModel.PracticalComponentTemplate" />
+          <EntitySet Name="SelectedAssessmentTasks" EntityType="APFTestingDBModel.SelectedAssessmentTask" />
+          <EntitySet Name="SelectedTheoryQuestions" EntityType="APFTestingDBModel.SelectedTheoryQuestion" />
+          <EntitySet Name="TheoryComponents" EntityType="APFTestingDBModel.TheoryComponent" />
+          <EntitySet Name="TheoryComponentFormats" EntityType="APFTestingDBModel.TheoryComponentFormat" />
+          <EntitySet Name="TheoryQuestions" EntityType="APFTestingDBModel.TheoryQuestion" />
+          <AssociationSet Name="FK_AssessmentTaskPacker_PracticalComponentPacker" Association="APFTestingDBModel.FK_AssessmentTaskPacker_PracticalComponentPacker">
+            <End Role="PracticalComponentPacker" EntitySet="PracticalComponents" />
+            <End Role="AssessmentTaskPacker" EntitySet="AssessmentTaskPackers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SelectedAssessmentTask_AssessmentTaskPilot" Association="APFTestingDBModel.FK_SelectedAssessmentTask_AssessmentTaskPilot">
+            <End Role="AssessmentTaskPilot" EntitySet="AssessmentTaskPilots" />
+            <End Role="SelectedAssessmentTask" EntitySet="SelectedAssessmentTasks" />
           </AssociationSet>
           <AssociationSet Name="FK_Exam_PracticalComponent" Association="APFTestingDBModel.FK_Exam_PracticalComponent">
             <End Role="PracticalComponent" EntitySet="PracticalComponents" />
@@ -453,161 +496,157 @@
             <End Role="TheoryComponent" EntitySet="TheoryComponents" />
             <End Role="Exam" EntitySet="Exams" />
           </AssociationSet>
-          <AssociationSet Name="FK_TheoryComponent_Examiner" Association="APFTestingDBModel.FK_TheoryComponent_Examiner">
-            <End Role="Examiner" EntitySet="Examiners" />
-            <End Role="TheoryComponent" EntitySet="TheoryComponents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SelectedOption_Option" Association="APFTestingDBModel.FK_SelectedOption_Option">
-            <End Role="PossibleAnswer" EntitySet="PossibleAnswers" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswers" />
-          </AssociationSet>
           <AssociationSet Name="FK_PracticalComponent_PracticalComponentTemplate" Association="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate">
             <End Role="PracticalComponentTemplate" EntitySet="PracticalComponentTemplates" />
             <End Role="PracticalComponent" EntitySet="PracticalComponents" />
           </AssociationSet>
-          <AssociationSet Name="FK_PracticalComponentItemResult_PracticalComponent" Association="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponent">
-            <End Role="PracticalComponent" EntitySet="PracticalComponents" />
-            <End Role="PracticalComponentItemResult" EntitySet="PracticalComponentItemResults" />
+          <AssociationSet Name="FK_SelectedAssessmentTask_PracticalComponentPilot" Association="APFTestingDBModel.FK_SelectedAssessmentTask_PracticalComponentPilot">
+            <End Role="PracticalComponentPilot" EntitySet="PracticalComponents" />
+            <End Role="SelectedAssessmentTask" EntitySet="SelectedAssessmentTasks" />
           </AssociationSet>
-          <AssociationSet Name="FK_PracticalComponentItemResult_PracticalComponentItem" Association="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponentItem">
-            <End Role="PracticalComponentItem" EntitySet="PracticalComponentItems" />
-            <End Role="PracticalComponentItemResult" EntitySet="PracticalComponentItemResults" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SelectedOption_Question" Association="APFTestingDBModel.FK_SelectedOption_Question">
-            <End Role="TheoryQuestion" EntitySet="TheoryQuestions" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SelectedOption_TheoryComponent" Association="APFTestingDBModel.FK_SelectedOption_TheoryComponent">
+          <AssociationSet Name="FK_SelectedTheoryQuestion_TheoryComponent" Association="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent">
             <End Role="TheoryComponent" EntitySet="TheoryComponents" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswers" />
+            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SelectedTheoryQuestion_TheoryQuestion" Association="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion">
+            <End Role="TheoryQuestion" EntitySet="TheoryQuestions" />
+            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestions" />
           </AssociationSet>
           <AssociationSet Name="FK_TheoryComponent_TheoryComponentFormat" Association="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat">
             <End Role="TheoryComponentFormat" EntitySet="TheoryComponentFormats" />
             <End Role="TheoryComponent" EntitySet="TheoryComponents" />
           </AssociationSet>
-          <AssociationSet Name="PracticalComponentTemplateItems" Association="APFTestingDBModel.PracticalComponentTemplateItems">
-            <End Role="PracticalComponentItem" EntitySet="PracticalComponentItems" />
-            <End Role="PracticalComponentTemplate" EntitySet="PracticalComponentTemplates" />
-          </AssociationSet>
-          <AssociationSet Name="QuestionPossibleAnswers" Association="APFTestingDBModel.QuestionPossibleAnswers">
+          <AssociationSet Name="SelectedAnswer" Association="APFTestingDBModel.SelectedAnswer">
             <End Role="PossibleAnswer" EntitySet="PossibleAnswers" />
-            <End Role="TheoryQuestion" EntitySet="TheoryQuestions" />
+            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestions" />
           </AssociationSet>
-          <AssociationSet Name="TheoryComponentQuestions" Association="APFTestingDBModel.TheoryComponentQuestions">
-            <End Role="TheoryComponent" EntitySet="TheoryComponents" />
+          <AssociationSet Name="FK_PossibleAnswer_TheoryQuestion" Association="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion">
             <End Role="TheoryQuestion" EntitySet="TheoryQuestions" />
+            <End Role="PossibleAnswer" EntitySet="PossibleAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="PracticalComponentTemplateAssessmentTask1" Association="APFTestingDBModel.PracticalComponentTemplateAssessmentTask1">
+            <End Role="AssessmentTaskPilot" EntitySet="AssessmentTaskPilots" />
+            <End Role="PracticalComponentTemplatePilot" EntitySet="PracticalComponentTemplates" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Candidate" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+        <EntityType Name="AssessmentTaskPacker">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_Candidate" FromRole="Candidate" ToRole="Exam" />
-        </EntityType>
-        <EntityType Name="Exam" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ExamStatusId" Type="Int32" Nullable="false" />
-          <Property Name="TheoryComponentId" Type="Guid" Nullable="false" />
           <Property Name="PracticalComponentId" Type="Guid" Nullable="false" />
-          <Property Name="CandidateId" Type="Guid" Nullable="false" />
-          <Property Name="ExamTypeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Candidate" Relationship="APFTestingDBModel.FK_Exam_Candidate" FromRole="Exam" ToRole="Candidate" />
-          <NavigationProperty Name="PracticalComponent" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="Exam" ToRole="PracticalComponent" />
-          <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="Exam" ToRole="TheoryComponent" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CanopyType" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CanopyTypeSerialNumber" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SupervisorId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="HarnessContainerType" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="HarnessContainerSerialNumber" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PracticalComponentPacker" Relationship="APFTestingDBModel.FK_AssessmentTaskPacker_PracticalComponentPacker" FromRole="AssessmentTaskPacker" ToRole="PracticalComponentPacker" />
         </EntityType>
-        <EntityType Name="Examiner" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="TheoryComponents" Relationship="APFTestingDBModel.FK_TheoryComponent_Examiner" FromRole="Examiner" ToRole="TheoryComponent" />
-        </EntityType>
-        <EntityType Name="PossibleAnswer" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
-          <Property Name="IsCorrect" Type="Boolean" Nullable="false" />
-          <Property Name="Order" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SelectedAnswers" Relationship="APFTestingDBModel.FK_SelectedOption_Option" FromRole="PossibleAnswer" ToRole="SelectedAnswer" />
-          <NavigationProperty Name="TheoryQuestions" Relationship="APFTestingDBModel.QuestionPossibleAnswers" FromRole="PossibleAnswer" ToRole="TheoryQuestion" />
-        </EntityType>
-        <EntityType Name="PracticalComponent" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ExaminerId" Type="Guid" Nullable="false" />
-          <Property Name="PracticalTemplateId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="PracticalComponent" ToRole="Exam" />
-          <NavigationProperty Name="PracticalComponentTemplate" Relationship="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" FromRole="PracticalComponent" ToRole="PracticalComponentTemplate" />
-          <NavigationProperty Name="PracticalComponentItemResults" Relationship="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponent" FromRole="PracticalComponent" ToRole="PracticalComponentItemResult" />
-        </EntityType>
-        <EntityType Name="PracticalComponentItem" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+        <EntityType Name="AssessmentTaskPilot">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="MaxScore" Type="Int32" Nullable="false" />
-          <Property Name="Details" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="PracticalComponentItemResults" Relationship="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponentItem" FromRole="PracticalComponentItem" ToRole="PracticalComponentItemResult" />
-          <NavigationProperty Name="PracticalComponentTemplates" Relationship="APFTestingDBModel.PracticalComponentTemplateItems" FromRole="PracticalComponentItem" ToRole="PracticalComponentTemplate" />
+          <NavigationProperty Name="SelectedAssessmentTasks" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_AssessmentTaskPilot" FromRole="AssessmentTaskPilot" ToRole="SelectedAssessmentTask" />
+          <NavigationProperty Name="PracticalComponentTemplatePilots" Relationship="APFTestingDBModel.PracticalComponentTemplateAssessmentTask1" FromRole="AssessmentTaskPilot" ToRole="PracticalComponentTemplatePilot" />
         </EntityType>
-        <EntityType Name="PracticalComponentItemResult" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <Key>
-            <PropertyRef Name="PracticalComponentId" />
-            <PropertyRef Name="PracticalComponentItemId" />
-          </Key>
-          <Property Name="PracticalComponentId" Type="Guid" Nullable="false" />
-          <Property Name="PracticalComponentItemId" Type="Guid" Nullable="false" />
-          <Property Name="Comment" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Score" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PracticalComponent" Relationship="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponent" FromRole="PracticalComponentItemResult" ToRole="PracticalComponent" />
-          <NavigationProperty Name="PracticalComponentItem" Relationship="APFTestingDBModel.FK_PracticalComponentItemResult_PracticalComponentItem" FromRole="PracticalComponentItemResult" ToRole="PracticalComponentItem" />
-        </EntityType>
-        <EntityType Name="PracticalComponentTemplate" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+        <EntityType Name="Exam" Abstract="true">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ExamTypeId" Type="Int32" Nullable="false" />
+          <Property Name="TheoryComponentId" Type="Guid" Nullable="false" />
+          <Property Name="PracticalComponentId" Type="Guid" />
+          <Property Name="ExaminerId" Type="Guid" />
+          <Property Name="CandidateId" Type="Guid" />
+          <Property Name="ExamStatusId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PracticalComponent" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="Exam" ToRole="PracticalComponent" />
+          <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="Exam" ToRole="TheoryComponent" />
+        </EntityType>
+        <EntityType Name="PossibleAnswer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IsCorrect" Type="Boolean" Nullable="false" />
+          <Property Name="DisplayOrderIndex" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.SelectedAnswer" FromRole="PossibleAnswer" ToRole="SelectedTheoryQuestion" />
+          <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
+          <NavigationProperty Name="TheoryQuestion" Relationship="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion" FromRole="PossibleAnswer" ToRole="TheoryQuestion" />
+        </EntityType>
+        <EntityType Name="PracticalComponent" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TemplateId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="PracticalComponent" ToRole="Exam" />
+          <NavigationProperty Name="PracticalComponentTemplate" Relationship="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" FromRole="PracticalComponent" ToRole="PracticalComponentTemplate" />
+        </EntityType>
+        <EntityType Name="PracticalComponentPacker" BaseType="APFTestingDBModel.PracticalComponent">
+          <NavigationProperty Name="AssessmentTaskPackers" Relationship="APFTestingDBModel.FK_AssessmentTaskPacker_PracticalComponentPacker" FromRole="PracticalComponentPacker" ToRole="AssessmentTaskPacker" />
+        </EntityType>
+        <EntityType Name="PracticalComponentPilot" BaseType="APFTestingDBModel.PracticalComponent">
+          <NavigationProperty Name="SelectedAssessmentTasks" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_PracticalComponentPilot" FromRole="PracticalComponentPilot" ToRole="SelectedAssessmentTask" />
+        </EntityType>
+        <EntityType Name="PracticalComponentTemplate" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="PracticalComponents" Relationship="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" FromRole="PracticalComponentTemplate" ToRole="PracticalComponent" />
-          <NavigationProperty Name="PracticalComponentItems" Relationship="APFTestingDBModel.PracticalComponentTemplateItems" FromRole="PracticalComponentTemplate" ToRole="PracticalComponentItem" />
         </EntityType>
-        <EntityType Name="SelectedAnswer" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <Key>
-            <PropertyRef Name="TheoryQuestionId" />
-            <PropertyRef Name="ExamId" />
-            <PropertyRef Name="PossibleAnswerId" />
-          </Key>
-          <Property Name="TheoryQuestionId" Type="Guid" Nullable="false" />
-          <Property Name="ExamId" Type="Guid" Nullable="false" />
-          <Property Name="PossibleAnswerId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="PossibleAnswer" Relationship="APFTestingDBModel.FK_SelectedOption_Option" FromRole="SelectedAnswer" ToRole="PossibleAnswer" />
-          <NavigationProperty Name="TheoryQuestion" Relationship="APFTestingDBModel.FK_SelectedOption_Question" FromRole="SelectedAnswer" ToRole="TheoryQuestion" />
-          <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_SelectedOption_TheoryComponent" FromRole="SelectedAnswer" ToRole="TheoryComponent" />
+        <EntityType Name="PracticalComponentTemplatePacker" BaseType="APFTestingDBModel.PracticalComponentTemplate">
+          <Property Name="NumOfRequiredAssessmentTasks" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="TheoryComponent" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+        <EntityType Name="PracticalComponentTemplatePilot" BaseType="APFTestingDBModel.PracticalComponentTemplate">
+          <NavigationProperty Name="AssessmentTaskPilots" Relationship="APFTestingDBModel.PracticalComponentTemplateAssessmentTask1" FromRole="PracticalComponentTemplatePilot" ToRole="AssessmentTaskPilot" />
+        </EntityType>
+        <EntityType Name="SelectedAssessmentTask">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ExaminerId" Type="Guid" Nullable="false" />
-          <Property Name="FormatId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="TheoryComponent" ToRole="Exam" />
-          <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_TheoryComponent_Examiner" FromRole="TheoryComponent" ToRole="Examiner" />
-          <NavigationProperty Name="SelectedAnswers" Relationship="APFTestingDBModel.FK_SelectedOption_TheoryComponent" FromRole="TheoryComponent" ToRole="SelectedAnswer" />
-          <NavigationProperty Name="TheoryComponentFormat" Relationship="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" FromRole="TheoryComponent" ToRole="TheoryComponentFormat" />
-          <NavigationProperty Name="TheoryQuestions" Relationship="APFTestingDBModel.TheoryComponentQuestions" FromRole="TheoryComponent" ToRole="TheoryQuestion" />
+          <Property Name="PracticalComponentId" Type="Guid" Nullable="false" />
+          <Property Name="AssessmentTaskPilotId" Type="Guid" Nullable="false" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AssessmentTaskPilot" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_AssessmentTaskPilot" FromRole="SelectedAssessmentTask" ToRole="AssessmentTaskPilot" />
+          <NavigationProperty Name="PracticalComponentPilot" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_PracticalComponentPilot" FromRole="SelectedAssessmentTask" ToRole="PracticalComponentPilot" />
         </EntityType>
-        <EntityType Name="TheoryComponentFormat" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+        <EntityType Name="SelectedTheoryQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TheoryComponentId" Type="Guid" Nullable="false" />
+          <Property Name="TheoryQuestionId" Type="Guid" Nullable="false" />
+          <Property Name="QuestionIndex" Type="Int32" Nullable="false" />
+          <Property Name="IsMarkedForReview" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent" FromRole="SelectedTheoryQuestion" ToRole="TheoryComponent" />
+          <NavigationProperty Name="TheoryQuestion" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" FromRole="SelectedTheoryQuestion" ToRole="TheoryQuestion" />
+          <NavigationProperty Name="PossibleAnswers" Relationship="APFTestingDBModel.SelectedAnswer" FromRole="SelectedTheoryQuestion" ToRole="PossibleAnswer" />
+        </EntityType>
+        <EntityType Name="TheoryComponent" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="FormatId" Type="Guid" Nullable="false" />
+          <Property Name="CurrentQuestionIndex" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="TheoryComponent" ToRole="Exam" />
+          <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent" FromRole="TheoryComponent" ToRole="SelectedTheoryQuestion" />
+          <NavigationProperty Name="TheoryComponentFormat" Relationship="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" FromRole="TheoryComponent" ToRole="TheoryComponentFormat" />
+        </EntityType>
+        <EntityType Name="TheoryComponentFormat" Abstract="true">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -615,36 +654,47 @@
           <Property Name="NumberOfQuestions" Type="Int32" Nullable="false" />
           <Property Name="PassMark" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="ExamTypeId" Type="Int32" Nullable="false" />
+          <Property Name="TimeLimit" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TheoryComponents" Relationship="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" FromRole="TheoryComponentFormat" ToRole="TheoryComponent" />
         </EntityType>
-        <EntityType Name="TheoryQuestion" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+        <EntityType Name="TheoryQuestion" Abstract="true">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="NumberOfCorrectAnswer" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfCorrectAnswers" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="ExamTypeId" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="350" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="SelectedAnswers" Relationship="APFTestingDBModel.FK_SelectedOption_Question" FromRole="TheoryQuestion" ToRole="SelectedAnswer" />
-          <NavigationProperty Name="PossibleAnswers" Relationship="APFTestingDBModel.QuestionPossibleAnswers" FromRole="TheoryQuestion" ToRole="PossibleAnswer" />
-          <NavigationProperty Name="TheoryComponents" Relationship="APFTestingDBModel.TheoryComponentQuestions" FromRole="TheoryQuestion" ToRole="TheoryComponent" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" FromRole="TheoryQuestion" ToRole="SelectedTheoryQuestion" />
+          <NavigationProperty Name="PossibleAnswers" Relationship="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion" FromRole="TheoryQuestion" ToRole="PossibleAnswer" />
         </EntityType>
-        <Association Name="FK_Exam_Candidate">
-          <End Role="Candidate" Type="APFTestingDBModel.Candidate" Multiplicity="1" />
-          <End Role="Exam" Type="APFTestingDBModel.Exam" Multiplicity="*" />
+        <Association Name="FK_AssessmentTaskPacker_PracticalComponentPacker">
+          <End Role="PracticalComponentPacker" Type="APFTestingDBModel.PracticalComponentPacker" Multiplicity="1" />
+          <End Role="AssessmentTaskPacker" Type="APFTestingDBModel.AssessmentTaskPacker" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Candidate">
+            <Principal Role="PracticalComponentPacker">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Exam">
-              <PropertyRef Name="CandidateId" />
+            <Dependent Role="AssessmentTaskPacker">
+              <PropertyRef Name="PracticalComponentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SelectedAssessmentTask_AssessmentTaskPilot">
+          <End Role="AssessmentTaskPilot" Type="APFTestingDBModel.AssessmentTaskPilot" Multiplicity="1" />
+          <End Role="SelectedAssessmentTask" Type="APFTestingDBModel.SelectedAssessmentTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssessmentTaskPilot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SelectedAssessmentTask">
+              <PropertyRef Name="AssessmentTaskPilotId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Exam_PracticalComponent">
-          <End Role="PracticalComponent" Type="APFTestingDBModel.PracticalComponent" Multiplicity="1" />
+          <End Role="PracticalComponent" Type="APFTestingDBModel.PracticalComponent" Multiplicity="0..1" />
           <End Role="Exam" Type="APFTestingDBModel.Exam" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponent">
@@ -667,30 +717,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TheoryComponent_Examiner">
-          <End Role="Examiner" Type="APFTestingDBModel.Examiner" Multiplicity="1" />
-          <End Role="TheoryComponent" Type="APFTestingDBModel.TheoryComponent" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Examiner">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TheoryComponent">
-              <PropertyRef Name="ExaminerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SelectedOption_Option">
-          <End Role="PossibleAnswer" Type="APFTestingDBModel.PossibleAnswer" Multiplicity="1" />
-          <End Role="SelectedAnswer" Type="APFTestingDBModel.SelectedAnswer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PossibleAnswer">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="PossibleAnswerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PracticalComponent_PracticalComponentTemplate">
           <End Role="PracticalComponentTemplate" Type="APFTestingDBModel.PracticalComponentTemplate" Multiplicity="1" />
           <End Role="PracticalComponent" Type="APFTestingDBModel.PracticalComponent" Multiplicity="*" />
@@ -699,55 +725,43 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="PracticalComponent">
-              <PropertyRef Name="PracticalTemplateId" />
+              <PropertyRef Name="TemplateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PracticalComponentItemResult_PracticalComponent">
-          <End Role="PracticalComponent" Type="APFTestingDBModel.PracticalComponent" Multiplicity="1" />
-          <End Role="PracticalComponentItemResult" Type="APFTestingDBModel.PracticalComponentItemResult" Multiplicity="*" />
+        <Association Name="FK_SelectedAssessmentTask_PracticalComponentPilot">
+          <End Role="PracticalComponentPilot" Type="APFTestingDBModel.PracticalComponentPilot" Multiplicity="1" />
+          <End Role="SelectedAssessmentTask" Type="APFTestingDBModel.SelectedAssessmentTask" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PracticalComponent">
+            <Principal Role="PracticalComponentPilot">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="PracticalComponentItemResult">
+            <Dependent Role="SelectedAssessmentTask">
               <PropertyRef Name="PracticalComponentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PracticalComponentItemResult_PracticalComponentItem">
-          <End Role="PracticalComponentItem" Type="APFTestingDBModel.PracticalComponentItem" Multiplicity="1" />
-          <End Role="PracticalComponentItemResult" Type="APFTestingDBModel.PracticalComponentItemResult" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PracticalComponentItem">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PracticalComponentItemResult">
-              <PropertyRef Name="PracticalComponentItemId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SelectedOption_Question">
-          <End Role="TheoryQuestion" Type="APFTestingDBModel.TheoryQuestion" Multiplicity="1" />
-          <End Role="SelectedAnswer" Type="APFTestingDBModel.SelectedAnswer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TheoryQuestion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="TheoryQuestionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SelectedOption_TheoryComponent">
+        <Association Name="FK_SelectedTheoryQuestion_TheoryComponent">
           <End Role="TheoryComponent" Type="APFTestingDBModel.TheoryComponent" Multiplicity="1" />
-          <End Role="SelectedAnswer" Type="APFTestingDBModel.SelectedAnswer" Multiplicity="*" />
+          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.SelectedTheoryQuestion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TheoryComponent">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="ExamId" />
+            <Dependent Role="SelectedTheoryQuestion">
+              <PropertyRef Name="TheoryComponentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SelectedTheoryQuestion_TheoryQuestion">
+          <End Role="TheoryQuestion" Type="APFTestingDBModel.TheoryQuestion" Multiplicity="1" />
+          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.SelectedTheoryQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TheoryQuestion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SelectedTheoryQuestion">
+              <PropertyRef Name="TheoryQuestionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -763,160 +777,241 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PracticalComponentTemplateItems">
-          <End Role="PracticalComponentItem" Type="APFTestingDBModel.PracticalComponentItem" Multiplicity="*" />
-          <End Role="PracticalComponentTemplate" Type="APFTestingDBModel.PracticalComponentTemplate" Multiplicity="*" />
-        </Association>
-        <Association Name="QuestionPossibleAnswers">
+        <Association Name="SelectedAnswer">
           <End Role="PossibleAnswer" Type="APFTestingDBModel.PossibleAnswer" Multiplicity="*" />
-          <End Role="TheoryQuestion" Type="APFTestingDBModel.TheoryQuestion" Multiplicity="*" />
+          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.SelectedTheoryQuestion" Multiplicity="*" />
         </Association>
-        <Association Name="TheoryComponentQuestions">
-          <End Role="TheoryComponent" Type="APFTestingDBModel.TheoryComponent" Multiplicity="*" />
-          <End Role="TheoryQuestion" Type="APFTestingDBModel.TheoryQuestion" Multiplicity="*" />
+        <EntityType Name="TheoryQuestionPilot" BaseType="APFTestingDBModel.TheoryQuestion" />
+        <EntityType Name="TheoryQuestionPacker" BaseType="APFTestingDBModel.TheoryQuestion" />
+        <Association Name="FK_PossibleAnswer_TheoryQuestion">
+          <End Type="APFTestingDBModel.TheoryQuestion" Role="TheoryQuestion" Multiplicity="1" />
+          <End Type="APFTestingDBModel.PossibleAnswer" Role="PossibleAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TheoryQuestion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PossibleAnswer">
+              <PropertyRef Name="TheoryQuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TheoryComponentPilot" BaseType="APFTestingDBModel.TheoryComponent" />
+        <EntityType Name="TheoryComponentPacker" BaseType="APFTestingDBModel.TheoryComponent" />
+        <EntityType Name="TheoryComponentFormatPilot" BaseType="APFTestingDBModel.TheoryComponentFormat" />
+        <EntityType Name="TheoryComponentFormatPacker" BaseType="APFTestingDBModel.TheoryComponentFormat" />
+        <EntityType Name="ExamPilot" BaseType="APFTestingDBModel.Exam" />
+        <EntityType Name="ExamPacker" BaseType="APFTestingDBModel.Exam" />
+        <Association Name="PracticalComponentTemplateAssessmentTask1">
+          <End Type="APFTestingDBModel.AssessmentTaskPilot" Role="AssessmentTaskPilot" Multiplicity="*" />
+          <End Type="APFTestingDBModel.PracticalComponentTemplatePilot" Role="PracticalComponentTemplatePilot" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="APFTestingDBModelStoreContainer" CdmEntityContainer="APFTestingEntities">
-          <EntitySetMapping Name="Candidates">
-            <EntityTypeMapping TypeName="APFTestingDBModel.Candidate">
-              <MappingFragment StoreEntitySet="Candidate">
+        <EntityContainerMapping StorageEntityContainer="APFTestingDBModelStoreContainer" CdmEntityContainer="APFTestingDBEntities">
+          <EntitySetMapping Name="AssessmentTaskPackers">
+            <EntityTypeMapping TypeName="APFTestingDBModel.AssessmentTaskPacker">
+              <MappingFragment StoreEntitySet="AssessmentTaskPacker">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PracticalComponentId" ColumnName="PracticalComponentId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CanopyType" ColumnName="CanopyType" />
+                <ScalarProperty Name="CanopyTypeSerialNumber" ColumnName="CanopyTypeSerialNumber" />
+                <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+                <ScalarProperty Name="HarnessContainerType" ColumnName="HarnessContainerType" />
+                <ScalarProperty Name="HarnessContainerSerialNumber" ColumnName="HarnessContainerSerialNumber" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssessmentTaskPilots">
+            <EntityTypeMapping TypeName="APFTestingDBModel.AssessmentTaskPilot">
+              <MappingFragment StoreEntitySet="AssessmentTaskPilot">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="MaxScore" ColumnName="MaxScore" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Exams">
-            <EntityTypeMapping TypeName="APFTestingDBModel.Exam">
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.Exam)">
               <MappingFragment StoreEntitySet="Exam">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ExamStatusId" ColumnName="ExamStatusId" />
-                <ScalarProperty Name="TheoryComponentId" ColumnName="TheoryComponentId" />
-                <ScalarProperty Name="PracticalComponentId" ColumnName="PracticalComponentId" />
                 <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
+                <ScalarProperty Name="ExaminerId" ColumnName="ExaminerId" />
+                <ScalarProperty Name="PracticalComponentId" ColumnName="PracticalComponentId" />
+                <ScalarProperty Name="TheoryComponentId" ColumnName="TheoryComponentId" />
               </MappingFragment>
             </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Examiners">
-            <EntityTypeMapping TypeName="APFTestingDBModel.Examiner">
-              <MappingFragment StoreEntitySet="Examiner">
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.ExamPilot)">
+              <MappingFragment StoreEntitySet="Exam">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <Condition ColumnName="ExamTypeId" Value="1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.ExamPacker)">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <Condition ColumnName="ExamTypeId" Value="2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PossibleAnswers">
             <EntityTypeMapping TypeName="APFTestingDBModel.PossibleAnswer">
               <MappingFragment StoreEntitySet="PossibleAnswer">
+                <ScalarProperty Name="TheoryQuestionId" ColumnName="TheoryQuestionId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
-                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="DisplayOrderIndex" ColumnName="DisplayOrderIndex" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PracticalComponents">
-            <EntityTypeMapping TypeName="APFTestingDBModel.PracticalComponent">
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.PracticalComponent)">
               <MappingFragment StoreEntitySet="PracticalComponent">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ExaminerId" ColumnName="ExaminerId" />
-                <ScalarProperty Name="PracticalTemplateId" ColumnName="PracticalTemplateId" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
               </MappingFragment>
             </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PracticalComponentItems">
-            <EntityTypeMapping TypeName="APFTestingDBModel.PracticalComponentItem">
-              <MappingFragment StoreEntitySet="PracticalComponentItem">
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.PracticalComponentPilot)">
+              <MappingFragment StoreEntitySet="PracticalComponentPilot">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="MaxScore" ColumnName="MaxScore" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
+                </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.PracticalComponentPacker)">
+              <MappingFragment StoreEntitySet="PracticalComponentPacker">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PracticalComponentTemplates">
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.PracticalComponentTemplate)">
+              <MappingFragment StoreEntitySet="PracticalComponentTemplate">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.PracticalComponentTemplatePilot)">
+              <MappingFragment StoreEntitySet="PracticalComponentTemplatePilot">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.PracticalComponentTemplatePacker)">
+              <MappingFragment StoreEntitySet="PracticalComponentTemplatePacker">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumOfRequiredAssessmentTasks" ColumnName="NumOfRequiredAssessmentTasks" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PracticalComponentItemResults">
-            <EntityTypeMapping TypeName="APFTestingDBModel.PracticalComponentItemResult">
-              <MappingFragment StoreEntitySet="PracticalComponentItemResult">
+          <EntitySetMapping Name="SelectedAssessmentTasks">
+            <EntityTypeMapping TypeName="APFTestingDBModel.SelectedAssessmentTask">
+              <MappingFragment StoreEntitySet="SelectedAssessmentTask">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PracticalComponentId" ColumnName="PracticalComponentId" />
-                <ScalarProperty Name="PracticalComponentItemId" ColumnName="PracticalComponentItemId" />
+                <ScalarProperty Name="AssessmentTaskPilotId" ColumnName="AssessmentTaskPilotId" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Score" ColumnName="Score" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PracticalComponentTemplates">
-            <EntityTypeMapping TypeName="APFTestingDBModel.PracticalComponentTemplate">
-              <MappingFragment StoreEntitySet="PracticalComponentTemplate">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <EntitySetMapping Name="SelectedTheoryQuestions">
+            <EntityTypeMapping TypeName="APFTestingDBModel.SelectedTheoryQuestion">
+              <MappingFragment StoreEntitySet="SelectedTheoryQuestion">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SelectedAnswers">
-            <EntityTypeMapping TypeName="APFTestingDBModel.SelectedAnswer">
-              <MappingFragment StoreEntitySet="SelectedAnswer">
+                <ScalarProperty Name="TheoryComponentId" ColumnName="TheoryComponentId" />
                 <ScalarProperty Name="TheoryQuestionId" ColumnName="TheoryQuestionId" />
-                <ScalarProperty Name="ExamId" ColumnName="ExamId" />
-                <ScalarProperty Name="PossibleAnswerId" ColumnName="PossibleAnswerId" />
+                <ScalarProperty Name="QuestionIndex" ColumnName="QuestionIndex" />
+                <ScalarProperty Name="IsMarkedForReview" ColumnName="IsMarkedForReview" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TheoryComponents">
-            <EntityTypeMapping TypeName="APFTestingDBModel.TheoryComponent">
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponent)">
               <MappingFragment StoreEntitySet="TheoryComponent">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ExaminerId" ColumnName="ExaminerId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CurrentQuestionIndex" ColumnName="CurrentQuestionIndex" />
                 <ScalarProperty Name="FormatId" ColumnName="FormatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponentPilot)">
+              <MappingFragment StoreEntitySet="TheoryComponent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <Condition ColumnName="ExamTypeId" Value="1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponentPacker)">
+              <MappingFragment StoreEntitySet="TheoryComponent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <Condition ColumnName="ExamTypeId" Value="2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TheoryComponentFormats">
-            <EntityTypeMapping TypeName="APFTestingDBModel.TheoryComponentFormat">
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponentFormat)">
               <MappingFragment StoreEntitySet="TheoryComponentFormat">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="NumberOfQuestions" ColumnName="NumberOfQuestions" />
-                <ScalarProperty Name="PassMark" ColumnName="PassMark" />
+                <ScalarProperty Name="TimeLimit" ColumnName="TimeLimit" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
+                <ScalarProperty Name="PassMark" ColumnName="PassMark" />
+                <ScalarProperty Name="NumberOfQuestions" ColumnName="NumberOfQuestions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponentFormatPilot)">
+              <MappingFragment StoreEntitySet="TheoryComponentFormat">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <Condition ColumnName="ExamTypeId" Value="1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponentFormatPacker)">
+              <MappingFragment StoreEntitySet="TheoryComponentFormat">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <Condition ColumnName="ExamTypeId" Value="2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TheoryQuestions">
-            <EntityTypeMapping TypeName="APFTestingDBModel.TheoryQuestion">
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryQuestion)">
               <MappingFragment StoreEntitySet="TheoryQuestion">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="NumberOfCorrectAnswer" ColumnName="NumberOfCorrectAnswer" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NumberOfCorrectAnswers" ColumnName="NumberOfCorrectAnswers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryQuestionPilot)">
+              <MappingFragment StoreEntitySet="TheoryQuestion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <Condition ColumnName="ExamTypeId" Value="1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryQuestionPacker)">
+              <MappingFragment StoreEntitySet="TheoryQuestion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <Condition ColumnName="ExamTypeId" Value="2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="PracticalComponentTemplateItems" TypeName="APFTestingDBModel.PracticalComponentTemplateItems" StoreEntitySet="PracticalComponentTemplateItems">
-            <EndProperty Name="PracticalComponentItem">
-              <ScalarProperty Name="Id" ColumnName="PracticalComponentId" />
-            </EndProperty>
-            <EndProperty Name="PracticalComponentTemplate">
-              <ScalarProperty Name="Id" ColumnName="PracticalComponentTemplateId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="QuestionPossibleAnswers" TypeName="APFTestingDBModel.QuestionPossibleAnswers" StoreEntitySet="QuestionPossibleAnswers">
+          <AssociationSetMapping Name="SelectedAnswer" TypeName="APFTestingDBModel.SelectedAnswer" StoreEntitySet="SelectedAnswer">
             <EndProperty Name="PossibleAnswer">
               <ScalarProperty Name="Id" ColumnName="PossibleAnswerId" />
             </EndProperty>
-            <EndProperty Name="TheoryQuestion">
-              <ScalarProperty Name="Id" ColumnName="TheoryQuestionId" />
+            <EndProperty Name="SelectedTheoryQuestion">
+              <ScalarProperty Name="Id" ColumnName="SelectedTheoryQuestionId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="TheoryComponentQuestions" TypeName="APFTestingDBModel.TheoryComponentQuestions" StoreEntitySet="TheoryComponentQuestions">
-            <EndProperty Name="TheoryComponent">
-              <ScalarProperty Name="Id" ColumnName="TheoryComponentId" />
+          <AssociationSetMapping Name="PracticalComponentTemplateAssessmentTask1" TypeName="APFTestingDBModel.PracticalComponentTemplateAssessmentTask1" StoreEntitySet="PracticalComponentTemplateAssessmentTask">
+            <EndProperty Name="AssessmentTaskPilot">
+              <ScalarProperty Name="Id" ColumnName="AssessmentTaskPilotId" />
             </EndProperty>
-            <EndProperty Name="TheoryQuestion">
-              <ScalarProperty Name="Id" ColumnName="TheoryQuestionId" />
+            <EndProperty Name="PracticalComponentTemplatePilot">
+              <ScalarProperty Name="Id" ColumnName="PracticalComponentTemplatePilotId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

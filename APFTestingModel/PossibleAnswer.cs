@@ -12,20 +12,20 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class PossibleAnswer
+    public partial class PossibleAnswer
     {
         public PossibleAnswer()
         {
-            this.SelectedAnswers = new HashSet<SelectedAnswer>();
-            this.TheoryQuestions = new HashSet<TheoryQuestion>();
+            this.SelectedTheoryQuestions = new HashSet<SelectedTheoryQuestion>();
         }
     
         public System.Guid Id { get; set; }
-        public string Description { get; set; }
         public bool IsCorrect { get; set; }
-        public int Order { get; set; }
+        public int DisplayOrderIndex { get; set; }
+        public string Description { get; set; }
+        public System.Guid TheoryQuestionId { get; set; }
     
-        public virtual ICollection<SelectedAnswer> SelectedAnswers { get; set; }
-        public virtual ICollection<TheoryQuestion> TheoryQuestions { get; set; }
+        public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
+        public virtual TheoryQuestion TheoryQuestion { get; set; }
     }
 }

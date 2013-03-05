@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class TheoryComponent
+    public partial class TheoryComponent
     {
         public TheoryComponent(Guid examinerId, Guid theoryFormatId)
         {
