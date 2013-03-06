@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class AssessmentTaskPilot
+    internal partial class AssessmentTaskPilot : AssessmentTask
     {
         public AssessmentTaskPilot()
         {
@@ -20,7 +20,6 @@ namespace APFTestingModel
             this.PracticalComponentTemplatePilots = new HashSet<PracticalComponentTemplatePilot>();
         }
     
-        public System.Guid Id { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
         public int MaxScore { get; set; }

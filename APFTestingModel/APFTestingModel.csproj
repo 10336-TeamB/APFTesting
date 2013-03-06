@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssessmentTask.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AssessmentTaskPacker.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -64,9 +67,17 @@
     <Compile Include="ExamPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\PracticalComponent\IPracticalComponentTemplatePacker.cs" />
+    <Compile Include="Interfaces\PracticalComponent\IAssessmentTaskPacker.cs" />
+    <Compile Include="Interfaces\PracticalComponent\IPracticalComponentPacker.cs" />
+    <Compile Include="Interfaces\PracticalComponent\IPracticalComponentPilot.cs" />
+    <Compile Include="Interfaces\IExamPacker.cs" />
+    <Compile Include="Interfaces\PracticalComponent\IAssessmentTaskPilot.cs" />
+    <Compile Include="Interfaces\IExamPilot.cs" />
+    <Compile Include="Interfaces\PracticalComponent\IPracticalComponentTemplatePilot.cs" />
+    <Compile Include="Interfaces\PracticalComponent\ISelectedAssessmentTask.cs" />
     <Compile Include="Managers\ExamManager.cs" />
     <Compile Include="Facade.cs" />
-    <Compile Include="Interfaces\IExam.cs" />
     <Compile Include="Interfaces\IPossibleAnswer.cs" />
     <Compile Include="Interfaces\ITheoryQuestion.cs" />
     <Compile Include="Managers\Manager.cs" />
@@ -87,10 +98,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="BusinessRuleExcpetion.cs" />
     <Compile Include="Partials\Exam.cs" />
+    <Compile Include="Partials\ExamPacker.cs" />
+    <Compile Include="Partials\ExamPilot.cs" />
     <Compile Include="Partials\Options.cs" />
     <Compile Include="Partials\PossibleAnswer.cs" />
-    <Compile Include="Partials\PracticalComponent.cs" />
+    <Compile Include="Partials\PracticalComponent\AssessmentTaskPacker.cs" />
+    <Compile Include="Partials\PracticalComponent\AssessmentTaskPilot.cs" />
+    <Compile Include="Partials\PracticalComponent\PracticalComponentPacker.cs" />
+    <Compile Include="Partials\PracticalComponent\PracticalComponentPilot.cs" />
+    <Compile Include="Partials\PracticalComponent\SelectedAssessmentTask.cs" />
     <Compile Include="Partials\TheoryQuestion.cs" />
     <Compile Include="Partials\SelectedAnswer.cs" />
     <Compile Include="Partials\Test.cs" />
@@ -182,6 +200,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

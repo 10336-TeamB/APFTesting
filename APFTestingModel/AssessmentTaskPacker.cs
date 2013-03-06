@@ -12,9 +12,8 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class AssessmentTaskPacker
+    internal partial class AssessmentTaskPacker : AssessmentTask
     {
-        public System.Guid Id { get; set; }
         public System.Guid PracticalComponentId { get; set; }
         public System.DateTime Date { get; set; }
         public string CanopyType { get; set; }

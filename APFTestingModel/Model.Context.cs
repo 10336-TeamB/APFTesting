@@ -24,10 +24,6 @@ public partial class APFTestingDBEntities : DbContext
         : base("name=APFTestingDBEntities")
     {
 	
-		AssessmentTaskPackers = Set<AssessmentTaskPacker>();	
-
-		AssessmentTaskPilots = Set<AssessmentTaskPilot>();	
-
 		Exams = Set<Exam>();	
 
 		PracticalComponents = Set<PracticalComponent>();	
@@ -48,6 +44,8 @@ public partial class APFTestingDBEntities : DbContext
 
 		SelectedTheoryQuestions = Set<SelectedTheoryQuestion>();	
 
+		AssessmentTasks = Set<AssessmentTask>();	
+
 
 
     }
@@ -57,10 +55,6 @@ public partial class APFTestingDBEntities : DbContext
         throw new UnintentionalCodeFirstException();
     }
 
-
-    internal DbSet<AssessmentTaskPacker> AssessmentTaskPackers { get; set; }
-
-    internal DbSet<AssessmentTaskPilot> AssessmentTaskPilots { get; set; }
 
     internal DbSet<Exam> Exams { get; set; }
 
@@ -81,6 +75,8 @@ public partial class APFTestingDBEntities : DbContext
     internal DbSet<SelectedAnswer> SelectedAnswers { get; set; }
 
     internal DbSet<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
+
+    internal DbSet<AssessmentTask> AssessmentTasks { get; set; }
 
 }
 
