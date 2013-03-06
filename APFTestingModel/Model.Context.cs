@@ -30,21 +30,23 @@ public partial class APFTestingDBEntities : DbContext
 
 		Exams = Set<Exam>();	
 
-		PossibleAnswers = Set<PossibleAnswer>();	
-
 		PracticalComponents = Set<PracticalComponent>();	
 
 		PracticalComponentTemplates = Set<PracticalComponentTemplate>();	
 
 		SelectedAssessmentTasks = Set<SelectedAssessmentTask>();	
 
-		SelectedTheoryQuestions = Set<SelectedTheoryQuestion>();	
-
 		TheoryComponents = Set<TheoryComponent>();	
 
 		TheoryComponentFormats = Set<TheoryComponentFormat>();	
 
 		TheoryQuestions = Set<TheoryQuestion>();	
+
+		PossibleAnswers = Set<PossibleAnswer>();	
+
+		SelectedAnswers = Set<SelectedAnswer>();	
+
+		SelectedTheoryQuestions = Set<SelectedTheoryQuestion>();	
 
 
 
@@ -62,21 +64,23 @@ public partial class APFTestingDBEntities : DbContext
 
     internal DbSet<Exam> Exams { get; set; }
 
-    internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
-
     internal DbSet<PracticalComponent> PracticalComponents { get; set; }
 
     internal DbSet<PracticalComponentTemplate> PracticalComponentTemplates { get; set; }
 
     internal DbSet<SelectedAssessmentTask> SelectedAssessmentTasks { get; set; }
 
-    internal DbSet<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
-
     internal DbSet<TheoryComponent> TheoryComponents { get; set; }
 
     internal DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
 
     internal DbSet<TheoryQuestion> TheoryQuestions { get; set; }
+
+    internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
+
+    internal DbSet<SelectedAnswer> SelectedAnswers { get; set; }
+
+    internal DbSet<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
 
 }
 

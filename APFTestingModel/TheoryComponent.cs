@@ -26,7 +26,7 @@ namespace APFTestingModel
         public System.DateTime Date { get; set; }
     
         public virtual ICollection<Exam> Exams { get; set; }
-        public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
         public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
+        public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
     }
 }

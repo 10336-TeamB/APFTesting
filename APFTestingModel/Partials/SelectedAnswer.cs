@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public partial class SelectedAnswer
+    internal partial class SelectedAnswer
     {
     }
 }

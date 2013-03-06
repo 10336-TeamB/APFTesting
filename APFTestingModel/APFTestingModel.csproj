@@ -119,6 +119,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectedAnswer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="SelectedAssessmentTask.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
