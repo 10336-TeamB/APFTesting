@@ -53,21 +53,19 @@ namespace APFTestingModel
 
 		public SelectedTheoryQuestion FetchNextQuestion(ref bool isLastQuestion)
 		{
-			++CurrentQuestionIndex;
-			if (CurrentQuestionIndex == (SelectedTheoryQuestions.Count - 1))
-			{
-				isLastQuestion = true;
-			}
+            //TODO: prevent out of bounds exception
+            ++CurrentQuestionIndex;
+			isLastQuestion = (CurrentQuestionIndex == (SelectedTheoryQuestions.Count - 1));
+
 			return SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
 		}
 
 		public SelectedTheoryQuestion FetchPreviousQuestion(ref bool isFirstQuestion)
 		{
-			--CurrentQuestionIndex;
-			if (CurrentQuestionIndex == 0)
-			{
-				isFirstQuestion = true;
-			}
+            //TODO: prevent out of bounds exception
+            --CurrentQuestionIndex;
+			isFirstQuestion = (CurrentQuestionIndex == 0);
+            
 			return SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
 		}
 
