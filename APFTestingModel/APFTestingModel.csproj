@@ -108,15 +108,11 @@
     <Compile Include="Partials\Exam.cs" />
     <Compile Include="Partials\ExamPacker.cs" />
     <Compile Include="Partials\ExamPilot.cs" />
-    <Compile Include="Partials\Options.cs" />
-    <Compile Include="Partials\PossibleAnswer.cs" />
     <Compile Include="Partials\PracticalComponent\AssessmentTaskPacker.cs" />
     <Compile Include="Partials\PracticalComponent\AssessmentTaskPilot.cs" />
     <Compile Include="Partials\PracticalComponent\PracticalComponentPacker.cs" />
     <Compile Include="Partials\PracticalComponent\PracticalComponentPilot.cs" />
     <Compile Include="Partials\PracticalComponent\SelectedAssessmentTask.cs" />
-    <Compile Include="Partials\TheoryComponentPacker.cs" />
-    <Compile Include="Partials\TheoryComponentPilot.cs" />
     <Compile Include="Partials\TheoryComponent\PossibleAnswer.cs" />
     <Compile Include="Partials\TheoryComponent\SelectedAnswer.cs" />
     <Compile Include="Partials\TheoryComponent\SelectedTheoryQuestion.cs" />
@@ -129,11 +125,6 @@
     <Compile Include="Partials\TheoryComponent\TheoryQuestion.cs" />
     <Compile Include="Partials\TheoryComponent\TheoryQuestionPacker.cs" />
     <Compile Include="Partials\TheoryComponent\TheoryQuestionPilot.cs" />
-    <Compile Include="Partials\TheoryQuestion.cs" />
-    <Compile Include="Partials\SelectedAnswer.cs" />
-    <Compile Include="Partials\Test.cs" />
-    <Compile Include="Partials\TheoryComponent.cs" />
-    <Compile Include="Partials\TheoryComponentFormat.cs" />
     <Compile Include="Managers\PracticalComponentManager.cs" />
     <Compile Include="PossibleAnswer.cs">
       <DependentUpon>Model.tt</DependentUpon>

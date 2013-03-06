@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-	internal class SelectedTheoryQuestion
+	internal partial class SelectedTheoryQuestion
 	{
 
 		#region Properties

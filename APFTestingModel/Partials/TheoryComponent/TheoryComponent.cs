@@ -21,7 +21,7 @@ namespace APFTestingModel
 			}
 		}
 
-		abstract bool IsCompetent
+		public bool IsCompetent
 		{
 			get
 			{
