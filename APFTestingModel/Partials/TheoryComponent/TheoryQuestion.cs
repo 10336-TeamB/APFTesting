@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal abstract partial class TheoryQuestion
+    internal abstract partial class TheoryQuestion : ITheoryQuestion
     {
-        
+
+        public TheoryQuestion(List<PossibleAnswer> possibleAnswers)
+        {
+            PossibleAnswers = possibleAnswers;
+        }
+
+        IEnumerable<IPossibleAnswer> ITheoryQuestion.PossibleAnswers
+        {
+            get { return PossibleAnswers; }
+        }
+
+        public int QuestionNumber
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

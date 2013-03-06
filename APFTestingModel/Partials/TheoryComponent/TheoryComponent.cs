@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal abstract partial class TheoryComponent
+    internal abstract partial class TheoryComponent : ITheoryComponent
     {
-		
+
+        public TheoryComponent(List<SelectedTheoryQuestion> selectedTheoryQuestions)
+        {
+            SelectedTheoryQuestions = selectedTheoryQuestions;
+        }
+
+
 		#region Properties
 
 		public decimal Score
@@ -33,6 +39,11 @@ namespace APFTestingModel
 				return false;
 			}
 		}
+
+        IEnumerable<ISelectedTheoryQuestion> ITheoryComponent.SelectedTheoryQuestions
+        {
+            get { return (IEnumerable<ISelectedTheoryQuestion>)SelectedTheoryQuestions; }
+        }
 
 		#endregion
 
@@ -73,5 +84,6 @@ namespace APFTestingModel
 		}
 
 		#endregion
-	}
+
+    }
 }

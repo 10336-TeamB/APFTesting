@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public interface ITheoryQuestion
+    interface ITheoryComponentFormat
     {
         Guid Id { get; }
-        int NumberOfCorrectAnswers { get; }
+        int NumberOfQuestions { get; }
+        int PassMark { get; }
         bool IsActive { get; }
-        string Description { get; }
-        IEnumerable<IPossibleAnswer> PossibleAnswers { get; }
-        int QuestionNumber { get; }
+        int TimeLimit { get; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-	internal partial class SelectedTheoryQuestion
+	internal partial class SelectedTheoryQuestion : ISelectedTheoryQuestion
 	{
 
 		#region Properties
@@ -29,6 +29,21 @@ namespace APFTestingModel
 			}
 		}
 
+        public ITheoryComponent Component
+        {
+            get { return TheoryComponent; }
+        }
+
+        public ITheoryQuestion Question
+        {
+            get { return TheoryQuestion; }
+        }
+
+        IEnumerable<ISelectedAnswer> ISelectedTheoryQuestion.SelectedAnswers
+        {
+            get { return (IEnumerable<ISelectedAnswer>)SelectedAnswers; }
+        }
+
 		#endregion
 
 
@@ -45,6 +60,9 @@ namespace APFTestingModel
 
 		#endregion
 
-		
-	}
+
+
+
+        
+    }
 }
