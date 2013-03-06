@@ -80,8 +80,14 @@
     <Compile Include="Facade.cs" />
     <Compile Include="Interfaces\IPossibleAnswer.cs" />
     <Compile Include="Interfaces\ITheoryQuestion.cs" />
-    <Compile Include="Managers\Manager.cs" />
+    <Compile Include="Managers\ExamManagerPacker.cs" />
+    <Compile Include="Managers\ExamManagerPilot.cs" />
+    <Compile Include="Managers\ManagerFactory.cs" />
+    <Compile Include="Managers\PracticalComponentManagerPacker.cs" />
+    <Compile Include="Managers\PracticalComponentManagerPilot.cs" />
     <Compile Include="Managers\TheoryComponentManager.cs" />
+    <Compile Include="Managers\TheoryComponentManagerPacker.cs" />
+    <Compile Include="Managers\TheoryComponentManagerPilot.cs" />
     <Compile Include="Managers\TheoryQuestionManager.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -109,6 +115,8 @@
     <Compile Include="Partials\PracticalComponent\PracticalComponentPacker.cs" />
     <Compile Include="Partials\PracticalComponent\PracticalComponentPilot.cs" />
     <Compile Include="Partials\PracticalComponent\SelectedAssessmentTask.cs" />
+    <Compile Include="Partials\TheoryComponentPacker.cs" />
+    <Compile Include="Partials\TheoryComponentPilot.cs" />
     <Compile Include="Partials\TheoryQuestion.cs" />
     <Compile Include="Partials\SelectedAnswer.cs" />
     <Compile Include="Partials\Test.cs" />
