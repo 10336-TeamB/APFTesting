@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-	class TheoryQuestionManager : Manager
+	class TheoryQuestionManager
 	{
         // Commented out to allow compilation
         //public List<TheoryQuestion> PackerQuestions

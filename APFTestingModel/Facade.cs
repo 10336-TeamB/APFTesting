@@ -15,10 +15,11 @@ namespace APFTestingModel
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions, examType);
         }
 
-        public IExam CreateExam(Guid examinerId, Guid candidateId)
-        {
-            return examManager.GenerateExam(candidateId, examinerId);
-        }
+        // IExam isn't going to work... - ADAM
+        //public IExam CreateExam(Guid examinerId, Guid candidateId)
+        //{
+        //    return examManager.GenerateExam(candidateId, examinerId);
+        //}
 
         //private TheoryQuestion fetchNextQuestion(Guid examId, ref bool isLastQuestion)
         //{
