@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    abstract internal class PracticalComponentManager
+    internal class PracticalComponentManagerPilot : PracticalComponentManager
     {
+
     }
 }

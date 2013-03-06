@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APFTestingModel
+namespace APFTestingModel.Partials
 {
-    abstract internal class PracticalComponentManager
+    internal partial class TheoryComponentPilot
     {
     }
 }

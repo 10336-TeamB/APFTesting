@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel 
 {
-    internal partial class Exam
+    internal abstract partial class Exam : IExam
     {
         // Commented out to allow compilation
-        //public Exam(Guid examinerId, Guid candidateId, Guid theoryFormatId, Guid practicalTemplateId, ExamType examType)
-        //{
-        //    TheoryComponent = new TheoryComponent(examinerId, theoryFormatId);
-        //    PracticalComponent = new PracticalComponent(examinerId, practicalTemplateId);
-        //    CandidateId = candidateId;
-        //    ExamStatusId = 1;
-        //}
+        public Exam(Guid examinerId, Guid candidateId)
+        {
+            CandidateId = candidateId;
+            ExamStatusId = 1;
+        }
 
         //public TheoryQuestion FetchNextQuestion(ref bool isLastQuestion)
         //{

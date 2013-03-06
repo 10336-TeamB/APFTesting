@@ -69,8 +69,14 @@
     <Compile Include="Interfaces\IExam.cs" />
     <Compile Include="Interfaces\IPossibleAnswer.cs" />
     <Compile Include="Interfaces\ITheoryQuestion.cs" />
-    <Compile Include="Managers\Manager.cs" />
+    <Compile Include="Managers\ExamManagerPacker.cs" />
+    <Compile Include="Managers\ExamManagerPilot.cs" />
+    <Compile Include="Managers\ManagerFactory.cs" />
+    <Compile Include="Managers\PracticalComponentManagerPacker.cs" />
+    <Compile Include="Managers\PracticalComponentManagerPilot.cs" />
     <Compile Include="Managers\TheoryComponentManager.cs" />
+    <Compile Include="Managers\TheoryComponentManagerPacker.cs" />
+    <Compile Include="Managers\TheoryComponentManagerPilot.cs" />
     <Compile Include="Managers\TheoryQuestionManager.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -88,9 +94,13 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Partials\Exam.cs" />
+    <Compile Include="Partials\ExamPacker.cs" />
+    <Compile Include="Partials\ExamPilot.cs" />
     <Compile Include="Partials\Options.cs" />
     <Compile Include="Partials\PossibleAnswer.cs" />
     <Compile Include="Partials\PracticalComponent.cs" />
+    <Compile Include="Partials\TheoryComponentPacker.cs" />
+    <Compile Include="Partials\TheoryComponentPilot.cs" />
     <Compile Include="Partials\TheoryQuestion.cs" />
     <Compile Include="Partials\SelectedAnswer.cs" />
     <Compile Include="Partials\Test.cs" />

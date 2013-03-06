@@ -11,10 +11,12 @@ namespace APFTestingModel
         PilotExam = 1, PackerExam = 2
     }
 
-    internal class ExamManager : Manager
+    abstract internal class ExamManager
     {
-        private PracticalComponentManager practicalComponentManager = new PracticalComponentManager();
-        private TheoryComponentManager theoryComponentManager = new TheoryComponentManager();
+        protected PracticalComponentManager practicalComponentManager;
+        protected TheoryComponentManager theoryComponentManager;
+
+        abstract public Exam GenerateExam(Guid candidateId, Guid examinerId);
 
         // Commented out to allow compilation
         //public Exam FetchExam(Guid examId)

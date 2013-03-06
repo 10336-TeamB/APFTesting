@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
     internal partial class TheoryComponent
     {
+        
+
         // Commented out to allow compilation
         //public TheoryComponent(Guid examinerId, Guid theoryFormatId)
         //{

@@ -9,13 +9,16 @@ namespace APFTestingModel
     public class Facade : IDisposable
     {
         private APFTestingDBEntities _context = new APFTestingDBEntities();
-        private ExamManager examManager = new ExamManager();
+        private ExamManager examManager;
 
-        //TODO: Implement Functionality - Pradipna
-        //public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType) 
-        //{
-        //    return examManager.GenerateExam(examinerId, candidateId, examType);
-        //}
+        public Facade(ExamType examType) {
+            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions, examType);
+        }
+
+        public IExam CreateExam(Guid examinerId, Guid candidateId)
+        {
+            return examManager.GenerateExam(candidateId, examinerId);
+        }
 
         //private TheoryQuestion fetchNextQuestion(Guid examId, ref bool isLastQuestion)
         //{
