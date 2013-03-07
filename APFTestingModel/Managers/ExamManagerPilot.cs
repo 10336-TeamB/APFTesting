@@ -16,8 +16,9 @@ namespace APFTestingModel
 
         public override Exam GenerateExam(Guid examinerId, Guid candidateId)
         {
-            TheoryComponentPilot theoryComponentPilot = new TheoryComponentPilot();
-            PracticalComponentPilot practicalComponentPilot = new PracticalComponentPilot();
+            TheoryComponentPilot theoryComponentPilot = (TheoryComponentPilot)theoryComponentManager.GenerateTheoryComponent();
+            PracticalComponentPilot practicalComponentPilot = (PracticalComponentPilot)practicalComponentManager.GeneratePracticalComponent();
+
             ExamPilot examPilot = new ExamPilot(examinerId, candidateId, theoryComponentPilot, practicalComponentPilot);
             return examPilot;
         }

@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class PossibleAnswer : IPossibleAnswer
+    internal abstract class PracticalComponent
     {
-        public bool IsChecked { get; set; }
-        
-        public PossibleAnswer()
+        public PracticalComponent(PracticalComponentTemplate activeTemplate)
         {
-            IsChecked = false;
+            PracticalComponentTemplate = activeTemplate;
         }
     }
 }

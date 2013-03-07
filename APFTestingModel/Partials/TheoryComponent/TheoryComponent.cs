@@ -9,9 +9,9 @@ namespace APFTestingModel
     internal abstract partial class TheoryComponent : ITheoryComponent, ITheoryComponentResult
     {
 
-        public TheoryComponent(List<SelectedTheoryQuestion> selectedTheoryQuestions)
+        public TheoryComponent(TheoryComponentFormat activeTheoryFormat)
         {
-            SelectedTheoryQuestions = selectedTheoryQuestions;
+            TheoryComponentFormat = activeTheoryFormat;
         }
 
 
@@ -51,13 +51,16 @@ namespace APFTestingModel
 
 		#region Methods
 
+       
+
 		public SelectedTheoryQuestion FetchNextQuestion(ref bool isLastQuestion)
 		{
             //TODO: prevent out of bounds exception
             ++CurrentQuestionIndex;
 			isLastQuestion = (CurrentQuestionIndex == (SelectedTheoryQuestions.Count - 1));
-
-			return SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
+            SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
+            selectedTheoryQuestion.checkPossibleAnswers();
+			return selectedTheoryQuestion;
 		}
 
 		public SelectedTheoryQuestion FetchPreviousQuestion(ref bool isFirstQuestion)
@@ -65,8 +68,9 @@ namespace APFTestingModel
             //TODO: prevent out of bounds exception
             --CurrentQuestionIndex;
 			isFirstQuestion = (CurrentQuestionIndex == 0);
-            
-			return SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
+            SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
+            selectedTheoryQuestion.checkPossibleAnswers();
+            return selectedTheoryQuestion;
 		}
 
 		public SelectedTheoryQuestion FetchSpecificQuestion(int questionIndex)
@@ -76,7 +80,9 @@ namespace APFTestingModel
                 throw new BusinessRuleExcpetion("Question Index Invalid");
             }
 			CurrentQuestionIndex = questionIndex;
-			return SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
+            SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
+            selectedTheoryQuestion.checkPossibleAnswers();
+            return selectedTheoryQuestion;
 		}
 
 		public void SelectAnswers(List<Guid> possibleAnswerIds, bool isMarkedForReview)

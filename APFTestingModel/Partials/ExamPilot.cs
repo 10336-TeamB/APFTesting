@@ -8,18 +8,14 @@ namespace APFTestingModel
 {
     internal partial class ExamPilot
     {
+        //Exmpty constructor added for temporary work with the Facade/UI - ADAM/ALAN
         public ExamPilot() { }
 
         public ExamPilot(Guid examinerId, Guid candidateId, TheoryComponentPilot theoryComponentPilot, PracticalComponentPilot practicalComponentPilot)
             : base(examinerId, candidateId)
         {
             TheoryComponent = theoryComponentPilot;
-            base.PracticalComponent = practicalComponentPilot;
-        }
-
-        public new IPracticalComponentPilot PracticalComponent
-        {
-            get { return base.PracticalComponent as PracticalComponentPilot; }
+            PracticalComponent = practicalComponentPilot;
         }
     }
 }

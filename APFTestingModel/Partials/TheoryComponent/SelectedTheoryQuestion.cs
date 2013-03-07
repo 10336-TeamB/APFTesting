@@ -4,10 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace APFTestingModel
 {
 	internal partial class SelectedTheoryQuestion : ISelectedTheoryQuestion
 	{
+        private APFTestingModel.TheoryQuestion randomQuestion;
+
+        public SelectedTheoryQuestion(TheoryComponent theoryComponent, TheoryQuestion randomQuestion, int questionIndex)
+        {
+            // TODO: Complete member initialization
+            this.TheoryComponent = theoryComponent;
+            this.randomQuestion = randomQuestion;
+            this.QuestionIndex = questionIndex;
+            this.IsMarkedForReview = false;
+        }
 
 		#region Properties
 
@@ -45,10 +56,10 @@ namespace APFTestingModel
             }
         }
 
-        IEnumerable<ISelectedAnswer> ISelectedTheoryQuestion.SelectedAnswers
-        {
-            get { return (IEnumerable<ISelectedAnswer>)SelectedAnswers; }
-        }
+        //IEnumerable<ISelectedAnswer> ISelectedTheoryQuestion.SelectedAnswers
+        //{
+        //    get { return (IEnumerable<ISelectedAnswer>)SelectedAnswers; }
+        //}
 
         public bool IsAnswered
         {
@@ -58,9 +69,12 @@ namespace APFTestingModel
             }
         }
 
-        public int NumberOfCorrectAnswers
+        public IEnumerable<IPossibleAnswer> PossibleAnswers
         {
-            get { return TheoryQuestion.NumberOfCorrectAnswers; }
+            get
+            {
+                return TheoryQuestion.PossibleAnswers;
+            }
         }
 
 		#endregion
@@ -69,18 +83,25 @@ namespace APFTestingModel
 
 		#region Methods
 
+
         public void SelectAnswers(List<Guid> possibleAnswerIds)
         {
+            SelectedAnswers.Clear();
             foreach (var possibleAnswerId in possibleAnswerIds)
             {
                 SelectedAnswers.Add(new SelectedAnswer(this.Id, possibleAnswerId));
             }
         }
 
+        public void checkPossibleAnswers()
+        {
+            foreach (var answer in SelectedAnswers)
+            {
+                answer.PossibleAnswer.IsChecked = true;
+            }
+        }
+
 		#endregion
-
-
-
 
 
 

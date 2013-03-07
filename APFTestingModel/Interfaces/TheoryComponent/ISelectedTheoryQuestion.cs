@@ -12,10 +12,10 @@ namespace APFTestingModel
         //ITheoryComponent Component { get; }
         //ITheoryQuestion Question { get; }
         string Description { get; }
-        IEnumerable<ISelectedAnswer> SelectedAnswers { get; }
+        //IEnumerable<ISelectedAnswer> SelectedAnswers { get; }
+        IEnumerable<IPossibleAnswer> PossibleAnswers { get; }
         int QuestionIndex { get; }
         bool IsMarkedForReview { get; }
         bool IsAnswered { get; }
-        int NumberOfCorrectAnswers { get; }
     }
 }

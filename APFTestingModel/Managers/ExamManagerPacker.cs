@@ -16,8 +16,9 @@ namespace APFTestingModel
 
         public override Exam GenerateExam(Guid examinerId, Guid candidateId)
         {
-            TheoryComponentPacker theoryComponentPacker = new TheoryComponentPacker();
-            PracticalComponentPacker practicalComponentPacker = new PracticalComponentPacker();
+            TheoryComponentPacker theoryComponentPacker = (TheoryComponentPacker)theoryComponentManager.GenerateTheoryComponent();
+            PracticalComponentPacker practicalComponentPacker = (PracticalComponentPacker)practicalComponentManager.GeneratePracticalComponent();
+
             ExamPacker examPacker = new ExamPacker(examinerId, candidateId, theoryComponentPacker, practicalComponentPacker);
             return examPacker;
         }

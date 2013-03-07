@@ -8,7 +8,13 @@ namespace APFTestingModel
 {
     internal class TheoryComponentManagerPacker : TheoryComponentManager
     {
-        public TheoryComponentManagerPacker(IEnumerable<TheoryQuestion> theoryQuestionsPacker) : base(theoryQuestionsPacker) { }
-        
+        public TheoryComponentManagerPacker(IEnumerable<TheoryQuestion> theoryQuestionsPacker, TheoryComponentFormat activeTheoryFormat) : base(theoryQuestionsPacker, activeTheoryFormat) { }
+
+        public override TheoryComponent GenerateTheoryComponent()
+        {
+            TheoryComponentPacker theoryComponent = new TheoryComponentPacker(activeFormat);
+            theoryComponent.SelectedTheoryQuestions = FetchRandomQuestions(activeFormat.NumberOfQuestions, theoryComponent);
+            return theoryComponent;
+        }
     }
 }

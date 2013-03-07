@@ -11,13 +11,32 @@ namespace APFTestingModel
         private APFTestingDBEntities _context = new APFTestingDBEntities();
         private ExamManager examManager;
 
-        public Facade(ExamType examType) {
-            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions, examType);
+        private void createExamManager(ExamType examType)
+        {
+            TheoryComponentFormat activeTheoryFormat;
+            PracticalComponentTemplate activePracticalTemplate;
+
+            if (examType == ExamType.PackerExam)
+            {
+                activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().FirstOrDefault(f => f.IsActive);
+                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().First();
+            }
+            else
+            {
+                activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
+                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().First();
+            }
+            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions, activeTheoryFormat, activePracticalTemplate, examType);
         }
 
-        public IExam CreateExam(Guid examinerId, Guid candidateId)
+        public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
         {
-            return examManager.GenerateExam(candidateId, examinerId);
+            createExamManager(examType);
+
+            Exam exam = examManager.GenerateExam(candidateId, examinerId);
+            _context.Exams.Add(exam);
+            _context.SaveChanges();
+            return exam;
         }
 
         private Exam fetchExam(Guid examId)

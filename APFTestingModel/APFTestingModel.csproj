@@ -116,6 +116,7 @@
     <Compile Include="Partials\ExamPilot.cs" />
     <Compile Include="Partials\PracticalComponent\AssessmentTaskPacker.cs" />
     <Compile Include="Partials\PracticalComponent\AssessmentTaskPilot.cs" />
+    <Compile Include="Partials\PracticalComponent\PracticalComponent.cs" />
     <Compile Include="Partials\PracticalComponent\PracticalComponentPacker.cs" />
     <Compile Include="Partials\PracticalComponent\PracticalComponentPilot.cs" />
     <Compile Include="Partials\PracticalComponent\SelectedAssessmentTask.cs" />

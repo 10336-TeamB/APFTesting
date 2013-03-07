@@ -8,6 +8,12 @@ namespace APFTestingModel
 {
     internal class PracticalComponentManagerPacker : PracticalComponentManager
     {
+        public PracticalComponentManagerPacker(PracticalComponentTemplate activeTemplate) : base(activeTemplate) { }
 
+        public override PracticalComponent GeneratePracticalComponent()
+        {
+            PracticalComponentPacker practicalComponentPacker = new PracticalComponentPacker(activeTemplate);
+            return practicalComponentPacker;
+        }
     }
 }

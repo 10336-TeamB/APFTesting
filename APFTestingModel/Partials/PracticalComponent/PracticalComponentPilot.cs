@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class PracticalComponentPilot : IPracticalComponentPilot
+    internal partial class PracticalComponentPilot : PracticalComponent, IPracticalComponentPilot
     {
+        public PracticalComponentPilot(PracticalComponentTemplate activeTemplate) : base(activeTemplate) { }
+
         // TODO - Implement IsCompetent
         public bool IsCompetent
         {
