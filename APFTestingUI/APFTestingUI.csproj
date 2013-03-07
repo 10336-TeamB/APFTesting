@@ -125,12 +125,16 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
+    <Compile Include="Controllers\ExaminerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Examiner\CandidateDisplayItem.cs" />
+    <Compile Include="Models\Examiner\Index.cs" />
     <Compile Include="Models\Exam\PossibleAnswer.cs" />
+    <Compile Include="Models\Exam\QuestionDisplayItem.cs" />
     <Compile Include="Models\Exam\TheoryQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -243,6 +247,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Exam\Start.cshtml" />
     <Content Include="Views\Exam\DisplayQuestion.cshtml" />
+    <Content Include="Views\Examiner\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

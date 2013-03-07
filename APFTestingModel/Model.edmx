@@ -262,6 +262,7 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="ImagePath" Type="varchar(max)" />
           <Property Name="ExamTypeId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK_AssessmentTaskPacker_AssessmentTask">
@@ -679,6 +680,7 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="PossibleAnswers" Relationship="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion" FromRole="TheoryQuestion" ToRole="PossibleAnswer" />
           <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" FromRole="TheoryQuestion" ToRole="SelectedTheoryQuestion" />
+          <Property Type="Int32" Name="CategoryId" Nullable="false" />
         </EntityType>
         <Association Name="FK_AssessmentTaskPacker_PracticalComponentPacker">
           <End Role="PracticalComponentPacker" Type="APFTestingDBModel.PracticalComponentPacker" Multiplicity="1" />
@@ -1004,6 +1006,7 @@
           <EntitySetMapping Name="TheoryQuestions">
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryQuestion)">
               <MappingFragment StoreEntitySet="TheoryQuestion">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />

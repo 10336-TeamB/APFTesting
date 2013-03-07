@@ -60,6 +60,20 @@ namespace APFTestingModel
         //    return fetchExam(id);
         //}
 
+        #region AddedByAlanAndAdam
+        public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
+        {
+            // Return all candidates assocaiated with the examiner.
+
+            // Returning dummy Candidate
+            yield return new Candidate();
+        }
+
+
+
+        #endregion
+
+
         //Hook-in test method
         public string TestDBConnection()
         {

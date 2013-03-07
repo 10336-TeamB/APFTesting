@@ -17,8 +17,11 @@ namespace APFTestingModel
         ExamCompleted = 7
     }
 
-    internal abstract partial class Exam
+    internal abstract partial class Exam : IExam
     {
+        //Exmpty constructor added for temporary work with the Facade/UI - ADAM/ALAN
+        public Exam() { }
+
         public Exam(Guid examinerId, Guid candidateId)
         {
             CandidateId = candidateId;

@@ -67,6 +67,8 @@
     <Compile Include="ExamPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICandidate.cs" />
+    <Compile Include="Interfaces\IExam.cs" />
     <Compile Include="Interfaces\PracticalComponent\IPracticalComponentTemplatePacker.cs" />
     <Compile Include="Interfaces\PracticalComponent\IAssessmentTaskPacker.cs" />
     <Compile Include="Interfaces\PracticalComponent\IPracticalComponentPacker.cs" />
@@ -109,6 +111,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="BusinessRuleExcpetion.cs" />
+    <Compile Include="Partials\Candidate.cs" />
     <Compile Include="Partials\Exam.cs" />
     <Compile Include="Partials\ExamPacker.cs" />
     <Compile Include="Partials\ExamPilot.cs" />

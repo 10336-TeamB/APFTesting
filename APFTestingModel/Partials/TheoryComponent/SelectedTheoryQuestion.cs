@@ -19,7 +19,7 @@ namespace APFTestingModel
 				if (SelectedAnswers.Count == TheoryQuestion.NumberOfCorrectAnswers)
 				{
 					//Checks if submitted answers are all correct
-					return (SelectedAnswers.Count(answer => answer.IsCorrect == true) == TheoryQuestion.NumberOfCorrectAnswers)
+                    return (SelectedAnswers.Count(answer => answer.IsCorrect == true) == TheoryQuestion.NumberOfCorrectAnswers);
 					
 				}
 

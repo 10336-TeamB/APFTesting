@@ -1,0 +1,28 @@
+﻿@model APFTestingUI.Models.Examiner.Index
+
+@{
+    ViewBag.Title = "Examiner Home";
+}
+
+<h2>Hello user.name!</h2>
+<h2>Welcome to the Examiner home page!</h2>
+
+<a href="#">Add new Candidate</a>
+
+<div id="candidate-list">
+    
+    @foreach (var candidate in Model.Candidates)
+    {
+        <div class="candidate-list-item">
+            <div class="candidate-first-name">
+                @candidate.FirstName
+            </div>
+            <div class="candidate-last-name">
+                @candidate.LastName
+            </div>
+            @Html.ActionLink("Start Theory Exam", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "start-theory-link" })
+            @Html.ActionLink("Input Practical Results", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "input-practical-link" })
+        </div>
+    }
+
+</div>

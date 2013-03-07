@@ -5,8 +5,15 @@
 
     <h2>Exam Instructions</h2>
     
-    <p>This will be a paragraph describing the rules of the examination to the candidate.</p>
+    <ul>
+        <li>The exam consists of 30 questions.</li>
+        <li>You will have a time limit of 60 mins to complete the exam.</li>
+        <li>Each question has only one correct answer <strong><em>UNLESS</em></strong> stated otherwise in the question.</li>
+        <li>You may mark questions for review</li>
+        <li>Once all questions have been answered a summary page will be displayed. From here you can go back and alter any answer, and marked questions will be highlighted.</li>
+        <li>Good luck!</li>
+    </ul>
 
-    <a href="@Url.Action("NextQuestion")">Start Exam</a>
+    @Html.ActionLink("Start Exam", "Question", "Exam", new { examId = @ViewBag.ExamId, questionNumber = 0 })
 
 </div>

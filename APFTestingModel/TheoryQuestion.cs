@@ -25,6 +25,7 @@ namespace APFTestingModel
         public bool IsActive { get; set; }
         public string ImagePath { get; set; }
         public string Description { get; set; }
+        public int CategoryId { get; set; }
     
         public virtual ICollection<PossibleAnswer> PossibleAnswers { get; set; }
         public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }

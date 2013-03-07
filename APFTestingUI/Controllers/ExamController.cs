@@ -11,25 +11,29 @@ namespace APFTestingUI.Controllers
     public class ExamController : BaseController
     {
         //
+        // GET: /Exam/Create
+
+        //public ActionResult Create()
+        //{
+
+        //}
+
+        //
         // GET: /Exam/Start/
 
-        public ActionResult Start()
+        public ActionResult Start(Guid examId)
         {
-            //TODO: relate start page to a specifc exam
-            //TODO: Based on Exam use exam format information in view
-            //TODO: Handle exception of unknown Guid
+            ViewBag.ExamId = examId;
             return View();
         }
 
         //
         // GET: /Exam/NextQuestion/
 
-        public ActionResult NextQuestion()
+        public ActionResult NextQuestion(Guid examId)
         {
-            //TODO: Fetch next question from Model
-            //var model = new TheoryQuestion(facade.FetchNextQuestion(examId));
-            var model = new TheoryQuestion();
-            return View("DisplayQuestion", model);
+  
+            return View("DisplayQuestion");
         }
 
         //
@@ -45,9 +49,9 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Exam/Question/
 
-        public ActionResult Question(int questionNumber)
+        public ActionResult Question(Guid examId, int questionNumber)
         {
-            //TODO: Implement specific question display
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber));
             return View("DisplayQuestion");
         }
     }
