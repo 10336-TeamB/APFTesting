@@ -14,10 +14,12 @@ namespace APFTestingModel
         TheoryComponentCompleted = 4,
         PracticalComponentFailed = 5,
         PracticalComponentCompleted = 6,
-        ExamCompleted = 7
+        ExamCompleted = 7,
+        ExamVoided = 8,
+        Count = 8
     }
 
-    internal abstract partial class Exam
+    internal abstract partial class Exam : IExam
     {
         public Exam(Guid examinerId, Guid candidateId)
         {
@@ -29,44 +31,43 @@ namespace APFTestingModel
         {
             get
             {
-                switch (ExamStatusId)
+                if (ExamStatusId > (int)ExamStatus.Count || ExamStatusId < 0)
                 {
-                    case 1:
-                        return ExamStatus.ExamCreated;
-                    case 2:
-                        return ExamStatus.TheoryComponentInProgress;
-                    case 3:
-                        return ExamStatus.TheoryComponentFailed;
-                    case 4:
-                        return ExamStatus.TheoryComponentCompleted;
-                    case 5:
-                        return ExamStatus.PracticalComponentFailed;
-                    case 6:
-                        return ExamStatus.PracticalComponentCompleted;
-                    case 7:
-                        return ExamStatus.ExamCompleted;
-                    default:
-                        throw new BusinessRuleExcpetion("Exam Status invalid");
+                    throw new BusinessRuleExcpetion("Exam Status invalid");
                 }
+                return (ExamStatus)ExamStatusId;
+            }
+        }
+
+        public IEnumerable<SelectedTheoryQuestion> SelectedTheoryQuestions
+        {
+            get
+            {
+                return TheoryComponent.SelectedTheoryQuestions;
             }
         }
 
         // Commented out to allow compilation
-        
-        //public TheoryQuestion FetchNextQuestion(ref bool isLastQuestion)
-        //{
-        //    return TheoryComponent.FetchNextQuestion(ref isLastQuestion);
-        //}
 
-        //public TheoryQuestion FetchPreviousQuestion(ref bool isFirstQuestion)
-        //{
-        //    return TheoryComponent.FetchPreviousQuestion(ref isFirstQuestion);
-        //}
+        public SelectedTheoryQuestion FetchNextQuestion(ref bool isLastQuestion)
+        {
+            return TheoryComponent.FetchNextQuestion(ref isLastQuestion);
+        }
 
-        //public TheoryQuestion FetchQuestion(int index, ref bool isFirstQuestion, ref bool isLastQuestion)
-        //{
-        //    return TheoryComponent.FetchQuestion(index, ref isFirstQuestion, ref isLastQuestion);
-        //}
+        public SelectedTheoryQuestion FetchPreviousQuestion(ref bool isFirstQuestion)
+        {
+            return TheoryComponent.FetchPreviousQuestion(ref isFirstQuestion);
+        }
+
+        public SelectedTheoryQuestion FetchSpecificQuestion(int index)
+        {
+            return TheoryComponent.FetchSpecificQuestion(index);
+        }
+
+        public void SelectAnswers(List<Guid> selectedAnswers, bool isMarkedForReview)
+        {
+            TheoryComponent.SelectAnswers(selectedAnswers, isMarkedForReview);
+        }
 
         //public void AddTheoryQuestion(TheoryQuestion question)
         //{

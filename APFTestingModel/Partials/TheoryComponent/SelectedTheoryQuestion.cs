@@ -19,7 +19,7 @@ namespace APFTestingModel
 				if (SelectedAnswers.Count == TheoryQuestion.NumberOfCorrectAnswers)
 				{
 					//Checks if submitted answers are all correct
-					return (SelectedAnswers.Count(answer => answer.IsCorrect == true) == TheoryQuestion.NumberOfCorrectAnswers)
+                    return (SelectedAnswers.Count(answer => answer.IsCorrect == true) == TheoryQuestion.NumberOfCorrectAnswers);
 					
 				}
 
@@ -27,19 +27,35 @@ namespace APFTestingModel
 			}
 		}
 
-        public ITheoryComponent Component
-        {
-            get { return TheoryComponent; }
-        }
+        //public ITheoryComponent Component
+        //{
+        //    get { return TheoryComponent; }
+        //}
 
-        public ITheoryQuestion Question
+        //public ITheoryQuestion Question
+        //{
+        //    get { return TheoryQuestion; }
+        //}
+
+        public string Description
         {
-            get { return TheoryQuestion; }
+            get
+            {
+                return TheoryQuestion.Description;
+            }
         }
 
         IEnumerable<ISelectedAnswer> ISelectedTheoryQuestion.SelectedAnswers
         {
             get { return (IEnumerable<ISelectedAnswer>)SelectedAnswers; }
+        }
+
+        public bool IsAnswered
+        {
+            get
+            {
+                return (SelectedAnswers.Count == 0) ? false : true;
+            }
         }
 
 		#endregion
@@ -48,13 +64,13 @@ namespace APFTestingModel
 
 		#region Methods
 
-		public void selectAnswer(List<Guid> possibleAnswerIds)
-		{
-			foreach (var possibleAnswerId in possibleAnswerIds)
-			{
-				SelectedAnswers.Add(new SelectedAnswer(this.Id, possibleAnswerId));
-			}
-		}
+        public void SelectAnswers(List<Guid> possibleAnswerIds)
+        {
+            foreach (var possibleAnswerId in possibleAnswerIds)
+            {
+                SelectedAnswers.Add(new SelectedAnswer(this.Id, possibleAnswerId));
+            }
+        }
 
 		#endregion
 
