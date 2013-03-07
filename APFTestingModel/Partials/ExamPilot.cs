@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class ExamPilot : IExamPilot
+    internal partial class ExamPilot
     {
         //Exmpty constructor added for temporary work with the Facade/UI - ADAM/ALAN
         public ExamPilot() { }

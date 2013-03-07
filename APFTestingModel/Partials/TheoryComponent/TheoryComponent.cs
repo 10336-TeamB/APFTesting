@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal abstract partial class TheoryComponent : ITheoryComponent
+    internal abstract partial class TheoryComponent : ITheoryComponent, ITheoryComponentResult
     {
 
         public TheoryComponent(List<SelectedTheoryQuestion> selectedTheoryQuestions)
@@ -71,15 +71,28 @@ namespace APFTestingModel
 
 		public SelectedTheoryQuestion FetchSpecificQuestion(int questionIndex)
 		{
+            if (questionIndex < 0 || questionIndex >= SelectedTheoryQuestions.Count)
+            {
+                throw new BusinessRuleExcpetion("Question Index Invalid");
+            }
 			CurrentQuestionIndex = questionIndex;
 			return SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
 		}
 
-		public void SelectAnswer(List<Guid> possibleAnswerIds)
+		public void SelectAnswers(List<Guid> possibleAnswerIds, bool isMarkedForReview)
 		{
 			var currentQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
-			currentQuestion.selectAnswer(possibleAnswerIds);
+			currentQuestion.SelectAnswers(possibleAnswerIds);
+            if (isMarkedForReview)
+            {
+                markQuestionForReview(currentQuestion);
+            }
 		}
+
+        private void markQuestionForReview(SelectedTheoryQuestion question)
+        {
+            question.IsMarkedForReview = true;
+        }
 
 		#endregion
 

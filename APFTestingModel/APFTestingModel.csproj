@@ -73,15 +73,14 @@
     <Compile Include="Interfaces\PracticalComponent\IAssessmentTaskPacker.cs" />
     <Compile Include="Interfaces\PracticalComponent\IPracticalComponentPacker.cs" />
     <Compile Include="Interfaces\PracticalComponent\IPracticalComponentPilot.cs" />
-    <Compile Include="Interfaces\IExamPacker.cs" />
     <Compile Include="Interfaces\PracticalComponent\IAssessmentTaskPilot.cs" />
-    <Compile Include="Interfaces\IExamPilot.cs" />
     <Compile Include="Interfaces\PracticalComponent\IPracticalComponentTemplatePilot.cs" />
     <Compile Include="Interfaces\PracticalComponent\ISelectedAssessmentTask.cs" />
     <Compile Include="Interfaces\TheoryComponent\ISelectedAnswer.cs" />
     <Compile Include="Interfaces\TheoryComponent\ITheoryComponent.cs" />
     <Compile Include="Interfaces\TheoryComponent\ITheoryComponentFormat.cs" />
     <Compile Include="Interfaces\TheoryComponent\ISelectedTheoryQuestion.cs" />
+    <Compile Include="Interfaces\TheoryComponent\ITheoryComponentResult.cs" />
     <Compile Include="Managers\ExamManager.cs" />
     <Compile Include="Facade.cs" />
     <Compile Include="Interfaces\TheoryComponent\IPossibleAnswer.cs" />
