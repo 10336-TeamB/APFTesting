@@ -17,6 +17,7 @@ namespace APFTestingUI.Models.Exam
             IsMarkedForReview = question.IsMarkedForReview;
             NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
             //Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
+            Answers = createMockAnswers();
            
         }
 
@@ -30,5 +31,13 @@ namespace APFTestingUI.Models.Exam
 
         //Needed for question navigation direction and binding in cshtml, not used in this model
         public bool NavDirection { get; set; }
+
+        private IEnumerable<AnswerDisplayItem> createMockAnswers()
+        {
+            yield return new AnswerDisplayItem { Description = "First answer", DisplayOrderIndex = 1 };
+            yield return new AnswerDisplayItem { Description = "Second answer", DisplayOrderIndex = 2 };
+            yield return new AnswerDisplayItem { Description = "Third answer", DisplayOrderIndex = 3 };
+            yield return new AnswerDisplayItem { Description = "Fourth answer", DisplayOrderIndex = 4 };
+        }
     }
 }
