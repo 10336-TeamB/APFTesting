@@ -22,7 +22,7 @@ namespace APFTestingModel
 
         private Exam fetchExam(Guid examId)
         {
-            return _context.Exams.FirstOrDefault(e => e.Id == examId);
+            return _context.Exams.Include("TheoryComponent").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").FirstOrDefault(e => e.Id == examId);
         }
 
         public ISelectedTheoryQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)

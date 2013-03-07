@@ -8,22 +8,27 @@ namespace APFTestingUI.Models.Exam
 {
     public class QuestionDisplayItem
     {
-        public QuestionDisplayItem(ISelectedTheoryQuestion question)
+        public QuestionDisplayItem(ISelectedTheoryQuestion question, Guid examId)
         {
             Id = question.Id;
+            ExamId = examId;
             Index = question.QuestionIndex;
-            //Description = question.Description;
+            Description = question.Description;
             IsMarkedForReview = question.IsMarkedForReview;
-            //Answers = question.SelectedAnswers;
-
-
+            NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
+            //Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
+           
         }
 
         public Guid Id { get; set; }
+        public Guid ExamId { get; set; }
         public int Index { get; set; }
         public string Description { get; set; }
+        public int NumberOfCorrectAnswers { get; set; }
         public bool IsMarkedForReview { get; set; }
-        public IEnumerable<IPossibleAnswer> Answers { get; set; }
-        public int[] SelectedAnswers { get; set; }
+        public IEnumerable<AnswerDisplayItem> Answers { get; set; }
+
+        //Needed for question navigation direction and binding in cshtml, not used in this model
+        public bool NavDirection { get; set; }
     }
 }

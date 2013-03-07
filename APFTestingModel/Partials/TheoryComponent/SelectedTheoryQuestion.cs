@@ -58,6 +58,11 @@ namespace APFTestingModel
             }
         }
 
+        public int NumberOfCorrectAnswers
+        {
+            get { return TheoryQuestion.NumberOfCorrectAnswers; }
+        }
+
 		#endregion
 
 
@@ -73,6 +78,9 @@ namespace APFTestingModel
         }
 
 		#endregion
+
+
+
 
 
 

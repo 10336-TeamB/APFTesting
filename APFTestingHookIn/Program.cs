@@ -7,7 +7,7 @@ namespace APFTestingHookIn {
         {
             using (Facade _apf = new Facade(ExamType.PilotExam))
             {
-                var test = _apf.TestDBConnection();
+                var exam = _apf.FetchSpecificQuestion;
             }
         }
     }

@@ -51,8 +51,21 @@ namespace APFTestingUI.Controllers
 
         public ActionResult Question(Guid examId, int questionNumber)
         {
-            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber));
-            return View("DisplayQuestion");
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId);
+            return View("DisplayQuestion", model);
+        }
+
+
+        [HttpPost]
+        public ActionResult SubmitAnswer(AnsweredQuestion question)
+        {
+            // Communicate with facade to submit answer
+
+            if (question.NavDirection)
+            {
+                return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+            }
+            return RedirectToAction("NextQuestion", new { examId = question.ExamId });
         }
     }
 }

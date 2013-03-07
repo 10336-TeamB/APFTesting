@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
     internal partial class ExamPacker
     {
+        public ExamPacker() { }
+
         public ExamPacker(Guid examinerId, Guid candidateId, TheoryComponentPacker theoryComponentPacker, PracticalComponentPacker practicalComponentPacker)
             : base(examinerId, candidateId)
         {
