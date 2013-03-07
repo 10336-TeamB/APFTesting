@@ -13,6 +13,7 @@ namespace APFTestingModel
         //ITheoryQuestion Question { get; }
         string Description { get; }
         //IEnumerable<ISelectedAnswer> SelectedAnswers { get; }
+        int NumberOfCorrectAnswers { get; }
         IEnumerable<IPossibleAnswer> PossibleAnswers { get; }
         int QuestionIndex { get; }
         bool IsMarkedForReview { get; }

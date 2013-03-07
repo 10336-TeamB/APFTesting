@@ -20,6 +20,7 @@ namespace APFTestingModel
             this.IsMarkedForReview = false;
         }
 
+
 		#region Properties
 
 		public bool isCorrect
@@ -37,6 +38,11 @@ namespace APFTestingModel
 				return false;
 			}
 		}
+
+        public int NumberOfCorrectAnswers
+        {
+            get { return TheoryQuestion.NumberOfCorrectAnswers; }
+        }
 
         //public ITheoryComponent Component
         //{
@@ -102,6 +108,9 @@ namespace APFTestingModel
         }
 
 		#endregion
+
+
+
 
 
 

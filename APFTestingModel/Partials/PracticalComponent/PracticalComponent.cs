@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal abstract class PracticalComponent
+    internal abstract partial class PracticalComponent
     {
         public PracticalComponent(PracticalComponentTemplate activeTemplate)
         {

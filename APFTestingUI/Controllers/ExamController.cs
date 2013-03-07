@@ -51,7 +51,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult Question(Guid examId, int questionNumber)
         {
-            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId);
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(new Guid("c25304dc-1069-47c6-97f8-b385305a2531"), questionNumber), examId);
             return View("DisplayQuestion", model);
         }
 

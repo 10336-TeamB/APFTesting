@@ -11,7 +11,7 @@ namespace APFTestingUI.Controllers
     public class BaseController : Controller
     {
         //HACK - Hardcoded PilotExam Facade
-        protected Facade _facade = new Facade(ExamType.PilotExam);
+        protected Facade _facade = new Facade();
 
         protected override void Dispose(bool disposing)
         {

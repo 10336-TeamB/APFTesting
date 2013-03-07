@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
 	internal partial class TheoryComponentPacker : TheoryComponent
 	{
+        public TheoryComponentPacker() { }
+
         public TheoryComponentPacker(TheoryComponentFormat activeTheoryFormat)
             : base(activeTheoryFormat)
         {

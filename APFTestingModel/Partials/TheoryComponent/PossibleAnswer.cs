@@ -10,9 +10,9 @@ namespace APFTestingModel
     {
         public bool IsChecked { get; set; }
         
-        public PossibleAnswer()
-        {
-            IsChecked = false;
-        }
+        //public PossibleAnswer()
+        //{
+        //    IsChecked = false;
+        //}
     }
 }

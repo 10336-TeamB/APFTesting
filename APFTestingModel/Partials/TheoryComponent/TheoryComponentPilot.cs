@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
 	internal partial class TheoryComponentPilot : TheoryComponent
 	{
+        public TheoryComponentPilot() { }
+
         public TheoryComponentPilot(TheoryComponentFormat activeTheoryFormat)
             : base(activeTheoryFormat)
         {
