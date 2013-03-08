@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     var headerHeight = $('#header').height();
     var menuHeight = $('#menu').height();
     var footerHeight = $('#footer').height();

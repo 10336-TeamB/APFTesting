@@ -29,10 +29,8 @@ namespace APFTestingModel
 				if (SelectedAnswers.Count == TheoryQuestion.NumberOfCorrectAnswers)
 				{
 					//Checks if submitted answers are all correct
-                    return (SelectedAnswers.Count(answer => answer.IsCorrect == true) == TheoryQuestion.NumberOfCorrectAnswers);
-					
+                    return (SelectedAnswers.Count(answer => answer.IsCorrect) == TheoryQuestion.NumberOfCorrectAnswers);
 				}
-
 				return false;
 			}
 		}
@@ -54,10 +52,7 @@ namespace APFTestingModel
 
         public string Description
         {
-            get
-            {
-                return TheoryQuestion.Description;
-            }
+            get { return TheoryQuestion.Description; }
         }
 
         //IEnumerable<ISelectedAnswer> ISelectedTheoryQuestion.SelectedAnswers
@@ -67,18 +62,17 @@ namespace APFTestingModel
 
         public bool IsAnswered
         {
-            get
-            {
-                return (SelectedAnswers.Count == 0) ? false : true;
-            }
+            get { return (SelectedAnswers.Count != 0); }
         }
 
         public IEnumerable<IPossibleAnswer> PossibleAnswers
         {
-            get
-            {
-                return TheoryQuestion.PossibleAnswers;
-            }
+            get { return TheoryQuestion.PossibleAnswers; }
+        }
+
+        public bool IsLastQuestion
+        {
+            get { return QuestionIndex == (TheoryComponent.SelectedTheoryQuestions.Count - 1); }
         }
 
 		#endregion
@@ -97,6 +91,7 @@ namespace APFTestingModel
             }
         }
 
+        //TODO - What is this?? - ADAM
         public void checkPossibleAnswers()
         {
             foreach (var answer in SelectedAnswers)
@@ -106,6 +101,9 @@ namespace APFTestingModel
         }
 
 		#endregion
+
+
+
 
 
 

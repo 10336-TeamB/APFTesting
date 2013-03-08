@@ -18,5 +18,6 @@ namespace APFTestingModel
         int QuestionIndex { get; }
         bool IsMarkedForReview { get; }
         bool IsAnswered { get; }
+        bool IsLastQuestion { get; }
     }
 }

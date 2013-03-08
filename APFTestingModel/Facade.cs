@@ -45,18 +45,18 @@ namespace APFTestingModel
             return _context.Exams.Include("TheoryComponent").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
         }
 
-        public ISelectedTheoryQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)
+        public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
         {
             Exam exam = fetchExam(examId);
-            ISelectedTheoryQuestion nextQuestion = exam.FetchNextQuestion(ref isLastQuestion);
+            ISelectedTheoryQuestion nextQuestion = exam.FetchNextQuestion();
             _context.SaveChanges();
             return nextQuestion;
         }
 
-        public ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId, ref bool isFirstQuestion)
+        public ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId)
         {
             Exam exam = fetchExam(examId);
-            ISelectedTheoryQuestion previousQuestion = exam.FetchPreviousQuestion(ref isFirstQuestion);
+            ISelectedTheoryQuestion previousQuestion = exam.FetchPreviousQuestion();
             _context.SaveChanges();
             return previousQuestion;
         }

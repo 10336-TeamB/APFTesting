@@ -53,14 +53,14 @@ namespace APFTestingModel
 
         // Commented out to allow compilation
 
-        public SelectedTheoryQuestion FetchNextQuestion(ref bool isLastQuestion)
+        public SelectedTheoryQuestion FetchNextQuestion()
         {
-            return TheoryComponent.FetchNextQuestion(ref isLastQuestion);
+            return TheoryComponent.FetchNextQuestion();
         }
 
-        public SelectedTheoryQuestion FetchPreviousQuestion(ref bool isFirstQuestion)
+        public SelectedTheoryQuestion FetchPreviousQuestion()
         {
-            return TheoryComponent.FetchPreviousQuestion(ref isFirstQuestion);
+            return TheoryComponent.FetchPreviousQuestion();
         }
 
         public SelectedTheoryQuestion FetchSpecificQuestion(int index)

@@ -5,9 +5,9 @@ namespace APFTestingHookIn {
     class Program {
         private static void Main(string[] args)
         {
-            using (Facade _apf = new Facade(ExamType.PilotExam))
+            using (Facade _apf = new Facade())
             {
-                var exam = _apf.FetchSpecificQuestion;
+                
             }
         }
     }

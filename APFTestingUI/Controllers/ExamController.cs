@@ -32,8 +32,8 @@ namespace APFTestingUI.Controllers
 
         public ActionResult NextQuestion(Guid examId)
         {
-            bool isLastQuestion = false;
-            var model = new QuestionDisplayItem(_facade.FetchNextQuestion(new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), ref isLastQuestion), examId, isLastQuestion, false);
+            // TODO - Not sure if i'm happy with examId being passed in like this. Should ITheoryQuestion know this instead? - ADAM
+            var model = new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId);
             return View("DisplayQuestion", model);
         }
 
@@ -42,10 +42,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult PreviousQuestion(Guid examId)
         {
-            //TODO: Fetch previous question from Model
-            //Question q = _facade.FetchNextQuestion(examId);
-            bool isFirstQuestion = false;
-            var model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), ref isFirstQuestion), examId, false, isFirstQuestion);
+            var model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(examId), examId);
             return View("DisplayQuestion", model);
         }
 
@@ -54,7 +51,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult Question(Guid examId, int questionNumber)
         {
-            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), questionNumber), examId);
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId);
             return View("DisplayQuestion", model);
         }
 
@@ -62,7 +59,7 @@ namespace APFTestingUI.Controllers
         [HttpPost]
         public ActionResult SubmitAnswer(AnsweredQuestion question)
         {
-            // Communicate with facade to submit answer
+            // TODO: Communicate with facade to submit answer
             
 
             if (question.NavDirection)
