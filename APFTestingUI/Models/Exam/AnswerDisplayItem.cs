@@ -13,7 +13,7 @@ namespace APFTestingUI.Models.Exam
         {
             DisplayOrderIndex = answer.DisplayOrderIndex;
             Description = answer.Description;
-            //IsChecked = answer.IsChecked;
+            IsChecked = answer.IsChecked;
         }
         public int DisplayOrderIndex { get; set; }
         public string Description { get; set; }

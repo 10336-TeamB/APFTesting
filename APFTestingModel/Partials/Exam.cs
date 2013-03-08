@@ -27,6 +27,7 @@ namespace APFTestingModel
         public Exam(Guid examinerId, Guid candidateId)
         {
             CandidateId = candidateId;
+            ExaminerId = examinerId;
             ExamStatusId = 1;
         }
 
@@ -71,26 +72,5 @@ namespace APFTestingModel
         {
             TheoryComponent.SelectAnswers(selectedAnswers, isMarkedForReview);
         }
-
-        //public void AddTheoryQuestion(TheoryQuestion question)
-        //{
-        //    TheoryComponent.TheoryQuestions.Add(question);
-        //}
-
-        //public TheoryComponentFormat TheoryComponentFormat
-        //{
-        //    get 
-        //    {
-        //        return TheoryComponent.TheoryComponentFormat;
-        //    }
-        //}
-
-        //public PracticalComponentTemplate PracticalComponentTemplate
-        //{
-        //    get
-        //    {
-        //        return PracticalComponent.PracticalComponentTemplate;
-        //    }
-        //}
     }
 }

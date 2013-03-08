@@ -32,18 +32,21 @@ namespace APFTestingUI.Controllers
 
         public ActionResult NextQuestion(Guid examId)
         {
-  
-            return View("DisplayQuestion");
+            bool isLastQuestion = false;
+            var model = new QuestionDisplayItem(_facade.FetchNextQuestion(new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), ref isLastQuestion), examId, isLastQuestion, false);
+            return View("DisplayQuestion", model);
         }
 
         //
         // GET: /Exam/PreviousQuestion/
 
-        public ActionResult PreviousQuestion()
+        public ActionResult PreviousQuestion(Guid examId)
         {
             //TODO: Fetch previous question from Model
             //Question q = _facade.FetchNextQuestion(examId);
-            return View("DisplayQuestion");
+            bool isFirstQuestion = false;
+            var model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), ref isFirstQuestion), examId, false, isFirstQuestion);
+            return View("DisplayQuestion", model);
         }
 
         //
@@ -51,7 +54,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult Question(Guid examId, int questionNumber)
         {
-            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(new Guid("c25304dc-1069-47c6-97f8-b385305a2531"), questionNumber), examId);
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), questionNumber), examId);
             return View("DisplayQuestion", model);
         }
 
@@ -60,6 +63,7 @@ namespace APFTestingUI.Controllers
         public ActionResult SubmitAnswer(AnsweredQuestion question)
         {
             // Communicate with facade to submit answer
+            
 
             if (question.NavDirection)
             {

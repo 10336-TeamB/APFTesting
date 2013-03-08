@@ -7,7 +7,10 @@
     <h2>Jump Pilot Authorisation Exam</h2>
     
     <hgroup>
-        <h3>Question @Model.Index:</h3>
+        @{
+            int questionNumber = Model.Index + 1;   
+        }
+        <h3>Question @questionNumber:</h3>
         <h4>@Model.Description</h4>
     </hgroup>
 
@@ -16,32 +19,30 @@
     @Html.HiddenFor(m => m.ExamId)
     @Html.HiddenFor(m => m.Index)
     @Html.HiddenFor(m => m.NavDirection)
-    foreach (var answer in Model.Answers)
-    {
-        <div class="AnswerContainer">
-            @if (Model.NumberOfCorrectAnswers == 1)
-            {
-                <input type="radio" class="Answer-Radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
-            }
-            else
-            {
-                <input type="checkbox" class="Answer-Checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
-            }
-            <span class="Answer-Description">@answer.Description</span>
-        </div>
-    }
-    <input id="PreviousButton" type="button" value="Previous Question" />
-    <input id="NextButton" type="submit" value="Next Question" />
+    <fieldset>
+        <legend>Question</legend>
+        @foreach (var answer in Model.Answers)
+        {
+            <div class="answer-container">
+                @if (Model.NumberOfCorrectAnswers == 1)
+                {
+                    <input type="radio" class="answer-radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                }
+                else
+                {
+                    <input type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                }
+                <span class="Answer-Description">@answer.Description</span>
+            </div>
+        }
+    </fieldset>
+    <div class="navigation-container">
+        <input id="PreviousButton" class="button" type="button" value="Previous Question" />
+        <input id="NextButton" class="button" type="submit" value="Next Question" />
+        <div class="clear"></div>
+    </div>
+    
 }
 
 </div>
 
-<script>
-    $(function () {
-        $('#PreviousButton').click(function () {
-            $('#NavDirection').val("true");
-            $('#QuestionForm').submit();
-        });
-    });
-
-</script>

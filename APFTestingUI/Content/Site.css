@@ -929,9 +929,10 @@ body
                 {
                     display: block;
                     padding: 5px 20px;
-                    background-color: #34B34A;
+                    background-color: #117523;
                     text-decoration: none;
                     color: #ffffff;
+                    font-size: 0.8em;
                 }
 
                 #login-area a:hover
@@ -941,12 +942,13 @@ body
 
 .gradient-wrapper
 {
-    background-image: linear-gradient(to bottom, #111111 7%, #303030 77%);
+    /*background-image: linear-gradient(to bottom, #111111 7%, #303030 77%);
     background-image: -o-linear-gradient(top, #111111 7%, #303030 77%);
     background-image: -moz-linear-gradient(top, #111111 7%, #303030 77%);
     background-image: -webkit-linear-gradient(top, #111111 7%, #303030 77%);
     background-image: -ms-linear-gradient(top, #111111 7%, #303030 77%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#111111', EndColorStr='#303030');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#111111', EndColorStr='#303030');*/
+    background:#303030 url('../Images/bg-gradient-grey.jpg') 0 0 repeat-x;
 }
 
 #menu
@@ -964,12 +966,14 @@ body
 
     #menu ul
     {
-        background-color: #0D4923;
+        background-color: #117523;
         margin: 0;
         padding: 0;
         list-style: none;
         float: left;
         width: 100%;
+        border-radius: 0 0 5px 5px;
+        overflow: hidden;
     }
 
     #menu li
@@ -982,7 +986,7 @@ body
     #menu a
     {
         display: block;
-        padding: 0 10px;
+        padding: 0 20px;
         text-decoration: none;
         color: #ffffff;
     }
@@ -997,7 +1001,7 @@ body
 
 #content
 {
-    font-size: 0.75em;
+    font-size: 0.8em;
     line-height: 1.333em;
 }
 
@@ -1045,6 +1049,16 @@ body
         margin: 0 0 1em;
     }
 
+    #content ul, #content ol 
+    {
+        list-style-position: inside;
+    }
+
+    #content input[type="radio"]
+    {
+        background-color: transparent;
+    }
+
     #content a
     {
         text-decoration: none;
@@ -1056,6 +1070,21 @@ body
         text-decoration: underline;
     }
 
+    #content .button 
+    {
+        color:#ffffff;
+        background-color: #117523;
+        border: none;
+        border-radius: 20px;
+        padding:10px 20px;
+        font-size: 1em;
+    }
+
+        #content input.button:hover
+        {
+            background-color: #34B34A;
+        }
+
 #footer
 {
     
@@ -1064,13 +1093,16 @@ body
     {
         padding: 10px;
         max-width: 980px;
-        background-color: #0D4923;
+        background-color: #117523;
+        border-radius: 5px 5px 0 0;
     }
 
     #copy
     {
         margin: 0;
         text-align: right;
+        font-size: 0.75em;
+        padding: 5px;
     }
 
 
@@ -1085,27 +1117,77 @@ body
     clear: both;
 }
 
+
+/* BASE COLOR IS #35B44B*/
+
+/* Candidate Page */
+.add-candidate {
+    
+}
+
+.add-candidate span {
+    vertical-align:middle;
+}
+
+#candidate-list {
+    width:100%;
+}
+
+    #candidate-list th {
+        padding:10px 0;
+        font-size: 1.2em;
+    }
+
+.candidate-list-item {
+
+}
+
+.candidate-first-name {
+    width:35%;
+}
+
+.candidate-last-name {
+    width:35%;
+}
+
+.start-theory-link {
+    width:15%;
+}
+
+.input-practical-link {
+    width:15%;
+}
+
 /* Added by Adam and Joshua */
 #ExamContainer {
     
 }
 
-.AnswerContainer {
-    
+    #ExamContainer fieldset {
+        margin-bottom: 50px;
+    }
+
+.answer-container {
+    padding: 0 10px;
 }
 
-.Answer-Checkbox {
+.answer-checkbox {
     width: 20px;
     border: none;
 }
 
-.Answer-Radiobutton {
+.answer-radiobutton {
     width: 20px;
     border: none;
 
 }
 
-.Answer-Description {
+.answer-description {
     
 }
+
+.navigation-container .button {
+    margin-right:20px;
+}
+
 

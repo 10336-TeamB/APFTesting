@@ -20,6 +20,7 @@ namespace APFTestingModel
         }
     
         public System.Guid Id { get; set; }
+        public bool IsActive { get; set; }
     
         public virtual ICollection<PracticalComponent> PracticalComponents { get; set; }
     }

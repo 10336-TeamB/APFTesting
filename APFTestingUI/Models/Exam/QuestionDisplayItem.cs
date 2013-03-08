@@ -16,9 +16,14 @@ namespace APFTestingUI.Models.Exam
             Description = question.Description;
             IsMarkedForReview = question.IsMarkedForReview;
             NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
-            //Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
-            Answers = createMockAnswers();
-           
+            //Answers = createMockAnswers();
+            Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
+        }
+
+        public QuestionDisplayItem(ISelectedTheoryQuestion question, Guid examId, bool isLastQuestion, bool isPrevQuestion) : this(question, examId)
+        {
+            IsLastQuestion = isLastQuestion;
+            IsPrevQuestion = isPrevQuestion;
         }
 
         public Guid Id { get; set; }
@@ -28,6 +33,8 @@ namespace APFTestingUI.Models.Exam
         public int NumberOfCorrectAnswers { get; set; }
         public bool IsMarkedForReview { get; set; }
         public IEnumerable<AnswerDisplayItem> Answers { get; set; }
+        public bool IsLastQuestion { get; set; }
+        public bool IsPrevQuestion { get; set; }
 
         //Needed for question navigation direction and binding in cshtml, not used in this model
         public bool NavDirection { get; set; }

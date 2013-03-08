@@ -9,15 +9,13 @@ namespace APFTestingModel
 {
 	internal partial class SelectedTheoryQuestion : ISelectedTheoryQuestion
 	{
-        private APFTestingModel.TheoryQuestion randomQuestion;
-
         public SelectedTheoryQuestion(TheoryComponent theoryComponent, TheoryQuestion randomQuestion, int questionIndex)
         {
             // TODO: Complete member initialization
             this.TheoryComponent = theoryComponent;
-            this.randomQuestion = randomQuestion;
             this.QuestionIndex = questionIndex;
             this.IsMarkedForReview = false;
+            this.TheoryQuestion = randomQuestion;
         }
 
 

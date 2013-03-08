@@ -9,3 +9,10 @@ $(document).ready(function () {
         $('#content .size-wrapper').height(screenHeight - totalHeight);
 });
 
+$(function () {
+    $('#PreviousButton').click(function () {
+        $('#NavDirection').val("true");
+        $('#QuestionForm').submit();
+    });
+});
+

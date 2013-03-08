@@ -19,12 +19,12 @@ namespace APFTestingModel
             if (examType == ExamType.PackerExam)
             {
                 activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().FirstOrDefault(f => f.IsActive);
-                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().First();
+                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
             }
             else
             {
                 activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
-                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().First();
+                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
             }
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions, activeTheoryFormat, activePracticalTemplate, examType);
         }
@@ -41,7 +41,8 @@ namespace APFTestingModel
 
         private Exam fetchExam(Guid examId)
         {
-            return _context.Exams.Include("TheoryComponent").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").FirstOrDefault(e => e.Id == examId);
+            
+            return _context.Exams.Include("TheoryComponent").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
         }
 
         public ISelectedTheoryQuestion FetchNextQuestion(Guid examId, ref bool isLastQuestion)

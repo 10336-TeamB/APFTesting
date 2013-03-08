@@ -181,6 +181,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PracticalComponentTemplateAssessmentTask">
           <Key>
@@ -226,7 +227,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionIndex" Type="int" Nullable="false" />
@@ -627,6 +628,7 @@
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="PracticalComponents" Relationship="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" FromRole="PracticalComponentTemplate" ToRole="PracticalComponent" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
         </EntityType>
         <EntityType Name="PracticalComponentTemplatePacker" BaseType="APFTestingDBModel.PracticalComponentTemplate" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Property Name="NumOfRequiredAssessmentTasks" Type="Int32" Nullable="false" />
@@ -805,7 +807,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="TheoryComponentId" Nullable="false" />
           <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
           <Property Type="Int32" Name="QuestionIndex" Nullable="false" />
@@ -932,6 +934,7 @@
           <EntitySetMapping Name="PracticalComponentTemplates">
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.PracticalComponentTemplate)">
               <MappingFragment StoreEntitySet="PracticalComponentTemplate">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
