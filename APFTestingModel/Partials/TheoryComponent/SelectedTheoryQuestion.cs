@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
 
 namespace APFTestingModel
 {
 	internal partial class SelectedTheoryQuestion : ISelectedTheoryQuestion
-	{
+    {
+        #region Constructors
+
         public SelectedTheoryQuestion(TheoryComponent theoryComponent, TheoryQuestion randomQuestion, int questionIndex)
         {
             // TODO: Complete member initialization
@@ -18,10 +18,11 @@ namespace APFTestingModel
             this.TheoryQuestion = randomQuestion;
         }
 
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		public bool isCorrect
+        public bool isCorrect
 		{
 			get
 			{
@@ -40,25 +41,10 @@ namespace APFTestingModel
             get { return TheoryQuestion.NumberOfCorrectAnswers; }
         }
 
-        //public ITheoryComponent Component
-        //{
-        //    get { return TheoryComponent; }
-        //}
-
-        //public ITheoryQuestion Question
-        //{
-        //    get { return TheoryQuestion; }
-        //}
-
         public string Description
         {
             get { return TheoryQuestion.Description; }
         }
-
-        //IEnumerable<ISelectedAnswer> ISelectedTheoryQuestion.SelectedAnswers
-        //{
-        //    get { return (IEnumerable<ISelectedAnswer>)SelectedAnswers; }
-        //}
 
         public bool IsAnswered
         {
@@ -67,7 +53,7 @@ namespace APFTestingModel
 
         public IEnumerable<IPossibleAnswer> PossibleAnswers
         {
-            get { return TheoryQuestion.PossibleAnswers; }
+            get { return TheoryQuestion.PossibleAnswers.OrderBy(pa => pa.DisplayOrderIndex); }
         }
 
         public bool IsLastQuestion
@@ -77,18 +63,26 @@ namespace APFTestingModel
 
 		#endregion
 
-
-
 		#region Methods
 
-
-        public void SelectAnswers(List<Guid> possibleAnswerIds)
+        public void SelectAnswers(int[] selectedAnswers)
         {
-            SelectedAnswers.Clear();
-            foreach (var possibleAnswerId in possibleAnswerIds)
+            // Clear is not working. We need to somehow delete these objects from context...
+            // SelectedAnswers.Clear();
+            var possibleAnswers = TheoryQuestion.PossibleAnswers;
+            if (selectedAnswers != null)
             {
-                SelectedAnswers.Add(new SelectedAnswer(this.Id, possibleAnswerId));
+                foreach (var possibleAnswerId in selectedAnswers)
+                {
+                    var answer = possibleAnswers.FirstOrDefault(pa => pa.DisplayOrderIndex == possibleAnswerId);
+                    SelectedAnswers.Add(new SelectedAnswer(this, answer));
+                }
             }
+        }
+        
+        public void MarkForReview(bool isMarked)
+        {
+            IsMarkedForReview = isMarked;
         }
 
         //TODO - What is this?? - ADAM
@@ -101,16 +95,5 @@ namespace APFTestingModel
         }
 
 		#endregion
-
-
-
-
-
-
-
-
-
-
-        
     }
 }

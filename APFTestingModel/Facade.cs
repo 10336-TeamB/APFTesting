@@ -24,7 +24,7 @@ namespace APFTestingModel
             else
             {
                 activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
-                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
+                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
             }
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions, activeTheoryFormat, activePracticalTemplate, examType);
         }
@@ -34,6 +34,7 @@ namespace APFTestingModel
             createExamManager(examType);
 
             Exam exam = examManager.GenerateExam(candidateId, examinerId);
+            // We may not need this line, as the Exam is associated with context objects already (Format and Template)...
             _context.Exams.Add(exam);
             _context.SaveChanges();
             return exam;
@@ -41,8 +42,8 @@ namespace APFTestingModel
 
         private Exam fetchExam(Guid examId)
         {
-            
-            return _context.Exams.Include("TheoryComponent").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
+            // Need to catch null value from FirstOrDefault
+            return _context.Exams.Include("TheoryComponent").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
         }
 
         public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
@@ -69,10 +70,10 @@ namespace APFTestingModel
             return question;
         }
 
-        public void SelectAnswers(Guid examId, List<Guid> selectedAnswer, bool isMarkedForReview)
+        public void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview)
         {
             Exam exam = fetchExam(examId);
-            exam.SelectAnswers(selectedAnswer, isMarkedForReview);
+            exam.AnswerQuestion(questionIndex, selectedAnswers, markForReview);
             _context.SaveChanges();
         }
 
@@ -95,18 +96,13 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-        #region AddedByAlanAndAdam
         public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
         {
             // Return all candidates assocaiated with the examiner.
 
-            // Returning dummy Candidate
+            // HACK - Returning dummy Candidate
             yield return new Candidate();
         }
-
-
-
-        #endregion
 
 
         //Hook-in test method

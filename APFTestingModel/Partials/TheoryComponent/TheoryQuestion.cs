@@ -8,11 +8,14 @@ namespace APFTestingModel
 {
     internal abstract partial class TheoryQuestion : ITheoryQuestion
     {
+        #region Constructors
 
         public TheoryQuestion(List<PossibleAnswer> possibleAnswers)
         {
             PossibleAnswers = possibleAnswers;
         }
+
+        #endregion
 
         IEnumerable<IPossibleAnswer> ITheoryQuestion.PossibleAnswers
         {

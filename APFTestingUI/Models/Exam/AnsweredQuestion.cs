@@ -10,6 +10,7 @@ namespace APFTestingUI.Models.Exam
         public Guid ExamId { get; set; }
         public int Index { get; set; }
         public int[] ChosenAnswer { get; set; }
+        public bool IsMarkedForReview { get; set; }
         public bool NavDirection { get; set; }
     }
 }

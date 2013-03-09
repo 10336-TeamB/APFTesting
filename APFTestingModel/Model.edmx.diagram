@@ -47,7 +47,7 @@
         <InheritanceConnector EntityType="APFTestingDBModel.ExamPacker" />
         <AssociationConnector Association="APFTestingDBModel.PracticalComponentTemplateAssessmentTask1" />
         <EntityTypeShape EntityType="APFTestingDBModel.PossibleAnswer" Width="1.75" PointX="20.625" PointY="8.875" />
-        <EntityTypeShape EntityType="APFTestingDBModel.SelectedAnswer" Width="1.875" PointX="20.375" PointY="5.875" />
+        <EntityTypeShape EntityType="APFTestingDBModel.SelectedAnswer" Width="2.125" PointX="20.375" PointY="5.875" />
         <EntityTypeShape EntityType="APFTestingDBModel.SelectedTheoryQuestion" Width="2.25" PointX="23.5" PointY="4.875" />
         <AssociationConnector Association="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion" />
         <AssociationConnector Association="APFTestingDBModel.FK_SelectedAnswer_PossibleAnswer1" />

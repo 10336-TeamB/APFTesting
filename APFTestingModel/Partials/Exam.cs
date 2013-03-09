@@ -21,7 +21,8 @@ namespace APFTestingModel
 
     internal abstract partial class Exam : IExam
     {
-        //Exmpty constructor added for temporary work with the Facade/UI - ADAM/ALAN
+        #region Constructors
+
         public Exam() { }
 
         public Exam(Guid examinerId, Guid candidateId)
@@ -30,6 +31,8 @@ namespace APFTestingModel
             ExaminerId = examinerId;
             ExamStatusId = 1;
         }
+
+        #endregion
 
         public ExamStatus ExamStatus
         {
@@ -68,9 +71,9 @@ namespace APFTestingModel
             return TheoryComponent.FetchSpecificQuestion(index);
         }
 
-        public void SelectAnswers(List<Guid> selectedAnswers, bool isMarkedForReview)
+        public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
         {
-            TheoryComponent.SelectAnswers(selectedAnswers, isMarkedForReview);
+            TheoryComponent.AnswerQuestion(questionIndex, selectedAnswers, markForReview);
         }
     }
 }

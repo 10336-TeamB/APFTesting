@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-	internal partial class TheoryComponentFormatPilot : TheoryComponentFormat
+	internal partial class TheoryComponentFormatPilot
 	{
 	}
 }

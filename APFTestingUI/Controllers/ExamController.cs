@@ -60,7 +60,8 @@ namespace APFTestingUI.Controllers
         public ActionResult SubmitAnswer(AnsweredQuestion question)
         {
             // TODO: Communicate with facade to submit answer
-            
+            // Should we have a return value to confirm successful submission of answer?
+            _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
 
             if (question.NavDirection)
             {

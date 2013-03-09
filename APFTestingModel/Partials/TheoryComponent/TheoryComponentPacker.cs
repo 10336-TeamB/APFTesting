@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-	internal partial class TheoryComponentPacker : TheoryComponent
-	{
+	internal partial class TheoryComponentPacker
+    {
+        #region Constructors
+        
         public TheoryComponentPacker() { }
 
         public TheoryComponentPacker(TheoryComponentFormat activeTheoryFormat)
@@ -15,5 +17,7 @@ namespace APFTestingModel
         {
 
         }
-	}
+
+        #endregion
+    }
 }

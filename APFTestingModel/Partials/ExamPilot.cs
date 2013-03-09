@@ -8,7 +8,8 @@ namespace APFTestingModel
 {
     internal partial class ExamPilot
     {
-        //Exmpty constructor added for temporary work with the Facade/UI - ADAM/ALAN
+        #region Constructors
+
         public ExamPilot() { }
 
         public ExamPilot(Guid examinerId, Guid candidateId, TheoryComponentPilot theoryComponentPilot, PracticalComponentPilot practicalComponentPilot)
@@ -17,5 +18,7 @@ namespace APFTestingModel
             TheoryComponent = theoryComponentPilot;
             PracticalComponent = practicalComponentPilot;
         }
+
+        #endregion
     }
 }

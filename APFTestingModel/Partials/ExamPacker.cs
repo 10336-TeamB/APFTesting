@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
     internal partial class ExamPacker
     {
+        #region Constructors
+
         public ExamPacker() { }
 
         public ExamPacker(Guid examinerId, Guid candidateId, TheoryComponentPacker theoryComponentPacker, PracticalComponentPacker practicalComponentPacker)
@@ -16,6 +18,8 @@ namespace APFTestingModel
             TheoryComponent = theoryComponentPacker;
             base.PracticalComponent = practicalComponentPacker;
         }
+
+        #endregion
 
         public new IPracticalComponentPacker PracticalComponent
         {

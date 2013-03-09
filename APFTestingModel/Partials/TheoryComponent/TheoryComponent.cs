@@ -8,15 +8,18 @@ namespace APFTestingModel
 {
     internal abstract partial class TheoryComponent : ITheoryComponent, ITheoryComponentResult
     {
+        #region Constructors
 
         public TheoryComponent(TheoryComponentFormat activeTheoryFormat)
         {
             TheoryComponentFormat = activeTheoryFormat;
         }
 
-		#region Properties
+        #endregion
 
-		public decimal Score
+        #region Properties
+
+        public decimal Score
 		{
 			get
 			{
@@ -86,21 +89,13 @@ namespace APFTestingModel
             return selectedTheoryQuestion;
 		}
 
-		public void SelectAnswers(List<Guid> possibleAnswerIds, bool isMarkedForReview)
+        public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
 		{
             //TODO: LINQ Query First may throw an exception...
-			var currentQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
-			currentQuestion.SelectAnswers(possibleAnswerIds);
-            if (isMarkedForReview)
-            {
-                markQuestionForReview(currentQuestion);
-            }
+			var currentQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == questionIndex);
+            currentQuestion.SelectAnswers(selectedAnswers);
+            currentQuestion.MarkForReview(markForReview);
 		}
-
-        private void markQuestionForReview(SelectedTheoryQuestion question)
-        {
-            question.IsMarkedForReview = true;
-        }
 
 		#endregion
     }
