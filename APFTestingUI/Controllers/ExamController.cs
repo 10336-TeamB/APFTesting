@@ -69,5 +69,24 @@ namespace APFTestingUI.Controllers
             }
             return RedirectToAction("NextQuestion", new { examId = question.ExamId });
         }
+
+        [HttpGet]
+        public ActionResult FetchSummary(Guid examId)
+        {
+            var model = new TheoryComponentSummary() { Questions = _facade.FetchTheoryComponentSummary(examId).OrderBy(q => q.QuestionIndex) };
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult FetchResult(Guid examId)
+        {
+            //_facade.FinaliseTheoryComponent();
+            // We may need this to display what their score is as a mark/passmark
+            //_facade.FetchTheoryExamFormatDetails();
+            //_facade.FetchCandidateDetails();
+            var model = new TheoryComponentResult(_facade.FetchTheoryComponentResult(examId));
+            return View(model);
+        }
+
     }
 }

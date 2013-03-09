@@ -137,6 +137,8 @@
     <Compile Include="Models\Exam\AnsweredQuestion.cs" />
     <Compile Include="Models\Exam\PossibleAnswer.cs" />
     <Compile Include="Models\Exam\QuestionDisplayItem.cs" />
+    <Compile Include="Models\Exam\TheoryComponentResult.cs" />
+    <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\TheoryQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -252,6 +254,8 @@
     <Content Include="Views\Exam\Start.cshtml" />
     <Content Include="Views\Exam\DisplayQuestion.cshtml" />
     <Content Include="Views\Examiner\Index.cshtml" />
+    <Content Include="Views\Exam\FetchSummary.cshtml" />
+    <Content Include="Views\Exam\FetchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
