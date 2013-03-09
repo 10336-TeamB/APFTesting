@@ -68,5 +68,13 @@ namespace APFTestingUI.Controllers
             }
             return RedirectToAction("NextQuestion", new { examId = question.ExamId });
         }
+
+        [HttpGet]
+        public ActionResult FetchSummary(Guid examId)
+        {
+            var model = new TheoryComponentSummary() { Questions = _facade.FetchTheoryComponentSummary(examId).OrderBy(q => q.QuestionIndex) };
+            return View(model);
+        }
+
     }
 }
