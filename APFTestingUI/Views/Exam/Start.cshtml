@@ -15,6 +15,6 @@
     </ul>
 
     <p>@Html.ActionLink("Start Exam", "Question", new { examId = @ViewBag.ExamId, questionNumber = 0 })</p>
-    <p>@Html.ActionLink("REMOVE: Exam Summary", "FetchSummary", new { examId = @ViewBag.ExamId })</p>
+    <p><strong style="color:red;">Remove</strong> @Html.ActionLink("Exam Summary", "FetchSummary", new { examId = @ViewBag.ExamId }) @Html.ActionLink("Exam Result", "FetchResult", new { examId = @ViewBag.ExamId })</p>
 
 </div>

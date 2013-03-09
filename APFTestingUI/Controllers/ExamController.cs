@@ -76,5 +76,16 @@ namespace APFTestingUI.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult FetchResult(Guid examId)
+        {
+            //_facade.FinaliseTheoryComponent();
+            // We may need this to display what their score is as a mark/passmark
+            //_facade.FetchTheoryExamFormatDetails();
+            //_facade.FetchCandidateDetails();
+            var model = new TheoryComponentResult(_facade.FetchTheoryComponentResult(examId));
+            return View(model);
+        }
+
     }
 }
