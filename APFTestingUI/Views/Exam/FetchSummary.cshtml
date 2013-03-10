@@ -10,8 +10,7 @@
     <tr>
         <th>Question Number</th>
         <th>Question Description</th>
-        <!-- Maybe we dont need this -->
-        <th>Selected Answer(s)</th>
+        <th>Question Answered</th>
         <th>Marked For Review</th>
         <th>Link</th>
     </tr>
@@ -21,16 +20,8 @@
         <tr>
             <td class="index">@questionNumber</td>
             <td class="description">@question.Description</td>
-            <!-- Maybe we dont need this -->
-            <td class="selected-answer">
-                @foreach (var answer in @question.PossibleAnswers.OrderBy(a => a.DisplayOrderIndex))
-                {
-                    <strong>@answer.DisplayOrderIndex </strong>
-                    if (answer.IsChecked)
-                    {
-                        @answer.Description <br />
-                    }
-                }
+            <td class="question-answered">
+                @question.IsAnswered
             </td>
             <td class="marked-for-review">@question.IsMarkedForReview</td>
             <td class="review-link">@Html.ActionLink(("Go to " + @questionNumber), "Question", new { examId = @Model.ExamId, questionNumber = @question.QuestionIndex })</td>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    interface ITheoryComponentFormat
+    public interface ITheoryComponentFormat
     {
         Guid Id { get; }
         int NumberOfQuestions { get; }

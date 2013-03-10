@@ -104,6 +104,34 @@ namespace APFTestingModel
             yield return new Candidate();
         }
 
+        public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)
+        {
+            switch (examType)
+            {
+                case ExamType.PilotExam:
+                    var theoryComponentFormatPilot = new TheoryComponentFormatPilot(numberOfQuestions, passMark);
+                    _context.TheoryComponentFormats.Add(theoryComponentFormatPilot);
+                    _context.SaveChanges();
+                    return theoryComponentFormatPilot;
+                case ExamType.PackerExam:
+                    var theoryComponentFormatPacker = new TheoryComponentFormatPacker(numberOfQuestions, passMark);
+                    _context.TheoryComponentFormats.Add(theoryComponentFormatPacker);
+                    _context.SaveChanges();
+                    return theoryComponentFormatPacker;
+                default:
+                    throw new Exception("ExamType invalid");
+            }
+        }
+
+        public void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId)
+        {
+            //TODO : Find all TheoryComponentFormat[type] and set as inactive then set one as active -- AL
+            var theoryComponentFormat = _context.TheoryComponentFormats.FirstOrDefault(f => f.Id == theoryComponentFormatId).GetType();
+            if (theoryComponentFormat.GetType() == typeof(TheoryComponentFormatPilot))
+            {
+                //_context.TheoryComponentFormats.Where(f => f)
+            }
+        }
 
         //Hook-in test method
         public string TestDBConnection()
