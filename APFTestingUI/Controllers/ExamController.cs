@@ -61,6 +61,7 @@ namespace APFTestingUI.Controllers
         public ActionResult Review(Guid examId, int questionNumber)
         {
             var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId);
+            model.IsMarkedForReview = false;
             return View(model);
         }
 

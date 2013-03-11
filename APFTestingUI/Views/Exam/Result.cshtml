@@ -25,18 +25,18 @@
     int questionNumber = question.QuestionIndex + 1;   
     
     <h3>@questionNumber @question.Description</h3>
-    foreach (var answer in question.PossibleAnswers)
+    foreach (var answer in question.SelectedAnswers)
     {
         
-        if (answer.IsChecked == true && answer.IsCorrect == true)
+        if (answer.IsChecked && answer.IsCorrect)
         {
             <p style="color:green">@answer.Description</p>
         } 
-        else if (answer.IsChecked == true && answer.IsCorrect == false)
+        else if (answer.IsChecked && !answer.IsCorrect)
         {
             <p style="color:red">@answer.Description</p>
         }
-        else if (answer.IsChecked == false && answer.IsCorrect == true)
+        else if (!answer.IsChecked && !answer.IsCorrect)
         {
             <p style="color:yellow">@answer.Description</p>
         }
