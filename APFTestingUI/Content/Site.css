@@ -1070,7 +1070,7 @@ body
         text-decoration: underline;
     }
 
-    #content .button 
+    #content .button
     {
         color:#ffffff;
         background-color: #117523;
@@ -1080,9 +1080,20 @@ body
         font-size: 1em;
     }
 
-        #content input.button:hover
+        #content .button:hover
         {
             background-color: #34B34A;
+            text-decoration: none;
+        }
+
+        #content a.button {
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            padding: 7px;
+            margin-right: 8px;
+            width: auto;
+            padding: 10px 20px;
         }
 
 #footer
@@ -1195,4 +1206,17 @@ body
     margin-right:20px;
 }
 
+#mark-for-review {
+    margin: 0 30px;
+}
+
+#mark-for-review label{
+    display: inline;
+    font-size: 1.2em;
+}
+
+#mark-for-review input[type="checkbox"] {
+    height: 30px;
+    width: 30px;
+}
 

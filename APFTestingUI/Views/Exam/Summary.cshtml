@@ -24,7 +24,7 @@
                 @question.IsAnswered
             </td>
             <td class="marked-for-review">@question.IsMarkedForReview</td>
-            <td class="review-link">@Html.ActionLink(("Go to " + @questionNumber), "Question", new { examId = @Model.ExamId, questionNumber = @question.Index })</td>
+            <td class="review-link">@Html.ActionLink(("Go to " + @questionNumber), "Review", new { examId = @Model.ExamId, questionNumber = @question.Index })</td>
         </tr>
     }
 </table>

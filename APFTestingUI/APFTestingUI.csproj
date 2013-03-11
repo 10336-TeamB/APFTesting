@@ -256,6 +256,7 @@
     <Content Include="Views\Examiner\Index.cshtml" />
     <Content Include="Views\Exam\Summary.cshtml" />
     <Content Include="Views\Exam\Result.cshtml" />
+    <Content Include="Views\Exam\Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -55,6 +55,14 @@ namespace APFTestingUI.Controllers
             return View("DisplayQuestion", model);
         }
 
+        //
+        // GET: /Exam/Review/
+
+        public ActionResult Review(Guid examId, int questionNumber)
+        {
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId);
+            return View(model);
+        }
 
         [HttpPost]
         public ActionResult SubmitAnswer(AnsweredQuestion question)
@@ -72,7 +80,6 @@ namespace APFTestingUI.Controllers
                     return RedirectToAction("Summary", new { examId = question.ExamId });
             }
         }
-
 
         //
         // GET: /Exam/Summary/

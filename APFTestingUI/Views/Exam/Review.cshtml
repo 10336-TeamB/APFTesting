@@ -37,23 +37,12 @@
         }
     </fieldset>
     <div class="navigation-container">
-        @if (!Model.IsFirstQuestion)
-        {
-            <input id="PreviousButton" class="button" type="button" value="Previous Question" />
-        }
         <span id="mark-for-review">
             @Html.LabelFor(model => model.IsMarkedForReview)
             @Html.CheckBoxFor(model => model.IsMarkedForReview)
         </span>
-        @if (!Model.IsLastQuestion)
-        {
-            <input id="NextButton" class="button" type="submit" value="Next Question" />
-        }
-        @if (Model.IsLastQuestion)
-        {
-            <input id="SummaryButton" class="button" type="button" value="Go to Summary" />
-        }
-
+        <input id="SummaryButton" class="button" type="button" value="Back to Summary" />
+        
         <div class="clear"></div>
     </div>
     

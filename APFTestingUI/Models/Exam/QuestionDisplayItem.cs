@@ -1,4 +1,5 @@
-﻿using APFTestingModel;
+﻿using System.ComponentModel.DataAnnotations;
+using APFTestingModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace APFTestingUI.Models.Exam
         public int Index { get; set; }
         public string Description { get; set; }
         public int NumberOfCorrectAnswers { get; set; }
+        [Display(Name = "Review question later")]
         public bool IsMarkedForReview { get; set; }
         public IEnumerable<AnswerDisplayItem> Answers { get; set; }
         public bool IsLastQuestion { get; set; }

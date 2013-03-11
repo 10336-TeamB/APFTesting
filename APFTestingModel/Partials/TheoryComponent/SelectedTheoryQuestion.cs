@@ -67,13 +67,13 @@ namespace APFTestingModel
 
         public void SelectAnswers(int[] selectedAnswers)
         {
-            foreach (var answer in SelectedAnswers)
+            if (selectedAnswers == null)
             {
-                if (selectedAnswers == null)
-                {
-                    answer.IsChecked = false;
-                }
-                else
+                SelectedAnswers.ToList().ForEach(sa => sa.IsChecked = false);
+            }
+            else
+            {
+                foreach (var answer in SelectedAnswers)
                 {
                     answer.IsChecked = (Array.Exists(selectedAnswers, a => a == answer.DisplayOrderIndex));
                 }
