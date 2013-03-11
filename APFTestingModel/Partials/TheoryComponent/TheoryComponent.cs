@@ -23,7 +23,7 @@ namespace APFTestingModel
 		{
 			get
 			{
-				var numberOfCorrectAnswers = SelectedTheoryQuestions.Count(question => question.isCorrect);
+				var numberOfCorrectAnswers = SelectedTheoryQuestions.Count(question => question.IsCorrect);
 				
 				return (numberOfCorrectAnswers / SelectedTheoryQuestions.Count) * 100;
 			}

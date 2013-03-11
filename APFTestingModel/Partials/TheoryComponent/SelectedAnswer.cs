@@ -26,7 +26,7 @@ namespace APFTestingModel
 
 		public bool IsCorrect
 		{
-			get { return PossibleAnswer.IsCorrect; }
+            get { return PossibleAnswer.IsCorrect == IsChecked; }
 		}
 
         public int DisplayOrderIndex

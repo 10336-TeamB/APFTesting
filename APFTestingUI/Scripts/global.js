@@ -14,5 +14,10 @@ $(function () {
         $('#NavDirection').val("PreviousQuestion");
         $('#QuestionForm').submit();
     });
+    
+    $('#SummaryButton').click(function () {
+        $('#NavDirection').val("DisplaySummary");
+        $('#QuestionForm').submit();
+    });
 });
 

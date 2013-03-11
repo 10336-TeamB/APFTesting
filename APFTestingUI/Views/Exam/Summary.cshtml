@@ -4,7 +4,7 @@
     ViewBag.Title = "Exam Summary";
 }
 
-<h2>Theory Component Summary</h2>
+<h2>Exam Summary</h2>
 
 <table id="exam-summary">
     <tr>
@@ -24,9 +24,9 @@
                 @question.IsAnswered
             </td>
             <td class="marked-for-review">@question.IsMarkedForReview</td>
-            <td class="review-link">@Html.ActionLink(("Go to " + @questionNumber), "Question", new { examId = @Model.ExamId, questionNumber = @question.QuestionIndex })</td>
+            <td class="review-link">@Html.ActionLink(("Go to " + @questionNumber), "Question", new { examId = @Model.ExamId, questionNumber = @question.Index })</td>
         </tr>
     }
 </table>
 
-<p><a class="button" href="#">Submit Theory Component</a></p>
+<p><a class="button" href="#">Submit Exam</a></p>

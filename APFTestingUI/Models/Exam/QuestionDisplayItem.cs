@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace APFTestingUI.Models.Exam
 {
@@ -16,9 +15,10 @@ namespace APFTestingUI.Models.Exam
             Description = question.Description;
             NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
             IsMarkedForReview = question.IsMarkedForReview;
-            Answers = question.ISelectedAnswers.Select(a => new AnswerDisplayItem(a));
+            Answers = question.SelectedAnswers.Select(a => new AnswerDisplayItem(a));
             IsLastQuestion = question.IsLastQuestion;
             IsAnswered = question.IsAnswered;
+            NavDirection = ExamAction.NextQuestion;
         }
 
         public Guid Id { get; set; }

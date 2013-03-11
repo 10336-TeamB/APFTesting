@@ -37,8 +37,20 @@
         }
     </fieldset>
     <div class="navigation-container">
-        <input id="PreviousButton" class="button" type="button" value="Previous Question" />
-        <input id="NextButton" class="button" type="submit" value="Next Question" />
+        @if (Model.IsFirstQuestion)
+        {
+            <input id="NextButton" class="button" type="submit" value="Next Question" />
+        }
+        else if (Model.IsLastQuestion)
+        {
+            <input id="PreviousButton" class="button" type="button" value="Previous Question" />
+            <input id="SummaryButton" class="button" type="button" value="Go to Summary" />
+        }
+        else
+        {
+            <input id="PreviousButton" class="button" type="button" value="Previous Question" />
+            <input id="NextButton" class="button" type="submit" value="Next Question" />
+        }
         <div class="clear"></div>
     </div>
     
