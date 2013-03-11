@@ -8,11 +8,6 @@ namespace APFTestingModel
 {
     internal partial class PossibleAnswer : IPossibleAnswer
     {
-        public bool IsChecked { get; set; }
-        
-        //public PossibleAnswer()
-        //{
-        //    IsChecked = false;
-        //}
+       
     }
 }

@@ -212,6 +212,7 @@
           <Property Name="SelectedTheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PossibleAnswerId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SelectedTime" Type="datetime" Nullable="false" />
+          <Property Name="IsChecked" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="SelectedAssessmentTask">
           <Key>
@@ -802,6 +803,7 @@
           <Property Type="DateTime" Name="SelectedTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="PossibleAnswer" Relationship="APFTestingDBModel.FK_SelectedAnswer_PossibleAnswer1" FromRole="SelectedAnswer" ToRole="PossibleAnswer" />
           <NavigationProperty Name="SelectedTheoryQuestion" Relationship="APFTestingDBModel.FK_SelectedAnswer_SelectedTheoryQuestion1" FromRole="SelectedAnswer" ToRole="SelectedTheoryQuestion" />
+          <Property Type="Boolean" Name="IsChecked" Nullable="false" />
         </EntityType>
         <EntityType Name="SelectedTheoryQuestion" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
@@ -1044,6 +1046,7 @@
           <EntitySetMapping Name="SelectedAnswers">
             <EntityTypeMapping TypeName="APFTestingDBModel.SelectedAnswer">
               <MappingFragment StoreEntitySet="SelectedAnswer">
+                <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
                 <ScalarProperty Name="SelectedTime" ColumnName="SelectedTime" />
                 <ScalarProperty Name="PossibleAnswerId" ColumnName="PossibleAnswerId" />
                 <ScalarProperty Name="SelectedTheoryQuestionId" ColumnName="SelectedTheoryQuestionId" />

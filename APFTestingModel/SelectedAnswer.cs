@@ -18,6 +18,7 @@ namespace APFTestingModel
         public System.Guid SelectedTheoryQuestionId { get; set; }
         public System.Guid PossibleAnswerId { get; set; }
         public System.DateTime SelectedTime { get; set; }
+        public bool IsChecked { get; set; }
     
         public virtual PossibleAnswer PossibleAnswer { get; set; }
         public virtual SelectedTheoryQuestion SelectedTheoryQuestion { get; set; }

@@ -9,7 +9,11 @@ namespace APFTestingModel
     public interface ISelectedAnswer
     {
         //Not implemented yet -- AL
-        ISelectedTheoryQuestion Question { get; }
-        IPossibleAnswer Answer { get; }
+        //ISelectedTheoryQuestion Question { get; }
+        //IPossibleAnswer Answer { get; }
+        string Description { get; }
+        int DisplayOrderIndex { get; }
+        bool IsCorrect { get; }
+        bool IsChecked { get; }
     }
 }

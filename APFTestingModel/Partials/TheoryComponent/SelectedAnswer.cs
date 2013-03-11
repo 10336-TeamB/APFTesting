@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class SelectedAnswer
+    internal partial class SelectedAnswer : ISelectedAnswer
 	{
 
         #region Constructors
@@ -28,6 +28,22 @@ namespace APFTestingModel
 		{
 			get { return PossibleAnswer.IsCorrect; }
 		}
+
+        public int DisplayOrderIndex
+        {
+            get
+            {
+                return PossibleAnswer.DisplayOrderIndex;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return PossibleAnswer.Description;
+            }
+        }
 
 		#endregion
 

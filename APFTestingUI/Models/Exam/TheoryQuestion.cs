@@ -14,11 +14,12 @@ namespace APFTestingUI.Models.Exam
             NumCorrectAnswers = 1;
         }
 
-        public TheoryQuestion(ITheoryQuestion question)
+        public TheoryQuestion(ISelectedTheoryQuestion question)
         {
             Description = question.Description;
-            QuestionNumber = question.QuestionNumber;
-            PossibleAnswers = question.PossibleAnswers.Select(pa => new PossibleAnswer(pa));
+            //What's Question number? Do we even need it?
+            //QuestionNumber = question.QuestionNumber;
+            PossibleAnswers = question.ISelectedAnswers.Select(pa => new PossibleAnswer(pa));
             NumCorrectAnswers = question.NumberOfCorrectAnswers;
         }
 

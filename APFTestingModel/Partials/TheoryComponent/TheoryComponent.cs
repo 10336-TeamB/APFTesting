@@ -54,7 +54,7 @@ namespace APFTestingModel
             SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
             
             //What is checkPossibleAnswers doing? - ADAM
-            selectedTheoryQuestion.checkPossibleAnswers();
+            //selectedTheoryQuestion.checkPossibleAnswers();
 			return selectedTheoryQuestion;
 		}
 
@@ -69,7 +69,7 @@ namespace APFTestingModel
             //TODO: LINQ Query First may throw an exception...
             SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
             //What is checkPossibleAnswers doing? - ADAM
-            selectedTheoryQuestion.checkPossibleAnswers();
+            //selectedTheoryQuestion.checkPossibleAnswers();
             return selectedTheoryQuestion;
 		}
 
@@ -85,7 +85,7 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleExcpetion(String.Format("Question Index [{0}] can not be found.", questionIndex));
             }
-            selectedTheoryQuestion.checkPossibleAnswers();
+            //selectedTheoryQuestion.checkPossibleAnswers();
             return selectedTheoryQuestion;
 		}
 

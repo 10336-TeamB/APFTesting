@@ -17,7 +17,7 @@ namespace APFTestingUI.Models.Exam
             NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
             IsMarkedForReview = question.IsMarkedForReview;
             //Answers = createMockAnswers();
-            Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
+            Answers = question.ISelectedAnswers.Select(a => new AnswerDisplayItem(a));
             IsLastQuestion = question.IsLastQuestion;
         }
 

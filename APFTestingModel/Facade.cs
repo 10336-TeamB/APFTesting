@@ -26,7 +26,7 @@ namespace APFTestingModel
                 activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
                 activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
             }
-            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions, activeTheoryFormat, activePracticalTemplate, examType);
+            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("PossibleAnswers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 
         public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType)

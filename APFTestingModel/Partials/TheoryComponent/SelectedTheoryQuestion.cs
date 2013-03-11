@@ -16,11 +16,20 @@ namespace APFTestingModel
             this.QuestionIndex = questionIndex;
             this.IsMarkedForReview = false;
             this.TheoryQuestion = randomQuestion;
+            SelectedAnswers = TheoryQuestion.PossibleAnswers.Select(pa => new SelectedAnswer(this, pa)).ToArray();
         }
 
         #endregion
 
         #region Properties
+
+        public IEnumerable<ISelectedAnswer> ISelectedAnswers
+        {
+            get
+            {
+                return this.SelectedAnswers;
+            }
+        }
 
         public bool isCorrect
 		{
@@ -67,31 +76,24 @@ namespace APFTestingModel
 
         public void SelectAnswers(int[] selectedAnswers)
         {
-            // Clear is not working. We need to somehow delete these objects from context...
-            // SelectedAnswers.Clear();
-            var possibleAnswers = TheoryQuestion.PossibleAnswers;
-            if (selectedAnswers != null)
+            foreach (var answer in SelectedAnswers)
             {
-                foreach (var possibleAnswerId in selectedAnswers)
+                try
                 {
-                    var answer = possibleAnswers.FirstOrDefault(pa => pa.DisplayOrderIndex == possibleAnswerId);
-                    SelectedAnswers.Add(new SelectedAnswer(this, answer));
+                    int index = selectedAnswers.First(i => answer.DisplayOrderIndex == i);
                 }
+                catch (Exception)
+                {
+                    answer.IsChecked = false;
+                    continue;
+                }
+                answer.IsChecked = true;
             }
         }
         
         public void MarkForReview(bool isMarked)
         {
             IsMarkedForReview = isMarked;
-        }
-
-        //TODO - What is this?? - ADAM
-        public void checkPossibleAnswers()
-        {
-            foreach (var answer in SelectedAnswers)
-            {
-                answer.PossibleAnswer.IsChecked = true;
-            }
         }
 
 		#endregion
