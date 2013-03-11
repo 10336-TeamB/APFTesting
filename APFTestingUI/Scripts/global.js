@@ -11,7 +11,7 @@ $(function () {
 
 $(function () {
     $('#PreviousButton').click(function () {
-        $('#NavDirection').val("true");
+        $('#NavDirection').val("PreviousQuestion");
         $('#QuestionForm').submit();
     });
 });

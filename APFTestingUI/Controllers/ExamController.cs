@@ -59,26 +59,37 @@ namespace APFTestingUI.Controllers
         [HttpPost]
         public ActionResult SubmitAnswer(AnsweredQuestion question)
         {
-            // TODO: Communicate with facade to submit answer
             // Should we have a return value to confirm successful submission of answer?
             _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
 
-            if (question.NavDirection)
+            switch(question.NavDirection)
             {
-                return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+                case ExamAction.NextQuestion:
+                    return RedirectToAction("NextQuestion", new { examId = question.ExamId });
+                case ExamAction.PreviousQuestion:
+                    return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+                default:
+                    return RedirectToAction("Summary", new { examId = question.ExamId });
             }
-            return RedirectToAction("NextQuestion", new { examId = question.ExamId });
         }
 
+
+        //
+        // GET: /Exam/Summary/
+
         [HttpGet]
-        public ActionResult FetchSummary(Guid examId)
+        public ActionResult Summary(Guid examId)
         {
-            var model = new TheoryComponentSummary() { Questions = _facade.FetchTheoryComponentSummary(examId).OrderBy(q => q.QuestionIndex) };
+            var model = new TheoryComponentSummary(examId, _facade.FetchTheoryComponentSummary(examId));
             return View(model);
         }
 
+
+        //
+        // GET: /Exam/Result/
+
         [HttpGet]
-        public ActionResult FetchResult(Guid examId)
+        public ActionResult Result(Guid examId)
         {
             //_facade.FinaliseTheoryComponent();
             // We may need this to display what their score is as a mark/passmark

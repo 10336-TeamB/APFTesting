@@ -11,6 +11,6 @@ namespace APFTestingUI.Models.Exam
         public int Index { get; set; }
         public int[] ChosenAnswer { get; set; }
         public bool IsMarkedForReview { get; set; }
-        public bool NavDirection { get; set; }
+        public ExamAction NavDirection { get; set; }
     }
 }

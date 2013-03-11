@@ -1,7 +1,7 @@
 ﻿@model APFTestingUI.Models.Exam.TheoryComponentSummary
 
 @{
-    ViewBag.Title = "FetchSummary";
+    ViewBag.Title = "Exam Summary";
 }
 
 <h2>Theory Component Summary</h2>
@@ -16,7 +16,7 @@
     </tr>
     @foreach(var question in Model.Questions)
     {
-        var questionNumber = @question.QuestionIndex + 1;
+        var questionNumber = question.Index + 1;
         <tr>
             <td class="index">@questionNumber</td>
             <td class="description">@question.Description</td>

@@ -80,7 +80,7 @@ namespace APFTestingModel
         public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
         {
             Exam exam = fetchExam(examId);
-            return exam.SelectedTheoryQuestions;
+            return exam.SelectedTheoryQuestions.OrderBy(q => q.QuestionIndex);
         }
 
         public ITheoryComponentResult FetchTheoryComponentResult(Guid examId)

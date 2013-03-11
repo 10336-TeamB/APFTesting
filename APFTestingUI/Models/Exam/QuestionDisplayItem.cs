@@ -16,9 +16,9 @@ namespace APFTestingUI.Models.Exam
             Description = question.Description;
             NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
             IsMarkedForReview = question.IsMarkedForReview;
-            //Answers = createMockAnswers();
             Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
             IsLastQuestion = question.IsLastQuestion;
+            IsAnswered = question.IsAnswered;
         }
 
         public Guid Id { get; set; }
@@ -33,8 +33,9 @@ namespace APFTestingUI.Models.Exam
         {
             get { return Index == 0; }
         }
+        public bool IsAnswered { get; set; }
 
-        //Needed for question navigation direction and binding in cshtml, not assigned directly in this model
-        public bool NavDirection { get; set; }
+        //Needed for question navigation direction and binding in cshtml, not assigned in this model (assigned by reflection in AnsweredQuestion)
+        public ExamAction NavDirection { get; set; }
     }
 }
