@@ -43,7 +43,9 @@ namespace APFTestingModel
         private Exam fetchExam(Guid examId)
         {
             // Need to catch null value from FirstOrDefault
-            return _context.Exams.Include("TheoryComponent").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
+			var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
+
+			return exam;
         }
 
         public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
@@ -83,7 +85,7 @@ namespace APFTestingModel
             return exam.SelectedTheoryQuestions;
         }
 
-        public ITheoryComponentResult FetchTheoryComponentResult(Guid examId)
+        public ITheoryComponent FetchTheoryComponentResult(Guid examId)
         {
             Exam exam = fetchExam(examId);
             return exam.TheoryComponent;
