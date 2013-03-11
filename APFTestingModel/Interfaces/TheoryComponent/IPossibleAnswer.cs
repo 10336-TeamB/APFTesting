@@ -8,6 +8,5 @@ namespace APFTestingModel
         string Description { get; }
         int DisplayOrderIndex { get; }
         bool IsCorrect { get; }
-        bool IsChecked { get; }
     }
 }

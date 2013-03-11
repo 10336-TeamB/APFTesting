@@ -16,7 +16,7 @@ namespace APFTestingUI.Models.Exam
             Description = question.Description;
             NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
             IsMarkedForReview = question.IsMarkedForReview;
-            Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
+            Answers = question.ISelectedAnswers.Select(a => new AnswerDisplayItem(a));
             IsLastQuestion = question.IsLastQuestion;
             IsAnswered = question.IsAnswered;
         }

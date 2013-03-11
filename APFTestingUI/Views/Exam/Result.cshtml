@@ -13,7 +13,39 @@
     else
     {
         <h3>Sorry, you did not pass.</h3>
+        
     }
 </hgroup>
 <p>You scored @{@Model.Score}.</p>
 <p>Please notify your examiner.</p>
+
+@foreach (var question in Model.Questions)
+{
+    
+    int questionNumber = question.QuestionIndex + 1;   
+    
+    <h3>@questionNumber @question.Description</h3>
+    foreach (var answer in question.PossibleAnswers)
+    {
+        
+        if (answer.IsChecked == true && answer.IsCorrect == true)
+        {
+            <p style="color:green">@answer.Description</p>
+        } 
+        else if (answer.IsChecked == true && answer.IsCorrect == false)
+        {
+            <p style="color:red">@answer.Description</p>
+        }
+        else if (answer.IsChecked == false && answer.IsCorrect == true)
+        {
+            <p style="color:yellow">@answer.Description</p>
+        }
+        else
+        {
+            <p>@answer.Description</p>
+        }
+        
+        
+    }
+    <br />
+}

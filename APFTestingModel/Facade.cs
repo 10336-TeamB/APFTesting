@@ -26,7 +26,7 @@ namespace APFTestingModel
                 activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
                 activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
             }
-            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions, activeTheoryFormat, activePracticalTemplate, examType);
+            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("PossibleAnswers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 
         public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
@@ -43,7 +43,9 @@ namespace APFTestingModel
         private Exam fetchExam(Guid examId)
         {
             // Need to catch null value from FirstOrDefault
-            return _context.Exams.Include("TheoryComponent").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
+			var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
+
+			return exam;
         }
 
         public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
@@ -83,7 +85,7 @@ namespace APFTestingModel
             return exam.SelectedTheoryQuestions.OrderBy(q => q.QuestionIndex);
         }
 
-        public ITheoryComponentResult FetchTheoryComponentResult(Guid examId)
+        public ITheoryComponent FetchTheoryComponentResult(Guid examId)
         {
             Exam exam = fetchExam(examId);
             return exam.TheoryComponent;

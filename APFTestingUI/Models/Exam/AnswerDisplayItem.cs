@@ -9,7 +9,7 @@ namespace APFTestingUI.Models.Exam
     public class AnswerDisplayItem
     {
         public AnswerDisplayItem() { }
-        public AnswerDisplayItem(IPossibleAnswer answer)
+        public AnswerDisplayItem(ISelectedAnswer answer)
         {
             DisplayOrderIndex = answer.DisplayOrderIndex;
             Description = answer.Description;
