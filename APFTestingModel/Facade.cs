@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public class Facade : IDisposable
+    public class Facade : IFacade
     {
         private APFTestingDBEntities _context = new APFTestingDBEntities();
         private ExamManager examManager;
