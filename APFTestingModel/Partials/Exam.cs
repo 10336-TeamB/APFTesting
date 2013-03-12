@@ -8,6 +8,7 @@ namespace APFTestingModel
 {
     public enum ExamStatus
     {
+        NoExamCreated = 0,
         ExamCreated = 1,
         TheoryComponentInProgress = 2,
         TheoryComponentFailed = 3,
@@ -43,6 +44,18 @@ namespace APFTestingModel
                     throw new BusinessRuleExcpetion("Exam Status invalid");
                 }
                 return (ExamStatus)ExamStatusId;
+            }
+            set
+            {
+                ExamStatusId = (int)value;
+            }
+        }
+
+        public bool TheoryComponentCompetency
+        {
+            get
+            {
+                return TheoryComponent.IsCompetent;
             }
         }
 

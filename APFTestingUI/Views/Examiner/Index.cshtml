@@ -28,7 +28,40 @@
                 @candidate.LastName
             </td>
             <td class="start-theory-link">
-                @Html.ActionLink("Start Theory Exam", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "link-button" })
+                @if (!candidate.TheoryComponentInProgress)
+                {
+                    
+                    @Html.ActionLink("Start Theory Exam", "Start", "Exam", new { candidateId = candidate.Id }, new { @class = "link-button" });
+                    
+                }
+                else if (candidate.TheoryComponentCompleted)
+	            {
+                    //TODO: Complete ActionLink
+                    Html.ActionLink("Review Theory Exam", "#", "Exam", new { candidateId = candidate.Id }, new { @class = "link-button" });
+	            }
+                else
+                {
+                    //TODO: Complete ActionLink
+                    Html.ActionLink("Resume Theory Exam", "#", "Exam", new { candidateId = candidate.Id }, new { @class = "link-button" });
+                }
+
+                @if (true)
+                {
+                    
+                }
+
+                @*@if (!candidate.TheoryComponentInProgress || !candidate.TheoryComponentCompleted)
+                {
+                    @Html.ActionLink("Start Theory Exam", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "link-button" })
+                }
+
+                else if (!candidate.TheoryComponentInProgress || !candidate.TheoryComponentCompleted)
+                {
+                    @Html.ActionLink("Start Theory Exam", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "link-button" })
+                }
+
+                @Html.ActionLink("Resume Theory Exam", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "link-button" })*@
+                
             </td>
             <td class="input-practical-link">
                 @Html.ActionLink("Input Practical Results", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "link-button" })

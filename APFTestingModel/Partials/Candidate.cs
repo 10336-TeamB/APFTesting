@@ -27,9 +27,34 @@ namespace APFTestingModel
         }
 
         // Hardcoded values to allow facade to work with UI.
-        public IExam LatestExam
+        public IExam ILatestExam
         {
-            get { return new ExamPilot { Id = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), CandidateId = Id, ExamStatusId = 1 }; }
+            get
+            {
+                return LatestExam;
+            }
+
+        }
+        
+        public Exam LatestExam
+        {
+            //get { return new ExamPilot { Id = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), CandidateId = Id, ExamStatusId = 1, ExamStatus = ExamStatus.TheoryComponentInProgress }; }
+            get { return null; }
+            
+        }
+
+
+        public ExamStatus LatestExamStatus
+        {
+            get 
+            {
+                if (LatestExam == null)
+                {
+                    return ExamStatus.NoExamCreated;
+                }
+                return LatestExam.ExamStatus;
+                
+            }
         }
     }
 }

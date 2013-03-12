@@ -29,15 +29,28 @@ namespace APFTestingModel
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("PossibleAnswers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 
-        public IExam CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
+        public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
         {
             createExamManager(examType);
 
-            Exam exam = examManager.GenerateExam(candidateId, examinerId);
-            // We may not need this line, as the Exam is associated with context objects already (Format and Template)...
-            _context.Exams.Add(exam);
-            _context.SaveChanges();
-            return exam;
+            //HACK:
+            Candidate candidate = new Candidate();
+            //Candidate candidate = _context.Candidates.Include("Exams").First(c => c.id == candidateId);
+
+            Exam exam;
+            if (candidate.LatestExam == null)
+	        {
+                exam = examManager.GenerateExam(candidateId, examinerId);
+                // We may not need this line, as the Exam is associated with context objects already (Format and Template)...
+                _context.Exams.Add(exam);
+                _context.SaveChanges();
+	        }
+            else
+            {
+                exam = candidate.LatestExam;
+            }
+
+            return exam.Id;
         }
 
         private Exam fetchExam(Guid examId)
@@ -133,6 +146,29 @@ namespace APFTestingModel
             {
                 //_context.TheoryComponentFormats.Where(f => f)
             }
+        }
+
+        public void SubmitTheoryComponent(Guid examId)
+        {
+            //TODO: Wrap in try-catch block
+            var exam = _context.Exams.Include("TheoryComponent")
+                .Include("TheoryComponent.SelectedTheoryQuestions")
+                .Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers")
+                .Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers.PossibleAnswer")
+                .Include("TheoryComponent.TheoryComponentFormat")
+                .First(e => e.Id == examId);
+            
+            switch(exam.TheoryComponentCompetency)
+            {
+                case true:
+                    exam.ExamStatus = ExamStatus.TheoryComponentCompleted;
+                    break;
+                case false:
+                    exam.ExamStatus = ExamStatus.TheoryComponentFailed;
+                    break;
+            }
+            _context.SaveChanges();
+            
         }
 
         //Hook-in test method

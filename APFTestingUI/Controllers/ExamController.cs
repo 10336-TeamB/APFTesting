@@ -1,4 +1,5 @@
-﻿using APFTestingUI.Models.Exam;
+﻿using APFTestingModel;
+using APFTestingUI.Models.Exam;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,15 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Exam/Start/
 
-        public ActionResult Start(Guid examId)
+        public ActionResult Start(Guid candidateId)
         {
-            ViewBag.ExamId = examId;
+            ViewBag.ExamId = _facade.CreateExam(Guid.NewGuid(), candidateId, ExamType.PilotExam);
+
             return View();
         }
+
+
+
 
         //
         // GET: /Exam/NextQuestion/
@@ -90,6 +95,13 @@ namespace APFTestingUI.Controllers
         {
             var model = new TheoryComponentSummary(examId, _facade.FetchTheoryComponentSummary(examId));
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult SubmitTheoryComponent(Guid examId)
+        {
+            _facade.SubmitTheoryComponent(examId);
+            return RedirectToAction("Result", new { examId = examId });
         }
 
 
