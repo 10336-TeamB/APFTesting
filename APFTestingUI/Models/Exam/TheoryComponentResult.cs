@@ -11,7 +11,7 @@ namespace APFTestingUI.Models.Exam
         public TheoryComponentResult(Guid examId, ITheoryComponent theoryComponentResult)
         {
             IsCompetent = theoryComponentResult.IsCompetent;
-            Score = theoryComponentResult.Score.ToString("###.##") + "%";
+            Score = theoryComponentResult.Score.ToString("P1");
             //TODO - Should QuestionDisplayItem require ExamId?
 			Questions = theoryComponentResult.SelectedTheoryQuestions.Select(q => new QuestionDisplayItem(q, examId));
             Message = IsCompetent ? "Congratulations! You have passed" : "Unfortunately you did not pass";

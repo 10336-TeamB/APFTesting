@@ -24,7 +24,7 @@ namespace APFTestingModel
 			get
 			{
 				decimal numberOfCorrectAnswers = SelectedTheoryQuestions.Count(question => question.IsCorrect);
-				return (numberOfCorrectAnswers / SelectedTheoryQuestions.Count) * 100;
+				return (numberOfCorrectAnswers / SelectedTheoryQuestions.Count);
 			}
 		}
 

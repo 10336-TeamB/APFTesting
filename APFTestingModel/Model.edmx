@@ -109,7 +109,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IsCorrect" Type="bit" Nullable="false" />
           <Property Name="DisplayOrderIndex" Type="int" Nullable="false" />
@@ -160,7 +160,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SelectedTheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AnswerId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SelectedTime" Type="datetime" Nullable="false" />
@@ -828,7 +828,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
           <Property Type="Boolean" Name="IsCorrect" Nullable="false" />
           <Property Type="Int32" Name="DisplayOrderIndex" Nullable="false" />
@@ -852,7 +852,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="SelectedTheoryQuestionId" Nullable="false" />
           <Property Type="Guid" Name="AnswerId" Nullable="false" />
           <Property Type="DateTime" Name="SelectedTime" Nullable="false" Precision="3" />

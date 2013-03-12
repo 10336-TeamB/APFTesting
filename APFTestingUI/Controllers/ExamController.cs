@@ -19,12 +19,8 @@ namespace APFTestingUI.Controllers
         public ActionResult Start(Guid candidateId)
         {
             ViewBag.ExamId = _facade.CreateExam(Guid.NewGuid(), candidateId, ExamType.PilotExam);
-
             return View();
         }
-
-
-
 
         //
         // GET: /Exam/FirstQuestion/
@@ -107,7 +103,8 @@ namespace APFTestingUI.Controllers
         [HttpGet]
         public ActionResult Submit(Guid examId)
         {
-            _facade.SubmitTheoryComponent(examId);
+            //HACK - Commented out to prevent submission and allow playing with the UI
+            //_facade.SubmitTheoryComponent(examId);
             return RedirectToAction("Result", new { examId });
         }
 

@@ -26,7 +26,7 @@ namespace APFTestingModel
                 activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
                 activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
             }
-            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("PossibleAnswers"), activeTheoryFormat, activePracticalTemplate, examType);
+            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 
         public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
@@ -41,7 +41,7 @@ namespace APFTestingModel
             if (candidate.LatestExam == null)
 	        {
                 exam = examManager.GenerateExam(candidateId, examinerId);
-                // We may not need this line, as the Exam is associated with context objects already (Format and Template)...
+                // TODO: We may not need this line, as the Exam is associated with context objects already (Format and Template)...
                 _context.Exams.Add(exam);
                 _context.SaveChanges();
 	        }
@@ -160,11 +160,12 @@ namespace APFTestingModel
             //TODO: Wrap in try-catch block
             var exam = _context.Exams.Include("TheoryComponent")
                 .Include("TheoryComponent.SelectedTheoryQuestions")
-                .Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers")
-                .Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers.PossibleAnswer")
+                .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
+                .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
                 .Include("TheoryComponent.TheoryComponentFormat")
                 .First(e => e.Id == examId);
             
+            //TODO: Why is this a switch? -ADAM
             switch(exam.TheoryComponentCompetency)
             {
                 case true:
@@ -175,7 +176,6 @@ namespace APFTestingModel
                     break;
             }
             _context.SaveChanges();
-            
         }
 
         //Hook-in test method

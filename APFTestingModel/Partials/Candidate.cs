@@ -38,8 +38,9 @@ namespace APFTestingModel
         
         public Exam LatestExam
         {
-            //get { return new ExamPilot { Id = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), CandidateId = Id, ExamStatusId = 1, ExamStatus = ExamStatus.TheoryComponentInProgress }; }
-            get { return null; }
+            //HACK - returning static exam
+            get { return new ExamPilot { Id = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), CandidateId = Id, ExamStatusId = 2, ExamStatus = ExamStatus.TheoryComponentInProgress }; }
+            //get { return null; }
             
         }
 
