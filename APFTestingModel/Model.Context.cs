@@ -25,10 +25,10 @@ namespace APFTestingModel
     		TheoryComponents = Set<TheoryComponent>();	
     		TheoryComponentFormats = Set<TheoryComponentFormat>();	
     		TheoryQuestions = Set<TheoryQuestion>();	
-    		PossibleAnswers = Set<PossibleAnswer>();	
-    		SelectedAnswers = Set<SelectedAnswer>();	
     		SelectedTheoryQuestions = Set<SelectedTheoryQuestion>();	
     		AssessmentTasks = Set<AssessmentTask>();	
+    		Answers = Set<Answer>();	
+    		PossibleAnswers = Set<PossibleAnswer>();	
     
         }
     
@@ -44,9 +44,9 @@ namespace APFTestingModel
         internal DbSet<TheoryComponent> TheoryComponents { get; set; }
         internal DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
         internal DbSet<TheoryQuestion> TheoryQuestions { get; set; }
-        internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
-        internal DbSet<SelectedAnswer> SelectedAnswers { get; set; }
         internal DbSet<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
         internal DbSet<AssessmentTask> AssessmentTasks { get; set; }
+        internal DbSet<Answer> Answers { get; set; }
+        internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
     }
 }
