@@ -14,7 +14,7 @@
         <li>Good luck!</li>
     </ul>
 
-    <p>@Html.ActionLink("Start Exam", "Question", new { examId = @ViewBag.ExamId, questionNumber = 0 })</p>
+    <p>@Html.ActionLink("Start Exam", "FirstQuestion", new { examId = @ViewBag.ExamId })</p>
     <p><strong style="color:red;">Remove</strong> @Html.ActionLink("Exam Summary", "Summary", new { examId = @ViewBag.ExamId }) @Html.ActionLink("Exam Result", "Result", new { examId = @ViewBag.ExamId })</p>
 
 </div>
