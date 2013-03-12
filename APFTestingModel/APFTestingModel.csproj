@@ -67,6 +67,7 @@
     <Compile Include="ExamPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IFacade.cs" />
     <Compile Include="Interfaces\ICandidate.cs" />
     <Compile Include="Interfaces\IExam.cs" />
     <Compile Include="Interfaces\PracticalComponent\IPracticalComponentTemplatePacker.cs" />

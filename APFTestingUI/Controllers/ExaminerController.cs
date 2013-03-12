@@ -1,4 +1,5 @@
-﻿using APFTestingUI.Models.Examiner;
+﻿using APFTestingModel;
+using APFTestingUI.Models.Examiner;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace APFTestingUI.Controllers
 {
     public class ExaminerController : BaseController
     {
+        public ExaminerController(IFacade facade) : base(facade) { }
+
         //
         // GET: /Examiner/
 

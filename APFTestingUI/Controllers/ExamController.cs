@@ -1,4 +1,5 @@
-﻿using APFTestingUI.Models.Exam;
+﻿using APFTestingModel;
+using APFTestingUI.Models.Exam;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace APFTestingUI.Controllers
     //TODO: Add authorise attribute for an examiner
     public class ExamController : BaseController
     {
+        public ExamController(IFacade facade) : base(facade) { }
+
         //
         // GET: /Exam/Create
 
