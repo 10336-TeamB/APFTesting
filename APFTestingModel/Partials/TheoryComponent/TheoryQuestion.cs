@@ -10,16 +10,16 @@ namespace APFTestingModel
     {
         #region Constructors
 
-        public TheoryQuestion(List<PossibleAnswer> possibleAnswers)
+        public TheoryQuestion(List<Answer> answers)
         {
-            PossibleAnswers = possibleAnswers;
+            Answers = answers;
         }
 
         #endregion
 
-        IEnumerable<IPossibleAnswer> ITheoryQuestion.PossibleAnswers
+        IEnumerable<IAnswer> ITheoryQuestion.PossibleAnswers
         {
-            get { return PossibleAnswers; }
+            get { return Answers; }
         }
 
         public int QuestionNumber

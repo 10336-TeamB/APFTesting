@@ -16,16 +16,16 @@ namespace APFTestingModel
             this.QuestionIndex = questionIndex;
             this.IsMarkedForReview = false;
             this.TheoryQuestion = randomQuestion;
-            SelectedAnswers = TheoryQuestion.PossibleAnswers.Select(pa => new SelectedAnswer(this, pa)).ToArray();
+            PossibleAnswers = TheoryQuestion.Answers.Select(a => new PossibleAnswer(this, a)).ToArray();
         }
 
         #endregion
 
         #region Properties
 
-        IEnumerable<ISelectedAnswer> ISelectedTheoryQuestion.SelectedAnswers
+        IEnumerable<IPossibleAnswer> ISelectedTheoryQuestion.PossibleAnswers
         {
-            get { return SelectedAnswers.OrderBy(a => a.DisplayOrderIndex); }
+            get { return PossibleAnswers.OrderBy(a => a.DisplayOrderIndex); }
         }
 
         //TODO: This is now broken because of new implementation of SelectedAnswers.
@@ -33,7 +33,7 @@ namespace APFTestingModel
 		{
 			get
 			{
-			    if (SelectedAnswers.Any(sa => sa.IsCorrect == false))
+                if (PossibleAnswers.Any(pa => pa.IsCorrect == false))
 			    {
 			        return false;
 			    }
@@ -53,7 +53,7 @@ namespace APFTestingModel
 
         public bool IsAnswered
         {
-            get { return (SelectedAnswers.Any(sa => sa.IsChecked)); }
+            get { return (PossibleAnswers.Any(sa => sa.IsChecked)); }
         }
 
         public bool IsLastQuestion
@@ -65,17 +65,17 @@ namespace APFTestingModel
 
 		#region Methods
 
-        public void SelectAnswers(int[] selectedAnswers)
+        public void SelectAnswers(int[] possibleAnswers)
         {
-            if (selectedAnswers == null)
+            if (possibleAnswers == null)
             {
-                SelectedAnswers.ToList().ForEach(sa => sa.IsChecked = false);
+                PossibleAnswers.ToList().ForEach(sa => sa.IsChecked = false);
             }
             else
             {
-                foreach (var answer in SelectedAnswers)
+                foreach (var answer in PossibleAnswers)
                 {
-                    answer.IsChecked = (Array.Exists(selectedAnswers, a => a == answer.DisplayOrderIndex));
+                    answer.IsChecked = (Array.Exists(possibleAnswers, a => a == answer.DisplayOrderIndex));
                 }
             }
         }

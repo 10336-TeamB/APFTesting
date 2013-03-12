@@ -10,7 +10,7 @@ namespace APFTestingUI.Models.Exam {
         {
         }
 
-        public PossibleAnswer(ISelectedAnswer possibleAnswer)
+        public PossibleAnswer(IPossibleAnswer possibleAnswer)
         {
             Description = possibleAnswer.Description;
             DisplayOrderIndex = possibleAnswer.DisplayOrderIndex;

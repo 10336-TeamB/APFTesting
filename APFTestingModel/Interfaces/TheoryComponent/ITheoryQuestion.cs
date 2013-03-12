@@ -12,9 +12,8 @@ namespace APFTestingModel
         int NumberOfCorrectAnswers { get; }
         bool IsActive { get; }
         string Description { get; }
-        IEnumerable<IPossibleAnswer> PossibleAnswers { get; }
+        IEnumerable<IAnswer> PossibleAnswers { get; }
         string ImagePath { get; }
-       //Why is there a question number here? -- AL
-        int QuestionNumber { get; }
+
     }
 }
