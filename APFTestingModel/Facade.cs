@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public class Facade : IDisposable
+    public class Facade : IFacade
     {
         private APFTestingDBEntities _context = new APFTestingDBEntities();
         private ExamManager examManager;
@@ -56,7 +56,7 @@ namespace APFTestingModel
         private Exam fetchExam(Guid examId)
         {
             // Need to catch null value from FirstOrDefault
-			var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.SelectedAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.PossibleAnswers").FirstOrDefault(e => e.Id == examId);
+			var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.Answers").FirstOrDefault(e => e.Id == examId);
 
 			return exam;
         }
@@ -82,6 +82,13 @@ namespace APFTestingModel
             Exam exam = fetchExam(examId);
             ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
             _context.SaveChanges();
+            return question;
+        }
+
+        public ISelectedTheoryQuestion ResumeTheoryExam(Guid examId)
+        {
+            Exam exam = fetchExam(examId);
+            ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(exam.TheoryComponent.CurrentQuestionIndex);
             return question;
         }
 

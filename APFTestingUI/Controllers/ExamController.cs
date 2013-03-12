@@ -11,13 +11,7 @@ namespace APFTestingUI.Controllers
     //TODO: Add authorise attribute for an examiner
     public class ExamController : BaseController
     {
-        //
-        // GET: /Exam/Create
-
-        //public ActionResult Create()
-        //{
-
-        //}
+        public ExamController(IFacade facade) : base(facade) { }
 
         //
         // GET: /Exam/Start/
@@ -31,6 +25,16 @@ namespace APFTestingUI.Controllers
 
 
 
+
+        //
+        // GET: /Exam/FirstQuestion/
+
+        public ActionResult FirstQuestion(Guid examId)
+        {
+            var FirstQuestionIndex = 0;
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, FirstQuestionIndex), examId);
+            return View("DisplayQuestion", model);
+        }
 
         //
         // GET: /Exam/NextQuestion/
@@ -52,11 +56,11 @@ namespace APFTestingUI.Controllers
         }
 
         //
-        // GET: /Exam/Question/
+        // GET: /Exam/Resume/
 
-        public ActionResult Question(Guid examId, int questionNumber)
+        public ActionResult Resume(Guid examId)
         {
-            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId);
+            var model = new QuestionDisplayItem(_facade.ResumeTheoryExam(examId), examId);
             return View("DisplayQuestion", model);
         }
 
@@ -73,7 +77,7 @@ namespace APFTestingUI.Controllers
         [HttpPost]
         public ActionResult SubmitAnswer(AnsweredQuestion question)
         {
-            // Should we have a return value to confirm successful submission of answer?
+            // TODO - Should we have a return value to confirm successful submission of answer?
             _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
 
             switch(question.NavDirection)
@@ -97,13 +101,15 @@ namespace APFTestingUI.Controllers
             return View(model);
         }
 
+        //
+        // GET: /Exam/Submit/
+
         [HttpGet]
-        public ActionResult SubmitTheoryComponent(Guid examId)
+        public ActionResult Submit(Guid examId)
         {
             _facade.SubmitTheoryComponent(examId);
-            return RedirectToAction("Result", new { examId = examId });
+            return RedirectToAction("Result", new { examId });
         }
-
 
         //
         // GET: /Exam/Result/
@@ -111,13 +117,11 @@ namespace APFTestingUI.Controllers
         [HttpGet]
         public ActionResult Result(Guid examId)
         {
-            //_facade.FinaliseTheoryComponent();
             // We may need this to display what their score is as a mark/passmark
             //_facade.FetchTheoryExamFormatDetails();
             //_facade.FetchCandidateDetails();
-            var model = new TheoryComponentResult(_facade.FetchTheoryComponentResult(examId));
+            var model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId));
             return View(model);
         }
-
     }
 }

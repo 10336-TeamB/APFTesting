@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public interface ITheoryComponentResult
+    internal partial class Answer : IAnswer
     {
-        decimal Score { get; }
-        bool IsCompetent { get; }
+       
     }
 }

@@ -29,4 +29,6 @@
     }
 </table>
 
-<p><a class="button" href=@Url.Action("SubmitTheoryComponent", new { examId = Model.ExamId })>Submit Exam</a></p>
+
+<p>@Html.ActionLink("Submit Exam", "Submit", new { examId = @Model.ExamId }, new { @class = "button" })</p>
+
