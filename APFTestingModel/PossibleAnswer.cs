@@ -14,18 +14,13 @@ namespace APFTestingModel
     
     internal partial class PossibleAnswer
     {
-        public PossibleAnswer()
-        {
-            this.SelectedAnswers = new HashSet<SelectedAnswer>();
-        }
-    
         public System.Guid Id { get; set; }
-        public System.Guid TheoryQuestionId { get; set; }
-        public bool IsCorrect { get; set; }
-        public int DisplayOrderIndex { get; set; }
-        public string Description { get; set; }
+        public System.Guid SelectedTheoryQuestionId { get; set; }
+        public System.Guid AnswerId { get; set; }
+        public System.DateTime SelectedTime { get; set; }
+        public bool IsChecked { get; set; }
     
-        public virtual TheoryQuestion TheoryQuestion { get; set; }
-        public virtual ICollection<SelectedAnswer> SelectedAnswers { get; set; }
+        public virtual Answer Answer { get; set; }
+        public virtual SelectedTheoryQuestion SelectedTheoryQuestion { get; set; }
     }
 }

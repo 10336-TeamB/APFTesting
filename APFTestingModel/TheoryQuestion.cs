@@ -16,8 +16,8 @@ namespace APFTestingModel
     {
         public TheoryQuestion()
         {
-            this.PossibleAnswers = new HashSet<PossibleAnswer>();
             this.SelectedTheoryQuestions = new HashSet<SelectedTheoryQuestion>();
+            this.Answers = new HashSet<Answer>();
         }
     
         public System.Guid Id { get; set; }
@@ -27,7 +27,7 @@ namespace APFTestingModel
         public string Description { get; set; }
         public int CategoryId { get; set; }
     
-        public virtual ICollection<PossibleAnswer> PossibleAnswers { get; set; }
         public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
     }
 }

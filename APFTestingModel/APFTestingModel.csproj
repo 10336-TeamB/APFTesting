@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AssessmentTask.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -77,14 +80,14 @@
     <Compile Include="Interfaces\PracticalComponent\IAssessmentTaskPilot.cs" />
     <Compile Include="Interfaces\PracticalComponent\IPracticalComponentTemplatePilot.cs" />
     <Compile Include="Interfaces\PracticalComponent\ISelectedAssessmentTask.cs" />
-    <Compile Include="Interfaces\TheoryComponent\ISelectedAnswer.cs" />
+    <Compile Include="Interfaces\TheoryComponent\IPossibleAnswer.cs" />
     <Compile Include="Interfaces\TheoryComponent\ITheoryComponent.cs" />
     <Compile Include="Interfaces\TheoryComponent\ITheoryComponentFormat.cs" />
     <Compile Include="Interfaces\TheoryComponent\ISelectedTheoryQuestion.cs" />
     <Compile Include="Interfaces\TheoryComponent\ITheoryComponentResult.cs" />
     <Compile Include="Managers\ExamManager.cs" />
     <Compile Include="Facade.cs" />
-    <Compile Include="Interfaces\TheoryComponent\IPossibleAnswer.cs" />
+    <Compile Include="Interfaces\TheoryComponent\IAnswer.cs" />
     <Compile Include="Interfaces\TheoryComponent\ITheoryQuestion.cs" />
     <Compile Include="Managers\ExamManagerPacker.cs" />
     <Compile Include="Managers\ExamManagerPilot.cs" />
@@ -121,8 +124,8 @@
     <Compile Include="Partials\PracticalComponent\PracticalComponentPacker.cs" />
     <Compile Include="Partials\PracticalComponent\PracticalComponentPilot.cs" />
     <Compile Include="Partials\PracticalComponent\SelectedAssessmentTask.cs" />
+    <Compile Include="Partials\TheoryComponent\Answer.cs" />
     <Compile Include="Partials\TheoryComponent\PossibleAnswer.cs" />
-    <Compile Include="Partials\TheoryComponent\SelectedAnswer.cs" />
     <Compile Include="Partials\TheoryComponent\SelectedTheoryQuestion.cs" />
     <Compile Include="Partials\TheoryComponent\TheoryComponent.cs" />
     <Compile Include="Partials\TheoryComponent\TheoryComponentFormat.cs" />
@@ -156,9 +159,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectedAnswer.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="SelectedAssessmentTask.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

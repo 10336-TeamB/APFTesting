@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="APFTestingDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="APFTestingDBModelStoreContainer">
+          <EntitySet Name="Answer" EntityType="APFTestingDBModel.Store.Answer" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AssessmentTask" EntityType="APFTestingDBModel.Store.AssessmentTask" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AssessmentTaskPacker" EntityType="APFTestingDBModel.Store.AssessmentTaskPacker" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AssessmentTaskPilot" EntityType="APFTestingDBModel.Store.AssessmentTaskPilot" store:Type="Tables" Schema="dbo" />
@@ -18,12 +19,15 @@
           <EntitySet Name="PracticalComponentTemplateAssessmentTask" EntityType="APFTestingDBModel.Store.PracticalComponentTemplateAssessmentTask" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PracticalComponentTemplatePacker" EntityType="APFTestingDBModel.Store.PracticalComponentTemplatePacker" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PracticalComponentTemplatePilot" EntityType="APFTestingDBModel.Store.PracticalComponentTemplatePilot" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SelectedAnswer" EntityType="APFTestingDBModel.Store.SelectedAnswer" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SelectedAssessmentTask" EntityType="APFTestingDBModel.Store.SelectedAssessmentTask" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SelectedTheoryQuestion" EntityType="APFTestingDBModel.Store.SelectedTheoryQuestion" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TheoryComponent" EntityType="APFTestingDBModel.Store.TheoryComponent" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TheoryComponentFormat" EntityType="APFTestingDBModel.Store.TheoryComponentFormat" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TheoryQuestion" EntityType="APFTestingDBModel.Store.TheoryQuestion" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Answer_TheoryQuestion" Association="APFTestingDBModel.Store.FK_Answer_TheoryQuestion">
+            <End Role="TheoryQuestion" EntitySet="TheoryQuestion" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
           <AssociationSet Name="FK_AssessmentTaskPacker_AssessmentTask" Association="APFTestingDBModel.Store.FK_AssessmentTaskPacker_AssessmentTask">
             <End Role="AssessmentTask" EntitySet="AssessmentTask" />
             <End Role="AssessmentTaskPacker" EntitySet="AssessmentTaskPacker" />
@@ -44,8 +48,12 @@
             <End Role="TheoryComponent" EntitySet="TheoryComponent" />
             <End Role="Exam" EntitySet="Exam" />
           </AssociationSet>
-          <AssociationSet Name="FK_PossibleAnswer_TheoryQuestion" Association="APFTestingDBModel.Store.FK_PossibleAnswer_TheoryQuestion">
-            <End Role="TheoryQuestion" EntitySet="TheoryQuestion" />
+          <AssociationSet Name="FK_PossibleAnswer_Answer" Association="APFTestingDBModel.Store.FK_PossibleAnswer_Answer">
+            <End Role="Answer" EntitySet="Answer" />
+            <End Role="PossibleAnswer" EntitySet="PossibleAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PossibleAnswer_SelectedTheoryQuestion" Association="APFTestingDBModel.Store.FK_PossibleAnswer_SelectedTheoryQuestion">
+            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestion" />
             <End Role="PossibleAnswer" EntitySet="PossibleAnswer" />
           </AssociationSet>
           <AssociationSet Name="FK_PracticalComponent_PracticalComponentTemplate" Association="APFTestingDBModel.Store.FK_PracticalComponent_PracticalComponentTemplate">
@@ -76,14 +84,6 @@
             <End Role="PracticalComponentTemplate" EntitySet="PracticalComponentTemplate" />
             <End Role="PracticalComponentTemplatePilot" EntitySet="PracticalComponentTemplatePilot" />
           </AssociationSet>
-          <AssociationSet Name="FK_SelectedAnswer_PossibleAnswer1" Association="APFTestingDBModel.Store.FK_SelectedAnswer_PossibleAnswer1">
-            <End Role="PossibleAnswer" EntitySet="PossibleAnswer" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SelectedAnswer_SelectedTheoryQuestion1" Association="APFTestingDBModel.Store.FK_SelectedAnswer_SelectedTheoryQuestion1">
-            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestion" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswer" />
-          </AssociationSet>
           <AssociationSet Name="FK_SelectedAssessmentTask_AssessmentTaskPilot" Association="APFTestingDBModel.Store.FK_SelectedAssessmentTask_AssessmentTaskPilot">
             <End Role="AssessmentTaskPilot" EntitySet="AssessmentTaskPilot" />
             <End Role="SelectedAssessmentTask" EntitySet="SelectedAssessmentTask" />
@@ -105,6 +105,16 @@
             <End Role="TheoryComponent" EntitySet="TheoryComponent" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsCorrect" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrderIndex" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="AssessmentTask">
           <Key>
             <PropertyRef Name="Id" />
@@ -150,11 +160,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="IsCorrect" Type="bit" Nullable="false" />
-          <Property Name="DisplayOrderIndex" Type="int" Nullable="false" />
-          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SelectedTheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AnswerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SelectedTime" Type="datetime" Nullable="false" />
+          <Property Name="IsChecked" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PracticalComponent">
           <Key>
@@ -203,16 +213,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <EntityType Name="SelectedAnswer">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="SelectedTheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PossibleAnswerId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="SelectedTime" Type="datetime" Nullable="false" />
-          <Property Name="IsChecked" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="SelectedAssessmentTask">
           <Key>
@@ -267,6 +267,18 @@
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Answer_TheoryQuestion">
+          <End Role="TheoryQuestion" Type="APFTestingDBModel.Store.TheoryQuestion" Multiplicity="1" />
+          <End Role="Answer" Type="APFTestingDBModel.Store.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TheoryQuestion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="TheoryQuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AssessmentTaskPacker_AssessmentTask">
           <End Role="AssessmentTask" Type="APFTestingDBModel.Store.AssessmentTask" Multiplicity="1" />
           <End Role="AssessmentTaskPacker" Type="APFTestingDBModel.Store.AssessmentTaskPacker" Multiplicity="0..1" />
@@ -327,15 +339,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PossibleAnswer_TheoryQuestion">
-          <End Role="TheoryQuestion" Type="APFTestingDBModel.Store.TheoryQuestion" Multiplicity="1" />
+        <Association Name="FK_PossibleAnswer_Answer">
+          <End Role="Answer" Type="APFTestingDBModel.Store.Answer" Multiplicity="1" />
           <End Role="PossibleAnswer" Type="APFTestingDBModel.Store.PossibleAnswer" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TheoryQuestion">
+            <Principal Role="Answer">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="PossibleAnswer">
-              <PropertyRef Name="TheoryQuestionId" />
+              <PropertyRef Name="AnswerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PossibleAnswer_SelectedTheoryQuestion">
+          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.Store.SelectedTheoryQuestion" Multiplicity="1" />
+          <End Role="PossibleAnswer" Type="APFTestingDBModel.Store.PossibleAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SelectedTheoryQuestion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PossibleAnswer">
+              <PropertyRef Name="SelectedTheoryQuestionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -420,30 +444,6 @@
             </Principal>
             <Dependent Role="PracticalComponentTemplatePilot">
               <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SelectedAnswer_PossibleAnswer1">
-          <End Role="PossibleAnswer" Type="APFTestingDBModel.Store.PossibleAnswer" Multiplicity="1" />
-          <End Role="SelectedAnswer" Type="APFTestingDBModel.Store.SelectedAnswer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PossibleAnswer">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="PossibleAnswerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SelectedAnswer_SelectedTheoryQuestion1">
-          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.Store.SelectedTheoryQuestion" Multiplicity="1" />
-          <End Role="SelectedAnswer" Type="APFTestingDBModel.Store.SelectedAnswer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SelectedTheoryQuestion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="SelectedTheoryQuestionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -551,21 +551,7 @@
             <End Role="AssessmentTaskPilot" EntitySet="AssessmentTasks" />
             <End Role="PracticalComponentTemplatePilot" EntitySet="PracticalComponentTemplates" />
           </AssociationSet>
-          <EntitySet Name="PossibleAnswers" EntityType="APFTestingDBModel.PossibleAnswer" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <EntitySet Name="SelectedAnswers" EntityType="APFTestingDBModel.SelectedAnswer" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <EntitySet Name="SelectedTheoryQuestions" EntityType="APFTestingDBModel.SelectedTheoryQuestion" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <AssociationSet Name="FK_PossibleAnswer_TheoryQuestion" Association="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion">
-            <End Role="TheoryQuestion" EntitySet="TheoryQuestions" />
-            <End Role="PossibleAnswer" EntitySet="PossibleAnswers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SelectedAnswer_PossibleAnswer1" Association="APFTestingDBModel.FK_SelectedAnswer_PossibleAnswer1">
-            <End Role="PossibleAnswer" EntitySet="PossibleAnswers" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SelectedAnswer_SelectedTheoryQuestion1" Association="APFTestingDBModel.FK_SelectedAnswer_SelectedTheoryQuestion1">
-            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestions" />
-            <End Role="SelectedAnswer" EntitySet="SelectedAnswers" />
-          </AssociationSet>
           <AssociationSet Name="FK_SelectedTheoryQuestion_TheoryComponent" Association="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent">
             <End Role="TheoryComponent" EntitySet="TheoryComponents" />
             <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestions" />
@@ -575,7 +561,21 @@
             <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestions" />
           </AssociationSet>
           <EntitySet Name="AssessmentTasks" EntityType="APFTestingDBModel.AssessmentTask" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-        </EntityContainer>
+          <EntitySet Name="Answers" EntityType="APFTestingDBModel.Answer" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <AssociationSet Name="FK_Answer_TheoryQuestion" Association="APFTestingDBModel.FK_Answer_TheoryQuestion">
+            <End Role="TheoryQuestion" EntitySet="TheoryQuestions" />
+            <End Role="Answer" EntitySet="Answers" />
+          </AssociationSet>
+          <EntitySet Name="PossibleAnswers" EntityType="APFTestingDBModel.PossibleAnswer" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <AssociationSet Name="FK_PossibleAnswer_Answer" Association="APFTestingDBModel.FK_PossibleAnswer_Answer">
+            <End Role="Answer" EntitySet="Answers" />
+            <End Role="PossibleAnswer" EntitySet="PossibleAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PossibleAnswer_SelectedTheoryQuestion" Association="APFTestingDBModel.FK_PossibleAnswer_SelectedTheoryQuestion">
+            <End Role="SelectedTheoryQuestion" EntitySet="SelectedTheoryQuestions" />
+            <End Role="PossibleAnswer" EntitySet="PossibleAnswers" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="AssessmentTaskPacker" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" BaseType="APFTestingDBModel.AssessmentTask">
           <Property Name="PracticalComponentId" Type="Guid" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
@@ -681,9 +681,9 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="ImagePath" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="PossibleAnswers" Relationship="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion" FromRole="TheoryQuestion" ToRole="PossibleAnswer" />
           <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" FromRole="TheoryQuestion" ToRole="SelectedTheoryQuestion" />
           <Property Type="Int32" Name="CategoryId" Nullable="false" />
+          <NavigationProperty Name="Answers" Relationship="APFTestingDBModel.FK_Answer_TheoryQuestion" FromRole="TheoryQuestion" ToRole="Answer" />
         </EntityType>
         <Association Name="FK_AssessmentTaskPacker_PracticalComponentPacker">
           <End Role="PracticalComponentPacker" Type="APFTestingDBModel.PracticalComponentPacker" Multiplicity="1" />
@@ -781,30 +781,6 @@
           <End Type="APFTestingDBModel.AssessmentTaskPilot" Role="AssessmentTaskPilot" Multiplicity="*" />
           <End Type="APFTestingDBModel.PracticalComponentTemplatePilot" Role="PracticalComponentTemplatePilot" Multiplicity="*" />
         </Association>
-        <EntityType Name="PossibleAnswer" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
-          <Property Type="Boolean" Name="IsCorrect" Nullable="false" />
-          <Property Type="Int32" Name="DisplayOrderIndex" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TheoryQuestion" Relationship="APFTestingDBModel.FK_PossibleAnswer_TheoryQuestion" FromRole="PossibleAnswer" ToRole="TheoryQuestion" />
-          <NavigationProperty Name="SelectedAnswers" Relationship="APFTestingDBModel.FK_SelectedAnswer_PossibleAnswer1" FromRole="PossibleAnswer" ToRole="SelectedAnswer" />
-        </EntityType>
-        <EntityType Name="SelectedAnswer" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Guid" Name="SelectedTheoryQuestionId" Nullable="false" />
-          <Property Type="Guid" Name="PossibleAnswerId" Nullable="false" />
-          <Property Type="DateTime" Name="SelectedTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="PossibleAnswer" Relationship="APFTestingDBModel.FK_SelectedAnswer_PossibleAnswer1" FromRole="SelectedAnswer" ToRole="PossibleAnswer" />
-          <NavigationProperty Name="SelectedTheoryQuestion" Relationship="APFTestingDBModel.FK_SelectedAnswer_SelectedTheoryQuestion1" FromRole="SelectedAnswer" ToRole="SelectedTheoryQuestion" />
-          <Property Type="Boolean" Name="IsChecked" Nullable="false" />
-        </EntityType>
         <EntityType Name="SelectedTheoryQuestion" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
@@ -814,46 +790,10 @@
           <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
           <Property Type="Int32" Name="QuestionIndex" Nullable="false" />
           <Property Type="Boolean" Name="IsMarkedForReview" Nullable="false" />
-          <NavigationProperty Name="SelectedAnswers" Relationship="APFTestingDBModel.FK_SelectedAnswer_SelectedTheoryQuestion1" FromRole="SelectedTheoryQuestion" ToRole="SelectedAnswer" />
           <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent" FromRole="SelectedTheoryQuestion" ToRole="TheoryComponent" />
           <NavigationProperty Name="TheoryQuestion" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" FromRole="SelectedTheoryQuestion" ToRole="TheoryQuestion" />
+          <NavigationProperty Name="PossibleAnswers" Relationship="APFTestingDBModel.FK_PossibleAnswer_SelectedTheoryQuestion" FromRole="SelectedTheoryQuestion" ToRole="PossibleAnswer" />
         </EntityType>
-        <Association Name="FK_PossibleAnswer_TheoryQuestion">
-          <End Type="APFTestingDBModel.TheoryQuestion" Role="TheoryQuestion" Multiplicity="1" />
-          <End Type="APFTestingDBModel.PossibleAnswer" Role="PossibleAnswer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TheoryQuestion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PossibleAnswer">
-              <PropertyRef Name="TheoryQuestionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SelectedAnswer_PossibleAnswer1">
-          <End Type="APFTestingDBModel.PossibleAnswer" Role="PossibleAnswer" Multiplicity="1" />
-          <End Type="APFTestingDBModel.SelectedAnswer" Role="SelectedAnswer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PossibleAnswer">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="PossibleAnswerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SelectedAnswer_SelectedTheoryQuestion1">
-          <End Type="APFTestingDBModel.SelectedTheoryQuestion" Role="SelectedTheoryQuestion" Multiplicity="1" />
-          <End Type="APFTestingDBModel.SelectedAnswer" Role="SelectedAnswer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SelectedTheoryQuestion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SelectedAnswer">
-              <PropertyRef Name="SelectedTheoryQuestionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SelectedTheoryQuestion_TheoryComponent">
           <End Type="APFTestingDBModel.TheoryComponent" Role="TheoryComponent" Multiplicity="1" />
           <End Type="APFTestingDBModel.SelectedTheoryQuestion" Role="SelectedTheoryQuestion" Multiplicity="*" />
@@ -884,7 +824,67 @@
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Answer" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
+          <Property Type="Boolean" Name="IsCorrect" Nullable="false" />
+          <Property Type="Int32" Name="DisplayOrderIndex" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TheoryQuestion" Relationship="APFTestingDBModel.FK_Answer_TheoryQuestion" FromRole="Answer" ToRole="TheoryQuestion" />
+          <NavigationProperty Name="PossibleAnswers" Relationship="APFTestingDBModel.FK_PossibleAnswer_Answer" FromRole="Answer" ToRole="PossibleAnswer" />
+        </EntityType>
+        <Association Name="FK_Answer_TheoryQuestion">
+          <End Type="APFTestingDBModel.TheoryQuestion" Role="TheoryQuestion" Multiplicity="1" />
+          <End Type="APFTestingDBModel.Answer" Role="Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TheoryQuestion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="TheoryQuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PossibleAnswer" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="SelectedTheoryQuestionId" Nullable="false" />
+          <Property Type="Guid" Name="AnswerId" Nullable="false" />
+          <Property Type="DateTime" Name="SelectedTime" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsChecked" Nullable="false" />
+          <NavigationProperty Name="Answer" Relationship="APFTestingDBModel.FK_PossibleAnswer_Answer" FromRole="PossibleAnswer" ToRole="Answer" />
+          <NavigationProperty Name="SelectedTheoryQuestion" Relationship="APFTestingDBModel.FK_PossibleAnswer_SelectedTheoryQuestion" FromRole="PossibleAnswer" ToRole="SelectedTheoryQuestion" />
+        </EntityType>
+        <Association Name="FK_PossibleAnswer_Answer">
+          <End Type="APFTestingDBModel.Answer" Role="Answer" Multiplicity="1" />
+          <End Type="APFTestingDBModel.PossibleAnswer" Role="PossibleAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PossibleAnswer">
+              <PropertyRef Name="AnswerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PossibleAnswer_SelectedTheoryQuestion">
+          <End Type="APFTestingDBModel.SelectedTheoryQuestion" Role="SelectedTheoryQuestion" Multiplicity="1" />
+          <End Type="APFTestingDBModel.PossibleAnswer" Role="PossibleAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SelectedTheoryQuestion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PossibleAnswer">
+              <PropertyRef Name="SelectedTheoryQuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1032,28 +1032,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PossibleAnswers">
-            <EntityTypeMapping TypeName="APFTestingDBModel.PossibleAnswer">
-              <MappingFragment StoreEntitySet="PossibleAnswer">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DisplayOrderIndex" ColumnName="DisplayOrderIndex" />
-                <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
-                <ScalarProperty Name="TheoryQuestionId" ColumnName="TheoryQuestionId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SelectedAnswers">
-            <EntityTypeMapping TypeName="APFTestingDBModel.SelectedAnswer">
-              <MappingFragment StoreEntitySet="SelectedAnswer">
-                <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
-                <ScalarProperty Name="SelectedTime" ColumnName="SelectedTime" />
-                <ScalarProperty Name="PossibleAnswerId" ColumnName="PossibleAnswerId" />
-                <ScalarProperty Name="SelectedTheoryQuestionId" ColumnName="SelectedTheoryQuestionId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SelectedTheoryQuestions">
             <EntityTypeMapping TypeName="APFTestingDBModel.SelectedTheoryQuestion">
               <MappingFragment StoreEntitySet="SelectedTheoryQuestion">
@@ -1101,6 +1079,28 @@
 				  <ScalarProperty Name="Id" ColumnName="PracticalComponentTemplatePilotId" />
 			  </EndProperty>
 		  </AssociationSetMapping>
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="APFTestingDBModel.Answer">
+              <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DisplayOrderIndex" ColumnName="DisplayOrderIndex" />
+                <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+                <ScalarProperty Name="TheoryQuestionId" ColumnName="TheoryQuestionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PossibleAnswers">
+            <EntityTypeMapping TypeName="APFTestingDBModel.PossibleAnswer">
+              <MappingFragment StoreEntitySet="PossibleAnswer">
+                <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+                <ScalarProperty Name="SelectedTime" ColumnName="SelectedTime" />
+                <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+                <ScalarProperty Name="SelectedTheoryQuestionId" ColumnName="SelectedTheoryQuestionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

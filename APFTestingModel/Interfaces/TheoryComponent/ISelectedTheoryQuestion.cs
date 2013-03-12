@@ -11,7 +11,7 @@ namespace APFTestingModel
         Guid Id { get; }
         string Description { get; }
         int NumberOfCorrectAnswers { get; }
-        IEnumerable<ISelectedAnswer> SelectedAnswers { get; }
+        IEnumerable<IPossibleAnswer> PossibleAnswers { get; }
         int QuestionIndex { get; }
         bool IsMarkedForReview { get; }
         bool IsAnswered { get; }
