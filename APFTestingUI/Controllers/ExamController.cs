@@ -52,6 +52,15 @@ namespace APFTestingUI.Controllers
         }
 
         //
+        // GET: /Exam/Resume/
+
+        public ActionResult Resume(Guid examId)
+        {
+            var model = new QuestionDisplayItem(_facade.ResumeTheoryExam(examId), examId);
+            return View("DisplayQuestion", model);
+        }
+
+        //
         // GET: /Exam/Review/
 
         public ActionResult Review(Guid examId, int questionNumber)
@@ -107,7 +116,7 @@ namespace APFTestingUI.Controllers
             // We may need this to display what their score is as a mark/passmark
             //_facade.FetchTheoryExamFormatDetails();
             //_facade.FetchCandidateDetails();
-            var model = new TheoryComponentResult(_facade.FetchTheoryComponentResult(examId));
+            var model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId));
             return View(model);
         }
     }

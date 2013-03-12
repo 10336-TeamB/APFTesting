@@ -84,7 +84,6 @@
     <Compile Include="Interfaces\TheoryComponent\ITheoryComponent.cs" />
     <Compile Include="Interfaces\TheoryComponent\ITheoryComponentFormat.cs" />
     <Compile Include="Interfaces\TheoryComponent\ISelectedTheoryQuestion.cs" />
-    <Compile Include="Interfaces\TheoryComponent\ITheoryComponentResult.cs" />
     <Compile Include="Managers\ExamManager.cs" />
     <Compile Include="Facade.cs" />
     <Compile Include="Interfaces\TheoryComponent\IAnswer.cs" />

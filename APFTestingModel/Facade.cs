@@ -72,6 +72,13 @@ namespace APFTestingModel
             return question;
         }
 
+        public ISelectedTheoryQuestion ResumeTheoryExam(Guid examId)
+        {
+            Exam exam = fetchExam(examId);
+            ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(exam.TheoryComponent.CurrentQuestionIndex);
+            return question;
+        }
+
         public void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview)
         {
             Exam exam = fetchExam(examId);

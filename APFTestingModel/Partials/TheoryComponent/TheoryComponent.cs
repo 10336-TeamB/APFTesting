@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal abstract partial class TheoryComponent : ITheoryComponent, ITheoryComponentResult
+    internal abstract partial class TheoryComponent : ITheoryComponent
     {
         #region Constructors
 
@@ -23,8 +23,7 @@ namespace APFTestingModel
 		{
 			get
 			{
-				var numberOfCorrectAnswers = SelectedTheoryQuestions.Count(question => question.IsCorrect);
-				
+				decimal numberOfCorrectAnswers = SelectedTheoryQuestions.Count(question => question.IsCorrect);
 				return (numberOfCorrectAnswers / SelectedTheoryQuestions.Count) * 100;
 			}
 		}
@@ -36,7 +35,7 @@ namespace APFTestingModel
 
         IEnumerable<ISelectedTheoryQuestion> ITheoryComponent.SelectedTheoryQuestions
         {
-            get { return SelectedTheoryQuestions; }
+            get { return SelectedTheoryQuestions.OrderBy(q => q.QuestionIndex); }
         }
 
 		#endregion
@@ -53,8 +52,6 @@ namespace APFTestingModel
             //TODO: LINQ Query First may throw an exception...
             SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
             
-            //What is checkPossibleAnswers doing? - ADAM
-            //selectedTheoryQuestion.checkPossibleAnswers();
 			return selectedTheoryQuestion;
 		}
 
@@ -63,13 +60,8 @@ namespace APFTestingModel
             //TODO: prevent out of bounds exception
             --CurrentQuestionIndex;
             
-            //Should no longer need this - ADAM
-			//isFirstQuestion = (CurrentQuestionIndex == 0);
-
             //TODO: LINQ Query First may throw an exception...
             SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
-            //What is checkPossibleAnswers doing? - ADAM
-            //selectedTheoryQuestion.checkPossibleAnswers();
             return selectedTheoryQuestion;
 		}
 
@@ -85,7 +77,6 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleExcpetion(String.Format("Question Index [{0}] can not be found.", questionIndex));
             }
-            //selectedTheoryQuestion.checkPossibleAnswers();
             return selectedTheoryQuestion;
 		}
 

@@ -12,6 +12,7 @@ namespace APFTestingModel
         ISelectedTheoryQuestion FetchNextQuestion(Guid examId);
         ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId);
         ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex);
+        ISelectedTheoryQuestion ResumeTheoryExam(Guid examId);
         ITheoryComponent FetchTheoryComponentResult(Guid examId);
         IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId);
         void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId);

@@ -8,31 +8,18 @@ namespace APFTestingUI.Models.Exam
 {
     public class TheoryComponentResult
     {
-        public TheoryComponentResult(ITheoryComponent theoryComponentResult)
+        public TheoryComponentResult(Guid examId, ITheoryComponent theoryComponentResult)
         {
-            //IsCompetent = theoryComponentResult.IsCompetent;
-            IsCompetent = false;
-            //Score = theoryComponentResult.Score;
-            Score = 12.09m;
-			Questions = theoryComponentResult.SelectedTheoryQuestions;
+            IsCompetent = theoryComponentResult.IsCompetent;
+            Score = theoryComponentResult.Score.ToString("###.##") + "%";
+            //TODO - Should QuestionDisplayItem require ExamId?
+			Questions = theoryComponentResult.SelectedTheoryQuestions.Select(q => new QuestionDisplayItem(q, examId));
+            Message = IsCompetent ? "Congratulations! You have passed" : "Unfortunately you did not pass";
         }
         
-        //public Guid ExamId { get; set; }
-        //public int Passmark { get; set; }
-        public decimal Score { get; set; }
+        public string Score { get; set; }
         public bool IsCompetent { get; set; }
-		private IEnumerable<ISelectedTheoryQuestion> questions;
-		public IEnumerable<ISelectedTheoryQuestion> Questions { 
-			get
-			{
-				return questions.OrderBy(q => q.QuestionIndex); 
-			}
-
-			set
-			{
-				questions = value;
-			}
-		}
-		
+        public IEnumerable<QuestionDisplayItem> Questions { get; set; }
+        public string Message { get; set; }
     }
 }
