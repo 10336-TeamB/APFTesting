@@ -12,6 +12,8 @@
 <p class="add-candidate"><a href="#">+ Add new Candidate</a></p>
 <hr />
 
+
+
 <table id="candidate-list">
         <tr>
             <th>First Name</th>
@@ -28,43 +30,31 @@
                 @candidate.LastName
             </td>
             <td class="start-theory-link">
-                @if (!candidate.TheoryComponentInProgress)
+                @{
+                    string beginExamUrl;
+                    string beginExamButtonText;
+                }
+
+                @if (candidate.FreshTheoryComponent)
                 {
-                    
-                    @Html.ActionLink("Start Theory Exam", "Start", "Exam", new { candidateId = candidate.Id }, new { @class = "link-button" });
-                    
+                    beginExamButtonText = "Start Theory Exam";
+                    beginExamUrl = Url.Action("Start","Exam",new { candidateId = candidate.Id });
                 }
                 else if (candidate.TheoryComponentCompleted)
-	            {
-                    //TODO: Complete ActionLink
-                    Html.ActionLink("Review Theory Exam", "#", "Exam", new { candidateId = candidate.Id }, new { @class = "link-button" });
-	            }
+                {
+                    beginExamButtonText = "Review Theory Exam";
+                    beginExamUrl = Url.Action("Result", "Exam", new { examId = candidate.LatestExamId });
+                }
                 else
                 {
-                    //TODO: Complete ActionLink
-                    Html.ActionLink("Resume Theory Exam", "#", "Exam", new { candidateId = candidate.Id }, new { @class = "link-button" });
+                    beginExamButtonText = "Resume Theory Exam";
+                    beginExamUrl = Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId });
                 }
 
-                @if (true)
-                {
-                    
-                }
-
-                @*@if (!candidate.TheoryComponentInProgress || !candidate.TheoryComponentCompleted)
-                {
-                    @Html.ActionLink("Start Theory Exam", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "link-button" })
-                }
-
-                else if (!candidate.TheoryComponentInProgress || !candidate.TheoryComponentCompleted)
-                {
-                    @Html.ActionLink("Start Theory Exam", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "link-button" })
-                }
-
-                @Html.ActionLink("Resume Theory Exam", "Start", "Exam", new { examId = candidate.LatestExamId }, new { @class = "link-button" })*@
-                
+                <button class="button" type="button" onclick="window.location.assign('@beginExamUrl')">@beginExamButtonText</button>
             </td>
             <td class="input-practical-link">
-                <a href="#" class="link-button">Input Practical Results</a>
+                <button class="button" type="button" onclick="window.location.assign('#')">Input Practical Results</button>
             </td>
         </tr>
     }

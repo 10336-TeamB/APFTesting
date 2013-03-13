@@ -14,7 +14,8 @@
         <li>Good luck!</li>
     </ul>
 
-    <p>@Html.ActionLink("Start Exam", "FirstQuestion", new { examId = @ViewBag.ExamId })</p>
+    <p><button class="button" type="button" onclick="window.location.assign('@Url.Action("FirstQuestion", new { examId = @ViewBag.ExamId })')">Start Exam</button></p>
+    @*<p>@Html.ActionLink("Start Exam", "FirstQuestion", new { examId = @ViewBag.ExamId })</p>*@
     <p><strong style="color:red;">Remove</strong> @Html.ActionLink("Exam Summary", "Summary", new { examId = @ViewBag.ExamId }) @Html.ActionLink("Exam Result", "Result", new { examId = @ViewBag.ExamId })</p>
 
 </div>
