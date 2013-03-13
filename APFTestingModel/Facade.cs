@@ -81,7 +81,14 @@ namespace APFTestingModel
         {
             Exam exam = fetchExam(examId);
             ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
-            _context.SaveChanges();
+			
+			//If exam is started for first time, it'll change status to in progress
+			if (questionIndex == 0 && exam.ExamStatus == ExamStatus.ExamCreated)
+			{
+				exam.ExamStatus = ExamStatus.TheoryComponentInProgress;
+			}
+			
+			_context.SaveChanges();
             return question;
         }
 
