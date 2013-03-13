@@ -882,9 +882,15 @@ html
 body
 {
     text-align:center;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #303030;
     color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
 }
 
 #global-wrapper
@@ -965,7 +971,7 @@ body
     background-image: -webkit-linear-gradient(top, #111111 7%, #303030 77%);
     background-image: -ms-linear-gradient(top, #111111 7%, #303030 77%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#111111', EndColorStr='#303030');*/
-    background:#303030 url('../Images/bg-gradient-grey.jpg') 0 0 repeat-x;
+    background:#303030 url('../Images/bg-gradient-grey.gif') 0 0 repeat-x;
 }
 
 #menu
@@ -1092,15 +1098,32 @@ body
         color:#ffffff;
         background-color: #117523;
         border: none;
-        border-radius: 20px;
-        padding:10px 20px;
+        border-radius: 10px;
+        padding: 10px 10px;
         font-size: 1em;
+        line-height: 1.1em;
+        font-weight: normal;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .1);
     }
+
+table
+{
+    border-collapse: separate; /* For IE9 to render shadows */
+}
+
+        .lt-ie9 #content .button
+        {
+            behavior: url('/Content/PIE.htc');
+            box-shadow: 1px 1px 4px #000000;
+            position: relative;
+            
+        }
 
         #content .button:hover
         {
-            background-color: #34B34A;
+            /* background-color: #34B34A; */
             text-decoration: none;
+            box-shadow: 2px 2px 4px rgba(0,0,0,.5);
         }
 
         #content a.button {
@@ -1176,19 +1199,19 @@ body
 }
 
 .candidate-first-name {
-    width:35%;
+    width:32%;
 }
 
 .candidate-last-name {
-    width:35%;
+    width:32%;
 }
 
 .start-theory-link {
-    width:15%;
+    width:18%;
 }
 
 .input-practical-link {
-    width:15%;
+    width:18%;
 }
 
 /* Added by Adam and Joshua */
