@@ -1080,13 +1080,28 @@ body
         font-size: 1em;
     }
 
+    #content .examinerButton
+{
+    margin: 0px;
+    color: #ffffff;
+    background-color: #5D5D5D;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 20px 7px 20px;
+    font-size: x-small;
+    width: 70%;
+    font-weight: bold;
+}
+
         #content .button:hover
         {
+            
             background-color: #34B34A;
             text-decoration: none;
         }
 
-        #content a.button {
+        #content a.button 
+        {
             cursor: pointer;
             font-size: 1em;
             font-weight: 600;
@@ -1159,19 +1174,30 @@ body
 }
 
 .candidate-first-name {
-    width:35%;
+    width:7%;
 }
 
 .candidate-last-name {
-    width:35%;
+    width:15%;
 }
 
-.start-theory-link {
-    width:15%;
+.start-theory-link
+{
+    padding: 0px;
+    margin: 0px;
+    width: 10%;
 }
 
 .input-practical-link {
     width:15%;
+}
+
+#add-candidate-link
+{
+    font-size: medium;
+    font-weight: bold;
+    font-family: Calibri;
+    height: 50%;
 }
 
 /* Added by Adam and Joshua */

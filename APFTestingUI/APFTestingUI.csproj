@@ -217,6 +217,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\add.png" />
     <Content Include="Images\APF Logo.png" />
     <Content Include="Images\bg-gradient-grey.jpg" />
     <Content Include="Images\logo-apf.png" />
@@ -279,6 +280,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

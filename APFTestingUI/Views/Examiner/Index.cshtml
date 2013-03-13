@@ -9,7 +9,10 @@
 <h3>Welcome to the Examiner home page!</h3>
 </hgroup>
 
-<p class="add-candidate"><a href="#">+ Add new Candidate</a></p>
+
+<a href="@Url.Action("")"><img alt="add candidate" src="@Url.Content("~/Images/add.png")"/> <span id="add-candidate-link">Add New Candidate</span></a>
+
+@*<p class="add-candidate"><a href="#">+ Add new Candidate</a></p>*@
 <hr />
 
 
@@ -51,10 +54,10 @@
                     beginExamUrl = Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId });
                 }
 
-                <button class="button" type="button" onclick="window.location.assign('@beginExamUrl')">@beginExamButtonText</button>
+                <button class="examinerButton" type="button" onclick="window.location.assign('@beginExamUrl')">@beginExamButtonText</button>
             </td>
             <td class="input-practical-link">
-                <button class="button" type="button" onclick="window.location.assign('#')">Input Practical Results</button>
+                <button class="examinerButton" type="button" onclick="window.location.assign('#')">Input Practical Results</button>
             </td>
         </tr>
     }
