@@ -21,7 +21,7 @@ namespace APFTestingUI.Models.Examiner
                 LatestExamId = candidate.LatestExam.Id;
             }
             
-            //LatestExamStatus = candidate.LatestExamStatus;
+            LatestExamStatus = candidate.LatestExamStatus;
         }
         
         public Guid Id { get; set; }
@@ -29,18 +29,25 @@ namespace APFTestingUI.Models.Examiner
         public string LastName { get; set; }
         public Guid LatestExamId { get; set; }
         public ExamStatus LatestExamStatus { get; set; }
-        public bool TheoryComponentInProgress
+		public bool FreshTheoryComponent
+		{
+			get
+			{
+				return LatestExamStatus <= ExamStatus.ExamCreated;
+			}
+		}
+		public bool TheoryComponentInProgress
         {
             get
             {
-                return LatestExamStatus == ExamStatus.TheoryComponentInProgress && LatestExamStatus < ExamStatus.TheoryComponentCompleted;
+                return LatestExamStatus == ExamStatus.TheoryComponentInProgress;
             }
         }
         public bool TheoryComponentCompleted
         {
             get
             {
-                return LatestExamStatus >= ExamStatus.TheoryComponentCompleted;
+                return LatestExamStatus >= ExamStatus.TheoryComponentFailed;
             }
         }
 
