@@ -54,5 +54,11 @@ namespace APFTestingUI.Tests
         {
             get { return false; }
         }
+
+
+        public bool IsCorrect
+        {
+            get { return true; }
+        }
     }
 }

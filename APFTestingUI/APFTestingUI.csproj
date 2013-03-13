@@ -155,6 +155,7 @@
     <Compile Include="Models\Exam\ExamAction.cs" />
     <Compile Include="Models\Exam\PossibleAnswer.cs" />
     <Compile Include="Models\Exam\QuestionDisplayItem.cs" />
+    <Compile Include="Models\Exam\ResultQuestionDisplayItem.cs" />
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,8 +219,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\APF Logo.png" />
+    <Content Include="Images\arrow.png" />
     <Content Include="Images\bg-gradient-grey.jpg" />
+    <Content Include="Images\cross.png" />
     <Content Include="Images\logo-apf.png" />
+    <Content Include="Images\tick.png" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />

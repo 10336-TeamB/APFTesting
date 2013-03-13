@@ -1220,3 +1220,70 @@ body
     width: 30px;
 }
 
+.result-question {
+    padding-bottom: 10px;
+}
+
+.result-question-number {
+    font-size: 2.2em;
+    display: inline-block;
+}
+
+.result-question-description {
+    display: inline-block;
+    width: 850px;
+    padding-left: 30px;
+    vertical-align: top;
+    font-size: 1.1em
+}
+
+.result-answer {
+    padding-top: 3px;
+    padding-bottom: 5px;
+    padding-left: 35px;
+    margin-left: 55px;
+    margin-bottom: 10px;
+    width: 700px;
+}
+
+li.result-answer {
+    list-style-type: none;
+}
+
+#result-home {
+    float: right;
+    padding: 12px 30px !important;
+}
+
+#score {
+    float: right;
+    font-size: 2em;
+}
+
+.correct, .incorrect, .indicate-correct {
+    background-repeat: no-repeat;
+}
+
+.correct {
+    background-image: url("../Images/tick.png");
+}
+
+.incorrect {
+    background-image: url("../Images/cross.png");
+}
+
+.indicate-correct {
+    background-image: url("../Images/arrow.png");
+}
+
+.result-question .correct {
+    border-bottom: solid 3px #00C000;
+    padding-bottom: 7px;
+    background-image: none;
+}
+
+.result-question .incorrect {
+    border-bottom: solid 3px #FF0000;
+    padding-bottom: 7px;
+    background-image: none;
+}
