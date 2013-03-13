@@ -8,23 +8,33 @@
 
 <table id="exam-summary">
     <tr>
-        <th>Question Number</th>
-        <th>Question Description</th>
-        <th>Question Answered</th>
-        <th>Marked For Review</th>
-        <th>Link</th>
+        <th class="index">Question Number</th>
+        <th class="description">Question Description</th>
+        <th class="question-answered">Question Answered</th>
+        <th class="marked-for-review">Marked For Review</th>
     </tr>
     @foreach(var question in Model.Questions)
     {
         var questionNumber = question.Index + 1;
         <tr>
             <td class="index">@questionNumber</td>
-            <td class="description">@question.Description</td>
+            <td class="description">@Html.ActionLink(question.Description, "Review", new { examId = @Model.ExamId, questionNumber = @question.Index })</td>
             <td class="question-answered">
-                @question.IsAnswered
+                @if (question.IsAnswered)
+                {
+                    <img src="/Content/images/tick.png" alt="tick" />
+                }
+                else
+                {
+                    <img src="/Content/images/cross.png" alt="cross" />
+                }
             </td>
-            <td class="marked-for-review">@question.IsMarkedForReview</td>
-            <td class="review-link">@Html.ActionLink(("Go to " + @questionNumber), "Review", new { examId = @Model.ExamId, questionNumber = @question.Index })</td>
+            <td class="marked-for-review">
+                @if (question.IsMarkedForReview)
+                {
+                    <img src="/Content/images/tick.png" alt="tick" />
+                }
+            </td>
         </tr>
     }
 </table>

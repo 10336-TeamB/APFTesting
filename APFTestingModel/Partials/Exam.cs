@@ -41,7 +41,7 @@ namespace APFTestingModel
             {
                 if (ExamStatusId > (int)ExamStatus.Count || ExamStatusId < 0)
                 {
-                    throw new BusinessRuleExcpetion("Exam Status invalid");
+                    throw new BusinessRuleExcpetion("Exam Status is invalid");
                 }
                 return (ExamStatus)ExamStatusId;
             }
@@ -67,25 +67,36 @@ namespace APFTestingModel
             }
         }
 
-        // Commented out to allow compilation
+        //This method is just gonna throw an exception if the theory component is not in progress so that 
+        //no one is able to modify the answers after or before a theory exam
+        private void checkTheoryComponentStatus() {
+            if (ExamStatusId != (int)ExamStatus.TheoryComponentInProgress)
+            {
+                throw new BusinessRuleExcpetion("Theory Component is not in progress");
+            }
+        }
 
         public SelectedTheoryQuestion FetchNextQuestion()
         {
+            checkTheoryComponentStatus();
             return TheoryComponent.FetchNextQuestion();
         }
 
         public SelectedTheoryQuestion FetchPreviousQuestion()
         {
+            checkTheoryComponentStatus();
             return TheoryComponent.FetchPreviousQuestion();
         }
 
         public SelectedTheoryQuestion FetchSpecificQuestion(int index)
         {
+            checkTheoryComponentStatus();
             return TheoryComponent.FetchSpecificQuestion(index);
         }
 
         public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
         {
+            checkTheoryComponentStatus();
             TheoryComponent.AnswerQuestion(questionIndex, selectedAnswers, markForReview);
         }
     }

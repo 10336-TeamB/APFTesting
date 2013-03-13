@@ -46,10 +46,11 @@ namespace APFTestingModel
 
 		public SelectedTheoryQuestion FetchNextQuestion()
 		{
-            //TODO: prevent out of bounds exception
-            ++CurrentQuestionIndex;
-            //Should no longer need this - ADAM
-			//isLastQuestion = (CurrentQuestionIndex == (SelectedTheoryQuestions.Count - 1));
+            //TODO: prevent out of bounds exception - Done (Pradipna)
+            if (CurrentQuestionIndex < SelectedTheoryQuestions.Count - 1)
+            {
+                ++CurrentQuestionIndex;
+            }
             
             //TODO: LINQ Query First may throw an exception...
             SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
@@ -59,8 +60,11 @@ namespace APFTestingModel
 
 		public SelectedTheoryQuestion FetchPreviousQuestion()
 		{
-            //TODO: prevent out of bounds exception
-            --CurrentQuestionIndex;
+            //TODO: prevent out of bounds exception - Done (Pradipna)
+            if (CurrentQuestionIndex > 0)
+            {
+                --CurrentQuestionIndex;
+            }
             
             //TODO: LINQ Query First may throw an exception...
             SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == CurrentQuestionIndex);
@@ -75,6 +79,8 @@ namespace APFTestingModel
             }
 			CurrentQuestionIndex = questionIndex;
             SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.FirstOrDefault(question => question.QuestionIndex == CurrentQuestionIndex);
+            
+            //Do we even need this check after the first check? - Pradipna
             if (selectedTheoryQuestion == null)
             {
                 throw new BusinessRuleExcpetion(String.Format("Question Index [{0}] can not be found.", questionIndex));
@@ -84,6 +90,11 @@ namespace APFTestingModel
 
         public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
 		{
+            if (questionIndex < 0 || questionIndex >= SelectedTheoryQuestions.Count)
+            {
+                throw new BusinessRuleExcpetion(String.Format("Question Index [{0}] is invalid.", questionIndex));
+            }
+
             //TODO: LINQ Query First may throw an exception...
 			var currentQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == questionIndex);
             currentQuestion.SelectAnswers(selectedAnswers);

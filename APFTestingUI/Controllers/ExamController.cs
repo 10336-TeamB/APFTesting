@@ -22,14 +22,34 @@ namespace APFTestingUI.Controllers
             return View();
         }
 
+        private ActionResult checkForException(Action a)
+        {
+            try
+            {
+                a();
+            } 
+            catch (BusinessRuleExcpetion e)
+            {
+                return RedirectToAction("DisplayError", new { error = e.Message });
+            }
+            catch (Exception)
+            {
+                //Should we also provide all the messages from the inner exceptions? - Pradipna
+                return RedirectToAction("DisplayError", new { error = "There was an error while submitting your answer" });
+            }
+
+            return null;
+        }
+
         //
         // GET: /Exam/FirstQuestion/
 
         public ActionResult FirstQuestion(Guid examId)
         {
-            var FirstQuestionIndex = 0;
-            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, FirstQuestionIndex), examId);
-            return View("DisplayQuestion", model);
+            QuestionDisplayItem model = null;
+            Action a = delegate { model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, 0), examId); };
+            ActionResult retActionResult = checkForException(a);
+            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
         }
 
         //
@@ -38,8 +58,10 @@ namespace APFTestingUI.Controllers
         public ActionResult NextQuestion(Guid examId)
         {
             // TODO - Not sure if i'm happy with examId being passed in like this. Should ITheoryQuestion know this instead? - ADAM
-            var model = new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId);
-            return View("DisplayQuestion", model);
+            QuestionDisplayItem model = null;
+            Action a = delegate { model = new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId); };
+            ActionResult retActionResult = checkForException(a);
+            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
         }
 
         //
@@ -47,8 +69,10 @@ namespace APFTestingUI.Controllers
 
         public ActionResult PreviousQuestion(Guid examId)
         {
-            var model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(examId), examId);
-            return View("DisplayQuestion", model);
+            QuestionDisplayItem model = null;
+            Action a = delegate { model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(examId), examId); };
+            ActionResult retActionResult = checkForException(a);
+            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
         }
 
         //
@@ -56,8 +80,10 @@ namespace APFTestingUI.Controllers
 
         public ActionResult Resume(Guid examId)
         {
-            var model = new QuestionDisplayItem(_facade.ResumeTheoryExam(examId), examId);
-            return View("DisplayQuestion", model);
+            QuestionDisplayItem model = null;
+            Action a = delegate { model = new QuestionDisplayItem(_facade.ResumeTheoryExam(examId), examId); };
+            ActionResult retActionResult = checkForException(a);
+            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
         }
 
         //
@@ -65,25 +91,42 @@ namespace APFTestingUI.Controllers
 
         public ActionResult Review(Guid examId, int questionNumber)
         {
-            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId);
-            model.IsMarkedForReview = false;
-            return View(model);
+            QuestionDisplayItem model = null;
+            Action a = delegate { model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId); };
+            ActionResult retActionResult = checkForException(a);
+            if (retActionResult == null)
+            {
+                model.IsMarkedForReview = false;
+                return View(model);
+            }
+            else
+            {
+                return retActionResult;
+            } 
         }
 
         [HttpPost]
         public ActionResult SubmitAnswer(AnsweredQuestion question)
         {
             // TODO - Should we have a return value to confirm successful submission of answer?
-            _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
-
-            switch(question.NavDirection)
+            //We're gonna do it using exception - Pradipna
+            Action a = delegate { _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview); };
+            ActionResult retActionResult = checkForException(a);
+            if (retActionResult == null)
             {
-                case ExamAction.NextQuestion:
-                    return RedirectToAction("NextQuestion", new { examId = question.ExamId });
-                case ExamAction.PreviousQuestion:
-                    return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
-                default:
-                    return RedirectToAction("Summary", new { examId = question.ExamId });
+                switch (question.NavDirection)
+                {
+                    case ExamAction.NextQuestion:
+                        return RedirectToAction("NextQuestion", new { examId = question.ExamId });
+                    case ExamAction.PreviousQuestion:
+                        return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+                    default:
+                        return RedirectToAction("Summary", new { examId = question.ExamId });
+                }
+            }
+            else
+            {
+                return retActionResult;
             }
         }
 
@@ -119,6 +162,13 @@ namespace APFTestingUI.Controllers
             //_facade.FetchCandidateDetails();
             var model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId));
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult DisplayError(string error)
+        {
+            ViewBag.error = error;
+            return View();
         }
     }
 }
