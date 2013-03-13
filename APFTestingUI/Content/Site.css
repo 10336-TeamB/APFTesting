@@ -569,6 +569,17 @@ td {
     border: 0 none;
 }
 
+td.index, td.description, td.question-answered, td.marked-for-review
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.index, .question-answered, .marked-for-review, th.description
+{
+    text-align:center;
+}
+
 tr.pager td {
     padding: 0 0.25em 0 0;
 }
@@ -834,6 +845,12 @@ abbr[title], dfn[title] {
 table {
     border-collapse:collapse;
     border-spacing:0;
+}
+
+table#exam-summary
+{
+    margin-top: 15px;
+    margin-bottom: 25px;
 }
 
 /* change border colour to suit your needs */
