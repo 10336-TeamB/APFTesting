@@ -1106,7 +1106,7 @@ h1, h2, h3, h4, h5, h6
         box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .1);
     }
 
-<<<<<<< HEAD
+
     #content .examinerButton
 {
     margin: 0px;
@@ -1118,13 +1118,15 @@ h1, h2, h3, h4, h5, h6
     font-size: x-small;
     width: 70%;
     font-weight: bold;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+
 }
 
-        #content .button:hover
-        {
-            
-            background-color: #34B34A;
-=======
+        #content .examinerButton:hover {
+            box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+        }
+
+       
 table
 {
     border-collapse: separate; /* For IE9 to render shadows */
@@ -1140,8 +1142,7 @@ table
 
         #content .button:hover
         {
-            /* background-color: #34B34A; */
->>>>>>> dfd45abb863d831cf05c1275dad5364e148eb2fd
+            background-color: #34B34A; 
             text-decoration: none;
             box-shadow: 2px 2px 4px rgba(0,0,0,.5);
         }
