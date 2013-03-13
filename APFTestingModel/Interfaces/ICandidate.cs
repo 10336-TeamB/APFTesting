@@ -11,7 +11,7 @@ namespace APFTestingModel
         Guid Id { get; }
         string FirstName { get; }
         string LastName { get; }
-        IExam ILatestExam { get; }
+        IExam LatestExam { get; }
         ExamStatus LatestExamStatus { get; }
     }
 }

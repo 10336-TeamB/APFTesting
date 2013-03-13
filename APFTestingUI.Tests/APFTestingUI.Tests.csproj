@@ -94,9 +94,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ExaminerControllerTest.cs" />
     <Compile Include="Controllers\ExamControllerTest.cs" />
+    <Compile Include="MockCandidate.cs" />
+    <Compile Include="MockFacade.cs" />
+    <Compile Include="MockPossibleAnswer.cs" />
+    <Compile Include="MockSelectedTheoryQuestion.cs" />
+    <Compile Include="MockTheoryComponent.cs" />
+    <Compile Include="MockTheoryComponentFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\ValuesControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -105,6 +111,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\APFTestingModel\APFTestingModel.csproj">
+      <Project>{ecf00d40-4554-4da2-af68-848ff0b6d169}</Project>
+      <Name>APFTestingModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\APFTestingUI\APFTestingUI.csproj">
       <Project>{F80FBA9A-D2DA-40D0-93F7-231B7BE9B517}</Project>
       <Name>APFTestingUI</Name>

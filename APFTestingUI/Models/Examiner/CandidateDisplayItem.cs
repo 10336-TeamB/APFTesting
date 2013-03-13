@@ -12,13 +12,13 @@ namespace APFTestingUI.Models.Examiner
             Id = candidate.Id;
             FirstName = candidate.FirstName;
             LastName = candidate.LastName;
-            if (candidate.ILatestExam == null)
+            if (candidate.LatestExam == null)
             {
                 LatestExamId = Guid.Empty;
             }
             else
             {
-                LatestExamId = candidate.ILatestExam.Id;
+                LatestExamId = candidate.LatestExam.Id;
             }
             
             LatestExamStatus = candidate.LatestExamStatus;

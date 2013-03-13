@@ -173,15 +173,9 @@ namespace APFTestingModel
                 .First(e => e.Id == examId);
             
             //TODO: Why is this a switch? -ADAM
-            switch(exam.TheoryComponentCompetency)
-            {
-                case true:
-                    exam.ExamStatus = ExamStatus.TheoryComponentCompleted;
-                    break;
-                case false:
-                    exam.ExamStatus = ExamStatus.TheoryComponentFailed;
-                    break;
-            }
+            //Now it's not ;P - Pradipna
+            exam.ExamStatus = (exam.TheoryComponentCompetency) ? ExamStatus.TheoryComponentCompleted : ExamStatus.TheoryComponentFailed;
+            
             _context.SaveChanges();
         }
 

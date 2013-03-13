@@ -155,11 +155,14 @@
     <Compile Include="Models\Exam\ExamAction.cs" />
     <Compile Include="Models\Exam\PossibleAnswer.cs" />
     <Compile Include="Models\Exam\QuestionDisplayItem.cs" />
+    <Compile Include="Models\Exam\ResultQuestionDisplayItem.cs" />
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\cross.png" />
+    <Content Include="Content\images\tick.png" />
     <Content Include="Content\PIE.htc" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -219,8 +222,13 @@
     <Content Include="Global.asax" />
     <Content Include="Images\add.png" />
     <Content Include="Images\APF Logo.png" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\bg-gradient-grey-old.jpg" />
+    <Content Include="Images\bg-gradient-grey.gif" />
     <Content Include="Images\bg-gradient-grey.jpg" />
+    <Content Include="Images\cross.png" />
     <Content Include="Images\logo-apf.png" />
+    <Content Include="Images\tick.png" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
@@ -277,6 +285,7 @@
     <Content Include="Views\Exam\Summary.cshtml" />
     <Content Include="Views\Exam\Result.cshtml" />
     <Content Include="Views\Exam\Review.cshtml" />
+    <Content Include="Views\Exam\DisplayError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

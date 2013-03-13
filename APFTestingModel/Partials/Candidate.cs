@@ -27,23 +27,26 @@ namespace APFTestingModel
         }
 
         // Hardcoded values to allow facade to work with UI.
-        public IExam ILatestExam
-        {
-            get
-            {
-                return LatestExam;
-            }
-
-        }
-        
         public Exam LatestExam
         {
             //HACK - returning static exam
-            get { return new ExamPilot { Id = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"), CandidateId = Id, ExamStatusId = 1, ExamStatus = ExamStatus.ExamCreated }; }
-            //get { return null; }
-            
+            get
+            {
+                //return null;
+                return new ExamPilot
+                    {
+                        Id = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"),
+                        CandidateId = Id,
+                        ExamStatusId = 2,
+                        ExamStatus = ExamStatus.TheoryComponentInProgress
+                    };
+            }
         }
 
+        IExam ICandidate.LatestExam
+        {
+            get { return LatestExam; }
+        }
 
         public ExamStatus LatestExamStatus
         {
@@ -54,7 +57,6 @@ namespace APFTestingModel
                     return ExamStatus.NoExamCreated;
                 }
                 return LatestExam.ExamStatus;
-                
             }
         }
     }

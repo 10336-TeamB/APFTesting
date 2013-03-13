@@ -16,5 +16,6 @@ namespace APFTestingModel
         bool IsMarkedForReview { get; }
         bool IsAnswered { get; }
         bool IsLastQuestion { get; }
+        bool IsCorrect { get; }
     }
 }

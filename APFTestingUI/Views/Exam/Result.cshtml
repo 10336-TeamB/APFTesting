@@ -5,42 +5,54 @@
 }
 
 <hgroup>
-    <h2>Theory Component Result</h2>
-    <h3>@Model.Message</h3>
+    <h1>Exam Result</h1>
+    <h2>@Model.Message</h2>
 </hgroup>
 
-<p>You scored @Model.Score</p>
+<div id="score">You scored @Model.Score</div>
 <p>Please notify your examiner.</p>
+
+<br/>
+<br/>
 
 @foreach (var question in Model.Questions)
 {
+    var questionNumber = question.Index + 1;   
     
-    int questionNumber = question.Index + 1;   
-    
-    <h3>@questionNumber: @question.Description</h3>
-    foreach (var answer in question.Answers)
+    <div class="result-question">
+        <span class="result-question-number @question.NumberClass">@questionNumber</span> 
+        <span class="result-question-description">@question.Description</span>
+    </div>
+    <ul>
+    @foreach (var answer in question.Answers)
     {
-        
-        if (answer.IsChecked && answer.IsCorrect)
-        {
-            <p style="color:green">@answer.Description</p>
-        } 
-        else if (answer.IsChecked && !answer.IsCorrect)
-        {
-            <p style="color:red">@answer.Description</p>
-        }
-        else if (!answer.IsChecked && !answer.IsCorrect)
-        {
-            <p style="color:yellow">@answer.Description</p>
-        }
-        else
-        {
-            <p>@answer.Description</p>
-        }
-        
-        
+            if (answer.IsChecked && answer.IsCorrect)
+            {
+                <li class="result-answer correct">
+                    @answer.Description
+                </li>
+            } 
+            else if (answer.IsChecked && !answer.IsCorrect)
+            {
+                <li class="result-answer incorrect">
+                    @answer.Description
+                </li>
+            }
+            else if (!answer.IsChecked && !answer.IsCorrect)
+            {
+                <li class="result-answer indicate-correct">
+                    @answer.Description
+                </li>
+            }
+            else
+            {
+                <li class="result-answer">
+                    @answer.Description
+                </li>
+            }
     }
+    </ul>
     <hr />
 }
 
-<p>@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="button" })</p>
+<p>@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="button", id="result-home"})</p>

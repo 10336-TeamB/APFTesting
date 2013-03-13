@@ -569,6 +569,17 @@ td {
     border: 0 none;
 }
 
+td.index, td.description, td.question-answered, td.marked-for-review
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.index, .question-answered, .marked-for-review, th.description
+{
+    text-align:center;
+}
+
 tr.pager td {
     padding: 0 0.25em 0 0;
 }
@@ -836,6 +847,12 @@ table {
     border-spacing:0;
 }
 
+table#exam-summary
+{
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
 /* change border colour to suit your needs */
 hr {
     display:block;
@@ -865,9 +882,15 @@ html
 body
 {
     text-align:center;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #303030;
     color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
 }
 
 #global-wrapper
@@ -948,7 +971,7 @@ body
     background-image: -webkit-linear-gradient(top, #111111 7%, #303030 77%);
     background-image: -ms-linear-gradient(top, #111111 7%, #303030 77%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#111111', EndColorStr='#303030');*/
-    background:#303030 url('../Images/bg-gradient-grey.jpg') 0 0 repeat-x;
+    background:#303030 url('../Images/bg-gradient-grey.gif') 0 0 repeat-x;
 }
 
 #menu
@@ -1075,11 +1098,15 @@ body
         color:#ffffff;
         background-color: #117523;
         border: none;
-        border-radius: 20px;
-        padding:10px 20px;
+        border-radius: 10px;
+        padding: 10px 10px;
         font-size: 1em;
+        line-height: 1.1em;
+        font-weight: normal;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .1);
     }
 
+<<<<<<< HEAD
     #content .examinerButton
 {
     margin: 0px;
@@ -1097,7 +1124,26 @@ body
         {
             
             background-color: #34B34A;
+=======
+table
+{
+    border-collapse: separate; /* For IE9 to render shadows */
+}
+
+        .lt-ie9 #content .button
+        {
+            behavior: url('/Content/PIE.htc');
+            box-shadow: 1px 1px 4px #000000;
+            position: relative;
+            
+        }
+
+        #content .button:hover
+        {
+            /* background-color: #34B34A; */
+>>>>>>> dfd45abb863d831cf05c1275dad5364e148eb2fd
             text-decoration: none;
+            box-shadow: 2px 2px 4px rgba(0,0,0,.5);
         }
 
         #content a.button 
@@ -1178,18 +1224,19 @@ body
 }
 
 .candidate-last-name {
-    width:15%;
+    width:32%;
 }
 
 .start-theory-link
 {
     padding: 0px;
     margin: 0px;
-    width: 10%;
+    width: 18%;
+
 }
 
 .input-practical-link {
-    width:15%;
+    width:18%;
 }
 
 #add-candidate-link
@@ -1246,3 +1293,70 @@ body
     width: 30px;
 }
 
+.result-question {
+    padding-bottom: 10px;
+}
+
+.result-question-number {
+    font-size: 2.2em;
+    display: inline-block;
+}
+
+.result-question-description {
+    display: inline-block;
+    width: 850px;
+    padding-left: 30px;
+    vertical-align: top;
+    font-size: 1.1em
+}
+
+.result-answer {
+    padding-top: 3px;
+    padding-bottom: 5px;
+    padding-left: 35px;
+    margin-left: 55px;
+    margin-bottom: 10px;
+    width: 700px;
+}
+
+li.result-answer {
+    list-style-type: none;
+}
+
+#result-home {
+    float: right;
+    padding: 12px 30px !important;
+}
+
+#score {
+    float: right;
+    font-size: 2em;
+}
+
+.correct, .incorrect, .indicate-correct {
+    background-repeat: no-repeat;
+}
+
+.correct {
+    background-image: url("../Images/tick.png");
+}
+
+.incorrect {
+    background-image: url("../Images/cross.png");
+}
+
+.indicate-correct {
+    background-image: url("../Images/arrow.png");
+}
+
+.result-question .correct {
+    border-bottom: solid 3px #00C000;
+    padding-bottom: 7px;
+    background-image: none;
+}
+
+.result-question .incorrect {
+    border-bottom: solid 3px #FF0000;
+    padding-bottom: 7px;
+    background-image: none;
+}

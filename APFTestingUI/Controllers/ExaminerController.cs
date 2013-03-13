@@ -23,8 +23,5 @@ namespace APFTestingUI.Controllers
             var model = new Index(_facade.FetchCandidates(ExaminerId));
             return View(model);
         }
-
-
-
     }
 }
