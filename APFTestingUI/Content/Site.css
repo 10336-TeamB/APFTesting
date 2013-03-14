@@ -312,9 +312,6 @@ aside {
             padding: 2px 0 2px 20px;
         }
 
-.label {
-    font-weight: 700;
-}
 
 /* login page */
 #loginForm {
@@ -402,16 +399,6 @@ fieldset {
             padding-bottom: 5px;
         }
 
-label {
-    display: block;
-    font-size: 1.2em;
-    font-weight: 600;
-}
-
-label.checkbox {
-    display: inline;
-}
-
 input, textarea {
     border: 1px solid #e2e2e2;
     background: #fff;
@@ -420,6 +407,7 @@ input, textarea {
     margin: 5px 0 6px 0;
     padding: 5px;
     width: 300px;
+    outline: none;
 }
 
 textarea {
@@ -428,7 +416,7 @@ textarea {
 }
 
     input:focus, textarea:focus {
-        border: 1px solid #7ac0da;
+        outline: none;
     }
 
     input[type="checkbox"] {
@@ -1458,7 +1446,7 @@ dt.marked {
 }
 
 dt.not-answered .question-title {
-    background-color: rgba(180, 24, 24, .8);
+    background-color: rgba(224, 33, 33, 0.45);
 }
 
 .question-title {
@@ -1478,7 +1466,7 @@ dt.not-answered .question-title {
 }
 
 #key-unanswered {
-    background-color: rgba(180, 24, 24, .8);
+    background-color: rgba(224, 33, 33, 0.45);
     padding: 5px;
     margin-left: 20px;
 }
@@ -1505,3 +1493,27 @@ dt.not-answered .question-title {
     float: right;
 }
 
+/*Playing with special checkboxes*/
+input[type=checkbox].css-checkbox {
+display:none;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+padding-left:20px;
+height:15px; 
+display:inline-block;
+line-height:15px;
+background-repeat:no-repeat;
+background-position: 0 0;
+font-size:15px;
+vertical-align:middle;
+cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+background-position: 0 -15px;
+}
+
+.css-label{
+background-image:url(http://csscheckbox.com/checkboxes/dark-check-orange.png);
+}

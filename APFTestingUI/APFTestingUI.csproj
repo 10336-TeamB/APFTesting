@@ -144,12 +144,14 @@
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExaminerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Examiner\CandidateDisplayItem.cs" />
     <Compile Include="Models\Examiner\Index.cs" />
+    <Compile Include="Models\Exam\AjaxTest.cs" />
     <Compile Include="Models\Exam\AnswerDisplayItem.cs" />
     <Compile Include="Models\Exam\AnsweredQuestion.cs" />
     <Compile Include="Models\Exam\ExamAction.cs" />

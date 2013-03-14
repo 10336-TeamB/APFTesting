@@ -41,7 +41,7 @@
             @Html.LabelFor(model => model.IsMarkedForReview)
             @Html.CheckBoxFor(model => model.IsMarkedForReview)
         </span>
-        <input id="SummaryButton" class="button" type="button" value="Back to Summary" />
+        <input id="SummaryButton" class="button" type="submit" value="Back to Summary" />
         
         <div class="clear"></div>
     </div>
@@ -49,4 +49,10 @@
 }
 
 </div>
+
+@section scripts 
+{
+    <script src="~/Scripts/exam.js"></script>
+}
+
 
