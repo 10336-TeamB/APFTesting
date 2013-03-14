@@ -927,6 +927,28 @@ h1, h2, h3, h4, h5, h6
         float: right;
     }
 
+#void-area 
+{
+    float: right;
+    padding-top: 10px;
+}
+
+    #void-area ul 
+    {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        float:left;
+    }
+
+    #void-area li 
+    {
+
+    }
+
+
+
+
         #login-area
         {
             float: right;

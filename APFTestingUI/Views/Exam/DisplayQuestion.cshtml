@@ -1,6 +1,7 @@
 ﻿@model APFTestingUI.Models.Exam.QuestionDisplayItem
 @{
     ViewBag.Title = "Question " + (Model.Index + 1);
+    Layout = "~/Views/Shared/_QuestionLayout.cshtml";
 }
 
 <div id="ExamContainer">

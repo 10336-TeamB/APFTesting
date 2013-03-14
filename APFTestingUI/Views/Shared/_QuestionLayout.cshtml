@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+        @Styles.Render("~/Content/css")
+    </head>
+
+    <body>
+        <div id="global-wrapper">
+            
+            <header id="header">
+                <div class="size-wrapper">
+                    <div id="logo-area">
+                        <a href="/"><img src="~/Images/logo-apf.png" alt="Australian Parachute Federation"/></a>
+                    </div>
+                    <div class="right">
+                        <div id="void-area">
+                            <button class="examinerButton" type="button" ></button>
+                            <ul>
+                                
+                                <li>Examiner</li>
+                                <li><a href="#">Void</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div id="content">
+                <div class="size-wrapper">
+                    @RenderBody()
+                </div>
+            
+            </div>
+
+        </div>
+        
+        
+    </body>
+</html>
