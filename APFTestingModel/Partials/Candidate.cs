@@ -37,7 +37,7 @@ namespace APFTestingModel
                     {
                         Id = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"),
                         CandidateId = Id,
-                        ExamStatus = ExamStatus.ExamCreated
+                        ExamStatus = ExamStatus.TheoryComponentInProgress
                     };
             }
         }

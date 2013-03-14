@@ -70,6 +70,13 @@
     <Compile Include="ExamPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ExamStateMachine\ExamCompleted.cs" />
+    <Compile Include="ExamStateMachine\ExamCreated.cs" />
+    <Compile Include="ExamStateMachine\ExamState.cs" />
+    <Compile Include="ExamStateMachine\ExamVoided.cs" />
+    <Compile Include="ExamStateMachine\NoExamCreated.cs" />
+    <Compile Include="ExamStateMachine\TheoryComponentFailed.cs" />
+    <Compile Include="ExamStateMachine\TheoryComponentInProgress.cs" />
     <Compile Include="Interfaces\IFacade.cs" />
     <Compile Include="Interfaces\ICandidate.cs" />
     <Compile Include="Interfaces\IExam.cs" />
@@ -142,6 +149,8 @@
     <Compile Include="PracticalComponent.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ExamStateMachine\PracticalComponentFailed.cs" />
+    <Compile Include="ExamStateMachine\PracticalComponentCompleted.cs" />
     <Compile Include="PracticalComponentPacker.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -167,6 +176,7 @@
     <Compile Include="TheoryComponent.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ExamStateMachine\TheoryComponentCompleted.cs" />
     <Compile Include="TheoryComponentFormat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

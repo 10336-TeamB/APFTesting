@@ -1,6 +1,8 @@
 ﻿@model APFTestingUI.Models.Exam.QuestionDisplayItem
 @{
     ViewBag.Title = "Question " + (Model.Index + 1);
+    ViewBag.ExamId = @Model.ExamId;
+    Layout = "~/Views/Shared/_QuestionLayout.cshtml";
 }
 
 <div id="ExamContainer">
@@ -43,6 +45,7 @@
                     <input type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
                 }
                 <span class="Answer-Description">@answer.Description</span>
+                
             </div>
         }
     </fieldset>

@@ -288,6 +288,7 @@
     <Content Include="Views\Exam\Result.cshtml" />
     <Content Include="Views\Exam\Review.cshtml" />
     <Content Include="Views\Exam\DisplayError.cshtml" />
+    <Content Include="Views\Shared\_QuestionLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

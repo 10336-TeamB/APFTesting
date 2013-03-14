@@ -22,6 +22,8 @@ namespace APFTestingModel
 
     internal abstract partial class Exam : IExam
     {
+        protected ExamState examState;
+
         #region Constructors
 
         public Exam() { }
@@ -48,6 +50,7 @@ namespace APFTestingModel
             set
             {
                 ExamStatusId = (int)value;
+                OnStatusChanged();
             }
         }
 
@@ -78,26 +81,66 @@ namespace APFTestingModel
 
         public SelectedTheoryQuestion FetchNextQuestion()
         {
-            checkTheoryComponentStatus();
-            return TheoryComponent.FetchNextQuestion();
+            SelectedTheoryQuestion question = null;
+            Action a = delegate { question = TheoryComponent.FetchNextQuestion(); };
+            examState.FetchNextQuestion(a);
+            return question;
         }
 
         public SelectedTheoryQuestion FetchPreviousQuestion()
         {
-            checkTheoryComponentStatus();
-            return TheoryComponent.FetchPreviousQuestion();
+            SelectedTheoryQuestion question = null;
+            Action a = delegate { question = TheoryComponent.FetchPreviousQuestion(); };
+            examState.FetchPreviousQuestion(a);
+            return question;
         }
 
         public SelectedTheoryQuestion FetchSpecificQuestion(int index)
         {
-            checkTheoryComponentStatus();
-            return TheoryComponent.FetchSpecificQuestion(index);
+            SelectedTheoryQuestion question = null;
+            Action a = delegate { question = TheoryComponent.FetchSpecificQuestion(index); };
+            examState.FetchSpecificQuestion(a);
+            return question;
         }
 
         public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
         {
-            checkTheoryComponentStatus();
-            TheoryComponent.AnswerQuestion(questionIndex, selectedAnswers, markForReview);
+            Action a = delegate { TheoryComponent.AnswerQuestion(questionIndex, selectedAnswers, markForReview); };
+            examState.AnswerQuestion(a);
+        }
+
+        public void OnStatusChanged()
+        {
+            switch (ExamStatusId)
+            {
+                case (int)ExamStatus.ExamCompleted:
+                    examState = new ExamCompleted();
+                    break;
+                case (int)ExamStatus.ExamCreated:
+                    examState = new ExamCreated();
+                    break;
+                case (int)ExamStatus.ExamVoided:
+                    examState = new ExamVoided();
+                    break;
+                case (int)ExamStatus.NoExamCreated:
+                    examState = new NoExamCreated();
+                    break;
+                case (int)ExamStatus.PracticalComponentCompleted:
+                    examState = new PracticalComponentCompleted();
+                    break;
+                case (int)ExamStatus.PracticalComponentFailed:
+                    examState = new PracticalComponentFailed();
+                    break;
+                case (int)ExamStatus.TheoryComponentCompleted:
+                    examState = new TheoryComponentCompleted();
+                    break;
+                case (int)ExamStatus.TheoryComponentFailed:
+                    examState = new TheoryComponentFailed();
+                    break;
+                case (int)ExamStatus.TheoryComponentInProgress:
+                    examState = new TheoryComponentInProgress();
+                    break;
+            }
         }
     }
 }
