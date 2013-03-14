@@ -170,5 +170,13 @@ namespace APFTestingUI.Controllers
             ViewBag.error = error;
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Void(Guid examId)
+        {
+            _facade.VoidExam(examId);
+            return RedirectToAction("Index", "Examiner");
+        }
+
     }
 }
