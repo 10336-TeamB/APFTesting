@@ -931,6 +931,7 @@ h1, h2, h3, h4, h5, h6
 {
     float: right;
     padding-top: 10px;
+    width:100px;
 }
 
     #void-area ul 
@@ -939,15 +940,40 @@ h1, h2, h3, h4, h5, h6
         padding: 0;
         list-style-type: none;
         float:left;
+        width: 100%;
     }
 
     #void-area li 
     {
-
+        margin: 0;
+        padding: 0 10px 0 0;
+        float: left;
+        width:100%;
     }
 
+        #void-area li span {
+            display:block;
+            padding:10px;
+        }
 
+#question-examiner-button {
+    display: block;
+    padding: 5px 20px;
+    background-color: #117523;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.8em;
+    float: left;
+}
 
+#question-void-button {
+    display: block;
+    padding: 5px 20px;
+    background-color: #117523;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.8em;
+}
 
         #login-area
         {

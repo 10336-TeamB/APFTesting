@@ -19,7 +19,7 @@ namespace APFTestingModel
         public Nullable<System.Guid> PracticalComponentId { get; set; }
         public Nullable<System.Guid> ExaminerId { get; set; }
         public Nullable<System.Guid> CandidateId { get; set; }
-        public int ExamStatusId { get; set; }
+        private int ExamStatusId { get; set; }
     
         public virtual PracticalComponent PracticalComponent { get; set; }
         public virtual TheoryComponent TheoryComponent { get; set; }

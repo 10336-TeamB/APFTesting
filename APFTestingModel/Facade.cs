@@ -83,7 +83,8 @@ namespace APFTestingModel
             ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
 			
 			//If exam is started for first time, it'll change status to in progress
-			if (questionIndex == 0 && exam.ExamStatus == ExamStatus.ExamCreated)
+			//TODO: put in an appropriate method
+            if (questionIndex == 0 && exam.ExamStatus == ExamStatus.ExamCreated)
 			{
 				exam.ExamStatus = ExamStatus.TheoryComponentInProgress;
 			}
@@ -121,7 +122,7 @@ namespace APFTestingModel
         public void VoidExam(Guid examId)
         {
             Exam exam = fetchExam(examId);
-            exam.ExamStatusId = (int)ExamStatus.ExamVoided;
+            exam.ExamStatus = ExamStatus.ExamVoided;
             _context.SaveChanges();
         }
 

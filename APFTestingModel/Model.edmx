@@ -603,7 +603,7 @@
           <Property Name="PracticalComponentId" Type="Guid" />
           <Property Name="ExaminerId" Type="Guid" />
           <Property Name="CandidateId" Type="Guid" />
-          <Property Name="ExamStatusId" Type="Int32" Nullable="false" />
+          <Property Name="ExamStatusId" Type="Int32" Nullable="false" a:GetterAccess="Private" a:SetterAccess="Private" />
           <NavigationProperty Name="PracticalComponent" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="Exam" ToRole="PracticalComponent" />
           <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="Exam" ToRole="TheoryComponent" />
         </EntityType>

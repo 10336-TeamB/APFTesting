@@ -9,6 +9,29 @@
         <meta name="viewport" content="width=device-width" />
         <title>@ViewBag.Title</title>
         @Styles.Render("~/Content/css")
+        <!--[if lt IE 9]>
+        @Scripts.Render("~/Scripts/html5shiv.js")
+        <![endif]-->
+        @Scripts.Render("~/Scripts/modernizr.custom.51211.js")
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            $(document).ready
+            (
+                function ()
+                {
+                    $("#question-examiner-button").click
+                    (
+                        function ()
+                        {
+                            $("#question-void-button").slideToggle(300);
+                        }
+                    );
+                }
+            );
+
+        </script>
+        
     </head>
 
     <body>
@@ -21,11 +44,13 @@
                     </div>
                     <div class="right">
                         <div id="void-area">
-                            <button class="examinerButton" type="button" ></button>
-                            <ul>
-                                
-                                <li>Examiner</li>
-                                <li><a href="#">Void</a></li>
+                            
+                            <ul class="void-area-menu">
+                                <li id="question-examiner-button"><span>Examiner</span>
+                                    <ul>
+                                        <li>@Html.ActionLink("Void", "Void", "Exam", new { examId = ViewBag.ExamId }, new { id="question-void-button", style="display:none" })</li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
