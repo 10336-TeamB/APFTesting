@@ -21,7 +21,10 @@ namespace APFTestingUI.Models.Exam
             IsAnswered = question.IsAnswered;
             IsCorrect = question.IsCorrect;
             NavDirection = ExamAction.NextQuestion;
+            ExamProgress = calculateProgress(question.QuestionIndex, question.TotalNumOfQuestions);
         }
+
+        
 
         public Guid Id { get; set; }
         public Guid ExamId { get; set; }
@@ -37,11 +40,17 @@ namespace APFTestingUI.Models.Exam
             get { return Index == 0; }
         }
         public bool IsAnswered { get; set; }
+        public float ExamProgress { get; set; }
 
         //Used for results page
         public bool IsCorrect { get; set; }
 
         //Needed for question navigation direction and binding in cshtml, not assigned in this model (assigned by reflection in AnsweredQuestion)
         public ExamAction NavDirection { get; set; }
+
+        private float calculateProgress(int questionIndex, int totalNumOfQuestions)
+        {
+            return (float)Math.Round(((float)questionIndex / (totalNumOfQuestions - 1)), 2);
+        }
     }
 }

@@ -4,41 +4,39 @@
     ViewBag.Title = "Exam Summary";
 }
 
-<h2>Exam Summary</h2>
+<div id="summary">
+    <h2>Exam Summary</h2>
 
-<table id="exam-summary">
-    <tr>
-        <th class="index">Question Number</th>
-        <th class="description">Question Description</th>
-        <th class="question-answered">Question Answered</th>
-        <th class="marked-for-review">Marked For Review</th>
-    </tr>
-    @foreach(var question in Model.Questions)
-    {
-        var questionNumber = question.Index + 1;
-        <tr>
-            <td class="index">@questionNumber</td>
-            <td class="description">@Html.ActionLink(question.Description, "Review", new { examId = @Model.ExamId, questionNumber = @question.Index })</td>
-            <td class="question-answered">
-                @if (question.IsAnswered)
-                {
-                    <img src="/Content/images/tick.png" alt="tick" />
-                }
-                else
-                {
-                    <img src="/Content/images/cross.png" alt="cross" />
-                }
-            </td>
-            <td class="marked-for-review">
-                @if (question.IsMarkedForReview)
-                {
-                    <img src="/Content/images/tick.png" alt="tick" />
-                }
-            </td>
-        </tr>
-    }
-</table>
+    <div id="key">
+        <span id="key-marked">
+            <img src="~/Images/arrow.png" alt="arrow" height="24" width="24" />
+            = Marked for review</span>
+        <span id="key-unanswered">Unanswered question</span>
+        <p>Click on a question to see question details</p>
+    </div>
+
+    <dl>
+        @foreach (var question in Model.Questions)
+        {
+            var questionNumber = question.Index + 1;
+            <dt class="@question.IsMarkedClass@question.IsAnsweredClass">
+                <span class="question-title">
+                    <span>Question @questionNumber</span>
+                    @Html.ActionLink("[ go to question ]", "Review", new { examId = @Model.ExamId, questionNumber = @question.Index })
+                </span>
+
+            </dt>
+            <dd>@question.Description</dd>
+        }
+    </dl>
+
+    <br />
+    @Html.ActionLink("Submit Exam", "Submit", new { examId = @Model.ExamId }, new { @class = "button" })
+    <div class="clear"></div>
+</div>
 
 
-<p>@Html.ActionLink("Submit Exam", "Submit", new { examId = @Model.ExamId }, new { @class = "button" })</p>
-
+@section scripts
+{
+    <script src="~/Scripts/summary.js"></script>
+}

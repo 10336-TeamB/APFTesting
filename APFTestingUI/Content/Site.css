@@ -1,6 +1,7 @@
 ﻿html {
     margin: 0;
     padding: 0;
+    overflow-y: scroll;
 }
 
 body {
@@ -882,14 +883,13 @@ html
 body
 {
     text-align:center;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     background-color: #303030;
     color: #ffffff;
 }
 
 h1, h2, h3, h4, h5, h6
 {
-    font-family: 'Ubuntu', sans-serif;
     font-weight: normal;
 }
 
@@ -1361,3 +1361,99 @@ li.result-answer {
     padding-bottom: 7px;
     background-image: none;
 }
+
+#progress-bar-outer {
+    width: 100%;
+    height: 15px;
+    margin-bottom: 3em;
+    padding: 5px;
+    background-color: rgba(105, 107, 111, .7);
+}
+
+#progress-bar-inner {
+    background-color: #99CDDB;
+    width: 0;
+    height: 15px;
+}
+
+#progress-bar-start {
+    float: left;
+    padding: 5px;
+    color: #999;
+}
+
+#progress-bar-end {
+    float: right;
+    padding: 5px;
+    color: #999;
+}
+
+.hidden {
+    display:none;
+}
+
+dt {
+    font-size: 1.4em;
+    padding-left: 50px;
+    margin: 5px 0px;
+    line-height: 1.5em;
+    cursor: pointer;
+}
+
+dd {
+    padding-left: 60px;
+    margin-bottom: 15px;
+}
+
+dt.marked {
+    background: url("../Images/arrow.png") 15px 50% no-repeat;
+}
+
+dt.not-answered .question-title {
+    background-color: rgba(180, 24, 24, .8);
+}
+
+.question-title {
+    display: block;
+    padding: 0 10px;
+}
+
+    .question-title span {
+        width: 110px;
+        display: inline-block;
+    }
+
+#content dt a {
+    font-size: .7em;
+    padding-left: 10px;
+    color: #999;
+}
+
+#key-unanswered {
+    background-color: rgba(180, 24, 24, .8);
+    padding: 5px;
+    margin-left: 20px;
+}
+
+#key-marked img {
+    vertical-align: middle;
+}
+
+#key {
+    background-color: rgb(70, 69, 69);
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: solid 2px #999;
+}
+
+    #key p {
+        margin: 5px 0 0 0;
+        font-size: 1.2em;
+        letter-spacing: 2px;
+    }
+
+#summary .button {
+    float: right;
+}
+

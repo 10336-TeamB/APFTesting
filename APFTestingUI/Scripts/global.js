@@ -8,16 +8,3 @@ $(function () {
     if(totalHeight < screenHeight)
         $('#content .size-wrapper').height(screenHeight - totalHeight);
 });
-
-$(function () {
-    $('#PreviousButton').click(function () {
-        $('#NavDirection').val("PreviousQuestion");
-        $('#QuestionForm').submit();
-    });
-    
-    $('#SummaryButton').click(function () {
-        $('#NavDirection').val("DisplaySummary");
-        $('#QuestionForm').submit();
-    });
-});
-

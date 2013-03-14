@@ -61,6 +61,11 @@ namespace APFTestingModel
             get { return QuestionIndex == (TheoryComponent.SelectedTheoryQuestions.Count - 1); }
         }
 
+        public int TotalNumOfQuestions
+        {
+            get { return TheoryComponent.SelectedTheoryQuestions.Count; }
+        }
+
 		#endregion
 
 		#region Methods
@@ -86,5 +91,8 @@ namespace APFTestingModel
         }
 
 		#endregion
+
+
+        
     }
 }

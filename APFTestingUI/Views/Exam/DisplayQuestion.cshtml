@@ -6,6 +6,16 @@
 <div id="ExamContainer">
     <h2>Jump Pilot Authorisation Exam</h2>
     
+    <div id="progress-bar-outer">
+        <div id="progress-bar-inner">
+            <span class="hidden">@Model.ExamProgress</span>
+        </div>
+        <div class="clear"></div>
+        <span id="progress-bar-start">Start</span>
+        <span id="progress-bar-end">End</span>
+        <div class="clear"></div>
+    </div>
+
     <hgroup>
         @{
             int questionNumber = Model.Index + 1;   
@@ -61,3 +71,7 @@
 
 </div>
 
+@section scripts
+{
+    <script src="~/Scripts/exam.js"></script>
+}

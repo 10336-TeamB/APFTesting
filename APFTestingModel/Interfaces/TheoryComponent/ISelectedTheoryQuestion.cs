@@ -17,5 +17,6 @@ namespace APFTestingModel
         bool IsAnswered { get; }
         bool IsLastQuestion { get; }
         bool IsCorrect { get; }
+        int TotalNumOfQuestions { get; }
     }
 }

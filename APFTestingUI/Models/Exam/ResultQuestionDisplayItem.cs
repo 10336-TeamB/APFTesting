@@ -13,17 +13,18 @@ namespace APFTestingUI.Models.Exam
             Index = question.QuestionIndex;
             Description = question.Description;
             Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
-            NumberClass = determineClass(question.IsCorrect);
+            NumberClass = question.IsCorrect ? "correct" : "incorrect";
+            IsMarkedClass = question.IsMarkedForReview ? " marked" : "";
+            IsAnsweredClass = question.IsAnswered ? "" : " not-answered";
         }
+
+        
 
         public int Index { get; set; }
         public string Description { get; set; }
         public IEnumerable<AnswerDisplayItem> Answers { get; set; }
         public string NumberClass { get; set; }
-
-        private string determineClass(bool isCorrect)
-        {
-            return isCorrect ? "correct" : "incorrect";
-        }
+        public string IsMarkedClass { get; set; }
+        public string IsAnsweredClass { get; set; }
     }
 }
