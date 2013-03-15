@@ -57,7 +57,7 @@ namespace APFTestingModel
         {
             // Need to catch null value from FirstOrDefault
 			var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.Answers").FirstOrDefault(e => e.Id == examId);
-            exam.OnStatusChanged();
+            //exam.OnStatusChanged();
 
 			return exam;
         }

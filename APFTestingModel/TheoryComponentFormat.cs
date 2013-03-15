@@ -19,11 +19,11 @@ namespace APFTestingModel
             this.TheoryComponents = new HashSet<TheoryComponent>();
         }
     
-        public System.Guid Id { get; set; }
-        public int NumberOfQuestions { get; set; }
-        public int PassMark { get; set; }
-        public bool IsActive { get; set; }
-        public int TimeLimit { get; set; }
+    	public System.Guid Id { get; set; }
+    	public int NumberOfQuestions { get; set; }
+    	public int PassMark { get; set; }
+    	public bool IsActive { get; set; }
+    	public int TimeLimit { get; set; }
     
         public virtual ICollection<TheoryComponent> TheoryComponents { get; set; }
     }

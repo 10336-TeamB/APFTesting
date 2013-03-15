@@ -20,9 +20,9 @@ namespace APFTestingModel
             this.PracticalComponentTemplatePilots = new HashSet<PracticalComponentTemplatePilot>();
         }
     
-        public string Title { get; set; }
-        public string Details { get; set; }
-        public int MaxScore { get; set; }
+    	public string Title { get; set; }
+    	public string Details { get; set; }
+    	public int MaxScore { get; set; }
     
         public virtual ICollection<SelectedAssessmentTask> SelectedAssessmentTasks { get; set; }
         public virtual ICollection<PracticalComponentTemplatePilot> PracticalComponentTemplatePilots { get; set; }

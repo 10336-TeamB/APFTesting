@@ -60,5 +60,11 @@ namespace APFTestingUI.Tests
         {
             get { return true; }
         }
+
+
+        public int TotalNumOfQuestions
+        {
+            get { return 10; }
+        }
     }
 }
