@@ -14,11 +14,11 @@ namespace APFTestingModel
     
     internal partial class PossibleAnswer
     {
-        public System.Guid Id { get; set; }
-        public System.Guid SelectedTheoryQuestionId { get; set; }
-        public System.Guid AnswerId { get; set; }
-        public System.DateTime SelectedTime { get; set; }
-        public bool IsChecked { get; set; }
+    	public System.Guid Id { get; set; }
+    	public System.Guid SelectedTheoryQuestionId { get; set; }
+    	public System.Guid AnswerId { get; set; }
+    	public System.DateTime SelectedTime { get; set; }
+    	public bool IsChecked { get; set; }
     
         public virtual Answer Answer { get; set; }
         public virtual SelectedTheoryQuestion SelectedTheoryQuestion { get; set; }

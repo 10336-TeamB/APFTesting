@@ -14,12 +14,16 @@ namespace APFTestingModel
     
     internal abstract partial class Exam
     {
-        public System.Guid Id { get; set; }
-        public System.Guid TheoryComponentId { get; set; }
-        public Nullable<System.Guid> PracticalComponentId { get; set; }
-        public Nullable<System.Guid> ExaminerId { get; set; }
-        public Nullable<System.Guid> CandidateId { get; set; }
-        private int ExamStatusId { get; set; }
+    	public System.Guid Id { get; set; }
+    	public System.Guid TheoryComponentId { get; set; }
+    	public Nullable<System.Guid> PracticalComponentId { get; set; }
+    	public Nullable<System.Guid> ExaminerId { get; set; }
+    	public Nullable<System.Guid> CandidateId { get; set; }
+        private int _ExamStatusId;
+    	private int ExamStatusId { get{ return _ExamStatusId; } set{ _ExamStatusId = value; OnExamStatusIdChanged(); } }
+    	partial void OnExamStatusIdChanged();
+    	
+
     
         public virtual PracticalComponent PracticalComponent { get; set; }
         public virtual TheoryComponent TheoryComponent { get; set; }

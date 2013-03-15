@@ -14,11 +14,11 @@ namespace APFTestingModel
     
     internal partial class SelectedAssessmentTask
     {
-        public System.Guid Id { get; set; }
-        public System.Guid PracticalComponentId { get; set; }
-        public System.Guid AssessmentTaskPilotId { get; set; }
-        public string Comment { get; set; }
-        public int Score { get; set; }
+    	public System.Guid Id { get; set; }
+    	public System.Guid PracticalComponentId { get; set; }
+    	public System.Guid AssessmentTaskPilotId { get; set; }
+    	public string Comment { get; set; }
+    	public int Score { get; set; }
     
         public virtual AssessmentTaskPilot AssessmentTaskPilot { get; set; }
         public virtual PracticalComponentPilot PracticalComponentPilot { get; set; }

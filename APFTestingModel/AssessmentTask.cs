@@ -14,6 +14,6 @@ namespace APFTestingModel
     
     internal abstract partial class AssessmentTask
     {
-        public System.Guid Id { get; set; }
+    	public System.Guid Id { get; set; }
     }
 }

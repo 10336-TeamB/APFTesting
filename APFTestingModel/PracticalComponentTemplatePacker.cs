@@ -14,6 +14,6 @@ namespace APFTestingModel
     
     internal partial class PracticalComponentTemplatePacker : PracticalComponentTemplate
     {
-        public int NumOfRequiredAssessmentTasks { get; set; }
+    	public int NumOfRequiredAssessmentTasks { get; set; }
     }
 }

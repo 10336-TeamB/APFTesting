@@ -19,11 +19,11 @@ namespace APFTestingModel
             this.PossibleAnswers = new HashSet<PossibleAnswer>();
         }
     
-        public System.Guid Id { get; set; }
-        public System.Guid TheoryQuestionId { get; set; }
-        public bool IsCorrect { get; set; }
-        public int DisplayOrderIndex { get; set; }
-        public string Description { get; set; }
+    	public System.Guid Id { get; set; }
+    	public System.Guid TheoryQuestionId { get; set; }
+    	public bool IsCorrect { get; set; }
+    	public int DisplayOrderIndex { get; set; }
+    	public string Description { get; set; }
     
         public virtual TheoryQuestion TheoryQuestion { get; set; }
         public virtual ICollection<PossibleAnswer> PossibleAnswers { get; set; }

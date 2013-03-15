@@ -68,10 +68,22 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     {
         foreach (var edmProperty in simpleProperties)
         {
+			if (entity.Name == "Exam" && edmProperty.Name == "ExamStatusId")
+			{
 #>
-    <#=codeStringGenerator.Property(edmProperty)#>
+    <#=codeStringGenerator.PrivateProperty(edmProperty)#>
+	<#=codeStringGenerator.PropertyWithSetter(edmProperty)#>
+	partial void <#=codeStringGenerator.OnPropertyChangeMethod(edmProperty)#>();
+	<#="\n"#>
 <#
-        }
+			}
+			else
+			{
+#>
+	<#=codeStringGenerator.Property(edmProperty)#>
+<#
+			}
+		}
     }
 
     if (complexProperties.Any())
@@ -273,6 +285,46 @@ public class CodeStringGenerator
         _typeMapper = typeMapper;
         _ef = ef;
     }
+
+	public string PrivateProperty(EdmProperty edmProperty)
+	{
+		string field = string.Format(
+			CultureInfo.InvariantCulture,
+			"{0} {1} _{2};",
+			"private",
+			_typeMapper.GetTypeName(edmProperty.TypeUsage),
+			_code.Escape(edmProperty)
+		);
+
+		return field;
+	}
+
+	public string PropertyWithSetter(EdmProperty edmProperty)
+	{
+		string property = string.Format(
+			CultureInfo.InvariantCulture,
+			"{0} {1} {2} {{ {3}get{{ return _{4}; }} {5}set{{ _{6} = value; {7}(); }} }}",
+			Accessibility.ForProperty(edmProperty),
+			_typeMapper.GetTypeName(edmProperty.TypeUsage),
+			_code.Escape(edmProperty),
+			_code.SpaceAfter(Accessibility.ForGetter(edmProperty)),
+			_code.Escape(edmProperty),
+			_code.SpaceAfter(Accessibility.ForSetter(edmProperty)),
+			_code.Escape(edmProperty),
+			OnPropertyChangeMethod(edmProperty)
+		);
+	
+		return property;
+	}
+
+	public string OnPropertyChangeMethod(EdmProperty edmProperty)
+	{
+		return string.Format(
+			CultureInfo.InvariantCulture, 
+			"On{0}Changed", 
+			edmProperty.Name
+		);
+	}
 
     public string Property(EdmProperty edmProperty)
     {

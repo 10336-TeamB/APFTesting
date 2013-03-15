@@ -14,14 +14,14 @@ namespace APFTestingModel
     
     internal partial class AssessmentTaskPacker : AssessmentTask
     {
-        public System.Guid PracticalComponentId { get; set; }
-        public System.DateTime Date { get; set; }
-        public string CanopyType { get; set; }
-        public string CanopyTypeSerialNumber { get; set; }
-        public string SupervisorId { get; set; }
-        public string HarnessContainerType { get; set; }
-        public string HarnessContainerSerialNumber { get; set; }
-        public string Note { get; set; }
+    	public System.Guid PracticalComponentId { get; set; }
+    	public System.DateTime Date { get; set; }
+    	public string CanopyType { get; set; }
+    	public string CanopyTypeSerialNumber { get; set; }
+    	public string SupervisorId { get; set; }
+    	public string HarnessContainerType { get; set; }
+    	public string HarnessContainerSerialNumber { get; set; }
+    	public string Note { get; set; }
     
         public virtual PracticalComponentPacker PracticalComponentPacker { get; set; }
     }

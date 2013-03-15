@@ -22,7 +22,7 @@ namespace APFTestingModel
 
     internal abstract partial class Exam : IExam
     {
-        protected ExamState examState;
+        protected ExamState _examState;
 
         #region Constructors
 
@@ -50,7 +50,7 @@ namespace APFTestingModel
             set
             {
                 ExamStatusId = (int)value;
-                OnStatusChanged();
+                //OnStatusChanged();
             }
         }
 
@@ -83,7 +83,7 @@ namespace APFTestingModel
         {
             SelectedTheoryQuestion question = null;
             Action a = delegate { question = TheoryComponent.FetchNextQuestion(); };
-            examState.FetchNextQuestion(a);
+            _examState.FetchNextQuestion(a);
             return question;
         }
 
@@ -91,7 +91,7 @@ namespace APFTestingModel
         {
             SelectedTheoryQuestion question = null;
             Action a = delegate { question = TheoryComponent.FetchPreviousQuestion(); };
-            examState.FetchPreviousQuestion(a);
+            _examState.FetchPreviousQuestion(a);
             return question;
         }
 
@@ -99,47 +99,81 @@ namespace APFTestingModel
         {
             SelectedTheoryQuestion question = null;
             Action a = delegate { question = TheoryComponent.FetchSpecificQuestion(index); };
-            examState.FetchSpecificQuestion(a);
+            _examState.FetchSpecificQuestion(a);
             return question;
         }
 
         public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
         {
             Action a = delegate { TheoryComponent.AnswerQuestion(questionIndex, selectedAnswers, markForReview); };
-            examState.AnswerQuestion(a);
+            _examState.AnswerQuestion(a);
         }
 
-        public void OnStatusChanged()
+        partial void OnExamStatusIdChanged()
         {
             switch (ExamStatusId)
             {
-                case (int)ExamStatus.ExamCompleted:
-                    examState = new ExamCompleted();
+
+                case (int)ExamStatus.NoExamCreated:
+                    _examState = new NoExamCreated();
                     break;
                 case (int)ExamStatus.ExamCreated:
-                    examState = new ExamCreated();
-                    break;
-                case (int)ExamStatus.ExamVoided:
-                    examState = new ExamVoided();
-                    break;
-                case (int)ExamStatus.NoExamCreated:
-                    examState = new NoExamCreated();
-                    break;
-                case (int)ExamStatus.PracticalComponentCompleted:
-                    examState = new PracticalComponentCompleted();
-                    break;
-                case (int)ExamStatus.PracticalComponentFailed:
-                    examState = new PracticalComponentFailed();
-                    break;
-                case (int)ExamStatus.TheoryComponentCompleted:
-                    examState = new TheoryComponentCompleted();
-                    break;
-                case (int)ExamStatus.TheoryComponentFailed:
-                    examState = new TheoryComponentFailed();
+                    _examState = new ExamCreated();
                     break;
                 case (int)ExamStatus.TheoryComponentInProgress:
-                    examState = new TheoryComponentInProgress();
+                    _examState = new TheoryComponentInProgress();
                     break;
+                case (int)ExamStatus.TheoryComponentFailed:
+                    _examState = new TheoryComponentFailed();
+                    break;
+                case (int)ExamStatus.TheoryComponentCompleted:
+                    _examState = new TheoryComponentCompleted();
+                    break;
+                case (int)ExamStatus.PracticalComponentFailed:
+                    _examState = new PracticalComponentFailed();
+                    break;
+                case (int)ExamStatus.PracticalComponentCompleted:
+                    _examState = new PracticalComponentCompleted();
+                    break;
+                case (int)ExamStatus.ExamCompleted:
+                    _examState = new ExamCompleted();
+                    break;
+                case (int)ExamStatus.ExamVoided:
+                    _examState = new ExamVoided();
+                    break;
+
+                #region Pradipna's Code
+
+                //case (int)ExamStatus.ExamCompleted:
+                //    examState = new ExamCompleted();
+                //    break;
+                //case (int)ExamStatus.ExamCreated:
+                //    examState = new ExamCreated();
+                //    break;
+                //case (int)ExamStatus.ExamVoided:
+                //    examState = new ExamVoided();
+                //    break;
+                //case (int)ExamStatus.NoExamCreated:
+                //    examState = new NoExamCreated();
+                //    break;
+                //case (int)ExamStatus.PracticalComponentCompleted:
+                //    examState = new PracticalComponentCompleted();
+                //    break;
+                //case (int)ExamStatus.PracticalComponentFailed:
+                //    examState = new PracticalComponentFailed();
+                //    break;
+                //case (int)ExamStatus.TheoryComponentCompleted:
+                //    examState = new TheoryComponentCompleted();
+                //    break;
+                //case (int)ExamStatus.TheoryComponentFailed:
+                //    examState = new TheoryComponentFailed();
+                //    break;
+                //case (int)ExamStatus.TheoryComponentInProgress:
+                //    examState = new TheoryComponentInProgress();
+                //    break;
+
+                #endregion
+                
             }
         }
     }
