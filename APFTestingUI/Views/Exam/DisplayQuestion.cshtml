@@ -1,10 +1,10 @@
 ﻿@model APFTestingUI.Models.Exam.QuestionDisplayItem
 @{
     ViewBag.Title = "Question " + (Model.Index + 1);
-    ViewBag.ExamId = @Model.ExamId;
     Layout = "~/Views/Shared/_QuestionLayout.cshtml";
 }
 
+<div class="hidden" id="loading"></div>
 <div id="ExamContainer">
     <h2>Jump Pilot Authorisation Exam</h2>
     
@@ -22,8 +22,8 @@
         @{
             int questionNumber = Model.Index + 1;   
         }
-        <h3>Question @questionNumber:</h3>
-        <h4>@Model.Description</h4>
+        <h3 id="question-title">Question @questionNumber:</h3>
+        <h4 id="question-description">@Model.Description</h4>
     </hgroup>
 
 @using (Html.BeginForm("SubmitAnswer", "Exam", FormMethod.Post, new { id = "QuestionForm" }))
@@ -32,7 +32,6 @@
     @Html.HiddenFor(m => m.Index)
     @Html.HiddenFor(m => m.NavDirection)
     <fieldset>
-        <legend>Question</legend>
         @foreach (var answer in Model.Answers)
         {
             <div class="answer-container">
@@ -44,30 +43,25 @@
                 {
                     <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
                 }
-                <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="Answer-Description">@answer.Description</label>
+                <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description">@answer.Description</label>
                 
             </div>
         }
     </fieldset>
-    <div class="navigation-container">
-        @if (!Model.IsFirstQuestion)
-        {
-            <input id="PreviousButton" class="button" type="button" value="Previous Question" />
-        }
-        <span id="mark-for-review">
+    <div id="navigation-container">
+        @{
+            var PreviousHidden = Model.IsFirstQuestion ? "hidden" : "";
+            var NextHidden = Model.IsLastQuestion ? "hidden" : "";
+            var SummaryHidden = Model.IsLastQuestion ? "" : "hidden";
+        
+            <input id="PreviousButton" class="button @PreviousHidden" type="button" value="Previous Question" />
+            <span id="mark-for-review">
             @Html.LabelFor(model => model.IsMarkedForReview)
             @Html.CheckBoxFor(model => model.IsMarkedForReview)
-        </span>
-        @if (!Model.IsLastQuestion)
-        {
-            <input id="NextButton" class="button" type="submit" value="Next Question" />
+            </span>
+            <input id="NextButton" class="button @NextHidden" type="submit" value="Next Question" />
+            <input id="SummaryButton" class="button @SummaryHidden" type="button" value="Go to Summary" />
         }
-        @if (Model.IsLastQuestion)
-        {
-            <input id="SummaryButton" class="button" type="button" value="Go to Summary" />
-        }
-
-        <input type="button" onclick="answerQuestion()" value="!!TESTING!!" />
 
         <div class="clear"></div>
     </div>

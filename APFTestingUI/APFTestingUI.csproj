@@ -154,6 +154,7 @@
     <Compile Include="Models\Exam\AjaxTest.cs" />
     <Compile Include="Models\Exam\AnswerDisplayItem.cs" />
     <Compile Include="Models\Exam\AnsweredQuestion.cs" />
+    <Compile Include="Models\Exam\ResultAnswerDisplayItem.cs" />
     <Compile Include="Models\Exam\ExamAction.cs" />
     <Compile Include="Models\Exam\PossibleAnswer.cs" />
     <Compile Include="Models\Exam\QuestionDisplayItem.cs" />
@@ -223,11 +224,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\add.png" />
+    <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\APF Logo.png" />
     <Content Include="Images\arrow.png" />
-    <Content Include="Images\bg-gradient-grey-old.jpg" />
     <Content Include="Images\bg-gradient-grey.gif" />
-    <Content Include="Images\bg-gradient-grey.jpg" />
     <Content Include="Images\cross.png" />
     <Content Include="Images\logo-apf.png" />
     <Content Include="Images\tick.png" />
@@ -264,19 +264,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />

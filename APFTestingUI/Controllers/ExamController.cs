@@ -174,9 +174,9 @@ namespace APFTestingUI.Controllers
         [HttpGet]
         public ActionResult Void(Guid examId)
         {
+            //TODO: Request authorisation credentials
             _facade.VoidExam(examId);
             return RedirectToAction("Index", "Examiner");
         }
-
     }
 }

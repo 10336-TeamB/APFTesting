@@ -19,7 +19,6 @@ namespace APFTestingUI.Models.Exam
             Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
             IsLastQuestion = question.IsLastQuestion;
             IsAnswered = question.IsAnswered;
-            IsCorrect = question.IsCorrect;
             NavDirection = ExamAction.NextQuestion;
             ExamProgress = calculateProgress(question.QuestionIndex, question.TotalNumOfQuestions);
         }
@@ -41,9 +40,6 @@ namespace APFTestingUI.Models.Exam
         }
         public bool IsAnswered { get; set; }
         public float ExamProgress { get; set; }
-
-        //Used for results page
-        public bool IsCorrect { get; set; }
 
         //Needed for question navigation direction and binding in cshtml, not assigned in this model (assigned by reflection in AnsweredQuestion)
         public ExamAction NavDirection { get; set; }

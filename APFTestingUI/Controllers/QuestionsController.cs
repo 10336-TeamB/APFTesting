@@ -30,21 +30,16 @@ namespace APFTestingUI.Controllers
         }
 
         // POST api/questions
-        public AnsweredQuestion Post(AnsweredQuestion question)
+        public QuestionDisplayItem Post(AnsweredQuestion question)
         {
             //_facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
-            //switch (question.NavDirection)
-            //{
-            //    case ExamAction.NextQuestion:
-            //    // return new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId)
-            //    case ExamAction.PreviousQuestion:
-            //    // return new QuestionDisplayItem(_facade.FetchPreviousQuestion(examId), examId)
-            //}
-
-            // return new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId)
-
-
-            return question;
+            switch (question.NavDirection)
+            {
+                case ExamAction.NextQuestion:
+                    return new QuestionDisplayItem(_facade.FetchNextQuestion(question.ExamId), question.ExamId);
+                default:
+                    return new QuestionDisplayItem(_facade.FetchPreviousQuestion(question.ExamId), question.ExamId);
+            }
         }
 
         // PUT api/questions/5

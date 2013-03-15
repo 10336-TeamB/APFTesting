@@ -6,17 +6,18 @@ using System.Web;
 
 namespace APFTestingUI.Models.Exam
 {
-    public class AnswerDisplayItem
+    public class ResultAnswerDisplayItem
     {
-        public AnswerDisplayItem() { }
-        public AnswerDisplayItem(IPossibleAnswer answer)
+        public ResultAnswerDisplayItem(IPossibleAnswer answer)
         {
             DisplayOrderIndex = answer.DisplayOrderIndex;
             Description = answer.Description;
             IsChecked = answer.IsChecked;
+            IsCorrect = answer.IsCorrect;
         }
         public int DisplayOrderIndex { get; set; }
         public string Description { get; set; }
         public bool IsChecked { get; set; }
+        public bool IsCorrect { get; set; }
     }
 }

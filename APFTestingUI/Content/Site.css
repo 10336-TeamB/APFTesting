@@ -919,7 +919,7 @@ h1, h2, h3, h4, h5, h6
 {
     float: right;
     padding-top: 10px;
-    width:100px;
+    width:70px;
 }
 
     #void-area ul 
@@ -934,14 +934,13 @@ h1, h2, h3, h4, h5, h6
     #void-area li 
     {
         margin: 0;
-        padding: 0 10px 0 0;
         float: left;
         width:100%;
     }
 
         #void-area li span {
             display:block;
-            padding:10px;
+            padding:5px;
         }
 
 #question-examiner-button {
@@ -952,6 +951,9 @@ h1, h2, h3, h4, h5, h6
     color: #ffffff;
     font-size: 0.8em;
     float: left;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
 }
 
 #question-void-button {
@@ -1312,10 +1314,6 @@ table
     
 }
 
-.navigation-container .button {
-    margin-right:20px;
-}
-
 #mark-for-review {
     margin: 0 30px;
 }
@@ -1516,4 +1514,30 @@ background-position: 0 -15px;
 
 .css-label{
 background-image:url(http://csscheckbox.com/checkboxes/dark-check-orange.png);
+}
+
+#loading {
+    margin: 100px auto;
+    width: 100px;
+    height: 100px;
+    background: url("../Images/ajax-loader.gif") 50% 0 no-repeat;
+}
+
+#PreviousButton {
+    float: left;
+}
+
+#NextButton, #SummaryButton {
+    float: right;
+}
+
+#navigation-container {
+    text-align: center;
+    width: 65%;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: right;
+    color: #CCC;
 }

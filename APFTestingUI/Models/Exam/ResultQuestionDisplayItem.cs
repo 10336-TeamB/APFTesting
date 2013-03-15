@@ -12,7 +12,7 @@ namespace APFTestingUI.Models.Exam
         {
             Index = question.QuestionIndex;
             Description = question.Description;
-            Answers = question.PossibleAnswers.Select(a => new AnswerDisplayItem(a));
+            Answers = question.PossibleAnswers.Select(a => new ResultAnswerDisplayItem(a));
             NumberClass = question.IsCorrect ? "correct" : "incorrect";
             IsMarkedClass = question.IsMarkedForReview ? " marked" : "";
             IsAnsweredClass = question.IsAnswered ? "" : " not-answered";
@@ -22,7 +22,7 @@ namespace APFTestingUI.Models.Exam
 
         public int Index { get; set; }
         public string Description { get; set; }
-        public IEnumerable<AnswerDisplayItem> Answers { get; set; }
+        public IEnumerable<ResultAnswerDisplayItem> Answers { get; set; }
         public string NumberClass { get; set; }
         public string IsMarkedClass { get; set; }
         public string IsAnsweredClass { get; set; }

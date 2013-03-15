@@ -1,6 +1,7 @@
 ﻿@model APFTestingUI.Models.Exam.QuestionDisplayItem
 @{
     ViewBag.Title = "Question " + (Model.Index + 1);
+    Layout = "~/Views/Shared/_QuestionLayout.cshtml";
 }
 
 <div id="ExamContainer">
@@ -36,7 +37,7 @@
             </div>
         }
     </fieldset>
-    <div class="navigation-container">
+    <div id="navigation-container">
         <span id="mark-for-review">
             @Html.LabelFor(model => model.IsMarkedForReview)
             @Html.CheckBoxFor(model => model.IsMarkedForReview)
