@@ -55,12 +55,12 @@
             var SummaryHidden = Model.IsLastQuestion ? "" : "hidden";
         
             <input id="PreviousButton" class="button @PreviousHidden" type="button" value="Previous Question" />
+            <input id="NextButton" class="button @NextHidden" type="submit" value="Next Question" />
+            <input id="SummaryButton" class="button @SummaryHidden" type="button" value="Go to Summary" />
             <span id="mark-for-review">
             @Html.LabelFor(model => model.IsMarkedForReview)
             @Html.CheckBoxFor(model => model.IsMarkedForReview)
             </span>
-            <input id="NextButton" class="button @NextHidden" type="submit" value="Next Question" />
-            <input id="SummaryButton" class="button @SummaryHidden" type="button" value="Go to Summary" />
         }
 
         <div class="clear"></div>

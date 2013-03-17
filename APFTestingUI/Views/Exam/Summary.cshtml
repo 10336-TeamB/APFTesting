@@ -9,11 +9,14 @@
     <h2>Exam Summary</h2>
 
     <div id="key">
-        <span id="key-marked">
+        <ul>
+            <li><span id="key-marked">
             <img src="~/Images/arrow.png" alt="arrow" height="24" width="24" />
-            = Marked for review</span>
-        <span id="key-unanswered">Unanswered question</span>
-        <p>Click on a question to see question details</p>
+            = Marked for review</span></li>
+            <li><span id="key-unanswered">Unanswered question</span></li>
+            <li><p>Click on a question to see question details</p></li>
+        </ul>
+        
     </div>
 
     <dl>
@@ -32,6 +35,7 @@
     </dl>
 
     <br />
+    <div class="clear"></div>
     @Html.ActionLink("Submit Exam", "Submit", new { examId = @Model.ExamId }, new { @class = "button" })
     <div class="clear"></div>
 </div>

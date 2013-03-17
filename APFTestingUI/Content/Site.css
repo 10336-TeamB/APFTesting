@@ -261,13 +261,13 @@ input[type="radio"], input[type="checkbox"]
     #header .right
     {
         float: right;
+        padding-right:10px;
     }
 
     #void-area 
     {
         float: right;
-        padding-top: 10px;
-        width:70px;
+        /*padding-top: 10px;*/
     }
 
     #void-area ul 
@@ -279,10 +279,23 @@ input[type="radio"], input[type="checkbox"]
         width: 100%;
     }
 
+    #void-area li 
+    {
+        margin: 0;
+        float: left;
+        display:block;
+    }
+
+    #void-area li span 
+    {
+        display:block;
+        padding:5px;
+    }
+
     #login-area
     {
         float: right;
-        padding-top: 10px;
+        /*padding-top: 10px;*/
     }
 
     #login-area ul
@@ -296,14 +309,15 @@ input[type="radio"], input[type="checkbox"]
     #login-area li
     {
         margin: 0;
-        padding: 0 10px 0 0;
+        /*padding: 0 10px 0 0;*/
         float: left;
     }
 
     #login-area a
     {
         display: block;
-        padding: 5px 20px;
+        /*padding: 5px 20px;*/
+        padding: 10px 25px;
         background-color: #117523;
         text-decoration: none;
         color: #ffffff;
@@ -315,23 +329,22 @@ input[type="radio"], input[type="checkbox"]
         text-decoration: none;
     }
 
-    #void-area li 
+    #login-admin
     {
-        margin: 0;
-        float: left;
-        width:100%;
+        border-radius: 0 0 5px 5px;
     }
 
-    #void-area li span 
+    #login-examiner
     {
-        display:block;
-        padding:5px;
+        border-radius: 0 0 5px 5px;
+        margin-left:5px;
     }
+
 
     .gradient-wrapper
-{
-    background:#303030 url('../Images/bg-gradient-grey.gif') 0 0 repeat-x;
-}
+    {
+        background:#303030 url('../Images/bg-gradient-grey.gif') 0 0 repeat-x;
+    }
 
 #menu
 {
@@ -432,14 +445,18 @@ input[type="radio"], input[type="checkbox"]
     font-size: 0.8em;
     float: left;
     cursor: pointer;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
+    border-radius: 0 0 5px 5px;
     text-align: center;
 }
 
 #question-void-button {
     display: block;
     padding: 5px 20px;
-    background-color: #117523;
+    /*background-color: #117523;*/
+    background-color: rgba(224, 33, 33, 1);
+    border-radius: 15px;
+    margin: 3px 0;
     text-decoration: none;
     color: #ffffff;
     font-size: 0.8em;
@@ -473,14 +490,27 @@ input[type="radio"], input[type="checkbox"]
 .button
 {
     color:#ffffff;
-    background-color: #117523;
     border: none;
-    border-radius: 10px;
+    border-radius: 7px;
     padding: 10px 10px;
     font-size: 1em;
     line-height: 1.1em;
     font-weight: normal;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .1);
+    box-shadow: 2px 1px 1px 1px rgba(0, 0, 0, .1);
+    background: #0e4815; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBlNDgxNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzEzNjcxNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzBmNWYxMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxOThmMWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #0e4815 0%, #136716 50%, #0f5f13 51%, #198f1b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0e4815), color-stop(50%,#136716), color-stop(51%,#0f5f13), color-stop(100%,#198f1b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #0e4815 0%,#136716 50%,#0f5f13 51%,#198f1b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #0e4815 0%,#136716 50%,#0f5f13 51%,#198f1b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #0e4815 0%,#136716 50%,#0f5f13 51%,#198f1b 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #0e4815 0%,#136716 50%,#0f5f13 51%,#198f1b 100%); /* W3C */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e4815', endColorstr='#198f1b',GradientType=0 );*/ /* IE6-8 */
+    text-shadow: 1px 1px 2px #121212;
+    /*filter: dropshadow(color=#121212, offx=1, offy=1);*/
+    /*border: 1px solid #115719;*/
+    overflow: hidden;
 }
 
 a.button 
@@ -496,14 +526,25 @@ a.button
     behavior: url('/Content/PIE.htc');
     box-shadow: 1px 1px 4px #000000;
     position: relative;
-            
+    background: #117523;
 }
 
 .button:hover
 {
-    background-color: #34B34A; 
+    box-shadow: 2px 1px 1px 1px rgba(0, 0, 0, .1);    
+    background: #115719; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzExNTcxOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzE3N2QxYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzEyNzQxNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZmFkMjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #115719 0%, #177d1a 50%, #127417 51%, #1fad21 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#115719), color-stop(50%,#177d1a), color-stop(51%,#127417), color-stop(100%,#1fad21)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #115719 0%,#177d1a 50%,#127417 51%,#1fad21 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #115719 0%,#177d1a 50%,#127417 51%,#1fad21 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #115719 0%,#177d1a 50%,#127417 51%,#1fad21 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #115719 0%,#177d1a 50%,#127417 51%,#1fad21 100%); /* W3C */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#115719', endColorstr='#1fad21',GradientType=0 );*/ /* IE6-8 */
     text-decoration: none;
-    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+    border-radius: 7px;
+    /*border:1px solid #0e4815;*/
 }
 
 .size-wrapper
@@ -610,7 +651,8 @@ a.button
 }
 
 #mark-for-review {
-    margin: 0 30px;
+    display:block;
+    line-height: 2.5em;
 }
 
 #mark-for-review label{
@@ -692,7 +734,6 @@ li.result-answer {
 }
 
 #progress-bar-outer {
-    width: 100%;
     height: 15px;
     margin-bottom: 3em;
     padding: 5px;
@@ -761,7 +802,7 @@ dt.not-answered .question-title {
 #key-unanswered {
     background-color: rgba(224, 33, 33, 0.45);
     padding: 5px;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
 }
 
 #key-marked img {
@@ -770,10 +811,12 @@ dt.not-answered .question-title {
 
 #key {
     background-color: rgb(70, 69, 69);
-    padding: 10px 20px;
+    padding: 10px 1.5%;
     border-radius: 5px;
     margin-bottom: 20px;
     border: solid 2px #999;
+    float: right;
+    width: 35%;
 }
 
     #key p {
@@ -782,8 +825,27 @@ dt.not-answered .question-title {
         letter-spacing: 2px;
     }
 
+    #key ul
+    {
+        list-style:none;
+        margin:0;
+        padding:0;
+    }
+
+    #key li
+    {
+        margin:0 0 1em;
+        padding:0;
+    }
+
 #summary .button {
     float: right;
+}
+
+#summary dl
+{
+    width:60%;
+    float:left;
 }
 
 /*Playing with special checkboxes*/
@@ -832,3 +894,42 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     margin: 0 auto;
 }
 
+@media only screen and (max-width: 720px)
+{
+    #PreviousButton
+    {
+        display:block;
+        float:none;
+        width: 100%;
+    }
+
+    #mark-for-review
+    {
+        display: block;
+        float:none;
+        width: 100%;
+    }
+
+    #NextButton
+    {
+        display: block;
+        float:none;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px)
+{
+    #navigation-container
+    {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 320px)
+{
+    #global-wrapper
+    {
+        min-width: 320px;
+    }
+}
