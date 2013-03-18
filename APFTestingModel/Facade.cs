@@ -29,18 +29,26 @@ namespace APFTestingModel
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 
+        private Candidate fetchCandidate(Guid candidateId)
+        {
+            Candidate candidate = (Candidate)_context.People.First(c => c.Id == candidateId);
+            _context.Entry(candidate).Collection<Exam>("Exams").Load();
+            return candidate;
+        }
+
         public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
         {
             createExamManager(examType);
 
             //HACK:
-            Candidate candidate = new CandidatePilot();
+            //Candidate candidate = new CandidatePilot();
             //Candidate candidate = _context.Candidates.Include("Exams").First(c => c.id == candidateId);
+            Candidate candidate = fetchCandidate(candidateId);
 
             Exam exam;
             if (candidate.LatestExam == null)
 	        {
-                exam = examManager.GenerateExam(candidateId, examinerId);
+                exam = examManager.GenerateExam(examinerId, candidateId);
                 // TODO: We may not need this line, as the Exam is associated with context objects already (Format and Template)...
                 _context.Exams.Add(exam);
                 _context.SaveChanges();
@@ -81,14 +89,13 @@ namespace APFTestingModel
         public ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex) 
         {
             Exam exam = fetchExam(examId);
-            ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
-			
-			//If exam is started for first time, it'll change status to in progress
-			//TODO: put in an appropriate method
+
             if (questionIndex == 0 && exam.ExamStatus == ExamStatus.ExamCreated)
-			{
-				exam.ExamStatus = ExamStatus.TheoryComponentInProgress;
-			}
+            {
+                exam.ExamStatus = ExamStatus.TheoryComponentInProgress;
+            }
+
+            ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
 			
 			_context.SaveChanges();
             return question;
@@ -130,9 +137,9 @@ namespace APFTestingModel
         public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
         {
             // Return all candidates assocaiated with the examiner.
-
-            // HACK - Returning dummy Candidate
-            yield return new CandidatePilot();
+            var examiner = _context.People.OfType<Examiner>().First(e => e.Id == examinerId);
+            _context.Entry(examiner).Collection<Candidate>("Candidates").Load();
+            return examiner.Candidates;
         }
 
         public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)

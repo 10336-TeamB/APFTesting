@@ -9,22 +9,22 @@ namespace APFTestingModel
     internal partial class Candidate : ICandidate
     {
         // Hardcoded values to allow facade to work with UI.
-        public Guid Id
-        {
-            get { return new Guid("1cc2ffb9-ffff-ffff-ffff-ffffffffffff"); }
-        }
+        //public Guid Id
+        //{
+        //    get { return new Guid("1cc2ffb9-ffff-ffff-ffff-ffffffffffff"); }
+        //}
 
-        // Hardcoded values to allow facade to work with UI.
-        public string FirstName
-        {
-            get { return "Paul"; }
-        }
+        //// Hardcoded values to allow facade to work with UI.
+        //public string FirstName
+        //{
+        //    get { return "Paul"; }
+        //}
 
-        // Hardcoded values to allow facade to work with UI.
-        public string LastName
-        {
-            get { return "Ilett"; }
-        }
+        //// Hardcoded values to allow facade to work with UI.
+        //public string LastName
+        //{
+        //    get { return "Ilett"; }
+        //}
 
         // Hardcoded values to allow facade to work with UI.
         public Exam LatestExam
@@ -33,12 +33,8 @@ namespace APFTestingModel
             get
             {
                 //return null;
-                return new ExamPilot
-                    {
-                        Id = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59"),
-                        CandidateId = Id,
-                        ExamStatus = ExamStatus.TheoryComponentInProgress
-                    };
+                Exam exam = Exams.OrderBy(e => e.CreatedDate).FirstOrDefault();
+                return exam;
             }
         }
 
