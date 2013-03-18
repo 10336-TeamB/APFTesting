@@ -197,6 +197,7 @@
           <Property Name="ExaminerId" Type="uniqueidentifier" />
           <Property Name="CandidateId" Type="uniqueidentifier" />
           <Property Name="ExamStatusId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="Examiner">
           <Key>
@@ -756,6 +757,7 @@
           <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="Exam" ToRole="TheoryComponent" />
           <NavigationProperty Name="Candidate" Relationship="APFTestingDBModel.FK_Exam_Candidate" FromRole="Exam" ToRole="Candidate" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_Exam_Examiner" FromRole="Exam" ToRole="Examiner" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="PracticalComponent" Abstract="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
@@ -1120,6 +1122,7 @@
           <EntitySetMapping Name="Exams">
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.Exam)">
               <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ExamStatusId" ColumnName="ExamStatusId" />
                 <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />

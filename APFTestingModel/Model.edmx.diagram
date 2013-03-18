@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="52">
+      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="APFTestingDBModel.AssessmentTaskPacker" Width="3" PointX="9.125" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="APFTestingDBModel.AssessmentTaskPilot" Width="3" PointX="5.25" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="2.125" PointX="12.125" PointY="5" IsExpanded="true" />
@@ -58,18 +58,18 @@
         <AssociationConnector Association="APFTestingDBModel.FK_PossibleAnswer_Answer" />
         <AssociationConnector Association="APFTestingDBModel.FK_PossibleAnswer_SelectedTheoryQuestion" />
         <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="11.027284288325944" PointY="16.276772506663935" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Candidate" Width="1.5" PointX="3.1641454767268828" PointY="16.517023496570541" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Examiner" Width="1.5" PointX="7.3978108630505437" PointY="23.156837295348215" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Person" Width="1.5" PointX="8.25" PointY="39.5" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Candidate" Width="1.5" PointX="4.375" PointY="18.75" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Examiner" Width="1.5" PointX="8.375" PointY="19" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Person" Width="1.5" PointX="5.25" PointY="15.625" />
         <AssociationConnector Association="APFTestingDBModel.FK_Person_Address" />
         <AssociationConnector Association="APFTestingDBModel.FK_Candidate_Examiner" />
         <AssociationConnector Association="APFTestingDBModel.FK_Exam_Candidate" />
         <AssociationConnector Association="APFTestingDBModel.FK_Exam_Examiner" />
         <InheritanceConnector EntityType="APFTestingDBModel.Candidate" />
         <InheritanceConnector EntityType="APFTestingDBModel.Examiner" />
-        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePacker" Width="1.5" PointX="15.75" PointY="42.5" />
+        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePacker" Width="1.875" PointX="5.75" PointY="21" />
         <InheritanceConnector EntityType="APFTestingDBModel.CandidatePacker" />
-        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePilot" Width="1.5" PointX="13.25" PointY="42.5" />
+        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePilot" Width="1.5" PointX="3.5" PointY="21" />
         <InheritanceConnector EntityType="APFTestingDBModel.CandidatePilot" />
         </Diagram>
     </edmx:Diagrams>

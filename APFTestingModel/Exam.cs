@@ -24,6 +24,7 @@ namespace APFTestingModel
     	partial void OnExamStatusIdChanged();
     	
 
+    	public Nullable<System.DateTime> CreatedDate { get; set; }
     
         public virtual PracticalComponent PracticalComponent { get; set; }
         public virtual TheoryComponent TheoryComponent { get; set; }
