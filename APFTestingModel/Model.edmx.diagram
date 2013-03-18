@@ -57,6 +57,20 @@
         <EntityTypeShape EntityType="APFTestingDBModel.PossibleAnswer" Width="1.5" PointX="20.25" PointY="6" />
         <AssociationConnector Association="APFTestingDBModel.FK_PossibleAnswer_Answer" />
         <AssociationConnector Association="APFTestingDBModel.FK_PossibleAnswer_SelectedTheoryQuestion" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="11.027284288325944" PointY="16.276772506663935" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Candidate" Width="1.5" PointX="3.1641454767268828" PointY="16.517023496570541" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Examiner" Width="1.5" PointX="7.3978108630505437" PointY="23.156837295348215" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Person" Width="1.5" PointX="8.25" PointY="39.5" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Person_Address" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Candidate_Examiner" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Exam_Candidate" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Exam_Examiner" />
+        <InheritanceConnector EntityType="APFTestingDBModel.Candidate" />
+        <InheritanceConnector EntityType="APFTestingDBModel.Examiner" />
+        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePacker" Width="1.5" PointX="15.75" PointY="42.5" />
+        <InheritanceConnector EntityType="APFTestingDBModel.CandidatePacker" />
+        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePilot" Width="1.5" PointX="13.25" PointY="42.5" />
+        <InheritanceConnector EntityType="APFTestingDBModel.CandidatePilot" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -34,7 +34,7 @@ namespace APFTestingModel
             createExamManager(examType);
 
             //HACK:
-            Candidate candidate = new Candidate();
+            Candidate candidate = new CandidatePilot();
             //Candidate candidate = _context.Candidates.Include("Exams").First(c => c.id == candidateId);
 
             Exam exam;
@@ -132,7 +132,7 @@ namespace APFTestingModel
             // Return all candidates assocaiated with the examiner.
 
             // HACK - Returning dummy Candidate
-            yield return new Candidate();
+            yield return new CandidatePilot();
         }
 
         public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)

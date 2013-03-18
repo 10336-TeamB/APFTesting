@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Answer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -61,7 +64,19 @@
     <Compile Include="AssessmentTaskPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Candidate.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CandidatePacker.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CandidatePilot.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Exam.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Examiner.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ExamPacker.cs">
@@ -143,6 +158,9 @@
     <Compile Include="Partials\TheoryComponent\TheoryQuestionPacker.cs" />
     <Compile Include="Partials\TheoryComponent\TheoryQuestionPilot.cs" />
     <Compile Include="Managers\PracticalComponentManager.cs" />
+    <Compile Include="Person.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PossibleAnswer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

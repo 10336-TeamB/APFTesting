@@ -29,6 +29,8 @@ namespace APFTestingModel
     		AssessmentTasks = Set<AssessmentTask>();	
     		Answers = Set<Answer>();	
     		PossibleAnswers = Set<PossibleAnswer>();	
+    		Addresses = Set<Address>();	
+    		People = Set<Person>();	
     
         }
     
@@ -48,5 +50,7 @@ namespace APFTestingModel
         internal DbSet<AssessmentTask> AssessmentTasks { get; set; }
         internal DbSet<Answer> Answers { get; set; }
         internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
+        internal DbSet<Address> Addresses { get; set; }
+        internal DbSet<Person> People { get; set; }
     }
 }
