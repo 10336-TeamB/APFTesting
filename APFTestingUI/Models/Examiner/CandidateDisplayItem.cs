@@ -50,37 +50,5 @@ namespace APFTestingUI.Models.Examiner
                 return LatestExamStatus >= ExamStatus.TheoryComponentFailed;
             }
         }
-
-        //public bool NoExam
-        //{
-        //    get
-        //    {
-        //        return LatestExamId == Guid.Empty;
-        //    }
-        //}
-        //public bool TheoryComponentCreated
-        //{
-        //    get
-        //    {
-        //        return LatestExamStatus == ExamStatus.ExamCreated;
-        //    }
-        //}
-        //public bool TheoryComponentInProgress
-        //{
-        //    get
-        //    {
-        //        return LatestExamStatus == ExamStatus.TheoryComponentInProgress;
-        //    }
-        //}
-        //public bool TheoryComponentCompleted
-        //{
-        //    get
-        //    {
-        //        return LatestExamStatus == ExamStatus.TheoryComponentFailed || LatestExamStatus == ExamStatus.TheoryComponentCompleted;
-        //    }
-        //}
-
-        
     }
-
 }

@@ -32,7 +32,7 @@ namespace APFTestingUI.Controllers
         // POST api/questions
         public QuestionDisplayItem Post(AnsweredQuestion question)
         {
-            //_facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
+            _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
             switch (question.NavDirection)
             {
                 case ExamAction.NextQuestion:

@@ -174,8 +174,7 @@ namespace APFTestingModel
                 .Include("TheoryComponent.TheoryComponentFormat")
                 .First(e => e.Id == examId);
             
-            //TODO: Why is this a switch? -ADAM
-            //Now it's not ;P - Pradipna
+            //TODO: Maybe this logic should be in Exam itself? - ADAM
             exam.ExamStatus = (exam.TheoryComponentCompetency) ? ExamStatus.TheoryComponentCompleted : ExamStatus.TheoryComponentFailed;
             
             _context.SaveChanges();
@@ -185,6 +184,15 @@ namespace APFTestingModel
         public string TestDBConnection()
         {
            return _context.TheoryQuestions.FirstOrDefault().Description;
+        }
+
+        // HACK- Temporary method for resetting the theory exam status for demonstration purposes
+        public void ResetTheoryComponent()
+        {
+            var testExamId = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59");
+            var exam = _context.Exams.First(e => e.Id == testExamId);
+            exam.ExamStatus = ExamStatus.ExamCreated;
+            _context.SaveChanges();
         }
 
         public void Dispose()

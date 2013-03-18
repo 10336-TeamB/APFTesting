@@ -14,7 +14,7 @@
         $('#NavDirection').val("DisplaySummary");
         $('#QuestionForm').submit();
     });
-
+    
     $(document).ajaxStart(function () {
         $("#ExamContainer").hide();
         $("#loading").show();
@@ -22,16 +22,28 @@
         $("#loading").hide();
         $("#ExamContainer").show();
     });
+    
+    /*                         */
+    /* Exam Void functionality */
+    /*                         */
+    $("#question-examiner-button").click(function () {
+        $("#question-void-button").slideToggle(300);
+    });
+
+    $("#question-void-button").click(function (e) {
+        e.preventDefault();
+        $("#void-popup").toggle();
+    });
+
+    $("#void-cancel").click(function() {
+        $("void-popup").toggle();
+    });
 });
 
 $(function () {
     var progress = $("#progress-bar-inner span").text() * 100;
     $("#progress-bar-inner").css("width", progress + "%");
 });
-
-var question = {
-     Description: 'This is our ajax question description', Index: 1
-}
 
 function answerQuestion() {
     var examId = $("#ExamId").val();
@@ -49,7 +61,7 @@ function answerQuestion() {
         NavDirection: navDirection,
         IsMarkedForReview: isMarkedForReview,
         ChosenAnswer: answers
-    }
+    };
 
     $.ajax({
         url: '/api/questions',
@@ -85,7 +97,10 @@ function renderQuestion(data) {
     $("ExamId").val(examId);
     $("Index").val(index);
     $("NavDirection").val(navDirection);
-    
+    if (isMarkedForReview) {
+        $("IsMarkedForReview").attr({ checked: "checked" });
+    }
+
     clearAnswers();
     populateAnswers(answers, type, className);
 
@@ -117,7 +132,7 @@ function populateAnswers(answers, type, className) {
             'class': className,
             name: "ChosenAnswer",
             value: i
-        }
+        };
 
         var input = $('<input type="' + type + '" />').attr(inputValues);
         if (this.IsChecked) {
@@ -127,7 +142,7 @@ function populateAnswers(answers, type, className) {
         var labelValues = {
             'for': "ChosenAnswer-" + i,
             'class': "answer-description"
-        }
+        };
 
         var label = $('<label />').text(this.Description).attr(labelValues);
 

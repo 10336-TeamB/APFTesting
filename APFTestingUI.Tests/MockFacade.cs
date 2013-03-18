@@ -80,5 +80,11 @@ namespace APFTestingUI.Tests
         {
             // NO-OP
         }
+
+
+        public void ResetTheoryComponent()
+        {
+            // NO-OP
+        }
     }
 }

@@ -5,61 +5,64 @@
 }
 
 <hgroup>
-<h2>Hello Grahame!</h2>
+<h1>Hello Grahame!</h1>
 <h3>Welcome to the Examiner home page!</h3>
 </hgroup>
 
 
-<a href="@Url.Action("")"><img alt="add candidate" src="@Url.Content("~/Images/add.png")"/> <span id="add-candidate-link">Add New Candidate</span></a>
+<a href="#"><img alt="add candidate" src="@Url.Content("~/Images/add.png")"/> <span id="add-candidate-link">Add New Candidate</span></a>
 
-@*<p class="add-candidate"><a href="#">+ Add new Candidate</a></p>*@
 <hr />
 
 
 
 <table id="candidate-list">
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th colspan="2">Actions</th>
-        </tr>    
-    @foreach (var candidate in Model.Candidates)
-    {
-        <tr class="candidate-list-item">
-            <td class="candidate-first-name">
-                @candidate.FirstName
-            </td>
-            <td class="candidate-last-name">
-                @candidate.LastName
-            </td>
-            <td class="start-theory-link">
-                @{
-                    string beginExamUrl;
-                    string beginExamButtonText;
-                }
+    <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Theory Exam</th>
+        <th colspan="2">Practical Exam</th>
+    </thead>
+    <tbody>
+        @foreach (var candidate in Model.Candidates)
+        {
+            <tr class="candidate-list-item">
+                <td class="candidate-first-name">
+                    @candidate.FirstName
+                </td>
+                <td class="candidate-last-name">
+                    @candidate.LastName
+                </td>
+                <td class="start-theory-link">
+                    @{
+                        string beginExamUrl;
+                        string beginExamButtonText;
+                    }
 
-                @if (candidate.FreshTheoryComponent)
-                {
-                    beginExamButtonText = "Start Theory Exam";
-                    beginExamUrl = Url.Action("Start","Exam",new { candidateId = candidate.Id });
-                }
-                else if (candidate.TheoryComponentCompleted)
-                {
-                    beginExamButtonText = "Review Theory Exam";
-                    beginExamUrl = Url.Action("Result", "Exam", new { examId = candidate.LatestExamId });
-                }
-                else
-                {
-                    beginExamButtonText = "Resume Theory Exam";
-                    beginExamUrl = Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId });
-                }
+                    @if (candidate.FreshTheoryComponent)
+                    {
+                        beginExamButtonText = "Start Exam";
+                        beginExamUrl = Url.Action("Start","Exam",new { candidateId = candidate.Id });
+                    }
+                    else if (candidate.TheoryComponentCompleted)
+                    {
+                        beginExamButtonText = "Show Result";
+                        beginExamUrl = Url.Action("Result", "Exam", new { examId = candidate.LatestExamId });
+                    }
+                    else
+                    {
+                        beginExamButtonText = "Resume Exam";
+                        beginExamUrl = Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId });
+                    }
 
-                <button class="examinerButton" type="button" onclick="window.location.assign('@beginExamUrl')">@beginExamButtonText</button>
-            </td>
-            <td class="input-practical-link">
-                <button class="examinerButton" type="button" onclick="window.location.assign('#')">Input Practical Results</button>
-            </td>
-        </tr>
-    }
-
+                    <button class="examinerButton" type="button" onclick="window.location.assign('@beginExamUrl')">@beginExamButtonText</button>
+                </td>
+                <td class="input-practical-link">
+                    <button class="examinerButton" type="button" onclick="window.location.assign('#')">Input Practical Results</button>
+                </td>
+                <td class="reset-cell"><button id="reset" class="examinerButton" type="button">Reset Exam</button></td>
+            </tr>
+        }
+    </tbody>
 </table>
+
