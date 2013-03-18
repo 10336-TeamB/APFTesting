@@ -136,9 +136,14 @@ namespace APFTestingModel
 
         public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
         {
+            //TODO: Work out how to do this in one DB query....
             // Return all candidates assocaiated with the examiner.
             var examiner = _context.People.OfType<Examiner>().First(e => e.Id == examinerId);
             _context.Entry(examiner).Collection<Candidate>("Candidates").Load();
+            foreach (var c in examiner.Candidates)
+            {
+                _context.Entry(c).Collection<Exam>("Exams").Load();
+            }
             return examiner.Candidates;
         }
 

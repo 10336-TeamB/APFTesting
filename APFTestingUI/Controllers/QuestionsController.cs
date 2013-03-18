@@ -9,7 +9,6 @@ using System.Web.Http;
 
 namespace APFTestingUI.Controllers
 {
-    [JsonExceptionFilter]
     public class QuestionsController : ApiController
     {
         private IFacade _facade;
@@ -33,8 +32,24 @@ namespace APFTestingUI.Controllers
         // POST api/questions
         public QuestionDisplayItem Post(AnsweredQuestion question)
         {
-            //_facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
-            throw new Exception("This is an AJAX exception test message");
+            _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
+
+            // TODO: Attempting to return exception message details to AJAX request. Not yet working... IIS Web.server config is superseeding....
+            //try
+            //{
+            //    throw new Exception("This is an AJAX exception test message");
+            //}
+            //catch (Exception e)
+            //{
+            //    var resp = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+            //    {
+            //        Content = new StringContent("!@This is the exception error content@!"),
+            //        ReasonPhrase = "Adam error"
+            //    };
+            //    throw new HttpResponseException(resp);
+            //}
+       
+
             switch (question.NavDirection)
             {
                 case ExamAction.NextQuestion:
