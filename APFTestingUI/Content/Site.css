@@ -241,7 +241,6 @@ input[type="radio"], input[type="checkbox"]
     background-image: -ms-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#449CC5', EndColorStr='#99CDDB');
     position: relative;
-    z-index: 3;
 }
 
     #header .size-wrapper
@@ -341,10 +340,10 @@ input[type="radio"], input[type="checkbox"]
     }
 
 
-    .gradient-wrapper
-    {
-        background:#303030 url('../Images/bg-gradient-grey.gif') 0 0 repeat-x;
-    }
+.gradient-wrapper
+{
+    background:#303030 url('../Images/bg-gradient-grey.gif') 0 0 repeat-x;
+}
 
 #menu
 {
@@ -399,8 +398,8 @@ input[type="radio"], input[type="checkbox"]
     font-size: 0.8em;
     line-height: 1.333em;
     padding-bottom:42px;
-    position: relative;
-    z-index: 1;
+    /*position: relative;
+    z-index: 1;*/
 }
 
     #content .size-wrapper
@@ -412,9 +411,9 @@ input[type="radio"], input[type="checkbox"]
 #footer
 {
     height: 42px; /* same as content margin */
-    position: absolute;
     bottom: 0;
     width: 100%;
+    position: absolute;
     z-index: 2;
 }
     #footer .size-wrapper
@@ -614,7 +613,6 @@ a.button
 {
     font-size: medium;
     font-weight: bold;
-    font-family: Calibri;
     height: 50%;
 }
 
@@ -629,6 +627,10 @@ a.button
 
     #ExamContainer fieldset {
         margin-bottom: 50px;
+    }
+
+    #ExamContainer legend {
+        display:none;
     }
 
 .answer-container {
@@ -975,4 +977,62 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 thead th {
     text-align: left;
+}
+
+
+
+
+/** Adding some buttons */
+.button-add {
+    color: #efefef;
+    background: transparent url('../Images/btn-add-candidate.png') 0 0 no-repeat;
+    width: 88px;
+    height: 10px;
+    font-size: 12px;
+    font-weight:bold;
+    line-height: 12px;
+    padding: 8px 30px 12px 8px;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Play', sans-serif;
+}
+
+a.button-add {
+    text-decoration: none;
+}
+
+.button-add:active, .button-add:hover {
+    background: transparent url('../Images/btn-add-candidate-click.png') 0 0 no-repeat;
+}
+
+.answer-checkbox {
+    display:none;
+}
+
+input[type="checkbox"] + .label-checkbox {
+    background: transparent url('../Images/sprite-input-buttons.png') 0 0 no-repeat;
+    padding-left: 40px;
+    margin: 0;
+    padding:9px 0 9px 40px;
+    display:block;
+}
+
+input[type="checkbox"]:checked + .label-checkbox {
+    background: transparent url('../Images/sprite-input-buttons.png') 0 -200px no-repeat;
+}
+
+
+.answer-radiobutton {
+    display:none;
+}
+
+input[type="radio"] + .label-radio {
+    background: transparent url('../Images/sprite-input-buttons.png') 0 -400px no-repeat;
+    margin: 0;
+    padding:9px 0 9px 40px;
+    display:block;
+}
+
+input[type="radio"]:checked + .label-radio {
+    background: transparent url('../Images/sprite-input-buttons.png') 0 -600px no-repeat;
 }
