@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace APFTestingUI.Controllers
 {
+    [JsonExceptionFilter]
     public class QuestionsController : ApiController
     {
         private IFacade _facade;
@@ -32,7 +33,8 @@ namespace APFTestingUI.Controllers
         // POST api/questions
         public QuestionDisplayItem Post(AnsweredQuestion question)
         {
-            _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
+            //_facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
+            throw new Exception("This is an AJAX exception test message");
             switch (question.NavDirection)
             {
                 case ExamAction.NextQuestion:

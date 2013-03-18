@@ -189,8 +189,15 @@ namespace APFTestingModel
         // HACK- Temporary method for resetting the theory exam status for demonstration purposes
         public void ResetTheoryComponent()
         {
-            var testExamId = new Guid("1cc2ffb9-4a89-4800-9505-eb8caaaf6d59");
-            var exam = _context.Exams.First(e => e.Id == testExamId);
+            var exam = _context.Exams.Include("TheoryComponent")
+                .Include("TheoryComponent.SelectedTheoryQuestions")
+                .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
+                .First();
+            exam.TheoryComponent.SelectedTheoryQuestions.ToList()
+                .ForEach(q => {
+                    q.PossibleAnswers.ToList().ForEach(pa => pa.IsChecked = false);
+                    q.IsMarkedForReview = false;
+                    });
             exam.ExamStatus = ExamStatus.ExamCreated;
             _context.SaveChanges();
         }

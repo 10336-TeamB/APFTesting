@@ -21,6 +21,13 @@
     }).ajaxStop(function () {
         $("#loading").hide();
         $("#ExamContainer").show();
+    }).ajaxError(function (evt, xhr) {
+        try {
+            var json = $.parseJSON(xhr.responseText);
+            alert(json.errorMessage);
+        } catch (e) {
+            alert('something bad happened');
+        }
     });
     
     /*                         */
