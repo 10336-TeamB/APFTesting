@@ -13,7 +13,6 @@ namespace APFTestingUI.Models.Examiner
             Candidates = candidates.Select(c => new CandidateDisplayItem(c));
         }
 
-
         public IEnumerable<CandidateDisplayItem> Candidates { get; set; }
     }
 }

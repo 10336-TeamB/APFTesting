@@ -9,8 +9,19 @@
 //        $('#content .size-wrapper').height(screenHeight - totalHeight);
 //});
 
-$(function () {
-    $("#question-examiner-button").click(function () {
-        $("#question-void-button").slideToggle(300);
+$(function() {
+    $("#reset").click(function() {
+        $.ajax({
+            url: '/api/reset',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (data) {
+                alert("Exam status reset");
+            },
+            error: function() {
+                alert("ERROR: Exam status not reset");
+            }
+        });
     });
 });

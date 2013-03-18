@@ -18,5 +18,6 @@ namespace APFTestingModel
         void SubmitTheoryComponent(Guid examId);
         void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId);
         void VoidExam(Guid examId);
+        void ResetTheoryComponent();
     }
 }

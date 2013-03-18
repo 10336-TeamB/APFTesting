@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace APFTestingUI.Controllers
 {
@@ -146,8 +147,7 @@ namespace APFTestingUI.Controllers
         [HttpGet]
         public ActionResult Submit(Guid examId)
         {
-            //HACK - Commented out to prevent submission and allow playing with the UI
-            //_facade.SubmitTheoryComponent(examId);
+            _facade.SubmitTheoryComponent(examId);
             return RedirectToAction("Result", new { examId });
         }
 
@@ -172,10 +172,15 @@ namespace APFTestingUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Void(Guid examId)
+        public ActionResult Void(VoidExam model)
         {
+            //This should probably be an AJAX request so if it fails the question display is unaffected...
             //TODO: Request authorisation credentials
-            _facade.VoidExam(examId);
+            //if (Membership.ValidateUser(model.Username, model.Password))
+            //{
+            _facade.VoidExam(model.ExamId);
+            //}
+            
             return RedirectToAction("Index", "Examiner");
         }
     }

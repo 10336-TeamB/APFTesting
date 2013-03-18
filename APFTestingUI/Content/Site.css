@@ -822,7 +822,7 @@ dt.not-answered .question-title {
     #key p {
         margin: 5px 0 0 0;
         font-size: 1.2em;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
     }
 
     #key ul
@@ -839,7 +839,8 @@ dt.not-answered .question-title {
     }
 
 #summary .button {
-    float: right;
+    float: left;
+    margin-left: 60px;
 }
 
 #summary dl
@@ -932,4 +933,46 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     {
         min-width: 320px;
     }
+}
+
+#void-popup {
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    width: 980px;
+    height: 80%;
+}
+
+#void-authentication {
+    position: relative;
+    margin: 0 auto;
+    top: 10%;
+    width: 400px;
+    height: 250px;
+    background-color: rgb(44, 44, 44);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#void-authentication input {
+    font-size: 1.2em;
+    clear: left;
+
+}
+
+#void-authentication label {
+    font-size: 1.4em;
+
+}
+
+#reset {
+    background-color: #ff0000;
+}
+
+.reset-cell {
+    text-align: right;
+
+}
+
+thead th {
+    text-align: left;
 }
