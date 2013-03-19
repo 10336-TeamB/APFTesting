@@ -10,22 +10,22 @@ namespace APFTestingModel
     {
         internal virtual void FetchNextQuestion(Action action)
         {
-            throw new BusinessRuleExcpetion("Action is invalid");
+            throw new BusinessRuleException("Action is invalid");
         }
 
         internal virtual void FetchPreviousQuestion(Action action)
         {
-            throw new BusinessRuleExcpetion("Action is invalid");
+            throw new BusinessRuleException("Action is invalid");
         }
 
         internal virtual void FetchSpecificQuestion(Action action)
         {
-            throw new BusinessRuleExcpetion("Action is invalid");
+            throw new BusinessRuleException("Action is invalid");
         }
 
         internal virtual void AnswerQuestion(Action action)
         {
-            throw new BusinessRuleExcpetion("Action is invalid");
+            throw new BusinessRuleException("Action is invalid");
         }
     }
 }

@@ -29,26 +29,38 @@ namespace APFTestingUI.Models.Examiner
         public string LastName { get; set; }
         public Guid LatestExamId { get; set; }
         public ExamStatus LatestExamStatus { get; set; }
-		public bool FreshTheoryComponent
-		{
-			get
-			{
-				return LatestExamStatus <= ExamStatus.ExamCreated;
-			}
-		}
-		public bool TheoryComponentInProgress
+
+
+
+        #region Exam Status Properties
+        
+        public bool ExamNullOrCreated
+        {
+            get
+            {
+                return LatestExamStatus <= ExamStatus.ExamCreated;
+            }
+        }
+
+        public bool TheoryComponentInProgress
         {
             get
             {
                 return LatestExamStatus == ExamStatus.TheoryComponentInProgress;
             }
         }
-        public bool TheoryComponentCompleted
+
+        public bool TheoryComponentFailed
         {
             get
             {
-                return LatestExamStatus >= ExamStatus.TheoryComponentFailed;
+                return LatestExamStatus == ExamStatus.TheoryComponentFailed;
             }
         }
+
+        #endregion
+
+
+        
     }
 }

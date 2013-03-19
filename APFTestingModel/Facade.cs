@@ -11,6 +11,42 @@ namespace APFTestingModel
         private APFTestingDBEntities _context = new APFTestingDBEntities();
         private ExamManager examManager;
 
+        private Candidate fetchCandidate(Guid candidateId)
+        {
+            Candidate candidate = (Candidate)_context.People.First(c => c.Id == candidateId);
+            _context.Entry(candidate).Collection<Exam>("Exams").Load();
+            return candidate;
+        }
+
+        //public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
+        //{
+        //    createExamManager(examType);
+
+        //    //HACK:
+        //    //Candidate candidate = new CandidatePilot();
+        //    //Candidate candidate = _context.Candidates.Include("Exams").First(c => c.id == candidateId);
+        //    Candidate candidate = fetchCandidate(candidateId);
+
+        //    Exam exam;
+        //    if (candidate.LatestExam == null)
+        //    {
+        //        exam = examManager.GenerateExam(examinerId, candidateId);
+        //        // TODO: We may not need this line, as the Exam is associated with context objects already (Format and Template)...
+        //        _context.Exams.Add(exam);
+        //        _context.SaveChanges();
+        //    }
+        //    else
+        //    {
+        //        exam = candidate.LatestExam;
+        //    }
+
+        //    return exam.Id;
+        //}
+
+
+
+        #region Initiate Exam
+        
         private void createExamManager(ExamType examType)
         {
             TheoryComponentFormat activeTheoryFormat;
@@ -28,38 +64,38 @@ namespace APFTestingModel
             }
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
-
-        private Candidate fetchCandidate(Guid candidateId)
+        
+        public Guid StartExam(Guid examinerId, Guid candidateId)
         {
-            Candidate candidate = (Candidate)_context.People.First(c => c.Id == candidateId);
-            _context.Entry(candidate).Collection<Exam>("Exams").Load();
-            return candidate;
+            var candidate = _context.People.OfType<Candidate>().First(c => c.Id == candidateId);
+            
+            return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
         }
 
-        public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
+        private Guid CreateExam(Guid examinerId, Candidate candidate)
         {
-            createExamManager(examType);
-
-            //HACK:
-            //Candidate candidate = new CandidatePilot();
-            //Candidate candidate = _context.Candidates.Include("Exams").First(c => c.id == candidateId);
-            Candidate candidate = fetchCandidate(candidateId);
-
             Exam exam;
-            if (candidate.LatestExam == null)
-	        {
-                exam = examManager.GenerateExam(examinerId, candidateId);
-                // TODO: We may not need this line, as the Exam is associated with context objects already (Format and Template)...
-                _context.Exams.Add(exam);
-                _context.SaveChanges();
-	        }
-            else
-            {
-                exam = candidate.LatestExam;
-            }
 
+            if (candidate is CandidatePilot)
+            {
+                createExamManager(ExamType.PilotExam);
+            }
+            else if (candidate is CandidatePacker)
+            {
+                createExamManager(ExamType.PackerExam);
+            }
+            exam = examManager.GenerateExam(examinerId, candidate.Id);
+            _context.Exams.Add(exam);
+            _context.SaveChanges();
+            
             return exam.Id;
         }
+
+        #endregion
+
+        
+
+
 
         private Exam fetchExam(Guid examId)
         {
