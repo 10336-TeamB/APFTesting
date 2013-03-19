@@ -8,5 +8,6 @@ namespace APFTestingModel
 {
     internal class ExamCompleted : ExamState
     {
+        
     }
 }
