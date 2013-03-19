@@ -8,5 +8,9 @@ namespace APFTestingModel
 {
     internal class ExamCreated : ExamState
     {
+        internal override void StartTheoryComponent(Action action)
+        {
+            action();
+        }
     }
 }

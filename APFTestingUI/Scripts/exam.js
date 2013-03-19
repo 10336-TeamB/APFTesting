@@ -49,7 +49,7 @@ $(function () {
 
 function answerQuestion() {
     var examId = $("#ExamId").val();
-    var index = $("#Index").val() - 1;
+    var index = $("#Index").val();
     var navDirection = $("#NavDirection").val();
     var isMarkedForReview = $("#IsMarkedForReview").is(":checked");
     var answers = [];
@@ -82,7 +82,7 @@ function renderQuestion(data) {
 
     // Data extracted from ajax received data
     var examId = data["ExamId"];
-    var index = data["Index"] + 1;
+    var index = parseInt(data["Index"]);
     var isMarkedForReview = data["IsMarkedForReview"];
     var answers = data["Answers"];
     var examProgress = data["ExamProgress"] * 100;
@@ -95,8 +95,8 @@ function renderQuestion(data) {
     var className = numOfCorrectAnswers == 1 ? "answer-radiobutton" : "answer-checkbox";
 
     $("#progress-bar-inner").animate({"width": examProgress + "%"}, 100);
-    document.title = "Question " + index;
-    $("#question-title").text("Question " + index);
+    document.title = "Question " + (index + 1);
+    $("#question-title").text("Question " + (index + 1));
     $("#question-description").text(description);
     $("ExamId").val(examId);
     $("Index").val(index);

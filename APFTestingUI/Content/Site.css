@@ -1005,7 +1005,7 @@ a.button-add {
     background: transparent url('../Images/btn-add-candidate-click.png') 0 0 no-repeat;
 }
 
-.answer-checkbox {
+/*.answer-checkbox {
     display:none;
 }
 
@@ -1035,4 +1035,4 @@ input[type="radio"] + .label-radio {
 
 input[type="radio"]:checked + .label-radio {
     background: transparent url('../Images/sprite-input-buttons.png') 0 -600px no-repeat;
-}
+}*/
