@@ -27,5 +27,20 @@ namespace APFTestingModel
         {
             action();
         }
+
+        internal override void VoidExam(Action action)
+        {
+            action();
+        }
+
+        internal override void SubmitTheoryComponent(Action action)
+        {
+            action();
+        }
+
+        internal override void StartTheoryComponent(Action action)
+        {
+            action();
+        }
     }
 }

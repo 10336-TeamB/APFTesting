@@ -167,8 +167,11 @@ namespace APFTestingUI.Controllers
             // We may need this to display what their score is as a mark/passmark
             //_facade.FetchTheoryExamFormatDetails();
             //_facade.FetchCandidateDetails();
-            var model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId));
-            return View(model);
+
+            TheoryComponentResult model = null;
+            Action a = delegate { model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId)); };
+            ActionResult retActionResult = checkForException(a);
+            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
         }
 
         [HttpGet]

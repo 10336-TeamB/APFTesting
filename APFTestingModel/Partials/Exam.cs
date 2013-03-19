@@ -47,7 +47,7 @@ namespace APFTestingModel
                 }
                 return (ExamStatus)ExamStatusId;
             }
-            set
+            private set
             {
                 ExamStatusId = (int)value;
                 //OnStatusChanged();
@@ -107,6 +107,37 @@ namespace APFTestingModel
         {
             Action a = delegate { TheoryComponent.AnswerQuestion(questionIndex, selectedAnswers, markForReview); };
             _examState.AnswerQuestion(a);
+        }
+
+        public void VoidExam()
+        {
+            Action a = delegate { ExamStatus = ExamStatus.ExamVoided; };
+            _examState.VoidExam(a);
+        }
+
+        public void SubmitTheoryComponent()
+        {
+            Action a = delegate { ExamStatus = (TheoryComponentCompetency) ? ExamStatus.TheoryComponentCompleted : ExamStatus.TheoryComponentFailed; };
+            _examState.SubmitTheoryComponent(a);
+        }
+
+        public void StartTheoryExam()
+        {
+            Action a = delegate { ExamStatus = ExamStatus.TheoryComponentInProgress; };
+            _examState.StartTheoryComponent(a);
+        }
+
+        public TheoryComponent FetchTheoryExamResult()
+        {
+            Action a = delegate { };
+            _examState.FetchTheoryExamResult(a);
+            return TheoryComponent;
+        }
+
+        //HACK
+        public void AdamsAwesomeResetHack()
+        {
+            ExamStatus = ExamStatus.ExamCreated;
         }
 
         partial void OnExamStatusIdChanged()
