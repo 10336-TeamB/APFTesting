@@ -32,24 +32,20 @@ namespace APFTestingUI.Controllers
         // POST api/questions
         public QuestionDisplayItem Post(AnsweredQuestion question)
         {
-            _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
-
-            // TODO: Attempting to return exception message details to AJAX request. Not yet working... IIS Web.server config is superseeding....
-            //try
-            //{
-            //    throw new Exception("This is an AJAX exception test message");
-            //}
-            //catch (Exception e)
-            //{
-            //    var resp = new HttpResponseMessage(HttpStatusCode.InternalServerError)
-            //    {
-            //        Content = new StringContent("!@This is the exception error content@!"),
-            //        ReasonPhrase = "Adam error"
-            //    };
-            //    throw new HttpResponseException(resp);
-            //}
+            try
+            {
+                _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
+            }
+            catch (Exception e)
+            {
+                var resp = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content = new StringContent(e.Message)
+                };
+                throw new HttpResponseException(resp);
+            }
        
-
+            //TODO: These Facade requests will also need exception handling for the view.
             switch (question.NavDirection)
             {
                 case ExamAction.NextQuestion:

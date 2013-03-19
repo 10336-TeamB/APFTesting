@@ -22,12 +22,7 @@
         $("#loading").hide();
         $("#ExamContainer").show();
     }).ajaxError(function (evt, xhr) {
-        try {
-            var json = $.parseJSON(xhr.responseText);
-            alert(json.errorMessage);
-        } catch (e) {
-            alert('something bad happened');
-        }
+        $("#error-message").html("<p>" + xhr.responseText + "</p>");
     });
     
     /*                         */
@@ -43,7 +38,7 @@
     });
 
     $("#void-cancel").click(function() {
-        $("void-popup").toggle();
+        $("#void-popup").toggle();
     });
 });
 
@@ -54,7 +49,7 @@ $(function () {
 
 function answerQuestion() {
     var examId = $("#ExamId").val();
-    var index = $("#Index").val();
+    var index = $("#Index").val() - 1;
     var navDirection = $("#NavDirection").val();
     var isMarkedForReview = $("#IsMarkedForReview").is(":checked");
     var answers = [];
@@ -83,9 +78,11 @@ function answerQuestion() {
 }
 
 function renderQuestion(data) {
+    clearAnswers();
+
+    // Data extracted from ajax received data
     var examId = data["ExamId"];
     var index = data["Index"] + 1;
-    var navDirection = data["NavDirection"];
     var isMarkedForReview = data["IsMarkedForReview"];
     var answers = data["Answers"];
     var examProgress = data["ExamProgress"] * 100;
@@ -103,12 +100,10 @@ function renderQuestion(data) {
     $("#question-description").text(description);
     $("ExamId").val(examId);
     $("Index").val(index);
-    $("NavDirection").val(navDirection);
     if (isMarkedForReview) {
-        $("IsMarkedForReview").attr({ checked: "checked" });
+        $("#IsMarkedForReview").prop('checked', true);
     }
-
-    clearAnswers();
+        
     populateAnswers(answers, type, className);
 
     if (isFirstQuestion) {
@@ -130,6 +125,8 @@ function renderQuestion(data) {
 
 function clearAnswers() {
     $("fieldset").html("");
+    $("#IsMarkedForReview").removeAttr("checked");
+    $("#error-message").html("");
 };
 
 function populateAnswers(answers, type, className) {
@@ -148,7 +145,7 @@ function populateAnswers(answers, type, className) {
 
         var labelValues = {
             'for': "ChosenAnswer-" + i,
-            'class': "answer-description"
+            'class': "answer-description label-" + type
         };
 
         var label = $('<label />').text(this.Description).attr(labelValues);
