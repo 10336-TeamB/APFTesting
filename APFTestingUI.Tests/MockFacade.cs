@@ -14,10 +14,10 @@ namespace APFTestingUI.Tests
             // NO-OP
         }
 
-        public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
-        {
-            return Guid.NewGuid();
-        }
+        //public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
+        //{
+        //    return Guid.NewGuid();
+        //}
 
         public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)
         {
@@ -85,6 +85,12 @@ namespace APFTestingUI.Tests
         public void ResetTheoryComponent()
         {
             // NO-OP
+        }
+
+
+        public Guid StartExam(Guid examinerId, Guid candidateId)
+        {
+            return Guid.NewGuid();
         }
     }
 }

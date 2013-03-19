@@ -75,7 +75,7 @@ namespace APFTestingModel
 		{
             if (questionIndex < 0 || questionIndex >= SelectedTheoryQuestions.Count)
             {
-                throw new BusinessRuleExcpetion(String.Format("Question Index [{0}] is invalid.", questionIndex));
+                throw new BusinessRuleException(String.Format("Question Index [{0}] is invalid.", questionIndex));
             }
 			CurrentQuestionIndex = questionIndex;
             SelectedTheoryQuestion selectedTheoryQuestion = SelectedTheoryQuestions.FirstOrDefault(question => question.QuestionIndex == CurrentQuestionIndex);
@@ -83,7 +83,7 @@ namespace APFTestingModel
             //Do we even need this check after the first check? - Pradipna
             if (selectedTheoryQuestion == null)
             {
-                throw new BusinessRuleExcpetion(String.Format("Question Index [{0}] can not be found.", questionIndex));
+                throw new BusinessRuleException(String.Format("Question Index [{0}] can not be found.", questionIndex));
             }
             return selectedTheoryQuestion;
 		}
@@ -92,7 +92,7 @@ namespace APFTestingModel
 		{
             if (questionIndex < 0 || questionIndex >= SelectedTheoryQuestions.Count)
             {
-                throw new BusinessRuleExcpetion(String.Format("Question Index [{0}] is invalid.", questionIndex));
+                throw new BusinessRuleException(String.Format("Question Index [{0}] is invalid.", questionIndex));
             }
 
             //TODO: LINQ Query First may throw an exception...

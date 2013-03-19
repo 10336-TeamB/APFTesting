@@ -43,7 +43,7 @@ namespace APFTestingModel
             {
                 if (ExamStatusId > (int)ExamStatus.Count || ExamStatusId < 0)
                 {
-                    throw new BusinessRuleExcpetion("Exam Status is invalid");
+                    throw new BusinessRuleException("Exam Status is invalid");
                 }
                 return (ExamStatus)ExamStatusId;
             }
@@ -75,7 +75,7 @@ namespace APFTestingModel
         private void checkTheoryComponentStatus() {
             if (ExamStatusId != (int)ExamStatus.TheoryComponentInProgress)
             {
-                throw new BusinessRuleExcpetion("Theory Component is not in progress");
+                throw new BusinessRuleException("Theory Component is not in progress");
             }
         }
 

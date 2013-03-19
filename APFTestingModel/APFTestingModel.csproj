@@ -134,7 +134,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="BusinessRuleExcpetion.cs" />
+    <Compile Include="BusinessRuleException.cs" />
     <Compile Include="Partials\Candidate.cs" />
     <Compile Include="Partials\Exam.cs" />
     <Compile Include="Partials\ExamPacker.cs" />

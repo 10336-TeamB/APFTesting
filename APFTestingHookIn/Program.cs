@@ -8,7 +8,7 @@ namespace APFTestingHookIn {
             Facade _facade = new Facade();
             //var theoryExamTemplate = _facade.CreateExam(new Guid("0DEEC85C-6EDE-4356-995E-E3AB852D746E"), new Guid("0DEEC85C-6EDE-4356-995E-E3AB852D746E"), ExamType.PilotExam);
 
-            _facade.CreateExam(new Guid("0099dcce-110a-4144-8ecb-80788f41e8ff"), new Guid("c120f78b-bc26-4855-9425-c9e5fb9e8c2b"), ExamType.PilotExam);
+            //_facade.CreateExam(new Guid("0099dcce-110a-4144-8ecb-80788f41e8ff"), new Guid("c120f78b-bc26-4855-9425-c9e5fb9e8c2b"), ExamType.PilotExam);
 
             //Guid guid1;
             //Guid guid2;

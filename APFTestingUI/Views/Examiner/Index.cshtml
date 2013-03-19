@@ -41,7 +41,27 @@
                         string beginExamButtonText;
                     }
 
-                    @if (candidate.FreshTheoryComponent)
+                    
+                    @if (candidate.ExamNullOrCreated)
+                    {
+                        beginExamButtonText = "Start Exam";
+                        beginExamUrl = Url.Action("Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id });
+                        <button class="examinerButton" type="button" onclick="window.location.assign('@beginExamUrl')">@beginExamButtonText</button>
+                    }
+                    else if (candidate.TheoryComponentInProgress)
+                    {
+                        beginExamButtonText = "Resume Exam";
+                        
+                    }
+                    else if (candidate.TheoryComponentFailed)
+                    {
+                        beginExamButtonText = "Retake Exam";
+                        
+                    }
+                    
+                    
+
+                    @*@if (candidate.FreshTheoryComponent)
                     {
                         beginExamButtonText = "Start Exam";
                         beginExamUrl = Url.Action("Start","Exam",new { candidateId = candidate.Id });
@@ -57,7 +77,7 @@
                         beginExamUrl = Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId });
                     }
 
-                    <button class="examinerButton" type="button" onclick="window.location.assign('@beginExamUrl')">@beginExamButtonText</button>
+                    *@
                 </td>
                 <td class="input-practical-link">
                     <button class="examinerButton" type="button" onclick="window.location.assign('#')">Input Practical Results</button>

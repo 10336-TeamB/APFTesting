@@ -17,9 +17,16 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Exam/Start/
 
-        public ActionResult Start(Guid candidateId)
+        //public ActionResult Start(Guid candidateId)
+        //{
+        //    ViewBag.ExamId = _facade.CreateExam(Guid.NewGuid(), candidateId, ExamType.PilotExam);
+        //    return View();
+        //}
+
+        public ActionResult Start(Guid examinerId, Guid candidateId)
         {
-            ViewBag.ExamId = _facade.CreateExam(Guid.NewGuid(), candidateId, ExamType.PilotExam);
+            ViewBag.ExamId = _facade.StartExam(examinerId, candidateId);
+            
             return View();
         }
 
@@ -29,7 +36,7 @@ namespace APFTestingUI.Controllers
             {
                 a();
             } 
-            catch (BusinessRuleExcpetion e)
+            catch (BusinessRuleException e)
             {
                 return RedirectToAction("DisplayError", new { error = e.Message });
             }

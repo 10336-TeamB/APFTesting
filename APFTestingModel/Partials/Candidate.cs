@@ -33,7 +33,8 @@ namespace APFTestingModel
             get
             {
                 //return null;
-                Exam exam = Exams.OrderBy(e => e.CreatedDate).FirstOrDefault();
+                Exam exam = Exams.OrderBy(e => e.CreatedDate).LastOrDefault();
+                
                 return exam;
             }
         }
@@ -41,6 +42,14 @@ namespace APFTestingModel
         IExam ICandidate.LatestExam
         {
             get { return LatestExam; }
+        }
+
+        public Guid LatestExamId
+        {
+            get
+            {
+                return LatestExam.Id;
+            }
         }
 
         public ExamStatus LatestExamStatus
@@ -54,5 +63,14 @@ namespace APFTestingModel
                 return LatestExam.ExamStatus;
             }
         }
+
+        public bool NewExamPossible
+        {
+            get
+            {
+                return LatestExamStatus == ExamStatus.NoExamCreated || LatestExamStatus == ExamStatus.TheoryComponentFailed || LatestExamStatus == ExamStatus.ExamVoided;
+            }
+        }
+
     }
 }

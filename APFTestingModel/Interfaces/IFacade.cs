@@ -6,7 +6,7 @@ namespace APFTestingModel
     public interface IFacade : IDisposable
     {
         void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview);
-        Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType);
+        Guid StartExam(Guid examinerId, Guid candidateId);
         ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark);
         IEnumerable<ICandidate> FetchCandidates(Guid examinerId);
         ISelectedTheoryQuestion FetchNextQuestion(Guid examId);
