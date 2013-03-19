@@ -8,5 +8,9 @@ namespace APFTestingModel
 {
     internal class TheoryComponentCompleted : ExamState
     {
+        internal override void FetchTheoryExamResult(Action action)
+        {
+            action();
+        }
     }
 }

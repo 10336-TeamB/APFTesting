@@ -92,7 +92,7 @@ namespace APFTestingModel
 
             if (questionIndex == 0 && exam.ExamStatus == ExamStatus.ExamCreated)
             {
-                exam.ExamStatus = ExamStatus.TheoryComponentInProgress;
+                exam.StartTheoryExam();
             }
 
             ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
@@ -124,13 +124,13 @@ namespace APFTestingModel
         public ITheoryComponent FetchTheoryComponentResult(Guid examId)
         {
             Exam exam = fetchExam(examId);
-            return exam.TheoryComponent;
+            return exam.FetchTheoryExamResult();
         }
 
         public void VoidExam(Guid examId)
         {
             Exam exam = fetchExam(examId);
-            exam.ExamStatus = ExamStatus.ExamVoided;
+            exam.VoidExam();
             _context.SaveChanges();
         }
 
@@ -187,8 +187,10 @@ namespace APFTestingModel
                 .First(e => e.Id == examId);
             
             //TODO: Maybe this logic should be in Exam itself? - ADAM
-            exam.ExamStatus = (exam.TheoryComponentCompetency) ? ExamStatus.TheoryComponentCompleted : ExamStatus.TheoryComponentFailed;
-            
+            //Yeah, now it's done - Pradipna
+            //exam.ExamStatus = (exam.TheoryComponentCompetency) ? ExamStatus.TheoryComponentCompleted : ExamStatus.TheoryComponentFailed;
+            exam.SubmitTheoryComponent();
+
             _context.SaveChanges();
         }
 
@@ -210,7 +212,7 @@ namespace APFTestingModel
                     q.PossibleAnswers.ToList().ForEach(pa => pa.IsChecked = false);
                     q.IsMarkedForReview = false;
                     });
-            exam.ExamStatus = ExamStatus.ExamCreated;
+            exam.AdamsAwesomeResetHack();
             _context.SaveChanges();
         }
 
