@@ -160,6 +160,7 @@
     <Compile Include="Models\Exam\PossibleAnswer.cs" />
     <Compile Include="Models\Exam\QuestionDisplayItem.cs" />
     <Compile Include="Models\Exam\ResultQuestionDisplayItem.cs" />
+    <Compile Include="Models\Exam\TheoryComponentInstructions.cs" />
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
@@ -292,6 +293,7 @@
     <Content Include="Views\Shared\_QuestionLayout.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\ServerError.cshtml" />
+    <Content Include="Views\Exam\TheoryComponentInstructions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

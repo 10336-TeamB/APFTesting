@@ -11,7 +11,7 @@ namespace APFTestingModel
         Guid Id { get; }
         Guid FormatId { get; }
         int CurrentQuestionIndex { get; }
-        decimal Score { get; }
+        float Score { get; }
         DateTime Date { get; }
         IEnumerable<ISelectedTheoryQuestion> SelectedTheoryQuestions { get; }
         bool IsCompetent { get; }

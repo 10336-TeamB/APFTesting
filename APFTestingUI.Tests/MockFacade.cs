@@ -44,11 +44,6 @@ namespace APFTestingUI.Tests
             return new MockSelectedTheoryQuestion();
         }
 
-        public ISelectedTheoryQuestion ResumeTheoryExam(Guid examId)
-        {
-            return new MockSelectedTheoryQuestion();
-        }
-
         public ITheoryComponent FetchTheoryComponentResult(Guid examId)
         {
             return new MockTheoryComponent();
@@ -88,9 +83,20 @@ namespace APFTestingUI.Tests
         }
 
 
-        public Guid StartExam(Guid examinerId, Guid candidateId)
+        public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
         {
             return Guid.NewGuid();
         }
-    }
+
+
+		public ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public ISelectedTheoryQuestion ResumeTheoryComponent(Guid examId)
+		{
+			return new MockSelectedTheoryQuestion();
+		}
+	}
 }

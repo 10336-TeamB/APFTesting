@@ -48,7 +48,16 @@ namespace APFTestingModel
         {
             get
             {
-                return LatestExam.Id;
+				var latestExam = LatestExam;
+				if (latestExam != null)
+				{
+					return LatestExam.Id;
+				}
+				else
+				{
+					return Guid.Empty;
+				}
+				
             }
         }
 
@@ -56,11 +65,12 @@ namespace APFTestingModel
         {
             get 
             {
-                if (LatestExam == null)
+				var latestExam = LatestExam;
+				if (latestExam == null)
                 {
                     return ExamStatus.NoExamCreated;
                 }
-                return LatestExam.ExamStatus;
+				return latestExam.ExamStatus;
             }
         }
 
@@ -68,7 +78,8 @@ namespace APFTestingModel
         {
             get
             {
-                return LatestExamStatus == ExamStatus.NoExamCreated || LatestExamStatus == ExamStatus.TheoryComponentFailed || LatestExamStatus == ExamStatus.ExamVoided;
+				var latestExamStatus = LatestExamStatus; //Prevents the querying of database for each condition below
+				return latestExamStatus == ExamStatus.NoExamCreated || latestExamStatus == ExamStatus.TheoryComponentFailed || latestExamStatus == ExamStatus.ExamVoided;
             }
         }
 

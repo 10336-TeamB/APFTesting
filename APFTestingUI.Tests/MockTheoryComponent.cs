@@ -24,9 +24,9 @@ namespace APFTestingUI.Tests
             get { return 0; }
         }
 
-        public decimal Score
+        public float Score
         {
-            get { return 0.8m; }
+            get { return 0.8f; }
         }
 
         public DateTime Date
