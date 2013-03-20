@@ -67,9 +67,11 @@ namespace APFTestingModel
         
         public Guid StartExam(Guid examinerId, Guid candidateId)
         {
-            var candidate = _context.People.OfType<Candidate>().First(c => c.Id == candidateId);
+            var candidate = fetchCandidate(candidateId);
             
-            return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
+            //Not right now... - Pradipna
+            //return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
+            return candidate.LatestExamId;
         }
 
         private Guid CreateExam(Guid examinerId, Candidate candidate)
@@ -239,10 +241,7 @@ namespace APFTestingModel
         // HACK- Temporary method for resetting the theory exam status for demonstration purposes
         public void ResetTheoryComponent()
         {
-            var exam = _context.Exams.Include("TheoryComponent")
-                .Include("TheoryComponent.SelectedTheoryQuestions")
-                .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
-                .First();
+            var exam = fetchExam(new Guid("B4A9B409-527C-46AC-BE16-F4846671F2D6"));
             exam.TheoryComponent.SelectedTheoryQuestions.ToList()
                 .ForEach(q => {
                     q.PossibleAnswers.ToList().ForEach(pa => pa.IsChecked = false);

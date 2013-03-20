@@ -53,9 +53,13 @@ function answerQuestion() {
     var navDirection = $("#NavDirection").val();
     var isMarkedForReview = $("#IsMarkedForReview").is(":checked");
     var answers = [];
-    $("[name=ChosenAnswer][checked]").each(function () {
+    //$("[name=ChosenAnswer][checked]").each(function () {
+    //    answers.push(this.value);
+    //});
+    $('input[name="ChosenAnswer"]:checked').each(function () {
         answers.push(this.value);
     });
+
 
     var question = {
         ExamId: examId,
@@ -90,7 +94,6 @@ function renderQuestion(data) {
     var isFirstQuestion = data["IsFirstQuestion"];
     var isLastQuestion = data["IsLastQuestion"];
     var numOfCorrectAnswers = data["NumberOfCorrectAnswers"];
-
     var type = numOfCorrectAnswers == 1 ? "radio" : "checkbox";
     var className = numOfCorrectAnswers == 1 ? "answer-radiobutton" : "answer-checkbox";
 
@@ -98,8 +101,8 @@ function renderQuestion(data) {
     document.title = "Question " + (index + 1);
     $("#question-title").text("Question " + (index + 1));
     $("#question-description").text(description);
-    $("ExamId").val(examId);
-    $("Index").val(index);
+    $("#ExamId").val(examId);
+    $("#Index").val(index);
     if (isMarkedForReview) {
         $("#IsMarkedForReview").prop('checked', true);
     }
