@@ -70,8 +70,7 @@ namespace APFTestingModel
             var candidate = fetchCandidate(candidateId);
             
             //Not right now... - Pradipna
-            //return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
-            return candidate.LatestExamId;
+            return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
         }
 
         private Guid CreateExam(Guid examinerId, Candidate candidate)

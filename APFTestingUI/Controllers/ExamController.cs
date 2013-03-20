@@ -171,7 +171,7 @@ namespace APFTestingUI.Controllers
             TheoryComponentResult model = null;
             Action a = delegate { model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId)); };
             ActionResult retActionResult = checkForException(a);
-            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
+            return (retActionResult == null) ? View(model) : retActionResult;
         }
 
         [HttpGet]
