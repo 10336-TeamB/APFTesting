@@ -22,7 +22,12 @@
         $("#loading").hide();
         $("#ExamContainer").show();
     }).ajaxError(function (evt, xhr) {
-        $("#error-message").html("<p>" + xhr.responseText + "</p>");
+        try {
+            var response = JSON.parse(xhr.responseText);
+            $("#error-message").html("<p>" + response.Message + "</p>");
+        } catch(e) {
+            $("#error-message").html("<p>Something bad happened...</p>");
+        }
     });
     
     /*                         */

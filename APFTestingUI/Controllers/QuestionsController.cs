@@ -16,53 +16,32 @@ namespace APFTestingUI.Controllers
         {
             _facade = facade;
         }
-
-        // GET api/questions
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/questions/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
+        
         // POST api/questions
-        public QuestionDisplayItem Post(AnsweredQuestion question)
+        public HttpResponseMessage Post(AnsweredQuestion question)
         {
             try
             {
                 _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
+                //throw new Exception("This is an ADAM test exception message");
             }
             catch (Exception e)
             {
-                var resp = new HttpResponseMessage(HttpStatusCode.InternalServerError)
-                {
-                    Content = new StringContent(e.Message)
-                };
-                throw new HttpResponseException(resp);
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e.Message);
             }
        
             //TODO: These Facade requests will also need exception handling for the view.
+            QuestionDisplayItem newQuestion;
             switch (question.NavDirection)
             {
                 case ExamAction.NextQuestion:
-                    return new QuestionDisplayItem(_facade.FetchNextQuestion(question.ExamId), question.ExamId);
+                    newQuestion = new QuestionDisplayItem(_facade.FetchNextQuestion(question.ExamId), question.ExamId);
+                    break;
                 default:
-                    return new QuestionDisplayItem(_facade.FetchPreviousQuestion(question.ExamId), question.ExamId);
+                    newQuestion = new QuestionDisplayItem(_facade.FetchPreviousQuestion(question.ExamId), question.ExamId);
+                    break;
             }
-        }
-
-        // PUT api/questions/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/questions/5
-        public void Delete(int id)
-        {
+            return Request.CreateResponse(HttpStatusCode.OK, newQuestion);
         }
     }
 }

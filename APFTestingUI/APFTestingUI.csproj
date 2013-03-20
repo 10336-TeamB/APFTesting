@@ -243,6 +243,7 @@
     <Content Include="Scripts\exam.js" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
+    <None Include="Properties\PublishProfiles\Major Project [a] server.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -265,7 +266,9 @@
     <Content Include="Scripts\summary.js" />
     <Content Include="Unity.Mvc3.README.txt" />
     <Content Include="Unity.WebAPI.README.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
