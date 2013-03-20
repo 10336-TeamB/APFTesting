@@ -53,9 +53,6 @@ function answerQuestion() {
     var navDirection = $("#NavDirection").val();
     var isMarkedForReview = $("#IsMarkedForReview").is(":checked");
     var answers = [];
-    //$("[name=ChosenAnswer][checked]").each(function () {
-    //    answers.push(this.value);
-    //});
     $('input[name="ChosenAnswer"]:checked').each(function () {
         answers.push(this.value);
     });
