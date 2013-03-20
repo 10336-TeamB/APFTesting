@@ -1036,3 +1036,8 @@ input[type="radio"] + .label-radio {
 input[type="radio"]:checked + .label-radio {
     background: transparent url('../Images/sprite-input-buttons.png') 0 -600px no-repeat;
 }
+
+#exam-instructions {
+    font-size: 1.2em;
+    line-height: 1.5;
+}

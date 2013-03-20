@@ -14,26 +14,23 @@ namespace APFTestingUI.Controllers
     {
         public ExamController(IFacade facade) : base(facade) { }
 
-        //
-        // GET: /Exam/Start/
-
-       
-
 		#region Initiate Theory Component
 		
 		//
-		// GET: /Exam/TheoryComponentInstructions/
-		public ActionResult TheoryComponentInstructions(Guid examinerId, Guid candidateId)
-		{
-			var examId = _facade.StartTheoryComponent(examinerId, candidateId);
-			var theoryComponentFormat = _facade.FetchTheoryComponentFormat(examId);
+		// GET: /Exam/Instructions/
 
-			var model = new TheoryComponentInstructions(examId, theoryComponentFormat.NumberOfQuestions, theoryComponentFormat.PassMark, theoryComponentFormat.TimeLimit);
+		public ActionResult Instructions(Guid examinerId, Guid candidateId)
+		{
+            //TODO: return all required values from one DB call...
+			var examId = _facade.StartTheoryComponent(examinerId, candidateId);
+			var format = _facade.FetchTheoryComponentFormat(examId);
+
+			var model = new Instructions(examId, format);
 
 			return View(model);
 		}
 
-		public ActionResult ResumeTheoryComponent(Guid examId)
+		public ActionResult Resume(Guid examId)
 		{
 			var model = new QuestionDisplayItem(_facade.ResumeTheoryComponent(examId), examId);
 			
@@ -116,8 +113,6 @@ namespace APFTestingUI.Controllers
             ActionResult retActionResult = checkForException(a);
             return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
         }
-
-        
 
         //
         // GET: /Exam/Review/

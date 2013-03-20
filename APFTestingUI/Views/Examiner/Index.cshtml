@@ -14,8 +14,6 @@
 
 <hr />
 
-
-
 <table id="candidate-list">
     <thead>
         <tr>
@@ -39,19 +37,19 @@
                     
                     @if (candidate.ExamNullOrCreated)
                     {
-                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("TheoryComponentInstructions", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id })')">
+                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("Instructions", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id })')">
                             Start Exam
                         </button>
                     }
                     else if (candidate.TheoryComponentInProgress)
                     {
-                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("ResumeTheoryComponent", "Exam", new { examId = candidate.LatestExamId })')">
+                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId })')">
                             Resume Exam
                         </button>
                     }
                     else if (candidate.TheoryComponentFailed)
                     {
-                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("TheoryComponentInstructions", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id })')">
+                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("Instructions", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id })')">
                             Retake Exam
                         </button>
                     }

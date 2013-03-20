@@ -30,8 +30,6 @@ namespace APFTestingUI.Models.Examiner
         public Guid LatestExamId { get; set; }
         public ExamStatus LatestExamStatus { get; set; }
 
-
-
         #region Exam Status Properties
         
         public bool ExamNullOrCreated
@@ -59,8 +57,5 @@ namespace APFTestingUI.Models.Examiner
         }
 
         #endregion
-
-
-        
     }
 }

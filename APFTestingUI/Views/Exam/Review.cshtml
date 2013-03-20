@@ -21,19 +21,20 @@
     @Html.HiddenFor(m => m.Index)
     @Html.HiddenFor(m => m.NavDirection)
     <fieldset>
-        <legend>Question</legend>
         @foreach (var answer in Model.Answers)
         {
             <div class="answer-container">
                 @if (Model.NumberOfCorrectAnswers == 1)
                 {
-                    <input type="radio" class="answer-radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                    <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="radio" class="answer-radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                    <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-radio">@answer.Description</label>
                 }
                 else
                 {
-                    <input type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                    <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                    <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-checkbox">@answer.Description</label>
                 }
-                <span class="Answer-Description">@answer.Description</span>
+               
             </div>
         }
     </fieldset>
