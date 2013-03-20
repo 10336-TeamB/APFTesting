@@ -21,18 +21,18 @@ namespace APFTestingModel
 
 
         //TODO - Why are we using decimal? Why not float? - ADAM
-        public decimal Score
+        public float Score
 		{
 			get
 			{
-				decimal numberOfCorrectAnswers = SelectedTheoryQuestions.Count(question => question.IsCorrect);
+				float numberOfCorrectAnswers = SelectedTheoryQuestions.Count(question => question.IsCorrect);
 				return (numberOfCorrectAnswers / SelectedTheoryQuestions.Count);
 			}
 		}
 
 		public bool IsCompetent
 		{
-			get { return (Score >= TheoryComponentFormat.PassMark); }
+			get { return ((Score * 100.0) >= TheoryComponentFormat.PassMark); }
 		}
 
         IEnumerable<ISelectedTheoryQuestion> ITheoryComponent.SelectedTheoryQuestions
