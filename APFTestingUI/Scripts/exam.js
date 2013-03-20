@@ -39,13 +39,19 @@
 
     $("#question-void-button").click(function (e) {
         e.preventDefault();
-        $("#void-popup").toggle();
+        //$("#void-popup").toggle();
+        showLightbox("#void-authentication");
     });
 
-    $("#void-cancel").click(function() {
-        $("#void-popup").toggle();
+    $("#void-cancel").click(function () {
+        //$("#void-popup").toggle();
+        parent.$.fn.colorbox.close();
     });
 });
+
+function showLightbox(id) {
+    $.colorbox({ width: "450px", height: "250px", inline: "true", href: id })
+}
 
 $(function () {
     var progress = $("#progress-bar-inner span").text() * 100;

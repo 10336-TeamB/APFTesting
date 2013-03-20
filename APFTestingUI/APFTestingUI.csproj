@@ -233,11 +233,13 @@
     <Content Include="Images\bg-gradient-grey.gif" />
     <Content Include="Images\btn-add-candidate-click.png" />
     <Content Include="Images\btn-add-candidate.png" />
+    <Content Include="Images\controls.png" />
     <Content Include="Images\cross.png" />
     <Content Include="Images\icn-checkbox-checked.png" />
     <Content Include="Images\icn-checkbox.png" />
     <Content Include="Images\icn-radio-checked.png" />
     <Content Include="Images\icn-radio.png" />
+    <Content Include="Images\loading.gif" />
     <Content Include="Images\logo-apf.png" />
     <Content Include="Images\sprite-input-buttons.png" />
     <Content Include="Images\tick.png" />
@@ -253,6 +255,7 @@
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.colorbox-min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
