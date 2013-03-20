@@ -36,27 +36,24 @@
                     @candidate.LastName
                 </td>
                 <td class="start-theory-link">
-                    @{
-                        string beginExamUrl;
-                        string beginExamButtonText;
-                    }
-
                     
                     @if (candidate.ExamNullOrCreated)
                     {
-                        beginExamButtonText = "Start Exam";
-                        beginExamUrl = Url.Action("Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id });
-                        <button class="examinerButton" type="button" onclick="window.location.assign('@beginExamUrl')">@beginExamButtonText</button>
+                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("TheoryComponentInstructions", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id })')">
+                            Start Exam
+                        </button>
                     }
                     else if (candidate.TheoryComponentInProgress)
                     {
-                        beginExamButtonText = "Resume Exam";
-                        
+                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("ResumeTheoryComponent", "Exam", new { examId = candidate.LatestExamId })')">
+                            Resume Exam
+                        </button>
                     }
                     else if (candidate.TheoryComponentFailed)
                     {
-                        beginExamButtonText = "Retake Exam";
-                        
+                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("TheoryComponentInstructions", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id })')">
+                            Retake Exam
+                        </button>
                     }
                     
                     
@@ -76,7 +73,9 @@
                         beginExamButtonText = "Resume Exam";
                         beginExamUrl = Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId });
                     }
-
+                    <button class="examinerButton" type="button" onclick="window.location.assign('@beginExamUrl')">
+                            Start Exam
+                        </button>
                     *@
                 </td>
                 <td class="input-practical-link">

@@ -31,7 +31,7 @@ namespace APFTestingUI.Tests.Controllers {
             Guid examinerId = Guid.NewGuid();
 
             //// Act
-            ActionResult result = _controller.Start(examinerId, candidateId);
+            ActionResult result = _controller.TheoryComponentInstructions(examinerId, candidateId);
 
             //// Assert
             Assert.IsNotNull(result);
@@ -87,7 +87,7 @@ namespace APFTestingUI.Tests.Controllers {
             Guid examId = Guid.NewGuid();
 
             //// Act
-            ActionResult result = _controller.Resume(examId);
+            ActionResult result = _controller.ResumeTheoryComponent(examId);
 
             //// Assert
             Assert.IsNotNull(result);

@@ -17,18 +17,52 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Exam/Start/
 
-        //public ActionResult Start(Guid candidateId)
-        //{
-        //    ViewBag.ExamId = _facade.CreateExam(Guid.NewGuid(), candidateId, ExamType.PilotExam);
-        //    return View();
-        //}
+       
 
-        public ActionResult Start(Guid examinerId, Guid candidateId)
-        {
-            ViewBag.ExamId = _facade.StartExam(examinerId, candidateId);
-            
-            return View();
-        }
+		#region Initiate Theory Component
+		
+		//
+		// GET: /Exam/TheoryComponentInstructions/
+		public ActionResult TheoryComponentInstructions(Guid examinerId, Guid candidateId)
+		{
+			var examId = _facade.StartTheoryComponent(examinerId, candidateId);
+			var theoryComponentFormat = _facade.FetchTheoryComponentFormat(examId);
+
+			var model = new TheoryComponentInstructions(examId, theoryComponentFormat.NumberOfQuestions, theoryComponentFormat.PassMark, theoryComponentFormat.TimeLimit);
+
+			return View(model);
+		}
+
+		public ActionResult ResumeTheoryComponent(Guid examId)
+		{
+			var model = new QuestionDisplayItem(_facade.ResumeTheoryComponent(examId), examId);
+			
+			return View("DisplayQuestion", model);
+		}
+
+		#endregion
+
+
+
+			//
+        // GET: /Exam/Resume/
+
+		//public ActionResult Resume(Guid examId)
+		//{
+		//	//QuestionDisplayItem model = null;
+		//	//Action a = delegate { model = new QuestionDisplayItem(_facade.ResumeTheoryExam(examId), examId); };
+		//	//ActionResult retActionResult = checkForException(a);
+		//	//return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
+		//	return null;
+		//}
+
+
+		//public ActionResult Start(Guid examinerId, Guid candidateId)
+		//{
+		//	ViewBag.ExamId = _facade.StartTheoryComponent(examinerId, candidateId);
+
+		//	return View();
+		//}
 
         private ActionResult checkForException(Action a)
         {
@@ -83,16 +117,7 @@ namespace APFTestingUI.Controllers
             return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
         }
 
-        //
-        // GET: /Exam/Resume/
-
-        public ActionResult Resume(Guid examId)
-        {
-            QuestionDisplayItem model = null;
-            Action a = delegate { model = new QuestionDisplayItem(_facade.ResumeTheoryExam(examId), examId); };
-            ActionResult retActionResult = checkForException(a);
-            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
-        }
+        
 
         //
         // GET: /Exam/Review/

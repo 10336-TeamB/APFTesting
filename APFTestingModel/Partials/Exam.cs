@@ -37,6 +37,25 @@ namespace APFTestingModel
 
         #endregion
 
+		
+		#region Chain Methods: TheoryComponent
+
+		public TheoryComponentFormat FetchTheoryComponentFormat()
+		{
+			return TheoryComponent.TheoryComponentFormat;
+		}
+
+		#endregion
+
+
+		public int CurrentTheoryQuestionIndex
+		{
+			get
+			{
+				return TheoryComponent.CurrentQuestionIndex;
+			}
+		}
+
         public ExamStatus ExamStatus
         {
             get
@@ -66,7 +85,7 @@ namespace APFTestingModel
         {
             get
             {
-                return TheoryComponent.SelectedTheoryQuestions;
+				return TheoryComponent.SelectedTheoryQuestions;
             }
         }
 
@@ -102,6 +121,11 @@ namespace APFTestingModel
             _examState.FetchSpecificQuestion(a);
             return question;
         }
+
+		public SelectedTheoryQuestion FetchCurrentQuestion()
+		{
+			return TheoryComponent.FetchCurrentQuestion();
+		}
 
         public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
         {

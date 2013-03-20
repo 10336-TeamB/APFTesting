@@ -88,6 +88,11 @@ namespace APFTestingModel
             return selectedTheoryQuestion;
 		}
 
+		public SelectedTheoryQuestion FetchCurrentQuestion()
+		{
+			return SelectedTheoryQuestions.First(q => q.QuestionIndex == CurrentQuestionIndex);
+		}
+
         public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
 		{
             if (questionIndex < 0 || questionIndex >= SelectedTheoryQuestions.Count)
@@ -100,6 +105,8 @@ namespace APFTestingModel
             currentQuestion.SelectAnswers(selectedAnswers);
             currentQuestion.MarkForReview(markForReview);
 		}
+		
+		
 
 		#endregion
     }
