@@ -57,6 +57,7 @@ function answerQuestion() {
         answers.push(this.value);
     });
 
+
     var question = {
         ExamId: examId,
         Index: index,
@@ -90,7 +91,6 @@ function renderQuestion(data) {
     var isFirstQuestion = data["IsFirstQuestion"];
     var isLastQuestion = data["IsLastQuestion"];
     var numOfCorrectAnswers = data["NumberOfCorrectAnswers"];
-
     var type = numOfCorrectAnswers == 1 ? "radio" : "checkbox";
     var className = numOfCorrectAnswers == 1 ? "answer-radiobutton" : "answer-checkbox";
 
