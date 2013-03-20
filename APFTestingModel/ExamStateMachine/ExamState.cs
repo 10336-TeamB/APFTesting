@@ -30,22 +30,22 @@ namespace APFTestingModel
 
         internal virtual void VoidExam(Action action)
         {
-            throw new BusinessRuleExcpetion("Action is invalid");
+            throw new BusinessRuleException("Action is invalid");
         }
 
         internal virtual void SubmitTheoryComponent(Action action)
         {
-            throw new BusinessRuleExcpetion("Action is invalid");
+            throw new BusinessRuleException("Action is invalid");
         }
 
         internal virtual void StartTheoryComponent(Action action)
         {
-            throw new BusinessRuleExcpetion("Action is invalid");
+            throw new BusinessRuleException("Action is invalid");
         }
 
         internal virtual void FetchTheoryExamResult(Action action)
         {
-            throw new BusinessRuleExcpetion("Action is invalid");
+            throw new BusinessRuleException("Action is invalid");
         }
     }
 }

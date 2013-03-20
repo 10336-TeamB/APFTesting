@@ -53,7 +53,7 @@ function answerQuestion() {
     var navDirection = $("#NavDirection").val();
     var isMarkedForReview = $("#IsMarkedForReview").is(":checked");
     var answers = [];
-    $("[name=ChosenAnswer][checked]").each(function () {
+    $('input[name="ChosenAnswer"]:checked').each(function () {
         answers.push(this.value);
     });
 
@@ -98,8 +98,8 @@ function renderQuestion(data) {
     document.title = "Question " + (index + 1);
     $("#question-title").text("Question " + (index + 1));
     $("#question-description").text(description);
-    $("ExamId").val(examId);
-    $("Index").val(index);
+    $("#ExamId").val(examId);
+    $("#Index").val(index);
     if (isMarkedForReview) {
         $("#IsMarkedForReview").prop('checked', true);
     }
