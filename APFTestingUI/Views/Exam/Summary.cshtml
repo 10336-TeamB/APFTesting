@@ -5,6 +5,20 @@
     Layout = "~/Views/Shared/_QuestionLayout.cshtml";
 }
 
+<div id="void-popup" class="hidden">
+    <div id="void-authentication">
+        @using (Html.BeginForm("Void", "Exam", FormMethod.Post, new {}))
+        {
+            @Html.HiddenFor(m => m.ExamId)
+            <label for="void-id">Examiner ID:</label>
+            <input type="text" placeholder="Examiner ID" id="void-id"/><br/>
+            <label for="void-password">Password:</label>
+            <input type="text" placeholder="Password" id="void-password"/><br/>
+            <input id="void-confirm" type="submit" value="Confirm" />
+            <input id="void-cancel" type="button" value="Cancel" />
+        }
+    </div>
+</div>
 <div id="summary">
     <h2>Exam Summary</h2>
 
@@ -44,4 +58,5 @@
 @section scripts
 {
     <script src="~/Scripts/summary.js"></script>
+    <script src="~/Scripts/exam.js"></script>
 }

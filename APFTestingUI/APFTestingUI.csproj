@@ -246,6 +246,7 @@
     <Content Include="Scripts\exam.js" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
+    <None Include="Properties\PublishProfiles\Major Profile.pubxml" />
     <None Include="Properties\PublishProfiles\Major Project [a] server.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -286,7 +287,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Exam\Start.cshtml" />
     <Content Include="Views\Exam\DisplayQuestion.cshtml" />
     <Content Include="Views\Examiner\Index.cshtml" />
     <Content Include="Views\Exam\Summary.cshtml" />
@@ -296,7 +296,7 @@
     <Content Include="Views\Shared\_QuestionLayout.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\ServerError.cshtml" />
-    <Content Include="Views\Exam\Instructions.cshtml" />
+    <Content Include="Views\Exam\Start.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,7 +324,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58245</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
