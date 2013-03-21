@@ -25,13 +25,13 @@ namespace APFTestingUI.Tests.Controllers {
         }
 
         [TestMethod]
-        public void Instructions_GET_Returns_View() {
+        public void Start_GET_Returns_View() {
             // Arrange
             Guid candidateId = Guid.NewGuid();
             Guid examinerId = Guid.NewGuid();
 
             //// Act
-            ActionResult result = _controller.Instructions(examinerId, candidateId);
+            ActionResult result = _controller.Start(examinerId, candidateId);
 
             //// Assert
             Assert.IsNotNull(result);

@@ -51,6 +51,30 @@ namespace APFTestingModel
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 
+        /*
+        public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
+        {
+
+			var candidate = _context.People.Include("Exams").OfType<Candidate>().First(c => c.Id == candidateId);
+
+            //var candidate = fetchCandidate(candidateId);
+
+            
+            //Not right now... - Pradipna
+            return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
+        }
+
+		public ISelectedTheoryQuestion ResumeTheoryComponent(Guid examId)
+		{
+			var exam = _context.Exams.Include("TheoryComponent")
+				.Include("TheoryComponent.SelectedTheoryQuestions")
+				.Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion")
+				.Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
+				.Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
+				.First(e => e.Id == examId);
+		*/
+
+
 		private Guid CreateExam(Guid examinerId, Candidate candidate)
 		{
 			Exam exam;
@@ -265,15 +289,15 @@ namespace APFTestingModel
         // HACK- Temporary method for resetting the theory exam status for demonstration purposes
         public void ResetTheoryComponent()
         {
+
             //var exam = fetchExam(new Guid("B4A9B409-527C-46AC-BE16-F4846671F2D6"));
-            Candidate candidate = _context.People.Include("Exams").Include("Exams.TheoryComponent")
+            var candidate = _context.People.Include("Exams").Include("Exams.TheoryComponent")
                 .Include("Exams.TheoryComponent.SelectedTheoryQuestions")
                 .Include("Exams.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
                 .Include("Exams.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer").OfType<Candidate>().First();
 
             var exam = candidate.LatestExam;
 
-            
             exam.TheoryComponent.SelectedTheoryQuestions.ToList()
                 .ForEach(q => {
                     q.PossibleAnswers.ToList().ForEach(pa => pa.IsChecked = false);

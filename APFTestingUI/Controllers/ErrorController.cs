@@ -11,19 +11,19 @@ namespace SurveyUI.Controllers
     {
         public ActionResult NotFound() {
             Response.StatusCode = (int)HttpStatusCode.NotFound;
-            Response.TrySkipIisCustomErrors = true;
+            //Response.TrySkipIisCustomErrors = true;
             return View();
         }
 
         public ActionResult ServerError() {
             Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            Response.TrySkipIisCustomErrors = true;
+            //Response.TrySkipIisCustomErrors = true;
 
             // Pass the exception into the view model for administrators eyes only
-            if (User.IsInRole("Administrator"))
-            {
+            //if (User.IsInRole("Administrator"))
+            //{
                 ViewBag.ExceptionMessage = Server.GetLastError();
-            }
+            //}
 
             return View();
         }

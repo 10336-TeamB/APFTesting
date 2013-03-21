@@ -18,7 +18,7 @@ namespace APFTestingUI.Controllers
         }
         
         // POST api/questions
-        public HttpResponseMessage Post(AnsweredQuestion question)
+        public QuestionDisplayItem Post(AnsweredQuestion question)
         {
             try
             {
@@ -27,21 +27,21 @@ namespace APFTestingUI.Controllers
             }
             catch (Exception e)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e.Message);
+                var resp = new HttpResponseMessage(HttpStatusCode.OK)
+               {
+                   Content = new StringContent(e.Message)
+               };
+               throw new HttpResponseException(resp);
             }
        
             //TODO: These Facade requests will also need exception handling for the view.
-            QuestionDisplayItem newQuestion;
             switch (question.NavDirection)
             {
                 case ExamAction.NextQuestion:
-                    newQuestion = new QuestionDisplayItem(_facade.FetchNextQuestion(question.ExamId), question.ExamId);
-                    break;
+                    return new QuestionDisplayItem(_facade.FetchNextQuestion(question.ExamId), question.ExamId);
                 default:
-                    newQuestion = new QuestionDisplayItem(_facade.FetchPreviousQuestion(question.ExamId), question.ExamId);
-                    break;
+                    return new QuestionDisplayItem(_facade.FetchPreviousQuestion(question.ExamId), question.ExamId);
             }
-            return Request.CreateResponse(HttpStatusCode.OK, newQuestion);
         }
     }
 }

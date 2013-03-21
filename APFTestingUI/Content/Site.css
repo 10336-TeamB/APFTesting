@@ -138,12 +138,17 @@ img
     Change the following styles to modify the appearance of ColorBox.  They are
     ordered & tabbed in a way that represents the nesting of the generated HTML.
 */
-#cboxOverlay{background:#000;}
+#cboxOverlay{background:rgba(0, 0, 0, 0.5);}
+.no-rgba #cboxOverlay {background:#000;}
 #colorbox{outline:0;}
     #cboxContent{margin-top:20px;background:#000;}
         .cboxIframe{background:#fff;}
         #cboxError{padding:50px; border:1px solid #ccc;}
         #cboxLoadedContent{border:5px solid #000; background:rgb(44, 44, 44);}
+.error  #cboxLoadedContent 
+{
+    background-color: rgb(129, 129, 129);
+}
         #cboxTitle{position:absolute; top:-20px; left:0; color:#ccc;}
         #cboxCurrent{position:absolute; top:-20px; right:0px; color:#ccc;}
         #cboxLoadingGraphic{background:url(../Images/loading.gif) no-repeat center center;}
@@ -713,6 +718,7 @@ a.button
 #mark-for-review input[type="checkbox"] {
     height: 30px;
     width: 30px;
+    outline: none;
 }
 
 .result-question {
@@ -1120,4 +1126,14 @@ input[type="radio"]:checked + .label-radio {
 #exam-instructions {
     font-size: 1.2em;
     line-height: 1.5;
+}
+
+#error-message {
+    color: rgb(255, 195, 5);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 15px;
+    margin: 20px 0 0 0;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
 }

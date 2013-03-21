@@ -21,13 +21,9 @@
     }).ajaxStop(function () {
         $("#loading").hide();
         $("#ExamContainer").show();
-    }).ajaxError(function (evt, xhr) {
-        try {
-            var response = JSON.parse(xhr.responseText);
-            $("#error-message").html("<p>" + response.Message + "</p>");
-        } catch(e) {
-            $("#error-message").html("<p>Something bad happened...</p>");
-        }
+    }).ajaxError(function (event, jqxhr, settings, exception) {
+        $("#error-message").html("<p>" + jqxhr.responseText + "</p>");
+        showErrorMessage("#error-message");
     });
     
     /*                         */
@@ -40,7 +36,7 @@
     $("#question-void-button").click(function (e) {
         e.preventDefault();
         //$("#void-popup").toggle();
-        showLightbox("#void-authentication");
+        showLightBox("#void-authentication");
     });
 
     $("#void-cancel").click(function () {
@@ -49,8 +45,12 @@
     });
 });
 
-function showLightbox(id) {
+function showLightBox(id) {
     $.colorbox({ width: "450px", height: "250px", inline: "true", href: id })
+}
+
+function showErrorMessage(id) {
+    $.colorbox({ inline: "true", href: id, className:"error" })
 }
 
 $(function () {

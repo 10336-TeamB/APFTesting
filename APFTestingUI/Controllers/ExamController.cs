@@ -20,8 +20,15 @@ namespace APFTestingUI.Controllers
 
 		#region Initiate Theory Component
 		
+<<<<<<< HEAD
 		// GET: /Exam/Instructions/
 		public ActionResult Instructions(Guid examinerId, Guid candidateId)
+=======
+		//
+		// GET: /Exam/Start/
+        
+		public ActionResult Start(Guid examinerId, Guid candidateId)
+>>>>>>> 1c323dd2257ec3f78f840451581dc3f0555a8875
 		{
             //TODO: return all required values from one DB call...
 			var examId = _facade.StartTheoryComponent(examinerId, candidateId);
