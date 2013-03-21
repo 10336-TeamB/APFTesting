@@ -98,5 +98,11 @@ namespace APFTestingUI.Tests
 		{
 			return new MockSelectedTheoryQuestion();
 		}
-	}
+
+
+        public ISelectedTheoryQuestion FetchFirstQuestion(Guid examId)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

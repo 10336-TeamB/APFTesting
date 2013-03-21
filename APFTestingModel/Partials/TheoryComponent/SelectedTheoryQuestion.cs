@@ -72,6 +72,8 @@ namespace APFTestingModel
 
         public void SelectAnswers(int[] possibleAnswers)
         {
+            
+            
             if (possibleAnswers == null)
             {
                 PossibleAnswers.ToList().ForEach(sa => sa.IsChecked = false);

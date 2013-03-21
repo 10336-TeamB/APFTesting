@@ -102,7 +102,7 @@ namespace APFTestingUI.Tests.Controllers {
             const int questionNumber = 1;
 
             //// Act
-            ActionResult result = _controller.Review(examId, questionNumber);
+            ActionResult result = _controller.ReviewQuestion(examId, questionNumber);
 
             //// Assert
             Assert.IsNotNull(result);

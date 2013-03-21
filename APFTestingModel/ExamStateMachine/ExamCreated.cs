@@ -12,5 +12,16 @@ namespace APFTestingModel
         {
             action();
         }
+
+        internal override void FetchFirstQuestion(Action action)
+        {
+            action();
+        }
+
+        internal override void FetchTheoryComponentFormat(Action action)
+        {
+            action();
+        }
+
     }
 }

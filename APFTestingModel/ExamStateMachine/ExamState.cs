@@ -8,12 +8,22 @@ namespace APFTestingModel
 {
     internal abstract class ExamState
     {
+        internal virtual void FetchFirstQuestion(Action action)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
+
         internal virtual void FetchNextQuestion(Action action)
         {
             throw new BusinessRuleException("Action is invalid");
         }
 
         internal virtual void FetchPreviousQuestion(Action action)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
+
+        internal virtual void FetchCurrentQuestion(Action action)
         {
             throw new BusinessRuleException("Action is invalid");
         }
@@ -39,6 +49,11 @@ namespace APFTestingModel
         }
 
         internal virtual void StartTheoryComponent(Action action)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
+
+        internal virtual void FetchTheoryComponentFormat(Action action)
         {
             throw new BusinessRuleException("Action is invalid");
         }

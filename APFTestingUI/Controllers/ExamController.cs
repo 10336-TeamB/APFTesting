@@ -14,8 +14,13 @@ namespace APFTestingUI.Controllers
     {
         public ExamController(IFacade facade) : base(facade) { }
 
+        /*=====================================*/
+        /*      INITIATE THEORY COMPONENT      */
+        /*=====================================*/
+
 		#region Initiate Theory Component
 		
+
 		//
 		// GET: /Exam/Start/
         
@@ -29,7 +34,8 @@ namespace APFTestingUI.Controllers
 
 			return View(model);
 		}
-
+        
+        // GET: /Exam/Resume/
 		public ActionResult Resume(Guid examId)
 		{
 			var model = new QuestionDisplayItem(_facade.ResumeTheoryComponent(examId), examId);
@@ -41,25 +47,119 @@ namespace APFTestingUI.Controllers
 
 
 
-			//
-        // GET: /Exam/Resume/
+        /*================================*/
+        /*      SIT THEORY COMPONENT      */
+        /*================================*/
 
-		//public ActionResult Resume(Guid examId)
-		//{
-		//	//QuestionDisplayItem model = null;
-		//	//Action a = delegate { model = new QuestionDisplayItem(_facade.ResumeTheoryExam(examId), examId); };
-		//	//ActionResult retActionResult = checkForException(a);
-		//	//return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
-		//	return null;
-		//}
+        #region Sit Theory Component
+        
+        // GET: /Exam/FirstQuestion/
+        public ActionResult FirstQuestion(Guid examId)
+        {
+            var model = new QuestionDisplayItem(_facade.FetchFirstQuestion(examId), examId);
+            
+            return View("DisplayQuestion", model);
+        }
+        
+        // GET: /Exam/NextQuestion/
+        public ActionResult NextQuestion(Guid examId)
+        {
+            var model = new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId);
+
+            return View("DisplayQuestion", model);
+        }
+        
+        // GET: /Exam/PreviousQuestion/
+        public ActionResult PreviousQuestion(Guid examId)
+        {
+            var model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(examId), examId);
+
+            return View("DisplayQuestion", model);
+        }
+
+        // GET: /Exam/ReviewQuestion/
+        public ActionResult ReviewQuestion(Guid examId, int questionIndex)
+        {
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionIndex), examId);
+            model.IsMarkedForReview = false;
+
+            return View(model);
+        }
+        
+        // GET: /Exam/SubmitAnswer/
+        [HttpPost]
+        public ActionResult SubmitAnswer(AnsweredQuestion question)
+        {
+            _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
+
+            switch (question.NavDirection)
+            {
+                case ExamAction.NextQuestion:
+                    return RedirectToAction("NextQuestion", new { examId = question.ExamId });
+                case ExamAction.PreviousQuestion:
+                    return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+                default:
+                    return RedirectToAction("Summary", new { examId = question.ExamId });
+            }
+        }
+
+        #endregion
 
 
-		//public ActionResult Start(Guid examinerId, Guid candidateId)
-		//{
-		//	ViewBag.ExamId = _facade.StartTheoryComponent(examinerId, candidateId);
 
-		//	return View();
-		//}
+
+
+
+
+
+
+
+        //[HttpPost]
+        //public ActionResult SubmitAnswer(AnsweredQuestion question)
+        //{
+        //    // TODO - Should we have a return value to confirm successful submission of answer?
+        //    //We're gonna do it using exception - Pradipna
+        //    Action a = delegate { _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview); };
+        //    ActionResult retActionResult = checkForException(a);
+        //    if (retActionResult == null)
+        //    {
+        //        switch (question.NavDirection)
+        //        {
+        //            case ExamAction.NextQuestion:
+        //                return RedirectToAction("NextQuestion", new { examId = question.ExamId });
+        //            case ExamAction.PreviousQuestion:
+        //                return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+        //            default:
+        //                return RedirectToAction("Summary", new { examId = question.ExamId });
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return retActionResult;
+        //    }
+        //}
+
+
+
+
+        //public ActionResult ReviewQuestion(Guid examId, int questionNumber)
+        //{
+        //    QuestionDisplayItem model = null;
+        //    Action a = delegate { model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId); };
+        //    ActionResult retActionResult = checkForException(a);
+        //    if (retActionResult == null)
+        //    {
+        //        model.IsMarkedForReview = false;
+        //        return View(model);
+        //    }
+        //    else
+        //    {
+        //        return retActionResult;
+        //    }
+        //}
+
+
+        
 
         private ActionResult checkForException(Action a)
         {
@@ -83,36 +183,22 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Exam/FirstQuestion/
 
-        public ActionResult FirstQuestion(Guid examId)
-        {
-            QuestionDisplayItem model = null;
-            Action a = delegate { model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, 0), examId); };
-            ActionResult retActionResult = checkForException(a);
-            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
-        }
+        
 
-        //
-        // GET: /Exam/NextQuestion/
+        
 
-        public ActionResult NextQuestion(Guid examId)
-        {
-            // TODO - Not sure if i'm happy with examId being passed in like this. Should ITheoryQuestion know this instead? - ADAM
-            QuestionDisplayItem model = null;
-            Action a = delegate { model = new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId); };
-            ActionResult retActionResult = checkForException(a);
-            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
-        }
+        
 
         //
         // GET: /Exam/PreviousQuestion/
 
-        public ActionResult PreviousQuestion(Guid examId)
-        {
-            QuestionDisplayItem model = null;
-            Action a = delegate { model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(examId), examId); };
-            ActionResult retActionResult = checkForException(a);
-            return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
-        }
+        //public ActionResult PreviousQuestion(Guid examId)
+        //{
+        //    QuestionDisplayItem model = null;
+        //    Action a = delegate { model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(examId), examId); };
+        //    ActionResult retActionResult = checkForException(a);
+        //    return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
+        //}
 
         //
         // GET: /Exam/Review/
@@ -213,5 +299,44 @@ namespace APFTestingUI.Controllers
             
             return RedirectToAction("Index", "Examiner");
         }
+
+        //public ActionResult FirstQuestion(Guid examId)
+        //{
+        //    QuestionDisplayItem model = null;
+        //    Action a = delegate { model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, 0), examId); };
+        //    ActionResult retActionResult = checkForException(a);
+        //    return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
+        //}
+
+
+        //
+        // GET: /Exam/Resume/
+
+        //public ActionResult Resume(Guid examId)
+        //{
+        //	//QuestionDisplayItem model = null;
+        //	//Action a = delegate { model = new QuestionDisplayItem(_facade.ResumeTheoryExam(examId), examId); };
+        //	//ActionResult retActionResult = checkForException(a);
+        //	//return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
+        //	return null;
+        //}
+
+
+        //public ActionResult Start(Guid examinerId, Guid candidateId)
+        //{
+        //	ViewBag.ExamId = _facade.StartTheoryComponent(examinerId, candidateId);
+
+        //	return View();
+        //}
+
+        //public ActionResult NextQuestion(Guid examId)
+        //{
+        //    // TODO - Not sure if i'm happy with examId being passed in like this. Should ITheoryQuestion know this instead? - ADAM
+        //    QuestionDisplayItem model = null;
+        //    Action a = delegate { model = new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId); };
+        //    ActionResult retActionResult = checkForException(a);
+        //    return (retActionResult == null) ? View("DisplayQuestion", model) : retActionResult;
+        //}
+
     }
 }

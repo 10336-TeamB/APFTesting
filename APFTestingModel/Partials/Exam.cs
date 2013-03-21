@@ -37,24 +37,15 @@ namespace APFTestingModel
 
         #endregion
 
-		
-		#region Chain Methods: TheoryComponent
+        #region Properties
 
-		public TheoryComponentFormat FetchTheoryComponentFormat()
-		{
-			return TheoryComponent.TheoryComponentFormat;
-		}
-
-		#endregion
-
-
-		public int CurrentTheoryQuestionIndex
-		{
-			get
-			{
-				return TheoryComponent.CurrentQuestionIndex;
-			}
-		}
+        public int CurrentTheoryQuestionIndex
+        {
+            get
+            {
+                return TheoryComponent.CurrentQuestionIndex;
+            }
+        }
 
         public ExamStatus ExamStatus
         {
@@ -69,7 +60,6 @@ namespace APFTestingModel
             private set
             {
                 ExamStatusId = (int)value;
-                //OnStatusChanged();
             }
         }
 
@@ -85,9 +75,86 @@ namespace APFTestingModel
         {
             get
             {
-				return TheoryComponent.SelectedTheoryQuestions;
+                return TheoryComponent.SelectedTheoryQuestions;
             }
         }
+
+        #endregion
+
+        #region Chain Methods: TheoryComponent
+
+        public TheoryComponentFormat FetchTheoryComponentFormat()
+		{
+            TheoryComponentFormat format = null;
+            Action a = delegate { format = TheoryComponent.TheoryComponentFormat; };
+            _examState.FetchTheoryComponentFormat(a);
+
+            return format;
+		}
+        
+        public SelectedTheoryQuestion FetchFirstQuestion()
+        {
+            SelectedTheoryQuestion question = null;
+            Action a = delegate
+            {
+                question = TheoryComponent.FetchFirstQuestion();
+                ExamStatus = ExamStatus.TheoryComponentInProgress;
+            };
+            _examState.FetchFirstQuestion(a);
+            return question;
+        }
+
+        public SelectedTheoryQuestion FetchNextQuestion()
+        {
+            SelectedTheoryQuestion question = null;
+            Action a = delegate { question = TheoryComponent.FetchNextQuestion(); };
+            _examState.FetchNextQuestion(a);
+            
+            return question;
+        }
+
+        public SelectedTheoryQuestion FetchPreviousQuestion()
+        {
+            SelectedTheoryQuestion question = null;
+            Action a = delegate { question = TheoryComponent.FetchPreviousQuestion(); };
+            _examState.FetchPreviousQuestion(a);
+            
+            return question;
+        }
+
+        public SelectedTheoryQuestion FetchCurrentQuestion()
+        {
+            SelectedTheoryQuestion question = null;
+            Action a = delegate { question = TheoryComponent.FetchCurrentQuestion(); };
+            _examState.FetchCurrentQuestion(a);
+
+            return question;
+        }
+
+        public SelectedTheoryQuestion FetchSpecificQuestion(int index)
+        {
+            SelectedTheoryQuestion question = null;
+            Action a = delegate { question = TheoryComponent.FetchSpecificQuestion(index); };
+            _examState.FetchSpecificQuestion(a);
+            
+            return question;
+        }
+
+        public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
+        {
+            Action a = delegate { TheoryComponent.AnswerQuestion(questionIndex, selectedAnswers, markForReview); };
+            _examState.AnswerQuestion(a);
+        }
+
+		#endregion
+
+
+
+
+
+
+
+		
 
         //This method is just gonna throw an exception if the theory component is not in progress so that 
         //no one is able to modify the answers after or before a theory exam
@@ -98,40 +165,13 @@ namespace APFTestingModel
             }
         }
 
-        public SelectedTheoryQuestion FetchNextQuestion()
-        {
-            SelectedTheoryQuestion question = null;
-            Action a = delegate { question = TheoryComponent.FetchNextQuestion(); };
-            _examState.FetchNextQuestion(a);
-            return question;
-        }
+        
 
-        public SelectedTheoryQuestion FetchPreviousQuestion()
-        {
-            SelectedTheoryQuestion question = null;
-            Action a = delegate { question = TheoryComponent.FetchPreviousQuestion(); };
-            _examState.FetchPreviousQuestion(a);
-            return question;
-        }
+        
 
-        public SelectedTheoryQuestion FetchSpecificQuestion(int index)
-        {
-            SelectedTheoryQuestion question = null;
-            Action a = delegate { question = TheoryComponent.FetchSpecificQuestion(index); };
-            _examState.FetchSpecificQuestion(a);
-            return question;
-        }
+		
 
-		public SelectedTheoryQuestion FetchCurrentQuestion()
-		{
-			return TheoryComponent.FetchCurrentQuestion();
-		}
-
-        public void AnswerQuestion(int questionIndex, int[] selectedAnswers, bool markForReview)
-        {
-            Action a = delegate { TheoryComponent.AnswerQuestion(questionIndex, selectedAnswers, markForReview); };
-            _examState.AnswerQuestion(a);
-        }
+        
 
         public void VoidExam()
         {
@@ -162,6 +202,7 @@ namespace APFTestingModel
         public void AdamsAwesomeResetHack()
         {
             ExamStatus = ExamStatus.ExamCreated;
+            TheoryComponent.CurrentQuestionIndex = 0;
         }
 
         partial void OnExamStatusIdChanged()

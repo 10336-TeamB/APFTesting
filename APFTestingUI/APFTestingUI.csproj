@@ -291,7 +291,7 @@
     <Content Include="Views\Examiner\Index.cshtml" />
     <Content Include="Views\Exam\Summary.cshtml" />
     <Content Include="Views\Exam\Result.cshtml" />
-    <Content Include="Views\Exam\Review.cshtml" />
+    <Content Include="Views\Exam\ReviewQuestion.cshtml" />
     <Content Include="Views\Exam\DisplayError.cshtml" />
     <Content Include="Views\Shared\_QuestionLayout.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />

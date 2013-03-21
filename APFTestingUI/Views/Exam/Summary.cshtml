@@ -40,7 +40,7 @@
             <dt class="@question.IsMarkedClass@question.IsAnsweredClass">
                 <span class="question-title">
                     <span>Question @questionNumber</span>
-                    @Html.ActionLink("[ go to question ]", "Review", new { examId = @Model.ExamId, questionNumber = @question.Index })
+                    @Html.ActionLink("[ go to question ]", "ReviewQuestion", new { examId = @Model.ExamId, questionIndex = @question.Index })
                 </span>
 
             </dt>
