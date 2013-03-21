@@ -10,6 +10,7 @@ namespace APFTestingModel
 		ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark);
         
 		IEnumerable<ICandidate> FetchCandidates(Guid examinerId);
+        ISelectedTheoryQuestion FetchFirstQuestion(Guid examId);
         ISelectedTheoryQuestion FetchNextQuestion(Guid examId);
         ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId);
         ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex);

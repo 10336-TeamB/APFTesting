@@ -11,21 +11,28 @@ namespace APFTestingModel
         private APFTestingDBEntities _context = new APFTestingDBEntities();
         private ExamManager examManager;
 
-        private Candidate fetchCandidate(Guid candidateId)
-        {
-            Candidate candidate = (Candidate)_context.People.First(c => c.Id == candidateId);
-            _context.Entry(candidate).Collection<Exam>("Exams").Load();
-            return candidate;
-        }
 
-        
 
-		//=====================================
-		//      INITIATE THEORY COMPONENT 
-		//=====================================
+        /*=====================================*/
+        /*      INITIATE THEORY COMPONENT      */
+        /*=====================================*/
         
 		#region Initiate Theory Component
         
+        public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
+        {
+            var candidate = fetchCandidate(candidateId);
+            
+            return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
+        }
+
+		public ISelectedTheoryQuestion ResumeTheoryComponent(Guid examId)
+		{
+            var exam = fetchExamForQuestionFetching(examId);
+
+			return exam.FetchCurrentQuestion();
+		}
+
         private void createExamManager(ExamType examType)
         {
             TheoryComponentFormat activeTheoryFormat;
@@ -43,31 +50,7 @@ namespace APFTestingModel
             }
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
-        
-        public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
-        {
 
-			var candidate = _context.People.Include("Exams").OfType<Candidate>().First(c => c.Id == candidateId);
-
-            //var candidate = fetchCandidate(candidateId);
-
-            
-            //Not right now... - Pradipna
-            return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
-        }
-
-		public ISelectedTheoryQuestion ResumeTheoryComponent(Guid examId)
-		{
-			var exam = _context.Exams.Include("TheoryComponent")
-				.Include("TheoryComponent.SelectedTheoryQuestions")
-				.Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion")
-				.Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
-				.Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
-				.First(e => e.Id == examId);
-
-			return exam.FetchCurrentQuestion();
-		}
-		
 		private Guid CreateExam(Guid examinerId, Candidate candidate)
 		{
 			Exam exam;
@@ -89,24 +72,101 @@ namespace APFTestingModel
 		
         #endregion
 
+        
 
-		//=========================
-		//      FETCH METHODS 
-		//=========================
-		#region Fetch Methods
+        /*================================*/
+        /*      SIT THEORY COMPONENT      */
+        /*================================*/
 
-		public ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId)
-		{
-			var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").First(e => e.Id == examId);
-			
-			return exam.FetchTheoryComponentFormat();
-		}
+        #region Sit Theory Component
 
-		#endregion
+        public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
+        {
+            var exam = fetchExamForQuestionFetching(examId);
+            var question = exam.FetchNextQuestion();
+            _context.SaveChanges();
+
+            return question;
+        }
+
+        public ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId)
+        {
+            var exam = fetchExamForQuestionFetching(examId);
+            var question = exam.FetchPreviousQuestion();
+            _context.SaveChanges();
+            
+            return question;
+        }
+
+        public ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex)
+        {
+            var exam = fetchExamForQuestionFetching(examId);
+            var question = exam.FetchSpecificQuestion(questionIndex);
+            _context.SaveChanges();
+
+            return question;
+        }
+
+        public void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview)
+        {
+            var exam = _context.Exams.Include("TheoryComponent")
+                        .Include("TheoryComponent.SelectedTheoryQuestions")
+                        .Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion")
+                        .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
+                        .First(e => e.Id == examId);
+
+            exam.AnswerQuestion(questionIndex, selectedAnswers, markForReview);
+            _context.SaveChanges();
+        }
+
+        #endregion
 
 
 
-		private Exam fetchExam(Guid examId)
+        /*=========================*/
+        /*      FETCH METHODS      */
+        /*=========================*/
+
+        #region Fetch Methods
+
+        public ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId)
+        {
+            var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").First(e => e.Id == examId);
+
+            return exam.FetchTheoryComponentFormat();
+        }
+
+        public ISelectedTheoryQuestion FetchFirstQuestion(Guid examId)
+        {
+            var exam = fetchExamForQuestionFetching(examId);
+            var question = exam.FetchFirstQuestion();
+            _context.SaveChanges();
+
+            return question;
+        }
+
+        private Candidate fetchCandidate(Guid candidateId)
+        {
+            return _context.People.Include("Exams").OfType<Candidate>().First(c => c.Id == candidateId);
+        }
+
+        private Exam fetchExamForQuestionFetching(Guid examId)
+        {
+            return _context.Exams.Include("TheoryComponent")
+                    .Include("TheoryComponent.SelectedTheoryQuestions")
+                    .Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion")
+                    .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
+                    .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
+                    .First(e => e.Id == examId);
+        }
+
+        #endregion
+
+        
+
+
+
+        private Exam fetchExam(Guid examId)
         {
             // Need to catch null value from FirstOrDefault
 			var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.Answers").FirstOrDefault(e => e.Id == examId);
@@ -115,45 +175,13 @@ namespace APFTestingModel
 			return exam;
         }
 
-        public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
-        {
-            Exam exam = fetchExam(examId);
-            ISelectedTheoryQuestion nextQuestion = exam.FetchNextQuestion();
-            _context.SaveChanges();
-            return nextQuestion;
-        }
-
-        public ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId)
-        {
-            Exam exam = fetchExam(examId);
-            ISelectedTheoryQuestion previousQuestion = exam.FetchPreviousQuestion();
-            _context.SaveChanges();
-            return previousQuestion;
-        }
-
-        public ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex) 
-        {
-            Exam exam = fetchExam(examId);
-
-            if (questionIndex == 0 && exam.ExamStatus == ExamStatus.ExamCreated)
-            {
-                exam.StartTheoryExam();
-            }
-
-            ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
-			
-			_context.SaveChanges();
-            return question;
-        }
+        
 
         
 
-        public void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview)
-        {
-            Exam exam = fetchExam(examId);
-            exam.AnswerQuestion(questionIndex, selectedAnswers, markForReview);
-            _context.SaveChanges();
-        }
+        
+
+        
 
         public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
         {
@@ -176,14 +204,8 @@ namespace APFTestingModel
 
         public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
         {
-            //TODO: Work out how to do this in one DB query....
-            // Return all candidates assocaiated with the examiner.
-            var examiner = _context.People.Include("Candidates").OfType<Examiner>().First(e => e.Id == examinerId);
-            //_context.Entry(examiner).Collection<Candidate>("Candidates").Load();
-            foreach (var c in examiner.Candidates)
-            {
-                _context.Entry(c).Collection<Exam>("Exams").Load();
-            }
+            var examiner = _context.People.Include("Candidates").Include("Candidates.Exams").OfType<Examiner>().First(e => e.Id == examinerId);
+            
             return examiner.Candidates;
         }
 
@@ -243,7 +265,15 @@ namespace APFTestingModel
         // HACK- Temporary method for resetting the theory exam status for demonstration purposes
         public void ResetTheoryComponent()
         {
-            var exam = fetchExam(new Guid("B4A9B409-527C-46AC-BE16-F4846671F2D6"));
+            //var exam = fetchExam(new Guid("B4A9B409-527C-46AC-BE16-F4846671F2D6"));
+            Candidate candidate = _context.People.Include("Exams").Include("Exams.TheoryComponent")
+                .Include("Exams.TheoryComponent.SelectedTheoryQuestions")
+                .Include("Exams.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
+                .Include("Exams.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer").OfType<Candidate>().First();
+
+            var exam = candidate.LatestExam;
+
+            
             exam.TheoryComponent.SelectedTheoryQuestions.ToList()
                 .ForEach(q => {
                     q.PossibleAnswers.ToList().ForEach(pa => pa.IsChecked = false);
@@ -287,6 +317,21 @@ namespace APFTestingModel
 
 		//    return exam.Id;
 		//}
+
+        //public ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex) 
+        //{
+        //    Exam exam = fetchExam(examId);
+
+        //    //if (questionIndex == 0 && exam.ExamStatus == ExamStatus.ExamCreated)
+        //    //{
+        //    //    exam.StartTheoryExam();
+        //    //}
+
+        //    ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
+
+        //    _context.SaveChanges();
+        //    return question;
+        //}
 
 		#endregion
 

@@ -18,6 +18,11 @@ namespace APFTestingModel
             action();
         }
 
+        internal override void FetchCurrentQuestion(Action action)
+        {
+            action();
+        }
+
         internal override void FetchSpecificQuestion(Action action)
         {
             action();
