@@ -37,44 +37,16 @@
                     
                     @if (candidate.ExamNullOrCreated)
                     {
-                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id })')">
-                            Start Exam
-                        </button>
+                        @Html.ActionLink("Start Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
                     }
                     else if (candidate.TheoryComponentInProgress)
                     {
-                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId })')">
-                            Resume Exam
-                        </button>
+                        @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
                     }
                     else if (candidate.TheoryComponentFailed)
                     {
-                        <button class="examinerButton" type="button" onclick="window.location.assign('@Url.Action("Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id })')">
-                            Retake Exam
-                        </button>
+                        @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
                     }
-                    
-                    
-
-                    @*@if (candidate.FreshTheoryComponent)
-                    {
-                        beginExamButtonText = "Start Exam";
-                        beginExamUrl = Url.Action("Start","Exam",new { candidateId = candidate.Id });
-                    }
-                    else if (candidate.TheoryComponentCompleted)
-                    {
-                        beginExamButtonText = "Show Result";
-                        beginExamUrl = Url.Action("Result", "Exam", new { examId = candidate.LatestExamId });
-                    }
-                    else
-                    {
-                        beginExamButtonText = "Resume Exam";
-                        beginExamUrl = Url.Action("Resume", "Exam", new { examId = candidate.LatestExamId });
-                    }
-                    <button class="examinerButton" type="button" onclick="window.location.assign('@beginExamUrl')">
-                            Start Exam
-                        </button>
-                    *@
                 </td>
                 <td class="input-practical-link">
                     <button class="examinerButton" type="button" onclick="window.location.assign('#')">Input Practical Results</button>

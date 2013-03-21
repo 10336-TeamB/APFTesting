@@ -12,5 +12,24 @@ namespace APFTestingUI.Models.Exam
         public int[] ChosenAnswer { get; set; }
         public bool IsMarkedForReview { get; set; }
         public ExamAction NavDirection { get; set; }
+
+        // Used for form submission without JavaScript - NavButton assigned Value of submit button
+        public string NavButton { get; set; }
+        public ExamAction FormNavDirection
+        {
+            get
+            {
+                switch (NavButton)
+                {
+                    case "Next Question":
+                        return ExamAction.NextQuestion;
+                    case "Previous Question":
+                        return ExamAction.PreviousQuestion;
+                    default:
+                        return ExamAction.DisplaySummary;
+                }
+
+            }
+        }
     }
 }

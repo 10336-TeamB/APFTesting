@@ -1,5 +1,6 @@
 ﻿$(function () {
-    $('#PreviousButton').click(function () {
+    $('#PreviousButton').click(function (e) {
+        e.preventDefault();
         $('#NavDirection').val("PreviousQuestion");
         answerQuestion();
     });
@@ -10,11 +11,6 @@
         answerQuestion();
     });
 
-    $('#SummaryButton').click(function () {
-        $('#NavDirection').val("DisplaySummary");
-        $('#QuestionForm').submit();
-    });
-    
     $(document).ajaxStart(function () {
         $("#ExamContainer").hide();
         $("#loading").show();

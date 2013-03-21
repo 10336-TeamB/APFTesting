@@ -502,6 +502,10 @@ input[type="radio"], input[type="checkbox"]
     text-align: center;
 }
 
+#question-examiner-button:hover {
+
+}
+
 #question-void-button {
     display: block;
     padding: 5px 20px;

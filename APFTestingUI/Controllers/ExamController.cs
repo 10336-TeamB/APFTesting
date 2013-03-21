@@ -142,7 +142,7 @@ namespace APFTestingUI.Controllers
             ActionResult retActionResult = checkForException(a);
             if (retActionResult == null)
             {
-                switch (question.NavDirection)
+                switch (question.FormNavDirection)
                 {
                     case ExamAction.NextQuestion:
                         return RedirectToAction("NextQuestion", new { examId = question.ExamId });

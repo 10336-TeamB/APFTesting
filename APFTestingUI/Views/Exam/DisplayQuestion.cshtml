@@ -23,8 +23,11 @@
     <h2>Jump Pilot Authorisation Exam</h2>
     
     <div id="progress-bar-outer">
-        <div id="progress-bar-inner">
-            <span class="hidden">@Model.ExamProgress</span>
+        @{
+            var examProgress = (Model.ExamProgress * 100) + "%";
+        }
+        <div id="progress-bar-inner" style="width:@examProgress">
+        <span class="hidden">@Model.ExamProgress</span>
         </div>
         <div class="clear"></div>
         <span id="progress-bar-start">Start</span>
@@ -69,10 +72,10 @@
             var NextHidden = Model.IsLastQuestion ? "hidden" : "";
             var SummaryHidden = Model.IsLastQuestion ? "" : "hidden";
         
-            <input id="PreviousButton" class="button @PreviousHidden" type="button" value="Previous Question" />
-            <input id="NextButton" class="button @NextHidden" type="submit" value="Next Question" />
+            <input id="PreviousButton" class="button @PreviousHidden" name="NavButton" type="submit" value="Previous Question" />
+            <input id="NextButton" class="button @NextHidden" name="NavButton" type="submit" value="Next Question" />
 
-            <input id="SummaryButton" class="button @SummaryHidden" type="button" value="Go to Summary" />
+            <input id="SummaryButton" class="button @SummaryHidden" name="NavButton" type="submit" value="Go to Summary" />
             <span id="mark-for-review">
             @Html.LabelFor(model => model.IsMarkedForReview)
             @Html.CheckBoxFor(model => model.IsMarkedForReview)
