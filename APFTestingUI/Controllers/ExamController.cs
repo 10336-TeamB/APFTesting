@@ -86,22 +86,22 @@ namespace APFTestingUI.Controllers
             return View(model);
         }
         
-        // GET: /Exam/SubmitAnswer/
-        [HttpPost]
-        public ActionResult SubmitAnswer(AnsweredQuestion question)
-        {
-            _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
+        //// GET: /Exam/SubmitAnswer/
+        //[HttpPost]
+        //public ActionResult SubmitAnswer(AnsweredQuestion question)
+        //{
+        //    _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
 
-            switch (question.NavDirection)
-            {
-                case ExamAction.NextQuestion:
-                    return RedirectToAction("NextQuestion", new { examId = question.ExamId });
-                case ExamAction.PreviousQuestion:
-                    return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
-                default:
-                    return RedirectToAction("Summary", new { examId = question.ExamId });
-            }
-        }
+        //    switch (question.NavDirection)
+        //    {
+        //        case ExamAction.NextQuestion:
+        //            return RedirectToAction("NextQuestion", new { examId = question.ExamId });
+        //        case ExamAction.PreviousQuestion:
+        //            return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+        //        default:
+        //            return RedirectToAction("Summary", new { examId = question.ExamId });
+        //    }
+        //}
 
         #endregion
 
