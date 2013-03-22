@@ -19,8 +19,6 @@ namespace APFTestingModel
 
         #region Properties
 
-
-        //TODO - Why are we using decimal? Why not float? - ADAM
         public float Score
 		{
 			get

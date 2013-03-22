@@ -19,11 +19,8 @@ namespace APFTestingUI.Controllers
         /*=====================================*/
 
 		#region Initiate Theory Component
-		
 
-		//
 		// GET: /Exam/Start/
-        
 		public ActionResult Start(Guid examinerId, Guid candidateId)
 		{
             //TODO: return all required values from one DB call...
@@ -86,7 +83,7 @@ namespace APFTestingUI.Controllers
             return View(model);
         }
         
-        // GET: /Exam/SubmitAnswer/
+        // POST: /Exam/SubmitAnswer/
         [HttpPost]
         public ActionResult SubmitAnswer(AnsweredQuestion question)
         {
@@ -102,13 +99,28 @@ namespace APFTestingUI.Controllers
                     return RedirectToAction("Summary", new { examId = question.ExamId });
             }
         }
+		
+		// GET: /Exam/Summary/
+		public ActionResult Summary(Guid examId)
+		{
+			var model = new TheoryComponentSummary(examId, _facade.FetchTheoryComponentSummary(examId));
+			return View(model);
+		}
 
         #endregion
 
 
 
+		//TODO:
+		//
+		// GET: /Exam/Submit/
 
-
+		[HttpGet]
+		public ActionResult Submit(Guid examId)
+		{
+			_facade.SubmitTheoryComponent(examId);
+			return RedirectToAction("Result", new { examId });
+		}
 
 
 
@@ -203,66 +215,53 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Exam/Review/
 
-        public ActionResult Review(Guid examId, int questionNumber)
-        {
-            QuestionDisplayItem model = null;
-            Action a = delegate { model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId); };
-            ActionResult retActionResult = checkForException(a);
-            if (retActionResult == null)
-            {
-                model.IsMarkedForReview = false;
-                return View(model);
-            }
-            else
-            {
-                return retActionResult;
-            } 
-        }
+		//public ActionResult Review(Guid examId, int questionNumber)
+		//{
+		//	QuestionDisplayItem model = null;
+		//	Action a = delegate { model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionNumber), examId); };
+		//	ActionResult retActionResult = checkForException(a);
+		//	if (retActionResult == null)
+		//	{
+		//		model.IsMarkedForReview = false;
+		//		return View(model);
+		//	}
+		//	else
+		//	{
+		//		return retActionResult;
+		//	} 
+		//}
 
-        [HttpPost]
-        public ActionResult SubmitAnswer(AnsweredQuestion question)
-        {
-            // TODO - Should we have a return value to confirm successful submission of answer?
-            //We're gonna do it using exception - Pradipna
-            Action a = delegate { _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview); };
-            ActionResult retActionResult = checkForException(a);
-            if (retActionResult == null)
-            {
-                switch (question.FormNavDirection)
-                {
-                    case ExamAction.NextQuestion:
-                        return RedirectToAction("NextQuestion", new { examId = question.ExamId });
-                    case ExamAction.PreviousQuestion:
-                        return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
-                    default:
-                        return RedirectToAction("Summary", new { examId = question.ExamId });
-                }
-            }
-            else
-            {
-                return retActionResult;
-            }
-        }
+		//[HttpPost]
+		//public ActionResult SubmitAnswer(AnsweredQuestion question)
+		//{
+		//	// TODO - Should we have a return value to confirm successful submission of answer?
+		//	//We're gonna do it using exception - Pradipna
+		//	Action a = delegate { _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview); };
+		//	ActionResult retActionResult = checkForException(a);
+		//	if (retActionResult == null)
+		//	{
+		//		switch (question.FormNavDirection)
+		//		{
+		//			case ExamAction.NextQuestion:
+		//				return RedirectToAction("NextQuestion", new { examId = question.ExamId });
+		//			case ExamAction.PreviousQuestion:
+		//				return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+		//			default:
+		//				return RedirectToAction("Summary", new { examId = question.ExamId });
+		//		}
+		//	}
+		//	else
+		//	{
+		//		return retActionResult;
+		//	}
+		//}
 
         //
         // GET: /Exam/Summary/
 
-        [HttpGet]
-        public ActionResult Summary(Guid examId)
-        {
-            var model = new TheoryComponentSummary(examId, _facade.FetchTheoryComponentSummary(examId));
-            return View(model);
-        }
+        
 
-        //
-        // GET: /Exam/Submit/
-
-        [HttpGet]
-        public ActionResult Submit(Guid examId)
-        {
-            _facade.SubmitTheoryComponent(examId);
-            return RedirectToAction("Result", new { examId });
-        }
+        
 
         //
         // GET: /Exam/Result/

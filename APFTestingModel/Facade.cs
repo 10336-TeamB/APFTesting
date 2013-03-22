@@ -143,6 +143,12 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+		public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
+		{
+			Exam exam = fetchExamForQuestionFetching(examId);
+			return exam.SelectedTheoryQuestions.OrderBy(q => q.QuestionIndex);
+		}
+
         #endregion
 
 
@@ -186,7 +192,12 @@ namespace APFTestingModel
 
         #endregion
 
-        
+
+
+		
+		
+
+
 
 
 
@@ -207,11 +218,7 @@ namespace APFTestingModel
 
         
 
-        public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
-        {
-            Exam exam = fetchExam(examId);
-            return exam.SelectedTheoryQuestions.OrderBy(q => q.QuestionIndex);
-        }
+        
 
         public ITheoryComponent FetchTheoryComponentResult(Guid examId)
         {
