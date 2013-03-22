@@ -81,7 +81,7 @@ namespace APFTestingModel
 
         #endregion
 
-        #region Chain Methods: TheoryComponent
+        #region Methods
 
         public TheoryComponentFormat FetchTheoryComponentFormat()
 		{
@@ -146,63 +146,44 @@ namespace APFTestingModel
             _examState.AnswerQuestion(a);
         }
 
+		public void SubmitTheoryComponent()
+		{
+			Action a = delegate { ExamStatus = (TheoryComponentCompetency) ? ExamStatus.TheoryComponentCompleted : ExamStatus.TheoryComponentFailed; };
+			_examState.SubmitTheoryComponent(a);
+		}
+
+		public TheoryComponent FetchTheoryComponentResult()
+		{
+			Action a = delegate { };
+			_examState.FetchTheoryExamResult(a);
+			return TheoryComponent;
+		}
+		
+		public void VoidExam()
+		{
+			Action a = delegate { ExamStatus = ExamStatus.ExamVoided; };
+			_examState.VoidExam(a);
+		}
+		
+		//HACK: Reset Theory Component
+		public void ResetTheoryComponent()
+		{
+			ExamStatus = ExamStatus.ExamCreated;
+			TheoryComponent.CurrentQuestionIndex = 0;
+		}
+		
 		#endregion
 
 
 
-
-
-
-
-		
-
-        //This method is just gonna throw an exception if the theory component is not in progress so that 
+		//This method is just gonna throw an exception if the theory component is not in progress so that 
         //no one is able to modify the answers after or before a theory exam
-        private void checkTheoryComponentStatus() {
+        private void checkTheoryComponentStatus() 
+		{
             if (ExamStatusId != (int)ExamStatus.TheoryComponentInProgress)
             {
                 throw new BusinessRuleException("Theory Component is not in progress");
             }
-        }
-
-        
-
-        
-
-		
-
-        
-
-        public void VoidExam()
-        {
-            Action a = delegate { ExamStatus = ExamStatus.ExamVoided; };
-            _examState.VoidExam(a);
-        }
-
-        public void SubmitTheoryComponent()
-        {
-            Action a = delegate { ExamStatus = (TheoryComponentCompetency) ? ExamStatus.TheoryComponentCompleted : ExamStatus.TheoryComponentFailed; };
-            _examState.SubmitTheoryComponent(a);
-        }
-
-        public void StartTheoryExam()
-        {
-            Action a = delegate { ExamStatus = ExamStatus.TheoryComponentInProgress; };
-            _examState.StartTheoryComponent(a);
-        }
-
-        public TheoryComponent FetchTheoryExamResult()
-        {
-            Action a = delegate { };
-            _examState.FetchTheoryExamResult(a);
-            return TheoryComponent;
-        }
-
-        //HACK
-        public void AdamsAwesomeResetHack()
-        {
-            ExamStatus = ExamStatus.ExamCreated;
-            TheoryComponent.CurrentQuestionIndex = 0;
         }
 
         partial void OnExamStatusIdChanged()
