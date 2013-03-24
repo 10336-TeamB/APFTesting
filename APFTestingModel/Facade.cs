@@ -133,11 +133,7 @@ namespace APFTestingModel
 
         public void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview)
         {
-            var exam = _context.Exams.Include("TheoryComponent")
-                        .Include("TheoryComponent.SelectedTheoryQuestions")
-                        .Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion")
-                        .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
-                        .First(e => e.Id == examId);
+			var exam = fetchExamForQuestionFetching(examId);
 
             exam.AnswerQuestion(questionIndex, selectedAnswers, markForReview);
             _context.SaveChanges();
