@@ -11,7 +11,7 @@ namespace APFTestingModel
 
         protected TheoryComponentFormat activeFormat;
 
-        IEnumerable<TheoryQuestion> theoryQuestions;
+        private IEnumerable<TheoryQuestion> theoryQuestions;
 
         public abstract TheoryComponent GenerateTheoryComponent();
 

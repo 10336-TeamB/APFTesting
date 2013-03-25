@@ -174,23 +174,10 @@ namespace APFTestingModel
 		
 		#endregion
 
-
-
-		//This method is just gonna throw an exception if the theory component is not in progress so that 
-        //no one is able to modify the answers after or before a theory exam
-        private void checkTheoryComponentStatus() 
-		{
-            if (ExamStatusId != (int)ExamStatus.TheoryComponentInProgress)
-            {
-                throw new BusinessRuleException("Theory Component is not in progress");
-            }
-        }
-
         partial void OnExamStatusIdChanged()
         {
             switch (ExamStatusId)
             {
-
                 case (int)ExamStatus.NoExamCreated:
                     _examState = new NoExamCreated();
                     break;
@@ -218,39 +205,6 @@ namespace APFTestingModel
                 case (int)ExamStatus.ExamVoided:
                     _examState = new ExamVoided();
                     break;
-
-                #region Pradipna's Code
-
-                //case (int)ExamStatus.ExamCompleted:
-                //    examState = new ExamCompleted();
-                //    break;
-                //case (int)ExamStatus.ExamCreated:
-                //    examState = new ExamCreated();
-                //    break;
-                //case (int)ExamStatus.ExamVoided:
-                //    examState = new ExamVoided();
-                //    break;
-                //case (int)ExamStatus.NoExamCreated:
-                //    examState = new NoExamCreated();
-                //    break;
-                //case (int)ExamStatus.PracticalComponentCompleted:
-                //    examState = new PracticalComponentCompleted();
-                //    break;
-                //case (int)ExamStatus.PracticalComponentFailed:
-                //    examState = new PracticalComponentFailed();
-                //    break;
-                //case (int)ExamStatus.TheoryComponentCompleted:
-                //    examState = new TheoryComponentCompleted();
-                //    break;
-                //case (int)ExamStatus.TheoryComponentFailed:
-                //    examState = new TheoryComponentFailed();
-                //    break;
-                //case (int)ExamStatus.TheoryComponentInProgress:
-                //    examState = new TheoryComponentInProgress();
-                //    break;
-
-                #endregion
-                
             }
         }
     }
