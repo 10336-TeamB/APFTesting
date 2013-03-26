@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("APFTestingModel")]
-[assembly: AssemblyDescription("Australian Parachute Federation Testing System")]
+[assembly: AssemblyTitle("APFTestingModel.Tests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Australian Parachute Federation")]
-[assembly: AssemblyProduct("APFTestingModel")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("APFTestingModel.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c3fe7dba-5c9e-46c0-91c7-8a5823035224")]
+[assembly: Guid("17ff63d5-a9e5-460a-8858-077748b79779")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,6 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-// Making internals visible to test project
-[assembly: InternalsVisibleTo("APFTestingModel.Tests")]

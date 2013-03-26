@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="Controllers\ExaminerControllerTest.cs" />
     <Compile Include="Controllers\ExamControllerTest.cs" />
+    <Compile Include="Controllers\QuestionsControllerTest.cs" />
     <Compile Include="MockCandidate.cs" />
     <Compile Include="MockFacade.cs" />
     <Compile Include="MockPossibleAnswer.cs" />
