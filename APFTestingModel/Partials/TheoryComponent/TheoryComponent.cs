@@ -98,7 +98,7 @@ namespace APFTestingModel
                 throw new BusinessRuleException(String.Format("Question Index [{0}] is invalid.", questionIndex));
             }
 
-			var currentQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == questionIndex);
+            var currentQuestion = SelectedTheoryQuestions.First(question => question.QuestionIndex == questionIndex);
             currentQuestion.SelectAnswers(answerIndexes);
             currentQuestion.MarkForReview(markForReview);
 		}

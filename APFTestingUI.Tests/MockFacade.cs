@@ -91,7 +91,7 @@ namespace APFTestingUI.Tests
 
 		public ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId)
 		{
-			throw new NotImplementedException();
+			return new MockTheoryComponentFormat();
 		}
 
 		public ISelectedTheoryQuestion ResumeTheoryComponent(Guid examId)
@@ -102,7 +102,7 @@ namespace APFTestingUI.Tests
 
         public ISelectedTheoryQuestion FetchFirstQuestion(Guid examId)
         {
-            throw new NotImplementedException();
+            return new MockSelectedTheoryQuestion();
         }
     }
 }

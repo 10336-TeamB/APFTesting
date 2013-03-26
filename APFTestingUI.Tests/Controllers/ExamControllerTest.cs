@@ -39,6 +39,7 @@ namespace APFTestingUI.Tests.Controllers {
         }
 
         [TestMethod]
+        //[ExpectedException(typeof(NotImplementedException))]
         public void FirstQuestion_GET_Returns_View()
         {
             // Arrange

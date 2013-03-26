@@ -50,6 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MockPossibleAnswer.cs" />
+    <Compile Include="MockSelectedTheoryQuestion.cs" />
+    <Compile Include="MockTheoryComponentPilot.cs" />
     <Compile Include="TheoryComponentTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,6 +61,11 @@
       <Project>{ecf00d40-4554-4da2-af68-848ff0b6d169}</Project>
       <Name>APFTestingModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
