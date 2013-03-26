@@ -47,7 +47,6 @@ namespace APFTestingModel
 
 		#endregion
 
-
 		#region Methods
 
 		

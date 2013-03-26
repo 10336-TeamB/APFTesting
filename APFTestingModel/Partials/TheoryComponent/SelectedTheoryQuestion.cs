@@ -28,7 +28,6 @@ namespace APFTestingModel
             get { return PossibleAnswers.OrderBy(a => a.DisplayOrderIndex); }
         }
 
-        //TODO: This is now broken because of new implementation of SelectedAnswers.
         public bool IsCorrect
 		{
 			get
