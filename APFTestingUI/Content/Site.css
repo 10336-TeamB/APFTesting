@@ -61,6 +61,14 @@ a {
     background:transparent;
 }
 
+legend {
+    display: none;
+}
+
+.input-validation-error {
+    background-color: #ffc9c9
+}
+
 /* change colours to suit your needs */
 ins {
     background-color:#ff9;

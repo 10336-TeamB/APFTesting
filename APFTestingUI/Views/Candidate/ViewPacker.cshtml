@@ -1,0 +1,42 @@
+﻿@model APFTestingUI.Models.Candidate.ViewPacker
+
+@{
+    ViewBag.Title = "View - Packer";
+}
+
+<h2>View Packer</h2>
+
+<fieldset>
+    <legend>View Packer</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mobile)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.APFNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.APFNumber)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditPacker", new { candidateId = Model.Id })
+</p>

@@ -1,0 +1,159 @@
+﻿@model APFTestingUI.Models.Candidate.EditPilot
+
+@{
+    ViewBag.Title = "Edit - Pilot";
+}
+
+@section styles {
+    @Styles.Render("~/Content/themes/base/css")
+}
+
+<h2>Edit Pilot</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(false)
+
+    <fieldset>
+        <legend>Create</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @*@Html.ValidationMessageFor(model => model.FirstName)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @*@Html.ValidationMessageFor(model => model.LastName)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateOfBirth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfBirth, new { @class = "datepicker" })
+            @*@Html.ValidationMessageFor(model => model.DateOfBirth)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address1)
+            @*@Html.ValidationMessageFor(model => model.Address1)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address2)
+            @*@Html.ValidationMessageFor(model => model.Address2)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Suburb)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Suburb)
+            @*@Html.ValidationMessageFor(model => model.Suburb)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Postcode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Postcode)
+            @*@Html.ValidationMessageFor(model => model.Postcode)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ARN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ARN)
+            @*@Html.ValidationMessageFor(model => model.ARN)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @*@Html.ValidationMessageFor(model => model.Phone)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Mobile)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Mobile)
+            @*@Html.ValidationMessageFor(model => model.Mobile)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @*@Html.ValidationMessageFor(model => model.Email)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PilotLicenceType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.PilotLicenceType, Model.PilotLicences, "--Select--")
+            @*@Html.ValidationMessageFor(model => model.PilotLicenceType)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InstrumentRating)
+        </div>
+        <div class="editor-field">
+            @Html.RadioButtonFor(model => model.InstrumentRating, true) YES <br />
+            @Html.RadioButtonFor(model => model.InstrumentRating, false) NO
+            @*@Html.ValidationMessageFor(model => model.InstrumentRating)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PilotMedical)
+        </div>
+        <div class="editor-field">
+            @Html.RadioButtonFor(model => model.PilotMedical, 1) Class One <br />
+            @Html.RadioButtonFor(model => model.PilotMedical, 2) Class Two
+            @*@Html.ValidationMessageFor(model => model.PilotMedical)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PilotMedicalExpiry)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PilotMedicalExpiry)
+            @*@Html.ValidationMessageFor(model => model.PilotMedicalExpiry)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ValidBFR)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.ValidBFR)
+            @*@Html.ValidationMessageFor(model => model.ValidBFR)*@
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/Scripts/candidate.js")
+}

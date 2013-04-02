@@ -1,0 +1,126 @@
+﻿@model APFTestingUI.Models.Candidate.ViewPilot
+
+@{
+    ViewBag.Title = "View Pilot";
+}
+
+<h2>View Pilot</h2>
+
+<fieldset>
+    <legend>View Pilot</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateOfBirth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Suburb)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Suburb)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Postcode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Postcode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ARN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ARN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mobile)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PilotLicenceType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PilotLicenceType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InstrumentRating)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InstrumentRating)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PilotMedical)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PilotMedical)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PilotMedicalExpiry)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PilotMedicalExpiry)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ValidBFR)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValidBFR)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditPilot", new { candidateId = Model.Id })
+</p>

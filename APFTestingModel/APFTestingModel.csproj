@@ -92,6 +92,7 @@
     <Compile Include="ExamStateMachine\NoExamCreated.cs" />
     <Compile Include="ExamStateMachine\TheoryComponentFailed.cs" />
     <Compile Include="ExamStateMachine\TheoryComponentInProgress.cs" />
+    <Compile Include="DataStructures.cs" />
     <Compile Include="Interfaces\IFacade.cs" />
     <Compile Include="Interfaces\ICandidate.cs" />
     <Compile Include="Interfaces\IExam.cs" />
