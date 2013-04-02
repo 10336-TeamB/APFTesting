@@ -1168,7 +1168,7 @@
           <Property Type="Guid" Name="CandidateId" />
           <NavigationProperty Name="CandidatePilot" Relationship="APFTestingDBModel.FK_ExamPilot_CandidatePilot" FromRole="ExamPilot" ToRole="CandidatePilot" />
         </EntityType>
-        <EntityType Name="Person" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+        <EntityType Name="Person" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Abstract="true">
           <Key>
             <PropertyRef Name="Id" />
           </Key>

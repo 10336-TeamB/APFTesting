@@ -13,8 +13,9 @@ namespace APFTestingModel
         public ExamPilot() { }
 
         public ExamPilot(Guid examinerId, Guid candidateId, TheoryComponentPilot theoryComponentPilot, PracticalComponentPilot practicalComponentPilot)
-            : base(examinerId, candidateId)
+            : base(examinerId)
         {
+            CandidateId = candidateId;
             TheoryComponent = theoryComponentPilot;
             PracticalComponent = practicalComponentPilot;
         }

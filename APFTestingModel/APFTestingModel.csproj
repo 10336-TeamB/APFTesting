@@ -133,10 +133,12 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="BusinessRuleException.cs" />
-    <Compile Include="Partials\Candidate.cs" />
+    <Compile Include="Partials\CandidatePilot.cs" />
+    <Compile Include="Partials\CandidatePacker.cs" />
     <Compile Include="Partials\Exam.cs" />
     <Compile Include="Partials\ExamPacker.cs" />
     <Compile Include="Partials\ExamPilot.cs" />
+    <Compile Include="Partials\Person.cs" />
     <Compile Include="Partials\PracticalComponent\AssessmentTaskPacker.cs" />
     <Compile Include="Partials\PracticalComponent\AssessmentTaskPilot.cs" />
     <Compile Include="Partials\PracticalComponent\PracticalComponent.cs" />

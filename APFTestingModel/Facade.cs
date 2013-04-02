@@ -51,24 +51,23 @@ namespace APFTestingModel
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 		
-		private Guid CreateExam(Guid examinerId, CandidatePacker candidate)
+		private Guid CreateExam(Guid examinerId, Person candidate)
 		{
-            //Exam exam;
+            Exam exam;
 
-            //if (candidate is CandidatePilot)
-            //{
-            //    createExamManager(ExamType.PilotExam);
-            //}
-            //else if (candidate is CandidatePacker)
-            //{
-            //    createExamManager(ExamType.PackerExam);
-            //}
-            //exam = examManager.GenerateExam(examinerId, candidate.Id);
-            //_context.Exams.Add(exam);
-            //_context.SaveChanges();
+            if (candidate is CandidatePilot)
+            {
+                createExamManager(ExamType.PilotExam);
+            }
+            else if (candidate is CandidatePacker)
+            {
+                createExamManager(ExamType.PackerExam);
+            }
+            exam = examManager.GenerateExam(examinerId, candidate.Id);
+            _context.Exams.Add(exam);
+            _context.SaveChanges();
 
-            //return exam.Id;
-            return null;
+            return exam.Id;
 		}
 		
 		// HACK: Rest Theory Component
@@ -80,7 +79,7 @@ namespace APFTestingModel
 				.Include("Exams.TheoryComponent.SelectedTheoryQuestions")
 				.Include("Exams.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
 				.Include("Exams.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
-				.OfType<Candidate>().First();
+				.OfType<CandidatePilot>().First();
 
 			var exam = candidate.LatestExam;
 
@@ -195,14 +194,32 @@ namespace APFTestingModel
 		
 		public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
 		{
-			var examiner = _context.People.Include("Candidates").Include("Candidates.Exams").OfType<Examiner>().First(e => e.Id == examinerId);
+			var examiner = _context.People.Include("CandidatePackers").Include("CandidatePilots").OfType<Examiner>().First(e => e.Id == examinerId);
 
-			return examiner.Candidates;
+            List<ICandidate> candidates = new List<ICandidate>();
+            candidates.AddRange(examiner.CandidatePackers);
+            candidates.AddRange(examiner.CandidatePilots);
+
+            return candidates;
 		}
 
-        private Candidate fetchCandidate(Guid candidateId)
+        private Person fetchCandidate(Guid candidateId)
         {
-            return _context.People.Include("Exams").OfType<Candidate>().First(c => c.Id == candidateId);
+            var candidate = _context.People.First(c => c.Id == candidateId);
+
+            if (candidate is CandidatePacker) {
+                _context.Entry(candidate).Collection<ExamPacker>("ExamPackers").Load();
+            }
+            else if (candidate is CandidatePilot)
+            {
+                _context.Entry(candidate).Collection<ExamPilot>("ExamPilot").Load();
+            }
+            else
+            {
+                throw new BusinessRuleException("Id doesn't belong to Pilot or Packer candidate");
+            }
+
+            return candidate ;
         }
 
         private Exam fetchExamForQuestionFetching(Guid examId)

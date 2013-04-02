@@ -13,8 +13,9 @@ namespace APFTestingModel
         public ExamPacker() { }
 
         public ExamPacker(Guid examinerId, Guid candidateId, TheoryComponentPacker theoryComponentPacker, PracticalComponentPacker practicalComponentPacker)
-            : base(examinerId, candidateId)
+            : base(examinerId)
         {
+            CandidateId = candidateId;
             TheoryComponent = theoryComponentPacker;
             base.PracticalComponent = practicalComponentPacker;
         }

@@ -8,10 +8,10 @@ namespace APFTestingModel
 {
     public interface ICandidate
     {
-        //Guid Id { get; }
-        //string FirstName { get; }
-        //string LastName { get; }
-        //IExam LatestExam { get; }
-        //ExamStatus LatestExamStatus { get; }
+        Guid Id { get; }
+        string FirstName { get; }
+        string LastName { get; }
+        IExam LatestExam { get; }
+        ExamStatus LatestExamStatus { get; }
     }
 }

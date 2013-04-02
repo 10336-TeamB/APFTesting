@@ -12,7 +12,7 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class Person
+    internal abstract partial class Person
     {
     	public System.Guid Id { get; set; }
     	public string FirstName { get; set; }

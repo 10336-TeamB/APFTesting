@@ -28,9 +28,8 @@ namespace APFTestingModel
 
         public Exam() { }
 
-        public Exam(Guid examinerId, Guid candidateId)
+        public Exam(Guid examinerId)
         {
-            CandidateId = candidateId;
             ExaminerId = examinerId;
             ExamStatusId = 1;
         }
