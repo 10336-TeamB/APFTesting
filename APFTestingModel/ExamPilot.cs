@@ -14,5 +14,8 @@ namespace APFTestingModel
     
     internal partial class ExamPilot : Exam
     {
+    	public Nullable<System.Guid> CandidateId { get; set; }
+    
+        public virtual CandidatePilot CandidatePilot { get; set; }
     }
 }

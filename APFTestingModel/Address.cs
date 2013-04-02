@@ -20,6 +20,8 @@ namespace APFTestingModel
         }
     
     	public System.Guid Id { get; set; }
+    	public string Address1 { get; set; }
+    	public string Address2 { get; set; }
     
         public virtual ICollection<Person> People { get; set; }
     }

@@ -16,12 +16,14 @@ namespace APFTestingModel
     {
         public Examiner()
         {
-            this.Candidates = new HashSet<Candidate>();
+            this.CandidatePackers = new HashSet<CandidatePacker>();
+            this.CandidatePilots = new HashSet<CandidatePilot>();
             this.Exams = new HashSet<Exam>();
         }
     
     
-        public virtual ICollection<Candidate> Candidates { get; set; }
+        public virtual ICollection<CandidatePacker> CandidatePackers { get; set; }
+        public virtual ICollection<CandidatePilot> CandidatePilots { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
     }
 }

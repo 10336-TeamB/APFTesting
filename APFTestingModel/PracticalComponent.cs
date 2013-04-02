@@ -23,7 +23,7 @@ namespace APFTestingModel
     	public System.DateTime CreationDate { get; set; }
     	public System.Guid TemplateId { get; set; }
     
-        public virtual ICollection<Exam> Exams { get; set; }
         public virtual PracticalComponentTemplate PracticalComponentTemplate { get; set; }
+        public virtual ICollection<Exam> Exams { get; set; }
     }
 }

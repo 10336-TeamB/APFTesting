@@ -16,8 +16,8 @@ namespace APFTestingModel
     {
         public TheoryComponent()
         {
-            this.Exams = new HashSet<Exam>();
             this.SelectedTheoryQuestions = new HashSet<SelectedTheoryQuestion>();
+            this.Exams = new HashSet<Exam>();
         }
     
     	public System.Guid Id { get; set; }
@@ -25,8 +25,8 @@ namespace APFTestingModel
     	public int CurrentQuestionIndex { get; set; }
     	public System.DateTime Date { get; set; }
     
-        public virtual ICollection<Exam> Exams { get; set; }
         public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
         public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
+        public virtual ICollection<Exam> Exams { get; set; }
     }
 }
