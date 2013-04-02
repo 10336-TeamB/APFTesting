@@ -18,17 +18,15 @@ namespace APFTestingModel
     	public System.Guid TheoryComponentId { get; set; }
     	public Nullable<System.Guid> PracticalComponentId { get; set; }
     	public Nullable<System.Guid> ExaminerId { get; set; }
-    	public Nullable<System.Guid> CandidateId { get; set; }
         private int _ExamStatusId;
-    	private int ExamStatusId { get{ return _ExamStatusId; } set{ _ExamStatusId = value; OnExamStatusIdChanged(); } }
+    	public int ExamStatusId { get{ return _ExamStatusId; } set{ _ExamStatusId = value; OnExamStatusIdChanged(); } }
     	partial void OnExamStatusIdChanged();
     	
 
-    	public Nullable<System.DateTime> CreatedDate { get; set; }
+    	public System.DateTime CreatedDate { get; set; }
     
+        public virtual Examiner Examiner { get; set; }
         public virtual PracticalComponent PracticalComponent { get; set; }
         public virtual TheoryComponent TheoryComponent { get; set; }
-        public virtual Candidate Candidate { get; set; }
-        public virtual Examiner Examiner { get; set; }
     }
 }

@@ -51,23 +51,24 @@ namespace APFTestingModel
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 		
-		private Guid CreateExam(Guid examinerId, Candidate candidate)
+		private Guid CreateExam(Guid examinerId, CandidatePacker candidate)
 		{
-			Exam exam;
+            //Exam exam;
 
-			if (candidate is CandidatePilot)
-			{
-				createExamManager(ExamType.PilotExam);
-			}
-			else if (candidate is CandidatePacker)
-			{
-				createExamManager(ExamType.PackerExam);
-			}
-			exam = examManager.GenerateExam(examinerId, candidate.Id);
-			_context.Exams.Add(exam);
-			_context.SaveChanges();
+            //if (candidate is CandidatePilot)
+            //{
+            //    createExamManager(ExamType.PilotExam);
+            //}
+            //else if (candidate is CandidatePacker)
+            //{
+            //    createExamManager(ExamType.PackerExam);
+            //}
+            //exam = examManager.GenerateExam(examinerId, candidate.Id);
+            //_context.Exams.Add(exam);
+            //_context.SaveChanges();
 
-			return exam.Id;
+            //return exam.Id;
+            return null;
 		}
 		
 		// HACK: Rest Theory Component

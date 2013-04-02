@@ -64,9 +64,6 @@
     <Compile Include="AssessmentTaskPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Candidate.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="CandidatePacker.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -159,6 +156,8 @@
     <Compile Include="Partials\TheoryComponent\TheoryQuestionPacker.cs" />
     <Compile Include="Partials\TheoryComponent\TheoryQuestionPilot.cs" />
     <Compile Include="Managers\PracticalComponentManager.cs" />
+    <Compile Include="ExamStateMachine\PracticalComponentFailed.cs" />
+    <Compile Include="ExamStateMachine\PracticalComponentCompleted.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -168,8 +167,6 @@
     <Compile Include="PracticalComponent.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ExamStateMachine\PracticalComponentFailed.cs" />
-    <Compile Include="ExamStateMachine\PracticalComponentCompleted.cs" />
     <Compile Include="PracticalComponentPacker.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -186,6 +183,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExamStateMachine\TheoryComponentCompleted.cs" />
     <Compile Include="SelectedAssessmentTask.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -195,7 +193,6 @@
     <Compile Include="TheoryComponent.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ExamStateMachine\TheoryComponentCompleted.cs" />
     <Compile Include="TheoryComponentFormat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

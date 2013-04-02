@@ -12,7 +12,22 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class CandidatePilot : Candidate
+    internal partial class CandidatePilot : Person
     {
+        public CandidatePilot()
+        {
+            this.ExamPilots = new HashSet<ExamPilot>();
+        }
+    
+    	public string ARN { get; set; }
+    	public int PilotLicenseTypeId { get; set; }
+    	public bool InstrumentRating { get; set; }
+    	public bool ValidBFR { get; set; }
+    	public int PilotMedicalTypeId { get; set; }
+    	public System.DateTime PilotMedicalExpiryDate { get; set; }
+    	public System.Guid CreatedBy { get; set; }
+    
+        public virtual Examiner Examiner { get; set; }
+        public virtual ICollection<ExamPilot> ExamPilots { get; set; }
     }
 }

@@ -18,8 +18,7 @@ namespace APFTestingModel
         public APFTestingDBEntities()
             : base("name=APFTestingDBEntities")
         {
-    			Exams = Set<Exam>();	
-    		PracticalComponents = Set<PracticalComponent>();	
+    			PracticalComponents = Set<PracticalComponent>();	
     		PracticalComponentTemplates = Set<PracticalComponentTemplate>();	
     		SelectedAssessmentTasks = Set<SelectedAssessmentTask>();	
     		TheoryComponents = Set<TheoryComponent>();	
@@ -30,6 +29,7 @@ namespace APFTestingModel
     		Answers = Set<Answer>();	
     		PossibleAnswers = Set<PossibleAnswer>();	
     		Addresses = Set<Address>();	
+    		Exams = Set<Exam>();	
     		People = Set<Person>();	
     
         }
@@ -39,7 +39,6 @@ namespace APFTestingModel
             throw new UnintentionalCodeFirstException();
         }
     
-        internal DbSet<Exam> Exams { get; set; }
         internal DbSet<PracticalComponent> PracticalComponents { get; set; }
         internal DbSet<PracticalComponentTemplate> PracticalComponentTemplates { get; set; }
         internal DbSet<SelectedAssessmentTask> SelectedAssessmentTasks { get; set; }
@@ -51,6 +50,7 @@ namespace APFTestingModel
         internal DbSet<Answer> Answers { get; set; }
         internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
         internal DbSet<Address> Addresses { get; set; }
+        internal DbSet<Exam> Exams { get; set; }
         internal DbSet<Person> People { get; set; }
     }
 }
