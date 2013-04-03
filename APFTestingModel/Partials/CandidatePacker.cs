@@ -28,10 +28,10 @@ namespace APFTestingModel
 
         public CandidatePacker(CandidatePackerDetails details, Guid createdBy)
         {
-            this.FirstName = details.FirstName;
-            this.LastName = details.LastName;
-            this.MobileNumber = details.Mobile;
-            this.APFNumber = details.APFNumber;
+			//this.FirstName = details.FirstName;
+			//this.LastName = details.LastName;
+			//this.MobileNumber = details.Mobile;
+			//this.APFNumber = details.APFNumber;
             CreatedBy = createdBy;
         }
 

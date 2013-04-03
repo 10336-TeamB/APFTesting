@@ -1240,6 +1240,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EnumType Name="ExamTypeEnum" a:ExternalTypeName="APFTestingModel.ExamTypeEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="ExamStatusEnum" a:ExternalTypeName="APFTestingModel.ExamStatusEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
