@@ -74,12 +74,12 @@ namespace APFTestingModel
 		public void ResetTheoryComponent()
 		{
 			var candidate = _context.People
-				.Include("Exams")
-				.Include("Exams.TheoryComponent")
-				.Include("Exams.TheoryComponent.SelectedTheoryQuestions")
-				.Include("Exams.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
-				.Include("Exams.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
-				.OfType<CandidatePilot>().First();
+				.Include("ExamPackers")
+                .Include("ExamPackers.TheoryComponent")
+                .Include("ExamPackers.TheoryComponent.SelectedTheoryQuestions")
+                .Include("ExamPackers.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
+                .Include("ExamPackers.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
+				.OfType<CandidatePacker>().First();
 
 			var exam = candidate.LatestExam;
 
@@ -284,9 +284,24 @@ namespace APFTestingModel
 				//_context.TheoryComponentFormats.Where(f => f)
 			}
 		}
-		
-		#endregion
 
+        public Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy)
+        {
+            CandidatePilot candidatePilot = new CandidatePilot(details, createdBy);
+            _context.People.Add(candidatePilot);
+            _context.SaveChanges();
+            return candidatePilot.Id;
+        }
+
+        public Guid CreateCandidate(CandidatePackerDetails details, Guid createdBy)
+        {
+            CandidatePacker candidatePacker = new CandidatePacker(details, createdBy);
+            _context.People.Add(candidatePacker);
+            _context.SaveChanges();
+            return candidatePacker.Id;
+        }
+
+		#endregion
 		
 
         //Hook-in test method

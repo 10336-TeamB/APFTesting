@@ -26,6 +26,15 @@ namespace APFTestingModel
         //    get { return "Ilett"; }
         //}
 
+        public CandidatePacker(CandidatePackerDetails details, Guid createdBy)
+        {
+            this.FirstName = details.FirstName;
+            this.LastName = details.LastName;
+            this.MobileNumber = MobileNumber;
+            this.APFNumber = APFNumber;
+            CreatedBy = createdBy;
+        }
+
         // Hardcoded values to allow facade to work with UI.
         public Exam LatestExam
         {

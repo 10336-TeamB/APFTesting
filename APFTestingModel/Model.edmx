@@ -163,6 +163,9 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Address1" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Address2" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Suburb" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Postcode" Type="char" MaxLength="4" />
         </EntityType>
         <EntityType Name="Answer">
           <Key>
@@ -233,7 +236,7 @@
           <Property Name="PracticalComponentId" Type="uniqueidentifier" />
           <Property Name="ExaminerId" Type="uniqueidentifier" />
           <Property Name="ExamStatusId" Type="int" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime2" Nullable="false" />
         </EntityType>
         <EntityType Name="Examiner">
           <Key>
@@ -1123,6 +1126,9 @@
           <Property Type="String" Name="Address1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Address2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="People" Relationship="APFTestingDBModel.FK_Person_Address" FromRole="Address" ToRole="Person" />
+          <Property Type="String" Name="Suburb" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Postcode" MaxLength="4" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="CandidatePacker" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" BaseType="APFTestingDBModel.Person">
           <Property Type="String" Name="APFNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1150,7 +1156,7 @@
           <Property Type="Guid" Name="PracticalComponentId" />
           <Property Type="Guid" Name="ExaminerId" />
           <Property Type="Int32" Name="ExamStatusId" Nullable="false" />
-          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="7" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_Exam_Examiner" FromRole="Exam" ToRole="Examiner" />
           <NavigationProperty Name="PracticalComponent" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="Exam" ToRole="PracticalComponent" />
           <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="Exam" ToRole="TheoryComponent" />
@@ -1474,6 +1480,9 @@
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="APFTestingDBModel.Address">
               <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Suburb" ColumnName="Suburb" />
                 <ScalarProperty Name="Address2" ColumnName="Address2" />
                 <ScalarProperty Name="Address1" ColumnName="Address1" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
