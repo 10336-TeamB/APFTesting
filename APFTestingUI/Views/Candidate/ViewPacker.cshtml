@@ -37,6 +37,6 @@
         @Html.DisplayFor(model => model.APFNumber)
     </div>
 </fieldset>
-<p>
-    @Html.ActionLink("Edit", "EditPacker", new { candidateId = Model.Id })
+<p class="button-container">
+    @Html.ActionLink("Edit", "EditPacker", new { candidateId = Model.Id }, new { @class="button-submit" })
 </p>

@@ -544,6 +544,7 @@ input[type="radio"], input[type="checkbox"]
     font-size: 0.8em;
     font-weight: bold;
     box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    /* display: inline-block; */
 }
 
 .examinerButton:hover
@@ -641,6 +642,11 @@ a.button
 #candidate-list {
     width:100%;
 }
+
+    #candidate-list td
+    {
+        padding-bottom:5px;
+    }
 
     #candidate-list th {
         padding:10px 0;
@@ -1148,4 +1154,60 @@ input[type="radio"]:checked + .label-radio {
     border-radius: 8px;
     text-align: center;
     font-weight: bold;
+}
+
+
+/** Candidate Create Form */
+.editor-label
+{
+    float:left;
+    padding-bottom: 10px;
+    width: 180px;
+    padding: 2px;
+}
+    .editor-label em
+    {
+        color: red;
+    }
+
+    .editor-label small
+    {
+        font-size: 0.9em;
+    }
+
+.editor-field
+{
+    float:left;
+    padding-bottom: 10px;
+}
+
+    .editor-field input[type="text"], .editor-field input[type="email"], .editor-field input[type="date"]
+    {
+        width: 300px;
+        padding: 2px;
+    }
+
+    .editor-field select
+    {
+        padding: 2px;
+    }
+
+.button-container
+{
+    text-align: right;
+    width: 494px;
+}
+
+.form-reset, .form-submit
+{
+    width: 90px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    outline: none;
+}
+
+input:focus {
+  border: none;
+  border-color: transparent;
 }

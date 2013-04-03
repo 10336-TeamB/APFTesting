@@ -1,4 +1,8 @@
 $(function () {
+
+    //remove default html datepicker
+    $('input[type="date"]').prop('type', 'text');
+
     if ($("#DateOfBirth").val() == "1/01/0001")
     {
         $("#DateOfBirth").val("");

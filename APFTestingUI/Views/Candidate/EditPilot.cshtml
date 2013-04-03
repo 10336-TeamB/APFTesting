@@ -17,7 +17,7 @@
         <legend>Create</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.FirstName)
+            @Html.LabelFor(model => model.FirstName) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.FirstName)
@@ -25,7 +25,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.LastName)
+            @Html.LabelFor(model => model.LastName) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.LastName)
@@ -33,15 +33,17 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.DateOfBirth)
+            @Html.LabelFor(model => model.DateOfBirth) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.DateOfBirth, new { @class = "datepicker" })
             @*@Html.ValidationMessageFor(model => model.DateOfBirth)*@
+            <br />
+            <small>Format: (dd/mm/yyyy)</small>
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Address1)
+            @Html.LabelFor(model => model.Address1) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Address1)
@@ -57,7 +59,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Suburb)
+            @Html.LabelFor(model => model.Suburb) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Suburb)
@@ -65,7 +67,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Postcode)
+            @Html.LabelFor(model => model.Postcode) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Postcode)
@@ -73,7 +75,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ARN)
+            @Html.LabelFor(model => model.ARN) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.ARN)
@@ -97,7 +99,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
+            @Html.LabelFor(model => model.Email) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Email)
@@ -105,7 +107,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.PilotLicenceType)
+            @Html.LabelFor(model => model.PilotLicenceType) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.DropDownListFor(model => model.PilotLicenceType, Model.PilotLicences, "--Select--")
@@ -113,41 +115,43 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.InstrumentRating)
+            @Html.LabelFor(model => model.InstrumentRating) <em>*</em>
         </div>
         <div class="editor-field">
-            @Html.RadioButtonFor(model => model.InstrumentRating, true) YES <br />
-            @Html.RadioButtonFor(model => model.InstrumentRating, false) NO
+            @Html.RadioButtonFor(model => model.InstrumentRating, true, new { id = "instrument-rating-true" }) <label for="instrument-rating-true">Yes</label><br />
+            @Html.RadioButtonFor(model => model.InstrumentRating, false, new { id = "instrument-rating-false" }) <label for="instrument-rating-false">No</label>
             @*@Html.ValidationMessageFor(model => model.InstrumentRating)*@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.PilotMedical)
+            @Html.LabelFor(model => model.PilotMedical) <em>*</em>
         </div>
         <div class="editor-field">
-            @Html.RadioButtonFor(model => model.PilotMedical, 1) Class One <br />
-            @Html.RadioButtonFor(model => model.PilotMedical, 2) Class Two
+            @Html.RadioButtonFor(model => model.PilotMedical, 1, new { id = "pilot-medical-class-1" }) <label for="pilot-medical-class-1">Class One</label><br />
+            @Html.RadioButtonFor(model => model.PilotMedical, 2, new { id = "pilot-medical-class-2" }) <label for="pilot-medical-class-2">Class Two</label>
             @*@Html.ValidationMessageFor(model => model.PilotMedical)*@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.PilotMedicalExpiry)
+            @Html.LabelFor(model => model.PilotMedicalExpiry) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.PilotMedicalExpiry)
             @*@Html.ValidationMessageFor(model => model.PilotMedicalExpiry)*@
+            <br />
+            <small>Format: (dd/mm/yyyy)</small>
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ValidBFR)
+            @Html.LabelFor(model => model.ValidBFR) <em>*</em>
         </div>
         <div class="editor-field">
             @Html.CheckBoxFor(model => model.ValidBFR)
             @*@Html.ValidationMessageFor(model => model.ValidBFR)*@
         </div>
 
-        <p>
-            <input type="submit" value="Save" />
+        <p class="button-container">
+            <input type="submit" value="Save" class="button-submit" />
         </p>
     </fieldset>
 }

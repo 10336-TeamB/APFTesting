@@ -121,6 +121,6 @@
         @Html.DisplayFor(model => model.ValidBFR)
     </div>
 </fieldset>
-<p>
-    @Html.ActionLink("Edit", "EditPilot", new { candidateId = Model.Id })
+<p class="button-container">
+    @Html.ActionLink("Edit", "EditPilot", new { candidateId = Model.Id }, new { @class="button-submit" })
 </p>
