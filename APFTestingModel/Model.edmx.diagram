@@ -53,10 +53,10 @@
         <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="8.365216169676378" PointY="13.583575776584249" />
         <EntityTypeShape EntityType="APFTestingDBModel.CandidatePacker" Width="2.125" PointX="12" PointY="48" />
         <EntityTypeShape EntityType="APFTestingDBModel.CandidatePilot" Width="1.875" PointX="2.25" PointY="7.75" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="1.5" PointX="5.330049960562051" PointY="28.307217775055776" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="2.5" PointX="5.375" PointY="28.25" />
         <EntityTypeShape EntityType="APFTestingDBModel.Examiner" Width="1.5" PointX="8.484745607005781" PointY="15.974139861750482" />
         <EntityTypeShape EntityType="APFTestingDBModel.ExamPacker" Width="1.5" PointX="1.7896352902937842" PointY="22.542216922409" />
-        <EntityTypeShape EntityType="APFTestingDBModel.ExamPilot" Width="1.5" PointX="6.311412583250279" PointY="7.3616686497636463" />
+        <EntityTypeShape EntityType="APFTestingDBModel.ExamPilot" Width="1.5" PointX="0.5" PointY="7.875" />
         <EntityTypeShape EntityType="APFTestingDBModel.Person" Width="1.5" PointX="3.625" PointY="23.75" />
         <AssociationConnector Association="APFTestingDBModel.FK_Person_Address" />
         <AssociationConnector Association="APFTestingDBModel.FK_CandidatePacker_Examiner" />

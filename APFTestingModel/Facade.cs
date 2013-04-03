@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -245,6 +246,19 @@ namespace APFTestingModel
 
 			return exam.FetchTheoryComponentResult();
 		}
+
+        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid candidateId)
+        {
+            var exam = _context.Exams
+                               .Include("PracticalComponent")
+                               .OfType<ExamPilot>()
+                               .FirstOrDefault(e => e.CandidateId == candidateId);
+
+            var practicalComponents =
+                _context.PracticalComponents.Include("SelectedAssessmentTasks").OfType<PracticalComponentPilot>();
+
+            return (exam.PracticalComponent as PracticalComponentPilot).SelectedAssessmentTasks;
+        }
 
         #endregion
 

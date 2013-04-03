@@ -24,6 +24,9 @@ namespace APFTestingModel
 		
         IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId);
         void SubmitTheoryComponent(Guid examId);
+
+        IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid candidateId);
+
         void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId);
         void VoidExam(Guid examId);
         void ResetTheoryComponent();

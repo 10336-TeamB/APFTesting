@@ -104,5 +104,11 @@ namespace APFTestingUI.Tests
         {
             return new MockSelectedTheoryQuestion();
         }
+
+
+        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid candidateId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
