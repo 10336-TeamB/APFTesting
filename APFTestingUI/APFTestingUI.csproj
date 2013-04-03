@@ -169,6 +169,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
+    <Compile Include="Controllers\PracticalController.cs" />
     <Compile Include="Models\Candidate\ViewPacker.cs" />
     <Compile Include="Models\Candidate\ViewPilot.cs" />
     <Compile Include="Models\Candidate\EditPacker.cs" />
@@ -200,6 +201,9 @@
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
+    <Compile Include="Models\Practical\AssessmentTaskDisplayItem.cs" />
+    <Compile Include="Models\Practical\AssessmentTaskInputItem.cs" />
+    <Compile Include="Models\Practical\PilotInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
