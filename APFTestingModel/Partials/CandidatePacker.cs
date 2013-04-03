@@ -30,8 +30,8 @@ namespace APFTestingModel
         {
             this.FirstName = details.FirstName;
             this.LastName = details.LastName;
-            this.MobileNumber = MobileNumber;
-            this.APFNumber = APFNumber;
+            this.MobileNumber = details.Mobile;
+            this.APFNumber = details.APFNumber;
             CreatedBy = createdBy;
         }
 

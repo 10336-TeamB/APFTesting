@@ -212,7 +212,7 @@ namespace APFTestingModel
             }
             else if (candidate is CandidatePilot)
             {
-                _context.Entry(candidate).Collection<ExamPilot>("ExamPilot").Load();
+                _context.Entry(candidate).Collection<ExamPilot>("ExamPilots").Load();
             }
             else
             {
@@ -297,7 +297,7 @@ namespace APFTestingModel
         {
             CandidatePacker candidatePacker = new CandidatePacker(details, createdBy);
             _context.People.Add(candidatePacker);
-            _context.SaveChanges();
+           _context.SaveChanges();
             return candidatePacker.Id;
         }
 
