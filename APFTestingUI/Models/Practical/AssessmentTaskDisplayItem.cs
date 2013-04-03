@@ -1,4 +1,5 @@
-﻿using APFTestingModel;
+﻿using System.ComponentModel.DataAnnotations;
+using APFTestingModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,12 @@ namespace APFTestingUI.Models.Practical
         public string Title { get; set; }
         public string Details { get; set; }
         public int MaxScore { get; set; }
+        
+        [Required]
         public string Comment { get; set; }
+        
+        [Required]
+        [Range(0, 100)]
         public int Score { get; set; }
     }
 }

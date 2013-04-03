@@ -22,6 +22,9 @@ namespace APFTestingModel
     	public System.Guid Id { get; set; }
     	public string Address1 { get; set; }
     	public string Address2 { get; set; }
+    	public string Suburb { get; set; }
+    	public string State { get; set; }
+    	public string Postcode { get; set; }
     
         public virtual ICollection<Person> People { get; set; }
     }

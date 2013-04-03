@@ -1,0 +1,48 @@
+﻿@model APFTestingUI.Models.Practical.PilotInput
+
+@{
+    ViewBag.Title = "Pilot Practical";
+}
+
+<h2>Practical exam input</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <thead>
+            <tr>
+                <td>Detail</td>
+                <td>Comments</td>
+                <td>Score</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var index = 0;
+                foreach (var task in Model.Tasks)
+                {
+
+                    <tr>
+                        <td>
+                            <div>@task.Title</div>
+                            <div>@task.Details</div>
+                            <div>@task.MaxScore Points</div>
+                            @Html.Hidden("Id", @task.Id)
+                        </td>
+                        <td>
+                            @Html.TextAreaFor(t => t.Tasks.ElementAt(index).Comment)
+                            @*<textarea name="Comment"></textarea>*@
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(t => t.Tasks.ElementAt(index).Score)
+                            @*<input type="text" name="Score"/>*@
+                        </td>
+                    </tr>
+                    index++;
+                }
+            }
+        </tbody>
+    </table>
+    
+    <input type="submit" value="Submit"/>
+}

@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingHookIn", "APFTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingModel.Tests", "APFTestingModel.Tests\APFTestingModel.Tests.csproj", "{C0F00266-3AC0-4E0D-AA0C-099236C3948C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexHelpers", "RegexHelpers\RegexHelpers.csproj", "{D2FB38E6-1EBC-470D-B90D-0193EF06105E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,10 +37,6 @@ Global
 		{C0F00266-3AC0-4E0D-AA0C-099236C3948C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0F00266-3AC0-4E0D-AA0C-099236C3948C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0F00266-3AC0-4E0D-AA0C-099236C3948C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2FB38E6-1EBC-470D-B90D-0193EF06105E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2FB38E6-1EBC-470D-B90D-0193EF06105E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2FB38E6-1EBC-470D-B90D-0193EF06105E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2FB38E6-1EBC-470D-B90D-0193EF06105E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
