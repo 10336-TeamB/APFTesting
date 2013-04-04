@@ -21,7 +21,7 @@ namespace APFTestingUI.Controllers
         {
             var tasks = _facade.FetchAssessmentTasks(examId);
             //var tasks = dummyTasks();
-            var model = new PilotInput(candidateId, tasks);
+            var model = new PilotInput(examId, candidateId, tasks);
             return View(model);
         }
 
@@ -46,7 +46,7 @@ namespace APFTestingUI.Controllers
                 try
                 {
                     //_facade.SubmitPilotPracticalResults(results);
-                    return RedirectToAction("PilotView");
+                    return RedirectToAction("PilotView", new { examId = model.ExamId, candidateId = model.CandidateId});
                 }
                 catch (BusinessRuleException e)
                 {
@@ -89,9 +89,20 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Practical/PilotView
 
-        public ActionResult PilotView()
+        public ActionResult PilotView(Guid examId, Guid candidateId)
         {
-            return View();
+            var tasks = _facade.FetchAssessmentTasks(examId);
+            var model = new PilotView(examId, candidateId, tasks);
+            return View(model);
+        }
+
+        //
+        // GET: /Practical/PilotSubmit
+
+        public ActionResult PilotSubmit(Guid examId)
+        {
+            //var tasks = _facade.SubmitPilotPractical(examId);
+            return RedirectToAction("Index", "Examiner");
         }
 
         #endregion

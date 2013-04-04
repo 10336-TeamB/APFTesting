@@ -203,6 +203,7 @@
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
     <Compile Include="Models\Practical\AssessmentTaskDisplayItem.cs" />
+    <Compile Include="Models\Practical\PilotView.cs" />
     <Compile Include="Models\Practical\PilotInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -363,6 +364,7 @@
     <Content Include="Views\Candidate\EditPacker.cshtml" />
     <Content Include="Views\Candidate\ViewPacker.cshtml" />
     <Content Include="Views\Practical\PilotInput.cshtml" />
+    <Content Include="Views\Practical\PilotView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

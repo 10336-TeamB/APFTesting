@@ -9,8 +9,9 @@ namespace APFTestingUI.Models.Practical
     public class PilotInput
     {
         public PilotInput() { }
-        public PilotInput(Guid candidateId, IEnumerable<ISelectedAssessmentTask> tasks)
+        public PilotInput(Guid examId, Guid candidateId, IEnumerable<ISelectedAssessmentTask> tasks)
         {
+            ExamId = examId;
             CandidateId = candidateId;
             Tasks = new List<AssessmentTaskDisplayItem>();
             foreach (var t in tasks)
@@ -19,6 +20,7 @@ namespace APFTestingUI.Models.Practical
             }
         }
 
+        public Guid ExamId { get; set; }
         public Guid CandidateId { get; set; }
         public List<AssessmentTaskDisplayItem> Tasks { get; set; }
     }

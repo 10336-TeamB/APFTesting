@@ -1,0 +1,40 @@
+﻿@model APFTestingUI.Models.Practical.PilotView
+
+@{
+    ViewBag.Title = "Pilot Practical Results";
+}
+
+<h2>Pilot Practical Results</h2>
+
+<div>Score: @Model.TotalScore out of @Model.TotalMaxScore</div>
+<table>
+    <thead>
+        <tr>
+            <td>Detail</td>
+            <td>Comments</td>
+            <td>Score</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.Tasks.Count; i++)
+        {
+            <tr>
+                <td>
+                    <div>@Html.DisplayFor(model => model.Tasks[i].Title)</div>
+                    <div>@Html.DisplayFor(model => model.Tasks[i].Details)</div>
+                    
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Tasks[i].Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Tasks[i].Score) / @Html.DisplayFor(model => model.Tasks[i].MaxScore)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    @Html.ActionLink("Edit", "PilotInput", new { examId = Model.ExamId, candidateId = Model.CandidateId }, new { @class = "examinerButton" })
+    @Html.ActionLink("Submit", "PilotSubmit", new { examId = Model.ExamId }, new { @class = "examinerButton" })
+</p>

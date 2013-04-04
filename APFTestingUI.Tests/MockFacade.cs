@@ -119,5 +119,16 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid CreateCandidate(CandidatePackerDetails details, Guid createdBy)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
