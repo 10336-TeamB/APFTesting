@@ -68,7 +68,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     {
         foreach (var edmProperty in simpleProperties)
         {
-			if (entity.Name == "Exam" && edmProperty.Name == "ExamStatusId")
+			if (entity.Name == "Exam" && edmProperty.Name == "ExamStatus")
 			{
 #>
     <#=codeStringGenerator.PrivateProperty(edmProperty)#>

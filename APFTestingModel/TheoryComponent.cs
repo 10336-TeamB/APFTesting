@@ -16,17 +16,18 @@ namespace APFTestingModel
     {
         public TheoryComponent()
         {
-            this.SelectedTheoryQuestions = new HashSet<SelectedTheoryQuestion>();
             this.Exams = new HashSet<Exam>();
+            this.SelectedTheoryQuestions = new HashSet<SelectedTheoryQuestion>();
         }
     
     	public System.Guid Id { get; set; }
     	public System.Guid FormatId { get; set; }
     	public int CurrentQuestionIndex { get; set; }
     	public System.DateTime Date { get; set; }
+    	public int ExamTypeId { get; set; }
     
-        public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
-        public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
+        public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
+        public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
     }
 }

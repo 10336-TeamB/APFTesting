@@ -22,5 +22,18 @@ namespace APFTestingModel
         {
             get { return AssessmentTaskPilot.MaxScore; }
         }
+
+
+        int ISelectedAssessmentTask.Score
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

@@ -12,6 +12,6 @@ namespace APFTestingModel
         string FirstName { get; }
         string LastName { get; }
         IExam LatestExam { get; }
-        ExamStatus LatestExamStatus { get; }
+        ExamStatusEnum LatestExamStatus { get; } //REFACTORED
     }
 }

@@ -18,12 +18,13 @@ namespace APFTestingModel
     	public System.Guid TheoryComponentId { get; set; }
     	public Nullable<System.Guid> PracticalComponentId { get; set; }
     	public Nullable<System.Guid> ExaminerId { get; set; }
-        private int _ExamStatusId;
-    	public int ExamStatusId { get{ return _ExamStatusId; } set{ _ExamStatusId = value; OnExamStatusIdChanged(); } }
-    	partial void OnExamStatusIdChanged();
+    	public int ExamStatusId { get; set; }
+    	public System.DateTime CreatedDate { get; set; }
+        private APFTestingModel.ExamStatusEnum _ExamStatus;
+    	public APFTestingModel.ExamStatusEnum ExamStatus { get{ return _ExamStatus; } set{ _ExamStatus = value; OnExamStatusChanged(); } }
+    	partial void OnExamStatusChanged();
     	
 
-    	public System.DateTime CreatedDate { get; set; }
     
         public virtual Examiner Examiner { get; set; }
         public virtual PracticalComponent PracticalComponent { get; set; }

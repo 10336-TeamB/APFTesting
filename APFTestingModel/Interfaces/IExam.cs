@@ -9,6 +9,6 @@ namespace APFTestingModel
     public interface IExam
     {
         Guid Id { get; }
-        ExamStatus ExamStatus { get; }
+        ExamStatusEnum ExamStatus { get; } //REFACTORED
     }
 }
