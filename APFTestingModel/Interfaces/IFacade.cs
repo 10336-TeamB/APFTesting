@@ -21,6 +21,9 @@ namespace APFTestingModel
 
         //Guid StartExam(Guid examinerId, Guid candidateId);
         //ISelectedTheoryQuestion ResumeTheoryExam(Guid examId);
+
+        Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy);
+        Guid CreateCandidate(CandidatePackerDetails details, Guid createdBy);
 		
         IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId);
         void SubmitTheoryComponent(Guid examId);

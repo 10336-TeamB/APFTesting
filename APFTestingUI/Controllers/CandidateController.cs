@@ -41,9 +41,9 @@ namespace APFTestingUI.Controllers
             {
                 try
                 {
-                    // Send data to facade
-
-                    // Redirect
+                    var examinerId = new Guid("0099dcce-110a-4144-8ecb-80788f41e8ff");
+                    var candidateId = _facade.CreateCandidate(model.Values, examinerId);
+                    return RedirectToAction("ViewPilot", new { candidateId });
                 }
                 catch (BusinessRuleException e)
                 {
