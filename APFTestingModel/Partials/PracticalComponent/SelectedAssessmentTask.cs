@@ -34,6 +34,7 @@ namespace APFTestingModel
         {
             Comment = result.Comment;
             Score = result.Score;
+        }
 
         Guid ISelectedAssessmentTask.Id
         {

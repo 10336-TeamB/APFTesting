@@ -17,11 +17,10 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Practical/PilotInput
 
-        public ActionResult PilotInput()
+        public ActionResult PilotInput(Guid examId, Guid candidateId)
         {
-            var candidateId = new Guid("5e172e73-3237-45e0-9a03-0b8ed44f29a6");            
-            //var tasks = _facade.FetchAssessmentTasks(candidateId);
-            var tasks = dummyTasks();
+            var tasks = _facade.FetchAssessmentTasks(examId);
+            //var tasks = dummyTasks();
             var model = new PilotInput(candidateId, tasks);
             return View(model);
         }

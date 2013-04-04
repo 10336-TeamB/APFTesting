@@ -258,12 +258,12 @@ namespace APFTestingModel
             var exam = _context.Exams
                                .OfType<ExamPilot>()
                                .FirstOrDefault(e => e.Id == examId);
-            List<SelectedAssessmentTask> selectedAssessmentTask = _context.SelectedAssessmentTasks.Where(t => t.PracticalComponentId == exam.PracticalComponentId).ToList();
+            List<SelectedAssessmentTask> selectedAssessmentTasks = _context.SelectedAssessmentTasks.Where(t => t.PracticalComponentId == exam.PracticalComponentId).ToList();
 
             //var practicalComponents =
             //    _context.PracticalComponents.Include("SelectedAssessmentTasks").OfType<PracticalComponentPilot>();
 
-            return selectedAssessmentTask;
+            return selectedAssessmentTasks;
         }
         
         #endregion
