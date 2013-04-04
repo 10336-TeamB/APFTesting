@@ -28,7 +28,7 @@ namespace APFTestingUI.Models.Examiner
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Guid LatestExamId { get; set; }
-        public ExamStatus LatestExamStatus { get; set; }
+        public ExamStatusEnum LatestExamStatus { get; set; }
 
         #region Exam Status Properties
         
@@ -36,7 +36,7 @@ namespace APFTestingUI.Models.Examiner
         {
             get
             {
-                return LatestExamStatus <= ExamStatus.ExamCreated;
+                return LatestExamStatus <= ExamStatusEnum.NewExam;
             }
         }
 
@@ -44,7 +44,7 @@ namespace APFTestingUI.Models.Examiner
         {
             get
             {
-                return LatestExamStatus == ExamStatus.TheoryComponentInProgress;
+                return LatestExamStatus == ExamStatusEnum.TheoryInProgress;
             }
         }
 
@@ -52,7 +52,7 @@ namespace APFTestingUI.Models.Examiner
         {
             get
             {
-                return LatestExamStatus == ExamStatus.TheoryComponentFailed;
+                return LatestExamStatus == ExamStatusEnum.TheoryFailed;
             }
         }
 

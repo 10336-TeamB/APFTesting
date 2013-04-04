@@ -70,25 +70,27 @@ namespace APFTestingModel
             }
         }
 
-        public ExamStatus LatestExamStatus
+        //REFACTORED
+        public ExamStatusEnum LatestExamStatus
         {
             get
             {
                 var latestExam = LatestExam;
                 if (latestExam == null)
                 {
-                    return ExamStatus.NoExamCreated;
+                    return ExamStatusEnum.NoExam;
                 }
-                return latestExam.ExamStatus;
+                return (ExamStatusEnum)latestExam.ExamStatus;
             }
         }
 
+        //REFACTORED
         public override bool NewExamPossible
         {
             get
             {
                 var latestExamStatus = LatestExamStatus; //Prevents the querying of database for each condition below
-                return latestExamStatus == ExamStatus.NoExamCreated || latestExamStatus == ExamStatus.TheoryComponentFailed || latestExamStatus == ExamStatus.ExamVoided;
+                return latestExamStatus == ExamStatusEnum.NoExam || latestExamStatus == ExamStatusEnum.TheoryFailed || latestExamStatus == ExamStatusEnum.ExamVoided;
             }
         }
 

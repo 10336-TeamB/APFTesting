@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    public enum ExamType
-    {
-        PilotExam = 1, PackerExam = 2
-    }
+    //public enum ExamType
+    //{
+    //    PilotExam = 1, PackerExam = 2
+    //}
 
     abstract internal class ExamManager
     {

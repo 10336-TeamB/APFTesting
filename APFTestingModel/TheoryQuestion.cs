@@ -16,18 +16,20 @@ namespace APFTestingModel
     {
         public TheoryQuestion()
         {
-            this.SelectedTheoryQuestions = new HashSet<SelectedTheoryQuestion>();
             this.Answers = new HashSet<Answer>();
+            this.SelectedTheoryQuestions = new HashSet<SelectedTheoryQuestion>();
         }
     
     	public System.Guid Id { get; set; }
     	public int NumberOfCorrectAnswers { get; set; }
     	public bool IsActive { get; set; }
     	public string ImagePath { get; set; }
-    	public string Description { get; set; }
+    	public int ExamTypeId { get; set; }
     	public int CategoryId { get; set; }
+    	public string Description { get; set; }
+    	public Nullable<short> Category { get; set; }
     
-        public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
+        public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
     }
 }

@@ -34,40 +34,46 @@ namespace APFTestingModel
 			return exam.FetchCurrentQuestion();
 		}
 
-        private void createExamManager(ExamType examType)
+        //REFACTORED
+        private void createExamManager(ExamTypeEnum examType)
         {
             TheoryComponentFormat activeTheoryFormat;
             PracticalComponentTemplate activePracticalTemplate;
 
-            if (examType == ExamType.PackerExam)
+            switch (examType)
             {
-                activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().FirstOrDefault(f => f.IsActive);
-                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
+
+                case ExamTypeEnum.PilotExam:
+                    activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().FirstOrDefault(f => f.IsActive);
+                    activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
+                    break;
+                case ExamTypeEnum.PackerExam:
+                    activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
+                    activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
+                    break;
+                default:
+                    throw new BusinessRuleException("Invalid exam type provided");
             }
-            else
-            {
-                activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
-                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
-            }
+
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 		
+        //REFACTORED
 		private Guid CreateExam(Guid examinerId, Person candidate)
 		{
             Exam exam;
 
             if (candidate is CandidatePilot)
             {
-                createExamManager(ExamType.PilotExam);
+                createExamManager(ExamTypeEnum.PilotExam);
             }
             else if (candidate is CandidatePacker)
             {
-                createExamManager(ExamType.PackerExam);
+                createExamManager(ExamTypeEnum.PackerExam);
             }
             exam = examManager.GenerateExam(examinerId, candidate.Id);
             _context.Exams.Add(exam);
             _context.SaveChanges();
-
             return exam.Id;
 		}
 		
@@ -247,19 +253,19 @@ namespace APFTestingModel
 			return exam.FetchTheoryComponentResult();
 		}
 
-        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid candidateId)
+        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid examId)
         {
             var exam = _context.Exams
-                               .Include("PracticalComponent")
                                .OfType<ExamPilot>()
-                               .FirstOrDefault(e => e.CandidateId == candidateId);
+                               .FirstOrDefault(e => e.Id == examId);
+            List<SelectedAssessmentTask> selectedAssessmentTask = _context.SelectedAssessmentTasks.Where(t => t.PracticalComponentId == exam.PracticalComponentId).ToList();
 
-            var practicalComponents =
-                _context.PracticalComponents.Include("SelectedAssessmentTasks").OfType<PracticalComponentPilot>();
+            //var practicalComponents =
+            //    _context.PracticalComponents.Include("SelectedAssessmentTasks").OfType<PracticalComponentPilot>();
 
-            return (exam.PracticalComponent as PracticalComponentPilot).SelectedAssessmentTasks;
+            return selectedAssessmentTask;
         }
-
+        
         #endregion
 
 
@@ -270,22 +276,23 @@ namespace APFTestingModel
 
 		#region Other Methods
 		
-		public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)
+        //REFACTORED
+		public ITheoryComponentFormat CreateTheoryComponentFormat(ExamTypeEnum examType, int numberOfQuestions, int passMark)
 		{
 			switch (examType)
 			{
-				case ExamType.PilotExam:
+				case ExamTypeEnum.PilotExam:
 					var theoryComponentFormatPilot = new TheoryComponentFormatPilot(numberOfQuestions, passMark);
 					_context.TheoryComponentFormats.Add(theoryComponentFormatPilot);
 					_context.SaveChanges();
 					return theoryComponentFormatPilot;
-				case ExamType.PackerExam:
+				case ExamTypeEnum.PackerExam:
 					var theoryComponentFormatPacker = new TheoryComponentFormatPacker(numberOfQuestions, passMark);
 					_context.TheoryComponentFormats.Add(theoryComponentFormatPacker);
 					_context.SaveChanges();
 					return theoryComponentFormatPacker;
 				default:
-					throw new Exception("ExamType invalid");
+                    throw new BusinessRuleException("Invalid exam type provided");
 			}
 		}
 

@@ -23,4 +23,23 @@ namespace APFTestingModel
 		ExamCompleted = 7,
 		ExamVoided = 8
 	}
+
+    public enum PilotLicenseTypeEnum : short
+    {
+        PPL = 1,
+        CPL = 2,
+        ATPL = 3
+    }
+
+    public enum PilotMedicalTypeEnum : short
+    {
+        ClassOne = 1,
+        ClassTwo = 2
+    }
+
+    public enum TheoryQuestionCategory : short
+    {
+        General = 1
+    }
+
 }

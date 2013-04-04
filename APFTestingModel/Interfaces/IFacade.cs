@@ -7,7 +7,7 @@ namespace APFTestingModel
     {
         void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview);
 		Guid StartTheoryComponent(Guid examinerId, Guid candidateId);
-		ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark);
+        //ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark);
         
 		IEnumerable<ICandidate> FetchCandidates(Guid examinerId);
         ISelectedTheoryQuestion FetchFirstQuestion(Guid examId);

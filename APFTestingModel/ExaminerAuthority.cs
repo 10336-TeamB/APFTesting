@@ -12,20 +12,13 @@ namespace APFTestingModel
     using System;
     using System.Collections.Generic;
     
-    internal partial class Address
+    internal partial class ExaminerAuthority
     {
-        public Address()
-        {
-            this.CandidatePilots = new HashSet<CandidatePilot>();
-        }
-    
     	public System.Guid Id { get; set; }
-    	public string Address1 { get; set; }
-    	public string Address2 { get; set; }
-    	public string Suburb { get; set; }
-    	public string State { get; set; }
-    	public string Postcode { get; set; }
+    	public System.Guid ExaminerId { get; set; }
+    	public int ExamTypeId { get; set; }
+    	public APFTestingModel.ExamTypeEnum ExamType { get; set; }
     
-        public virtual ICollection<CandidatePilot> CandidatePilots { get; set; }
+        public virtual Examiner Examiner { get; set; }
     }
 }

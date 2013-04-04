@@ -28,17 +28,21 @@ namespace APFTestingModel
             return new PracticalComponentManagerPacker(activePracticalTemplate);
         }
 
-        public static ExamManager CreateExamManager(IEnumerable<TheoryQuestion> theoryQuestions, TheoryComponentFormat activeTheoryFormat, PracticalComponentTemplate activePracticalTemplate, ExamType examType)
+        //REFACTORED
+        public static ExamManager CreateExamManager(IEnumerable<TheoryQuestion> theoryQuestions, TheoryComponentFormat activeTheoryFormat, PracticalComponentTemplate activePracticalTemplate, ExamTypeEnum examType)
         {
             ExamManager examManager;
 
-            if (examType == ExamType.PackerExam)
+            switch (examType)
             {
-                examManager = new ExamManagerPacker(createTheoryComponentManagerPacker(theoryQuestions, activeTheoryFormat), createPracticalComponentManagerPacker(activePracticalTemplate));
-            }
-            else
-            {
-                examManager = new ExamManagerPilot(createTheoryComponentManagerPilot(theoryQuestions, activeTheoryFormat), createPracticalComponentManagerPilot(activePracticalTemplate));
+                case ExamTypeEnum.PilotExam:
+                    examManager = new ExamManagerPilot(createTheoryComponentManagerPilot(theoryQuestions, activeTheoryFormat), createPracticalComponentManagerPilot(activePracticalTemplate));
+                    break;
+                case ExamTypeEnum.PackerExam:
+                    examManager = new ExamManagerPacker(createTheoryComponentManagerPacker(theoryQuestions, activeTheoryFormat), createPracticalComponentManagerPacker(activePracticalTemplate));
+                    break;
+                default:
+                    throw new BusinessRuleException("Invalid exam type provided");
             }
 
             return examManager;

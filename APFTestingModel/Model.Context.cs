@@ -18,19 +18,20 @@ namespace APFTestingModel
         public APFTestingDBEntities()
             : base("name=APFTestingDBEntities")
         {
-    			PracticalComponents = Set<PracticalComponent>();	
+    			Addresses = Set<Address>();	
+    		Answers = Set<Answer>();	
+    		AssessmentTasks = Set<AssessmentTask>();	
+    		Exams = Set<Exam>();	
+    		ExaminerAuthorities = Set<ExaminerAuthority>();	
+    		People = Set<Person>();	
+    		PossibleAnswers = Set<PossibleAnswer>();	
+    		PracticalComponents = Set<PracticalComponent>();	
     		PracticalComponentTemplates = Set<PracticalComponentTemplate>();	
     		SelectedAssessmentTasks = Set<SelectedAssessmentTask>();	
+    		SelectedTheoryQuestions = Set<SelectedTheoryQuestion>();	
     		TheoryComponents = Set<TheoryComponent>();	
     		TheoryComponentFormats = Set<TheoryComponentFormat>();	
     		TheoryQuestions = Set<TheoryQuestion>();	
-    		SelectedTheoryQuestions = Set<SelectedTheoryQuestion>();	
-    		AssessmentTasks = Set<AssessmentTask>();	
-    		Answers = Set<Answer>();	
-    		PossibleAnswers = Set<PossibleAnswer>();	
-    		Addresses = Set<Address>();	
-    		Exams = Set<Exam>();	
-    		People = Set<Person>();	
     
         }
     
@@ -39,18 +40,19 @@ namespace APFTestingModel
             throw new UnintentionalCodeFirstException();
         }
     
+        internal DbSet<Address> Addresses { get; set; }
+        internal DbSet<Answer> Answers { get; set; }
+        internal DbSet<AssessmentTask> AssessmentTasks { get; set; }
+        internal DbSet<Exam> Exams { get; set; }
+        internal DbSet<ExaminerAuthority> ExaminerAuthorities { get; set; }
+        internal DbSet<Person> People { get; set; }
+        internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
         internal DbSet<PracticalComponent> PracticalComponents { get; set; }
         internal DbSet<PracticalComponentTemplate> PracticalComponentTemplates { get; set; }
         internal DbSet<SelectedAssessmentTask> SelectedAssessmentTasks { get; set; }
+        internal DbSet<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
         internal DbSet<TheoryComponent> TheoryComponents { get; set; }
         internal DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
         internal DbSet<TheoryQuestion> TheoryQuestions { get; set; }
-        internal DbSet<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }
-        internal DbSet<AssessmentTask> AssessmentTasks { get; set; }
-        internal DbSet<Answer> Answers { get; set; }
-        internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
-        internal DbSet<Address> Addresses { get; set; }
-        internal DbSet<Exam> Exams { get; set; }
-        internal DbSet<Person> People { get; set; }
     }
 }
