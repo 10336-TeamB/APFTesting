@@ -315,6 +315,24 @@ namespace APFTestingModel
             return candidatePacker.Id;
         }
 
+        public void SubmitPilotPracticalResults(List<PilotPracticalResult> results)
+        {
+            var tasks = _context.SelectedAssessmentTasks.ToList();
+            foreach (var r in results)
+            {
+                try
+                {
+                    tasks.First(t => t.Id == r.Id).RecordResult(r);
+                }
+                catch (ArgumentNullException e)
+                {
+                    //TODO: Log exception
+                    throw new BusinessRuleException("Error while recording results. The requested result could not be found");
+                }
+            }
+            _context.SaveChanges();
+        }
+
 		#endregion
 		
 
@@ -413,6 +431,9 @@ namespace APFTestingModel
 		//}
 
 		#endregion
+
+
+
 
     }
 }

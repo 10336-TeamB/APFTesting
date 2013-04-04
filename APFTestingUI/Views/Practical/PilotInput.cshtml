@@ -8,6 +8,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(model => model.CandidateId)
     <table>
         <thead>
             <tr>
@@ -17,32 +18,31 @@
             </tr>
         </thead>
         <tbody>
-            @{
-                var index = 0;
-                foreach (var task in Model.Tasks)
-                {
-
+            @for (var i = 0; i < Model.Tasks.Count; i++)
+            {
                     <tr>
                         <td>
-                            <div>@task.Title</div>
-                            <div>@task.Details</div>
-                            <div>@task.MaxScore Points</div>
-                            @Html.Hidden("Id", @task.Id)
+                            <div>@Html.EditorFor(model => model.Tasks[i].Title)</div>
+                            <div>@Html.EditorFor(model => model.Tasks[i].Details)</div>
+                            <div>@Html.EditorFor(model => model.Tasks[i].MaxScore) Points</div>
+                            @Html.EditorFor(model => model.Tasks[i].Id)
+                            
                         </td>
                         <td>
-                            @Html.TextAreaFor(t => t.Tasks.ElementAt(index).Comment)
-                            @*<textarea name="Comment"></textarea>*@
+                            @Html.TextAreaFor(model => model.Tasks[i].Comment)
                         </td>
                         <td>
-                            @Html.TextBoxFor(t => t.Tasks.ElementAt(index).Score)
-                            @*<input type="text" name="Score"/>*@
+                            @Html.TextBoxFor(model => model.Tasks[i].Score, new { type = "number" })
                         </td>
                     </tr>
-                    index++;
-                }
+                    
             }
         </tbody>
     </table>
     
     <input type="submit" value="Submit"/>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\DummyTask.cs" />
     <Compile Include="Controllers\PracticalController.cs" />
+    <Compile Include="CustomHtmlHelpers.cs" />
     <Compile Include="Models\Candidate\ViewPacker.cs" />
     <Compile Include="Models\Candidate\ViewPilot.cs" />
     <Compile Include="Models\Candidate\EditPacker.cs" />
@@ -203,8 +204,6 @@
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
     <Compile Include="Models\Practical\AssessmentTaskDisplayItem.cs" />
-    <Compile Include="Models\Practical\AssessmentTaskInput.cs" />
-    <Compile Include="Models\Practical\AssessmentTaskInputItem.cs" />
     <Compile Include="Models\Practical\PilotInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -319,6 +318,7 @@
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\modernizr.custom.51211.js" />
+    <Content Include="Scripts\practical.js" />
     <Content Include="Scripts\summary.js" />
     <Content Include="Unity.Mvc3.README.txt" />
     <Content Include="Unity.WebAPI.README.txt" />

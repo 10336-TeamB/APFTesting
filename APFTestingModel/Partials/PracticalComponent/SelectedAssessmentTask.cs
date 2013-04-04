@@ -22,5 +22,11 @@ namespace APFTestingModel
         {
             get { return AssessmentTaskPilot.MaxScore; }
         }
+
+        public void RecordResult(PilotPracticalResult result)
+        {
+            Comment = result.Comment;
+            Score = result.Score;
+        }
     }
 }

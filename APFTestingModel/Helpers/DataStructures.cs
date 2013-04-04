@@ -34,4 +34,10 @@ namespace APFTestingModel
         public string APFNumber { get; set; }
     }
 
+    public struct PilotPracticalResult
+    {
+        public Guid Id { get; set; }
+        public string Comment { get; set; }
+        public int Score { get; set; }
+    }
 }
