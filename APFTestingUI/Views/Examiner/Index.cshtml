@@ -49,7 +49,7 @@
                     }
                 </td>
                 <td class="input-practical-link">
-                    <button class="examinerButton" type="button" onclick="window.location.assign('#')">Input Practical Results</button>
+                    @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
                 </td>
                 <td class="reset-cell"><button id="reset" class="examinerButton" type="button">Reset Exam</button></td>
             </tr>

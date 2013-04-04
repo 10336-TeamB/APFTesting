@@ -17,12 +17,11 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Practical/PilotInput
 
-        public ActionResult PilotInput()
+        public ActionResult PilotInput(Guid examId, Guid candidateId)
         {
-            //var candidateId = new Guid("5e172e73-3237-45e0-9a03-0b8ed44f29a6");
-            //var tasks = _facade.FetchAssessmentTasks(candidateId);
-            var tasks = dummyTasks();
-            var model = new PilotInput(tasks);
+            var tasks = _facade.FetchAssessmentTasks(examId);
+            //var tasks = dummyTasks();
+            var model = new PilotInput(candidateId, tasks);
             return View(model);
         }
 
@@ -30,10 +29,31 @@ namespace APFTestingUI.Controllers
         // POST: /Practical/PilotInput
 
         [HttpPost]
-        public ActionResult PilotInput(AssessmentTaskInput tasks)
+        public ActionResult PilotInput(PilotInput model)
         {
-            
-            return RedirectToAction("PilotInput");
+            if (ModelState.IsValid)
+            {
+                var results = new List<PilotPracticalResult>();
+                foreach (var t in model.Tasks)
+                {
+                    results.Add(new PilotPracticalResult()
+                    {
+                        Id = t.Id,
+                        Comment = t.Comment,
+                        Score = int.Parse(t.Score)
+                    });
+                }
+                try
+                {
+                    //_facade.SubmitPilotPracticalResults(results);
+                    return RedirectToAction("PilotView");
+                }
+                catch (BusinessRuleException e)
+                {
+                    ModelState.AddModelError("Exception", e.Message);
+                }
+            }
+            return View(model);
         }
 
         //HACK: While no data available from Facade
@@ -46,7 +66,7 @@ namespace APFTestingUI.Controllers
                     Title = "Local Knowledge",
                     Details = "Familiar with local requirements, noise, airspace, etc.",
                     MaxScore = 5,
-                    Id = new Guid()
+                    Id = new Guid("00000000-0000-0000-0000-000000000001")
                 };
             yield return
                 new DummyTask
@@ -54,7 +74,7 @@ namespace APFTestingUI.Controllers
                     Title = "Aircraft Knowledge",
                     Details = "Performance. Location of emergency equipment.",
                     MaxScore = 10,
-                    Id = new Guid()
+                    Id = new Guid("00000000-0000-0000-0000-000000000002")
                 };
             yield return
                 new DummyTask
@@ -62,7 +82,7 @@ namespace APFTestingUI.Controllers
                     Title = "Pre-Flight",
                     Details = "Aircraft prep, restraints, knife, airspace issues, weather brief, aircraft documents, e.g. maintenance release, Refuelling/Oil level.",
                     MaxScore = 10,
-                    Id = new Guid()
+                    Id = new Guid("00000000-0000-0000-0000-000000000003")
                 };
         } 
 

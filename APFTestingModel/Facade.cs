@@ -258,12 +258,12 @@ namespace APFTestingModel
             var exam = _context.Exams
                                .OfType<ExamPilot>()
                                .FirstOrDefault(e => e.Id == examId);
-            List<SelectedAssessmentTask> selectedAssessmentTask = _context.SelectedAssessmentTasks.Where(t => t.PracticalComponentId == exam.PracticalComponentId).ToList();
+            List<SelectedAssessmentTask> selectedAssessmentTasks = _context.SelectedAssessmentTasks.Where(t => t.PracticalComponentId == exam.PracticalComponentId).ToList();
 
             //var practicalComponents =
             //    _context.PracticalComponents.Include("SelectedAssessmentTasks").OfType<PracticalComponentPilot>();
 
-            return selectedAssessmentTask;
+            return selectedAssessmentTasks;
         }
         
         #endregion
@@ -320,6 +320,24 @@ namespace APFTestingModel
             _context.People.Add(candidatePacker);
            _context.SaveChanges();
             return candidatePacker.Id;
+        }
+
+        public void SubmitPilotPracticalResults(List<PilotPracticalResult> results)
+        {
+            var tasks = _context.SelectedAssessmentTasks.ToList();
+            foreach (var r in results)
+            {
+                try
+                {
+                    tasks.First(t => t.Id == r.Id).RecordResult(r);
+                }
+                catch (ArgumentNullException e)
+                {
+                    //TODO: Log exception
+                    throw new BusinessRuleException("Error while recording results. The requested result could not be found");
+                }
+            }
+            _context.SaveChanges();
         }
 
 		#endregion
@@ -420,6 +438,9 @@ namespace APFTestingModel
 		//}
 
 		#endregion
+
+
+
 
     }
 }
