@@ -12,7 +12,15 @@ namespace APFTestingModel
 
         public override PracticalComponent GeneratePracticalComponent()
         {
-            PracticalComponentPilot practicalComponentPilot = new PracticalComponentPilot(activeTemplate);
+            List<SelectedAssessmentTask> selectedAssessmentTasks = new List<SelectedAssessmentTask>();
+            ICollection<AssessmentTaskPilot> assessmentTasks = (activeTemplate as PracticalComponentTemplatePilot).AssessmentTaskPilots;
+            foreach (AssessmentTaskPilot a in assessmentTasks)
+            {
+                selectedAssessmentTasks.Add(new SelectedAssessmentTask(a));
+            }
+
+            PracticalComponentPilot practicalComponentPilot = new PracticalComponentPilot(activeTemplate, selectedAssessmentTasks);
+            
             return practicalComponentPilot;
         }
     }

@@ -24,6 +24,7 @@ namespace APFTestingModel
     	public System.Guid FormatId { get; set; }
     	public int CurrentQuestionIndex { get; set; }
     	public System.DateTime Date { get; set; }
+    	public Nullable<short> ExamType { get; set; }
     
         public virtual TheoryComponentFormat TheoryComponentFormat { get; set; }
         public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }

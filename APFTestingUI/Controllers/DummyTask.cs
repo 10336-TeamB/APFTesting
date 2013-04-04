@@ -18,6 +18,6 @@ namespace APFTestingUI.Controllers
 
         public string Comment { get; set; }
 
-        public int Score { get; set; }
+        public Nullable<int> Score { get; set; }
     }
 }

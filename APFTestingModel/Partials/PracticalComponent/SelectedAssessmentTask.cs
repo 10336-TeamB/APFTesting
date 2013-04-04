@@ -8,6 +8,13 @@ namespace APFTestingModel
 {
     internal partial class SelectedAssessmentTask : ISelectedAssessmentTask
     {
+        public SelectedAssessmentTask() { }
+
+        public SelectedAssessmentTask(AssessmentTaskPilot assessmentTask)
+        {
+            this.AssessmentTaskPilot = assessmentTask;
+        }
+
         public string Title
         {
             get { return AssessmentTaskPilot.Title; }

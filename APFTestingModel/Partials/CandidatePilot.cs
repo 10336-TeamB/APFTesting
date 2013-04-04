@@ -28,20 +28,20 @@ namespace APFTestingModel
 
         public CandidatePilot(CandidatePilotDetails details, Guid createdBy)
         {
-			//FirstName = details.FirstName;
-			//LastName = details.LastName;
-			//DateOfBirth = details.DateOfBirth;
-			//Address = new Address(details.Address1, details.Address2, details.Suburb, details.Postcode);
-			//ARN = details.ARN;
-			//PhoneNumber = details.Phone;
-			//MobileNumber = details.Mobile;
-			//Email = details.Email;
-			//PilotLicenseTypeId = details.PilotLicenceType;
-			//InstrumentRating = details.InstrumentRating;
-			//PilotMedicalTypeId = details.PilotMedical;
-			//PilotMedicalExpiryDate = details.PilotMedicalExpiry;
-			//ValidBFR = details.ValidBFR;
-			//CreatedBy = createdBy;
+            FirstName = details.FirstName;
+            LastName = details.LastName;
+            DateOfBirth = details.DateOfBirth;
+            Address = new Address(details.Address1, details.Address2, details.Suburb, details.Postcode);
+            ARN = details.ARN;
+            PhoneNumber = details.Phone;
+            MobileNumber = details.Mobile;
+            Email = details.Email;
+            PilotLicenseTypeId = details.PilotLicenceType;
+            InstrumentRating = details.InstrumentRating;
+            PilotMedicalTypeId = details.PilotMedical;
+            PilotMedicalExpiryDate = details.PilotMedicalExpiry;
+            ValidBFR = details.ValidBFR;
+            CreatedBy = createdBy;
         }
 
         // Hardcoded values to allow facade to work with UI.
@@ -79,16 +79,16 @@ namespace APFTestingModel
             }
         }
 
-        public ExamStatus LatestExamStatus
+        public ExamStatusEnum LatestExamStatus
         {
             get
             {
                 var latestExam = LatestExam;
                 if (latestExam == null)
                 {
-                    return ExamStatus.NoExamCreated;
+                    return ExamStatusEnum.NoExam;
                 }
-                return latestExam.ExamStatus;
+                return (ExamStatusEnum)latestExam.ExamStatus;
             }
         }
 
@@ -97,7 +97,7 @@ namespace APFTestingModel
             get
             {
                 var latestExamStatus = LatestExamStatus; //Prevents the querying of database for each condition below
-                return latestExamStatus == ExamStatus.NoExamCreated || latestExamStatus == ExamStatus.TheoryComponentFailed || latestExamStatus == ExamStatus.ExamVoided;
+                return latestExamStatus == ExamStatusEnum.NoExam || latestExamStatus == ExamStatusEnum.TheoryFailed || latestExamStatus == ExamStatusEnum.ExamVoided;
             }
         }
 

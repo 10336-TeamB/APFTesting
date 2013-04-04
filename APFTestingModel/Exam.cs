@@ -24,6 +24,7 @@ namespace APFTestingModel
     	
 
     	public System.DateTime CreatedDate { get; set; }
+    	public short ExamStatus { get; set; }
     
         public virtual Examiner Examiner { get; set; }
         public virtual PracticalComponent PracticalComponent { get; set; }

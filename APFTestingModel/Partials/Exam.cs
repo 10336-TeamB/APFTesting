@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel 
 {
-    public enum ExamStatus
-    {
-        NoExamCreated = 0,
-        ExamCreated = 1,
-        TheoryComponentInProgress = 2,
-        TheoryComponentFailed = 3,
-        TheoryComponentCompleted = 4,
-        PracticalComponentFailed = 5,
-        PracticalComponentCompleted = 6,
-        ExamCompleted = 7,
-        ExamVoided = 8,
-        Count = 8
-    }
+    //public enum ExamStatus
+    //{
+    //    NoExamCreated = 0,
+    //    ExamCreated = 1,
+    //    TheoryComponentInProgress = 2,
+    //    TheoryComponentFailed = 3,
+    //    TheoryComponentCompleted = 4,
+    //    PracticalComponentFailed = 5,
+    //    PracticalComponentCompleted = 6,
+    //    ExamCompleted = 7,
+    //    ExamVoided = 8,
+    //    Count = 8
+    //}
 
     internal abstract partial class Exam : IExam
     {
@@ -46,21 +46,7 @@ namespace APFTestingModel
             }
         }
 
-        public ExamStatus ExamStatus
-        {
-            get
-            {
-                if (ExamStatusId > (int)ExamStatus.Count || ExamStatusId < 0)
-                {
-                    throw new BusinessRuleException("Exam Status is invalid");
-                }
-                return (ExamStatus)ExamStatusId;
-            }
-            private set
-            {
-                ExamStatusId = (int)value;
-            }
-        }
+        
 
         public bool TheoryComponentCompetency
         {
@@ -97,7 +83,7 @@ namespace APFTestingModel
             Action a = delegate
             {
                 question = TheoryComponent.FetchFirstQuestion();
-                ExamStatus = ExamStatus.TheoryComponentInProgress;
+                ExamStatus = (short)ExamStatusEnum.TheoryInProgress;
             };
             _examState.FetchFirstQuestion(a);
             return question;
@@ -147,7 +133,7 @@ namespace APFTestingModel
 
 		public void SubmitTheoryComponent()
 		{
-			Action a = delegate { ExamStatus = (TheoryComponentCompetency) ? ExamStatus.TheoryComponentCompleted : ExamStatus.TheoryComponentFailed; };
+			Action a = delegate { ExamStatus = (short)((TheoryComponentCompetency) ? ExamStatusEnum.TheoryPassed : ExamStatusEnum.TheoryFailed); };
 			_examState.SubmitTheoryComponent(a);
 		}
 
@@ -160,14 +146,14 @@ namespace APFTestingModel
 		
 		public void VoidExam()
 		{
-			Action a = delegate { ExamStatus = ExamStatus.ExamVoided; };
+			Action a = delegate { ExamStatus = (short)ExamStatusEnum.ExamVoided; };
 			_examState.VoidExam(a);
 		}
 		
 		//HACK: Reset Theory Component
 		public void ResetTheoryComponent()
 		{
-			ExamStatus = ExamStatus.ExamCreated;
+			ExamStatus = (short)ExamStatusEnum.NewExam;
 			TheoryComponent.CurrentQuestionIndex = 0;
 		}
 		
@@ -177,31 +163,28 @@ namespace APFTestingModel
         {
             switch (ExamStatusId)
             {
-                case (int)ExamStatus.NoExamCreated:
+                case (int)ExamStatusEnum.NoExam:
                     _examState = new NoExamCreated();
                     break;
-                case (int)ExamStatus.ExamCreated:
+                case (int)ExamStatusEnum.NewExam:
                     _examState = new ExamCreated();
                     break;
-                case (int)ExamStatus.TheoryComponentInProgress:
+                case (int)ExamStatusEnum.TheoryInProgress:
                     _examState = new TheoryComponentInProgress();
                     break;
-                case (int)ExamStatus.TheoryComponentFailed:
+                case (int)ExamStatusEnum.TheoryFailed:
                     _examState = new TheoryComponentFailed();
                     break;
-                case (int)ExamStatus.TheoryComponentCompleted:
+                case (int)ExamStatusEnum.TheoryPassed:
                     _examState = new TheoryComponentCompleted();
                     break;
-                case (int)ExamStatus.PracticalComponentFailed:
-                    _examState = new PracticalComponentFailed();
-                    break;
-                case (int)ExamStatus.PracticalComponentCompleted:
+                case (int)ExamStatusEnum.PracticalEntered:
                     _examState = new PracticalComponentCompleted();
                     break;
-                case (int)ExamStatus.ExamCompleted:
+                case (int)ExamStatusEnum.ExamCompleted:
                     _examState = new ExamCompleted();
                     break;
-                case (int)ExamStatus.ExamVoided:
+                case (int)ExamStatusEnum.ExamVoided:
                     _examState = new ExamVoided();
                     break;
             }

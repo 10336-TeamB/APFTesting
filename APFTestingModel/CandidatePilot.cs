@@ -26,8 +26,16 @@ namespace APFTestingModel
     	public int PilotMedicalTypeId { get; set; }
     	public System.DateTime PilotMedicalExpiryDate { get; set; }
     	public System.Guid CreatedBy { get; set; }
+    	public Nullable<System.Guid> AddressId { get; set; }
+    	public string Email { get; set; }
+    	public string PhoneNumber { get; set; }
+    	public string MobileNumber { get; set; }
+    	public Nullable<System.DateTime> DateOfBirth { get; set; }
+    	public Nullable<short> PilotLicenseType { get; set; }
+    	public Nullable<short> PilotMedicalType { get; set; }
     
         public virtual Examiner Examiner { get; set; }
         public virtual ICollection<ExamPilot> ExamPilots { get; set; }
+        public virtual Address Address { get; set; }
     }
 }

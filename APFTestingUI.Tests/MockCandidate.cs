@@ -29,9 +29,9 @@ namespace APFTestingUI.Tests
             get { return null; }
         }
 
-        public ExamStatus LatestExamStatus
+        public ExamStatusEnum LatestExamStatus
         {
-            get { return ExamStatus.NoExamCreated; }
+            get { return ExamStatusEnum.NoExam; }
         }
     }
 }

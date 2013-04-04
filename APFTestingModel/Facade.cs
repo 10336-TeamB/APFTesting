@@ -47,7 +47,7 @@ namespace APFTestingModel
             else
             {
                 activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
-                activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
+                activePracticalTemplate = _context.PracticalComponentTemplates.Include("AssessmentTaskPilots").OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
             }
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
@@ -67,7 +67,6 @@ namespace APFTestingModel
             exam = examManager.GenerateExam(examinerId, candidate.Id);
             _context.Exams.Add(exam);
             _context.SaveChanges();
-
             return exam.Id;
 		}
 		
@@ -247,19 +246,19 @@ namespace APFTestingModel
 			return exam.FetchTheoryComponentResult();
 		}
 
-        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid candidateId)
+        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid examId)
         {
             var exam = _context.Exams
-                               .Include("PracticalComponent")
                                .OfType<ExamPilot>()
-                               .FirstOrDefault(e => e.CandidateId == candidateId);
+                               .FirstOrDefault(e => e.Id == examId);
+            List<SelectedAssessmentTask> selectedAssessmentTask = _context.SelectedAssessmentTasks.Where(t => t.PracticalComponentId == exam.PracticalComponentId).ToList();
 
-            var practicalComponents =
-                _context.PracticalComponents.Include("SelectedAssessmentTasks").OfType<PracticalComponentPilot>();
+            //var practicalComponents =
+            //    _context.PracticalComponents.Include("SelectedAssessmentTasks").OfType<PracticalComponentPilot>();
 
-            return (exam.PracticalComponent as PracticalComponentPilot).SelectedAssessmentTasks;
+            return selectedAssessmentTask;
         }
-
+        
         #endregion
 
 

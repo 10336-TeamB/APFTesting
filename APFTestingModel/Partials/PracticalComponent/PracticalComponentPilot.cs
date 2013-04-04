@@ -8,7 +8,10 @@ namespace APFTestingModel
 {
     internal partial class PracticalComponentPilot : PracticalComponent, IPracticalComponentPilot
     {
-        public PracticalComponentPilot(PracticalComponentTemplate activeTemplate) : base(activeTemplate) { }
+        public PracticalComponentPilot(PracticalComponentTemplate activeTemplate, ICollection<SelectedAssessmentTask> selectedAssessmentTasks) : base(activeTemplate) 
+        {
+            SelectedAssessmentTasks = selectedAssessmentTasks;
+        }
 
         // TODO - Implement IsCompetent
         public bool IsCompetent
