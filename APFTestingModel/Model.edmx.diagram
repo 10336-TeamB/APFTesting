@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 
-      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="89">
         <AssociationConnector Association="APFTestingDBModel.FK_Person_Address" />
         <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="23.5" PointY="4.625" />
         <EntityTypeShape EntityType="APFTestingDBModel.Answer" Width="1.5" PointX="28" PointY="21.125" />
@@ -25,7 +25,7 @@
         <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentPilot" Width="2.25" PointX="11.625" PointY="11.75" />
         <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplate" Width="2.625" PointX="12.375" PointY="19" />
         <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplatePacker" Width="2.75" PointX="12.375" PointY="22" />
-        <EntityTypeShape EntityType="APFTestingDBModel.SelectedAssessmentTask" Width="1.5" PointX="9.125" PointY="12.375" />
+        <EntityTypeShape EntityType="APFTestingDBModel.SelectedAssessmentTask" Width="2.375" PointX="9.125" PointY="12.375" />
         <EntityTypeShape EntityType="APFTestingDBModel.SelectedTheoryQuestion" Width="2.25" PointX="20.5" PointY="20.625" />
         <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponent" Width="2.25" PointX="19.375" PointY="16.25" />
         <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormat" Width="2.625" PointX="24.375" PointY="16.25" />

@@ -165,7 +165,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Address1" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Address2" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Suburb" Type="varchar" MaxLength="50" />
@@ -176,7 +176,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IsCorrect" Type="bit" Nullable="false" />
           <Property Name="DisplayOrderIndex" Type="int" Nullable="false" />
@@ -186,7 +186,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="AssessmentTaskPacker">
           <Key>
@@ -243,13 +243,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PracticalComponentId" Type="uniqueidentifier" />
           <Property Name="ExaminerId" Type="uniqueidentifier" />
-          <Property Name="ExamStatusId" Type="int" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime2" Nullable="false" />
-          <Property Name="ExamStatus" Type="smallint" Nullable="false" />
+          <Property Name="ExamStatus" Type="smallint" />
         </EntityType>
         <EntityType Name="Examiner">
           <Key>
@@ -261,9 +260,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ExaminerId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ExamTypeId" Type="int" Nullable="false" />
           <Property Name="ExamType" Type="smallint" />
         </EntityType>
         <EntityType Name="ExamPacker">
@@ -284,7 +282,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
@@ -292,7 +290,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SelectedTheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AnswerId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SelectedTime" Type="datetime" Nullable="false" />
@@ -302,7 +300,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CreationDate" Type="date" Nullable="false" />
           <Property Name="TemplateId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
@@ -322,7 +320,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PracticalComponentTemplateAssessmentTask">
@@ -350,7 +348,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AssessmentTaskPilotId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Comment" Type="varchar(max)" />
@@ -360,7 +358,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionIndex" Type="int" Nullable="false" />
@@ -370,34 +368,31 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FormatId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CurrentQuestionIndex" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="ExamTypeId" Type="int" Nullable="false" />
-          <Property Name="ExamType" Type="smallint" />
+          <Property Name="ExamType" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="TheoryComponentFormat">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NumberOfQuestions" Type="int" Nullable="false" />
           <Property Name="PassMark" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="TimeLimit" Type="int" Nullable="false" />
-          <Property Name="ExamTypeId" Type="int" Nullable="false" />
           <Property Name="ExamType" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="TheoryQuestion">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NumberOfCorrectAnswers" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="ImagePath" Type="varchar(max)" />
-          <Property Name="ExamTypeId" Type="int" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
           <Property Name="ExamType" Type="smallint" Nullable="false" />
@@ -897,7 +892,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Address1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Address2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Suburb" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -909,7 +904,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
           <Property Type="Boolean" Name="IsCorrect" Nullable="false" />
           <Property Type="Int32" Name="DisplayOrderIndex" Nullable="false" />
@@ -921,7 +916,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="AssessmentTaskPacker" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" BaseType="APFTestingDBModel.AssessmentTask">
           <Property Type="Guid" Name="PracticalComponentId" Nullable="false" />
@@ -963,11 +958,10 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="TheoryComponentId" Nullable="false" />
           <Property Type="Guid" Name="PracticalComponentId" />
           <Property Type="Guid" Name="ExaminerId" />
-          <Property Type="Int32" Name="ExamStatusId" Nullable="false" />
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="7" />
           <Property Type="APFTestingDBModel.ExamStatusEnum" Name="ExamStatus" Nullable="false" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_Exam_Examiner" FromRole="Exam" ToRole="Examiner" />
@@ -984,9 +978,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="ExaminerId" Nullable="false" />
-          <Property Type="Int32" Name="ExamTypeId" Nullable="false" />
           <Property Type="APFTestingDBModel.ExamTypeEnum" Name="ExamType" Nullable="false" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_ExaminerAuthority_Examiner" FromRole="ExaminerAuthority" ToRole="Examiner" />
         </EntityType>
@@ -1002,7 +995,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -1010,7 +1003,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="SelectedTheoryQuestionId" Nullable="false" />
           <Property Type="Guid" Name="AnswerId" Nullable="false" />
           <Property Type="DateTime" Name="SelectedTime" Nullable="false" Precision="3" />
@@ -1022,7 +1015,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="0" />
           <Property Type="Guid" Name="TemplateId" Nullable="false" />
           <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="PracticalComponent" ToRole="Exam" />
@@ -1038,7 +1031,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <NavigationProperty Name="PracticalComponents" Relationship="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" FromRole="PracticalComponentTemplate" ToRole="PracticalComponent" />
         </EntityType>
@@ -1050,7 +1043,7 @@
             <PropertyRef Name="Id" />
           </Key>
 
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="PracticalComponentId" Nullable="false" />
           <Property Type="Guid" Name="AssessmentTaskPilotId" Nullable="false" />
           <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -1063,7 +1056,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="TheoryComponentId" Nullable="false" />
           <Property Type="Guid" Name="TheoryQuestionId" Nullable="false" />
           <Property Type="Int32" Name="QuestionIndex" Nullable="false" />
@@ -1076,11 +1069,10 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="FormatId" Nullable="false" />
           <Property Type="Int32" Name="CurrentQuestionIndex" Nullable="false" />
           <Property Type="DateTime" Name="Date" Nullable="false" Precision="0" />
-          <Property Type="Int32" Name="ExamTypeId" Nullable="false" />
           <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="TheoryComponent" ToRole="Exam" />
 
           <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent" FromRole="TheoryComponent" ToRole="SelectedTheoryQuestion" />
@@ -1091,23 +1083,21 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="NumberOfQuestions" Nullable="false" />
           <Property Type="Int32" Name="PassMark" Nullable="false" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="Int32" Name="TimeLimit" Nullable="false" />
-          <Property Type="Int32" Name="ExamTypeId" Nullable="false" />
           <NavigationProperty Name="TheoryComponents" Relationship="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" FromRole="TheoryComponentFormat" ToRole="TheoryComponent" />
         </EntityType>
         <EntityType Name="TheoryQuestion" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Abstract="true">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="NumberOfCorrectAnswers" Nullable="false" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="String" Name="ImagePath" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="ExamTypeId" Nullable="false" />
           <Property Type="Int32" Name="CategoryId" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="Category" Nullable="false" />
@@ -1436,7 +1426,6 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ExamStatus" ColumnName="ExamStatus" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ExamStatusId" ColumnName="ExamStatusId" />
                 <ScalarProperty Name="ExaminerId" ColumnName="ExaminerId" />
                 <ScalarProperty Name="PracticalComponentId" ColumnName="PracticalComponentId" />
                 <ScalarProperty Name="TheoryComponentId" ColumnName="TheoryComponentId" />
@@ -1459,7 +1448,6 @@
             <EntityTypeMapping TypeName="APFTestingDBModel.ExaminerAuthority">
               <MappingFragment StoreEntitySet="ExaminerAuthority">
                 <ScalarProperty Name="ExamType" ColumnName="ExamType" />
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
                 <ScalarProperty Name="ExaminerId" ColumnName="ExaminerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -1582,7 +1570,6 @@
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponent)">
               <MappingFragment StoreEntitySet="TheoryComponent">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="CurrentQuestionIndex" ColumnName="CurrentQuestionIndex" />
                 <ScalarProperty Name="FormatId" ColumnName="FormatId" />
@@ -1605,7 +1592,6 @@
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponentFormat)">
               <MappingFragment StoreEntitySet="TheoryComponentFormat">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
                 <ScalarProperty Name="TimeLimit" ColumnName="TimeLimit" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="PassMark" ColumnName="PassMark" />
@@ -1635,7 +1621,6 @@
                 <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="NumberOfCorrectAnswers" ColumnName="NumberOfCorrectAnswers" />

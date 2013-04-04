@@ -171,30 +171,30 @@ namespace APFTestingModel
 
         partial void OnExamStatusChanged()
         {
-            switch (ExamStatusId)
+            switch (ExamStatus)
             {
-                case (int)ExamStatusEnum.NoExam:
+                case ExamStatusEnum.NoExam:
                     _examState = new NoExamCreated();
                     break;
-                case (int)ExamStatusEnum.NewExam:
+                case ExamStatusEnum.NewExam:
                     _examState = new ExamCreated();
                     break;
-                case (int)ExamStatusEnum.TheoryInProgress:
+                case ExamStatusEnum.TheoryInProgress:
                     _examState = new TheoryComponentInProgress();
                     break;
-                case (int)ExamStatusEnum.TheoryFailed:
+                case ExamStatusEnum.TheoryFailed:
                     _examState = new TheoryComponentFailed();
                     break;
-                case (int)ExamStatusEnum.TheoryPassed:
+                case ExamStatusEnum.TheoryPassed:
                     _examState = new TheoryComponentCompleted();
                     break;
-                case (int)ExamStatusEnum.PracticalEntered:
+                case ExamStatusEnum.PracticalEntered:
                     _examState = new PracticalComponentCompleted();
                     break;
-                case (int)ExamStatusEnum.ExamCompleted:
+                case ExamStatusEnum.ExamCompleted:
                     _examState = new ExamCompleted();
                     break;
-                case (int)ExamStatusEnum.ExamVoided:
+                case ExamStatusEnum.ExamVoided:
                     _examState = new ExamVoided();
                     break;
             }

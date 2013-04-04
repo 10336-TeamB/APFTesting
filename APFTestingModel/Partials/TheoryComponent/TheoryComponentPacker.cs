@@ -15,7 +15,7 @@ namespace APFTestingModel
         public TheoryComponentPacker(TheoryComponentFormat activeTheoryFormat)
             : base(activeTheoryFormat)
         {
-
+            
         }
 
         #endregion

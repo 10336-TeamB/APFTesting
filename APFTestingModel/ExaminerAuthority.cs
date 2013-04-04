@@ -16,7 +16,6 @@ namespace APFTestingModel
     {
     	public System.Guid Id { get; set; }
     	public System.Guid ExaminerId { get; set; }
-    	public int ExamTypeId { get; set; }
     	public APFTestingModel.ExamTypeEnum ExamType { get; set; }
     
         public virtual Examiner Examiner { get; set; }

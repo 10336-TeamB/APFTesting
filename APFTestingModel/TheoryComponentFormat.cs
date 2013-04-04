@@ -24,7 +24,6 @@ namespace APFTestingModel
     	public int PassMark { get; set; }
     	public bool IsActive { get; set; }
     	public int TimeLimit { get; set; }
-    	public int ExamTypeId { get; set; }
     
         public virtual ICollection<TheoryComponent> TheoryComponents { get; set; }
     }
