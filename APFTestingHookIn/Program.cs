@@ -42,26 +42,29 @@ namespace APFTestingHookIn {
             //}
             //Console.ReadKey();
 
-            CandidatePilotDetails pilot = new CandidatePilotDetails();
+            //CandidatePilotDetails pilot = new CandidatePilotDetails();
 
-            pilot.Address1 = "20 The Strand";
-            pilot.Address2 = "Rockdale";
-            pilot.ARN = "123456";
-            pilot.DateOfBirth = new DateTime();
-            pilot.Email = "kyle.resse@terminator.com";
-            pilot.InstrumentRating = true;
-            pilot.Phone = "123456";
-            pilot.PilotLicenceType = 1;
-            pilot.PilotMedical = 1;
-            pilot.PilotMedicalExpiry = new DateTime();
-            pilot.Postcode = "2216";
-            pilot.Suburb = "Rockdale";
-            pilot.ValidBFR = true;
-            pilot.FirstName = "Kyle";
-            pilot.LastName = "Resse";
-            pilot.Mobile = "123456";
+            //pilot.Address1 = "20 The Strand";
+            //pilot.Address2 = "Rockdale";
+            //pilot.ARN = "123456";
+            //pilot.DateOfBirth = new DateTime();
+            //pilot.Email = "kyle.resse@terminator.com";
+            //pilot.InstrumentRating = true;
+            //pilot.Phone = "123456";
+            //pilot.PilotLicenceType = 1;
+            //pilot.PilotMedical = 1;
+            //pilot.PilotMedicalExpiry = new DateTime();
+            //pilot.Postcode = "2216";
+            //pilot.Suburb = "Rockdale";
+            //pilot.ValidBFR = true;
+            //pilot.FirstName = "Sarah";
+            //pilot.LastName = "Connor";
+            //pilot.Mobile = "123456";
 
-            _facade.CreateCandidate(pilot, new Guid("0099DCCE-110A-4144-8ECB-80788F41E8FF"));
+            //_facade.CreateCandidate(pilot, new Guid("0099DCCE-110A-4144-8ECB-80788F41E8FF"));
+
+            var selectedAssessmentTask = _facade.FetchAssessmentTasks(new Guid("056d5d41-a2fb-4812-a7e9-acb03ec0e5fd"));
+            //selectedAssessmentTask = selectedAssessmentTask;
         }
     }
 }

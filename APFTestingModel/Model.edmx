@@ -15,7 +15,9 @@
           <EntitySet Name="CandidatePilot" EntityType="APFTestingDBModel.Store.CandidatePilot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Exam" EntityType="APFTestingDBModel.Store.Exam" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Examiner" EntityType="APFTestingDBModel.Store.Examiner" store:Type="Tables" Schema="dbo" />
+
           <EntitySet Name="ExaminerAuthority" EntityType="APFTestingDBModel.Store.ExaminerAuthority" store:Type="Tables" Schema="dbo" />
+
           <EntitySet Name="ExamPacker" EntityType="APFTestingDBModel.Store.ExamPacker" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ExamPilot" EntityType="APFTestingDBModel.Store.ExamPilot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Person" EntityType="APFTestingDBModel.Store.Person" store:Type="Tables" Schema="dbo" />
@@ -83,10 +85,12 @@
           <AssociationSet Name="FK_Examiner_Person" Association="APFTestingDBModel.Store.FK_Examiner_Person">
             <End Role="Person" EntitySet="Person" />
             <End Role="Examiner" EntitySet="Examiner" />
+
           </AssociationSet>
           <AssociationSet Name="FK_ExaminerAuthority_Examiner" Association="APFTestingDBModel.Store.FK_ExaminerAuthority_Examiner">
             <End Role="Examiner" EntitySet="Examiner" />
             <End Role="ExaminerAuthority" EntitySet="ExaminerAuthority" />
+
           </AssociationSet>
           <AssociationSet Name="FK_ExamPacker_CandidatePacker" Association="APFTestingDBModel.Store.FK_ExamPacker_CandidatePacker">
             <End Role="CandidatePacker" EntitySet="CandidatePacker" />
@@ -176,7 +180,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="IsCorrect" Type="bit" Nullable="false" />
           <Property Name="DisplayOrderIndex" Type="int" Nullable="false" />
@@ -186,7 +192,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
         </EntityType>
         <EntityType Name="AssessmentTaskPacker">
           <Key>
@@ -243,7 +251,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PracticalComponentId" Type="uniqueidentifier" />
           <Property Name="ExaminerId" Type="uniqueidentifier" />
@@ -256,6 +266,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
         </EntityType>
         <EntityType Name="ExaminerAuthority">
           <Key>
@@ -265,6 +276,7 @@
           <Property Name="ExaminerId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ExamTypeId" Type="int" Nullable="false" />
           <Property Name="ExamType" Type="smallint" />
+
         </EntityType>
         <EntityType Name="ExamPacker">
           <Key>
@@ -284,7 +296,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
@@ -292,7 +306,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="SelectedTheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AnswerId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SelectedTime" Type="datetime" Nullable="false" />
@@ -302,7 +318,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="CreationDate" Type="date" Nullable="false" />
           <Property Name="TemplateId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
@@ -322,7 +340,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PracticalComponentTemplateAssessmentTask">
@@ -350,7 +370,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AssessmentTaskPilotId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Comment" Type="varchar(max)" />
@@ -360,7 +382,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TheoryQuestionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionIndex" Type="int" Nullable="false" />
@@ -370,7 +394,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="FormatId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CurrentQuestionIndex" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
@@ -381,7 +407,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="NumberOfQuestions" Type="int" Nullable="false" />
           <Property Name="PassMark" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
@@ -393,7 +421,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+
           <Property Name="NumberOfCorrectAnswers" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="ImagePath" Type="varchar(max)" />
@@ -850,6 +880,7 @@
             <End Role="TheoryComponent" EntitySet="TheoryComponents" />
             <End Role="Exam" EntitySet="Exams" />
           </AssociationSet>
+
           <AssociationSet Name="FK_ExaminerAuthority_Examiner" Association="APFTestingDBModel.FK_ExaminerAuthority_Examiner">
             <End Role="Examiner" EntitySet="People" />
             <End Role="ExaminerAuthority" EntitySet="ExaminerAuthorities" />
@@ -885,6 +916,7 @@
           <AssociationSet Name="PracticalComponentTemplateAssessmentTask" Association="APFTestingDBModel.PracticalComponentTemplateAssessmentTask">
             <End Role="AssessmentTaskPilot" EntitySet="AssessmentTasks" />
             <End Role="PracticalComponentTemplatePilot" EntitySet="PracticalComponentTemplates" />
+
           </AssociationSet>
           </EntityContainer>
         <EnumType Name="ExamTypeEnum" a:ExternalTypeName="APFTestingModel.ExamTypeEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" UnderlyingType="Int16" />
@@ -1047,11 +1079,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+
           <Property Type="Guid" Name="Id" Nullable="false" />
           <Property Type="Guid" Name="PracticalComponentId" Nullable="false" />
           <Property Type="Guid" Name="AssessmentTaskPilotId" Nullable="false" />
           <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Score" />
+
           <NavigationProperty Name="PracticalComponentPilot" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_PracticalComponentPilot" FromRole="SelectedAssessmentTask" ToRole="PracticalComponentPilot" />
           <NavigationProperty Name="AssessmentTaskPilot" Relationship="APFTestingDBModel.FK_SelectedAssessmentTask_AssessmentTaskPilot" FromRole="SelectedAssessmentTask" ToRole="AssessmentTaskPilot" />
         </EntityType>
@@ -1078,8 +1112,10 @@
           <Property Type="DateTime" Name="Date" Nullable="false" Precision="0" />
           <Property Type="Int32" Name="ExamTypeId" Nullable="false" />
           <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="TheoryComponent" ToRole="Exam" />
+
           <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent" FromRole="TheoryComponent" ToRole="SelectedTheoryQuestion" />
           <NavigationProperty Name="TheoryComponentFormat" Relationship="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" FromRole="TheoryComponent" ToRole="TheoryComponentFormat" />
+
         </EntityType>
         <EntityType Name="TheoryComponentFormat" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
@@ -1106,7 +1142,9 @@
           <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="Category" />
           <NavigationProperty Name="Answers" Relationship="APFTestingDBModel.FK_Answer_TheoryQuestion" FromRole="TheoryQuestion" ToRole="Answer" />
+
           <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" FromRole="TheoryQuestion" ToRole="SelectedTheoryQuestion" />
+
         </EntityType>
         <Association Name="FK_CandidatePilot_Address">
           <End Type="APFTestingDBModel.Address" Role="Address" Multiplicity="0..1" />
@@ -1156,6 +1194,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+
+        
+
         <Association Name="FK_CandidatePacker_Examiner">
           <End Type="APFTestingDBModel.Examiner" Role="Examiner" Multiplicity="1" />
           <End Type="APFTestingDBModel.CandidatePacker" Role="CandidatePacker" Multiplicity="*" />
@@ -1240,6 +1281,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+
         <Association Name="FK_ExaminerAuthority_Examiner">
           <End Type="APFTestingDBModel.Examiner" Role="Examiner" Multiplicity="1" />
           <End Type="APFTestingDBModel.ExaminerAuthority" Role="ExaminerAuthority" Multiplicity="*" />
@@ -1356,15 +1398,18 @@
           <End Type="APFTestingDBModel.AssessmentTaskPilot" Role="AssessmentTaskPilot" Multiplicity="*" />
           <End Type="APFTestingDBModel.PracticalComponentTemplatePilot" Role="PracticalComponentTemplatePilot" Multiplicity="*" />
         </Association>
+
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="APFTestingDBModelStoreContainer" CdmEntityContainer="APFTestingDBEntities">
+
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.Address)">
               <MappingFragment StoreEntitySet="Address">
+
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Address1" ColumnName="Address1" />
                 <ScalarProperty Name="Address2" ColumnName="Address2" />
@@ -1413,9 +1458,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+
           <EntitySetMapping Name="Exams">
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.Exam)">
               <MappingFragment StoreEntitySet="Exam">
+
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ExamStatus" ColumnName="ExamStatus" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
@@ -1518,9 +1565,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+
           <EntitySetMapping Name="PracticalComponentTemplates">
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.PracticalComponentTemplate)">
               <MappingFragment StoreEntitySet="PracticalComponentTemplate">
+
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
@@ -1591,6 +1640,7 @@
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="PassMark" ColumnName="PassMark" />
                 <ScalarProperty Name="NumberOfQuestions" ColumnName="NumberOfQuestions" />
+                
               </MappingFragment>
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponentFormatPilot)">
@@ -1599,8 +1649,10 @@
                 <Condition ColumnName="ExamType" Value="1" />
               </MappingFragment>
             </EntityTypeMapping>
+
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.TheoryComponentFormatPacker)">
               <MappingFragment StoreEntitySet="TheoryComponentFormat">
+
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <Condition ColumnName="ExamType" Value="2" />
               </MappingFragment>

@@ -9,7 +9,7 @@ namespace APFTestingModel
     {
         Guid Id { get; set; }
         string Comment { get; set; }
-        int Score { get; set; }
+        Nullable<int> Score { get; set; }
         string Title { get; }
         string Details { get; }
         int MaxScore { get; }

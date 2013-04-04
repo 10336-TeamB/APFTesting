@@ -13,7 +13,7 @@ namespace APFTestingUI.Models.Practical
         {
             Id = task.Id;
             Comment = task.Comment;
-            Score = task.Score;
+            Score = (int)task.Score;
             Title = task.Title;
             Details = task.Details;
             MaxScore = task.MaxScore;

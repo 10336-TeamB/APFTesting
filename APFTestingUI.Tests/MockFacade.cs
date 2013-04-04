@@ -19,7 +19,7 @@ namespace APFTestingUI.Tests
         //    return Guid.NewGuid();
         //}
 
-        public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)
+        public ITheoryComponentFormat CreateTheoryComponentFormat(ExamTypeEnum examType, int numberOfQuestions, int passMark)
         {
             return new MockTheoryComponentFormat();
         }

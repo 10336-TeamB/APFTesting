@@ -28,20 +28,20 @@ namespace APFTestingModel
 
         public CandidatePilot(CandidatePilotDetails details, Guid createdBy)
         {
-			//FirstName = details.FirstName;
-			//LastName = details.LastName;
-			//DateOfBirth = details.DateOfBirth;
-			//Address = new Address(details.Address1, details.Address2, details.Suburb, details.Postcode);
-			//ARN = details.ARN;
-			//PhoneNumber = details.Phone;
-			//MobileNumber = details.Mobile;
-			//Email = details.Email;
-			//PilotLicenseTypeId = details.PilotLicenceType;
-			//InstrumentRating = details.InstrumentRating;
-			//PilotMedicalTypeId = details.PilotMedical;
-			//PilotMedicalExpiryDate = details.PilotMedicalExpiry;
-			//ValidBFR = details.ValidBFR;
-			//CreatedBy = createdBy;
+            FirstName = details.FirstName;
+            LastName = details.LastName;
+            DateOfBirth = details.DateOfBirth;
+            Address = new Address(details.Address1, details.Address2, details.Suburb, details.Postcode);
+            ARN = details.ARN;
+            PhoneNumber = details.Phone;
+            MobileNumber = details.Mobile;
+            Email = details.Email;
+            PilotLicenseTypeId = details.PilotLicenceType;
+            InstrumentRating = details.InstrumentRating;
+            PilotMedicalTypeId = details.PilotMedical;
+            PilotMedicalExpiryDate = details.PilotMedicalExpiry;
+            ValidBFR = details.ValidBFR;
+            CreatedBy = createdBy;
         }
 
         // Hardcoded values to allow facade to work with UI.
@@ -89,7 +89,7 @@ namespace APFTestingModel
                 {
                     return ExamStatusEnum.NoExam;
                 }
-                return latestExam.ExamStatus;
+                return (ExamStatusEnum)latestExam.ExamStatus;
             }
         }
 

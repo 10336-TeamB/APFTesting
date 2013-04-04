@@ -47,22 +47,6 @@ namespace APFTestingModel
             }
         }
 
-        //public ExamStatus ExamStatus
-        //{
-        //    get
-        //    {
-        //        if (ExamStatusId > (int)ExamStatus.Count || ExamStatusId < 0)
-        //        {
-        //            throw new BusinessRuleException("Exam Status is invalid");
-        //        }
-        //        return (ExamStatus)ExamStatusId;
-        //    }
-        //    private set
-        //    {
-        //        ExamStatusId = (int)value;
-        //    }
-        //}
-
         public bool TheoryComponentCompetency
         {
             get
@@ -99,7 +83,9 @@ namespace APFTestingModel
             Action a = delegate
             {
                 question = TheoryComponent.FetchFirstQuestion();
+
                 ExamStatus = ExamStatusEnum.TheoryInProgress;
+
             };
             _examState.FetchFirstQuestion(a);
             return question;
@@ -151,6 +137,7 @@ namespace APFTestingModel
 		public void SubmitTheoryComponent()
 		{
 			Action a = delegate { ExamStatus = (TheoryComponentCompetency) ? ExamStatusEnum.TheoryPassed : ExamStatusEnum.TheoryFailed; };
+
 			_examState.SubmitTheoryComponent(a);
 		}
 
@@ -164,7 +151,9 @@ namespace APFTestingModel
         //REFACTORED
 		public void VoidExam()
 		{
+
 			Action a = delegate { ExamStatus = ExamStatusEnum.ExamVoided; };
+
 			_examState.VoidExam(a);
 		}
 		
@@ -173,43 +162,42 @@ namespace APFTestingModel
 		public void ResetTheoryComponent()
 		{
 			ExamStatus = ExamStatusEnum.NewExam;
+
 			TheoryComponent.CurrentQuestionIndex = 0;
 		}
 		
 		#endregion
 
-        //partial void OnExamStatusIdChanged()
-        //{
-        //    switch (ExamStatusId)
-        //    {
-        //        case (int)ExamStatus.NoExamCreated:
-        //            _examState = new NoExamCreated();
-        //            break;
-        //        case (int)ExamStatus.ExamCreated:
-        //            _examState = new ExamCreated();
-        //            break;
-        //        case (int)ExamStatus.TheoryComponentInProgress:
-        //            _examState = new TheoryComponentInProgress();
-        //            break;
-        //        case (int)ExamStatus.TheoryComponentFailed:
-        //            _examState = new TheoryComponentFailed();
-        //            break;
-        //        case (int)ExamStatus.TheoryComponentCompleted:
-        //            _examState = new TheoryComponentCompleted();
-        //            break;
-        //        case (int)ExamStatus.PracticalComponentFailed:
-        //            _examState = new PracticalComponentFailed();
-        //            break;
-        //        case (int)ExamStatus.PracticalComponentCompleted:
-        //            _examState = new PracticalComponentCompleted();
-        //            break;
-        //        case (int)ExamStatus.ExamCompleted:
-        //            _examState = new ExamCompleted();
-        //            break;
-        //        case (int)ExamStatus.ExamVoided:
-        //            _examState = new ExamVoided();
-        //            break;
-        //    }
-        //}
+
+        partial void OnExamStatusChanged()
+        {
+            switch (ExamStatusId)
+            {
+                case (int)ExamStatusEnum.NoExam:
+                    _examState = new NoExamCreated();
+                    break;
+                case (int)ExamStatusEnum.NewExam:
+                    _examState = new ExamCreated();
+                    break;
+                case (int)ExamStatusEnum.TheoryInProgress:
+                    _examState = new TheoryComponentInProgress();
+                    break;
+                case (int)ExamStatusEnum.TheoryFailed:
+                    _examState = new TheoryComponentFailed();
+                    break;
+                case (int)ExamStatusEnum.TheoryPassed:
+                    _examState = new TheoryComponentCompleted();
+                    break;
+                case (int)ExamStatusEnum.PracticalEntered:
+                    _examState = new PracticalComponentCompleted();
+                    break;
+                case (int)ExamStatusEnum.ExamCompleted:
+                    _examState = new ExamCompleted();
+                    break;
+                case (int)ExamStatusEnum.ExamVoided:
+                    _examState = new ExamVoided();
+                    break;
+            }
+        }
     }
 }

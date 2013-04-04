@@ -80,7 +80,7 @@ namespace APFTestingModel
                 {
                     return ExamStatusEnum.NoExam;
                 }
-                return latestExam.ExamStatus;
+                return (ExamStatusEnum)latestExam.ExamStatus;
             }
         }
 
