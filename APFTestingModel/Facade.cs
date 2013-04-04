@@ -44,12 +44,12 @@ namespace APFTestingModel
             {
 
                 case ExamTypeEnum.PilotExam:
-                    activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().FirstOrDefault(f => f.IsActive);
-                    activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
+                    activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
+                    activePracticalTemplate = _context.PracticalComponentTemplates.Include("AssessmentTaskPilots").OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
                     break;
                 case ExamTypeEnum.PackerExam:
-                    activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
-                    activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
+                    activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().FirstOrDefault(f => f.IsActive);
+                    activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
                     break;
                 default:
                     throw new BusinessRuleException("Invalid exam type provided");
@@ -201,7 +201,7 @@ namespace APFTestingModel
 		
 		public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
 		{
-			var examiner = _context.People.Include("CandidatePackers").Include("CandidatePilots").OfType<Examiner>().First(e => e.Id == examinerId);
+            var examiner = _context.People.Include("CandidatePackers").Include("CandidatePilots").Include("CandidatePackers.ExamPackers").Include("CandidatePilots.ExamPilots").OfType<Examiner>().First(e => e.Id == examinerId);
 
             List<ICandidate> candidates = new List<ICandidate>();
             candidates.AddRange(examiner.CandidatePackers);

@@ -64,7 +64,7 @@ namespace APFTestingHookIn {
             //_facade.CreateCandidate(pilot, new Guid("0099DCCE-110A-4144-8ECB-80788F41E8FF"));
 
             var selectedAssessmentTask = _facade.FetchAssessmentTasks(new Guid("056d5d41-a2fb-4812-a7e9-acb03ec0e5fd"));
-            //selectedAssessmentTask = selectedAssessmentTask;
+            selectedAssessmentTask = selectedAssessmentTask;
         }
     }
 }
