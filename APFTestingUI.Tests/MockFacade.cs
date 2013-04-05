@@ -135,5 +135,10 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+        public IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

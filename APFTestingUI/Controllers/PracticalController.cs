@@ -72,61 +72,18 @@ namespace APFTestingUI.Controllers
         //
         // GET: /Practical/PackerView
 
-        //Hack: add examId and CandidateId
-        // public ActionResult PackerView(Guid examId)
-        public ActionResult PackerView()
+        public ActionResult PackerView(Guid examId)
         {
-            var examId = Guid.NewGuid();
-            var packs = dummyPacks();
+            var packs = _facade.FetchAssessmentTasksPacker(examId);
             var model = new PackerView(examId, packs);
             return View(model);
-        }
-
-        private IEnumerable<IAssessmentTaskPacker> dummyPacks()
-        {
-            yield return new DummyPack()
-            {
-                Id = new Guid("00000000-0000-0000-0000-000000000004"),
-                Date = DateTime.Now,
-                CanopyType = "Canopy Type Other",
-                CanopyTypeSerialNumber = "Canopy0001",
-                HarnessContainerType = "Harness Not defined",
-                HarnessContainerSerialNumber = "Harness0001",
-                Note = "Packed very well1",
-                SupervisorId = "006"
-            };
-            yield return new DummyPack()
-            {
-                Id = new Guid("00000000-0000-0000-0000-000000000005"),
-                Date = DateTime.Now,
-                CanopyType = "Canopy Type 2",
-                CanopyTypeSerialNumber = "Canopy0002",
-                HarnessContainerType = "Harness Container 2",
-                HarnessContainerSerialNumber = "Harness0002",
-                Note = "Packed very well2",
-                SupervisorId = "007"
-            };
-            yield return new DummyPack()
-            {
-                Id = new Guid("00000000-0000-0000-0000-000000000006"),
-                Date = DateTime.Now,
-                CanopyType = "Canopy Type 3",
-                CanopyTypeSerialNumber = "Canopy0003",
-                HarnessContainerType = "Harness Container 3",
-                HarnessContainerSerialNumber = "Harness0003",
-                Note = "Packed very well3",
-                SupervisorId = "008"
-            };
         }
 
         //
         // GET: /Practical/PackerInput
 
-        //HACK: reinstate
-        //public ActionResult PackerInput(Guid examId)
-        public ActionResult PackerInput()
+        public ActionResult PackerInput(Guid examId)
         {
-            var examId = Guid.NewGuid();
             var model = new PackerInput(examId);
             return View(model);
         }
@@ -146,12 +103,9 @@ namespace APFTestingUI.Controllers
         // GET: /Practical/PackerEdit
 
         //public ActionResult PackerEdit(Guid examId, Guid taskId)
-        public ActionResult PackerEdit()
+        public ActionResult PackerEdit(Guid examId, Guid taskId)
         {
-            // get AssessmentTaskPacker from facade
-            // var task = _facade.FetchPackerTask(examId, taskId);
-            var examId = Guid.NewGuid();
-            var task = dummyPacks().First();
+            var task = _facade.FetchSingleAssessmentTaskPacker(examId, taskId);
             var model = new PackerEdit(examId, task);
             return View(model);
         }
@@ -174,7 +128,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult FinalisePractical(Guid examId)
         {
-            var tasks = _facade.FinalisePractical(examId);
+            _facade.FinalisePractical(examId);
             return RedirectToAction("Index", "Examiner");
         }
     }

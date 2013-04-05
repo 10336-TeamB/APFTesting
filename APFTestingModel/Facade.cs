@@ -339,7 +339,7 @@ namespace APFTestingModel
         }
 
 
-        // TODO: These 3 methods need completing
+        // TODO: These 4 methods need completing
         public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
         {
             
@@ -353,6 +353,13 @@ namespace APFTestingModel
 
         public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId)
         {
+
+            return null;
+        }
+
+        public IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)
+        {
+
 
             return null;
         }
