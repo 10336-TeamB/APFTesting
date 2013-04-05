@@ -19,7 +19,7 @@ namespace APFTestingUI.Models.Practical
             ExamId = examId;
             PackId = pack.Id;
             Date = pack.Date.ToShortDateString();
-            var canopyTypeComparisonList = Enum.GetValues(typeof(CanopyTypes)).Cast<CanopyTypes>().ToList().Select(e => e.ToString());
+            var canopyTypeComparisonList = Enum.GetValues(typeof(CanopyTypes)).Cast<CanopyTypes>().Select(e => e.ToString()).ToList();
             if (canopyTypeComparisonList.Contains(pack.CanopyType))
             {
                 CanopyType = pack.CanopyType;
@@ -30,7 +30,7 @@ namespace APFTestingUI.Models.Practical
                 CanopyTypeOther = pack.CanopyType;
             }
             CanopyTypeSerialNumber = pack.CanopyTypeSerialNumber;
-            var harnessContainerTypeComparisonList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().ToList().Select(e => e.ToString());
+            var harnessContainerTypeComparisonList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().Select(e => e.ToString()).ToList();
             if (harnessContainerTypeComparisonList.Contains(pack.HarnessContainerType)) 
             {
                 HarnessContainerType = pack.HarnessContainerType;

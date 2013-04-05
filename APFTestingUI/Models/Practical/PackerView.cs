@@ -11,7 +11,7 @@ namespace APFTestingUI.Models.Practical
         public PackerView(Guid examId, IEnumerable<IAssessmentTaskPacker> packs) 
         {
             ExamId = examId;
-            Packs = packs.Select(p => new DemonstratedPackDisplayItem(p));
+            Packs = packs.Select(p => new DemonstratedPackDisplayItem(p)).ToList();
         }
 
         public Guid ExamId { get; set; }

@@ -115,7 +115,7 @@ namespace APFTestingUI.Tests
 
 
 
-        public void SubmitPilotPracticalResults(List<PilotPracticalResult> results)
+        public void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results)
         {
             throw new NotImplementedException();
         }

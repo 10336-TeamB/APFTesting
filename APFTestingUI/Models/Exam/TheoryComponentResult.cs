@@ -13,7 +13,7 @@ namespace APFTestingUI.Models.Exam
             IsCompetent = theoryComponentResult.IsCompetent;
             Score = theoryComponentResult.Score.ToString("P1");
             //TODO - Should QuestionDisplayItem require ExamId?
-			Questions = theoryComponentResult.SelectedTheoryQuestions.Select(q => new ResultQuestionDisplayItem(q, examId));
+			Questions = theoryComponentResult.SelectedTheoryQuestions.Select(q => new ResultQuestionDisplayItem(q, examId)).ToList();
             Message = IsCompetent ? "Congratulations! You have passed" : "Unfortunately you did not pass";
         }
         

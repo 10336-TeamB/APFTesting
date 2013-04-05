@@ -12,7 +12,7 @@ namespace APFTestingUI.Models.Examiner
         {
             ExaminerId = examinerId;
             assignAuthority(examinerAuthority);
-            Candidates = candidates.Select(c => new CandidateDisplayItem(c));
+            Candidates = candidates.Select(c => new CandidateDisplayItem(c)).ToList();
         }
 
         public IEnumerable<CandidateDisplayItem> Candidates { get; set; }

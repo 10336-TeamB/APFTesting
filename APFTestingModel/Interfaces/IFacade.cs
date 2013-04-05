@@ -34,6 +34,6 @@ namespace APFTestingModel
         void VoidExam(Guid examId);
         void ResetTheoryComponent();
 
-        void SubmitPilotPracticalResults(List<PilotPracticalResult> results);
+        void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results);
     }
 }

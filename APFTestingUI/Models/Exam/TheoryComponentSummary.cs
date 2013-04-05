@@ -11,7 +11,7 @@ namespace APFTestingUI.Models.Exam
         public TheoryComponentSummary(Guid examId, IEnumerable<ISelectedTheoryQuestion> questions)
         {
             ExamId = examId;
-            Questions = questions.Select(q => new ResultQuestionDisplayItem(q, examId));
+            Questions = questions.Select(q => new ResultQuestionDisplayItem(q, examId)).ToList();
         }
 
         public Guid ExamId { get; set; }
