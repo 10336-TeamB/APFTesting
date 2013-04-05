@@ -18,8 +18,8 @@ namespace APFTestingModel
     	public System.Guid TheoryComponentId { get; set; }
     	public Nullable<System.Guid> ExaminerId { get; set; }
     	public System.DateTime CreatedDate { get; set; }
-        private APFTestingModel.ExamStatusEnum _ExamStatus;
-    	public APFTestingModel.ExamStatusEnum ExamStatus { get{ return _ExamStatus; } set{ _ExamStatus = value; OnExamStatusChanged(); } }
+        private APFTestingModel.ExamStatus _ExamStatus;
+    	public APFTestingModel.ExamStatus ExamStatus { get{ return _ExamStatus; } set{ _ExamStatus = value; OnExamStatusChanged(); } }
     	partial void OnExamStatusChanged();
     	
 

@@ -15,7 +15,7 @@ namespace APFTestingModel
     internal partial class ExaminerAuthority
     {
     	public System.Guid ExaminerId { get; set; }
-    	public short ExamType { get; set; }
+    	public APFTestingModel.ExamType ExamType { get; set; }
     
         public virtual Examiner Examiner { get; set; }
     }

@@ -933,10 +933,10 @@
             <End Role="PracticalComponentPilot" EntitySet="PracticalComponents" />
           </AssociationSet>
           </EntityContainer>
-        <EnumType Name="ExamTypeEnum" a:ExternalTypeName="APFTestingModel.ExamTypeEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" UnderlyingType="Int16" />
-        <EnumType Name="ExamStatusEnum" a:ExternalTypeName="APFTestingModel.ExamStatusEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" UnderlyingType="Int16" />
-        <EnumType Name="PilotLicenseTypeEnum" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.PilotLicenseTypeEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-        <EnumType Name="PilotMedicalTypeEnum" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.PilotMedicalTypeEnum" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="ExamType" a:ExternalTypeName="APFTestingModel.ExamType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" UnderlyingType="Int16" />
+        <EnumType Name="ExamStatus" a:ExternalTypeName="APFTestingModel.ExamStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" UnderlyingType="Int16" />
+        <EnumType Name="PilotLicenseType" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.PilotLicenseType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="PilotMedicalType" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.PilotMedicalType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <EntityType Name="Address" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
             <PropertyRef Name="Id" />
@@ -1012,7 +1012,7 @@
           <!--<Property Type="Guid" Name="PracticalComponentId" />-->
           <Property Type="Guid" Name="ExaminerId" />
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="7" />
-          <Property Type="APFTestingDBModel.ExamStatusEnum" Name="ExamStatus" Nullable="false" />
+          <Property Type="APFTestingDBModel.ExamStatus" Name="ExamStatus" Nullable="false" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_Exam_Examiner" FromRole="Exam" ToRole="Examiner" />
           <!--<NavigationProperty Name="PracticalComponent" Relationship="APFTestingDBModel.FK_Exam_PracticalComponent" FromRole="Exam" ToRole="PracticalComponent" />-->
           <NavigationProperty Name="TheoryComponent" Relationship="APFTestingDBModel.FK_Exam_TheoryComponent" FromRole="Exam" ToRole="TheoryComponent" />
@@ -1023,6 +1023,7 @@
           <NavigationProperty Name="Exams" Relationship="APFTestingDBModel.FK_Exam_Examiner" FromRole="Examiner" ToRole="Exam" />
           <NavigationProperty Name="ExaminerAuthorities" Relationship="APFTestingDBModel.FK_ExaminerAuthority_Examiner" FromRole="Examiner" ToRole="ExaminerAuthority" />
         </EntityType>
+
         <EntityType Name="ExamPacker" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" BaseType="APFTestingDBModel.Exam">
           <Property Type="Guid" Name="CandidateId" />
           <NavigationProperty Name="CandidatePacker" Relationship="APFTestingDBModel.FK_ExamPacker_CandidatePacker" FromRole="ExamPacker" ToRole="CandidatePacker" />
@@ -1403,7 +1404,7 @@
             <PropertyRef Name="ExamType" />
           </Key>
           <Property Type="Guid" Name="ExaminerId" Nullable="false" />
-          <Property Type="Int16" Name="ExamType" Nullable="false" />
+          <Property Type="APFTestingDBModel.ExamType" Name="ExamType" Nullable="false" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_ExaminerAuthority_Examiner" FromRole="ExaminerAuthority" ToRole="Examiner" />
         </EntityType>
         <Association Name="FK_ExaminerAuthority_Examiner">
