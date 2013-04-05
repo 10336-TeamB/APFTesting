@@ -17,14 +17,14 @@ namespace APFTestingModel
         {
             CandidateId = candidateId;
             TheoryComponent = theoryComponentPacker;
-            base.PracticalComponent = practicalComponentPacker;
+            PracticalComponentPacker = practicalComponentPacker;
         }
 
         #endregion
 
         public new IPracticalComponentPacker PracticalComponent
         {
-            get { return base.PracticalComponent as PracticalComponentPacker; }
+            get { return PracticalComponentPacker; }
         }
     }
 }

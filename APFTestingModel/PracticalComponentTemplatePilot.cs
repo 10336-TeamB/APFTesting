@@ -17,9 +17,11 @@ namespace APFTestingModel
         public PracticalComponentTemplatePilot()
         {
             this.AssessmentTaskPilots = new HashSet<AssessmentTaskPilot>();
+            this.PracticalComponentPilots = new HashSet<PracticalComponentPilot>();
         }
     
     
         public virtual ICollection<AssessmentTaskPilot> AssessmentTaskPilots { get; set; }
+        public virtual ICollection<PracticalComponentPilot> PracticalComponentPilots { get; set; }
     }
 }

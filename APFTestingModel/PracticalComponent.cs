@@ -14,16 +14,7 @@ namespace APFTestingModel
     
     internal abstract partial class PracticalComponent
     {
-        public PracticalComponent()
-        {
-            this.Exams = new HashSet<Exam>();
-        }
-    
     	public System.Guid Id { get; set; }
     	public System.DateTime CreationDate { get; set; }
-    	public System.Guid TemplateId { get; set; }
-    
-        public virtual ICollection<Exam> Exams { get; set; }
-        public virtual PracticalComponentTemplate PracticalComponentTemplate { get; set; }
     }
 }

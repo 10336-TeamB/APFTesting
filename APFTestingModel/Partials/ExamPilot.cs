@@ -17,7 +17,7 @@ namespace APFTestingModel
         {
             CandidateId = candidateId;
             TheoryComponent = theoryComponentPilot;
-            PracticalComponent = practicalComponentPilot;
+            PracticalComponentPilot = practicalComponentPilot;
         }
 
         #endregion
