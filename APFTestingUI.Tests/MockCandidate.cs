@@ -29,9 +29,15 @@ namespace APFTestingUI.Tests
             get { return null; }
         }
 
-        public ExamStatusEnum LatestExamStatus
+        public ExamStatus LatestExamStatus
         {
-            get { return ExamStatusEnum.NoExam; }
+            get { return ExamStatus.NoExam; }
+        }
+
+
+        public ExamType ExamType
+        {
+            get { throw new NotImplementedException(); }
         }
     }
 }

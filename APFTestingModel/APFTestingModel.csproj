@@ -70,7 +70,6 @@
     <Compile Include="CandidatePilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\DataStructures.cs" />
     <Compile Include="Exam.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -86,6 +85,7 @@
     <Compile Include="ExamPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DataStructures.cs" />
     <Compile Include="ExamStateMachine\ExamCompleted.cs" />
     <Compile Include="ExamStateMachine\ExamCreated.cs" />
     <Compile Include="ExamStateMachine\ExamState.cs" />

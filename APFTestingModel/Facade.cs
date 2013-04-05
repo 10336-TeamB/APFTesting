@@ -35,7 +35,7 @@ namespace APFTestingModel
 		}
 
         //REFACTORED
-        private void createExamManager(ExamTypeEnum examType)
+        private void createExamManager(ExamType examType)
         {
             TheoryComponentFormat activeTheoryFormat;
             PracticalComponentTemplate activePracticalTemplate;
@@ -43,11 +43,11 @@ namespace APFTestingModel
             switch (examType)
             {
 
-                case ExamTypeEnum.PilotExam:
+                case ExamType.PilotExam:
                     activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
                     activePracticalTemplate = _context.PracticalComponentTemplates.Include("AssessmentTaskPilots").OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
                     break;
-                case ExamTypeEnum.PackerExam:
+                case ExamType.PackerExam:
                     activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().FirstOrDefault(f => f.IsActive);
                     activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
                     break;
@@ -65,11 +65,11 @@ namespace APFTestingModel
 
             if (candidate is CandidatePilot)
             {
-                createExamManager(ExamTypeEnum.PilotExam);
+                createExamManager(ExamType.PilotExam);
             }
             else if (candidate is CandidatePacker)
             {
-                createExamManager(ExamTypeEnum.PackerExam);
+                createExamManager(ExamType.PackerExam);
             }
             exam = examManager.GenerateExam(examinerId, candidate.Id);
             _context.Exams.Add(exam);
@@ -277,16 +277,16 @@ namespace APFTestingModel
 		#region Other Methods
 		
         //REFACTORED
-		public ITheoryComponentFormat CreateTheoryComponentFormat(ExamTypeEnum examType, int numberOfQuestions, int passMark)
+		public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)
 		{
 			switch (examType)
 			{
-				case ExamTypeEnum.PilotExam:
+				case ExamType.PilotExam:
 					var theoryComponentFormatPilot = new TheoryComponentFormatPilot(numberOfQuestions, passMark);
 					_context.TheoryComponentFormats.Add(theoryComponentFormatPilot);
 					_context.SaveChanges();
 					return theoryComponentFormatPilot;
-				case ExamTypeEnum.PackerExam:
+				case ExamType.PackerExam:
 					var theoryComponentFormatPacker = new TheoryComponentFormatPacker(numberOfQuestions, passMark);
 					_context.TheoryComponentFormats.Add(theoryComponentFormatPacker);
 					_context.SaveChanges();
