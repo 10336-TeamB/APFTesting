@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
     internal partial class AssessmentTaskPacker : IAssessmentTaskPacker
     {
+        public AssessmentTaskPacker() { }
+
         public AssessmentTaskPacker(PackerPracticalResult result)
         {
             Edit(result);

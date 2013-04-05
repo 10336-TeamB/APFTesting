@@ -35,56 +35,5 @@ namespace APFTestingModel
             Comment = result.Comment;
             Score = result.Score;
         }
-
-        Guid ISelectedAssessmentTask.Id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        string ISelectedAssessmentTask.Comment
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        int? ISelectedAssessmentTask.Score
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        string ISelectedAssessmentTask.Title
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        string ISelectedAssessmentTask.Details
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        int ISelectedAssessmentTask.MaxScore
-        {
-            get { throw new NotImplementedException(); }
-        }
     }
 }

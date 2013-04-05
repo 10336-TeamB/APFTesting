@@ -254,12 +254,12 @@ namespace APFTestingModel
 
         public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid examId)
         {
-            var exam = _context.Exams
-                               .OfType<ExamPilot>()
-                               .FirstOrDefault(e => e.Id == examId);
-            List<SelectedAssessmentTask> selectedAssessmentTasks = _context.SelectedAssessmentTasks.Where(t => t.PracticalComponentId == exam.PracticalComponentId).ToList();
-
-            return selectedAssessmentTasks;
+            var exam = _context.Exams.OfType<ExamPilot>().Include("PracticalComponentPilot")
+                .Include("PracticalComponentPilot.SelectedAssessmentTasks")
+                .Include("PracticalComponentPilot.SelectedAssessmentTasks.AssessmentTaskPilot")
+                .FirstOrDefault(e => e.Id == examId);
+            
+            return exam.SelectedAssessmentTasks;
         }
         
         #endregion
@@ -342,7 +342,7 @@ namespace APFTestingModel
         // TODO: These 5 methods need completing
         public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
         {
-            var exam = _context.Exams.OfType<ExamPacker>().First(e => e.Id == examId);
+            var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);
             exam.AddPracticalComponentResult(result);
             _context.SaveChanges();
         }
