@@ -54,6 +54,23 @@ namespace APFTestingUI.Models.Practical
         [Display(Name = "Intructor/Rigger No.")]
         public string SupervisorId { get; set; }
 
+        public PackerPracticalResult Values 
+        {
+            get
+            {
+                return new PackerPracticalResult
+                {
+                    Date = DateTime.Parse(Date),
+                    CanopyType = CanopyType,
+                    CanopyTypeSerialNumber = CanopyTypeSerialNumber,
+                    HarnessContainerType = HarnessContainerType,
+                    HarnessContainerSerialNumber = HarnessContainerSerialNumber,
+                    Note = Note,
+                    SupervisorId = SupervisorId
+                };
+            }
+        }
+
         private void buildSelectLists()
         {
             var canopyList = Enum.GetValues(typeof(CanopyTypes));

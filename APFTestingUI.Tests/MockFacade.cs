@@ -140,5 +140,10 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+        public void EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

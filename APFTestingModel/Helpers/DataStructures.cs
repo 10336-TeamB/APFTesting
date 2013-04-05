@@ -43,8 +43,6 @@ namespace APFTestingModel
 
     public struct PackerPracticalResult
     {
-        public Guid Id { get; set; }
-        public Guid PracticalComponentId { get; set; }
         public DateTime Date { get; set; }
         public string CanopyType { get; set; }
         public string CanopyTypeSerialNumber { get; set; }

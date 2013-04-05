@@ -339,10 +339,16 @@ namespace APFTestingModel
         }
 
 
-        // TODO: These 4 methods need completing
+        // TODO: These 5 methods need completing
         public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
         {
             
+        }
+
+        public void EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)
+        {
+            
+
         }
 
         public void FinalisePractical(Guid examId)

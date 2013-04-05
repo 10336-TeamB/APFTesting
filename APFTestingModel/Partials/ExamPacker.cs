@@ -22,7 +22,7 @@ namespace APFTestingModel
 
         #endregion
 
-        public new IPracticalComponentPacker PracticalComponent
+        public IPracticalComponentPacker PracticalComponent
         {
             get { return PracticalComponentPacker; }
         }
