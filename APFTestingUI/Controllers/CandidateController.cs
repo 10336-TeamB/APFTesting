@@ -19,7 +19,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult ViewPilot(Guid candidateId)
         {
-            // var model = facade.FetchCandidate(candidateId);
+            //var model = new ViewPilot(_facade.FetchPilot(candidateId));
             return View(new ViewPilot());
         }
 
@@ -59,7 +59,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult EditPilot(Guid candidateId)
         {
-            //var model = new EditPilot(_facade.FetchCandidate(candidateId));
+            //var model = new EditPilot(_facade.FetchPilot(candidateId));
             return View();
         }
 
@@ -95,7 +95,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult ViewPacker(Guid candidateId)
         {
-            // var model = facade.FetchCandidate(candidateId);
+            //var model = _facade.FetchPacker(candidateId);
             return View(new ViewPacker());
         }
 
@@ -117,9 +117,9 @@ namespace APFTestingUI.Controllers
             {
                 try
                 {
-                    // Send data to facade
-
-                    // Redirect
+                    var examinerId = new Guid("0099dcce-110a-4144-8ecb-80788f41e8ff");
+                    var candidateId = _facade.CreateCandidate(model.Values, examinerId);
+                    return RedirectToAction("ViewPacker", new { candidateId });
                 }
                 catch (BusinessRuleException e)
                 {
@@ -135,7 +135,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult EditPacker(Guid candidateId)
         {
-            //var model = new EditPacker(_facade.FetchCandidate(candidateId));
+            //var model = new EditPacker(_facade.FetchPacker(candidateId));
             return View();
         }
 

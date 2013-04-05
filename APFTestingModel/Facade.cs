@@ -209,6 +209,17 @@ namespace APFTestingModel
             return candidates;
 		}
 
+        //TODO: Need to create Interface return types for these methods
+        //public ICandidatePilot FetchPilot(Guid candidateId)
+        //{
+            
+        //}
+
+        //public ICandidatePacker FetchPacker(Guid candidateId)
+        //{
+
+        //}
+
         private Person fetchCandidate(Guid candidateId)
         {
             var candidate = _context.People.First(c => c.Id == candidateId);
@@ -360,7 +371,7 @@ namespace APFTestingModel
         {
             // Change exam status to finalise practical component
             var exam = _context.Exams.First(e => e.Id == examId);
-            exam.ExamStatus = ExamStatus.PracticalEntered;  //Or is it Exam Finalized? - Pradipna
+            exam.ExamStatus = ExamStatus.PracticalEntered;  //Or is it Exam Finalized? - Pradipna // I think we will add it as a seperate action so the examiner can confirm final submission - Adam
             _context.SaveChanges();
         }
 

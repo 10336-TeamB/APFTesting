@@ -8,24 +8,6 @@ namespace APFTestingModel
 {
     internal partial class CandidatePilot : ICandidate
     {
-        // Hardcoded values to allow facade to work with UI.
-        //public Guid Id
-        //{
-        //    get { return new Guid("1cc2ffb9-ffff-ffff-ffff-ffffffffffff"); }
-        //}
-
-        //// Hardcoded values to allow facade to work with UI.
-        //public string FirstName
-        //{
-        //    get { return "Paul"; }
-        //}
-
-        //// Hardcoded values to allow facade to work with UI.
-        //public string LastName
-        //{
-        //    get { return "Ilett"; }
-        //}
-
         public CandidatePilot(CandidatePilotDetails details, Guid createdBy)
         {
             FirstName = details.FirstName;
