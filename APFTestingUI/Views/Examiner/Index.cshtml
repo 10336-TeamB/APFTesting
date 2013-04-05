@@ -11,12 +11,12 @@
 
 @if (Model.PilotAuthorised)
 {
-    @Html.ActionLink("Add Candidate", "CreatePilot", "Candidate", new { }, new { @class="button-add" })
+    @Html.ActionLink("Add Pilot Candidate", "CreatePilot", "Candidate", new { }, new { @class="button-add" })
 }
 
 @if (Model.PackerAuthorised)
 {
-    @Html.ActionLink("Add Candidate", "CreatePacker", "Candidate", new { }, new { @class="button-add" })
+    @Html.ActionLink("Add Packer Candidate", "CreatePacker", "Candidate", new { }, new { @class="button-add" })
 }
 
 
@@ -64,7 +64,7 @@
                     }
                     else if (candidate.ExamType.Equals("PackerExam"))
                     {
-                        @Html.ActionLink("Input Practical Results", "PackerInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                        @Html.ActionLink("Input Practical Results", "PackerView", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
                     }
                 </td>
                 <td class="reset-cell"><button id="reset" class="examinerButton" type="button">Reset Exam</button></td>

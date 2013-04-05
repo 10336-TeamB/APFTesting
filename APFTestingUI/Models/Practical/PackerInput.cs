@@ -14,15 +14,13 @@ namespace APFTestingUI.Models.Practical
             buildSelectLists();
         }
 
-        public PackerInput(Guid examId, Guid candidateId)
+        public PackerInput(Guid examId)
         {
             ExamId = examId;
-            CandidateId = candidateId;
             buildSelectLists();
         }
 
         public Guid ExamId { get; set; }
-        public Guid CandidateId { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

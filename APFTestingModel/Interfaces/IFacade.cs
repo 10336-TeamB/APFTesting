@@ -28,12 +28,14 @@ namespace APFTestingModel
         IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId);
         void SubmitTheoryComponent(Guid examId);
 
-        IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid candidateId);
+        IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid candidateId);
+        IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId);
 
         void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId);
         void VoidExam(Guid examId);
         void ResetTheoryComponent();
 
         void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results);
+        void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result);
     }
 }

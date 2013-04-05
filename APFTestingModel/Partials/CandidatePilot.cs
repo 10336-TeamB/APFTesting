@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class CandidatePilot : Person, ICandidate
+    internal partial class CandidatePilot : ICandidate
     {
         // Hardcoded values to allow facade to work with UI.
         //public Guid Id

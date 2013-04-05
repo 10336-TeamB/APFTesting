@@ -76,18 +76,15 @@ namespace APFTestingUI.Tests
             // NO-OP
         }
 
-
         public void ResetTheoryComponent()
         {
             // NO-OP
         }
 
-
         public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
         {
             return Guid.NewGuid();
         }
-
 
 		public ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId)
 		{
@@ -99,27 +96,20 @@ namespace APFTestingUI.Tests
 			return new MockSelectedTheoryQuestion();
 		}
 
-
         public ISelectedTheoryQuestion FetchFirstQuestion(Guid examId)
         {
             return new MockSelectedTheoryQuestion();
         }
 
-
-        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid candidateId)
+        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid candidateId)
         {
             throw new NotImplementedException();
         }
-
-
-
-
 
         public void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results)
         {
             throw new NotImplementedException();
         }
-
 
         public Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy)
         {
@@ -127,6 +117,16 @@ namespace APFTestingUI.Tests
         }
 
         public Guid CreateCandidate(CandidatePackerDetails details, Guid createdBy)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId)
         {
             throw new NotImplementedException();
         }

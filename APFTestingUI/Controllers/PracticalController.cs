@@ -19,7 +19,7 @@ namespace APFTestingUI.Controllers
 
         public ActionResult PilotInput(Guid examId, Guid candidateId)
         {
-            var tasks = _facade.FetchAssessmentTasks(examId);
+            var tasks = _facade.FetchAssessmentTasksPilot(examId);
             //var tasks = dummyTasks();
             var model = new PilotInput(examId, candidateId, tasks);
             return View(model);
@@ -45,7 +45,7 @@ namespace APFTestingUI.Controllers
                 }
                 try
                 {
-                    //_facade.SubmitPilotPracticalResults(results);
+                    _facade.SubmitPilotPracticalResults(model.ExamId, results);
                     return RedirectToAction("PilotView", new { examId = model.ExamId, candidateId = model.CandidateId});
                 }
                 catch (BusinessRuleException e)
@@ -91,17 +91,17 @@ namespace APFTestingUI.Controllers
 
         public ActionResult PilotView(Guid examId, Guid candidateId)
         {
-            var tasks = _facade.FetchAssessmentTasks(examId);
+            var tasks = _facade.FetchAssessmentTasksPilot(examId);
             var model = new PilotView(examId, candidateId, tasks);
             return View(model);
         }
 
         //
-        // GET: /Practical/PilotSubmit
+        // GET: /Practical/FinalisePractical
 
-        public ActionResult PilotSubmit(Guid examId)
+        public ActionResult FinalisePractical(Guid examId)
         {
-            //var tasks = _facade.SubmitPilotPractical(examId);
+            //var tasks = _facade.FinalisePractical(examId);
             return RedirectToAction("Index", "Examiner");
         }
 
@@ -113,7 +113,7 @@ namespace APFTestingUI.Controllers
         // GET: /Practical/PackerView
 
         //Hack: add examId and CandidateId
-        // public ActionResult PackerView(Guid examId, Guid candidateId)
+        // public ActionResult PackerView(Guid examId)
         public ActionResult PackerView()
         {
             var examId = Guid.NewGuid();
@@ -163,12 +163,11 @@ namespace APFTestingUI.Controllers
         // GET: /Practical/PackerInput
 
         //HACK: reinstate
-        //public ActionResult PackerInput(Guid examId, Guid candidateId)
+        //public ActionResult PackerInput(Guid examId)
         public ActionResult PackerInput()
         {
             var examId = Guid.NewGuid();
-            var candidateId = Guid.NewGuid();
-            var model = new PackerInput(examId, candidateId);
+            var model = new PackerInput(examId);
             return View(model);
         }
 

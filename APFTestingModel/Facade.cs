@@ -252,15 +252,12 @@ namespace APFTestingModel
 			return exam.FetchTheoryComponentResult();
 		}
 
-        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasks(Guid examId)
+        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid examId)
         {
             var exam = _context.Exams
                                .OfType<ExamPilot>()
                                .FirstOrDefault(e => e.Id == examId);
             List<SelectedAssessmentTask> selectedAssessmentTasks = _context.SelectedAssessmentTasks.Where(t => t.PracticalComponentId == exam.PracticalComponentId).ToList();
-
-            //var practicalComponents =
-            //    _context.PracticalComponents.Include("SelectedAssessmentTasks").OfType<PracticalComponentPilot>();
 
             return selectedAssessmentTasks;
         }
@@ -341,12 +338,26 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-        public void SubmitPackerPracticalResults(Guid examId, PackerPracticalResult result)
+
+        // TODO: These 3 methods need completing
+        public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
         {
+            
+        }
+
+        public void FinalisePractical(Guid examId)
+        {
+            // Change exam status to finalise practical component
 
         }
 
-		#endregion
+        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId)
+        {
+
+            return null;
+        }
+
+        #endregion
 		
 
         //Hook-in test method
