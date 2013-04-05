@@ -94,15 +94,24 @@ namespace APFTestingUI.Controllers
         [HttpPost]
         public ActionResult PackerInput(PackerInput model)
         {
-            // Generate struct for sending to facade
-            // test for "Other" harness and canopy types
-            return View();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _facade.SubmitPackerPracticalResult(model.ExamId, model.Values);
+                    return RedirectToAction("PackerView", new { model.ExamId });
+                }
+                catch (BusinessRuleException e)
+                {
+                    ModelState.AddModelError("Exception", e.Message);
+                }
+            }
+            return View(model);
         }
 
         //
         // GET: /Practical/PackerEdit
 
-        //public ActionResult PackerEdit(Guid examId, Guid taskId)
         public ActionResult PackerEdit(Guid examId, Guid taskId)
         {
             var task = _facade.FetchSingleAssessmentTaskPacker(examId, taskId);
@@ -116,9 +125,19 @@ namespace APFTestingUI.Controllers
         [HttpPost]
         public ActionResult PackerEdit(PackerEdit model)
         {
-            // generate struct for sending to facade
-            // test for "Other" harness and canopy types
-            return View();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _facade.EditPackerPracticalResult(model.ExamId, model.TaskId, model.Values);
+                    return RedirectToAction("PackerView", new { model.ExamId });
+                }
+                catch (BusinessRuleException e)
+                {
+                    ModelState.AddModelError("Exception", e.Message);
+                }
+            }
+            return View(model);
         }
         
         #endregion

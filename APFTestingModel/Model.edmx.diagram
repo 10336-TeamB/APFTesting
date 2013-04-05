@@ -5,30 +5,30 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 
-      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="23">
         <AssociationConnector Association="APFTestingDBModel.FK_Person_Address" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="23.5" PointY="4.625" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Answer" Width="1.5" PointX="28" PointY="21.125" />
-        <EntityTypeShape EntityType="APFTestingDBModel.AssessmentTask" Width="1.625" PointX="5.625" PointY="13.5" />
-        <EntityTypeShape EntityType="APFTestingDBModel.AssessmentTaskPacker" Width="2" PointX="5.875" PointY="16.125" />
-        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePacker" Width="2.625" PointX="12.75" PointY="5.125" />
-        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePilot" Width="1.5" PointX="20.125" PointY="4.5" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="1.5" PointX="15.5" PointY="11.5" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Examiner" Width="1.5" PointX="16.75" PointY="5.25" />
-        <EntityTypeShape EntityType="APFTestingDBModel.ExamPacker" Width="1.5" PointX="12.5" PointY="8.25" />
-        <EntityTypeShape EntityType="APFTestingDBModel.ExamPilot" Width="2.125" PointX="18.25" PointY="11.625" />
-        <EntityTypeShape EntityType="APFTestingDBModel.Person" Width="1.5" PointX="16.75" PointY="1.5" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PossibleAnswer" Width="1.5" PointX="24.5" PointY="20.25" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponent" Width="2.5" PointX="13" PointY="14.875" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentPacker" Width="2.375" PointX="9.125" PointY="15.625" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentPilot" Width="2.25" PointX="11.625" PointY="11.75" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplate" Width="2.625" PointX="12.375" PointY="19" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplatePacker" Width="2.75" PointX="12.375" PointY="22" />
-        <EntityTypeShape EntityType="APFTestingDBModel.SelectedAssessmentTask" Width="2.375" PointX="9.125" PointY="12.375" />
-        <EntityTypeShape EntityType="APFTestingDBModel.SelectedTheoryQuestion" Width="2.25" PointX="20.5" PointY="20.625" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponent" Width="2.25" PointX="19.375" PointY="16.25" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormat" Width="2.625" PointX="24.375" PointY="16.25" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryQuestion" Width="2.25" PointX="24.25" PointY="23.375" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="23.5" PointY="2.375" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Answer" Width="1.5" PointX="29.75" PointY="14.375" />
+        <EntityTypeShape EntityType="APFTestingDBModel.AssessmentTask" Width="1.625" PointX="2.625" PointY="7.875" />
+        <EntityTypeShape EntityType="APFTestingDBModel.AssessmentTaskPacker" Width="2" PointX="3.5" PointY="10.25" />
+        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePacker" Width="1.875" PointX="14.5" PointY="3.125" />
+        <EntityTypeShape EntityType="APFTestingDBModel.CandidatePilot" Width="2" PointX="20.375" PointY="3.125" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="1.5" PointX="15.375" PointY="7" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Examiner" Width="2" PointX="17.375" PointY="3.125" />
+        <EntityTypeShape EntityType="APFTestingDBModel.ExamPacker" Width="2.125" PointX="13.75" PointY="10.375" />
+        <EntityTypeShape EntityType="APFTestingDBModel.ExamPilot" Width="2.125" PointX="16.375" PointY="10.375" />
+        <EntityTypeShape EntityType="APFTestingDBModel.Person" Width="1.5" PointX="17.625" PointY="0.5" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PossibleAnswer" Width="1.5" PointX="26.75" PointY="12.75" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponent" Width="2.5" PointX="8.5" PointY="7.5" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentPacker" Width="2.375" PointX="10.125" PointY="10.375" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentPilot" Width="2.25" PointX="7.375" PointY="10.375" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplate" Width="2.625" PointX="8.625" PointY="14" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplatePacker" Width="2.75" PointX="10.25" PointY="16.5" />
+        <EntityTypeShape EntityType="APFTestingDBModel.SelectedAssessmentTask" Width="2.375" PointX="2.375" PointY="13.875" />
+        <EntityTypeShape EntityType="APFTestingDBModel.SelectedTheoryQuestion" Width="2.25" PointX="22.5" PointY="12.75" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponent" Width="2.25" PointX="22.625" PointY="8" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormat" Width="2.625" PointX="27.625" PointY="8.125" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryQuestion" Width="2.25" PointX="25.5" PointY="15.75" />
         <AssociationConnector Association="APFTestingDBModel.FK_CandidatePilot_Address" />
 
         <AssociationConnector Association="APFTestingDBModel.FK_Answer_TheoryQuestion" />
@@ -49,38 +49,44 @@
         <AssociationConnector Association="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryComponent" />
         <AssociationConnector Association="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" />
         <AssociationConnector Association="APFTestingDBModel.FK_TheoryComponent_TheoryComponentFormat" />
-        <InheritanceConnector EntityType="APFTestingDBModel.CandidatePacker" />
+        <InheritanceConnector EntityType="APFTestingDBModel.CandidatePacker" ManuallyRouted="false" >
+        </InheritanceConnector>
         <InheritanceConnector EntityType="APFTestingDBModel.Examiner" />
 
         <InheritanceConnector EntityType="APFTestingDBModel.CandidatePilot" />
-        <InheritanceConnector EntityType="APFTestingDBModel.ExamPacker" />
+        <InheritanceConnector EntityType="APFTestingDBModel.ExamPacker" ManuallyRouted="false" >
+        </InheritanceConnector>
         <InheritanceConnector EntityType="APFTestingDBModel.ExamPilot" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentPilot" Width="2" PointX="16.375" PointY="16.25" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentPilot" Width="2" PointX="21" PointY="11.125" />
         <InheritanceConnector EntityType="APFTestingDBModel.TheoryComponentPilot" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentPacker" Width="1.5" PointX="16.5" PointY="18" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentPacker" Width="2.125" PointX="23.75" PointY="11.125" />
         <InheritanceConnector EntityType="APFTestingDBModel.TheoryComponentPacker" />
-        <InheritanceConnector EntityType="APFTestingDBModel.PracticalComponentPacker" />
+        <InheritanceConnector EntityType="APFTestingDBModel.PracticalComponentPacker" ManuallyRouted="false" >
+        </InheritanceConnector>
         <InheritanceConnector EntityType="APFTestingDBModel.PracticalComponentPilot" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormatPilot" Width="2.5" PointX="28.375" PointY="16.25" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormatPilot" Width="2.5" PointX="26.75" PointY="11.125" />
         <InheritanceConnector EntityType="APFTestingDBModel.TheoryComponentFormatPilot" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormatPacker" Width="2.5" PointX="28.375" PointY="17.75" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryComponentFormatPacker" Width="2.5" PointX="29.75" PointY="11.125" />
         <InheritanceConnector EntityType="APFTestingDBModel.TheoryComponentFormatPacker" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryQuestionPilot" Width="1.875" PointX="22.875" PointY="27" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryQuestionPilot" Width="1.875" PointX="24" PointY="19.25" />
         <InheritanceConnector EntityType="APFTestingDBModel.TheoryQuestionPilot" />
-        <EntityTypeShape EntityType="APFTestingDBModel.TheoryQuestionPacker" Width="2" PointX="26.25" PointY="27" />
+        <EntityTypeShape EntityType="APFTestingDBModel.TheoryQuestionPacker" Width="2" PointX="26.875" PointY="19.25" />
         <InheritanceConnector EntityType="APFTestingDBModel.TheoryQuestionPacker" />
-        <InheritanceConnector EntityType="APFTestingDBModel.PracticalComponentTemplatePacker" />
+        <InheritanceConnector EntityType="APFTestingDBModel.PracticalComponentTemplatePacker" ManuallyRouted="false" >
+        </InheritanceConnector>
         <InheritanceConnector EntityType="APFTestingDBModel.AssessmentTaskPacker" />
-        <EntityTypeShape EntityType="APFTestingDBModel.AssessmentTaskPilot" Width="2.5" PointX="1.25" PointY="13" />
-        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplatePilot" Width="2.875" PointX="7" PointY="19.75" />
+        <EntityTypeShape EntityType="APFTestingDBModel.AssessmentTaskPilot" Width="2.5" PointX="0.5" PointY="10.25" />
+        <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponentTemplatePilot" Width="2.875" PointX="6.625" PointY="16.5" />
         <AssociationConnector Association="APFTestingDBModel.FK_SelectedAssessmentTask_AssessmentTaskPilot" />
         <AssociationConnector Association="APFTestingDBModel.PracticalComponentTemplateAssessmentTask" />
-        <InheritanceConnector EntityType="APFTestingDBModel.PracticalComponentTemplatePilot" />
+        <InheritanceConnector EntityType="APFTestingDBModel.PracticalComponentTemplatePilot" ManuallyRouted="false" >
+        </InheritanceConnector>
         <InheritanceConnector EntityType="APFTestingDBModel.AssessmentTaskPilot" />
-        <EntityTypeShape EntityType="APFTestingDBModel.ExaminerAuthority" Width="1.5" PointX="4.8854065709213756" PointY="14.699960626056399" />
+        <EntityTypeShape EntityType="APFTestingDBModel.ExaminerAuthority" Width="2.125" PointX="17.875" PointY="6" />
         <AssociationConnector Association="APFTestingDBModel.FK_ExaminerAuthority_Examiner" />
         <AssociationConnector Association="APFTestingDBModel.FK_ExamPacker_PracticalComponentPacker" />
-        <AssociationConnector Association="APFTestingDBModel.FK_ExamPilot_PracticalComponentPilot" />
+        <AssociationConnector Association="APFTestingDBModel.FK_ExamPilot_PracticalComponentPilot" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentPacker_PracticalComponentTemplatePacker" />
         <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentPilot_PracticalComponentTemplatePilot" />
 
