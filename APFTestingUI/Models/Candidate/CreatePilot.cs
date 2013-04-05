@@ -63,7 +63,7 @@ namespace APFTestingUI.Models.Candidate
         // TODO: Change this to Enum
         [Required]
         [Display(Name = "Pilot licence type")]
-        public int PilotLicenceType { get; set; }
+        public short? PilotLicenceType { get; set; }
         public SelectList PilotLicences { get; private set; }
         
         [Required]
@@ -73,7 +73,7 @@ namespace APFTestingUI.Models.Candidate
         // TODO: Change this to Enum
         [Required]
         [Display(Name = "Pilot medical")]
-        public int PilotMedical { get; set; }
+        public short? PilotMedical { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

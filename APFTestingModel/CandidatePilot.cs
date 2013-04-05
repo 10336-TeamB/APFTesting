@@ -20,10 +20,8 @@ namespace APFTestingModel
         }
     
     	public string ARN { get; set; }
-    	public int PilotLicenseTypeId { get; set; }
     	public bool InstrumentRating { get; set; }
     	public bool ValidBFR { get; set; }
-    	public int PilotMedicalTypeId { get; set; }
     	public System.DateTime PilotMedicalExpiryDate { get; set; }
     	public System.Guid CreatedBy { get; set; }
     	public Nullable<System.Guid> AddressId { get; set; }

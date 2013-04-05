@@ -94,6 +94,9 @@
     <Compile Include="ExamStateMachine\TheoryComponentFailed.cs" />
     <Compile Include="ExamStateMachine\TheoryComponentInProgress.cs" />
     <Compile Include="Helpers\Enums.cs" />
+    <Compile Include="Interfaces\IAddress.cs" />
+    <Compile Include="Interfaces\ICandidatePacker.cs" />
+    <Compile Include="Interfaces\ICandidatePilot.cs" />
     <Compile Include="Interfaces\IFacade.cs" />
     <Compile Include="Interfaces\ICandidate.cs" />
     <Compile Include="Interfaces\IExam.cs" />

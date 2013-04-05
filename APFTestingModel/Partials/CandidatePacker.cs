@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class CandidatePacker : ICandidate
+    internal partial class CandidatePacker : ICandidate, ICandidatePacker
     {
         // Hardcoded values to allow facade to work with UI.
         //public Guid Id
@@ -28,10 +28,10 @@ namespace APFTestingModel
 
         public CandidatePacker(CandidatePackerDetails details, Guid createdBy)
         {
-			//this.FirstName = details.FirstName;
-			//this.LastName = details.LastName;
-			//this.MobileNumber = details.Mobile;
-			//this.APFNumber = details.APFNumber;
+			this.FirstName = details.FirstName;
+			this.LastName = details.LastName;
+			this.MobileNumber = details.Mobile;
+			this.APFNumber = details.APFNumber;
             CreatedBy = createdBy;
         }
 

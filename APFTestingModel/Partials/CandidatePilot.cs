@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class CandidatePilot : ICandidate
+    internal partial class CandidatePilot : ICandidate, ICandidatePilot
     {
         public CandidatePilot(CandidatePilotDetails details, Guid createdBy)
         {
@@ -18,12 +18,17 @@ namespace APFTestingModel
             PhoneNumber = details.Phone;
             MobileNumber = details.Mobile;
             Email = details.Email;
-            PilotLicenseTypeId = details.PilotLicenceType;
+            PilotLicenseType = details.PilotLicenceType;
             InstrumentRating = details.InstrumentRating;
-            PilotMedicalTypeId = details.PilotMedical;
+            PilotMedicalType = details.PilotMedical;
             PilotMedicalExpiryDate = details.PilotMedicalExpiry;
             ValidBFR = details.ValidBFR;
             CreatedBy = createdBy;
+        }
+
+        IAddress ICandidatePilot.Address
+        {
+            get { return Address; }
         }
 
         // Hardcoded values to allow facade to work with UI.

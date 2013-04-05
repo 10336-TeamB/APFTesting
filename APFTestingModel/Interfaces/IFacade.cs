@@ -41,5 +41,8 @@ namespace APFTestingModel
         void EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result);
 
         void FinalisePractical(Guid examId);
+
+        ICandidatePacker FetchPacker(Guid candidateId);
+        ICandidatePilot FetchPilot(Guid candidateId);
     }
 }

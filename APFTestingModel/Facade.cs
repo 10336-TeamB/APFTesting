@@ -209,16 +209,15 @@ namespace APFTestingModel
             return candidates;
 		}
 
-        //TODO: Need to create Interface return types for these methods
-        //public ICandidatePilot FetchPilot(Guid candidateId)
-        //{
-            
-        //}
+        public ICandidatePilot FetchPilot(Guid candidateId)
+        {
+            return _context.People.OfType<CandidatePilot>().Include("Address").First(c => c.Id == candidateId);
+        }
 
-        //public ICandidatePacker FetchPacker(Guid candidateId)
-        //{
-
-        //}
+        public ICandidatePacker FetchPacker(Guid candidateId)
+        {
+            return _context.People.OfType<CandidatePacker>().First(c => c.Id == candidateId);
+        }
 
         private Person fetchCandidate(Guid candidateId)
         {

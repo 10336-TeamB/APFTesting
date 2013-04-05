@@ -21,6 +21,7 @@ namespace APFTestingModel
     
     	public string APFNumber { get; set; }
     	public System.Guid CreatedBy { get; set; }
+    	public string MobileNumber { get; set; }
     
         public virtual Examiner Examiner { get; set; }
         public virtual ICollection<ExamPacker> ExamPackers { get; set; }

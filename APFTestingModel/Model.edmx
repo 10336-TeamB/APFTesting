@@ -226,6 +226,7 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="APFNumber" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CandidatePilot">
           <Key>
@@ -233,10 +234,8 @@
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ARN" Type="varchar" Nullable="false" MaxLength="6" />
-          <Property Name="PilotLicenseTypeId" Type="int" Nullable="false" />
           <Property Name="InstrumentRating" Type="bit" Nullable="false" />
           <Property Name="ValidBFR" Type="bit" Nullable="false" />
-          <Property Name="PilotMedicalTypeId" Type="int" Nullable="false" />
           <Property Name="PilotMedicalExpiryDate" Type="date" Nullable="false" />
           <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AddressId" Type="uniqueidentifier" />
@@ -421,7 +420,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_AssessmentTaskPacker_AssessmentTask">
-          <End Role="AssessmentTask" Type="APFTestingDBModel.Store.AssessmentTask" Multiplicity="1" />
+          <End Role="AssessmentTask" Type="APFTestingDBModel.Store.AssessmentTask" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="AssessmentTaskPacker" Type="APFTestingDBModel.Store.AssessmentTaskPacker" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="AssessmentTask">
@@ -433,7 +434,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_AssessmentTaskPacker_PracticalComponentPacker">
-          <End Role="PracticalComponentPacker" Type="APFTestingDBModel.Store.PracticalComponentPacker" Multiplicity="1" />
+          <End Role="PracticalComponentPacker" Type="APFTestingDBModel.Store.PracticalComponentPacker" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="AssessmentTaskPacker" Type="APFTestingDBModel.Store.AssessmentTaskPacker" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponentPacker">
@@ -481,7 +484,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CandidatePilot_Address">
-          <End Role="Address" Type="APFTestingDBModel.Store.Address" Multiplicity="0..1" />
+          <End Role="Address" Type="APFTestingDBModel.Store.Address" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CandidatePilot" Type="APFTestingDBModel.Store.CandidatePilot" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
@@ -505,7 +510,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CandidatePilot_Person">
-          <End Role="Person" Type="APFTestingDBModel.Store.Person" Multiplicity="1" />
+          <End Role="Person" Type="APFTestingDBModel.Store.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CandidatePilot" Type="APFTestingDBModel.Store.CandidatePilot" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Person">
@@ -529,7 +536,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Exam_TheoryComponent1">
-          <End Role="TheoryComponent" Type="APFTestingDBModel.Store.TheoryComponent" Multiplicity="1" />
+          <End Role="TheoryComponent" Type="APFTestingDBModel.Store.TheoryComponent" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Exam" Type="APFTestingDBModel.Store.Exam" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TheoryComponent">
@@ -565,7 +574,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPacker_CandidatePacker">
-          <End Role="CandidatePacker" Type="APFTestingDBModel.Store.CandidatePacker" Multiplicity="0..1" />
+          <End Role="CandidatePacker" Type="APFTestingDBModel.Store.CandidatePacker" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ExamPacker" Type="APFTestingDBModel.Store.ExamPacker" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CandidatePacker">
@@ -577,7 +588,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPacker_Exam">
-          <End Role="Exam" Type="APFTestingDBModel.Store.Exam" Multiplicity="1" />
+          <End Role="Exam" Type="APFTestingDBModel.Store.Exam" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ExamPacker" Type="APFTestingDBModel.Store.ExamPacker" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Exam">
@@ -589,7 +602,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPacker_PracticalComponentPacker">
-          <End Role="PracticalComponentPacker" Type="APFTestingDBModel.Store.PracticalComponentPacker" Multiplicity="1" />
+          <End Role="PracticalComponentPacker" Type="APFTestingDBModel.Store.PracticalComponentPacker" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ExamPacker" Type="APFTestingDBModel.Store.ExamPacker" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponentPacker">
@@ -601,7 +616,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPilot_CandidatePilot">
-          <End Role="CandidatePilot" Type="APFTestingDBModel.Store.CandidatePilot" Multiplicity="0..1" />
+          <End Role="CandidatePilot" Type="APFTestingDBModel.Store.CandidatePilot" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ExamPilot" Type="APFTestingDBModel.Store.ExamPilot" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CandidatePilot">
@@ -613,7 +630,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPilot_Exam">
-          <End Role="Exam" Type="APFTestingDBModel.Store.Exam" Multiplicity="1" />
+          <End Role="Exam" Type="APFTestingDBModel.Store.Exam" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ExamPilot" Type="APFTestingDBModel.Store.ExamPilot" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Exam">
@@ -625,7 +644,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPilot_PracticalComponentPilot">
-          <End Role="PracticalComponentPilot" Type="APFTestingDBModel.Store.PracticalComponentPilot" Multiplicity="1" />
+          <End Role="PracticalComponentPilot" Type="APFTestingDBModel.Store.PracticalComponentPilot" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ExamPilot" Type="APFTestingDBModel.Store.ExamPilot" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponentPilot">
@@ -649,7 +670,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PossibleAnswer_SelectedTheoryQuestion">
-          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.Store.SelectedTheoryQuestion" Multiplicity="1" />
+          <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.Store.SelectedTheoryQuestion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PossibleAnswer" Type="APFTestingDBModel.Store.PossibleAnswer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SelectedTheoryQuestion">
@@ -673,7 +696,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PracticalComponentPacker_PracticalComponent">
-          <End Role="PracticalComponent" Type="APFTestingDBModel.Store.PracticalComponent" Multiplicity="1" />
+          <End Role="PracticalComponent" Type="APFTestingDBModel.Store.PracticalComponent" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PracticalComponentPacker" Type="APFTestingDBModel.Store.PracticalComponentPacker" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponent">
@@ -697,7 +722,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PracticalComponentPilot_PracticalComponent">
-          <End Role="PracticalComponent" Type="APFTestingDBModel.Store.PracticalComponent" Multiplicity="1" />
+          <End Role="PracticalComponent" Type="APFTestingDBModel.Store.PracticalComponent" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PracticalComponentPilot" Type="APFTestingDBModel.Store.PracticalComponentPilot" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponent">
@@ -769,7 +796,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SelectedAssessmentTask_PracticalComponentPilot">
-          <End Role="PracticalComponentPilot" Type="APFTestingDBModel.Store.PracticalComponentPilot" Multiplicity="1" />
+          <End Role="PracticalComponentPilot" Type="APFTestingDBModel.Store.PracticalComponentPilot" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SelectedAssessmentTask" Type="APFTestingDBModel.Store.SelectedAssessmentTask" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PracticalComponentPilot">
@@ -781,7 +810,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SelectedTheoryQuestion_TheoryComponent">
-          <End Role="TheoryComponent" Type="APFTestingDBModel.Store.TheoryComponent" Multiplicity="1" />
+          <End Role="TheoryComponent" Type="APFTestingDBModel.Store.TheoryComponent" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SelectedTheoryQuestion" Type="APFTestingDBModel.Store.SelectedTheoryQuestion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TheoryComponent">
@@ -983,13 +1014,12 @@
           <Property Type="Guid" Name="CreatedBy" Nullable="false" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_CandidatePacker_Examiner" FromRole="CandidatePacker" ToRole="Examiner" />
           <NavigationProperty Name="ExamPackers" Relationship="APFTestingDBModel.FK_ExamPacker_CandidatePacker" FromRole="CandidatePacker" ToRole="ExamPacker" />
+          <Property Type="String" Name="MobileNumber" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CandidatePilot" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" BaseType="APFTestingDBModel.Person">
           <Property Type="String" Name="ARN" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="PilotLicenseTypeId" Nullable="false" />
           <Property Type="Boolean" Name="InstrumentRating" Nullable="false" />
           <Property Type="Boolean" Name="ValidBFR" Nullable="false" />
-          <Property Type="Int32" Name="PilotMedicalTypeId" Nullable="false" />
           <Property Type="DateTime" Name="PilotMedicalExpiryDate" Nullable="false" Precision="0" />
           <Property Type="Guid" Name="CreatedBy" Nullable="false" />
           <Property Type="Guid" Name="AddressId" />
@@ -1564,6 +1594,7 @@
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.CandidatePacker)">
               <MappingFragment StoreEntitySet="CandidatePacker">
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="APFNumber" ColumnName="APFNumber" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
@@ -1578,10 +1609,8 @@
               <MappingFragment StoreEntitySet="CandidatePilot">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ARN" ColumnName="ARN" />
-                <ScalarProperty Name="PilotLicenseTypeId" ColumnName="PilotLicenseTypeId" />
                 <ScalarProperty Name="InstrumentRating" ColumnName="InstrumentRating" />
                 <ScalarProperty Name="ValidBFR" ColumnName="ValidBFR" />
-                <ScalarProperty Name="PilotMedicalTypeId" ColumnName="PilotMedicalTypeId" />
                 <ScalarProperty Name="PilotMedicalExpiryDate" ColumnName="PilotMedicalExpiryDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="AddressId" ColumnName="AddressId" />

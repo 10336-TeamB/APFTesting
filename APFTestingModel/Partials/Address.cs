@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class Address
+    internal partial class Address : IAddress
     {
         public Address(string Address1, string Address2, string Suburb, string Postcode)
         {

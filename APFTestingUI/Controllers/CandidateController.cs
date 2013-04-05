@@ -19,8 +19,8 @@ namespace APFTestingUI.Controllers
 
         public ActionResult ViewPilot(Guid candidateId)
         {
-            //var model = new ViewPilot(_facade.FetchPilot(candidateId));
-            return View(new ViewPilot());
+            var model = new ViewPilot(_facade.FetchPilot(candidateId));
+            return View(model);
         }
 
         //
