@@ -26,5 +26,17 @@ namespace APFTestingModel
         {
             get { return PracticalComponentPacker; }
         }
+
+        public void AddPracticalComponentResult(PackerPracticalResult packerResult)
+        {
+            AssessmentTaskPacker assessment = new AssessmentTaskPacker(packerResult);
+
+            PracticalComponentPacker.AssessmentTaskPackers.Add(assessment);
+        }
+
+        public ICollection<AssessmentTaskPacker> AssessmentTasks
+        {
+            get { return PracticalComponentPacker.AssessmentTaskPackers; }
+        }
     }
 }

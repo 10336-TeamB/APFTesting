@@ -342,32 +342,40 @@ namespace APFTestingModel
         // TODO: These 5 methods need completing
         public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
         {
-            
+            var exam = _context.Exams.OfType<ExamPacker>().First(e => e.Id == examId);
+            exam.AddPracticalComponentResult(result);
+            _context.SaveChanges();
         }
 
         public void EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)
         {
-            
+            var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);
 
+            AssessmentTaskPacker assessmentTask = exam.AssessmentTasks.First(t => t.Id == taskId);
+            assessmentTask.Edit(result);
+            _context.SaveChanges();
         }
 
         public void FinalisePractical(Guid examId)
         {
             // Change exam status to finalise practical component
-
+            var exam = _context.Exams.First(e => e.Id == examId);
+            exam.ExamStatus = ExamStatus.PracticalEntered;  //Or is it Exam Finalized? - Pradipna
+            _context.SaveChanges();
         }
 
         public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId)
         {
+            var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);
 
-            return null;
+            return exam.AssessmentTasks;
         }
 
         public IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)
         {
-
-
-            return null;
+            var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);
+            
+            return exam.AssessmentTasks.First(at => at.Id == taskId);
         }
 
         #endregion
