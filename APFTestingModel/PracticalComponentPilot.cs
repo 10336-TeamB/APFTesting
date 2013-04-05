@@ -17,9 +17,13 @@ namespace APFTestingModel
         public PracticalComponentPilot()
         {
             this.SelectedAssessmentTasks = new HashSet<SelectedAssessmentTask>();
+            this.ExamPilots = new HashSet<ExamPilot>();
         }
     
+    	public System.Guid TemplateId { get; set; }
     
         public virtual ICollection<SelectedAssessmentTask> SelectedAssessmentTasks { get; set; }
+        public virtual ICollection<ExamPilot> ExamPilots { get; set; }
+        public virtual PracticalComponentTemplatePilot PracticalComponentTemplatePilot { get; set; }
     }
 }

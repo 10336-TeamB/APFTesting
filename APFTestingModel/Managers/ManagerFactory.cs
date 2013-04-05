@@ -29,16 +29,16 @@ namespace APFTestingModel
         }
 
         //REFACTORED
-        public static ExamManager CreateExamManager(IEnumerable<TheoryQuestion> theoryQuestions, TheoryComponentFormat activeTheoryFormat, PracticalComponentTemplate activePracticalTemplate, ExamTypeEnum examType)
+        public static ExamManager CreateExamManager(IEnumerable<TheoryQuestion> theoryQuestions, TheoryComponentFormat activeTheoryFormat, PracticalComponentTemplate activePracticalTemplate, ExamType examType)
         {
             ExamManager examManager;
 
             switch (examType)
             {
-                case ExamTypeEnum.PilotExam:
+                case ExamType.PilotExam:
                     examManager = new ExamManagerPilot(createTheoryComponentManagerPilot(theoryQuestions, activeTheoryFormat), createPracticalComponentManagerPilot(activePracticalTemplate));
                     break;
-                case ExamTypeEnum.PackerExam:
+                case ExamType.PackerExam:
                     examManager = new ExamManagerPacker(createTheoryComponentManagerPacker(theoryQuestions, activeTheoryFormat), createPracticalComponentManagerPacker(activePracticalTemplate));
                     break;
                 default:

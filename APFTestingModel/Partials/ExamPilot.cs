@@ -17,9 +17,18 @@ namespace APFTestingModel
         {
             CandidateId = candidateId;
             TheoryComponent = theoryComponentPilot;
-            PracticalComponent = practicalComponentPilot;
+            PracticalComponentPilot = practicalComponentPilot;
         }
 
         #endregion
+
+        public ICollection<SelectedAssessmentTask> SelectedAssessmentTasks
+        {
+            get
+            {
+                return PracticalComponentPilot.SelectedAssessmentTasks;
+            }
+        }
+
     }
 }

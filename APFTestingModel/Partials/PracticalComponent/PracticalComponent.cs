@@ -8,9 +8,6 @@ namespace APFTestingModel
 {
     internal abstract partial class PracticalComponent
     {
-        public PracticalComponent(PracticalComponentTemplate activeTemplate)
-        {
-            PracticalComponentTemplate = activeTemplate;
-        }
+        
     }
 }

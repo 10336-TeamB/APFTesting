@@ -10,7 +10,7 @@ namespace APFTestingModel
     {
         Guid Id { get; }
 
-        ExamStatusEnum ExamStatus { get; } //REFACTORED
+        ExamStatus ExamStatus { get; } //REFACTORED
 
     }
 }

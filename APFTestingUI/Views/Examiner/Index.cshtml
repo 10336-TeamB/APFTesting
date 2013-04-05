@@ -9,8 +9,16 @@
 <h3>Welcome to the Examiner home page!</h3>
 </hgroup>
 
+@if (Model.PilotAuthorised)
+{
+    @Html.ActionLink("Add Candidate", "CreatePilot", "Candidate", new { }, new { @class="button-add" })
+}
 
-@Html.ActionLink("Add Candidate", "CreatePilot", "Candidate", new { }, new { @class="button-add" })
+@if (Model.PackerAuthorised)
+{
+    @Html.ActionLink("Add Candidate", "CreatePacker", "Candidate", new { }, new { @class="button-add" })
+}
+
 
 <hr />
 
@@ -26,6 +34,7 @@
     <tbody>
         @foreach (var candidate in Model.Candidates)
         {
+            
             <tr class="candidate-list-item">
                 <td class="candidate-first-name">
                     @candidate.FirstName
@@ -49,7 +58,14 @@
                     }
                 </td>
                 <td class="input-practical-link">
-                    @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                    @if (candidate.ExamType.Equals("PilotExam"))
+                    {
+                        @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                    }
+                    else if (candidate.ExamType.Equals("PackerExam"))
+                    {
+                        @Html.ActionLink("Input Practical Results", "PackerInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                    }
                 </td>
                 <td class="reset-cell"><button id="reset" class="examinerButton" type="button">Reset Exam</button></td>
             </tr>

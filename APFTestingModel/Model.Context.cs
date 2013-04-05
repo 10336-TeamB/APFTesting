@@ -22,7 +22,6 @@ namespace APFTestingModel
     		Answers = Set<Answer>();	
     		AssessmentTasks = Set<AssessmentTask>();	
     		Exams = Set<Exam>();	
-    		ExaminerAuthorities = Set<ExaminerAuthority>();	
     		People = Set<Person>();	
     		PossibleAnswers = Set<PossibleAnswer>();	
     		PracticalComponents = Set<PracticalComponent>();	
@@ -32,6 +31,7 @@ namespace APFTestingModel
     		TheoryComponents = Set<TheoryComponent>();	
     		TheoryComponentFormats = Set<TheoryComponentFormat>();	
     		TheoryQuestions = Set<TheoryQuestion>();	
+    		ExaminerAuthorities = Set<ExaminerAuthority>();	
     
         }
     
@@ -44,7 +44,6 @@ namespace APFTestingModel
         internal DbSet<Answer> Answers { get; set; }
         internal DbSet<AssessmentTask> AssessmentTasks { get; set; }
         internal DbSet<Exam> Exams { get; set; }
-        internal DbSet<ExaminerAuthority> ExaminerAuthorities { get; set; }
         internal DbSet<Person> People { get; set; }
         internal DbSet<PossibleAnswer> PossibleAnswers { get; set; }
         internal DbSet<PracticalComponent> PracticalComponents { get; set; }
@@ -54,5 +53,6 @@ namespace APFTestingModel
         internal DbSet<TheoryComponent> TheoryComponents { get; set; }
         internal DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
         internal DbSet<TheoryQuestion> TheoryQuestions { get; set; }
+        internal DbSet<ExaminerAuthority> ExaminerAuthorities { get; set; }
     }
 }

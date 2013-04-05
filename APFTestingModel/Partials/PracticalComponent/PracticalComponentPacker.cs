@@ -8,7 +8,10 @@ namespace APFTestingModel
 {
     internal partial class PracticalComponentPacker : PracticalComponent, IPracticalComponentPacker
     {
-        public PracticalComponentPacker(PracticalComponentTemplate activeTemplate) : base(activeTemplate) { }
+        public PracticalComponentPacker(PracticalComponentTemplate activeTemplate) 
+        {
+            PracticalComponentTemplatePacker = (PracticalComponentTemplatePacker)activeTemplate;
+        }
 
         // TODO - Implement IsCompetent
         public bool IsCompetent
@@ -18,7 +21,7 @@ namespace APFTestingModel
 
         public int NumOfRequiredAssessmentTasks
         {
-            get { return (PracticalComponentTemplate as PracticalComponentTemplatePacker).NumOfRequiredAssessmentTasks; }
+            get { return (PracticalComponentTemplatePacker as PracticalComponentTemplatePacker).NumOfRequiredAssessmentTasks; }
         }
 
         public IEnumerable<IAssessmentTaskPacker> AssessmentTasks

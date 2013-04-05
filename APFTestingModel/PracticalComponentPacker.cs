@@ -17,9 +17,13 @@ namespace APFTestingModel
         public PracticalComponentPacker()
         {
             this.AssessmentTaskPackers = new HashSet<AssessmentTaskPacker>();
+            this.ExamPackers = new HashSet<ExamPacker>();
         }
     
+    	public System.Guid TemplateId { get; set; }
     
         public virtual ICollection<AssessmentTaskPacker> AssessmentTaskPackers { get; set; }
+        public virtual ICollection<ExamPacker> ExamPackers { get; set; }
+        public virtual PracticalComponentTemplatePacker PracticalComponentTemplatePacker { get; set; }
     }
 }

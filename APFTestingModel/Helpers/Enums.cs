@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-	public enum ExamTypeEnum : short
+	public enum ExamType : short
 	{
 		PilotExam = 1,
 		PackerExam = 2
 	}
 	
-	public enum ExamStatusEnum : short
+	public enum ExamStatus : short
 	{
 		NoExam = 1,
 		NewExam = 2,
@@ -25,14 +25,14 @@ namespace APFTestingModel
 		ExamVoided = 8
 	}
 
-    public enum PilotLicenseTypeEnum : short
+    public enum PilotLicenseType : short
     {
         PPL = 1,
         CPL = 2,
         ATPL = 3
     }
 
-    public enum PilotMedicalTypeEnum : short
+    public enum PilotMedicalType : short
     {
         ClassOne = 1,
         ClassTwo = 2

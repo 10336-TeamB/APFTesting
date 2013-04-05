@@ -32,7 +32,7 @@ namespace APFTestingModel
         public Exam(Guid examinerId)
         {
             ExaminerId = examinerId;
-            ExamStatus = ExamStatusEnum.NewExam;
+            ExamStatus = ExamStatus.NewExam;
         }
 
         #endregion
@@ -84,7 +84,7 @@ namespace APFTestingModel
             {
                 question = TheoryComponent.FetchFirstQuestion();
 
-                ExamStatus = ExamStatusEnum.TheoryInProgress;
+                ExamStatus = ExamStatus.TheoryInProgress;
 
             };
             _examState.FetchFirstQuestion(a);
@@ -136,7 +136,7 @@ namespace APFTestingModel
         //REFACTORED
 		public void SubmitTheoryComponent()
 		{
-			Action a = delegate { ExamStatus = (TheoryComponentCompetency) ? ExamStatusEnum.TheoryPassed : ExamStatusEnum.TheoryFailed; };
+			Action a = delegate { ExamStatus = (TheoryComponentCompetency) ? ExamStatus.TheoryPassed : ExamStatus.TheoryFailed; };
 
 			_examState.SubmitTheoryComponent(a);
 		}
@@ -152,7 +152,7 @@ namespace APFTestingModel
 		public void VoidExam()
 		{
 
-			Action a = delegate { ExamStatus = ExamStatusEnum.ExamVoided; };
+			Action a = delegate { ExamStatus = ExamStatus.ExamVoided; };
 
 			_examState.VoidExam(a);
 		}
@@ -161,7 +161,7 @@ namespace APFTestingModel
         //REFACTORED
 		public void ResetTheoryComponent()
 		{
-			ExamStatus = ExamStatusEnum.NewExam;
+			ExamStatus = ExamStatus.NewExam;
 
 			TheoryComponent.CurrentQuestionIndex = 0;
 		}
@@ -173,28 +173,28 @@ namespace APFTestingModel
         {
             switch (ExamStatus)
             {
-                case ExamStatusEnum.NoExam:
+                case ExamStatus.NoExam:
                     _examState = new NoExamCreated();
                     break;
-                case ExamStatusEnum.NewExam:
+                case ExamStatus.NewExam:
                     _examState = new ExamCreated();
                     break;
-                case ExamStatusEnum.TheoryInProgress:
+                case ExamStatus.TheoryInProgress:
                     _examState = new TheoryComponentInProgress();
                     break;
-                case ExamStatusEnum.TheoryFailed:
+                case ExamStatus.TheoryFailed:
                     _examState = new TheoryComponentFailed();
                     break;
-                case ExamStatusEnum.TheoryPassed:
+                case ExamStatus.TheoryPassed:
                     _examState = new TheoryComponentCompleted();
                     break;
-                case ExamStatusEnum.PracticalEntered:
+                case ExamStatus.PracticalEntered:
                     _examState = new PracticalComponentCompleted();
                     break;
-                case ExamStatusEnum.ExamCompleted:
+                case ExamStatus.ExamCompleted:
                     _examState = new ExamCompleted();
                     break;
-                case ExamStatusEnum.ExamVoided:
+                case ExamStatus.ExamVoided:
                     _examState = new ExamVoided();
                     break;
             }

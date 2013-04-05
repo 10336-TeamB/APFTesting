@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 
-      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="89">
+      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="82">
         <AssociationConnector Association="APFTestingDBModel.FK_Person_Address" />
         <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="23.5" PointY="4.625" />
         <EntityTypeShape EntityType="APFTestingDBModel.Answer" Width="1.5" PointX="28" PointY="21.125" />
@@ -15,9 +15,8 @@
         <EntityTypeShape EntityType="APFTestingDBModel.CandidatePilot" Width="1.5" PointX="20.125" PointY="4.5" />
         <EntityTypeShape EntityType="APFTestingDBModel.Exam" Width="1.5" PointX="15.5" PointY="11.5" />
         <EntityTypeShape EntityType="APFTestingDBModel.Examiner" Width="1.5" PointX="16.75" PointY="5.25" />
-        <EntityTypeShape EntityType="APFTestingDBModel.ExaminerAuthority" Width="1.5" PointX="17" PointY="8.875" />
         <EntityTypeShape EntityType="APFTestingDBModel.ExamPacker" Width="1.5" PointX="12.5" PointY="8.25" />
-        <EntityTypeShape EntityType="APFTestingDBModel.ExamPilot" Width="1.5" PointX="18.25" PointY="11.625" />
+        <EntityTypeShape EntityType="APFTestingDBModel.ExamPilot" Width="2.125" PointX="18.25" PointY="11.625" />
         <EntityTypeShape EntityType="APFTestingDBModel.Person" Width="1.5" PointX="16.75" PointY="1.5" />
         <EntityTypeShape EntityType="APFTestingDBModel.PossibleAnswer" Width="1.5" PointX="24.5" PointY="20.25" />
         <EntityTypeShape EntityType="APFTestingDBModel.PracticalComponent" Width="2.5" PointX="13" PointY="14.875" />
@@ -44,7 +43,6 @@
         <AssociationConnector Association="APFTestingDBModel.FK_Exam_Examiner" />
         <AssociationConnector Association="APFTestingDBModel.FK_Exam_PracticalComponent" />
         <AssociationConnector Association="APFTestingDBModel.FK_Exam_TheoryComponent" />
-        <AssociationConnector Association="APFTestingDBModel.FK_ExaminerAuthority_Examiner" />
         <AssociationConnector Association="APFTestingDBModel.FK_PossibleAnswer_SelectedTheoryQuestion" />
         <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponent_PracticalComponentTemplate" />
         <AssociationConnector Association="APFTestingDBModel.FK_SelectedAssessmentTask_PracticalComponentPilot" />
@@ -79,6 +77,12 @@
         <AssociationConnector Association="APFTestingDBModel.PracticalComponentTemplateAssessmentTask" />
         <InheritanceConnector EntityType="APFTestingDBModel.PracticalComponentTemplatePilot" />
         <InheritanceConnector EntityType="APFTestingDBModel.AssessmentTaskPilot" />
+        <EntityTypeShape EntityType="APFTestingDBModel.ExaminerAuthority" Width="1.5" PointX="4.8854065709213756" PointY="14.699960626056399" />
+        <AssociationConnector Association="APFTestingDBModel.FK_ExaminerAuthority_Examiner" />
+        <AssociationConnector Association="APFTestingDBModel.FK_ExamPacker_PracticalComponentPacker" />
+        <AssociationConnector Association="APFTestingDBModel.FK_ExamPilot_PracticalComponentPilot" />
+        <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentPacker_PracticalComponentTemplatePacker" />
+        <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentPilot_PracticalComponentTemplatePilot" />
 
         </Diagram>
     </edmx:Diagrams>
