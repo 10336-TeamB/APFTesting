@@ -8,8 +8,9 @@ namespace APFTestingModel
 {
     internal partial class PracticalComponentPilot : PracticalComponent, IPracticalComponentPilot
     {
-        public PracticalComponentPilot(PracticalComponentTemplate activeTemplate, ICollection<SelectedAssessmentTask> selectedAssessmentTasks) : base(activeTemplate) 
+        public PracticalComponentPilot(PracticalComponentTemplate activeTemplate, ICollection<SelectedAssessmentTask> selectedAssessmentTasks)
         {
+            PracticalComponentTemplatePilot = (PracticalComponentTemplatePilot)activeTemplate;
             SelectedAssessmentTasks = selectedAssessmentTasks;
         }
 

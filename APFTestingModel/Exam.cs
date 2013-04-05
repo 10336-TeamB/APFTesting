@@ -16,7 +16,6 @@ namespace APFTestingModel
     {
     	public System.Guid Id { get; set; }
     	public System.Guid TheoryComponentId { get; set; }
-    	public Nullable<System.Guid> PracticalComponentId { get; set; }
     	public Nullable<System.Guid> ExaminerId { get; set; }
     	public System.DateTime CreatedDate { get; set; }
         private APFTestingModel.ExamStatus _ExamStatus;
@@ -26,7 +25,6 @@ namespace APFTestingModel
 
     
         public virtual Examiner Examiner { get; set; }
-        public virtual PracticalComponent PracticalComponent { get; set; }
         public virtual TheoryComponent TheoryComponent { get; set; }
     }
 }

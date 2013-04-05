@@ -14,6 +14,13 @@ namespace APFTestingModel
     
     internal partial class PracticalComponentTemplatePacker : PracticalComponentTemplate
     {
+        public PracticalComponentTemplatePacker()
+        {
+            this.PracticalComponentPackers = new HashSet<PracticalComponentPacker>();
+        }
+    
     	public int NumOfRequiredAssessmentTasks { get; set; }
+    
+        public virtual ICollection<PracticalComponentPacker> PracticalComponentPackers { get; set; }
     }
 }

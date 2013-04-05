@@ -15,7 +15,9 @@ namespace APFTestingModel
     internal partial class ExamPacker : Exam
     {
     	public Nullable<System.Guid> CandidateId { get; set; }
+    	public System.Guid PracticalComponentId { get; set; }
     
         public virtual CandidatePacker CandidatePacker { get; set; }
+        public virtual PracticalComponentPacker PracticalComponentPacker { get; set; }
     }
 }
