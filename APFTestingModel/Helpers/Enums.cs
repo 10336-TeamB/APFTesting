@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,4 +43,19 @@ namespace APFTestingModel
         General = 1
     }
 
+    //Hack: added for UI testing
+    public enum CanopyTypes
+    {
+        Big,
+        Medium,
+        Small,
+        Other
+    }
+    public enum HarnessContainerTypes
+    {
+        Circle,
+        Square,
+        Triangle,
+        Other
+    }
 }

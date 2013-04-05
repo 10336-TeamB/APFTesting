@@ -1,0 +1,41 @@
+﻿@model APFTestingUI.Models.Practical.PackerView
+
+@{
+    ViewBag.Title = "Demonstrated Packs";
+}
+
+<h2>Demonstrated Packs</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Canopy Type</th>
+            <th>Canopy Serial No.</th>
+            <th>Harness/Container Type</th>
+            <th>Harness/Container Serial No.</th>
+            <th>Notes</th>
+            <th>Instructor/Rigger No.</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var p in Model.Packs)
+{
+    <tr>
+        <td>@p.Date</td>
+        <td>@p.CanopyType</td>
+        <td>@p.CanopyTypeSerialNumber</td>
+        <td>@p.HarnessContainerType</td>
+        <td>@p.HarnessContainerSerialNumber</td>
+        <td>@p.Note</td>
+        <td>@p.SupervisorId</td>
+        <td>@Html.ActionLink("Edit", "PackerEdit", new { taskId = @p.Id, examId = @Model.ExamId }, new { @class = "examinerButton" })</td>
+    </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Add", "PackerInput", new { examId = @Model.ExamId }, new { @class = "examinerButton" })
+</p>

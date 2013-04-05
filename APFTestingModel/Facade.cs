@@ -206,7 +206,6 @@ namespace APFTestingModel
             List<ICandidate> candidates = new List<ICandidate>();
             candidates.AddRange(examiner.CandidatePackers);
             candidates.AddRange(examiner.CandidatePilots);
-
             return candidates;
 		}
 
@@ -322,6 +321,7 @@ namespace APFTestingModel
             return candidatePacker.Id;
         }
 
+        // Should probably include candidateId or examId to limit the size of the initial query
         public void SubmitPilotPracticalResults(List<PilotPracticalResult> results)
         {
             var tasks = _context.SelectedAssessmentTasks.ToList();

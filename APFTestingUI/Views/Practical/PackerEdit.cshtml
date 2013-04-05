@@ -1,0 +1,99 @@
+﻿@model APFTestingUI.Models.Practical.PackerEdit
+
+@{
+    ViewBag.Title = "Packer Edit";
+}
+
+<h2>Packer Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(false)
+
+    <fieldset>
+        <legend>PackerEdit</legend>
+
+        @Html.HiddenFor(model => model.ExamId)
+        @Html.HiddenFor(model => model.PackId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CanopyType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.CanopyType, Model.CanopyTypeList)
+            @Html.ValidationMessageFor(model => model.CanopyType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CanopyTypeOther)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CanopyTypeOther)
+            @Html.ValidationMessageFor(model => model.CanopyTypeOther)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CanopyTypeSerialNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CanopyTypeSerialNumber)
+            @Html.ValidationMessageFor(model => model.CanopyTypeSerialNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HarnessContainerType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.HarnessContainerType, Model.HarnessContainerTypeList)
+            @Html.ValidationMessageFor(model => model.HarnessContainerType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HarnessContainerTypeOther)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HarnessContainerTypeOther)
+            @Html.ValidationMessageFor(model => model.HarnessContainerTypeOther)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HarnessContainerSerialNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HarnessContainerSerialNumber)
+            @Html.ValidationMessageFor(model => model.HarnessContainerSerialNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Note)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Note)
+            @Html.ValidationMessageFor(model => model.Note)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SupervisorId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SupervisorId)
+            @Html.ValidationMessageFor(model => model.SupervisorId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
