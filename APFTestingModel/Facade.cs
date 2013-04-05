@@ -322,9 +322,11 @@ namespace APFTestingModel
             return candidatePacker.Id;
         }
 
-        public void SubmitPilotPracticalResults(List<PilotPracticalResult> results)
+        public void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results)
         {
-            var tasks = _context.SelectedAssessmentTasks.ToList();
+            var exam = _context.Exams.OfType<ExamPilot>().Include("PracticalComponentPilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").First(e => examId == e.Id);
+
+            var tasks = exam.SelectedAssessmentTasks;
             foreach (var r in results)
             {
                 try
@@ -338,6 +340,11 @@ namespace APFTestingModel
                 }
             }
             _context.SaveChanges();
+        }
+
+        public void SubmitPackerPracticalResults(Guid examId, PackerPracticalResult result)
+        {
+
         }
 
 		#endregion

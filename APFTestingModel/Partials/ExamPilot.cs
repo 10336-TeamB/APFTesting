@@ -21,5 +21,13 @@ namespace APFTestingModel
         }
 
         #endregion
+
+        public ICollection<SelectedAssessmentTask> SelectedAssessmentTasks
+        {
+            get
+            {
+                return PracticalComponentPilot.SelectedAssessmentTasks;
+            }
+        }
     }
 }
