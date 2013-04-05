@@ -14,35 +14,35 @@ namespace APFTestingUI.Models.Practical
             buildSelectLists();
         }
 
-        public PackerEdit(Guid examId, IAssessmentTaskPacker pack)
+        public PackerEdit(Guid examId, IAssessmentTaskPacker task)
         {
             ExamId = examId;
-            PackId = pack.Id;
-            Date = pack.Date.ToShortDateString();
+            TaskId = task.Id;
+            Date = task.Date.ToShortDateString();
             var canopyTypeComparisonList = Enum.GetValues(typeof(CanopyTypes)).Cast<CanopyTypes>().Select(e => e.ToString()).ToList();
-            if (canopyTypeComparisonList.Contains(pack.CanopyType))
+            if (canopyTypeComparisonList.Contains(task.CanopyType))
             {
-                CanopyType = pack.CanopyType;
+                CanopyType = task.CanopyType;
             }
             else
             {
                 CanopyType = "Other";
-                CanopyTypeOther = pack.CanopyType;
+                CanopyTypeOther = task.CanopyType;
             }
-            CanopyTypeSerialNumber = pack.CanopyTypeSerialNumber;
+            CanopyTypeSerialNumber = task.CanopyTypeSerialNumber;
             var harnessContainerTypeComparisonList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().Select(e => e.ToString()).ToList();
-            if (harnessContainerTypeComparisonList.Contains(pack.HarnessContainerType)) 
+            if (harnessContainerTypeComparisonList.Contains(task.HarnessContainerType)) 
             {
-                HarnessContainerType = pack.HarnessContainerType;
+                HarnessContainerType = task.HarnessContainerType;
             }
             else 
             {
                 HarnessContainerType = "Other";
-                HarnessContainerTypeOther = pack.HarnessContainerType;
+                HarnessContainerTypeOther = task.HarnessContainerType;
             }
-            HarnessContainerSerialNumber = pack.HarnessContainerSerialNumber;
-            Note = pack.Note;
-            SupervisorId = pack.SupervisorId;
+            HarnessContainerSerialNumber = task.HarnessContainerSerialNumber;
+            Note = task.Note;
+            SupervisorId = task.SupervisorId;
 
             buildSelectLists();
         }
@@ -50,7 +50,7 @@ namespace APFTestingUI.Models.Practical
         public Guid ExamId { get; set; }
 
         [Required]
-        public Guid PackId { get; set; }
+        public Guid TaskId { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -91,9 +91,9 @@ namespace APFTestingUI.Models.Practical
                 return new PackerPracticalResult
                 {
                     Date = DateTime.Parse(Date),
-                    CanopyType = CanopyType,
+                    CanopyType = CanopyType.Equals("Other") ? CanopyTypeOther : CanopyType,
                     CanopyTypeSerialNumber = CanopyTypeSerialNumber,
-                    HarnessContainerType = HarnessContainerType,
+                    HarnessContainerType = HarnessContainerType.Equals("Other") ? HarnessContainerTypeOther : HarnessContainerType,
                     HarnessContainerSerialNumber = HarnessContainerSerialNumber,
                     Note = Note,
                     SupervisorId = SupervisorId

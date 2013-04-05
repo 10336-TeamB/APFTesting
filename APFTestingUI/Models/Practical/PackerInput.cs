@@ -61,9 +61,9 @@ namespace APFTestingUI.Models.Practical
                 return new PackerPracticalResult
                 {
                     Date = DateTime.Parse(Date),
-                    CanopyType = CanopyType,
+                    CanopyType = CanopyType.Equals("Other") ? CanopyTypeOther : CanopyType,
                     CanopyTypeSerialNumber = CanopyTypeSerialNumber,
-                    HarnessContainerType = HarnessContainerType,
+                    HarnessContainerType = HarnessContainerType.Equals("Other") ? HarnessContainerTypeOther : HarnessContainerType,
                     HarnessContainerSerialNumber = HarnessContainerSerialNumber,
                     Note = Note,
                     SupervisorId = SupervisorId
