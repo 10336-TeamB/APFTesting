@@ -37,5 +37,7 @@ namespace APFTestingModel
 
         void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results);
         void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result);
+
+        void FinalisePractical(Guid examId);
     }
 }

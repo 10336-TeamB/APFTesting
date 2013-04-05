@@ -130,5 +130,10 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+        public void FinalisePractical(Guid examId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

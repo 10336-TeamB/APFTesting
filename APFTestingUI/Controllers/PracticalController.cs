@@ -15,12 +15,21 @@ namespace APFTestingUI.Controllers
         #region Pilot
 
         //
+        // GET: /Practical/PilotView
+
+        public ActionResult PilotView(Guid examId, Guid candidateId)
+        {
+            var tasks = _facade.FetchAssessmentTasksPilot(examId);
+            var model = new PilotView(examId, candidateId, tasks);
+            return View(model);
+        }
+
+        //
         // GET: /Practical/PilotInput
 
         public ActionResult PilotInput(Guid examId, Guid candidateId)
         {
             var tasks = _facade.FetchAssessmentTasksPilot(examId);
-            //var tasks = dummyTasks();
             var model = new PilotInput(examId, candidateId, tasks);
             return View(model);
         }
@@ -54,56 +63,7 @@ namespace APFTestingUI.Controllers
                 }
             }
             return View(model);
-        }
-
-        //HACK: While no data available from Facade
-        public IEnumerable<ISelectedAssessmentTask> dummyTasks()
-        {
-
-            yield return
-                new DummyTask
-                {
-                    Title = "Local Knowledge",
-                    Details = "Familiar with local requirements, noise, airspace, etc.",
-                    MaxScore = 5,
-                    Id = new Guid("00000000-0000-0000-0000-000000000001")
-                };
-            yield return
-                new DummyTask
-                {
-                    Title = "Aircraft Knowledge",
-                    Details = "Performance. Location of emergency equipment.",
-                    MaxScore = 10,
-                    Id = new Guid("00000000-0000-0000-0000-000000000002")
-                };
-            yield return
-                new DummyTask
-                {
-                    Title = "Pre-Flight",
-                    Details = "Aircraft prep, restraints, knife, airspace issues, weather brief, aircraft documents, e.g. maintenance release, Refuelling/Oil level.",
-                    MaxScore = 10,
-                    Id = new Guid("00000000-0000-0000-0000-000000000003")
-                };
         } 
-
-        //
-        // GET: /Practical/PilotView
-
-        public ActionResult PilotView(Guid examId, Guid candidateId)
-        {
-            var tasks = _facade.FetchAssessmentTasksPilot(examId);
-            var model = new PilotView(examId, candidateId, tasks);
-            return View(model);
-        }
-
-        //
-        // GET: /Practical/FinalisePractical
-
-        public ActionResult FinalisePractical(Guid examId)
-        {
-            //var tasks = _facade.FinalisePractical(examId);
-            return RedirectToAction("Index", "Examiner");
-        }
 
         #endregion
 
@@ -208,5 +168,14 @@ namespace APFTestingUI.Controllers
         }
         
         #endregion
+
+        //
+        // GET: /Practical/FinalisePractical
+
+        public ActionResult FinalisePractical(Guid examId)
+        {
+            var tasks = _facade.FinalisePractical(examId);
+            return RedirectToAction("Index", "Examiner");
+        }
     }
 }
