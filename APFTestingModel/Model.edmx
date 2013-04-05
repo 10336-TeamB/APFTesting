@@ -1404,7 +1404,7 @@
             <PropertyRef Name="ExamType" />
           </Key>
           <Property Type="Guid" Name="ExaminerId" Nullable="false" />
-          <Property Type="Int16" Name="ExamType" Nullable="false" />
+          <Property Type="APFTestingDBModel.ExamType" Name="ExamType" Nullable="false" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_ExaminerAuthority_Examiner" FromRole="ExaminerAuthority" ToRole="Examiner" />
         </EntityType>
         <Association Name="FK_ExaminerAuthority_Examiner">
