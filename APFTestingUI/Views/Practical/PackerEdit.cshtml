@@ -4,6 +4,10 @@
     ViewBag.Title = "Packer Edit";
 }
 
+@section styles {
+    @Styles.Render("~/Content/themes/base/css")
+}
+
 <h2>Packer Edit</h2>
 
 @using (Html.BeginForm()) {
@@ -22,6 +26,7 @@
             @Html.EditorFor(model => model.Date)
             @Html.ValidationMessageFor(model => model.Date)
         </div>
+        <div class="clear"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.CanopyType)
@@ -30,6 +35,7 @@
             @Html.DropDownListFor(model => model.CanopyType, Model.CanopyTypeList)
             @Html.ValidationMessageFor(model => model.CanopyType)
         </div>
+        <div class="clear"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.CanopyTypeOther)
@@ -38,6 +44,7 @@
             @Html.EditorFor(model => model.CanopyTypeOther)
             @Html.ValidationMessageFor(model => model.CanopyTypeOther)
         </div>
+        <div class="clear"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.CanopyTypeSerialNumber)
@@ -46,6 +53,7 @@
             @Html.EditorFor(model => model.CanopyTypeSerialNumber)
             @Html.ValidationMessageFor(model => model.CanopyTypeSerialNumber)
         </div>
+        <div class="clear"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.HarnessContainerType)
@@ -54,6 +62,7 @@
             @Html.DropDownListFor(model => model.HarnessContainerType, Model.HarnessContainerTypeList)
             @Html.ValidationMessageFor(model => model.HarnessContainerType)
         </div>
+        <div class="clear"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.HarnessContainerTypeOther)
@@ -62,6 +71,7 @@
             @Html.EditorFor(model => model.HarnessContainerTypeOther)
             @Html.ValidationMessageFor(model => model.HarnessContainerTypeOther)
         </div>
+        <div class="clear"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.HarnessContainerSerialNumber)
@@ -70,6 +80,7 @@
             @Html.EditorFor(model => model.HarnessContainerSerialNumber)
             @Html.ValidationMessageFor(model => model.HarnessContainerSerialNumber)
         </div>
+        <div class="clear"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Note)
@@ -78,6 +89,7 @@
             @Html.EditorFor(model => model.Note)
             @Html.ValidationMessageFor(model => model.Note)
         </div>
+        <div class="clear"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.SupervisorId)
@@ -86,9 +98,10 @@
             @Html.EditorFor(model => model.SupervisorId)
             @Html.ValidationMessageFor(model => model.SupervisorId)
         </div>
-
-        <p>
-            <input type="submit" value="Save" />
+        <div class="clear"></div>
+        
+        <p class="button-container">
+            <input type="submit" value="Save" class="examinerButton form-submit" />
         </p>
     </fieldset>
 }
@@ -96,4 +109,6 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/Scripts/practical-packer.js")
 }

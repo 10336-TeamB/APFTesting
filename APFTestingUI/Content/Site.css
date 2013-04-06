@@ -114,9 +114,6 @@ hr {
     padding:0;
 }
 
-input, select {
-    vertical-align:middle;
-}
 
 img
 {
@@ -238,6 +235,23 @@ a
 a:hover
 {
     text-decoration: underline;
+}
+
+input, select {
+    vertical-align:middle;
+    font-family: 'Ubuntu', sans-serif;
+    border: 1px solid #ffffff;
+}
+
+textarea
+{
+    padding: 2px;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    width: 300px;
+    height: 150px;
+    border: 1px solid #ffffff;
+    overflow-y: scroll;
 }
 
 body
@@ -544,12 +558,15 @@ input[type="radio"], input[type="checkbox"]
     font-size: 0.8em;
     font-weight: bold;
     box-shadow: 2px 2px 4px rgba(0,0,0,.2);
-    /* display: inline-block; */
+    display: inline-block;
+    text-align: center;
+    line-height: 1.333em;
 }
 
 .examinerButton:hover
 {
     box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+    text-decoration: none;
 }
 
 .button
@@ -643,18 +660,9 @@ a.button
     width:100%;
 }
 
-    #candidate-list td
-    {
-        padding-bottom:5px;
-    }
-
-    #candidate-list th {
-        padding:10px 0;
-        font-size: 1.2em;
-    }
-
-.candidate-list-item {
-
+#candidate-list th 
+{
+    font-size: 1.2em;
 }
 
 .candidate-first-name {
@@ -670,14 +678,12 @@ a.button
 
 .start-theory-link
 {
-    padding: 0px 0.5% 0 0;
-    margin: 0px;
-    width: 16%;
+    width: 20%;
 }
 
+
 .input-practical-link {
-    width:16%;
-    text-align:right;
+    width: 20%;
 }
 
 #add-candidate-link
@@ -1076,11 +1082,18 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 .reset-cell {
     text-align: right;
-
+    width: 15%;
 }
 
 thead th {
     text-align: left;
+    padding: 5px;
+}
+
+td
+{
+    padding: 5px;
+    vertical-align: top;
 }
 
 
@@ -1162,7 +1175,7 @@ input[type="radio"]:checked + .label-radio {
 {
     float:left;
     padding-bottom: 10px;
-    width: 180px;
+    width: 190px;
     padding: 2px;
 }
     .editor-label em
@@ -1181,21 +1194,27 @@ input[type="radio"]:checked + .label-radio {
     padding-bottom: 10px;
 }
 
-    .editor-field input[type="text"], .editor-field input[type="email"], .editor-field input[type="date"]
+    .editor-field input[type="text"], .editor-field input[type="email"], .editor-field input[type="date"], .editor-field textarea
     {
-        width: 300px;
-        padding: 2px;
+        width: 296px;
+        padding: 3px 5px;
     }
 
     .editor-field select
     {
-        padding: 2px;
+        padding: 3px;
+    }
+
+    .editor-field option
+    {
+        padding: 3px;
     }
 
 .button-container
 {
     text-align: right;
-    width: 494px;
+    width: 502px;
+    margin-top: 1em;
 }
 
 .form-reset, .form-submit
@@ -1208,6 +1227,34 @@ input[type="radio"]:checked + .label-radio {
 }
 
 input:focus {
-  border: none;
-  border-color: transparent;
+    /* IE blue button */
+}
+
+#tbl-demonstrated-packs
+{
+    margin-bottom: 1em;
+}
+
+#tbl-demonstrated-packs thead tr:hover
+{
+    background-color: inherit;
+}
+
+#tbl-demonstrated-packs tr:hover
+{
+    background-color: #303030;
+    transition: background-color 0.5s;
+}
+
+tr.row-even
+{
+    background-color: #222222;
+    transition: background-color 0.5s;
+}
+
+tr.row-odd
+{
+    background-color: #111111;
+    transition: background-color 0.5s;
+
 }

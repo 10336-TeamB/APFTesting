@@ -6,23 +6,27 @@
 
 <h2>Demonstrated Packs</h2>
 
-<table>
+<table id="tbl-demonstrated-packs">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Canopy Type</th>
-            <th>Canopy Serial No.</th>
-            <th>Harness/Container Type</th>
-            <th>Harness/Container Serial No.</th>
-            <th>Notes</th>
-            <th>Instructor/Rigger No.</th>
+            <th class="th-date">Date</th>
+            <th class="th-canopy-type">Canopy Type</th>
+            <th class="th-canopy-serial-no">Canopy Serial No.</th>
+            <th class="th-harness-type">Harness / Container Type</th>
+            <th class="th-harness-serial-no">Harness / Container Serial No.</th>
+            <th class="th-notes">Notes</th>
+            <th class="th-instructor-no">Instructor / Rigger No.</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+@{
+    var rowCounter = 0;
+    var rowStyle = rowCounter % 2 == 0 ? "row-even" : "row-odd";
+}
 @foreach (var p in Model.Packs)
 {
-    <tr>
+    <tr class="@rowStyle">
         <td>@p.Date</td>
         <td>@p.CanopyType</td>
         <td>@p.CanopyTypeSerialNumber</td>
@@ -32,6 +36,7 @@
         <td>@p.SupervisorId</td>
         <td>@Html.ActionLink("Edit", "PackerEdit", new { taskId = @p.Id, examId = @Model.ExamId }, new { @class = "examinerButton" })</td>
     </tr>
+    rowCounter++;
 }
     </tbody>
 </table>
