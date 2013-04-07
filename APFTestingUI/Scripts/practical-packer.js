@@ -8,13 +8,13 @@
 
     if ($('#HarnessContainerType :selected').val() != 'Other')
     {
-        $('#HarnessContainerTypeOther').attr('disabled', 'true');
+        $('#HarnessContainerTypeOther').attr('disabled', 'true').val('');
     }
 
     $('#HarnessContainerType').change(function () {
         if ($('#HarnessContainerType :selected').val() != 'Other')
         {
-            $('#HarnessContainerTypeOther').attr('disabled', 'true');
+            $('#HarnessContainerTypeOther').attr('disabled', 'true').val('');
         }
         else
         {
@@ -23,12 +23,12 @@
     });
     
     if ($('#CanopyType :selected').val() != 'Other') {
-        $('#CanopyTypeOther').attr('disabled', 'true');
+        $('#CanopyTypeOther').attr('disabled', 'true').val('');
     }
 
     $('#CanopyType').change(function () {
         if ($('#CanopyType :selected').val() != 'Other') {
-            $('#CanopyTypeOther').attr('disabled', 'true');
+            $('#CanopyTypeOther').attr('disabled', 'true').val('');
         }
         else
         {

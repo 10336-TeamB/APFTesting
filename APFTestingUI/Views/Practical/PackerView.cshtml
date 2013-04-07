@@ -22,11 +22,11 @@
     <tbody>
 @{
     var rowCounter = 0;
-    var rowStyle = rowCounter % 2 == 0 ? "row-even" : "row-odd";
 }
 @foreach (var p in Model.Packs)
 {
-    <tr class="@rowStyle">
+    var rowStyle = rowCounter % 2 == 0 ? "row-even" : "row-odd";
+    <tr class="@rowStyle middle @rowCounter">
         <td>@p.Date</td>
         <td>@p.CanopyType</td>
         <td>@p.CanopyTypeSerialNumber</td>

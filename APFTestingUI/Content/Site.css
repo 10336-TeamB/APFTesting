@@ -1240,21 +1240,110 @@ input:focus {
     background-color: inherit;
 }
 
-#tbl-demonstrated-packs tr:hover
-{
-    background-color: #303030;
-    transition: background-color 0.5s;
-}
+    #tbl-demonstrated-packs tr:hover
+    {
+        background-color: #202020;
+        -moz-transition: background-color 0.5s;
+        -o-transition: background-color 0.5s;
+        -webkit-transition: background-color 0.5s;
+        transition: background-color 0.5s;
+    }
 
 tr.row-even
 {
-    background-color: #222222;
+    background-color: #252525;
+    -moz-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s;
 }
 
 tr.row-odd
 {
-    background-color: #111111;
+    background-color: #2a2a2a;
+    -moz-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
     transition: background-color 0.5s;
+}
 
+
+/** Pilot practical : #form-pilot-practical */
+#form-pilot-practical table
+{
+    margin-bottom: 2em;
+    border-bottom: 1px solid #666666;
+}
+
+#form-pilot-practical th
+{
+    font-size: 1.4em;
+    color: #999999;
+}
+
+#form-pilot-practical td
+{
+    padding-top: 2em;
+    padding-bottom: 2.5em;
+    border-top: 1px solid #666666;
+}
+
+input[type='number']
+{
+    border: 1px solid #ffffff;
+    padding: 2px;
+    margin: 0;
+}
+
+.td-score input[type='number']
+{
+    font-size: 1.5em;
+    line-height: 1.25em;
+    width: 70px;
+    text-align: right;
+}
+
+.th-detail
+{
+    width:50%;
+}
+
+.td-detail .max-score
+{
+    font-style: italic;
+    color: #ff9;
+}
+
+#form-pilot-practical p.button-container
+{
+    width: 100%;
+}
+
+#form-pilot-practical .button-container input
+{
+    margin-right:20px;
+}
+
+
+/** Packer Practical View : #tbl-demonstrated-packs */
+#tbl-demonstrated-packs th
+{
+    padding: 15px;
+}
+
+#tbl-demonstrated-packs .middle td
+{
+    vertical-align: middle;
+    padding: 0.75em 15px;
+}
+
+/** Packer Practical Input / Edit : #form-packer-input, #form-packer-edit */
+#form-packer-input .editor-label, #form-packer-edit .editor-label
+{
+    width: 220px;
+}
+
+#form-packer-input .button-container, #form-packer-edit .button-container
+{
+    width: 532px;
 }

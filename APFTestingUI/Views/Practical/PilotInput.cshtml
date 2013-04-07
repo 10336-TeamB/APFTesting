@@ -6,33 +6,33 @@
 
 <h2>Practical exam input</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("PilotInput", "Practical", new { candidateId = Model.CandidateId}, FormMethod.Post, new { id = "form-pilot-practical" }))
 {
     @Html.HiddenFor(model => model.CandidateId)
     @Html.HiddenFor(model => model.ExamId)
     <table>
         <thead>
             <tr>
-                <td>Detail</td>
-                <td>Comments</td>
-                <td>Score</td>
+                <th class="th-detail">Detail</th>
+                <th class="th-comments">Comments</th>
+                <th class="th-score">Score</th>
             </tr>
         </thead>
         <tbody>
             @for (var i = 0; i < Model.Tasks.Count; i++)
             {
                     <tr>
-                        <td>
-                            <div>@Html.EditorFor(model => model.Tasks[i].Title)</div>
-                            <div>@Html.EditorFor(model => model.Tasks[i].Details)</div>
-                            <div>@Html.EditorFor(model => model.Tasks[i].MaxScore) Points</div>
+                        <td class="td-detail">
+                            <h3 class="title">@Html.EditorFor(model => model.Tasks[i].Title)</h3>
+                            <p class="description">@Html.EditorFor(model => model.Tasks[i].Details)</p>
+                            <p class="max-score">@Html.EditorFor(model => model.Tasks[i].MaxScore) Points</p>
                             @Html.EditorFor(model => model.Tasks[i].Id)
                             
                         </td>
-                        <td>
+                        <td class="td-comments">
                             @Html.TextAreaFor(model => model.Tasks[i].Comment)
                         </td>
-                        <td>
+                        <td class="td-score">
                             @Html.TextBoxFor(model => model.Tasks[i].Score, new { type = "number" })
                         </td>
                     </tr>
@@ -41,7 +41,9 @@
         </tbody>
     </table>
     
-    <input type="submit" value="Submit"/>
+    <p class="button-container">
+        <input type="submit" value="Submit" class="examinerButton"/>
+    </p>
 }
 
 @section Scripts {

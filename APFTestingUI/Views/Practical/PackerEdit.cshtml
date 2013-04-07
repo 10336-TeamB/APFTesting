@@ -10,7 +10,8 @@
 
 <h2>Packer Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("PackerEdit", "Practical", new { taskId = Model.TaskId }, FormMethod.Post, new { id = "form-packer-edit" }))
+{
     @Html.ValidationSummary(false)
 
     <fieldset>
