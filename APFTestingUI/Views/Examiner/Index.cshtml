@@ -58,14 +58,18 @@
                     }
                 </td>
                 <td class="input-practical-link">
-                    @if (candidate.ExamType.Equals("PilotExam"))
+                    @if (candidate.PracticalAvailable)
                     {
-                        @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                        if (candidate.ExamType.Equals("PilotExam"))
+                        {
+                            @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                        }
+                        else if (candidate.ExamType.Equals("PackerExam"))
+                        {
+                            @Html.ActionLink("Input Practical Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                        }
                     }
-                    else if (candidate.ExamType.Equals("PackerExam"))
-                    {
-                        @Html.ActionLink("Input Practical Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
-                    }
+                    
                 </td>
                 <td class="reset-cell"><button id="reset" class="examinerButton" type="button">Reset Exam</button></td>
             </tr>
