@@ -145,5 +145,16 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public ICandidatePacker FetchPacker(Guid candidateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICandidatePilot FetchPilot(Guid candidateId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -73,11 +73,17 @@ namespace APFTestingUI.Models.Practical
 
         private void buildSelectLists()
         {
-            var canopyList = Enum.GetValues(typeof(CanopyTypes));
-            var harnessList = Enum.GetValues(typeof(HarnessContainerTypes));
+            //This does not generate value property for each option
+            //var canopyList = Enum.GetValues(typeof(CanopyTypes));
+            //var harnessList = Enum.GetValues(typeof(HarnessContainerTypes));
 
-            CanopyTypeList = new SelectList(canopyList);
-            HarnessContainerTypeList = new SelectList(harnessList);
+            //CanopyTypeList = new SelectList(canopyList);
+            //HarnessContainerTypeList = new SelectList(harnessList);
+
+            var canopyList = Enum.GetValues(typeof(CanopyTypes)).Cast<CanopyTypes>().Select(e => e.ToString()).ToList();
+            var harnessList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().Select(e => e.ToString()).ToList();
+            CanopyTypeList = new SelectList(canopyList.Select(x => new { value = x, text = x }).ToList(), "value", "text", CanopyType);
+            HarnessContainerTypeList = new SelectList(harnessList.Select(x => new { value = x, text = x }).ToList(), "value", "text", HarnessContainerType);
         }
     }
 }
