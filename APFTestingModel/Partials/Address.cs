@@ -8,12 +8,13 @@ namespace APFTestingModel
 {
     internal partial class Address : IAddress
     {
-        public Address(string Address1, string Address2, string Suburb, string Postcode)
+        public Address(string address1, string address2, string suburb, string state, string postcode)
         {
-            this.Address1 = Address1;
-            this.Address2 = Address2;
-            this.Suburb = Suburb;
-            this.Postcode = Postcode;
+            this.Address1 = address1;
+            this.Address2 = address2;
+            this.Suburb = suburb;
+            this.State = state;
+            this.Postcode = postcode;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace APFTestingModel
             FirstName = details.FirstName;
             LastName = details.LastName;
             DateOfBirth = details.DateOfBirth;
-            Address = new Address(details.Address1, details.Address2, details.Suburb, details.Postcode);
+            Address = new Address(details.Address1, details.Address2, details.Suburb, details.State, details.Postcode);
             ARN = details.ARN;
             PhoneNumber = details.Phone;
             MobileNumber = details.Mobile;

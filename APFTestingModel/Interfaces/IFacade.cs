@@ -44,5 +44,7 @@ namespace APFTestingModel
 
         ICandidatePacker FetchPacker(Guid candidateId);
         ICandidatePilot FetchPilot(Guid candidateId);
+        void EditPilot(Guid candidateId, CandidatePilotDetails details);
+        void EditPacker(Guid candidateId, CandidatePackerDetails details);
     }
 }

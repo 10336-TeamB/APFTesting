@@ -9,6 +9,15 @@ namespace APFTestingUI.Models.Candidate
 {
     public class ViewPacker
     {
+        public ViewPacker(ICandidatePacker candidate)
+        {
+            Id = candidate.Id;
+            FirstName = candidate.FirstName;
+            LastName = candidate.LastName;
+            Mobile = candidate.MobileNumber;
+            APFNumber = candidate.APFNumber;
+        }
+
         [Required]
         public Guid Id { get; set; }
 

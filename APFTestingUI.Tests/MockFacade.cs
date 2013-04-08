@@ -156,5 +156,16 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public void EditPilot(Guid candidateId, CandidatePilotDetails details)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditPacker(Guid candidateId, CandidatePackerDetails details)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

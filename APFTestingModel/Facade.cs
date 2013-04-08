@@ -370,18 +370,18 @@ namespace APFTestingModel
             return exam.AssessmentTasks.First(at => at.Id == taskId);
         }
 
-        public ICandidatePacker EditPacker(Guid candidateId, CandidatePackerDetails details)
+        public void EditPacker(Guid candidateId, CandidatePackerDetails details)
         {
             var candidate = _context.People.OfType<CandidatePacker>().First(c => c.Id == candidateId);
             candidate.Edit(details);
-            return candidate;
+            _context.SaveChanges();
         }
 
-        public ICandidatePilot EditPilot(Guid candidateId, CandidatePilotDetails details)
+        public void EditPilot(Guid candidateId, CandidatePilotDetails details)
         {
             var candidate = _context.People.OfType<CandidatePilot>().Include("Address").First(c => c.Id == candidateId);
             candidate.Edit(details);
-            return candidate;
+            _context.SaveChanges();
         }
 
         #endregion

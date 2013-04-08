@@ -237,10 +237,14 @@ a:hover
     text-decoration: underline;
 }
 
-input, select {
+input, select, textarea {
     vertical-align:middle;
     font-family: 'Ubuntu', sans-serif;
-    border: 1px solid #ffffff;
+    border: solid 2px rgb(170, 168, 168);
+    font-size: 16px;
+    color: #dddddd;
+    background-color: rgb(65, 65, 65);
+    border-radius: 4px;
 }
 
 textarea
@@ -250,8 +254,7 @@ textarea
     margin: 0;
     width: 300px;
     height: 150px;
-    border: 1px solid #ffffff;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 body
@@ -266,6 +269,7 @@ body
 p
 {
     margin: 0 0 1em;
+    font-size: 1.2em;
 }
 
 ul
@@ -292,6 +296,8 @@ table
 input[type="radio"], input[type="checkbox"]
 {
     margin: 0;
+    border: none;
+    background-color: #303030;
 }
 
 /** IDs - structure */
@@ -1083,7 +1089,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 }
 
 .reset {
-    background-color: #ff0000;
+    background-color: rgb(145, 38, 32);
 }
 
 .reset-cell {
@@ -1190,6 +1196,7 @@ input[type="radio"]:checked + .label-radio {
     padding-bottom: 10px;
     width: 190px;
     padding: 2px;
+    font-size: 1.2em;
 }
     .editor-label em
     {
@@ -1211,6 +1218,7 @@ input[type="radio"]:checked + .label-radio {
     {
         width: 296px;
         padding: 3px 5px;
+        border-radius: 4px;
     }
 
     .editor-field select
@@ -1303,7 +1311,6 @@ tr.row-odd
 
 input[type='number']
 {
-    border: 1px solid #ffffff;
     padding: 2px;
     margin: 0;
 }
@@ -1314,6 +1321,7 @@ input[type='number']
     line-height: 1.25em;
     width: 70px;
     text-align: right;
+
 }
 
 .th-detail
