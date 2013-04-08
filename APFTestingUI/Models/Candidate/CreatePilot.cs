@@ -11,7 +11,7 @@ namespace APFTestingUI.Models.Candidate
     public class CreatePilot
     {
         public CreatePilot() {
-            BuiltPilotLicenceSelectList();
+            BuildPilotLicenceSelectList();
         }
 
         private const int _arnLength = 6;
@@ -41,6 +41,9 @@ namespace APFTestingUI.Models.Candidate
 
         [Required]
         public string Suburb { get; set; }
+
+        [Required]
+        public string State { get; set; }
 
         [Required]
         [StringLength(_postcodeLength, MinimumLength = _postcodeLength)]
@@ -98,6 +101,7 @@ namespace APFTestingUI.Models.Candidate
                     Address1 = this.Address1,
                     Address2 = this.Address2,
                     Suburb = this.Suburb,
+                    State = this.State,
                     Postcode = this.Postcode,
                     ARN = this.ARN,
                     Phone = this.Phone,
@@ -112,12 +116,16 @@ namespace APFTestingUI.Models.Candidate
             }
         }
 
-        public void BuiltPilotLicenceSelectList()
+        public void BuildPilotLicenceSelectList()
         {
             var list = new Dictionary<string, int>();
-            list.Add("PPL", 1);
-            list.Add("CPL", 2);
-            list.Add("ATPL", 3);
+            var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenseType));
+
+            for (var i = 0; i < values.Length; i++)
+            {
+                var value = values.GetValue(i);
+                list.Add(value.ToString(), (short)value);
+            }
 
             PilotLicences = new SelectList(list, "Value", "Key");
         }

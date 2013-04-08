@@ -34,7 +34,7 @@ namespace APFTestingModel
 
         void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId);
         void VoidExam(Guid examId);
-        void ResetTheoryComponent();
+        void ResetTheoryComponent(Guid examId);
 
         void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results);
         void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result);
