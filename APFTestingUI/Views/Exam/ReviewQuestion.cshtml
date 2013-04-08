@@ -40,8 +40,10 @@
     </fieldset>
     <div id="navigation-container" class="review-page">
         <span id="mark-for-review">
-            @Html.LabelFor(model => model.IsMarkedForReview)
-            @Html.CheckBoxFor(model => model.IsMarkedForReview)
+            @*@Html.CheckBoxFor(model => model.IsMarkedForReview)*@
+            <input type="checkbox" value="true" name="IsMarkedForReview" id="IsMarkedForReview" />
+            @Html.LabelFor(model => model.IsMarkedForReview, new { @class="label-mark-for-review" })
+            <input type="hidden" value="false" name="IsMarkedForReview" />
         </span>
         <input id="SummaryButton" class="button" type="submit" value="Back to Summary" />
         
