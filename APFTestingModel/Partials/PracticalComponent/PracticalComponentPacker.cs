@@ -16,7 +16,10 @@ namespace APFTestingModel
         // TODO - Implement IsCompetent
         public bool IsCompetent
         {
-            get { throw new NotImplementedException(); }
+            get 
+            {
+                return (AssessmentTaskPackers.Count >= PracticalComponentTemplatePacker.NumOfRequiredAssessmentTasks);
+            }
         }
 
         public int NumOfRequiredAssessmentTasks
