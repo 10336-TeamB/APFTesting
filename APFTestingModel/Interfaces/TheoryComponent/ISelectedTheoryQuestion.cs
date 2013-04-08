@@ -18,5 +18,6 @@ namespace APFTestingModel
         bool IsLastQuestion { get; }
         bool IsCorrect { get; }
         int TotalNumOfQuestions { get; }
+        string ImagePath { get; }
     }
 }
