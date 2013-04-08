@@ -65,6 +65,11 @@ namespace APFTestingModel
             get { return TheoryComponent.SelectedTheoryQuestions.Count; }
         }
 
+        public string ImagePath
+        {
+            get { return TheoryQuestion.ImagePath; }
+        }
+
 		#endregion
 
 		#region Methods
@@ -92,6 +97,5 @@ namespace APFTestingModel
 		#endregion
 
 
-        
     }
 }

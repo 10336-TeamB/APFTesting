@@ -50,6 +50,13 @@
     @Html.HiddenFor(m => m.Index)
     @Html.HiddenFor(m => m.NavDirection)
     <fieldset>
+        <legend>Question</legend>
+        @if (Model.ImagePath != null)
+        {
+            <div class="image-container">
+                <img src="~/Content/Images/@Model.ImagePath" alt="" />
+            </div>
+        }
         @foreach (var answer in Model.Answers)
         {
             <div class="answer-container">

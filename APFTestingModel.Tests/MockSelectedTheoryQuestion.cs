@@ -68,5 +68,11 @@ namespace APFTestingModel.Tests
         {
             get { return 10; }
         }
+
+
+        public string ImagePath
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

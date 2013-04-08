@@ -21,6 +21,7 @@ namespace APFTestingUI.Models.Exam
             IsAnswered = question.IsAnswered;
             NavDirection = ExamAction.NextQuestion;
             ExamProgress = calculateProgress(question.QuestionIndex, question.TotalNumOfQuestions);
+            ImagePath = question.ImagePath;
         }
 
         
@@ -38,6 +39,7 @@ namespace APFTestingUI.Models.Exam
         {
             get { return Index == 0; }
         }
+        public string ImagePath { get; set; }
         public bool IsAnswered { get; set; }
         public float ExamProgress { get; set; }
 
