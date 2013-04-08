@@ -657,6 +657,12 @@ a.button
     vertical-align:middle;
 }
 
+.add-candidates-container
+{
+    margin: 2em 0;
+}
+
+
 #candidate-list {
     width:100%;
 }
@@ -733,6 +739,8 @@ a.button
 #mark-for-review {
     /*display:block;*/
     line-height: 2.5em;
+    display: inline-block;
+    margin-top: 5px;
 }
 
     .review-page #mark-for-review
@@ -900,6 +908,7 @@ dt.not-answered .question-title {
     padding: 10px 1.5%;
     border-radius: 5px;
     margin-bottom: 20px;
+    margin-top: 5px;
     border: solid 2px #999;
     float: right;
     width: 35%;
@@ -926,13 +935,18 @@ dt.not-answered .question-title {
 
 #summary .button {
     float: left;
-    margin-left: 60px;
+    margin-left: 50px;
 }
 
 #summary dl
 {
     width:60%;
     float:left;
+}
+
+.submit-button-container
+{
+    margin: 1em 0;
 }
 
 /*Playing with special checkboxes*/
@@ -1141,7 +1155,6 @@ a.button-add {
 
 input[type="checkbox"] + .label-checkbox {
     background: transparent url('../Images/sprite-input-buttons2.png') 0 0 no-repeat;
-    padding-left: 40px;
     margin: 0;
     padding:9px 0 9px 40px;
     display:block;
@@ -1149,6 +1162,23 @@ input[type="checkbox"] + .label-checkbox {
 
 input[type="checkbox"]:checked + .label-checkbox {
     background: transparent url('../Images/sprite-input-buttons2.png') 0 -198px no-repeat;
+}
+
+#IsMarkedForReview
+{
+    display:none;
+}
+
+input[type="checkbox"] + .label-mark-for-review
+{
+    background: transparent url('../Images/sprite-input-buttons2.png') 100% 0 no-repeat;
+    margin: 0;
+    padding:9px 40px 9px 0;
+}
+
+input[type="checkbox"]:checked + .label-mark-for-review
+{
+    background-position:100% -198px;
 }
 
 
