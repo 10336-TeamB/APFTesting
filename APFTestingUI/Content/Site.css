@@ -731,9 +731,13 @@ a.button
 
 #mark-for-review {
     /*display:block;*/
-    padding-left: 124px;
     line-height: 2.5em;
 }
+
+    .review-page #mark-for-review
+    {
+        padding-left: 124px;
+    }
 
 #mark-for-review label{
     display: inline;
@@ -1136,7 +1140,7 @@ input[type="checkbox"] + .label-checkbox {
 }
 
 input[type="checkbox"]:checked + .label-checkbox {
-    background: transparent url('../Images/sprite-input-buttons2.png') 0 -200px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -198px no-repeat;
 }
 
 
