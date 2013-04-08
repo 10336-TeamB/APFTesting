@@ -76,7 +76,7 @@ namespace APFTestingUI.Tests
             // NO-OP
         }
 
-        public void ResetTheoryComponent()
+        public void ResetTheoryComponent(Guid examId)
         {
             // NO-OP
         }

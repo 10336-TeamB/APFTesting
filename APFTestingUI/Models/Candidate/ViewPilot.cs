@@ -19,6 +19,7 @@ namespace APFTestingUI.Models.Candidate
             Address1 = candidate.Address.Address1;
             Address2 = candidate.Address.Address2;
             Suburb = candidate.Address.Suburb;
+            State = candidate.Address.State;
             Postcode = candidate.Address.Postcode;
             ARN = candidate.ARN;
             Phone = candidate.PhoneNumber;
@@ -50,6 +51,8 @@ namespace APFTestingUI.Models.Candidate
         public string Address2 { get; set; }
 
         public string Suburb { get; set; }
+
+        public string State { get; set; }
 
         public string Postcode { get; set; }
 

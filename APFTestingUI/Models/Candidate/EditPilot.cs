@@ -15,27 +15,30 @@ namespace APFTestingUI.Models.Candidate
         private const int _mobileLength = 10;
         private const int _postcodeLength = 4;
 
-        //public Edit(ICandidatePilot candidate)
-        //{
-        //    Id = candidate.Id;
-        //    FirstName = candidate.FirstName;
-        //    LastName = candidate.LastName;
-        //    DateOfBirth = candidate.DateOfBirth;
-        //    Address1 = candidate.Address1;
-        //    Address2 = candidate.Address2;
-        //    Suburb = candidate.Suburb;
-        //    Postcode = candidate.Postcode;
-        //    ARN = candidate.ARN;
-        //    Phone = candidate.Phone;
-        //    Mobile = candidate.Mobile;
-        //    Email = candidate.Email;
-        //    PilotLicenceType = candidate.PilotLicenceType;
-        //    InstrumentRating = candidate.InstrumentRating;
-        //    PilotMedical = candidate.PilotMedical;
-        //    PilotMedicalExpiry = candidate.PilotMedicalExpiry;
-        //    ValidBFR = candidate.ValidBFR;
-        //    BuiltPilotLicenceSelectList();
-        //}
+        public EditPilot() { }
+
+        public EditPilot(ICandidatePilot candidate)
+        {
+            Id = candidate.Id;
+            FirstName = candidate.FirstName;
+            LastName = candidate.LastName;
+            DateOfBirth = candidate.DateOfBirth;
+            Address1 = candidate.Address.Address1;
+            Address2 = candidate.Address.Address2;
+            Suburb = candidate.Address.Suburb;
+            State = candidate.Address.State;
+            Postcode = candidate.Address.Postcode;
+            ARN = candidate.ARN;
+            Phone = candidate.PhoneNumber;
+            Mobile = candidate.MobileNumber;
+            Email = candidate.Email;
+            PilotLicenceType = candidate.PilotLicenseType;
+            InstrumentRating = candidate.InstrumentRating;
+            PilotMedical = candidate.PilotMedicalType;
+            PilotMedicalExpiry = candidate.PilotMedicalExpiryDate;
+            ValidBFR = candidate.ValidBFR;
+            BuildPilotLicenceSelectList();
+        }
 
         [Required]
         public Guid Id { get; set; }
@@ -48,7 +51,7 @@ namespace APFTestingUI.Models.Candidate
 
         [Required]
         [DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; }
+        public Nullable<DateTime> DateOfBirth { get; set; }
 
         [Required]
         public string Address1 { get; set; }
@@ -57,6 +60,9 @@ namespace APFTestingUI.Models.Candidate
 
         [Required]
         public string Suburb { get; set; }
+
+        [Required]
+        public string State { get; set; }
 
         [Required]
         [StringLength(_postcodeLength, MinimumLength = _postcodeLength)]
@@ -104,7 +110,7 @@ namespace APFTestingUI.Models.Candidate
                 {
                     FirstName = this.FirstName,
                     LastName = this.LastName,
-                    DateOfBirth = this.DateOfBirth,
+                    DateOfBirth = DateTime.Parse(this.DateOfBirth.ToString()), // TODO: Update once field no longer nullable
                     Address1 = this.Address1,
                     Address2 = this.Address2,
                     Suburb = this.Suburb,
@@ -122,12 +128,16 @@ namespace APFTestingUI.Models.Candidate
             }
         }
 
-        public void BuiltPilotLicenceSelectList()
+        public void BuildPilotLicenceSelectList()
         {
             var list = new Dictionary<string, int>();
-            list.Add("PPL", 1);
-            list.Add("CPL", 2);
-            list.Add("ATPL", 3);
+            var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenseType));
+
+            for (var i = 0; i < values.Length; i++)
+            {
+                var value = values.GetValue(i);
+                list.Add(value.ToString(), (short)value);
+            }
 
             PilotLicences = new SelectList(list, "Value", "Key");
         }

@@ -214,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\cross.png" />
+    <Content Include="Content\images\img-q18-knots.jpg" />
     <Content Include="Content\images\tick.png" />
     <Content Include="Content\PIE.htc" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -296,6 +297,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Images\logo-apf.png" />
     <Content Include="Images\sprite-input-buttons.png" />
+    <Content Include="Images\sprite-input-buttons2.png" />
     <Content Include="Images\tick.png" />
     <Content Include="Scripts\candidate.js" />
     <Content Include="Scripts\exam.js" />

@@ -34,7 +34,6 @@ namespace APFTestingModel
 			return exam.FetchCurrentQuestion();
 		}
 
-        //REFACTORED
         private void createExamManager(ExamType examType)
         {
             TheoryComponentFormat activeTheoryFormat;
@@ -58,7 +57,6 @@ namespace APFTestingModel
             examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
         }
 		
-        //REFACTORED
 		private Guid CreateExam(Guid examinerId, Person candidate)
 		{
             Exam exam;
@@ -78,24 +76,9 @@ namespace APFTestingModel
 		}
 		
 		// HACK: Rest Theory Component
-		public void ResetTheoryComponent()
+		public void ResetTheoryComponent(Guid examId)
 		{
-			var candidate = _context.People
-				.Include("ExamPackers")
-                .Include("ExamPackers.TheoryComponent")
-                .Include("ExamPackers.TheoryComponent.SelectedTheoryQuestions")
-                .Include("ExamPackers.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
-                .Include("ExamPackers.TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
-				.OfType<CandidatePacker>().First();
-
-			var exam = candidate.LatestExam;
-
-			exam.TheoryComponent.SelectedTheoryQuestions.ToList()
-				.ForEach(q =>
-				{
-					q.PossibleAnswers.ToList().ForEach(pa => pa.IsChecked = false);
-					q.IsMarkedForReview = false;
-				});
+		    var exam = fetchExamForQuestionFetching(examId);
 			exam.ResetTheoryComponent();
 			_context.SaveChanges();
 		}
@@ -349,8 +332,6 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-
-        // TODO: These 5 methods need completing
         public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
         {
             var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);

@@ -259,7 +259,7 @@ body
     text-align:center;
     font-family: 'Ubuntu', sans-serif;
     background-color: #303030;
-    color: #ffffff;
+    color: #eeeeee;
     height: 100%;
 }
 
@@ -479,7 +479,7 @@ input[type="radio"], input[type="checkbox"]
 
     #content .size-wrapper
     {
-        padding: 50px 10px 50px;
+        padding: 75px 10px 50px;
         max-width: 980px;
     }
 
@@ -561,6 +561,7 @@ input[type="radio"], input[type="checkbox"]
     display: inline-block;
     text-align: center;
     line-height: 1.333em;
+    min-width: 80px;
 }
 
 .examinerButton:hover
@@ -730,9 +731,14 @@ a.button
 }
 
 #mark-for-review {
-    display:block;
+    /*display:block;*/
     line-height: 2.5em;
 }
+
+    .review-page #mark-for-review
+    {
+        padding-left: 124px;
+    }
 
 #mark-for-review label{
     display: inline;
@@ -1076,7 +1082,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     padding: 5px 20px 7px 20px;
 }
 
-#reset {
+.reset {
     background-color: #ff0000;
 }
 
@@ -1102,16 +1108,22 @@ td
 /** Adding some buttons */
 .button-add {
     color: #efefef;
-    background: transparent url('../Images/btn-add-candidate.png') 0 0 no-repeat;
-    width: 88px;
+    /*background: transparent url('../Images/btn-add-candidate.png') 0 0 no-repeat;
+    width: 88px;*/
     height: 10px;
     font-size: 12px;
     font-weight:bold;
     line-height: 12px;
-    padding: 8px 30px 12px 8px;
+    /*padding: 8px 30px 12px 8px;*/
     text-align: center;
     display: inline-block;
     font-family: 'Play', sans-serif;
+
+    background-color: #5D5D5D;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    padding: 8px 20px 12px 20px;
+    margin-right:10px;
 }
 
 a.button-add {
@@ -1119,7 +1131,8 @@ a.button-add {
 }
 
 .button-add:active, .button-add:hover {
-    background: transparent url('../Images/btn-add-candidate-click.png') 0 0 no-repeat;
+    /*background: transparent url('../Images/btn-add-candidate-click.png') 0 0 no-repeat;*/
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
 }
 
 .answer-checkbox {
@@ -1127,7 +1140,7 @@ a.button-add {
 }
 
 input[type="checkbox"] + .label-checkbox {
-    background: transparent url('../Images/sprite-input-buttons.png') 0 0 no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 0 no-repeat;
     padding-left: 40px;
     margin: 0;
     padding:9px 0 9px 40px;
@@ -1135,7 +1148,7 @@ input[type="checkbox"] + .label-checkbox {
 }
 
 input[type="checkbox"]:checked + .label-checkbox {
-    background: transparent url('../Images/sprite-input-buttons.png') 0 -200px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -198px no-repeat;
 }
 
 
@@ -1144,14 +1157,14 @@ input[type="checkbox"]:checked + .label-checkbox {
 }
 
 input[type="radio"] + .label-radio {
-    background: transparent url('../Images/sprite-input-buttons.png') 0 -400px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -400px no-repeat;
     margin: 0;
     padding:9px 0 9px 40px;
     display:block;
 }
 
 input[type="radio"]:checked + .label-radio {
-    background: transparent url('../Images/sprite-input-buttons.png') 0 -600px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -600px no-repeat;
 }
 
 #exam-instructions {
