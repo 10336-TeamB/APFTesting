@@ -157,10 +157,15 @@ namespace APFTestingModel
 			_examState.VoidExam(a);
 		}
 		
-		//HACK: Reset Theory Component
-        //REFACTORED
+		//HACK: Reset Theory Component - Remove for production
 		public void ResetTheoryComponent()
 		{
+            TheoryComponent.SelectedTheoryQuestions.ToList()
+                .ForEach(q =>
+                {
+                    q.PossibleAnswers.ToList().ForEach(pa => pa.IsChecked = false);
+                    q.IsMarkedForReview = false;
+                });
 			ExamStatus = ExamStatus.NewExam;
 
 			TheoryComponent.CurrentQuestionIndex = 0;

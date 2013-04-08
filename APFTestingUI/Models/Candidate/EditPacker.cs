@@ -11,13 +11,15 @@ namespace APFTestingUI.Models.Candidate
     {
         private const int _mobileLength = 10;
 
-        //public EditPacker(ICandidatePacker candidate)
-        //{
-        //    FirstName = candidate.FirstName;
-        //    LastName = candidate.LastName;
-        //    Mobile = candidate.Mobile;
-        //    APFNumber = candidate.APFNumber;
-        //}
+        public EditPacker() { }
+
+        public EditPacker(ICandidatePacker candidate)
+        {
+            FirstName = candidate.FirstName;
+            LastName = candidate.LastName;
+            Mobile = candidate.MobileNumber;
+            APFNumber = candidate.APFNumber;
+        }
         
         [Required]
         public Guid Id { get; set; }

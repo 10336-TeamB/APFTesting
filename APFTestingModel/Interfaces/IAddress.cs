@@ -11,6 +11,7 @@ namespace APFTestingModel
         string Address1 { get; }
         string Address2 { get; }
         string Suburb { get; }
+        string State { get; }
         string Postcode { get; }
     }
 }

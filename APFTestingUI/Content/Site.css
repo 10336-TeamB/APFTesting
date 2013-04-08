@@ -1076,7 +1076,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     padding: 5px 20px 7px 20px;
 }
 
-#reset {
+.reset {
     background-color: #ff0000;
 }
 

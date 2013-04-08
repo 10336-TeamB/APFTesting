@@ -71,7 +71,7 @@
                     }
                     
                 </td>
-                <td class="reset-cell"><button id="reset" class="examinerButton" type="button">Reset Exam</button></td>
+                <td class="reset-cell">@Html.ActionLink("Reset exam", "Reset", "Reset", new { examId = candidate.LatestExamId }, new { @class = "examinerButton reset" })</td>
             </tr>
         }
     </tbody>
