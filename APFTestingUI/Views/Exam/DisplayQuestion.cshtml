@@ -51,7 +51,7 @@
     @Html.HiddenFor(m => m.NavDirection)
     <fieldset>
         <legend>Question</legend>
-        @if (Model.ImagePath != null)
+        @if (Model.ImagePath != null && !Model.ImagePath.Equals(""))
         {
             <div class="image-container">
                 <img src="~/Content/Images/@Model.ImagePath" alt="" />
