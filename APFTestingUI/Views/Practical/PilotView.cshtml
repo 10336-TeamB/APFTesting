@@ -6,34 +6,27 @@
 
 <h2>Pilot Practical Results</h2>
 
-<div>Score: @Model.TotalScore out of @Model.TotalMaxScore</div>
-<table>
-    <thead>
-        <tr>
-            <td>Detail</td>
-            <td>Comments</td>
-            <td>Score</td>
+<div id="score">Score: @Model.TotalScore out of @Model.TotalMaxScore</div>
+
+<br />
+<br />
+
+@foreach (var task in Model.Tasks)
+{
+    <table>
+        <tr class="row-even">
+            <td>@task.Details</td>
         </tr>
-    </thead>
-    <tbody>
-        @for (var i = 0; i < Model.Tasks.Count; i++)
-        {
-            <tr>
-                <td>
-                    <div>@Html.DisplayFor(model => model.Tasks[i].Title)</div>
-                    <div>@Html.DisplayFor(model => model.Tasks[i].Details)</div>
-                    
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Tasks[i].Comment)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Tasks[i].Score) / @Html.DisplayFor(model => model.Tasks[i].MaxScore)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <tr class="row-odd">
+            <td style="padding-left:30px;">@task.Comment</td>
+        </tr>
+        <tr class="row-even">
+            <td style="padding-left:30px;">@task.Score out of @task.MaxScore</td>
+        </tr>
+    </table>
+    <hr />
+}
+
 <p>
     @Html.ActionLink("Edit", "PilotInput", new { examId = Model.ExamId, candidateId = Model.CandidateId }, new { @class = "examinerButton" })
     @Html.ActionLink("Submit", "FinalisePractical", new { examId = Model.ExamId }, new { @class = "examinerButton" })
