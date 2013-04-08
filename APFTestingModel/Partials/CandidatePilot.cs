@@ -10,6 +10,12 @@ namespace APFTestingModel
     {
         public CandidatePilot(CandidatePilotDetails details, Guid createdBy)
         {
+            Edit(details);
+            CreatedBy = createdBy;
+        }
+
+        public void Edit(CandidatePilotDetails details)
+        {
             FirstName = details.FirstName;
             LastName = details.LastName;
             DateOfBirth = details.DateOfBirth;
@@ -23,7 +29,6 @@ namespace APFTestingModel
             PilotMedicalType = details.PilotMedical;
             PilotMedicalExpiryDate = details.PilotMedicalExpiry;
             ValidBFR = details.ValidBFR;
-            CreatedBy = createdBy;
         }
 
         IAddress ICandidatePilot.Address

@@ -28,11 +28,16 @@ namespace APFTestingModel
 
         public CandidatePacker(CandidatePackerDetails details, Guid createdBy)
         {
-			this.FirstName = details.FirstName;
-			this.LastName = details.LastName;
-			this.MobileNumber = details.Mobile;
-			this.APFNumber = details.APFNumber;
+            Edit(details);
             CreatedBy = createdBy;
+        }
+
+        public void Edit(CandidatePackerDetails details)
+        {
+            this.FirstName = details.FirstName;
+            this.LastName = details.LastName;
+            this.MobileNumber = details.Mobile;
+            this.APFNumber = details.APFNumber;
         }
 
         // Hardcoded values to allow facade to work with UI.

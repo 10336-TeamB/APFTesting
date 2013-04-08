@@ -11,7 +11,7 @@ namespace APFTestingModel
         Guid Id { get; }
         string FirstName { get; }
         string LastName { get; }
-        DateTime? DateOfBirth { get; }
+        DateTime DateOfBirth { get; }
         IAddress Address { get; }
         string ARN { get; }
         string PhoneNumber { get; }

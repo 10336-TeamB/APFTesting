@@ -24,11 +24,11 @@ namespace APFTestingModel
     	public bool ValidBFR { get; set; }
     	public System.DateTime PilotMedicalExpiryDate { get; set; }
     	public System.Guid CreatedBy { get; set; }
-    	public Nullable<System.Guid> AddressId { get; set; }
+    	public System.Guid AddressId { get; set; }
     	public string Email { get; set; }
     	public string PhoneNumber { get; set; }
     	public string MobileNumber { get; set; }
-    	public Nullable<System.DateTime> DateOfBirth { get; set; }
+    	public System.DateTime DateOfBirth { get; set; }
     	public Nullable<short> PilotLicenseType { get; set; }
     	public Nullable<short> PilotMedicalType { get; set; }
     
