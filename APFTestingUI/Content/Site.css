@@ -561,6 +561,7 @@ input[type="radio"], input[type="checkbox"]
     display: inline-block;
     text-align: center;
     line-height: 1.333em;
+    min-width: 80px;
 }
 
 .examinerButton:hover
@@ -731,9 +732,13 @@ a.button
 
 #mark-for-review {
     /*display:block;*/
-    padding-left: 124px;
     line-height: 2.5em;
 }
+
+    .review-page #mark-for-review
+    {
+        padding-left: 124px;
+    }
 
 #mark-for-review label{
     display: inline;
@@ -1103,16 +1108,22 @@ td
 /** Adding some buttons */
 .button-add {
     color: #efefef;
-    background: transparent url('../Images/btn-add-candidate.png') 0 0 no-repeat;
-    width: 88px;
+    /*background: transparent url('../Images/btn-add-candidate.png') 0 0 no-repeat;
+    width: 88px;*/
     height: 10px;
     font-size: 12px;
     font-weight:bold;
     line-height: 12px;
-    padding: 8px 30px 12px 8px;
+    /*padding: 8px 30px 12px 8px;*/
     text-align: center;
     display: inline-block;
     font-family: 'Play', sans-serif;
+
+    background-color: #5D5D5D;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    padding: 8px 20px 12px 20px;
+    margin-right:10px;
 }
 
 a.button-add {
@@ -1120,7 +1131,8 @@ a.button-add {
 }
 
 .button-add:active, .button-add:hover {
-    background: transparent url('../Images/btn-add-candidate-click.png') 0 0 no-repeat;
+    /*background: transparent url('../Images/btn-add-candidate-click.png') 0 0 no-repeat;*/
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
 }
 
 .answer-checkbox {
@@ -1136,7 +1148,7 @@ input[type="checkbox"] + .label-checkbox {
 }
 
 input[type="checkbox"]:checked + .label-checkbox {
-    background: transparent url('../Images/sprite-input-buttons2.png') 0 -200px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -198px no-repeat;
 }
 
 
