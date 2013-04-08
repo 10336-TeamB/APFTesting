@@ -57,6 +57,14 @@ namespace APFTestingUI.Models.Examiner
                 return LatestExamStatus == ExamStatus.TheoryFailed;
             }
         }
+		public bool PracticalAvailable
+		{
+			get
+			{
+				return LatestExamStatus == ExamStatus.TheoryPassed;
+			}
+			
+		}
 
         #endregion
     }

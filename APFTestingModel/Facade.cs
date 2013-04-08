@@ -254,7 +254,8 @@ namespace APFTestingModel
 			var exam = _context.Exams
 						.Include("TheoryComponent")
 						.Include("TheoryComponent.SelectedTheoryQuestions")
-						.Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
+                        .Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion")
+                        .Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
 						.Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
 						.Include("TheoryComponent.TheoryComponentFormat")
 						.First(e => e.Id == examId);
