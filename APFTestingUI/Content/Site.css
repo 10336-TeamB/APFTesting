@@ -259,7 +259,7 @@ body
     text-align:center;
     font-family: 'Ubuntu', sans-serif;
     background-color: #303030;
-    color: #ffffff;
+    color: #eeeeee;
     height: 100%;
 }
 
@@ -479,7 +479,7 @@ input[type="radio"], input[type="checkbox"]
 
     #content .size-wrapper
     {
-        padding: 50px 10px 50px;
+        padding: 75px 10px 50px;
         max-width: 980px;
     }
 
@@ -730,9 +730,14 @@ a.button
 }
 
 #mark-for-review {
-    display:block;
+    /*display:block;*/
     line-height: 2.5em;
 }
+
+    .review-page #mark-for-review
+    {
+        padding-left: 124px;
+    }
 
 #mark-for-review label{
     display: inline;
@@ -1135,7 +1140,7 @@ input[type="checkbox"] + .label-checkbox {
 }
 
 input[type="checkbox"]:checked + .label-checkbox {
-    background: transparent url('../Images/sprite-input-buttons2.png') 0 -200px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -198px no-repeat;
 }
 
 
