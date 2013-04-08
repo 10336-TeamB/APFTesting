@@ -296,6 +296,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Images\logo-apf.png" />
     <Content Include="Images\sprite-input-buttons.png" />
+    <Content Include="Images\sprite-input-buttons2.png" />
     <Content Include="Images\tick.png" />
     <Content Include="Scripts\candidate.js" />
     <Content Include="Scripts\exam.js" />
