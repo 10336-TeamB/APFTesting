@@ -11,8 +11,11 @@ namespace APFTestingUI.Models.Exam
         public int Index { get; set; }
         public int[] ChosenAnswer { get; set; }
         public bool IsMarkedForReview { get; set; }
+
+        // Used in QuestionsController - Ajax method
         public ExamAction NavDirection { get; set; }
 
+        // Used in ExamController - standard Action method
         // Used for form submission without JavaScript - NavButton assigned Value of submit button
         public string NavButton { get; set; }
         public ExamAction FormNavDirection

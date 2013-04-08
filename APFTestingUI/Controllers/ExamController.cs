@@ -29,6 +29,9 @@ namespace APFTestingUI.Controllers
 
 			var model = new Instructions(examId, format);
 
+            //Hack: Used for temporary links on page - remove for production
+		    ViewBag.ExamId = examId;
+
 			return View(model);
 		}
         
@@ -90,7 +93,7 @@ namespace APFTestingUI.Controllers
         {
             _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
 
-            switch (question.NavDirection)
+            switch (question.FormNavDirection)
             {
                 case ExamAction.NextQuestion:
                     return RedirectToAction("NextQuestion", new { examId = question.ExamId });
