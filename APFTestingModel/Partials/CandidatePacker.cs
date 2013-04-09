@@ -8,24 +8,6 @@ namespace APFTestingModel
 {
     internal partial class CandidatePacker : ICandidate, ICandidatePacker
     {
-        // Hardcoded values to allow facade to work with UI.
-        //public Guid Id
-        //{
-        //    get { return new Guid("1cc2ffb9-ffff-ffff-ffff-ffffffffffff"); }
-        //}
-
-        //// Hardcoded values to allow facade to work with UI.
-        //public string FirstName
-        //{
-        //    get { return "Paul"; }
-        //}
-
-        //// Hardcoded values to allow facade to work with UI.
-        //public string LastName
-        //{
-        //    get { return "Ilett"; }
-        //}
-
         public CandidatePacker(CandidatePackerDetails details, Guid createdBy)
         {
             Edit(details);
@@ -40,16 +22,11 @@ namespace APFTestingModel
             this.APFNumber = details.APFNumber;
         }
 
-        // Hardcoded values to allow facade to work with UI.
         public Exam LatestExam
         {
-            //HACK - returning static exam
             get
             {
-                //return null;
-                Exam exam = ExamPackers.OrderBy(e => e.CreatedDate).LastOrDefault();
-
-                return exam;
+                return ExamPackers.OrderBy(e => e.CreatedDate).LastOrDefault();
             }
         }
 
@@ -63,7 +40,7 @@ namespace APFTestingModel
             get
             {
                 var latestExam = LatestExam;
-                if (latestExam != null)
+                if (LatestExam != null)
                 {
                     return latestExam.Id;
                 }
@@ -71,11 +48,9 @@ namespace APFTestingModel
                 {
                     return Guid.Empty;
                 }
-
             }
         }
 
-        //REFACTORED
         public ExamStatus LatestExamStatus
         {
             get
@@ -89,7 +64,6 @@ namespace APFTestingModel
             }
         }
 
-        //REFACTORED
         public override bool NewExamPossible
         {
             get
@@ -106,6 +80,5 @@ namespace APFTestingModel
                 return ExamType.PackerExam;
             }
         }
-
     }
 }

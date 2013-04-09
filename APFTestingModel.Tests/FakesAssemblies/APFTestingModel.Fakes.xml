@@ -1,0 +1,1457 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>APFTestingModel.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:APFTestingModel.Fakes.ShimAPFTestingDBEntities">
+            <summary>Shim type of APFTestingModel.APFTestingDBEntities</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimAPFTestingDBEntities.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimAPFTestingDBEntities.#ctor(APFTestingModel.APFTestingDBEntities)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimAPFTestingDBEntities.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimAPFTestingDBEntities.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimAPFTestingDBEntities.Bind(System.Data.Entity.Infrastructure.IObjectContextAdapter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimAPFTestingDBEntities.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimAPFTestingDBEntities.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimAPFTestingDBEntities.Constructor">
+            <summary>Sets the shim of APFTestingDBEntities.APFTestingDBEntities()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimAPFTestingDBEntities.OnModelCreatingDbModelBuilder">
+            <summary>Sets the shim of APFTestingDBEntities.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimAPFTestingDBEntities.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimAPFTestingDBEntities.AllInstances.OnModelCreatingDbModelBuilder">
+            <summary>Sets the shim of APFTestingDBEntities.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimBusinessRuleException">
+            <summary>Shim type of APFTestingModel.BusinessRuleException</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimBusinessRuleException.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimBusinessRuleException.#ctor(APFTestingModel.BusinessRuleException)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimBusinessRuleException.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimBusinessRuleException.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimBusinessRuleException.Bind(System.Runtime.Serialization.ISerializable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimBusinessRuleException.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimBusinessRuleException.ConstructorString">
+            <summary>Sets the shim of BusinessRuleException.BusinessRuleException(String message)</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimBusinessRuleException.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimCandidatePackerDetails">
+            <summary>Shim type of APFTestingModel.CandidatePackerDetails</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimCandidatePackerDetails.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimCandidatePackerDetails.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimCandidatePackerDetails.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimCandidatePackerDetails.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimCandidatePackerDetails.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimCandidatePilotDetails">
+            <summary>Shim type of APFTestingModel.CandidatePilotDetails</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimCandidatePilotDetails.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimCandidatePilotDetails.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimCandidatePilotDetails.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimCandidatePilotDetails.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimCandidatePilotDetails.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimFacade">
+            <summary>Shim type of APFTestingModel.Facade</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimFacade.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimFacade.#ctor(APFTestingModel.Facade)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimFacade.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimFacade.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimFacade.Bind(APFTestingModel.IFacade)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimFacade.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AnswerQuestionGuidInt32Int32ArrayBoolean">
+            <summary>Sets the shim of Facade.AnswerQuestion(Guid examId, Int32 questionIndex, Int32[] selectedAnswers, Boolean markForReview)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.Constructor">
+            <summary>Sets the shim of Facade.Facade()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.CreateCandidateCandidatePackerDetailsGuid">
+            <summary>Sets the shim of Facade.CreateCandidate(CandidatePackerDetails details, Guid createdBy)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.CreateCandidateCandidatePilotDetailsGuid">
+            <summary>Sets the shim of Facade.CreateCandidate(CandidatePilotDetails details, Guid createdBy)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.CreateTheoryComponentFormatExamTypeInt32Int32">
+            <summary>Sets the shim of Facade.CreateTheoryComponentFormat(ExamType examType, Int32 numberOfQuestions, Int32 passMark)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.DeleteCandidateGuid">
+            <summary>Sets the shim of Facade.DeleteCandidate(Guid candidateId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.Dispose">
+            <summary>Sets the shim of Facade.Dispose()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.EditPackerGuidCandidatePackerDetails">
+            <summary>Sets the shim of Facade.EditPacker(Guid candidateId, CandidatePackerDetails details)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.EditPackerPracticalResultGuidGuidPackerPracticalResult">
+            <summary>Sets the shim of Facade.EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.EditPilotGuidCandidatePilotDetails">
+            <summary>Sets the shim of Facade.EditPilot(Guid candidateId, CandidatePilotDetails details)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchAssessmentTasksPackerGuid">
+            <summary>Sets the shim of Facade.FetchAssessmentTasksPacker(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchAssessmentTasksPilotGuid">
+            <summary>Sets the shim of Facade.FetchAssessmentTasksPilot(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchCandidatesGuid">
+            <summary>Sets the shim of Facade.FetchCandidates(Guid examinerId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchFirstQuestionGuid">
+            <summary>Sets the shim of Facade.FetchFirstQuestion(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchNextQuestionGuid">
+            <summary>Sets the shim of Facade.FetchNextQuestion(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchPackerGuid">
+            <summary>Sets the shim of Facade.FetchPacker(Guid candidateId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchPilotGuid">
+            <summary>Sets the shim of Facade.FetchPilot(Guid candidateId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchPreviousQuestionGuid">
+            <summary>Sets the shim of Facade.FetchPreviousQuestion(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchSingleAssessmentTaskPackerGuidGuid">
+            <summary>Sets the shim of Facade.FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchSpecificQuestionGuidInt32">
+            <summary>Sets the shim of Facade.FetchSpecificQuestion(Guid examId, Int32 questionIndex)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchTheoryComponentFormatGuid">
+            <summary>Sets the shim of Facade.FetchTheoryComponentFormat(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchTheoryComponentResultGuid">
+            <summary>Sets the shim of Facade.FetchTheoryComponentResult(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FetchTheoryComponentSummaryGuid">
+            <summary>Sets the shim of Facade.FetchTheoryComponentSummary(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.FinalisePracticalGuid">
+            <summary>Sets the shim of Facade.FinalisePractical(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.ResetTheoryComponentGuid">
+            <summary>Sets the shim of Facade.ResetTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.ResumeTheoryComponentGuid">
+            <summary>Sets the shim of Facade.ResumeTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.SetActiveTheoryComponentFormatGuid">
+            <summary>Sets the shim of Facade.SetActiveTheoryComponentFormat(Guid theoryComponentFormatId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.StartTheoryComponentGuidGuid">
+            <summary>Sets the shim of Facade.StartTheoryComponent(Guid examinerId, Guid candidateId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.SubmitPackerPracticalResultGuidPackerPracticalResult">
+            <summary>Sets the shim of Facade.SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.SubmitPilotPracticalResultsGuidListOfPilotPracticalResult">
+            <summary>Sets the shim of Facade.SubmitPilotPracticalResults(Guid examId, List`1&lt;PilotPracticalResult&gt; results)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.SubmitTheoryComponentGuid">
+            <summary>Sets the shim of Facade.SubmitTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.TestDBConnection">
+            <summary>Sets the shim of Facade.TestDBConnection()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.VoidExamGuid">
+            <summary>Sets the shim of Facade.VoidExam(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.createExamManagerExamType">
+            <summary>Sets the shim of Facade.createExamManager(ExamType examType)</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimFacade.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.AnswerQuestionGuidInt32Int32ArrayBoolean">
+            <summary>Sets the shim of Facade.AnswerQuestion(Guid examId, Int32 questionIndex, Int32[] selectedAnswers, Boolean markForReview)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.CreateCandidateCandidatePackerDetailsGuid">
+            <summary>Sets the shim of Facade.CreateCandidate(CandidatePackerDetails details, Guid createdBy)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.CreateCandidateCandidatePilotDetailsGuid">
+            <summary>Sets the shim of Facade.CreateCandidate(CandidatePilotDetails details, Guid createdBy)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.CreateTheoryComponentFormatExamTypeInt32Int32">
+            <summary>Sets the shim of Facade.CreateTheoryComponentFormat(ExamType examType, Int32 numberOfQuestions, Int32 passMark)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.DeleteCandidateGuid">
+            <summary>Sets the shim of Facade.DeleteCandidate(Guid candidateId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.Dispose">
+            <summary>Sets the shim of Facade.Dispose()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.EditPackerGuidCandidatePackerDetails">
+            <summary>Sets the shim of Facade.EditPacker(Guid candidateId, CandidatePackerDetails details)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.EditPackerPracticalResultGuidGuidPackerPracticalResult">
+            <summary>Sets the shim of Facade.EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.EditPilotGuidCandidatePilotDetails">
+            <summary>Sets the shim of Facade.EditPilot(Guid candidateId, CandidatePilotDetails details)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchAssessmentTasksPackerGuid">
+            <summary>Sets the shim of Facade.FetchAssessmentTasksPacker(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchAssessmentTasksPilotGuid">
+            <summary>Sets the shim of Facade.FetchAssessmentTasksPilot(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchCandidatesGuid">
+            <summary>Sets the shim of Facade.FetchCandidates(Guid examinerId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchFirstQuestionGuid">
+            <summary>Sets the shim of Facade.FetchFirstQuestion(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchNextQuestionGuid">
+            <summary>Sets the shim of Facade.FetchNextQuestion(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchPackerGuid">
+            <summary>Sets the shim of Facade.FetchPacker(Guid candidateId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchPilotGuid">
+            <summary>Sets the shim of Facade.FetchPilot(Guid candidateId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchPreviousQuestionGuid">
+            <summary>Sets the shim of Facade.FetchPreviousQuestion(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchSingleAssessmentTaskPackerGuidGuid">
+            <summary>Sets the shim of Facade.FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchSpecificQuestionGuidInt32">
+            <summary>Sets the shim of Facade.FetchSpecificQuestion(Guid examId, Int32 questionIndex)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchTheoryComponentFormatGuid">
+            <summary>Sets the shim of Facade.FetchTheoryComponentFormat(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchTheoryComponentResultGuid">
+            <summary>Sets the shim of Facade.FetchTheoryComponentResult(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FetchTheoryComponentSummaryGuid">
+            <summary>Sets the shim of Facade.FetchTheoryComponentSummary(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.FinalisePracticalGuid">
+            <summary>Sets the shim of Facade.FinalisePractical(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.ResetTheoryComponentGuid">
+            <summary>Sets the shim of Facade.ResetTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.ResumeTheoryComponentGuid">
+            <summary>Sets the shim of Facade.ResumeTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.SetActiveTheoryComponentFormatGuid">
+            <summary>Sets the shim of Facade.SetActiveTheoryComponentFormat(Guid theoryComponentFormatId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.StartTheoryComponentGuidGuid">
+            <summary>Sets the shim of Facade.StartTheoryComponent(Guid examinerId, Guid candidateId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.SubmitPackerPracticalResultGuidPackerPracticalResult">
+            <summary>Sets the shim of Facade.SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.SubmitPilotPracticalResultsGuidListOfPilotPracticalResult">
+            <summary>Sets the shim of Facade.SubmitPilotPracticalResults(Guid examId, List`1&lt;PilotPracticalResult&gt; results)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.SubmitTheoryComponentGuid">
+            <summary>Sets the shim of Facade.SubmitTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.TestDBConnection">
+            <summary>Sets the shim of Facade.TestDBConnection()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.VoidExamGuid">
+            <summary>Sets the shim of Facade.VoidExam(Guid examId)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimFacade.AllInstances.createExamManagerExamType">
+            <summary>Sets the shim of Facade.createExamManager(ExamType examType)</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimPackerPracticalResult">
+            <summary>Shim type of APFTestingModel.PackerPracticalResult</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimPackerPracticalResult.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimPackerPracticalResult.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimPackerPracticalResult.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimPackerPracticalResult.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimPackerPracticalResult.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimPilotPracticalResult">
+            <summary>Shim type of APFTestingModel.PilotPracticalResult</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimPilotPracticalResult.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimPilotPracticalResult.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.ShimPilotPracticalResult.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.ShimPilotPracticalResult.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.ShimPilotPracticalResult.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubAPFTestingDBEntities">
+            <summary>Stub type of APFTestingModel.APFTestingDBEntities</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.Dispose(System.Boolean)">
+            <summary>Sets the stub of DbContext.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubAPFTestingDBEntities.DisposeBoolean">
+            <summary>Sets the stub of DbContext.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.Equals(System.Object)">
+            <summary>Sets the stub of DbContext.Equals(Object obj)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubAPFTestingDBEntities.EqualsObject">
+            <summary>Sets the stub of DbContext.Equals(Object obj)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.GetHashCode">
+            <summary>Sets the stub of DbContext.GetHashCode()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubAPFTestingDBEntities.GetHashCode01">
+            <summary>Sets the stub of DbContext.GetHashCode()</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.InitializeStub">
+            <summary>Initializes a new instance of type StubAPFTestingDBEntities</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>Sets the stub of APFTestingDBEntities.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubAPFTestingDBEntities.OnModelCreatingDbModelBuilder">
+            <summary>Sets the stub of APFTestingDBEntities.OnModelCreating(DbModelBuilder modelBuilder)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.SaveChanges">
+            <summary>Sets the stub of DbContext.SaveChanges()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubAPFTestingDBEntities.SaveChanges01">
+            <summary>Sets the stub of DbContext.SaveChanges()</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.ShouldValidateEntity(System.Data.Entity.Infrastructure.DbEntityEntry)">
+            <summary>Sets the stub of DbContext.ShouldValidateEntity(DbEntityEntry entityEntry)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubAPFTestingDBEntities.ShouldValidateEntityDbEntityEntry">
+            <summary>Sets the stub of DbContext.ShouldValidateEntity(DbEntityEntry entityEntry)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.ToString">
+            <summary>Sets the stub of DbContext.ToString()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubAPFTestingDBEntities.ToString01">
+            <summary>Sets the stub of DbContext.ToString()</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubAPFTestingDBEntities.ValidateEntity(System.Data.Entity.Infrastructure.DbEntityEntry,System.Collections.Generic.IDictionary{System.Object,System.Object})">
+            <summary>Sets the stub of DbContext.ValidateEntity(DbEntityEntry entityEntry, IDictionary`2&lt;Object,Object&gt; items)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubAPFTestingDBEntities.ValidateEntityDbEntityEntryIDictionaryOfObjectObject">
+            <summary>Sets the stub of DbContext.ValidateEntity(DbEntityEntry entityEntry, IDictionary`2&lt;Object,Object&gt; items)</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubAPFTestingDBEntities.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubAPFTestingDBEntities.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubAPFTestingDBEntities.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubBusinessRuleException">
+            <summary>Stub type of APFTestingModel.BusinessRuleException</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubBusinessRuleException.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubBusinessRuleException.AttachBackingFieldToHelpLink">
+            <summary>Attaches delegates to emulate StubBusinessRuleException.HelpLink as a property with a backing field.</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubBusinessRuleException.AttachBackingFieldToSource">
+            <summary>Attaches delegates to emulate StubBusinessRuleException.Source as a property with a backing field.</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.DataGet">
+            <summary>Sets the stub of Exception.get_Data()</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubBusinessRuleException.GetBaseException">
+            <summary>Sets the stub of Exception.GetBaseException()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.GetBaseException01">
+            <summary>Sets the stub of Exception.GetBaseException()</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubBusinessRuleException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>Sets the stub of Exception.GetObjectData(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.GetObjectDataSerializationInfoStreamingContext">
+            <summary>Sets the stub of Exception.GetObjectData(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.HelpLinkGet">
+            <summary>Sets the stub of Exception.get_HelpLink()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.HelpLinkSetString">
+            <summary>Sets the stub of Exception.set_HelpLink(String value)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubBusinessRuleException.InitializeStub">
+            <summary>Initializes a new instance of type StubBusinessRuleException</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.MessageGet">
+            <summary>Sets the stub of Exception.get_Message()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.SourceGet">
+            <summary>Sets the stub of Exception.get_Source()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.SourceSetString">
+            <summary>Sets the stub of Exception.set_Source(String value)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.StackTraceGet">
+            <summary>Sets the stub of Exception.get_StackTrace()</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubBusinessRuleException.ToString">
+            <summary>Sets the stub of Exception.ToString()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubBusinessRuleException.ToString01">
+            <summary>Sets the stub of Exception.ToString()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubBusinessRuleException.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubBusinessRuleException.Data">
+            <summary>Sets the stub of Exception.get_Data()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubBusinessRuleException.HelpLink">
+            <summary>Sets the stub of Exception.get_HelpLink()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubBusinessRuleException.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubBusinessRuleException.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubBusinessRuleException.Message">
+            <summary>Sets the stub of Exception.get_Message()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubBusinessRuleException.Source">
+            <summary>Sets the stub of Exception.get_Source()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubBusinessRuleException.StackTrace">
+            <summary>Sets the stub of Exception.get_StackTrace()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubFacade">
+            <summary>Stub type of APFTestingModel.Facade</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubFacade.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubFacade.InitializeStub">
+            <summary>Initializes a new instance of type StubFacade</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubFacade.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubFacade.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubFacade.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIAddress">
+            <summary>Stub type of APFTestingModel.IAddress</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIAddress.#ctor">
+            <summary>Initializes a new instance of type StubIAddress</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAddress.Address1Get">
+            <summary>Sets the stub of IAddress.get_Address1()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAddress.Address2Get">
+            <summary>Sets the stub of IAddress.get_Address2()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAddress.PostcodeGet">
+            <summary>Sets the stub of IAddress.get_Postcode()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAddress.StateGet">
+            <summary>Sets the stub of IAddress.get_State()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAddress.SuburbGet">
+            <summary>Sets the stub of IAddress.get_Suburb()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAddress.apftm::APFTestingModel#IAddress#Address1">
+            <summary>Sets the stub of IAddress.get_Address1()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAddress.apftm::APFTestingModel#IAddress#Address2">
+            <summary>Sets the stub of IAddress.get_Address2()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAddress.apftm::APFTestingModel#IAddress#Postcode">
+            <summary>Sets the stub of IAddress.get_Postcode()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAddress.apftm::APFTestingModel#IAddress#State">
+            <summary>Sets the stub of IAddress.get_State()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAddress.apftm::APFTestingModel#IAddress#Suburb">
+            <summary>Sets the stub of IAddress.get_Suburb()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIAnswer">
+            <summary>Stub type of APFTestingModel.IAnswer</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIAnswer.#ctor">
+            <summary>Initializes a new instance of type StubIAnswer</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAnswer.DescriptionGet">
+            <summary>Sets the stub of IAnswer.get_Description()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAnswer.DisplayOrderIndexGet">
+            <summary>Sets the stub of IAnswer.get_DisplayOrderIndex()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAnswer.IdGet">
+            <summary>Sets the stub of IAnswer.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAnswer.IsCorrectGet">
+            <summary>Sets the stub of IAnswer.get_IsCorrect()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAnswer.apftm::APFTestingModel#IAnswer#Description">
+            <summary>Sets the stub of IAnswer.get_Description()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAnswer.apftm::APFTestingModel#IAnswer#DisplayOrderIndex">
+            <summary>Sets the stub of IAnswer.get_DisplayOrderIndex()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAnswer.apftm::APFTestingModel#IAnswer#Id">
+            <summary>Sets the stub of IAnswer.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAnswer.apftm::APFTestingModel#IAnswer#IsCorrect">
+            <summary>Sets the stub of IAnswer.get_IsCorrect()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIAssessmentTaskPacker">
+            <summary>Stub type of APFTestingModel.IAssessmentTaskPacker</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIAssessmentTaskPacker.#ctor">
+            <summary>Initializes a new instance of type StubIAssessmentTaskPacker</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPacker.CanopyTypeGet">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_CanopyType()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPacker.CanopyTypeSerialNumberGet">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_CanopyTypeSerialNumber()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPacker.DateGet">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_Date()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPacker.HarnessContainerSerialNumberGet">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_HarnessContainerSerialNumber()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPacker.HarnessContainerTypeGet">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_HarnessContainerType()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPacker.IdGet">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPacker.NoteGet">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_Note()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPacker.SupervisorIdGet">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_SupervisorId()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPacker.apftm::APFTestingModel#IAssessmentTaskPacker#CanopyType">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_CanopyType()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPacker.apftm::APFTestingModel#IAssessmentTaskPacker#CanopyTypeSerialNumber">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_CanopyTypeSerialNumber()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPacker.apftm::APFTestingModel#IAssessmentTaskPacker#Date">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_Date()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPacker.apftm::APFTestingModel#IAssessmentTaskPacker#HarnessContainerSerialNumber">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_HarnessContainerSerialNumber()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPacker.apftm::APFTestingModel#IAssessmentTaskPacker#HarnessContainerType">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_HarnessContainerType()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPacker.apftm::APFTestingModel#IAssessmentTaskPacker#Id">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPacker.apftm::APFTestingModel#IAssessmentTaskPacker#Note">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_Note()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPacker.apftm::APFTestingModel#IAssessmentTaskPacker#SupervisorId">
+            <summary>Sets the stub of IAssessmentTaskPacker.get_SupervisorId()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIAssessmentTaskPilot">
+            <summary>Stub type of APFTestingModel.IAssessmentTaskPilot</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIAssessmentTaskPilot.#ctor">
+            <summary>Initializes a new instance of type StubIAssessmentTaskPilot</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPilot.DetailsGet">
+            <summary>Sets the stub of IAssessmentTaskPilot.get_Details()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPilot.IdGet">
+            <summary>Sets the stub of IAssessmentTaskPilot.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPilot.MaxScoreGet">
+            <summary>Sets the stub of IAssessmentTaskPilot.get_MaxScore()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIAssessmentTaskPilot.TitleGet">
+            <summary>Sets the stub of IAssessmentTaskPilot.get_Title()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPilot.apftm::APFTestingModel#IAssessmentTaskPilot#Details">
+            <summary>Sets the stub of IAssessmentTaskPilot.get_Details()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPilot.apftm::APFTestingModel#IAssessmentTaskPilot#Id">
+            <summary>Sets the stub of IAssessmentTaskPilot.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPilot.apftm::APFTestingModel#IAssessmentTaskPilot#MaxScore">
+            <summary>Sets the stub of IAssessmentTaskPilot.get_MaxScore()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIAssessmentTaskPilot.apftm::APFTestingModel#IAssessmentTaskPilot#Title">
+            <summary>Sets the stub of IAssessmentTaskPilot.get_Title()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubICandidate">
+            <summary>Stub type of APFTestingModel.ICandidate</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubICandidate.#ctor">
+            <summary>Initializes a new instance of type StubICandidate</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidate.ExamTypeGet">
+            <summary>Sets the stub of ICandidate.get_ExamType()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidate.FirstNameGet">
+            <summary>Sets the stub of ICandidate.get_FirstName()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidate.IdGet">
+            <summary>Sets the stub of ICandidate.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidate.LastNameGet">
+            <summary>Sets the stub of ICandidate.get_LastName()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidate.LatestExamGet">
+            <summary>Sets the stub of ICandidate.get_LatestExam()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidate.LatestExamStatusGet">
+            <summary>Sets the stub of ICandidate.get_LatestExamStatus()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidate.apftm::APFTestingModel#ICandidate#ExamType">
+            <summary>Sets the stub of ICandidate.get_ExamType()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidate.apftm::APFTestingModel#ICandidate#FirstName">
+            <summary>Sets the stub of ICandidate.get_FirstName()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidate.apftm::APFTestingModel#ICandidate#Id">
+            <summary>Sets the stub of ICandidate.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidate.apftm::APFTestingModel#ICandidate#LastName">
+            <summary>Sets the stub of ICandidate.get_LastName()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidate.apftm::APFTestingModel#ICandidate#LatestExam">
+            <summary>Sets the stub of ICandidate.get_LatestExam()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidate.apftm::APFTestingModel#ICandidate#LatestExamStatus">
+            <summary>Sets the stub of ICandidate.get_LatestExamStatus()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubICandidatePacker">
+            <summary>Stub type of APFTestingModel.ICandidatePacker</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubICandidatePacker.#ctor">
+            <summary>Initializes a new instance of type StubICandidatePacker</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePacker.APFNumberGet">
+            <summary>Sets the stub of ICandidatePacker.get_APFNumber()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePacker.FirstNameGet">
+            <summary>Sets the stub of ICandidatePacker.get_FirstName()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePacker.IdGet">
+            <summary>Sets the stub of ICandidatePacker.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePacker.LastNameGet">
+            <summary>Sets the stub of ICandidatePacker.get_LastName()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePacker.MobileNumberGet">
+            <summary>Sets the stub of ICandidatePacker.get_MobileNumber()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePacker.apftm::APFTestingModel#ICandidatePacker#APFNumber">
+            <summary>Sets the stub of ICandidatePacker.get_APFNumber()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePacker.apftm::APFTestingModel#ICandidatePacker#FirstName">
+            <summary>Sets the stub of ICandidatePacker.get_FirstName()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePacker.apftm::APFTestingModel#ICandidatePacker#Id">
+            <summary>Sets the stub of ICandidatePacker.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePacker.apftm::APFTestingModel#ICandidatePacker#LastName">
+            <summary>Sets the stub of ICandidatePacker.get_LastName()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePacker.apftm::APFTestingModel#ICandidatePacker#MobileNumber">
+            <summary>Sets the stub of ICandidatePacker.get_MobileNumber()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubICandidatePilot">
+            <summary>Stub type of APFTestingModel.ICandidatePilot</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubICandidatePilot.#ctor">
+            <summary>Initializes a new instance of type StubICandidatePilot</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.ARNGet">
+            <summary>Sets the stub of ICandidatePilot.get_ARN()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.AddressGet">
+            <summary>Sets the stub of ICandidatePilot.get_Address()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.CreatedByGet">
+            <summary>Sets the stub of ICandidatePilot.get_CreatedBy()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.DateOfBirthGet">
+            <summary>Sets the stub of ICandidatePilot.get_DateOfBirth()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.EmailGet">
+            <summary>Sets the stub of ICandidatePilot.get_Email()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.FirstNameGet">
+            <summary>Sets the stub of ICandidatePilot.get_FirstName()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.IdGet">
+            <summary>Sets the stub of ICandidatePilot.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.InstrumentRatingGet">
+            <summary>Sets the stub of ICandidatePilot.get_InstrumentRating()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.LastNameGet">
+            <summary>Sets the stub of ICandidatePilot.get_LastName()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.MobileNumberGet">
+            <summary>Sets the stub of ICandidatePilot.get_MobileNumber()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.PhoneNumberGet">
+            <summary>Sets the stub of ICandidatePilot.get_PhoneNumber()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.PilotLicenseTypeGet">
+            <summary>Sets the stub of ICandidatePilot.get_PilotLicenseType()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.PilotMedicalExpiryDateGet">
+            <summary>Sets the stub of ICandidatePilot.get_PilotMedicalExpiryDate()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.PilotMedicalTypeGet">
+            <summary>Sets the stub of ICandidatePilot.get_PilotMedicalType()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.ValidBFRGet">
+            <summary>Sets the stub of ICandidatePilot.get_ValidBFR()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#ARN">
+            <summary>Sets the stub of ICandidatePilot.get_ARN()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#Address">
+            <summary>Sets the stub of ICandidatePilot.get_Address()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#CreatedBy">
+            <summary>Sets the stub of ICandidatePilot.get_CreatedBy()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#DateOfBirth">
+            <summary>Sets the stub of ICandidatePilot.get_DateOfBirth()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#Email">
+            <summary>Sets the stub of ICandidatePilot.get_Email()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#FirstName">
+            <summary>Sets the stub of ICandidatePilot.get_FirstName()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#Id">
+            <summary>Sets the stub of ICandidatePilot.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#InstrumentRating">
+            <summary>Sets the stub of ICandidatePilot.get_InstrumentRating()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#LastName">
+            <summary>Sets the stub of ICandidatePilot.get_LastName()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#MobileNumber">
+            <summary>Sets the stub of ICandidatePilot.get_MobileNumber()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#PhoneNumber">
+            <summary>Sets the stub of ICandidatePilot.get_PhoneNumber()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#PilotLicenseType">
+            <summary>Sets the stub of ICandidatePilot.get_PilotLicenseType()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#PilotMedicalExpiryDate">
+            <summary>Sets the stub of ICandidatePilot.get_PilotMedicalExpiryDate()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#PilotMedicalType">
+            <summary>Sets the stub of ICandidatePilot.get_PilotMedicalType()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#ValidBFR">
+            <summary>Sets the stub of ICandidatePilot.get_ValidBFR()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIExam">
+            <summary>Stub type of APFTestingModel.IExam</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIExam.#ctor">
+            <summary>Initializes a new instance of type StubIExam</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIExam.ExamStatusGet">
+            <summary>Sets the stub of IExam.get_ExamStatus()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIExam.IdGet">
+            <summary>Sets the stub of IExam.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIExam.apftm::APFTestingModel#IExam#ExamStatus">
+            <summary>Sets the stub of IExam.get_ExamStatus()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIExam.apftm::APFTestingModel#IExam#Id">
+            <summary>Sets the stub of IExam.get_Id()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIFacade">
+            <summary>Stub type of APFTestingModel.IFacade</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.#ctor">
+            <summary>Initializes a new instance of type StubIFacade</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#AnswerQuestion(System.Guid,System.Int32,System.Int32[],System.Boolean)">
+            <summary>Sets the stub of IFacade.AnswerQuestion(Guid examId, Int32 questionIndex, Int32[] selectedAnswers, Boolean markForReview)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#CreateCandidate(APFTestingModel.CandidatePackerDetails,System.Guid)">
+            <summary>Sets the stub of IFacade.CreateCandidate(CandidatePackerDetails details, Guid createdBy)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#CreateCandidate(APFTestingModel.CandidatePilotDetails,System.Guid)">
+            <summary>Sets the stub of IFacade.CreateCandidate(CandidatePilotDetails details, Guid createdBy)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#EditPacker(System.Guid,APFTestingModel.CandidatePackerDetails)">
+            <summary>Sets the stub of IFacade.EditPacker(Guid candidateId, CandidatePackerDetails details)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#EditPackerPracticalResult(System.Guid,System.Guid,APFTestingModel.PackerPracticalResult)">
+            <summary>Sets the stub of IFacade.EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#EditPilot(System.Guid,APFTestingModel.CandidatePilotDetails)">
+            <summary>Sets the stub of IFacade.EditPilot(Guid candidateId, CandidatePilotDetails details)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchAssessmentTasksPacker(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchAssessmentTasksPacker(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchAssessmentTasksPilot(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchAssessmentTasksPilot(Guid candidateId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchCandidates(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchCandidates(Guid examinerId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchFirstQuestion(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchFirstQuestion(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchNextQuestion(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchNextQuestion(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchPacker(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchPacker(Guid candidateId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchPilot(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchPilot(Guid candidateId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchPreviousQuestion(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchPreviousQuestion(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchSingleAssessmentTaskPacker(System.Guid,System.Guid)">
+            <summary>Sets the stub of IFacade.FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchSpecificQuestion(System.Guid,System.Int32)">
+            <summary>Sets the stub of IFacade.FetchSpecificQuestion(Guid examId, Int32 questionIndex)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchTheoryComponentFormat(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchTheoryComponentFormat(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchTheoryComponentResult(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchTheoryComponentResult(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FetchTheoryComponentSummary(System.Guid)">
+            <summary>Sets the stub of IFacade.FetchTheoryComponentSummary(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#FinalisePractical(System.Guid)">
+            <summary>Sets the stub of IFacade.FinalisePractical(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#ResetTheoryComponent(System.Guid)">
+            <summary>Sets the stub of IFacade.ResetTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#ResumeTheoryComponent(System.Guid)">
+            <summary>Sets the stub of IFacade.ResumeTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#SetActiveTheoryComponentFormat(System.Guid)">
+            <summary>Sets the stub of IFacade.SetActiveTheoryComponentFormat(Guid theoryComponentFormatId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#StartTheoryComponent(System.Guid,System.Guid)">
+            <summary>Sets the stub of IFacade.StartTheoryComponent(Guid examinerId, Guid candidateId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#SubmitPackerPracticalResult(System.Guid,APFTestingModel.PackerPracticalResult)">
+            <summary>Sets the stub of IFacade.SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#SubmitPilotPracticalResults(System.Guid,System.Collections.Generic.List{APFTestingModel.PilotPracticalResult})">
+            <summary>Sets the stub of IFacade.SubmitPilotPracticalResults(Guid examId, List`1&lt;PilotPracticalResult&gt; results)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#SubmitTheoryComponent(System.Guid)">
+            <summary>Sets the stub of IFacade.SubmitTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.apftm::APFTestingModel#IFacade#VoidExam(System.Guid)">
+            <summary>Sets the stub of IFacade.VoidExam(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.AnswerQuestionGuidInt32Int32ArrayBoolean">
+            <summary>Sets the stub of IFacade.AnswerQuestion(Guid examId, Int32 questionIndex, Int32[] selectedAnswers, Boolean markForReview)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.CreateCandidateCandidatePackerDetailsGuid">
+            <summary>Sets the stub of IFacade.CreateCandidate(CandidatePackerDetails details, Guid createdBy)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.CreateCandidateCandidatePilotDetailsGuid">
+            <summary>Sets the stub of IFacade.CreateCandidate(CandidatePilotDetails details, Guid createdBy)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.Dispose">
+            <summary>Sets the stub of IDisposable.Dispose()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.EditPackerGuidCandidatePackerDetails">
+            <summary>Sets the stub of IFacade.EditPacker(Guid candidateId, CandidatePackerDetails details)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.EditPackerPracticalResultGuidGuidPackerPracticalResult">
+            <summary>Sets the stub of IFacade.EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.EditPilotGuidCandidatePilotDetails">
+            <summary>Sets the stub of IFacade.EditPilot(Guid candidateId, CandidatePilotDetails details)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchAssessmentTasksPackerGuid">
+            <summary>Sets the stub of IFacade.FetchAssessmentTasksPacker(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchAssessmentTasksPilotGuid">
+            <summary>Sets the stub of IFacade.FetchAssessmentTasksPilot(Guid candidateId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchCandidatesGuid">
+            <summary>Sets the stub of IFacade.FetchCandidates(Guid examinerId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchFirstQuestionGuid">
+            <summary>Sets the stub of IFacade.FetchFirstQuestion(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchNextQuestionGuid">
+            <summary>Sets the stub of IFacade.FetchNextQuestion(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchPackerGuid">
+            <summary>Sets the stub of IFacade.FetchPacker(Guid candidateId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchPilotGuid">
+            <summary>Sets the stub of IFacade.FetchPilot(Guid candidateId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchPreviousQuestionGuid">
+            <summary>Sets the stub of IFacade.FetchPreviousQuestion(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchSingleAssessmentTaskPackerGuidGuid">
+            <summary>Sets the stub of IFacade.FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchSpecificQuestionGuidInt32">
+            <summary>Sets the stub of IFacade.FetchSpecificQuestion(Guid examId, Int32 questionIndex)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchTheoryComponentFormatGuid">
+            <summary>Sets the stub of IFacade.FetchTheoryComponentFormat(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchTheoryComponentResultGuid">
+            <summary>Sets the stub of IFacade.FetchTheoryComponentResult(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FetchTheoryComponentSummaryGuid">
+            <summary>Sets the stub of IFacade.FetchTheoryComponentSummary(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.FinalisePracticalGuid">
+            <summary>Sets the stub of IFacade.FinalisePractical(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.ResetTheoryComponentGuid">
+            <summary>Sets the stub of IFacade.ResetTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.ResumeTheoryComponentGuid">
+            <summary>Sets the stub of IFacade.ResumeTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.SetActiveTheoryComponentFormatGuid">
+            <summary>Sets the stub of IFacade.SetActiveTheoryComponentFormat(Guid theoryComponentFormatId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.StartTheoryComponentGuidGuid">
+            <summary>Sets the stub of IFacade.StartTheoryComponent(Guid examinerId, Guid candidateId)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.SubmitPackerPracticalResultGuidPackerPracticalResult">
+            <summary>Sets the stub of IFacade.SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.SubmitPilotPracticalResultsGuidListOfPilotPracticalResult">
+            <summary>Sets the stub of IFacade.SubmitPilotPracticalResults(Guid examId, List`1&lt;PilotPracticalResult&gt; results)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.SubmitTheoryComponentGuid">
+            <summary>Sets the stub of IFacade.SubmitTheoryComponent(Guid examId)</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIFacade.global::System#IDisposable#Dispose">
+            <summary>Sets the stub of IDisposable.Dispose()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIFacade.VoidExamGuid">
+            <summary>Sets the stub of IFacade.VoidExam(Guid examId)</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIPossibleAnswer">
+            <summary>Stub type of APFTestingModel.IPossibleAnswer</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIPossibleAnswer.#ctor">
+            <summary>Initializes a new instance of type StubIPossibleAnswer</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPossibleAnswer.DescriptionGet">
+            <summary>Sets the stub of IPossibleAnswer.get_Description()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPossibleAnswer.DisplayOrderIndexGet">
+            <summary>Sets the stub of IPossibleAnswer.get_DisplayOrderIndex()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPossibleAnswer.IsCheckedGet">
+            <summary>Sets the stub of IPossibleAnswer.get_IsChecked()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPossibleAnswer.IsCorrectGet">
+            <summary>Sets the stub of IPossibleAnswer.get_IsCorrect()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPossibleAnswer.apftm::APFTestingModel#IPossibleAnswer#Description">
+            <summary>Sets the stub of IPossibleAnswer.get_Description()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPossibleAnswer.apftm::APFTestingModel#IPossibleAnswer#DisplayOrderIndex">
+            <summary>Sets the stub of IPossibleAnswer.get_DisplayOrderIndex()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPossibleAnswer.apftm::APFTestingModel#IPossibleAnswer#IsChecked">
+            <summary>Sets the stub of IPossibleAnswer.get_IsChecked()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPossibleAnswer.apftm::APFTestingModel#IPossibleAnswer#IsCorrect">
+            <summary>Sets the stub of IPossibleAnswer.get_IsCorrect()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIPracticalComponentPacker">
+            <summary>Stub type of APFTestingModel.IPracticalComponentPacker</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIPracticalComponentPacker.#ctor">
+            <summary>Initializes a new instance of type StubIPracticalComponentPacker</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPacker.AssessmentTasksGet">
+            <summary>Sets the stub of IPracticalComponentPacker.get_AssessmentTasks()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPacker.CreationDateGet">
+            <summary>Sets the stub of IPracticalComponentPacker.get_CreationDate()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPacker.IdGet">
+            <summary>Sets the stub of IPracticalComponentPacker.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPacker.IsCompetentGet">
+            <summary>Sets the stub of IPracticalComponentPacker.get_IsCompetent()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPacker.NumOfRequiredAssessmentTasksGet">
+            <summary>Sets the stub of IPracticalComponentPacker.get_NumOfRequiredAssessmentTasks()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPacker.apftm::APFTestingModel#IPracticalComponentPacker#AssessmentTasks">
+            <summary>Sets the stub of IPracticalComponentPacker.get_AssessmentTasks()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPacker.apftm::APFTestingModel#IPracticalComponentPacker#CreationDate">
+            <summary>Sets the stub of IPracticalComponentPacker.get_CreationDate()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPacker.apftm::APFTestingModel#IPracticalComponentPacker#Id">
+            <summary>Sets the stub of IPracticalComponentPacker.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPacker.apftm::APFTestingModel#IPracticalComponentPacker#IsCompetent">
+            <summary>Sets the stub of IPracticalComponentPacker.get_IsCompetent()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPacker.apftm::APFTestingModel#IPracticalComponentPacker#NumOfRequiredAssessmentTasks">
+            <summary>Sets the stub of IPracticalComponentPacker.get_NumOfRequiredAssessmentTasks()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIPracticalComponentPilot">
+            <summary>Stub type of APFTestingModel.IPracticalComponentPilot</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIPracticalComponentPilot.#ctor">
+            <summary>Initializes a new instance of type StubIPracticalComponentPilot</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPilot.AssessmentTasksGet">
+            <summary>Sets the stub of IPracticalComponentPilot.get_AssessmentTasks()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPilot.CreationDateGet">
+            <summary>Sets the stub of IPracticalComponentPilot.get_CreationDate()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPilot.IdGet">
+            <summary>Sets the stub of IPracticalComponentPilot.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentPilot.IsCompetentGet">
+            <summary>Sets the stub of IPracticalComponentPilot.get_IsCompetent()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPilot.apftm::APFTestingModel#IPracticalComponentPilot#AssessmentTasks">
+            <summary>Sets the stub of IPracticalComponentPilot.get_AssessmentTasks()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPilot.apftm::APFTestingModel#IPracticalComponentPilot#CreationDate">
+            <summary>Sets the stub of IPracticalComponentPilot.get_CreationDate()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPilot.apftm::APFTestingModel#IPracticalComponentPilot#Id">
+            <summary>Sets the stub of IPracticalComponentPilot.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentPilot.apftm::APFTestingModel#IPracticalComponentPilot#IsCompetent">
+            <summary>Sets the stub of IPracticalComponentPilot.get_IsCompetent()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIPracticalComponentTemplatePacker">
+            <summary>Stub type of APFTestingModel.IPracticalComponentTemplatePacker</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIPracticalComponentTemplatePacker.#ctor">
+            <summary>Initializes a new instance of type StubIPracticalComponentTemplatePacker</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIPracticalComponentTemplatePacker.AttachBackingFieldToId">
+            <summary>Attaches delegates to emulate StubIPracticalComponentTemplatePacker.Id as a property with a backing field.</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentTemplatePacker.IdGet">
+            <summary>Sets the stub of IPracticalComponentTemplatePacker.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentTemplatePacker.IdSetGuid">
+            <summary>Sets the stub of IPracticalComponentTemplatePacker.set_Id(Guid value)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentTemplatePacker.NumOfRequiredAssessmentTasksGet">
+            <summary>Sets the stub of IPracticalComponentTemplatePacker.get_NumOfRequiredAssessmentTasks()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentTemplatePacker.apftm::APFTestingModel#IPracticalComponentTemplatePacker#Id">
+            <summary>Sets the stub of IPracticalComponentTemplatePacker.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentTemplatePacker.apftm::APFTestingModel#IPracticalComponentTemplatePacker#NumOfRequiredAssessmentTasks">
+            <summary>Sets the stub of IPracticalComponentTemplatePacker.get_NumOfRequiredAssessmentTasks()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubIPracticalComponentTemplatePilot">
+            <summary>Stub type of APFTestingModel.IPracticalComponentTemplatePilot</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIPracticalComponentTemplatePilot.#ctor">
+            <summary>Initializes a new instance of type StubIPracticalComponentTemplatePilot</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubIPracticalComponentTemplatePilot.AttachBackingFieldToId">
+            <summary>Attaches delegates to emulate StubIPracticalComponentTemplatePilot.Id as a property with a backing field.</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentTemplatePilot.IdGet">
+            <summary>Sets the stub of IPracticalComponentTemplatePilot.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentTemplatePilot.IdSetGuid">
+            <summary>Sets the stub of IPracticalComponentTemplatePilot.set_Id(Guid value)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubIPracticalComponentTemplatePilot.TasksGet">
+            <summary>Sets the stub of IPracticalComponentTemplatePilot.get_Tasks()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentTemplatePilot.apftm::APFTestingModel#IPracticalComponentTemplatePilot#Id">
+            <summary>Sets the stub of IPracticalComponentTemplatePilot.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubIPracticalComponentTemplatePilot.apftm::APFTestingModel#IPracticalComponentTemplatePilot#Tasks">
+            <summary>Sets the stub of IPracticalComponentTemplatePilot.get_Tasks()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubISelectedAssessmentTask">
+            <summary>Stub type of APFTestingModel.ISelectedAssessmentTask</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubISelectedAssessmentTask.#ctor">
+            <summary>Initializes a new instance of type StubISelectedAssessmentTask</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubISelectedAssessmentTask.AttachBackingFieldToComment">
+            <summary>Attaches delegates to emulate StubISelectedAssessmentTask.Comment as a property with a backing field.</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubISelectedAssessmentTask.AttachBackingFieldToId">
+            <summary>Attaches delegates to emulate StubISelectedAssessmentTask.Id as a property with a backing field.</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubISelectedAssessmentTask.AttachBackingFieldToScore">
+            <summary>Attaches delegates to emulate StubISelectedAssessmentTask.Score as a property with a backing field.</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.CommentGet">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Comment()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.CommentSetString">
+            <summary>Sets the stub of ISelectedAssessmentTask.set_Comment(String value)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.DetailsGet">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Details()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.IdGet">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.IdSetGuid">
+            <summary>Sets the stub of ISelectedAssessmentTask.set_Id(Guid value)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.MaxScoreGet">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_MaxScore()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.ScoreGet">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Score()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.ScoreSetNullableOfInt32">
+            <summary>Sets the stub of ISelectedAssessmentTask.set_Score(Nullable`1&lt;Int32&gt; value)</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedAssessmentTask.TitleGet">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Title()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedAssessmentTask.apftm::APFTestingModel#ISelectedAssessmentTask#Comment">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Comment()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedAssessmentTask.apftm::APFTestingModel#ISelectedAssessmentTask#Details">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Details()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedAssessmentTask.apftm::APFTestingModel#ISelectedAssessmentTask#Id">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedAssessmentTask.apftm::APFTestingModel#ISelectedAssessmentTask#MaxScore">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_MaxScore()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedAssessmentTask.apftm::APFTestingModel#ISelectedAssessmentTask#Score">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Score()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedAssessmentTask.apftm::APFTestingModel#ISelectedAssessmentTask#Title">
+            <summary>Sets the stub of ISelectedAssessmentTask.get_Title()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubISelectedTheoryQuestion">
+            <summary>Stub type of APFTestingModel.ISelectedTheoryQuestion</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubISelectedTheoryQuestion.#ctor">
+            <summary>Initializes a new instance of type StubISelectedTheoryQuestion</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.DescriptionGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_Description()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.IdGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.ImagePathGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_ImagePath()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.IsAnsweredGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_IsAnswered()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.IsCorrectGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_IsCorrect()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.IsLastQuestionGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_IsLastQuestion()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.IsMarkedForReviewGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_IsMarkedForReview()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.NumberOfCorrectAnswersGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_NumberOfCorrectAnswers()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.PossibleAnswersGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_PossibleAnswers()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.QuestionIndexGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_QuestionIndex()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubISelectedTheoryQuestion.TotalNumOfQuestionsGet">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_TotalNumOfQuestions()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#Description">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_Description()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#Id">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#ImagePath">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_ImagePath()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#IsAnswered">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_IsAnswered()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#IsCorrect">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_IsCorrect()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#IsLastQuestion">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_IsLastQuestion()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#IsMarkedForReview">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_IsMarkedForReview()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#NumberOfCorrectAnswers">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_NumberOfCorrectAnswers()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#PossibleAnswers">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_PossibleAnswers()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#QuestionIndex">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_QuestionIndex()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubISelectedTheoryQuestion.apftm::APFTestingModel#ISelectedTheoryQuestion#TotalNumOfQuestions">
+            <summary>Sets the stub of ISelectedTheoryQuestion.get_TotalNumOfQuestions()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubITheoryComponent">
+            <summary>Stub type of APFTestingModel.ITheoryComponent</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubITheoryComponent.#ctor">
+            <summary>Initializes a new instance of type StubITheoryComponent</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponent.CurrentQuestionIndexGet">
+            <summary>Sets the stub of ITheoryComponent.get_CurrentQuestionIndex()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponent.DateGet">
+            <summary>Sets the stub of ITheoryComponent.get_Date()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponent.FormatIdGet">
+            <summary>Sets the stub of ITheoryComponent.get_FormatId()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponent.IdGet">
+            <summary>Sets the stub of ITheoryComponent.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponent.IsCompetentGet">
+            <summary>Sets the stub of ITheoryComponent.get_IsCompetent()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponent.ScoreGet">
+            <summary>Sets the stub of ITheoryComponent.get_Score()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponent.SelectedTheoryQuestionsGet">
+            <summary>Sets the stub of ITheoryComponent.get_SelectedTheoryQuestions()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponent.apftm::APFTestingModel#ITheoryComponent#CurrentQuestionIndex">
+            <summary>Sets the stub of ITheoryComponent.get_CurrentQuestionIndex()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponent.apftm::APFTestingModel#ITheoryComponent#Date">
+            <summary>Sets the stub of ITheoryComponent.get_Date()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponent.apftm::APFTestingModel#ITheoryComponent#FormatId">
+            <summary>Sets the stub of ITheoryComponent.get_FormatId()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponent.apftm::APFTestingModel#ITheoryComponent#Id">
+            <summary>Sets the stub of ITheoryComponent.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponent.apftm::APFTestingModel#ITheoryComponent#IsCompetent">
+            <summary>Sets the stub of ITheoryComponent.get_IsCompetent()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponent.apftm::APFTestingModel#ITheoryComponent#Score">
+            <summary>Sets the stub of ITheoryComponent.get_Score()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponent.apftm::APFTestingModel#ITheoryComponent#SelectedTheoryQuestions">
+            <summary>Sets the stub of ITheoryComponent.get_SelectedTheoryQuestions()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubITheoryComponentFormat">
+            <summary>Stub type of APFTestingModel.ITheoryComponentFormat</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubITheoryComponentFormat.#ctor">
+            <summary>Initializes a new instance of type StubITheoryComponentFormat</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponentFormat.IdGet">
+            <summary>Sets the stub of ITheoryComponentFormat.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponentFormat.IsActiveGet">
+            <summary>Sets the stub of ITheoryComponentFormat.get_IsActive()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponentFormat.NumberOfQuestionsGet">
+            <summary>Sets the stub of ITheoryComponentFormat.get_NumberOfQuestions()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponentFormat.PassMarkGet">
+            <summary>Sets the stub of ITheoryComponentFormat.get_PassMark()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryComponentFormat.TimeLimitGet">
+            <summary>Sets the stub of ITheoryComponentFormat.get_TimeLimit()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponentFormat.apftm::APFTestingModel#ITheoryComponentFormat#Id">
+            <summary>Sets the stub of ITheoryComponentFormat.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponentFormat.apftm::APFTestingModel#ITheoryComponentFormat#IsActive">
+            <summary>Sets the stub of ITheoryComponentFormat.get_IsActive()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponentFormat.apftm::APFTestingModel#ITheoryComponentFormat#NumberOfQuestions">
+            <summary>Sets the stub of ITheoryComponentFormat.get_NumberOfQuestions()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponentFormat.apftm::APFTestingModel#ITheoryComponentFormat#PassMark">
+            <summary>Sets the stub of ITheoryComponentFormat.get_PassMark()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryComponentFormat.apftm::APFTestingModel#ITheoryComponentFormat#TimeLimit">
+            <summary>Sets the stub of ITheoryComponentFormat.get_TimeLimit()</summary>
+        </member>
+        <member name="T:APFTestingModel.Fakes.StubITheoryQuestion">
+            <summary>Stub type of APFTestingModel.ITheoryQuestion</summary>
+        </member>
+        <member name="M:APFTestingModel.Fakes.StubITheoryQuestion.#ctor">
+            <summary>Initializes a new instance of type StubITheoryQuestion</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryQuestion.DescriptionGet">
+            <summary>Sets the stub of ITheoryQuestion.get_Description()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryQuestion.IdGet">
+            <summary>Sets the stub of ITheoryQuestion.get_Id()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryQuestion.ImagePathGet">
+            <summary>Sets the stub of ITheoryQuestion.get_ImagePath()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryQuestion.IsActiveGet">
+            <summary>Sets the stub of ITheoryQuestion.get_IsActive()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryQuestion.NumberOfCorrectAnswersGet">
+            <summary>Sets the stub of ITheoryQuestion.get_NumberOfCorrectAnswers()</summary>
+        </member>
+        <member name="F:APFTestingModel.Fakes.StubITheoryQuestion.PossibleAnswersGet">
+            <summary>Sets the stub of ITheoryQuestion.get_PossibleAnswers()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryQuestion.apftm::APFTestingModel#ITheoryQuestion#Description">
+            <summary>Sets the stub of ITheoryQuestion.get_Description()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryQuestion.apftm::APFTestingModel#ITheoryQuestion#Id">
+            <summary>Sets the stub of ITheoryQuestion.get_Id()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryQuestion.apftm::APFTestingModel#ITheoryQuestion#ImagePath">
+            <summary>Sets the stub of ITheoryQuestion.get_ImagePath()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryQuestion.apftm::APFTestingModel#ITheoryQuestion#IsActive">
+            <summary>Sets the stub of ITheoryQuestion.get_IsActive()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryQuestion.apftm::APFTestingModel#ITheoryQuestion#NumberOfCorrectAnswers">
+            <summary>Sets the stub of ITheoryQuestion.get_NumberOfCorrectAnswers()</summary>
+        </member>
+        <member name="P:APFTestingModel.Fakes.StubITheoryQuestion.apftm::APFTestingModel#ITheoryQuestion#PossibleAnswers">
+            <summary>Sets the stub of ITheoryQuestion.get_PossibleAnswers()</summary>
+        </member>
+    </members>
+</doc>
