@@ -1261,6 +1261,20 @@ input[type="radio"]:checked + .label-radio {
         padding: 3px;
     }
 
+.display-label {
+    float:left;
+    padding-bottom: 10px;
+    width: 190px;
+    padding: 2px;
+    font-size: 1.2em;
+}
+
+.display-field
+{
+    float:left;
+    padding-bottom: 10px;
+}
+
 .button-container
 {
     text-align: right;
