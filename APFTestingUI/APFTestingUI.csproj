@@ -203,6 +203,7 @@
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
+    <Compile Include="Models\Practical\AssessmentTaskInputItem.cs" />
     <Compile Include="Models\Practical\AssessmentTaskDisplayItem.cs" />
     <Compile Include="Models\Practical\PackerEdit.cs" />
     <Compile Include="Models\Practical\DemonstratedPackDisplayItem.cs" />

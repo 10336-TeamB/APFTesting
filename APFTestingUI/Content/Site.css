@@ -1006,6 +1006,10 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     background-image:url(http://csscheckbox.com/checkboxes/dark-check-orange.png);
 }
 
+.text-justify {
+    text-align:justify;
+}
+
 #loading {
     margin: 100px auto;
     width: 100px;
@@ -1148,6 +1152,10 @@ td
     vertical-align: top;
 }
 
+.td-comments 
+{
+    padding: 20px;
+}
 
 
 
@@ -1287,6 +1295,20 @@ input[type="radio"]:checked + .label-radio {
         padding: 3px;
     }
 
+.display-label {
+    float:left;
+    padding-bottom: 10px;
+    width: 190px;
+    padding: 2px;
+    font-size: 1.2em;
+}
+
+.display-field
+{
+    float:left;
+    padding-bottom: 10px;
+}
+
 .button-container
 {
     text-align: right;
@@ -1346,19 +1368,19 @@ tr.row-odd
 
 
 /** Pilot practical : #form-pilot-practical */
-#form-pilot-practical table
+#form-pilot-practical table, #table-practical-pilot-view
 {
     margin-bottom: 2em;
     border-bottom: 1px solid #666666;
 }
 
-#form-pilot-practical th
+#form-pilot-practical th, #table-practical-pilot-view th
 {
     font-size: 1.4em;
     color: #999999;
 }
 
-#form-pilot-practical td
+#form-pilot-practical td, #table-practical-pilot-view td
 {
     padding-top: 2em;
     padding-bottom: 2.5em;

@@ -25,7 +25,7 @@ namespace APFTestingModel
 		ExamVoided = 8
 	}
 
-    public enum PilotLicenseType : short
+    public enum PilotLicenceType : short
     {
         PPL = 1,
         CPL = 2,

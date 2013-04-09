@@ -12,6 +12,7 @@ namespace APFTestingUI.Models.Candidate
     {
         public CreatePilot() {
             BuildPilotLicenceSelectList();
+            BuildStateSelectList();
         }
 
         private const int _arnLength = 6;
@@ -44,6 +45,7 @@ namespace APFTestingUI.Models.Candidate
 
         [Required]
         public string State { get; set; }
+        public SelectList States { get; set; }
 
         [Required]
         [StringLength(_postcodeLength, MinimumLength = _postcodeLength)]
@@ -63,20 +65,20 @@ namespace APFTestingUI.Models.Candidate
         [EmailAddress]
         public string Email { get; set; }
 
-        // TODO: Change this to Enum
+        
         [Required]
         [Display(Name = "Pilot licence type")]
-        public short? PilotLicenceType { get; set; }
+        public PilotLicenceType PilotLicenceType { get; set; }
         public SelectList PilotLicences { get; private set; }
         
         [Required]
         [Display(Name = "Instrument rating")]
         public bool InstrumentRating { get; set; }
 
-        // TODO: Change this to Enum
+        
         [Required]
         [Display(Name = "Pilot medical")]
-        public short? PilotMedical { get; set; }
+        public PilotMedicalType PilotMedical { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -119,7 +121,7 @@ namespace APFTestingUI.Models.Candidate
         public void BuildPilotLicenceSelectList()
         {
             var list = new Dictionary<string, int>();
-            var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenseType));
+            var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenceType));
 
             for (var i = 0; i < values.Length; i++)
             {
@@ -128,6 +130,12 @@ namespace APFTestingUI.Models.Candidate
             }
 
             PilotLicences = new SelectList(list, "Value", "Key");
+        }
+
+        public void BuildStateSelectList()
+        {
+            string[] states = new string[]{"ACT", "NSW", "SA", "QLD", "VIC", "TAS", "WA"};
+            States = new SelectList(states);
         }
     }
 }

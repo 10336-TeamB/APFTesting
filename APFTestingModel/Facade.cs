@@ -385,22 +385,11 @@ namespace APFTestingModel
         }
 
         #endregion
-		
 
         //Hook-in test method
         public string TestDBConnection()
         {
            return _context.TheoryQuestions.FirstOrDefault().Description;
-        }
-
-        //HACK - Dangerous - Deletes candidate and all associated data
-        // Cascade delete is active in Development Database(only) on all necessary associations
-        //TODO: Not yet tested. Need to check all relevant entries in DB to confirm deleted...
-        public void DeleteCandidate(Guid candidateId)
-        {
-            var candidate = _context.People.FirstOrDefault(p => p.Id == candidateId);
-            _context.People.Remove(candidate);
-            _context.SaveChanges();
         }
 		
         public void Dispose()
