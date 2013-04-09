@@ -251,9 +251,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ExaminerId" Type="uniqueidentifier" />
+          <Property Name="ExaminerId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime2" Nullable="false" />
-          <Property Name="ExamStatus" Type="smallint" />
+          <Property Name="ExamStatus" Type="smallint" Nullable="false" />
           <Property Name="TheoryComponentId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="Examiner">
@@ -275,7 +275,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CandidateId" Type="uniqueidentifier" />
+          <Property Name="CandidateId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="ExamPilot">
@@ -283,7 +283,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CandidateId" Type="uniqueidentifier" />
+          <Property Name="CandidateId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="Person">
@@ -524,7 +524,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Exam_Examiner">
-          <End Role="Examiner" Type="APFTestingDBModel.Store.Examiner" Multiplicity="0..1" />
+          <End Role="Examiner" Type="APFTestingDBModel.Store.Examiner" Multiplicity="1" />
           <End Role="Exam" Type="APFTestingDBModel.Store.Exam" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Examiner">
@@ -574,7 +574,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPacker_CandidatePacker">
-          <End Role="CandidatePacker" Type="APFTestingDBModel.Store.CandidatePacker" Multiplicity="0..1">
+          <End Role="CandidatePacker" Type="APFTestingDBModel.Store.CandidatePacker" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="ExamPacker" Type="APFTestingDBModel.Store.ExamPacker" Multiplicity="*" />
@@ -616,7 +616,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPilot_CandidatePilot">
-          <End Role="CandidatePilot" Type="APFTestingDBModel.Store.CandidatePilot" Multiplicity="0..1">
+          <End Role="CandidatePilot" Type="APFTestingDBModel.Store.CandidatePilot" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="ExamPilot" Type="APFTestingDBModel.Store.ExamPilot" Multiplicity="*" />
@@ -1040,7 +1040,7 @@
           <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Guid" Name="TheoryComponentId" Nullable="false" />
           <!--<Property Type="Guid" Name="PracticalComponentId" />-->
-          <Property Type="Guid" Name="ExaminerId" />
+          <Property Type="Guid" Name="ExaminerId" Nullable="false" />
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="7" />
           <Property Type="APFTestingDBModel.ExamStatus" Name="ExamStatus" Nullable="false" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_Exam_Examiner" FromRole="Exam" ToRole="Examiner" />
@@ -1055,13 +1055,13 @@
         </EntityType>
 
         <EntityType Name="ExamPacker" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" BaseType="APFTestingDBModel.Exam">
-          <Property Type="Guid" Name="CandidateId" />
+          <Property Type="Guid" Name="CandidateId" Nullable="false" />
           <NavigationProperty Name="CandidatePacker" Relationship="APFTestingDBModel.FK_ExamPacker_CandidatePacker" FromRole="ExamPacker" ToRole="CandidatePacker" />
           <Property Type="Guid" Name="PracticalComponentId" Nullable="false" />
           <NavigationProperty Name="PracticalComponentPacker" Relationship="APFTestingDBModel.FK_ExamPacker_PracticalComponentPacker" FromRole="ExamPacker" ToRole="PracticalComponentPacker" />
         </EntityType>
         <EntityType Name="ExamPilot" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" BaseType="APFTestingDBModel.Exam">
-          <Property Type="Guid" Name="CandidateId" />
+          <Property Type="Guid" Name="CandidateId" Nullable="false" />
           <NavigationProperty Name="CandidatePilot" Relationship="APFTestingDBModel.FK_ExamPilot_CandidatePilot" FromRole="ExamPilot" ToRole="CandidatePilot" />
           <Property Type="Guid" Name="PracticalComponentId" Nullable="false" />
           <NavigationProperty Name="PracticalComponentPilot" Relationship="APFTestingDBModel.FK_ExamPilot_PracticalComponentPilot" FromRole="ExamPilot" ToRole="PracticalComponentPilot" />
@@ -1252,7 +1252,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPacker_CandidatePacker">
-          <End Type="APFTestingDBModel.CandidatePacker" Role="CandidatePacker" Multiplicity="0..1" />
+          <End Type="APFTestingDBModel.CandidatePacker" Role="CandidatePacker" Multiplicity="1" />
           <End Type="APFTestingDBModel.ExamPacker" Role="ExamPacker" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CandidatePacker">
@@ -1276,7 +1276,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExamPilot_CandidatePilot">
-          <End Type="APFTestingDBModel.CandidatePilot" Role="CandidatePilot" Multiplicity="0..1" />
+          <End Type="APFTestingDBModel.CandidatePilot" Role="CandidatePilot" Multiplicity="1" />
           <End Type="APFTestingDBModel.ExamPilot" Role="ExamPilot" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CandidatePilot">
@@ -1288,7 +1288,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Exam_Examiner">
-          <End Type="APFTestingDBModel.Examiner" Role="Examiner" Multiplicity="0..1" />
+          <End Type="APFTestingDBModel.Examiner" Role="Examiner" Multiplicity="1" />
           <End Type="APFTestingDBModel.Exam" Role="Exam" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Examiner">
