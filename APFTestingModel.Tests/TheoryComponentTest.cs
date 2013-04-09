@@ -94,7 +94,7 @@ namespace APFTestingModel.Tests
         }
 
         [TestMethod]
-        //[ExpectedException(typeof(BusinessRuleException))]
+        [ExpectedException(typeof(BusinessRuleException))]
         public void AnswerQuestionTest()
         {
             // Arrange
@@ -102,10 +102,10 @@ namespace APFTestingModel.Tests
             fixture.SelectedTheoryQuestions = createMockQuestions();
 
             //// Act
-            fixture.AnswerQuestion(1, new int[] { 1, 2 }, false);
+            fixture.AnswerQuestion(100, new int[] { 1, 2 }, false);
 
             //// Assert
-           
+            //Expecting a exception
         }
     }
 }

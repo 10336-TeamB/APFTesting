@@ -63,6 +63,15 @@ namespace APFTestingModel
             }
         }
 
+        //JUST FOR OUR TEST METHOD - Pradipna
+        public ExamState ExamState
+        {
+            get
+            {
+                return _examState;
+            }
+        }
+
         #endregion
 
         #region Methods
