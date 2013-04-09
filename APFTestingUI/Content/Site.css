@@ -1475,3 +1475,9 @@ input[type='number']
 {
     background: transparent url('../Images/bg-exam.jpg') 110% 160px no-repeat;
 }
+
+
+input[type="text"]:disabled
+{
+    background-color: rgb(170, 168, 168);
+}
