@@ -11,21 +11,30 @@
 <br />
 <br />
 
-@foreach (var task in Model.Tasks)
-{
-    <table>
-        <tr class="row-even">
-            <td>@task.Details</td>
+<table id="table-practical-pilot-view">
+    <thead>
+        <tr>
+            <th class="th-detail">Detail</th>
+                <th class="th-comments">Comments</th>
+                <th class="th-score">Score</th>
         </tr>
-        <tr class="row-odd">
-            <td style="padding-left:30px;">@task.Comment</td>
+    </thead>
+    <tbody>
+    @foreach (var task in Model.Tasks)
+    {
+        <tr>
+            <td class="td-detail">
+                <h3 class="title">@Html.EditorFor(model => task.Title)</h3>
+                <p class="description text-justify">@Html.EditorFor(model => task.Details)</p>
+                <p class="max-score">@Html.EditorFor(model => task.MaxScore) Points</p>
+            </td>
+            <td class="td-comments text-justify">@task.Comment</td>
+            <td class="td-score">@task.Score</td>
         </tr>
-        <tr class="row-even">
-            <td style="padding-left:30px;">@task.Score out of @task.MaxScore</td>
-        </tr>
-    </table>
-    <hr />
-}
+        
+    }
+    </tbody>
+</table>
 
 <p>
     @Html.ActionLink("Edit", "PilotInput", new { examId = Model.ExamId, candidateId = Model.CandidateId }, new { @class = "examinerButton" })
