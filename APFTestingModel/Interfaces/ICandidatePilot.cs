@@ -17,9 +17,9 @@ namespace APFTestingModel
         string PhoneNumber { get; }
         string MobileNumber { get; }
         string Email { get; }
-        short? PilotLicenseType { get; }
+        PilotLicenceType PilotLicenceType { get; }
         bool InstrumentRating { get; }
-        short? PilotMedicalType { get; }
+        PilotMedicalType PilotMedicalType { get; }
         DateTime PilotMedicalExpiryDate { get; }
         bool ValidBFR { get; }
         Guid CreatedBy { get; }

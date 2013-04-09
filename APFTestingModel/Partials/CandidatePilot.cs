@@ -24,7 +24,7 @@ namespace APFTestingModel
             PhoneNumber = details.Phone;
             MobileNumber = details.Mobile;
             Email = details.Email;
-            PilotLicenseType = details.PilotLicenceType;
+            PilotLicenceType = details.PilotLicenceType;
             InstrumentRating = details.InstrumentRating;
             PilotMedicalType = details.PilotMedical;
             PilotMedicalExpiryDate = details.PilotMedicalExpiry;

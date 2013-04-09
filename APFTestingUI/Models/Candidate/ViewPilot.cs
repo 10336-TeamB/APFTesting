@@ -25,9 +25,9 @@ namespace APFTestingUI.Models.Candidate
             Phone = candidate.PhoneNumber;
             Mobile = candidate.MobileNumber;
             Email = candidate.Email;
-            PilotLicenceType = (PilotLicenseType)candidate.PilotLicenseType;
+            PilotLicenceType = candidate.PilotLicenseType;
             InstrumentRating = candidate.InstrumentRating ? "Yes" : "No";
-            PilotMedical = (PilotMedicalType)candidate.PilotMedicalType;
+            PilotMedical = candidate.PilotMedicalType;
             PilotMedicalExpiry = candidate.PilotMedicalExpiryDate;
             ValidBFR = candidate.ValidBFR ? "Yes" : "No";
         }
@@ -64,14 +64,12 @@ namespace APFTestingUI.Models.Candidate
 
         public string Email { get; set; }
 
-        // TODO: Change this to Enum
         [Display(Name = "Pilot licence type")]
         public PilotLicenseType PilotLicenceType { get; set; }
         
         [Display(Name = "Instrument rating")]
         public string InstrumentRating { get; set; }
 
-        // TODO: Change this to Enum
         [Display(Name = "Pilot medical")]
         public PilotMedicalType PilotMedical { get; set; }
 

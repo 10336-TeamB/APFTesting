@@ -65,20 +65,20 @@ namespace APFTestingUI.Models.Candidate
         [EmailAddress]
         public string Email { get; set; }
 
-        // TODO: Change this to Enum
+        
         [Required]
         [Display(Name = "Pilot licence type")]
-        public short? PilotLicenceType { get; set; }
+        public PilotLicenceType PilotLicenceType { get; set; }
         public SelectList PilotLicences { get; private set; }
         
         [Required]
         [Display(Name = "Instrument rating")]
         public bool InstrumentRating { get; set; }
 
-        // TODO: Change this to Enum
+        
         [Required]
         [Display(Name = "Pilot medical")]
-        public short? PilotMedical { get; set; }
+        public PilotMedicalType PilotMedical { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -121,7 +121,7 @@ namespace APFTestingUI.Models.Candidate
         public void BuildPilotLicenceSelectList()
         {
             var list = new Dictionary<string, int>();
-            var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenseType));
+            var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenceType));
 
             for (var i = 0; i < values.Length; i++)
             {

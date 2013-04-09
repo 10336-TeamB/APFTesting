@@ -243,8 +243,8 @@
           <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
           <Property Name="MobileNumber" Type="varchar" MaxLength="50" />
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
-          <Property Name="PilotLicenseType" Type="smallint" />
-          <Property Name="PilotMedicalType" Type="smallint" />
+          <Property Name="PilotLicenceType" Type="smallint" Nullable="false" />
+          <Property Name="PilotMedicalType" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -966,7 +966,7 @@
           </EntityContainer>
         <EnumType Name="ExamType" a:ExternalTypeName="APFTestingModel.ExamType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" UnderlyingType="Int16" />
         <EnumType Name="ExamStatus" a:ExternalTypeName="APFTestingModel.ExamStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" UnderlyingType="Int16" />
-        <EnumType Name="PilotLicenseType" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.PilotLicenseType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="PilotLicenceType" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.PilotLicenceType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <EnumType Name="PilotMedicalType" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.PilotMedicalType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <EntityType Name="Address" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Key>
@@ -1027,11 +1027,12 @@
           <Property Type="String" Name="PhoneNumber" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="MobileNumber" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="DateOfBirth" Precision="0" Nullable="false" />
-          <Property Type="Int16" Name="PilotLicenseType" />
-          <Property Type="Int16" Name="PilotMedicalType" />
+          <Property Type="APFTestingDBModel.PilotLicenceType" Name="PilotLicenceType" Nullable="false" />
+          <Property Type="APFTestingDBModel.PilotMedicalType" Name="PilotMedicalType" Nullable="false" />
           <NavigationProperty Name="Address" Relationship="APFTestingDBModel.FK_CandidatePilot_Address" FromRole="CandidatePilot" ToRole="Address" />
           <NavigationProperty Name="Examiner" Relationship="APFTestingDBModel.FK_CandidatePilot_Examiner" FromRole="CandidatePilot" ToRole="Examiner" />
           <NavigationProperty Name="ExamPilots" Relationship="APFTestingDBModel.FK_ExamPilot_CandidatePilot" FromRole="CandidatePilot" ToRole="ExamPilot" />
+          
         </EntityType>
         <EntityType Name="Exam" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Abstract="true">
           <Key>
@@ -1607,6 +1608,7 @@
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.CandidatePilot)">
               <MappingFragment StoreEntitySet="CandidatePilot">
+                <ScalarProperty Name="PilotLicenceType" ColumnName="PilotLicenceType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ARN" ColumnName="ARN" />
                 <ScalarProperty Name="InstrumentRating" ColumnName="InstrumentRating" />
@@ -1618,7 +1620,6 @@
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-                <ScalarProperty Name="PilotLicenseType" ColumnName="PilotLicenseType" />
                 <ScalarProperty Name="PilotMedicalType" ColumnName="PilotMedicalType" />
               </MappingFragment>
             </EntityTypeMapping>
