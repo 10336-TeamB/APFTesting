@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel.Tests
 {
-    class MockTheoryComponentPilot
+    class MockTheoryComponentPilot : TheoryComponent
     {
          public Guid Id
         {

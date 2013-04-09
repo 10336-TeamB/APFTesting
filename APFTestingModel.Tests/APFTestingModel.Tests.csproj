@@ -54,15 +54,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AnswerTest.cs" />
+    <Compile Include="ExamTest.cs" />
     <Compile Include="MockPossibleAnswer.cs" />
+    <Compile Include="MockPracticalComponentPilot.cs" />
     <Compile Include="MockSelectedTheoryQuestion.cs" />
     <Compile Include="MockTheoryComponentPilot.cs" />
+    <Compile Include="PracticalComponentPackerTest.cs" />
+    <Compile Include="SelectedAssessmentTaskTest.cs" />
     <Compile Include="TheoryComponentTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectedTheoryQuestionTest.cs" />
     <Compile Include="CandidatePilotTest.cs" />
     <Compile Include="CandidatePackerTest.cs" />
     <Compile Include="AssessmentTaskPilotTest.cs" />
+    <Compile Include="TheoryQuestionTest.cs" />
+    <Compile Include="AssessmentTaskPackerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\APFTestingModel\APFTestingModel.csproj">
@@ -75,6 +82,9 @@
       <SubType>Designer</SubType>
     </None>
     <Fakes Include="Fakes\APFTestingModel.fakes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mocks\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
