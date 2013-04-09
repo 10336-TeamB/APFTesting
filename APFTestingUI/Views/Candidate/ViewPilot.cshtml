@@ -3,12 +3,8 @@
 @{
     ViewBag.Title = "View Pilot";
 }
-
+<div class="candidate-view">
 <h1>View Pilot</h1>
-
-<fieldset>
-    <legend>View Pilot</legend>
-
     <div class="display-label">
          @Html.DisplayNameFor(model => model.FirstName)
     </div>
@@ -145,7 +141,7 @@
         @Html.DisplayFor(model => model.ValidBFR)
     </div>
     <div class="clear"></div>
-</fieldset>
 <p class="button-container">
-    @Html.ActionLink("Edit", "EditPilot", new { candidateId = Model.Id }, new { @class="button-submit" })
+    @Html.ActionLink("Edit", "EditPilot", new { candidateId = Model.Id }, new { @class="button-submit examinerButton" })
 </p>
+</div>

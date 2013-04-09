@@ -66,7 +66,7 @@ legend {
 }
 
 .input-validation-error {
-    background-color: #ffc9c9
+    background-color: #aa0000;
 }
 
 /* change colours to suit your needs */
@@ -715,6 +715,11 @@ a.button
     min-width:120px;
 }
 
+.candidate-name
+{
+    width: 20%;
+}
+
 .start-theory-link
 {
     width: 20%;
@@ -724,6 +729,12 @@ a.button
 .input-practical-link {
     width: 20%;
 }
+
+.reset-cell
+{
+    width: 20%;
+}
+
 
 #add-candidate-link
 {
@@ -1448,7 +1459,21 @@ input[type='number']
 }
 
 
+/** Candidate View */
+.candidate-view .button-container
+{
+    text-align: left;
+    margin-right: 0;
+}
+
+.candidate-view .display-label 
+{
+    color: #999999;
+}
+
 .in-exam #content
 {
     
 }
+
+

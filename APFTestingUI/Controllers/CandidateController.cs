@@ -137,7 +137,7 @@ namespace APFTestingUI.Controllers
         public ActionResult EditPacker(Guid candidateId)
         {
             var model = new EditPacker(_facade.FetchPacker(candidateId));
-            return View();
+            return View(model);
         }
 
         //

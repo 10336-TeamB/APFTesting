@@ -16,6 +16,7 @@ $(function () {
             changeMonth: true,
             changeYear: true,
             dateFormat: "dd/mm/yy",
+            //altFormat: "dd/mm/yy",
             defaultDate: "-18y",
             yearRange: "-90y:-5y"
         }
@@ -25,7 +26,11 @@ $(function () {
             changeMonth: true,
             changeYear: true,
             dateFormat: "dd/mm/yy",
+            //altFormat: "dd/mm/yy",
             minDate: 0
         }
     );
+
 });
+
+
