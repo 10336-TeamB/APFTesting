@@ -21,10 +21,5 @@ namespace APFTestingModel
         {
             get { return Answers; }
         }
-
-        public int QuestionNumber
-        {
-            get { throw new NotImplementedException(); }
-        }
     }
 }
