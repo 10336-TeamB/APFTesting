@@ -34,8 +34,6 @@ $(function () {
 });
 
 
-
-
 //Overload validation for UK date
 //http://stackoverflow.com/questions/12053022/mvc-datetime-validation-uk-date-format/14081487#14081487
 jQuery(function ($) {
@@ -55,5 +53,3 @@ jQuery(function ($) {
         return ok;
     });
 });
-
-
