@@ -61,7 +61,7 @@ namespace APFTestingUI.Controllers
         public ActionResult EditPilot(Guid candidateId)
         {
             var model = new EditPilot(_facade.FetchPilot(candidateId));
-            return View();
+            return View(model);
         }
 
         //
@@ -75,7 +75,7 @@ namespace APFTestingUI.Controllers
                 try
                 {
                     _facade.EditPilot(model.Id, model.Values);
-                    return RedirectToAction("ViewPilot", new {model.Id});
+                    return RedirectToAction("ViewPilot", new {candidateId = model.Id});
                 }
                 catch (BusinessRuleException e)
                 {

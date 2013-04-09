@@ -120,16 +120,8 @@ namespace APFTestingUI.Models.Candidate
 
         public void BuildPilotLicenceSelectList()
         {
-            var list = new Dictionary<string, int>();
             var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenceType));
-
-            for (var i = 0; i < values.Length; i++)
-            {
-                var value = values.GetValue(i);
-                list.Add(value.ToString(), (short)value);
-            }
-
-            PilotLicences = new SelectList(list, "Value", "Key");
+            PilotLicences = new SelectList(values);
         }
 
         public void BuildStateSelectList()
