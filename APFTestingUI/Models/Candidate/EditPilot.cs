@@ -32,7 +32,7 @@ namespace APFTestingUI.Models.Candidate
             Phone = candidate.PhoneNumber;
             Mobile = candidate.MobileNumber;
             Email = candidate.Email;
-            PilotLicenceType = candidate.PilotLicenseType;
+            PilotLicenceType = candidate.PilotLicenceType;
             InstrumentRating = candidate.InstrumentRating;
             PilotMedical = candidate.PilotMedicalType;
             PilotMedicalExpiry = candidate.PilotMedicalExpiryDate;
@@ -84,7 +84,7 @@ namespace APFTestingUI.Models.Candidate
 
         // TODO: Change this to Enum
         [Required]
-        public short? PilotLicenceType { get; set; }
+        public PilotLicenceType PilotLicenceType { get; set; }
         public SelectList PilotLicences { get; private set; }
 
         [Required]
@@ -92,7 +92,7 @@ namespace APFTestingUI.Models.Candidate
 
         // TODO: Change this to Enum
         [Required]
-        public short? PilotMedical { get; set; }
+        public PilotMedicalType PilotMedical { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -131,7 +131,7 @@ namespace APFTestingUI.Models.Candidate
         public void BuildPilotLicenceSelectList()
         {
             var list = new Dictionary<string, int>();
-            var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenseType));
+            var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenceType));
 
             for (var i = 0; i < values.Length; i++)
             {

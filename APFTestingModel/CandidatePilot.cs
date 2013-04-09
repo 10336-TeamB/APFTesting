@@ -29,8 +29,8 @@ namespace APFTestingModel
     	public string PhoneNumber { get; set; }
     	public string MobileNumber { get; set; }
     	public System.DateTime DateOfBirth { get; set; }
-    	public Nullable<short> PilotLicenseType { get; set; }
-    	public Nullable<short> PilotMedicalType { get; set; }
+    	public APFTestingModel.PilotLicenceType PilotLicenceType { get; set; }
+    	public APFTestingModel.PilotMedicalType PilotMedicalType { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Examiner Examiner { get; set; }

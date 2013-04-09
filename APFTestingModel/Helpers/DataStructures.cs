@@ -20,9 +20,9 @@ namespace APFTestingModel
         public string Phone { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
-        public short? PilotLicenceType { get; set; }
+        public PilotLicenceType PilotLicenceType { get; set; }
         public bool InstrumentRating { get; set; }
-        public short? PilotMedical { get; set; }
+        public PilotMedicalType PilotMedical { get; set; }
         public DateTime PilotMedicalExpiry { get; set; }
         public bool ValidBFR { get; set; }
     }

@@ -796,8 +796,8 @@
         <member name="F:APFTestingModel.Fakes.StubICandidatePilot.PhoneNumberGet">
             <summary>Sets the stub of ICandidatePilot.get_PhoneNumber()</summary>
         </member>
-        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.PilotLicenseTypeGet">
-            <summary>Sets the stub of ICandidatePilot.get_PilotLicenseType()</summary>
+        <member name="F:APFTestingModel.Fakes.StubICandidatePilot.PilotLicenceTypeGet">
+            <summary>Sets the stub of ICandidatePilot.get_PilotLicenceType()</summary>
         </member>
         <member name="F:APFTestingModel.Fakes.StubICandidatePilot.PilotMedicalExpiryDateGet">
             <summary>Sets the stub of ICandidatePilot.get_PilotMedicalExpiryDate()</summary>
@@ -841,8 +841,8 @@
         <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#PhoneNumber">
             <summary>Sets the stub of ICandidatePilot.get_PhoneNumber()</summary>
         </member>
-        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#PilotLicenseType">
-            <summary>Sets the stub of ICandidatePilot.get_PilotLicenseType()</summary>
+        <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#PilotLicenceType">
+            <summary>Sets the stub of ICandidatePilot.get_PilotLicenceType()</summary>
         </member>
         <member name="P:APFTestingModel.Fakes.StubICandidatePilot.apftm::APFTestingModel#ICandidatePilot#PilotMedicalExpiryDate">
             <summary>Sets the stub of ICandidatePilot.get_PilotMedicalExpiryDate()</summary>
