@@ -24,7 +24,7 @@ namespace APFTestingModel
 
         public int NumOfRequiredAssessmentTasks
         {
-            get { return (PracticalComponentTemplatePacker as PracticalComponentTemplatePacker).NumOfRequiredAssessmentTasks; }
+            get { return PracticalComponentTemplatePacker.NumOfRequiredAssessmentTasks; }
         }
 
         public IEnumerable<IAssessmentTaskPacker> AssessmentTasks
