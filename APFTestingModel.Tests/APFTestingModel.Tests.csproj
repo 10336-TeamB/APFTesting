@@ -56,6 +56,7 @@
     <Compile Include="MockPracticalComponentPilot.cs" />
     <Compile Include="MockSelectedTheoryQuestion.cs" />
     <Compile Include="MockTheoryComponentPilot.cs" />
+    <Compile Include="PracticalComponentPackerTest.cs" />
     <Compile Include="SelectedAssessmentTaskTest.cs" />
     <Compile Include="TheoryComponentTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +73,9 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mocks\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
