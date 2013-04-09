@@ -668,15 +668,41 @@ a.button
     margin: 2em 0;
 }
 
+#candidate-list-wrapper-packer
+{
+    padding-top: 3em;
+}
 
-#candidate-list {
+    .candidate-list-wrapper h2
+    {
+        text-align: left;
+    }
+
+.candidate-list
+{
     width:100%;
 }
 
-#candidate-list th 
+.candidate-list th 
 {
     font-size: 1.2em;
+    border-top: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
+
+    .candidate-list td 
+    {
+        vertical-align: middle;
+        padding-top: 0.75em;
+        padding-bottom: 0.75em;
+    }
+
+    .candidate-name a
+    {
+        color: #ffffff;
+    }
 
 .candidate-first-name {
     width: 12%;
@@ -1397,4 +1423,10 @@ input[type='number']
 #form-packer-input .button-container, #form-packer-edit .button-container
 {
     width: 532px;
+}
+
+
+.in-exam #content
+{
+    background:transparent url('../Images/bg-theory-exam.jpg') 85% 100% repeat-x;
 }

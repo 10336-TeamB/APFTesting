@@ -21,6 +21,7 @@ namespace APFTestingUI.Controllers
             //Fetch Canidates that are associated with this examiner.
             //HACK - ExaminerID hardcoded
             Guid ExaminerId = new Guid("0099dcce-110a-4144-8ecb-80788f41e8ff");
+            ViewBag.ExaminerName = User.Identity.Name;
             List<ExamType> ExaminerAuthority = new List<ExamType>();
             ExaminerAuthority.Add(ExamType.PilotExam);
             ExaminerAuthority.Add(ExamType.PackerExam);

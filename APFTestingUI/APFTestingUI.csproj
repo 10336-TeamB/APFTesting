@@ -286,6 +286,7 @@
     <Content Include="Images\APF Logo.png" />
     <Content Include="Images\arrow.png" />
     <Content Include="Images\bg-gradient-grey.gif" />
+    <Content Include="Images\bg-theory-exam.jpg" />
     <Content Include="Images\btn-add-candidate-click.png" />
     <Content Include="Images\btn-add-candidate.png" />
     <Content Include="Images\controls.png" />

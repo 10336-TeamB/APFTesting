@@ -12,10 +12,13 @@ namespace APFTestingUI.Models.Examiner
         {
             ExaminerId = examinerId;
             assignAuthority(examinerAuthority);
-            Candidates = candidates.Select(c => new CandidateDisplayItem(c)).ToList();
+            var allCandidates = candidates.Select(c => new CandidateDisplayItem(c)).ToList();
+            PilotCandidates = allCandidates.Where(c => c.ExamType.Equals("PilotExam")).ToList();
+            PackerCandidates = allCandidates.Where(c => c.ExamType.Equals("PackerExam")).ToList();
         }
 
-        public IEnumerable<CandidateDisplayItem> Candidates { get; set; }
+        public IEnumerable<CandidateDisplayItem> PilotCandidates { get; set; }
+        public IEnumerable<CandidateDisplayItem> PackerCandidates { get; set; }
         public Guid ExaminerId { get; set; }
         public bool PilotAuthorised { get; set; }
         public bool PackerAuthorised { get; set; }

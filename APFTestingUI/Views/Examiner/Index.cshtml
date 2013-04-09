@@ -5,7 +5,7 @@
 }
 
 <hgroup>
-<h1>Hello Grahame!</h1>
+<h1>Hello @ViewBag.ExaminerName!</h1>
 <h3>Welcome to the Examiner home page!</h3>
 </hgroup>
 
@@ -15,67 +15,124 @@
     @Html.ActionLink("Add Pilot Candidate", "CreatePilot", "Candidate", new { }, new { @class="button-add" })
 }
 
+
+
 @if (Model.PackerAuthorised)
 {
     @Html.ActionLink("Add Packer Candidate", "CreatePacker", "Candidate", new { }, new { @class="button-add" })
 }
 </p>
 
-
-<hr />
-
-<table id="candidate-list">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Theory Exam</th>
-            <th colspan="2">Practical Exam</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var candidate in Model.Candidates)
-        {
-            
-            <tr class="candidate-list-item">
-                <td class="candidate-first-name">
-                    @candidate.FirstName
-                </td>
-                <td class="candidate-last-name">
-                    @candidate.LastName
-                </td>
-                <td class="start-theory-link">
-                    
-                    @if (candidate.ExamNullOrCreated)
-                    {
-                        @Html.ActionLink("Start Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
-                    }
-                    else if (candidate.TheoryComponentInProgress)
-                    {
-                        @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
-                    }
-                    else if (candidate.TheoryComponentFailed)
-                    {
-                        @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
-                    }
-                </td>
-                <td class="input-practical-link">
-                    @if (candidate.PracticalAvailable)
-                    {
-                        if (candidate.ExamType.Equals("PilotExam"))
-                        {
-                            @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
-                        }
-                        else if (candidate.ExamType.Equals("PackerExam"))
-                        {
-                            @Html.ActionLink("Input Practical Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
-                        }
-                    }
-                    
-                </td>
-                <td class="reset-cell">@Html.ActionLink("Reset exam", "Reset", "Reset", new { examId = candidate.LatestExamId }, new { @class = "examinerButton reset" })</td>
+<div id="candidate-list-wrapper-pilot" class="candidate-list-wrapper">
+@if (Model.PilotCandidates.Count() > 0)
+{
+    <h2>Pilot Candidates</h2>
+    <table id="candidate-list-pilot" class="candidate-list">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Theory Exam</th>
+                <th colspan="2">Practical Exam</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var candidate in Model.PilotCandidates)
+            {
+                var candidateName = candidate.FirstName + " " + candidate.LastName;
+                <tr class="candidate-list-item">
+                    <td class="candidate-name">
+                        @Html.ActionLink(candidateName, "ViewPilot", "Candidate", new { candidateId = candidate.Id }, new { })  
+                    </td>
+                    <td class="start-theory-link">
+                    
+                        @if (candidate.ExamNullOrCreated)
+                        {
+                            @Html.ActionLink("Start Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                        }
+                        else if (candidate.TheoryComponentInProgress)
+                        {
+                            @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                        }
+                        else if (candidate.TheoryComponentFailed)
+                        {
+                            @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                        }
+                    </td>
+                    <td class="input-practical-link">
+                        @if (candidate.PracticalAvailable)
+                        {
+                            if (candidate.ExamType.Equals("PilotExam"))
+                            {
+                                @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                            }
+                            else if (candidate.ExamType.Equals("PackerExam"))
+                            {
+                                @Html.ActionLink("Input Practical Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                            }
+                        }
+                    
+                    </td>
+                    <td class="reset-cell">@Html.ActionLink("Reset exam", "Reset", "Reset", new { examId = candidate.LatestExamId }, new { @class = "examinerButton reset" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+</div>
 
+<div id="candidate-list-wrapper-packer" class="candidate-list-wrapper">
+@if (Model.PackerCandidates.Count() > 0)
+{
+    <h2>Packer Candidates</h2>
+    <table id="candidate-list-packer" class="candidate-list">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Theory Exam</th>
+                <th colspan="2">Practical Exam</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var candidate in Model.PackerCandidates)
+            {
+                var candidateName = candidate.FirstName + " " + candidate.LastName;
+                <tr class="candidate-list-item">
+                    <td class="candidate-name">
+                        @Html.ActionLink(candidateName, "ViewPacker", "Candidate", new { candidateId = candidate.Id }, new { })
+                    </td>
+                    <td class="start-theory-link">
+                    
+                        @if (candidate.ExamNullOrCreated)
+                        {
+                            @Html.ActionLink("Start Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                        }
+                        else if (candidate.TheoryComponentInProgress)
+                        {
+                            @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                        }
+                        else if (candidate.TheoryComponentFailed)
+                        {
+                            @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                        }
+                    </td>
+                    <td class="input-practical-link">
+                        @if (candidate.PracticalAvailable)
+                        {
+                            if (candidate.ExamType.Equals("PilotExam"))
+                            {
+                                @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                            }
+                            else if (candidate.ExamType.Equals("PackerExam"))
+                            {
+                                @Html.ActionLink("Input Practical Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                            }
+                        }
+                    
+                    </td>
+                    <td class="reset-cell">@Html.ActionLink("Reset exam", "Reset", "Reset", new { examId = candidate.LatestExamId }, new { @class = "examinerButton reset" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+</div>
