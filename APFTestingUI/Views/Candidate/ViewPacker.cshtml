@@ -5,16 +5,14 @@
 }
 
 <h1>View Packer</h1>
-
-<fieldset>
-    <legend>View Packer</legend>
-
+<div class="candidate-view">
     <div class="display-label">
          @Html.DisplayNameFor(model => model.FirstName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.FirstName)
     </div>
+    <div class="clear"></div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.LastName)
@@ -22,6 +20,7 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.LastName)
     </div>
+    <div class="clear"></div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Mobile)
@@ -29,6 +28,8 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Mobile)
     </div>
+    <div class="clear"></div>
+
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.APFNumber)
@@ -36,7 +37,10 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.APFNumber)
     </div>
+    <div class="clear"></div>
+
 </fieldset>
 <p class="button-container">
-    @Html.ActionLink("Edit", "EditPacker", new { candidateId = Model.Id }, new { @class="button-submit" })
+    @Html.ActionLink("Edit", "EditPacker", new { candidateId = Model.Id }, new { @class="button-submit examinerButton" })
 </p>
+</div>

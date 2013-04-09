@@ -18,6 +18,7 @@ namespace APFTestingUI.Models.Candidate
         public EditPilot() 
         {
             BuildPilotLicenceSelectList();
+            BuildStateSelectList();
         }
 
         public EditPilot(ICandidatePilot candidate)
@@ -41,24 +42,30 @@ namespace APFTestingUI.Models.Candidate
             PilotMedicalExpiry = candidate.PilotMedicalExpiryDate;
             ValidBFR = candidate.ValidBFR;
             BuildPilotLicenceSelectList();
+            BuildStateSelectList();
         }
 
         [Required]
         public Guid Id { get; set; }
         
         [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "D.O.B")]
         public Nullable<DateTime> DateOfBirth { get; set; }
 
         [Required]
+        [Display(Name = "Address 1")]
         public string Address1 { get; set; }
 
+        [Display(Name = "Address 2")]
         public string Address2 { get; set; }
 
         [Required]
@@ -66,6 +73,7 @@ namespace APFTestingUI.Models.Candidate
 
         [Required]
         public string State { get; set; }
+        public SelectList States { get; set; }
 
         [Required]
         [StringLength(_postcodeLength, MinimumLength = _postcodeLength)]
@@ -86,20 +94,25 @@ namespace APFTestingUI.Models.Candidate
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "Pilot Licence Type")]
         public PilotLicenceType PilotLicenceType { get; set; }
         public SelectList PilotLicences { get; private set; }
 
         [Required]
+        [Display(Name = "Instrument Rating")]
         public bool InstrumentRating { get; set; }
 
         [Required]
+        [Display(Name = "Pilot Medical")]
         public PilotMedicalType PilotMedical { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "Expiry Date")]
         public DateTime PilotMedicalExpiry { get; set; }
 
         [Required]
+        [Display(Name = "Valid BFR")]
         public bool ValidBFR { get; set; }
 
         // To return all values to the model using a struct
@@ -134,6 +147,12 @@ namespace APFTestingUI.Models.Candidate
         {
             var values = Enum.GetValues(typeof(APFTestingModel.PilotLicenceType));
             PilotLicences = new SelectList(values, PilotLicenceType);
+        }
+
+        public void BuildStateSelectList()
+        {
+            string[] states = new string[] { "ACT", "NSW", "SA", "QLD", "VIC", "TAS", "WA" };
+            States = new SelectList(states, State);
         }
     }
 }
