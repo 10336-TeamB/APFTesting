@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel.Tests
 {
-    class MockTheoryComponentPilot : TheoryComponent
+    class MockTheoryComponentPilot : ITheoryComponent
     {
          public Guid Id
         {
@@ -119,5 +119,11 @@ namespace APFTestingModel.Tests
         //    currentQuestion.SelectAnswers(answerIndexes);
         //    currentQuestion.MarkForReview(markForReview);
         //}
+
+
+        int ITheoryComponent.CurrentQuestionIndex
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

@@ -24,8 +24,5 @@ namespace APFTestingModel.Tests
             //Assert
             Assert.AreEqual((new TheoryComponentCompleted()).GetType(), exam.ExamState.GetType());
         }
-
-        
-
     }
 }

@@ -13,15 +13,15 @@ namespace APFTestingUI.Models.Practical
         {
             ExamId = examId;
             CandidateId = candidateId;
-            Tasks = new List<AssessmentTaskDisplayItem>();
+            Tasks = new List<AssessmentTaskInputItem>();
             foreach (var t in tasks)
             {
-                Tasks.Add(new AssessmentTaskDisplayItem(t));
+                Tasks.Add(new AssessmentTaskInputItem(t));
             }
         }
 
         public Guid ExamId { get; set; }
         public Guid CandidateId { get; set; }
-        public List<AssessmentTaskDisplayItem> Tasks { get; set; }
+        public List<AssessmentTaskInputItem> Tasks { get; set; }
     }
 }

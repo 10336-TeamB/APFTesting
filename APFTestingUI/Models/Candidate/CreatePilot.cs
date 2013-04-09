@@ -12,6 +12,7 @@ namespace APFTestingUI.Models.Candidate
     {
         public CreatePilot() {
             BuildPilotLicenceSelectList();
+            BuildStateSelectList();
         }
 
         private const int _arnLength = 6;
@@ -44,6 +45,7 @@ namespace APFTestingUI.Models.Candidate
 
         [Required]
         public string State { get; set; }
+        public SelectList States { get; set; }
 
         [Required]
         [StringLength(_postcodeLength, MinimumLength = _postcodeLength)]
@@ -128,6 +130,12 @@ namespace APFTestingUI.Models.Candidate
             }
 
             PilotLicences = new SelectList(list, "Value", "Key");
+        }
+
+        public void BuildStateSelectList()
+        {
+            string[] states = new string[]{"ACT", "NSW", "SA", "QLD", "VIC", "TAS", "WA"};
+            States = new SelectList(states);
         }
     }
 }
