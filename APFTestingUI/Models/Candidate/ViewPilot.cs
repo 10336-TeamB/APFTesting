@@ -25,7 +25,7 @@ namespace APFTestingUI.Models.Candidate
             Phone = candidate.PhoneNumber;
             Mobile = candidate.MobileNumber;
             Email = candidate.Email;
-            PilotLicenceType = candidate.PilotLicenseType;
+            PilotLicenceType = candidate.PilotLicenceType;
             InstrumentRating = candidate.InstrumentRating ? "Yes" : "No";
             PilotMedical = candidate.PilotMedicalType;
             PilotMedicalExpiry = candidate.PilotMedicalExpiryDate;
@@ -65,7 +65,7 @@ namespace APFTestingUI.Models.Candidate
         public string Email { get; set; }
 
         [Display(Name = "Pilot licence type")]
-        public PilotLicenseType PilotLicenceType { get; set; }
+        public PilotLicenceType PilotLicenceType { get; set; }
         
         [Display(Name = "Instrument rating")]
         public string InstrumentRating { get; set; }
