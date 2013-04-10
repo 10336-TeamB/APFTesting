@@ -17,8 +17,8 @@ $(function () {
             changeYear: true,
             dateFormat: "dd/mm/yy",
             //altFormat: "dd/mm/yy",
-            defaultDate: "-18y",
-            yearRange: "-90y:-5y"
+            defaultDate: "-30y",
+            yearRange: "-86y:-17y" // Age range of pilot 18-85. 1 year buffer added either side
         }
     );
     $("#PilotMedicalExpiry").datepicker(
@@ -27,7 +27,8 @@ $(function () {
             changeYear: true,
             dateFormat: "dd/mm/yy",
             //altFormat: "dd/mm/yy",
-            minDate: 0
+            minDate: 0,
+            maxDate: "+4y +3m" // Maximum expiry of Pilot Medical Licence is 4 years. 3 months added for buffer.
         }
     );
 

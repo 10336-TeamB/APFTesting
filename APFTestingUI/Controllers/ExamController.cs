@@ -91,6 +91,7 @@ namespace APFTestingUI.Controllers
         [HttpPost]
         public ActionResult SubmitAnswer(AnsweredQuestion question)
         {
+            //TODO: How do we handle exceptions in this action? How do we redisplay the current question?
             _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
 
             switch (question.FormNavDirection)
