@@ -1396,7 +1396,7 @@ input[type="radio"]:checked + .label-radio {
     float: left; /*padding-bottom: 10px;*/
     width: 170px;
     padding: 10px;
-    font-size: 1.2em;
+    font-size: 1.7em;
     font-weight: bold;
 }
 
@@ -1404,7 +1404,7 @@ input[type="radio"]:checked + .label-radio {
 {
     float: left;
     padding-top: 10px;
-    font-size: 1.2em;
+    font-size: 1.7em;
 }
 
 .button-container
