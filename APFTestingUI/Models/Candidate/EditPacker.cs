@@ -15,6 +15,7 @@ namespace APFTestingUI.Models.Candidate
 
         public EditPacker(ICandidatePacker candidate)
         {
+            Id = candidate.Id;
             FirstName = candidate.FirstName;
             LastName = candidate.LastName;
             Mobile = candidate.MobileNumber;

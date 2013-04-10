@@ -11,7 +11,7 @@
 
     <fieldset>
         <legend>Edit Packer</legend>
-
+        @Html.HiddenFor(model => model.Id)
         <div class="editor-label">
             @Html.LabelFor(model => model.FirstName) <em>*</em>
         </div>
@@ -49,6 +49,7 @@
         <div class="clear"></div>
 
         <p class="button-container">
+            @Html.ActionLink("Cancel", "ViewPacker", new { candidateId = @Model.Id }, new { @class = "form-button" })
             <input type="submit" value="Save" class="form-button" />
         </p>
     </fieldset>

@@ -151,7 +151,7 @@ namespace APFTestingUI.Controllers
                 try
                 {
                     _facade.EditPacker(model.Id, model.Values);
-                    return RedirectToAction("ViewPacker", new {model.Id});
+                    return RedirectToAction("ViewPacker", new {candidateId = model.Id});
                 }
                 catch (BusinessRuleException e)
                 {

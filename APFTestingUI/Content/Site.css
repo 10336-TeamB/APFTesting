@@ -208,7 +208,7 @@ h2
 }
 
 
-#ExamContainer h3
+#exam-container h3
 {
     margin: 0 0 1em;
     font-size: 2em;
@@ -216,7 +216,7 @@ h2
     color: #666;
 }
 
-#ExamContainer h4
+#exam-container h4
 {
     font-size: 1.6em;
     line-height: 1.6em;
@@ -404,9 +404,10 @@ input[type="radio"], input[type="checkbox"]
         /*padding: 5px 20px;*/
         padding: 10px 25px;
         background-color: #117523;
+        border-radius: 0 0 5px 5px;
         text-decoration: none;
         color: #ffffff;
-        font-size: 0.8em;
+        font-size: 1em;
     }
 
     #login-area a:hover
@@ -815,19 +816,19 @@ a.button
 }
 
 /* Added by Adam and Joshua */
-#ExamContainer {
+#exam-container {
     
 }
-    #ExamContainer hgroup
+    #exam-container hgroup
     {
         margin: 0 0 1.75em;
     }
 
-    #ExamContainer fieldset {
+    #exam-container fieldset {
         margin-bottom: 50px;
     }
 
-    #ExamContainer legend {
+    #exam-container legend {
         display:none;
     }
 
@@ -912,7 +913,6 @@ li.result-answer {
 
 #result-home {
     float: right;
-    padding: 12px 30px !important;
 }
 
 #score {
@@ -1106,11 +1106,11 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     background: url("../Images/ajax-loader.gif") 50% 0 no-repeat;
 }
 
-#PreviousButton {
+#previous-button {
     float: left;
 }
 
-#NextButton, #SummaryButton {
+#next-button, #summary-button {
     float: right;
 }
 
@@ -1122,7 +1122,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 @media only screen and (max-width: 720px)
 {
-    #PreviousButton
+    #previous-button
     {
         display:block;
         float:none;
@@ -1136,7 +1136,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
         width: 100%;
     }
 
-    #NextButton
+    #next-button
     {
         display: block;
         float:none;
@@ -1299,7 +1299,7 @@ input[type="checkbox"]:checked + .label-checkbox {
     background: transparent url('../Images/sprite-input-buttons2.png') 0 -198px no-repeat;
 }
 
-#IsMarkedForReview
+#is-marked-for-review
 {
     display:none;
 }
@@ -1333,7 +1333,7 @@ input[type="radio"]:checked + .label-radio {
 }
 
 #exam-instructions {
-    font-size: 1.2em;
+    font-size: 1.4em;
     line-height: 1.5;
 }
 
@@ -1517,6 +1517,11 @@ input[type='number']
     font-style: italic;
     color: #ff9;
     font-size:medium;
+}
+
+.td-detail h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
 }
 
 #form-pilot-practical p.button-container

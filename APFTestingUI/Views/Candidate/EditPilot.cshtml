@@ -177,6 +177,7 @@
         <div class="clear"></div>
 
         <p class="button-container">
+            @Html.ActionLink("Cancel", "ViewPilot", new { candidateId = @Model.Id }, new { @class = "form-button" })
             <input type="submit" value="Save" class="form-button" />
         </p>
     </fieldset>

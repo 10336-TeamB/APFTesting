@@ -19,7 +19,7 @@
         }
     </div>
 </div>
-<div id="ExamContainer">
+<div id="exam-container">
     <h2>@Model.ExamTitle</h2>
     
     <div id="progress-bar-outer">
@@ -80,13 +80,13 @@
             var NextHidden = Model.IsLastQuestion ? "hidden" : "";
             var SummaryHidden = Model.IsLastQuestion ? "" : "hidden";
         
-            <input id="PreviousButton" class="button @PreviousHidden" name="NavButton" type="submit" value="Previous" />
-            <input id="NextButton" class="button @NextHidden" name="NavButton" type="submit" value="Next" />
+            <input id="previous-button" class="button @PreviousHidden" name="NavButton" type="submit" value="Previous" />
+            <input id="next-button" class="button @NextHidden" name="NavButton" type="submit" value="Next" />
 
-            <input id="SummaryButton" class="button @SummaryHidden" name="NavButton" type="submit" value="Go To Summary" />
+            <input id="summary-button" class="button @SummaryHidden" name="NavButton" type="submit" value="Go To Summary" />
             <span id="mark-for-review">
                 @*@Html.CheckBoxFor(model => model.IsMarkedForReview)*@
-                <input type="checkbox" value="true" name="IsMarkedForReview" id="IsMarkedForReview" />
+                <input type="checkbox" value="true" name="IsMarkedForReview" id="is-marked-for-review" />
                 @Html.LabelFor(model => model.IsMarkedForReview, new { @class="label-mark-for-review" })
                 <input type="hidden" value="false" name="IsMarkedForReview" />
             </span>

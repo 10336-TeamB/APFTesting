@@ -41,6 +41,9 @@
 
 </fieldset>
 <p class="button-container">
-    @Html.ActionLink("Edit", "EditPacker", new { candidateId = Model.Id }, new { @class="form-button" })
+    <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examiner-button"})</span>
+    <span class="control-button-span">
+        @Html.ActionLink("Edit", "EditPacker", new { candidateId = Model.Id }, new { @class="form-button" })
+    </span>
 </p>
 </div>
