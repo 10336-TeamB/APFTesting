@@ -69,6 +69,10 @@ legend {
     background-color: #aa0000;
 }
 
+.validation-summary-errors {
+    color: #aa0000;
+}
+
 /* change colours to suit your needs */
 ins {
     background-color:#ff9;
@@ -554,16 +558,21 @@ input[type="radio"], input[type="checkbox"]
 /* BASE COLOR IS #35B44B*/
 
 /** Classes - reusable */
-.form-reset
+.form-reset, .form-submit
 {
-    margin: 0px;
+    width: 90px;
+    padding: 5px;
+    text-align: center;
+    outline: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    margin: 0 0 0 20px;
     color: #ffffff;
     background-color: #5D5D5D;
-    border: none;
+    border: outset 1px #888;
     border-radius: 2px;
     padding: 5px 20px 7px 20px;
-    font-size: 0.8em;
-    font-weight: bold;
     box-shadow: 2px 2px 4px rgba(0,0,0,.2);
     display: inline-block;
     text-align: center;
@@ -577,27 +586,22 @@ input[type="radio"], input[type="checkbox"]
         text-decoration: none;
     }
 
-.form-submit
-{
-    margin: 0px;
-    color: #ffffff;
-    background-color: #5D5D5D;
-    border: none;
-    border-radius: 2px;
-    padding: 5px 20px 7px 20px;
-    font-size: 0.8em;
-    font-weight: bold;
-    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
-    display: inline-block;
-    text-align: center;
-    line-height: 1.333em;
-    min-width: 80px;
-}
+    .form-reset:active {
+        box-shadow: none;
+        position: relative;
+        -moz-border-radius-topleft: 2px;
+    }
 
     .form-submit:hover
     {
         box-shadow: 2px 2px 4px rgba(0,0,0,.5);
         text-decoration: none;
+    }
+
+    .form-submit:active {
+        box-shadow: none;
+        position: relative;
+        -moz-border-radius-topleft: 2px;
     }
 
 .examinerButton
@@ -1421,14 +1425,6 @@ input[type="radio"]:checked + .label-radio {
     margin-top: 1em;
 }
 
-.form-reset, .form-submit
-{
-    width: 90px;
-    padding: 5px;
-    text-align: center;
-    font-weight: bold;
-    outline: none;
-}
 
 input:focus {
     /* IE blue button */
