@@ -1,22 +1,22 @@
 ﻿$(function () {
-    $('#PreviousButton').click(function (e) {
+    $('#previous-button').click(function (e) {
         e.preventDefault();
         $('#NavDirection').val("PreviousQuestion");
         answerQuestion();
     });
 
-    $("#NextButton").click(function (e) {
+    $("#next-button").click(function (e) {
         e.preventDefault();
         $('#NavDirection').val("NextQuestion");
         answerQuestion();
     });
 
     $(document).ajaxStart(function () {
-        $("#ExamContainer").hide();
+        $("#exam-container").hide();
         $("#loading").show();
     }).ajaxStop(function () {
         $("#loading").hide();
-        $("#ExamContainer").show();
+        $("#exam-container").show();
     }).ajaxError(function (event, jqxhr, settings, exception) {
         $("#error-message").html("<p>" + jqxhr.responseText + "</p>");
         showErrorMessage("#error-message");
@@ -58,7 +58,7 @@ function answerQuestion() {
     var examId = $("#ExamId").val();
     var index = $("#Index").val();
     var navDirection = $("#NavDirection").val();
-    var isMarkedForReview = $("#IsMarkedForReview").is(":checked");
+    var isMarkedForReview = $("#is-marked-for-review").is(":checked");
     var answers = [];
     $('input[name="ChosenAnswer"]:checked').each(function () {
         answers.push(this.value);
@@ -108,31 +108,31 @@ function renderQuestion(data) {
     $("#ExamId").val(examId);
     $("#Index").val(index);
     if (isMarkedForReview) {
-        $("#IsMarkedForReview").prop('checked', true);
+        $("#is-marked-for-review").prop('checked', true);
     }
         
     populateAnswers(answers, type, className);
 
     if (isFirstQuestion) {
-        $('#PreviousButton').hide();
+        $('#previous-button').hide();
     }
     else {
-        $('#PreviousButton').show();
+        $('#previous-button').show();
     }
 
     if (isLastQuestion) {
-        $('#NextButton').hide();
-        $('#SummaryButton').show();
+        $('#next-button').hide();
+        $('#summary-button').show();
     }
     else {
-        $('#NextButton').show();
-        $('#SummaryButton').hide();
+        $('#next-button').show();
+        $('#summary-button').hide();
     }
 }
 
 function clearAnswers() {
     $("fieldset").html("");
-    $("#IsMarkedForReview").removeAttr("checked");
+    $("#is-marked-for-review").removeAttr("checked");
     $("#error-message").html("");
 };
 

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_QuestionLayout.cshtml";
 }
 
-<div id="ExamContainer">
+<div id="exam-container">
     <h2>@Model.ExamTitle</h2>
     
     <hgroup>
@@ -40,12 +40,11 @@
     </fieldset>
     <div id="navigation-container" class="review-page">
         <span id="mark-for-review">
-            @*@Html.CheckBoxFor(model => model.IsMarkedForReview)*@
-            <input type="checkbox" value="true" name="IsMarkedForReview" id="IsMarkedForReview" />
+            <input type="checkbox" value="true" name="IsMarkedForReview" id="is-marked-for-review" />
             @Html.LabelFor(model => model.IsMarkedForReview, new { @class="label-mark-for-review" })
             <input type="hidden" value="false" name="IsMarkedForReview" />
         </span>
-        <input id="SummaryButton" class="button" type="submit" value="Back to Summary" />
+        <input id="summary-button" class="button" type="submit" value="Back to Summary" />
         
         <div class="clear"></div>
     </div>
