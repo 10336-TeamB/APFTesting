@@ -553,6 +553,52 @@ input[type="radio"], input[type="checkbox"]
 /* BASE COLOR IS #35B44B*/
 
 /** Classes - reusable */
+.form-reset
+{
+    margin: 0px;
+    color: #ffffff;
+    background-color: #5D5D5D;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 20px 7px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    display: inline-block;
+    text-align: center;
+    line-height: 1.333em;
+    min-width: 80px;
+}
+
+    .form-reset:hover
+    {
+        box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+        text-decoration: none;
+    }
+
+.form-submit
+{
+    margin: 0px;
+    color: #ffffff;
+    background-color: #5D5D5D;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 20px 7px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    display: inline-block;
+    text-align: center;
+    line-height: 1.333em;
+    min-width: 80px;
+}
+
+    .form-submit:hover
+    {
+        box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+        text-decoration: none;
+    }
+
 .examinerButton
 {
     margin: 0px;
