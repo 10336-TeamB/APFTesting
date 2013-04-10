@@ -6,7 +6,6 @@
 
 <hgroup>
 <h1>Hello @ViewBag.ExaminerName!</h1>
-<h3>Welcome to the Examiner home page!</h3>
 </hgroup>
 
 <p class="add-candidates-container">
@@ -31,8 +30,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Theory Exam</th>
-                <th>View Result</th>
+                <th colspan="2">Theory Exam</th>
                 <th colspan="2">Practical Exam</th>
             </tr>
         </thead>
@@ -58,6 +56,10 @@
                         {
                             @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
                         }
+                        else
+                        {
+                            <p>Exam complete</p>                            
+                        }
                     </td>
                     <td class="view-results-link">
                         @if (candidate.TheoryPassed || candidate.TheoryComponentFailed)
@@ -68,11 +70,11 @@
                     <td class="input-practical-link">
                         @if (candidate.TheoryPassed)
                         {
-                            @Html.ActionLink("Input Practical Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Input Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
                         }
                     
                     </td>
-                    <td class="reset-cell">@Html.ActionLink("Reset exam", "Reset", "Reset", new { examId = candidate.LatestExamId }, new { @class = "examinerButton reset" })</td>
+                    <td class="reset-cell">@Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})</td>
                 </tr>
             }
         </tbody>
@@ -88,8 +90,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Theory Exam</th>
-                <th>View Result</th>
+                <th colspan="2">Theory Exam</th>
                 <th colspan="2">Practical Exam</th>
             </tr>
         </thead>
@@ -113,7 +114,11 @@
                         }
                         else if (candidate.TheoryComponentFailed)
                         {
-                            @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Retake Exam", "Start", "Exam", new {examinerId = Model.ExaminerId, candidateId = candidate.Id}, new {@class = "examinerButton"})
+                        }
+                        else
+                        {
+                            <p>Exam complete</p>                            
                         }
                     </td>
                     <td class="view-results-link">
@@ -125,11 +130,11 @@
                     <td class="input-practical-link">
                         @if (candidate.TheoryPassed)
                         {
-                            @Html.ActionLink("Input Practical Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Input Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
                         }
                     </td>
                     
-                    <td class="reset-cell">@Html.ActionLink("Reset exam", "Reset", "Reset", new { examId = candidate.LatestExamId }, new { @class = "examinerButton reset" })</td>
+                    <td class="reset-cell">@Html.ActionLink("Reset", "Reset", "Reset", new { examId = @candidate.LatestExamId }, new {})</td>
                 </tr>
             }
         </tbody>
