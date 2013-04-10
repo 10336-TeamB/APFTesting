@@ -42,7 +42,10 @@
     </table>
     
     <p class="button-container">
-        <input type="submit" value="Submit" class="form-submit"/>
+        <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="form-submit"})</span>
+        <span class="control-button-span">
+            <input type="submit" value="Submit" class="examinerButton"/>
+        </span>
     </p>
 }
 

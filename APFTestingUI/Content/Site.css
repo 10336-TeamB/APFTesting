@@ -1257,6 +1257,7 @@ td
 {
     padding: 20px;
     font-style:italic;
+    font-size:medium;
     color:#aabbaa;
 }
 
@@ -1425,6 +1426,15 @@ input[type="radio"]:checked + .label-radio {
     margin-top: 1em;
 }
 
+.home-button-span
+{
+    float:left;
+}
+
+.control-button-span
+{
+    float:right;
+}
 
 input:focus {
     /* IE blue button */
@@ -1508,10 +1518,11 @@ input[type='number']
     width:50%;
 }
 
-.td-detail .max-score, .td-score
+.td-detail .max-score, .summary-score
 {
     font-style: italic;
     color: #ff9;
+    font-size:medium;
 }
 
 #form-pilot-practical p.button-container

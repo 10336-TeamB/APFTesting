@@ -49,8 +49,11 @@
         <div class="clear"></div>
 
         <p class="button-container">
-            <input type="reset" value="Reset" class="form-reset" />
-            <input type="submit" value="Create" class="form-submit" />
+            <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examinerButton"})</span>
+            <span class="control-button-span">
+                <input type="reset" value="Reset" class="form-reset" />
+                <input type="submit" value="Create" class="form-submit" />
+            </span>
         </p>
     </fieldset>
 }

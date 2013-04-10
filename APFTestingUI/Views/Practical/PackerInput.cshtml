@@ -101,6 +101,7 @@
         <div class="clear"></div>
 
         <p class="button-container">
+            @Html.ActionLink("Cancel", "PackerView", new { examId = @Model.ExamId }, new { @class = "examinerButton" })
             <input type="submit" value="Create" class="form-submit" />
         </p>
     </fieldset>
