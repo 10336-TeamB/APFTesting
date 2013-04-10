@@ -38,10 +38,10 @@
         <div class="clear"></div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CanopyTypeOther)
+            @*@Html.LabelFor(model => model.CanopyTypeOther)*@
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.CanopyTypeOther)
+            @Html.TextBoxFor(model => model.CanopyTypeOther, new { placeholder = "[ Other canopy type ]" })
             @Html.ValidationMessageFor(model => model.CanopyTypeOther)
         </div>
         <div class="clear"></div>
@@ -65,10 +65,10 @@
         <div class="clear"></div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.HarnessContainerTypeOther)
+            @*@Html.LabelFor(model => model.HarnessContainerTypeOther)*@
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.HarnessContainerTypeOther)
+            @Html.TextBoxFor(model => model.HarnessContainerTypeOther, new { placeholder = "[ Other harness/container type ]" })
             @Html.ValidationMessageFor(model => model.HarnessContainerTypeOther)
         </div>
         <div class="clear"></div>

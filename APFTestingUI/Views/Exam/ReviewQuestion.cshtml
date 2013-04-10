@@ -5,13 +5,13 @@
 }
 
 <div id="ExamContainer">
-    <h2>Jump Pilot Authorisation Exam</h2>
+    <h2>@Model.ExamTitle</h2>
     
     <hgroup>
         @{
             int questionNumber = Model.Index + 1;   
         }
-        <h3>Question @questionNumber:</h3>
+        <h3>Question @questionNumber</h3>
         <h4>@Model.Description</h4>
     </hgroup>
 

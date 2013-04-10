@@ -72,5 +72,11 @@ namespace APFTestingUI.Tests
         {
             get { throw new NotImplementedException(); }
         }
+
+
+        public ExamType ExamType
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

@@ -24,9 +24,9 @@ namespace APFTestingUI.Models.Exam
             {
                 switch (NavButton)
                 {
-                    case "Next Question":
+                    case "Next":
                         return ExamAction.NextQuestion;
-                    case "Previous Question":
+                    case "Previous":
                         return ExamAction.PreviousQuestion;
                     default:
                         return ExamAction.DisplaySummary;

@@ -10,6 +10,7 @@ namespace APFTestingModel
     {
         Guid Id { get; }
         string Description { get; }
+        ExamType ExamType { get; }
         int NumberOfCorrectAnswers { get; }
         IEnumerable<IPossibleAnswer> PossibleAnswers { get; }
         int QuestionIndex { get; }
