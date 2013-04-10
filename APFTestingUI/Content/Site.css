@@ -558,7 +558,7 @@ input[type="radio"], input[type="checkbox"]
 /* BASE COLOR IS #35B44B*/
 
 /** Classes - reusable */
-.form-reset, .form-submit
+.form-button
 {
     width: 90px;
     padding: 5px;
@@ -580,31 +580,19 @@ input[type="radio"], input[type="checkbox"]
     min-width: 80px;
 }
 
-    .form-reset:hover
+    .form-button:hover
     {
         box-shadow: 2px 2px 4px rgba(0,0,0,.5);
         text-decoration: none;
     }
 
-    .form-reset:active {
+    .form-button:active {
         box-shadow: none;
         position: relative;
         -moz-border-radius-topleft: 2px;
     }
 
-    .form-submit:hover
-    {
-        box-shadow: 2px 2px 4px rgba(0,0,0,.5);
-        text-decoration: none;
-    }
-
-    .form-submit:active {
-        box-shadow: none;
-        position: relative;
-        -moz-border-radius-topleft: 2px;
-    }
-
-.examinerButton
+.examiner-button
 {
     margin: 0px;
     color: #ffffff;
@@ -612,7 +600,7 @@ input[type="radio"], input[type="checkbox"]
     border: outset 1px #999;
     border-radius: 20px;
     padding: 5px 20px 7px 20px;
-    font-size: 0.8em;
+    font-size: 1.2em;
     box-shadow: 2px 2px 4px rgba(0,0,0,.2);
     text-shadow: rgba(0,0,0,.4) 0 1px 0;
     display: inline-block;
@@ -621,13 +609,13 @@ input[type="radio"], input[type="checkbox"]
     min-width: 80px;
 }
 
-.examinerButton:hover
+.examiner-button:hover
 {
     box-shadow: 2px 2px 4px rgba(0,0,0,.5);
     text-decoration: none;
 }
 
-.examinerButton:active {
+.examiner-button:active {
     position: relative;
     top: 2px;
     box-shadow: none;
@@ -767,7 +755,7 @@ a.button
     height: 60px;
 }
 
-.candidate-list-item .examinerButton {
+.candidate-list-item .examiner-button {
     font-size: 1.5em;
     min-width: 120px;
 }
