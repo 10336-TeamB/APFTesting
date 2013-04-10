@@ -559,12 +559,12 @@ input[type="radio"], input[type="checkbox"]
     margin: 0px;
     color: #ffffff;
     background-color: #5D5D5D;
-    border: none;
-    border-radius: 2px;
+    border: outset 1px #999;
+    border-radius: 20px;
     padding: 5px 20px 7px 20px;
     font-size: 0.8em;
-    font-weight: bold;
     box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
     display: inline-block;
     text-align: center;
     line-height: 1.333em;
@@ -575,6 +575,12 @@ input[type="radio"], input[type="checkbox"]
 {
     box-shadow: 2px 2px 4px rgba(0,0,0,.5);
     text-decoration: none;
+}
+
+.examinerButton:active {
+    position: relative;
+    top: 2px;
+    box-shadow: none;
 }
 
 .button
@@ -688,7 +694,7 @@ a.button
 
 .candidate-list th 
 {
-    font-size: 1.2em;
+    font-size: 1.3em;
     border-top: 1px solid #666666;
     border-bottom: 1px solid #666666;
     padding-top: 0.5em;
@@ -707,6 +713,15 @@ a.button
         color: #ffffff;
     }
 
+.candidate-list-item {
+    height: 60px;
+}
+
+.candidate-list-item .examinerButton {
+    font-size: 1.5em;
+    min-width: 120px;
+}
+
 .candidate-first-name {
     width: 12%;
     padding-right: 0.5%;
@@ -720,7 +735,8 @@ a.button
 
 .candidate-name
 {
-    width: 20%;
+    width: 30%;
+    font-size: 1.6em;
 }
 
 .start-theory-link
@@ -728,15 +744,29 @@ a.button
     width: 20%;
 }
 
+.start-theory-link p {
+    font-size: 1.3em;
+    margin: 0 0 0 20px;
+    color: #999;
+}
+
+.view-results-link {
+    width: 20%;
+}
+
 
 .input-practical-link {
     width: 20%;
+    border-left: solid 1px #666;
 }
 
 .reset-cell
 {
-    width: 20%;
+    width: 10%;
+    font-size: 1em !important;
 }
+
+
 
 
 #add-candidate-link
@@ -1153,8 +1183,8 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     padding: 5px 20px 7px 20px;
 }
 
-.reset {
-    background-color: rgb(145, 38, 32);
+.reset-cell a{
+    color: rgb(243, 38, 38);
 }
 
 .reset-cell {
@@ -1187,28 +1217,32 @@ td
     /*background: transparent url('../Images/btn-add-candidate.png') 0 0 no-repeat;
     width: 88px;*/
     height: 10px;
-    font-size: 12px;
-    font-weight:bold;
+    font-size: 1.3em;
     line-height: 12px;
     /*padding: 8px 30px 12px 8px;*/
     text-align: center;
     display: inline-block;
-    font-family: 'Play', sans-serif;
-
     background-color: #5D5D5D;
     border-radius: 2px;
     box-shadow: 2px 2px 4px rgba(0,0,0,.2);
-    padding: 8px 20px 12px 20px;
+    padding: 12px 20px 12px 20px;
     margin-right:10px;
+    border: outset 2px #999;
 }
 
 a.button-add {
     text-decoration: none;
 }
 
-.button-add:active, .button-add:hover {
+.button-add:hover {
     /*background: transparent url('../Images/btn-add-candidate-click.png') 0 0 no-repeat;*/
     box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+}
+
+.button-add:active {
+    box-shadow: none;
+    position: relative;
+    top: 2px;    
 }
 
 .answer-checkbox {
@@ -1272,6 +1306,7 @@ input[type="radio"]:checked + .label-radio {
     border-radius: 8px;
     text-align: center;
     font-weight: bold;
+    font-size: 1.3em;
 }
 
 
