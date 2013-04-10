@@ -12,7 +12,7 @@
 <p>Please fill in the fields below to create a new Pilot Candidate.<br />Asterisks (*) are placed next to required fields.</p>
 
 @using (Html.BeginForm()) {
-    @Html.ValidationSummary(false)
+    @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Create</legend>
@@ -177,10 +177,10 @@
         <div class="clear"></div>
 
         <p class="button-container">
-            <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examinerButton"})</span>
+            <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examiner-button"})</span>
             <span class="control-button-span">
-                <input type="reset" value="Reset" class="form-reset" />
-                <input type="submit" value="Create" class="form-submit" />
+                <input type="reset" value="Reset" class="form-button" />
+                <input type="submit" value="Create" class="form-button" />
             </span>
         </p>
     </fieldset>

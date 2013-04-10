@@ -34,7 +34,7 @@
         <td>@p.HarnessContainerSerialNumber</td>
         <td>@p.Note</td>
         <td>@p.SupervisorId</td>
-        <td>@Html.ActionLink("Edit", "PackerEdit", new { taskId = @p.Id, examId = @Model.ExamId }, new { @class = "examinerButton" })</td>
+        <td>@Html.ActionLink("Edit", "PackerEdit", new { taskId = @p.Id, examId = @Model.ExamId }, new { @class = "examiner-button" })</td>
     </tr>
     rowCounter++;
 }
@@ -42,8 +42,8 @@
 </table>
 
 <p style="padding-right:15px;">
-    <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examinerButton"})</span>
+    <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examiner-button"})</span>
     <span class="control-button-span">
-        @Html.ActionLink("Add", "PackerInput", new { examId = @Model.ExamId }, new { @class = "examinerButton" })
+        @Html.ActionLink("Add", "PackerInput", new { examId = @Model.ExamId }, new { @class = "examiner-button" })
     </span>
 </p>

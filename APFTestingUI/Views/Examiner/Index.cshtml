@@ -46,15 +46,15 @@
                     
                         @if (candidate.ExamNullOrCreated)
                         {
-                            @Html.ActionLink("Start Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Start Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
                         else if (candidate.TheoryComponentInProgress)
                         {
-                            @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
                         else if (candidate.TheoryComponentFailed)
                         {
-                            @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
                         else
                         {
@@ -64,13 +64,13 @@
                     <td class="view-results-link">
                         @if (candidate.TheoryPassed || candidate.TheoryComponentFailed)
                         {
-                            @Html.ActionLink("View Results", "Result", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                            @Html.ActionLink("View Results", "Result", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
                     </td>
                     <td class="input-practical-link">
                         @if (candidate.TheoryPassed)
                         {
-                            @Html.ActionLink("Input Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Input Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
                     
                     </td>
@@ -106,15 +106,15 @@
                     
                         @if (candidate.ExamNullOrCreated)
                         {
-                            @Html.ActionLink("Start Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Start Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
                         else if (candidate.TheoryComponentInProgress)
                         {
-                            @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
                         else if (candidate.TheoryComponentFailed)
                         {
-                            @Html.ActionLink("Retake Exam", "Start", "Exam", new {examinerId = Model.ExaminerId, candidateId = candidate.Id}, new {@class = "examinerButton"})
+                            @Html.ActionLink("Retake Exam", "Start", "Exam", new {examinerId = Model.ExaminerId, candidateId = candidate.Id}, new {@class = "examiner-button"})
                         }
                         else
                         {
@@ -124,13 +124,13 @@
                     <td class="view-results-link">
                         @if (candidate.TheoryPassed || candidate.TheoryComponentFailed)
                         {
-                            @Html.ActionLink("View Results", "Result", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                            @Html.ActionLink("View Results", "Result", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
                     </td>
                     <td class="input-practical-link">
                         @if (candidate.TheoryPassed)
                         {
-                            @Html.ActionLink("Input Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examinerButton" })
+                            @Html.ActionLink("Input Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
                     </td>
                     

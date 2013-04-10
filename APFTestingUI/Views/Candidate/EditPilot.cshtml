@@ -11,7 +11,7 @@
 <h1>Edit Pilot</h1>
 
 @using (Html.BeginForm()) {
-    @Html.ValidationSummary(false)
+    @Html.ValidationSummary(true)
     var isCheckedTrue = @Model.InstrumentRating ? "Checked" : "";
     var isCheckedFalse = @Model.InstrumentRating ? "" : "Checked";
     <fieldset>
@@ -177,7 +177,7 @@
         <div class="clear"></div>
 
         <p class="button-container">
-            <input type="submit" value="Save" class="button-submit" />
+            <input type="submit" value="Save" class="form-button" />
         </p>
     </fieldset>
 }

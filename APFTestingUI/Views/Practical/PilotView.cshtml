@@ -37,9 +37,9 @@
 </table>
 
 <p>
-    <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examinerButton"})</span>
+    <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examiner-button"})</span>
     <span class="control-button-span">
-        @Html.ActionLink("Edit", "PilotInput", new { examId = Model.ExamId, candidateId = Model.CandidateId }, new { @class = "examinerButton" })
-        @Html.ActionLink("Submit", "FinalisePractical", new { examId = Model.ExamId }, new { @class = "examinerButton" })
+        @Html.ActionLink("Edit", "PilotInput", new { examId = Model.ExamId, candidateId = Model.CandidateId }, new { @class = "form-button" })
+        @Html.ActionLink("Submit", "FinalisePractical", new { examId = Model.ExamId }, new { @class = "form-button" })
     </span>
 </p>
