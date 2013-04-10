@@ -70,6 +70,25 @@ namespace APFTestingModel
             get { return TheoryQuestion.ImagePath; }
         }
 
+        public ExamType ExamType
+        {
+            get
+            {
+                if (TheoryComponent is TheoryComponentPilot)
+                {
+                    return ExamType.PilotExam;
+                }
+                else if (TheoryComponent is TheoryComponentPacker)
+                {
+                    return ExamType.PackerExam;
+                }
+                else
+                {
+                    throw new BusinessRuleException("Exam Type not defined");
+                }
+            }
+        }
+
 		#endregion
 
 		#region Methods
@@ -95,7 +114,5 @@ namespace APFTestingModel
         }
 
 		#endregion
-
-
     }
 }

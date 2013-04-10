@@ -204,19 +204,20 @@ h2
 }
 
 
-h3
+#ExamContainer h3
 {
     margin: 0 0 1em;
-    font-size: 1.2em;
+    font-size: 2em;
     font-weight: normal;
+    color: #666;
 }
 
-h4
+#ExamContainer h4
 {
-    font-size: 1.1em;
-    font-weight: bold;
-    line-height: 1.4em;
+    font-size: 1.6em;
+    line-height: 1.6em;
     margin: 0 0 1em;
+    width: 800px;
 }
 
 h5, h6
@@ -262,7 +263,7 @@ body
     text-align:center;
     font-family: 'Ubuntu', sans-serif;
     background-color: #303030;
-    color: #eeeeee;
+    color: #dddddd;
     height: 100%;
 }
 
@@ -624,28 +625,48 @@ input[type="radio"], input[type="checkbox"]
 
 .button
 {
-    color:#ffffff;
-    border: none;
-    border-radius: 7px;
-    padding: 10px 10px;
-    font-size: 1em;
-    line-height: 1.1em;
-    font-weight: normal;
-    box-shadow: 2px 1px 1px 1px rgba(0, 0, 0, .1);
-    background: #0e4815; /* Old browsers */
-    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBlNDgxNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzEzNjcxNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzBmNWYxMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxOThmMWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-    background: -moz-linear-gradient(top,  #0e4815 0%, #136716 50%, #0f5f13 51%, #198f1b 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0e4815), color-stop(50%,#136716), color-stop(51%,#0f5f13), color-stop(100%,#198f1b)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #0e4815 0%,#136716 50%,#0f5f13 51%,#198f1b 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #0e4815 0%,#136716 50%,#0f5f13 51%,#198f1b 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #0e4815 0%,#136716 50%,#0f5f13 51%,#198f1b 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #0e4815 0%,#136716 50%,#0f5f13 51%,#198f1b 100%); /* W3C */
-    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e4815', endColorstr='#198f1b',GradientType=0 );*/ /* IE6-8 */
-    text-shadow: 1px 1px 2px #121212;
-    /*filter: dropshadow(color=#121212, offx=1, offy=1);*/
-    /*border: 1px solid #115719;*/
-    overflow: hidden;
+    min-width: 125px;
+    cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 21px;
+	color: #e0e0e0;
+	padding: 13px 20px;
+	background: #117523;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #116600;
+	-moz-box-shadow:
+		0px 3px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 3px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,1);
+	box-shadow:
+		0px 3px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.7),
+		0px 1px 0px rgba(255,255,255,0.3);
+}.button:hover {
+     position: relative;
+     top: 1px;
+     -moz-box-shadow:
+		0px 2px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 2px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,1);
+	box-shadow:
+		0px 2px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,1);
+ }
+.button:active {
+	position:relative;
+	top:3px;
+    -moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 a.button 
@@ -662,24 +683,6 @@ a.button
     box-shadow: 1px 1px 4px #000000;
     position: relative;
     background: #117523;
-}
-
-.button:hover
-{
-    box-shadow: 2px 1px 1px 1px rgba(0, 0, 0, .1);    
-    background: #115719; /* Old browsers */
-    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzExNTcxOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzE3N2QxYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzEyNzQxNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZmFkMjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-    background: -moz-linear-gradient(top,  #115719 0%, #177d1a 50%, #127417 51%, #1fad21 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#115719), color-stop(50%,#177d1a), color-stop(51%,#127417), color-stop(100%,#1fad21)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #115719 0%,#177d1a 50%,#127417 51%,#1fad21 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #115719 0%,#177d1a 50%,#127417 51%,#1fad21 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #115719 0%,#177d1a 50%,#127417 51%,#1fad21 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #115719 0%,#177d1a 50%,#127417 51%,#1fad21 100%); /* W3C */
-    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#115719', endColorstr='#1fad21',GradientType=0 );*/ /* IE6-8 */
-    text-decoration: none;
-    border-radius: 7px;
-    /*border:1px solid #0e4815;*/
 }
 
 .size-wrapper
@@ -808,6 +811,12 @@ a.button
 
 .answer-container {
     padding: 0 10px 1em;
+    width: 800px;
+}
+
+.answer-container label {
+    font-size: 1.3em;
+    line-height: 1.3;
 }
 
 .answer-checkbox {
@@ -830,6 +839,7 @@ a.button
     line-height: 2.5em;
     display: inline-block;
     margin-top: 5px;
+    font-size: 1.3em;
 }
 
     .review-page #mark-for-review
@@ -1084,7 +1094,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 #navigation-container {
     text-align: center;
-    width: 65%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -1212,8 +1222,9 @@ td
 .td-comments 
 {
     padding: 20px;
+    font-style:italic;
+    color:#aabbaa;
 }
-
 
 
 /** Adding some buttons */
@@ -1464,7 +1475,7 @@ input[type='number']
     width:50%;
 }
 
-.td-detail .max-score
+.td-detail .max-score, .td-score
 {
     font-style: italic;
     color: #ff9;

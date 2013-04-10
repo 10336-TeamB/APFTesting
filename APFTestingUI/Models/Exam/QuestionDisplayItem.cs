@@ -12,6 +12,9 @@ namespace APFTestingUI.Models.Exam
         {
             Id = question.Id;
             ExamId = examId;
+            ExamTitle = question.ExamType.Equals(ExamType.PilotExam)
+                            ? "Jump Pilot Authorisation Exam"
+                            : "Packer 'B' Examination";
             Index = question.QuestionIndex;
             Description = question.Description;
             NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
@@ -28,6 +31,7 @@ namespace APFTestingUI.Models.Exam
 
         public Guid Id { get; set; }
         public Guid ExamId { get; set; }
+        public string ExamTitle { get; set; }
         public int Index { get; set; }
         public string Description { get; set; }
         public int NumberOfCorrectAnswers { get; set; }
