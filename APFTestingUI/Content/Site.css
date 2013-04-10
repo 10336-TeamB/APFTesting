@@ -1471,6 +1471,44 @@ tr.row-odd
     transition: background-color 0.5s;
 }
 
+#tbl-demonstrated-packs .th-date
+{
+    width: 10%;
+}
+
+#tbl-demonstrated-packs .th-canopy-type
+{
+    width: 10%;
+}
+
+#tbl-demonstrated-packs .th-canopy-serial-no
+{
+    width: 10%;
+}
+
+#tbl-demonstrated-packs .th-harness-type
+{
+    width: 10%;
+}
+
+#tbl-demonstrated-packs .th-harness-serial-no
+{
+    width: 10%;
+}
+
+#tbl-demonstrated-packs .th-notes
+{
+}
+
+#tbl-demonstrated-packs .th-instructor-no
+{
+    width: 10%;
+}
+
+#tbl-demonstrated-packs .th-edit-button
+{
+    width: 10%;
+}
 
 /** Pilot practical : #form-pilot-practical */
 #form-pilot-practical table, #table-practical-pilot-view
@@ -1534,6 +1572,11 @@ input[type='number']
     margin-right:20px;
 }
 
+.button-container input
+{
+    vertical-align: top;
+}
+
 
 /** Packer Practical View : #tbl-demonstrated-packs */
 #tbl-demonstrated-packs th
@@ -1558,6 +1601,11 @@ input[type='number']
     width: 532px;
 }
 
+#form-packer-edit #note
+{
+    width: 
+}
+
 
 /** Candidate View */
 .candidate-view .button-container
@@ -1574,6 +1622,7 @@ input[type='number']
 .in-exam #content
 {
     background: transparent url('../Images/bg-exam.jpg') 110% 160px no-repeat;
+    min-height: 610px;
 }
 
 

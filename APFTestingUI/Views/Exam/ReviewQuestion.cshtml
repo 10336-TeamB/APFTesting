@@ -41,7 +41,8 @@
     <div id="navigation-container" class="review-page">
         <span id="mark-for-review">
             <input type="checkbox" value="true" name="IsMarkedForReview" id="is-marked-for-review" />
-            @Html.LabelFor(model => model.IsMarkedForReview, new { @class="label-mark-for-review" })
+            @*@Html.LabelFor(model => model.IsMarkedForReview, new { @class="label-mark-for-review" })*@
+            <label class="label-mark-for-review" for="is-marked-for-review">Review question later</label>
             <input type="hidden" value="false" name="IsMarkedForReview" />
         </span>
         <input id="summary-button" class="button" type="submit" value="Back to Summary" />

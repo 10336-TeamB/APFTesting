@@ -87,7 +87,8 @@
             <span id="mark-for-review">
                 @*@Html.CheckBoxFor(model => model.IsMarkedForReview)*@
                 <input type="checkbox" value="true" name="IsMarkedForReview" id="is-marked-for-review" />
-                @Html.LabelFor(model => model.IsMarkedForReview, new { @class="label-mark-for-review" })
+                @*@Html.LabelFor(model => model.IsMarkedForReview, new { @class="label-mark-for-review" })*@
+                <label class="label-mark-for-review" for="is-marked-for-review">Review question later</label>
                 <input type="hidden" value="false" name="IsMarkedForReview" />
             </span>
         }

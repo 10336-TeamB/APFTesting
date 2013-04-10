@@ -16,7 +16,7 @@
             <th class="th-harness-serial-no">Harness / Container Serial No.</th>
             <th class="th-notes">Notes</th>
             <th class="th-instructor-no">Instructor / Rigger No.</th>
-            <th></th>
+            <th class="th-edit-button"></th>
         </tr>
     </thead>
     <tbody>
@@ -41,7 +41,7 @@
     </tbody>
 </table>
 
-<p style="padding-right:15px;">
+<p style="padding-right:15px;font-size:1em;">
     <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examiner-button"})</span>
     <span class="control-button-span">
         @Html.ActionLink("Add", "PackerInput", new { examId = @Model.ExamId }, new { @class = "examiner-button" })
