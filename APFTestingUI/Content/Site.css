@@ -1166,8 +1166,9 @@ td
 .td-comments 
 {
     padding: 20px;
+    font-style:italic;
+    color:#aabbaa;
 }
-
 
 
 /** Adding some buttons */
@@ -1418,7 +1419,7 @@ input[type='number']
     width:50%;
 }
 
-.td-detail .max-score
+.td-detail .max-score, .td-score
 {
     font-style: italic;
     color: #ff9;
