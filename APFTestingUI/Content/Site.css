@@ -1363,18 +1363,20 @@ input[type="radio"]:checked + .label-radio {
         padding: 3px;
     }
 
-.display-label {
-    float:left;
-    padding-bottom: 10px;
-    width: 190px;
-    padding: 2px;
+.display-label
+{
+    float: left; /*padding-bottom: 10px;*/
+    width: 170px;
+    padding: 10px;
     font-size: 1.2em;
+    font-weight: bold;
 }
 
 .display-field
 {
-    float:left;
-    padding-bottom: 10px;
+    float: left;
+    padding-top: 10px;
+    font-size: 1.2em;
 }
 
 .button-container
