@@ -1401,10 +1401,9 @@ input[type="radio"]:checked + .label-radio {
 .display-label
 {
     float: left; /*padding-bottom: 10px;*/
-    width: 170px;
+    width: 210px;
     padding: 10px;
     font-size: 1.7em;
-    font-weight: bold;
 }
 
 .display-field
