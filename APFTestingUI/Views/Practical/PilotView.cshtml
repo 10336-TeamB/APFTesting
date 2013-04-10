@@ -26,10 +26,10 @@
             <td class="td-detail">
                 <h3 class="title">@task.Title</h3>
                 <p class="description text-justify">@task.Details</p>
-                <p class="max-score">@task.MaxScore</p>
+                <p class="max-score">@task.MaxScore Points</p>
             </td>
             <td class="td-comments text-justify">@task.Comment</td>
-            <td class="td-score">@task.Score</td>
+            <td class="summary-score">@task.Score</td>
         </tr>
         
     }
@@ -37,6 +37,9 @@
 </table>
 
 <p>
-    @Html.ActionLink("Edit", "PilotInput", new { examId = Model.ExamId, candidateId = Model.CandidateId }, new { @class = "examinerButton" })
-    @Html.ActionLink("Submit", "FinalisePractical", new { examId = Model.ExamId }, new { @class = "examinerButton" })
+    <span class="home-button-span">@Html.ActionLink("Home", "Index", "Examiner", new {}, new { @class="examinerButton"})</span>
+    <span class="control-button-span">
+        @Html.ActionLink("Edit", "PilotInput", new { examId = Model.ExamId, candidateId = Model.CandidateId }, new { @class = "examinerButton" })
+        @Html.ActionLink("Submit", "FinalisePractical", new { examId = Model.ExamId }, new { @class = "examinerButton" })
+    </span>
 </p>
