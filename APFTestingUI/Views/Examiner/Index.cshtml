@@ -58,7 +58,7 @@
                         }
                         else if (candidate.TheoryPassed)
                         {
-                            <span>Theory complete</span>                            
+                            <p>Theory complete</p>                            
                         }
                     </td>
                     <td class="view-results-link">
@@ -74,7 +74,7 @@
                         }
 						else if (candidate.PracticalEntered)
                         {
-                            <span>Practical completed</span>    
+                            <p>Practical completed</p>    
                         }                    
                     </td>
                     <td class="reset-cell">@Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})</td>

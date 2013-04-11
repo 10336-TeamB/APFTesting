@@ -305,6 +305,7 @@
     <Content Include="Scripts\exam.js" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
+    <None Include="Properties\PublishProfiles\Development Server.pubxml" />
     <None Include="Properties\PublishProfiles\Major Profile.pubxml" />
     <None Include="Properties\PublishProfiles\Major Project [a] server.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
