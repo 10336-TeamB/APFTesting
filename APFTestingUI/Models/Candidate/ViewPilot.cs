@@ -45,10 +45,8 @@ namespace APFTestingUI.Models.Candidate
         [Display(Name = "D.O.B.")]
         public DateTime? DateOfBirth { get; set; }
 
-        [Display(Name = "Address 1")]
         public string Address1 { get; set; }
 
-        [Display(Name = "Address 2")]
         public string Address2 { get; set; }
 
         public string Suburb { get; set; }

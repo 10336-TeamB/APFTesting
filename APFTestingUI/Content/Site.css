@@ -59,6 +59,7 @@ a {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    outline: none;
 }
 
 legend {
@@ -525,7 +526,7 @@ input[type="radio"], input[type="checkbox"]
 {
     display: block;
     padding: 5px 20px;
-    background-color: #117523;
+    background-color: #56585B;
     text-decoration: none;
     color: #ffffff;
     font-size: 0.8em;
@@ -544,7 +545,7 @@ input[type="radio"], input[type="checkbox"]
     display: block;
     padding: 5px 20px;
     /*background-color: #117523;*/
-    background-color: rgba(224, 33, 33, 1);
+    background-color: #AF0202;
     border-radius: 15px;
     margin: 3px 0;
     text-decoration: none;
@@ -561,7 +562,6 @@ input[type="radio"], input[type="checkbox"]
 /** Classes - reusable */
 .form-button
 {
-    width: 90px;
     padding: 5px;
     text-align: center;
     outline: none;
@@ -590,7 +590,8 @@ input[type="radio"], input[type="checkbox"]
     .form-button:active {
         box-shadow: none;
         position: relative;
-        -moz-border-radius-topleft: 2px;
+        top: 2px;
+        outline: none;
     }
 
 .examiner-button
@@ -598,8 +599,8 @@ input[type="radio"], input[type="checkbox"]
     margin: 0px;
     color: #ffffff;
     background-color: #5D5D5D;
-    border: outset 1px #999;
-    border-radius: 20px;
+    border: outset 1px #888;
+    border-radius: 12px;
     padding: 5px 20px 7px 20px;
     font-size: 1.2em;
     box-shadow: 2px 2px 4px rgba(0,0,0,.2);
@@ -613,13 +614,17 @@ input[type="radio"], input[type="checkbox"]
 .examiner-button:hover
 {
     box-shadow: 2px 2px 4px rgba(0,0,0,.5);
-    text-decoration: none;
+    text-decoration: none;  
 }
 
 .examiner-button:active {
     position: relative;
     top: 2px;
     box-shadow: none;
+    outline: none;
+}
+a:active {
+    outline:none;
 }
 
 .button
@@ -630,42 +635,24 @@ input[type="radio"], input[type="checkbox"]
 	font-size: 21px;
 	color: #e0e0e0;
 	padding: 13px 20px;
-	background: #117523;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
+	background: rgb(69, 94, 100);
 	border-radius: 6px;
-	border: 1px solid #116600;
-	-moz-box-shadow:
-		0px 3px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,1);
-	-webkit-box-shadow:
-		0px 3px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,1);
+	border: 1px outset rgb(110, 130, 141);
 	box-shadow:
-		0px 3px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,1);
-	text-shadow:
-		0px -1px 0px rgba(000,000,000,0.7),
-		0px 1px 0px rgba(255,255,255,0.3);
+		2px 2px 4px rgba(000,000,000,0.2);
 }.button:hover {
-     position: relative;
-     top: 1px;
-     -moz-box-shadow:
-		0px 2px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,1);
-	-webkit-box-shadow:
-		0px 2px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,1);
 	box-shadow:
-		0px 2px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,1);
+		2px 2px 4px rgba(000,000,000,0.5);
+    text-decoration: none;
+    outline: none;
  }
 .button:active {
 	position:relative;
-	top:3px;
-    -moz-box-shadow: none;
-	-webkit-box-shadow: none;
+	top:2px;
 	box-shadow: none;
+	border: 1px outset rgb(110, 130, 141);
+    outline: none;
+}
 }
 
 a.button 
@@ -738,6 +725,8 @@ a.button
     border-bottom: 1px solid #666666;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    font-weight: normal;
+    font-family: Verdana;
 }
 
     .candidate-list td 
@@ -757,7 +746,7 @@ a.button
 }
 
 .candidate-list-item .examiner-button {
-    font-size: 1.5em;
+    font-size: 1.4em;
     min-width: 120px;
 }
 
@@ -952,7 +941,7 @@ li.result-answer {
     height: 15px;
     margin-bottom: 3em;
     padding: 5px;
-    background-color: rgba(105, 107, 111, .7);
+    background-color: #56585B;
 }
 
 #progress-bar-inner {
@@ -1306,14 +1295,14 @@ input[type="checkbox"]:checked + .label-checkbox {
 
 input[type="checkbox"] + .label-mark-for-review
 {
-    background: transparent url('../Images/sprite-input-buttons2.png') 100% 0 no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 100% 6px no-repeat;
     margin: 0;
     padding:9px 40px 9px 0;
 }
 
 input[type="checkbox"]:checked + .label-mark-for-review
 {
-    background-position:100% -198px;
+    background-position:100% -192px;
 }
 
 
@@ -1409,8 +1398,9 @@ input[type="radio"]:checked + .label-radio {
 .display-field
 {
     float: left;
-    padding-top: 10px;
+    padding: 14px 0;
     font-size: 1.7em;
+    line-height: .6em;
 }
 
 .button-container
@@ -1452,6 +1442,10 @@ input:focus {
         -webkit-transition: background-color 0.5s;
         transition: background-color 0.5s;
     }
+
+#tbl-demonstrated-packs .examiner-button {
+    border-radius: 5px;
+}
 
 tr.row-even
 {
