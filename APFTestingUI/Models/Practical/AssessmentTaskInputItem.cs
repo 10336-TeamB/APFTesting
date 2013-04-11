@@ -37,7 +37,7 @@ namespace APFTestingUI.Models.Practical
         public string Comment { get; set; }
         
         [Required]
-        [RegularExpression("^([0-9][0-9]?|100)$", ErrorMessage="The Score must be between 0 and 100")]
+        [DynamicRange("MaxScore", ErrorMessage = "Score must not be greater than Max Score")]
         public string Score { get; set; }
     }
 }

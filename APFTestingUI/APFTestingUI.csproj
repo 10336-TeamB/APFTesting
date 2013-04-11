@@ -172,6 +172,7 @@
     <Compile Include="Controllers\DummyPack.cs" />
     <Compile Include="Controllers\DummyTask.cs" />
     <Compile Include="Controllers\PracticalController.cs" />
+    <Compile Include="CustomValidation\DynamicRange.cs" />
     <Compile Include="Models\Candidate\ViewPacker.cs" />
     <Compile Include="Models\Candidate\ViewPilot.cs" />
     <Compile Include="Models\Candidate\EditPacker.cs" />
