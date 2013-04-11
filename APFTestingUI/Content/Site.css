@@ -737,6 +737,11 @@ a.button
         padding-bottom: 0.75em;
     }
 
+    .candidate-list p 
+    {
+        color: #aabbaa;
+    }
+
     .candidate-name a
     {
         color: #ffffff;
@@ -751,6 +756,7 @@ a.button
     min-width: 120px;
     font-weight: 300;
 }
+
 
 .candidate-first-name {
     width: 12%;
@@ -776,7 +782,7 @@ a.button
 
 .start-theory-link p {
     font-size: 1.3em;
-    margin: 0 0 0 0;
+    margin: 0;
     color: #999;
 }
 
@@ -1243,6 +1249,7 @@ td
     font-size:medium;
     color:#aabbaa;
 }
+
 
 
 /** Adding some buttons */
