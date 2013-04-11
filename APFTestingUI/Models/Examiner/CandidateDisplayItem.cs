@@ -67,6 +67,14 @@ namespace APFTestingUI.Models.Examiner
 			
 		}
 
+        public bool ExamVoided
+        {
+            get
+            {
+                return LatestExamStatus == ExamStatus.ExamVoided;
+            }
+        }
+
         #endregion
     }
 }

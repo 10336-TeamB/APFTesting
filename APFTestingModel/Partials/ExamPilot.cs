@@ -30,5 +30,13 @@ namespace APFTestingModel
             }
         }
 
+        public override bool PracticalComponentIsCompetent
+        {
+            get
+            {
+                return PracticalComponentPilot.IsCompetent;
+            }
+        }
+
     }
 }

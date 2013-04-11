@@ -126,10 +126,7 @@ namespace APFTestingUI.Tests
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public void FinalisePractical(Guid examId)
         {
@@ -164,6 +161,12 @@ namespace APFTestingUI.Tests
         }
 
         public void EditPacker(Guid candidateId, CandidatePackerDetails details)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent)
         {
             throw new NotImplementedException();
         }

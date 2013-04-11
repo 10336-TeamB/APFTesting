@@ -8,15 +8,16 @@ namespace APFTestingUI.Models.Practical
 {
     public class PackerView
     {
-        public PackerView(Guid examId, IEnumerable<IAssessmentTaskPacker> packs) 
+        public PackerView(Guid examId, IEnumerable<IAssessmentTaskPacker> packs, bool isCompetent) 
         {
             ExamId = examId;
             Packs = packs.Select(p => new DemonstratedPackDisplayItem(p)).ToList().OrderBy(p => p.Date);
+            IsCompetent = isCompetent;
         }
 
         public Guid ExamId { get; set; }
         public IEnumerable<DemonstratedPackDisplayItem> Packs { get; set; }
-        
-        //TODO: We may need to pass in bool to determine if no. of packs == required packs in template
+        public bool IsCompetent { get; set; }
+
     }
 }

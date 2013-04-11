@@ -759,6 +759,7 @@ a.button
 .candidate-list-item .examiner-button {
     font-size: 1.5em;
     min-width: 120px;
+    font-weight: 300;
 }
 
 .candidate-first-name {
@@ -1425,9 +1426,14 @@ input[type="radio"]:checked + .label-radio {
     float:left;
 }
 
-.control-button-span
+.control-button-span 
 {
     float:right;
+}
+
+.control-button-span .examiner-button
+{
+    margin-left:10px;
 }
 
 input:focus {
