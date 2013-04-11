@@ -794,10 +794,14 @@ a.button
     width: 20%;
 }
 
+.th-practical-exam {
+    padding-left: 20px;
+}
 
 .input-practical-link {
     width: 20%;
     border-left: solid 1px #666;
+    padding-left: 20px;
 }
 
 .reset-cell

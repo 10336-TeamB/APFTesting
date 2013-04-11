@@ -30,8 +30,8 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th colspan="2">Theory Exam</th>
-                <th colspan="2">Practical Exam</th>
+                <th class="th-theory-exam" colspan="2">Theory Exam</th>
+                <th class="th-practical-exam" colspan="2">Practical Exam</th>
             </tr>
         </thead>
         <tbody>
@@ -90,8 +90,8 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th colspan="2">Theory Exam</th>
-                <th colspan="2">Practical Exam</th>
+                <th colspan="2" class="th-theory-exam">Theory Exam</th>
+                <th colspan="2" class="th-practical-exam">Practical Exam</th>
             </tr>
         </thead>
         <tbody>
@@ -118,7 +118,7 @@
                         }
                         else if (candidate.TheoryPassed)
                         {
-                            <p>Exam complete</p>             
+                            <span>Theory completed</span>            
                         }
                     </td>
                     <td class="view-results-link">
@@ -131,6 +131,10 @@
                         @if (candidate.TheoryPassed)
                         {
                             @Html.ActionLink("Input Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
+                        }
+                        else if (candidate.PracticalEntered)
+                        {
+                            <span>Practical completed</span>    
                         }
                     </td>
                     
