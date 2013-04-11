@@ -74,8 +74,9 @@ namespace APFTestingUI.Controllers
 
         public ActionResult PackerView(Guid examId)
         {
-            var packs = _facade.FetchAssessmentTasksPacker(examId);
-            var model = new PackerView(examId, packs);
+            bool isCompetent;
+            var packs = _facade.FetchAssessmentTasksPacker(examId, out isCompetent);
+            var model = new PackerView(examId, packs, isCompetent);
             return View(model);
         }
 
@@ -138,6 +139,12 @@ namespace APFTestingUI.Controllers
                 }
             }
             return View(model);
+        }
+
+        public ActionResult PackerSubmit(Guid examId)
+        {
+            _facade.FinalisePractical(examId);
+            return RedirectToAction("Index", "Examiner");
         }
         
         #endregion

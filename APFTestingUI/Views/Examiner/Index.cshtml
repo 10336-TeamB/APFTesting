@@ -30,8 +30,8 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th colspan="2">Theory Exam</th>
-                <th colspan="2">Practical Exam</th>
+                <th class="th-theory-exam" colspan="2">Theory Exam</th>
+                <th class="th-practical-exam" colspan="2">Practical Exam</th>
             </tr>
         </thead>
         <tbody>
@@ -52,13 +52,13 @@
                         {
                             @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
-                        else if (candidate.TheoryComponentFailed)
+                        else if (candidate.TheoryComponentFailed || candidate.ExamVoided)
                         {
                             @Html.ActionLink("Retake Exam", "Start", "Exam", new { examinerId = Model.ExaminerId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
-                        else
+                        else if (candidate.TheoryPassed)
                         {
-                            <p>Theory complete</p>                            
+                            <span>Theory complete</span>                            
                         }
                     </td>
                     <td class="view-results-link">
@@ -72,7 +72,10 @@
                         {
                             @Html.ActionLink("Input Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
-                    
+						else if (candidate.PracticalEntered)
+                        {
+                            <span>Practical completed</span>    
+                        }                    
                     </td>
                     <td class="reset-cell">@Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})</td>
                 </tr>
@@ -90,8 +93,8 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th colspan="2">Theory Exam</th>
-                <th colspan="2">Practical Exam</th>
+                <th colspan="2" class="th-theory-exam">Theory Exam</th>
+                <th colspan="2" class="th-practical-exam">Practical Exam</th>
             </tr>
         </thead>
         <tbody>
@@ -112,13 +115,13 @@
                         {
                             @Html.ActionLink("Resume Exam", "Resume", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
-                        else if (candidate.TheoryComponentFailed)
+                        else if (candidate.TheoryComponentFailed || candidate.ExamVoided)
                         {
                             @Html.ActionLink("Retake Exam", "Start", "Exam", new {examinerId = Model.ExaminerId, candidateId = candidate.Id}, new {@class = "examiner-button"})
                         }
-                        else
+                        else if (candidate.TheoryPassed)
                         {
-                            <p>Theory complete</p>                            
+                            <span>Theory completed</span>            
                         }
                     </td>
                     <td class="view-results-link">
@@ -131,6 +134,10 @@
                         @if (candidate.TheoryPassed)
                         {
                             @Html.ActionLink("Input Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
+                        }
+                        else if (candidate.PracticalEntered)
+                        {
+                            <span>Practical completed</span>    
                         }
                     </td>
                     

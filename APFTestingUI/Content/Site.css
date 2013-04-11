@@ -748,6 +748,7 @@ a.button
 .candidate-list-item .examiner-button {
     font-size: 1.4em;
     min-width: 120px;
+    font-weight: 300;
 }
 
 .candidate-first-name {
@@ -782,10 +783,14 @@ a.button
     width: 20%;
 }
 
+.th-practical-exam {
+    padding-left: 20px;
+}
 
 .input-practical-link {
     width: 20%;
     border-left: solid 1px #666;
+    padding-left: 20px;
 }
 
 .reset-cell
@@ -1415,9 +1420,14 @@ input[type="radio"]:checked + .label-radio {
     float:left;
 }
 
-.control-button-span
+.control-button-span 
 {
     float:right;
+}
+
+.control-button-span .examiner-button
+{
+    margin-left:10px;
 }
 
 input:focus {

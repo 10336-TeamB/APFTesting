@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class ExamPacker
+    internal partial class ExamPacker : Exam
     {
         #region Constructors
 
@@ -37,6 +37,14 @@ namespace APFTestingModel
         public ICollection<AssessmentTaskPacker> AssessmentTasks
         {
             get { return PracticalComponentPacker.AssessmentTaskPackers; }
+        }
+
+        public override bool PracticalComponentIsCompetent 
+        {
+            get
+            {
+                return PracticalComponentPacker.IsCompetent;
+            }
         }
     }
 }

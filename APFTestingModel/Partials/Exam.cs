@@ -72,6 +72,8 @@ namespace APFTestingModel
             }
         }
 
+        abstract public bool PracticalComponentIsCompetent { get; }
+
         #endregion
 
         #region Methods
