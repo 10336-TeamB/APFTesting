@@ -32,10 +32,10 @@ $(function () {
 });
 
 function clearDates() {
-    if ($("#DateOfBirth").val() == "1/01/0001") {
+    if ($("#DateOfBirth").val() == "1/01/0001" || $("#DateOfBirth").val() == "1/1/0001") {
         $("#DateOfBirth").val("");
     }
-    if ($("#PilotMedicalExpiry").val() == "1/01/0001") {
+    if ($("#PilotMedicalExpiry").val() == "1/01/0001" || $("#PilotMedicalExpiry").val() == "1/1/0001") {
         $("#PilotMedicalExpiry").val("");
     }
 }

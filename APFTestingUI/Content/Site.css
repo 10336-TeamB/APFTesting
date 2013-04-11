@@ -718,6 +718,7 @@ a.button
     width:100%;
 }
 
+
 .candidate-list th 
 {
     font-size: 1.3em;
@@ -781,8 +782,8 @@ a.button
 
 .start-theory-link p {
     font-size: 1.3em;
-    margin: 0 0 0 20px;
-    
+    margin: 0;
+    color: #999;
 }
 
 .view-results-link {
