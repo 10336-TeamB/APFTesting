@@ -62,7 +62,7 @@ namespace APFTestingUI.Models.Examiner
 		{
 			get
 			{
-				return LatestExamStatus == ExamStatus.TheoryPassed;
+                return LatestExamStatus == ExamStatus.TheoryPassed || LatestExamStatus == ExamStatus.PracticalEntered;
 			}
 			
 		}

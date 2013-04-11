@@ -252,7 +252,9 @@ namespace APFTestingModel
                 .Include("PracticalComponentPilot.SelectedAssessmentTasks")
                 .Include("PracticalComponentPilot.SelectedAssessmentTasks.AssessmentTaskPilot")
                 .FirstOrDefault(e => e.Id == examId);
-            
+
+            FinalisePractical(examId);
+
             return exam.SelectedAssessmentTasks;
         }
         
@@ -352,7 +354,10 @@ namespace APFTestingModel
         {
             // Change exam status to finalise practical component
             var exam = _context.Exams.First(e => e.Id == examId);
-            exam.ExamStatus = ExamStatus.PracticalEntered;  //Or is it Exam Finalized? - Pradipna // I think we will add it as a seperate action so the examiner can confirm final submission - Adam
+            exam.ExamStatus = ExamStatus.PracticalEntered;  
+            //Or is it Exam Finalized? - Pradipna 
+            //I think we will add it as a seperate action so the examiner can confirm final submission - Adam
+            //... :) - Josh
             _context.SaveChanges();
         }
 
