@@ -68,14 +68,14 @@
                         }
                     </td>
                     <td class="input-practical-link">
-                        @if (candidate.TheoryPassed)
+                        @if (candidate.PracticalEntered)
+                        {
+                            <p>Practical completed</p>    
+                        } 
+                        else if (candidate.TheoryPassed)
                         {
                             @Html.ActionLink("Input Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
-						else if (candidate.PracticalEntered)
-                        {
-                            <p>Practical completed</p>    
-                        }                    
                     </td>
                     <td class="reset-cell">@Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})</td>
                 </tr>
@@ -131,13 +131,13 @@
                         }
                     </td>
                     <td class="input-practical-link">
-                        @if (candidate.TheoryPassed)
-                        {
-                            @Html.ActionLink("Input Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
-                        }
-                        else if (candidate.PracticalEntered)
+                        @if (candidate.PracticalEntered)
                         {
                             <p>Practical completed</p>    
+                        }
+                        else if (candidate.TheoryPassed)
+                        {
+                            @Html.ActionLink("Input Results", "PackerView", "Practical", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
                     </td>
                     

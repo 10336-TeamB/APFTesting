@@ -33,11 +33,10 @@ namespace APFTestingUI.Models.Practical
         [HiddenInput(DisplayValue = true)]
         public int MaxScore { get; set; }
         
-        [Required]
         public string Comment { get; set; }
         
         [Required]
-        [DynamicRange("MaxScore", ErrorMessage = "Score must not be greater than Max Score")]
+        [DynamicRange("MaxScore", ErrorMessage="The score must be between 0 and maximum points")]
         public string Score { get; set; }
     }
 }

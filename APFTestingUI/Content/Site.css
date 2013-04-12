@@ -737,11 +737,6 @@ a.button
         padding-bottom: 0.75em;
     }
 
-    .candidate-list p 
-    {
-        color: #aabbaa;
-    }
-
     .candidate-name a
     {
         color: #ffffff;
@@ -780,10 +775,10 @@ a.button
     width: 20%;
 }
 
-.start-theory-link p {
+.candidate-list p {
     font-size: 1.3em;
     margin: 0;
-    color: #999;
+    color: #999; /* Sorry josh, the tribe has voted, minty green doesn't work here */
 }
 
 .view-results-link {
