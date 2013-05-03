@@ -21,6 +21,14 @@ namespace APFTestingUI.Controllers
         // GET: /Account/Login
 
         [AllowAnonymous]
+        public ActionResult Test()
+        {
+            //WebSecurity.CreateUserAndAccount("candidate", "c123!@#");
+            //Roles.AddUsersToRole(new string[] { "candidate" }, "Candidate");
+            return RedirectToAction("Index", "Examiner");
+        }
+
+        [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
