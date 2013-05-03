@@ -1,25 +1,48 @@
-﻿$(function () {
-    $('#previous-button').click(function (e) {
+﻿$(function() {
+    $('#previous-button').click(function(e) {
         e.preventDefault();
         $('#NavDirection').val("PreviousQuestion");
-        answerQuestion();
+        answerQuestion(true);
     });
 
-    $("#next-button").click(function (e) {
+    $("#next-button").click(function(e) {
         e.preventDefault();
         $('#NavDirection').val("NextQuestion");
-        answerQuestion();
+        answerQuestion(true);
     });
 
-    $(document).ajaxStart(function () {
+    $(document).ajaxStart(function() {
         $("#exam-container").hide();
         $("#loading").show();
-    }).ajaxStop(function () {
+    }).ajaxStop(function() {
         $("#loading").hide();
         $("#exam-container").show();
-    }).ajaxError(function (event, jqxhr, settings, exception) {
+    }).ajaxError(function(event, jqxhr, settings, exception) {
         $("#error-message").html("<p>" + jqxhr.responseText + "</p>");
         showErrorMessage("#error-message");
+    });
+
+    // Add state to first exam page loaded for successful back button navigation to first page
+    function overwriteInitialHistoryEntry() {
+        var currentIndex = parseInt($("#Index").val()) + 1;
+        var initialTitle = "Question_" + currentIndex;
+        window.history.replaceState({ questionId: currentIndex }, document.title, "/Exam/" + initialTitle);
+    }
+    overwriteInitialHistoryEntry();
+
+    // Hook in to the browser back and forward buttons
+    $(window).on('popstate', function (e) {
+        if (e.originalEvent.state) {
+            var currentIndex = parseInt($("#Index").val()) + 1;
+            var poppedIndex = e.originalEvent.state.questionId;
+            if (currentIndex > poppedIndex) {
+                $('#NavDirection').val("PreviousQuestion");
+                answerQuestion(false);
+            } else if (currentIndex < poppedIndex) {
+                $('#NavDirection').val("NextQuestion");
+                answerQuestion(false);
+            }
+        }
     });
     
     /*                         */
@@ -54,7 +77,7 @@ $(function () {
     $("#progress-bar-inner").css("width", progress + "%");
 });
 
-function answerQuestion() {
+function answerQuestion(changeHistory) {
     var examId = $("#ExamId").val();
     var index = $("#Index").val();
     var navDirection = $("#NavDirection").val();
@@ -63,7 +86,6 @@ function answerQuestion() {
     $('input[name="ChosenAnswer"]:checked').each(function () {
         answers.push(this.value);
     });
-
 
     var question = {
         ExamId: examId,
@@ -81,6 +103,11 @@ function answerQuestion() {
         contentType: 'application/json',
         success: function (data) {
             renderQuestion(data);
+            
+            // Prevents history from being updated when browser back and forward buttons pressed
+            if (changeHistory) {
+                updateHistory();
+            }
         }
     });
 }
@@ -161,5 +188,11 @@ function populateAnswers(answers, type, className) {
         $('#answer-container-' + i).append(input);
         $('#answer-container-' + i).append(label);
     });
+}
+
+function updateHistory() {
+    var currentIndex = parseInt($("#Index").val()) + 1;
+    var historyTitle = "Question_" + currentIndex;
+    window.history.pushState({ questionId: currentIndex }, document.title, "/Exam/" + historyTitle);
 }
 
