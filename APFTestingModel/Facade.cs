@@ -452,6 +452,7 @@ namespace APFTestingModel
         private bool checkIsReferenced(Guid id)
         {
             //Need to test this method a bit more
+<<<<<<< HEAD
             return _context.SelectedAssessmentTasks.Any(s => s.AssessmentTaskPilot.Id == id);
 
             //bool isReferenced = false;
@@ -464,6 +465,18 @@ namespace APFTestingModel
             //    }
             //}
             //return isReferenced;
+=======
+            bool isReferenced = false;
+            var referencedTemplates = _context.PracticalComponentTemplates.Include("AssessmentTaskPilots").OfType<PracticalComponentTemplatePilot>().Where(t => t.PracticalComponentPilots.Count() > 0).Distinct().ToList();
+            foreach (var r in referencedTemplates)
+            {
+                if (r.AssessmentTaskPilots.Any(a => a.Id == id))
+                {
+                    isReferenced = true;
+                }
+            }
+            return isReferenced;
+>>>>>>> 8ef564761f5f7c8d9f7430a542e735176a3421f6
         }
 
 
