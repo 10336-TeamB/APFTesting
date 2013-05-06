@@ -24,7 +24,7 @@ namespace APFTestingModel.Tests
         public void FetchSpecificQuestionTest()
         {
             // Arrange
-            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80));
+            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80, 0));
             fixture.SelectedTheoryQuestions = createMockQuestions();
             
             //// Act
@@ -39,7 +39,7 @@ namespace APFTestingModel.Tests
         public void FetchNextQuestionTest()
         {
             // Arrange
-            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80));
+            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80, 0));
             fixture.SelectedTheoryQuestions = createMockQuestions();
 
             //// Act
@@ -61,7 +61,7 @@ namespace APFTestingModel.Tests
         public void FetchPreviousQuestionTest()
         {
             // Arrange
-            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80));
+            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80, 0));
             fixture.SelectedTheoryQuestions = createMockQuestions();
 
             //// Act
@@ -83,7 +83,7 @@ namespace APFTestingModel.Tests
         public void FetchCurrentQuestionTest()
         {
             // Arrange
-            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80));
+            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80, 0));
             fixture.SelectedTheoryQuestions = createMockQuestions();
 
             //// Act
@@ -98,7 +98,7 @@ namespace APFTestingModel.Tests
         public void AnswerQuestionTest()
         {
             // Arrange
-            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80));
+            TheoryComponentPilot fixture = new TheoryComponentPilot(new TheoryComponentFormatPilot(5, 80, 0));
             fixture.SelectedTheoryQuestions = createMockQuestions();
 
             //// Act

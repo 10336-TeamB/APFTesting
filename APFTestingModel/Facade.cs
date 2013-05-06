@@ -284,25 +284,7 @@ namespace APFTestingModel
 
 		#region Other Methods
 		
-        //REFACTORED
-		public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)
-		{
-			switch (examType)
-			{
-				case ExamType.PilotExam:
-					var theoryComponentFormatPilot = new TheoryComponentFormatPilot(numberOfQuestions, passMark);
-					_context.TheoryComponentFormats.Add(theoryComponentFormatPilot);
-					_context.SaveChanges();
-					return theoryComponentFormatPilot;
-				case ExamType.PackerExam:
-					var theoryComponentFormatPacker = new TheoryComponentFormatPacker(numberOfQuestions, passMark);
-					_context.TheoryComponentFormats.Add(theoryComponentFormatPacker);
-					_context.SaveChanges();
-					return theoryComponentFormatPacker;
-				default:
-                    throw new BusinessRuleException("Invalid exam type provided");
-			}
-		}
+      
 
 		public void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId)
 		{
@@ -551,7 +533,7 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-        #region
+        #endregion
 
         //Hook-in test method
         public string TestDBConnection()

@@ -57,16 +57,16 @@ namespace APFTestingModel
 
     }
 
-    public struct PackerPracticalResult
-    {
-        public DateTime Date { get; set; }
-        public string CanopyType { get; set; }
-        public string CanopyTypeSerialNumber { get; set; }
-        public string SupervisorId { get; set; }
-        public string HarnessContainerType { get; set; }
-        public string HarnessContainerSerialNumber { get; set; }
-        public string Note { get; set; }
-    }
+	//public struct PackerPracticalResult
+	//{
+	//	public DateTime Date { get; set; }
+	//	public string CanopyType { get; set; }
+	//	public string CanopyTypeSerialNumber { get; set; }
+	//	public string SupervisorId { get; set; }
+	//	public string HarnessContainerType { get; set; }
+	//	public string HarnessContainerSerialNumber { get; set; }
+	//	public string Note { get; set; }
+	//}
 
     public struct ExaminerDetails
     {
@@ -75,8 +75,10 @@ namespace APFTestingModel
         public string UserName { get; set; }
         public string Password { get; set; }
         public string APFNumber { get; set; }
-        public List<ExaminerAuthority> authorities { get; set; }
+        public List<ExamType> Authorities { get; set; }
     }
+
+    
 	
 		public struct TheoryQuestionDetails
 	{
