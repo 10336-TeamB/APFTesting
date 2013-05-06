@@ -395,14 +395,15 @@ namespace APFTestingModel
 
         #region CRUD Pilot Practical Assessment tasks
 
-        public IAssessmentTaskPilot CreateAssessmentTaskPilot(string title, string details, int maxScore)
+        public IAssessmentTaskPilot CreateAssessmentTaskPilot(AssessmentTaskPilotDetails details)
         {
-            return createAssessmentTaskPilot(title, details, maxScore);
+            return createAssessmentTaskPilot(details.Title, details.Details, details.MaxScore);
         }
 
         private AssessmentTaskPilot createAssessmentTaskPilot(string title, string details, int maxScore)
         {
-            AssessmentTaskPilot assessmentTask = new AssessmentTaskPilot() { Title = title, Details = details, MaxScore = maxScore };
+            //Should creation be associated with the Practical Manager?
+            AssessmentTaskPilot assessmentTask = new AssessmentTaskPilot(title, details, maxScore);
             _context.AssessmentTasks.Add(assessmentTask);
             _context.SaveChanges();
             return assessmentTask;
@@ -413,9 +414,9 @@ namespace APFTestingModel
             return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().FirstOrDefault(a => a.Id == id);
         }
 
-        public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, string title, string details, int maxScore)
+        public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
         {
-            return editAssessmentTaskPilot(id, title, details, maxScore);
+            return editAssessmentTaskPilot(id, details.Title, details.Details, details.MaxScore);
         }
 
         private AssessmentTaskPilot editAssessmentTaskPilot(Guid id, string title, string details, int maxScore)
@@ -462,6 +463,16 @@ namespace APFTestingModel
             //    }
             //}
             //return isReferenced;
+        }
+
+        public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()
+        {
+            return fetchAllAssessmentTaskPilot();
+        }
+
+        private List<AssessmentTaskPilot> fetchAllAssessmentTaskPilot()
+        {
+            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().ToList();
         }
 
 

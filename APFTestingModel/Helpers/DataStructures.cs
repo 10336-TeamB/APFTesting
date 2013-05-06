@@ -77,8 +77,6 @@ namespace APFTestingModel
         public string APFNumber { get; set; }
         public List<ExamType> Authorities { get; set; }
     }
-
-    
 	
 		public struct TheoryQuestionDetails
 	{
@@ -95,6 +93,13 @@ namespace APFTestingModel
 		public bool IsCorrect { get; set; }
 		public int DisplayOrderIndex { get; set; }
 	}
+
+    public struct AssessmentTaskPilotDetails
+    {
+        public string Title { get; set; }
+        public string Details { get; set; }
+        public int MaxScore { get; set; }
+    }
 
 
 }

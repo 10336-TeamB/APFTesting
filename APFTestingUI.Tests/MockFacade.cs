@@ -175,5 +175,26 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public IAssessmentTaskPilot CreateAssessmentTaskPilot(AssessmentTaskPilotDetails details)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAssessmentTaskPilot(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

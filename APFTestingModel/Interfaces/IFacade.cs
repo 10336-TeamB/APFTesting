@@ -46,5 +46,11 @@ namespace APFTestingModel
         ICandidatePilot FetchPilot(Guid candidateId);
         void EditPilot(Guid candidateId, CandidatePilotDetails details);
         void EditPacker(Guid candidateId, CandidatePackerDetails details);
+
+        IAssessmentTaskPilot CreateAssessmentTaskPilot(AssessmentTaskPilotDetails details);
+        IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details);
+        void DeleteAssessmentTaskPilot(Guid id);
+        IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot();
+
     }
 }
