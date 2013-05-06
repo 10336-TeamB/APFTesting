@@ -273,7 +273,8 @@ namespace APFTestingModel
 					break;
 			}
 
-
+			_context.TheoryQuestions.Add(examManager.CreateTheoryQuestion(questionDetails));
+			_context.SaveChanges();
 		}
 
 

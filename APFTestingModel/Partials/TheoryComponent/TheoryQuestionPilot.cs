@@ -8,5 +8,9 @@ namespace APFTestingModel
 {
 	internal partial class TheoryQuestionPilot
 	{
+
+		public TheoryQuestionPilot() { }
+
+		public TheoryQuestionPilot(TheoryQuestionDetails questionDetails) : base(questionDetails) { }
 	}
 }

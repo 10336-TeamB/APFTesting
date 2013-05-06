@@ -8,5 +8,6 @@ namespace APFTestingModel
 {
 	internal partial class TheoryQuestionPacker
 	{
+		public TheoryQuestionPacker(TheoryQuestionDetails questionDetails) : base(questionDetails) { }
 	}
 }

@@ -38,11 +38,7 @@ namespace APFTestingModel
             return randomQuestionList;
         }
 
-		public TheoryQuestion CreateTheoryQuestion(TheoryQuestionDetails questionDetails)
-		{
-
-			return null;
-		}
+		public abstract TheoryQuestion CreateTheoryQuestion(TheoryQuestionDetails questionDetails);
 
 	}
 }

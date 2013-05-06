@@ -57,10 +57,9 @@ namespace APFTestingModel
 	{
 		public string Description { get; set; }
 		public List<AnswerDetails> Answers { get; set; }
-		public int NumberOfCorrectAnswers { get; set; }
 		public bool IsActive { get; set; }
 		public string ImagePath { get; set; }
-
+		public TheoryQuestionCategory Category { get; set; }
 	}
 
 	public struct AnswerDetails

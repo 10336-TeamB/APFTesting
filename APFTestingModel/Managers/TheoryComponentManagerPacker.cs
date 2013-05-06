@@ -16,5 +16,10 @@ namespace APFTestingModel
             theoryComponent.SelectedTheoryQuestions = FetchRandomQuestions(activeFormat.NumberOfQuestions, theoryComponent);
             return theoryComponent;
         }
+
+		public override TheoryQuestion CreateTheoryQuestion(TheoryQuestionDetails questionDetails)
+		{
+			return new TheoryQuestionPacker(questionDetails);
+		}
     }
 }
