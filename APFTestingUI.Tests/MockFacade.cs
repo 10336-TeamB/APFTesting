@@ -170,5 +170,10 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

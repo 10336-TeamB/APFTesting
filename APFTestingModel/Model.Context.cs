@@ -32,6 +32,7 @@ namespace APFTestingModel
     		TheoryComponentFormats = Set<TheoryComponentFormat>();	
     		TheoryQuestions = Set<TheoryQuestion>();	
     		ExaminerAuthorities = Set<ExaminerAuthority>();	
+    		Users = Set<User>();	
     
         }
     
@@ -54,5 +55,6 @@ namespace APFTestingModel
         internal DbSet<TheoryComponentFormat> TheoryComponentFormats { get; set; }
         internal DbSet<TheoryQuestion> TheoryQuestions { get; set; }
         internal DbSet<ExaminerAuthority> ExaminerAuthorities { get; set; }
+        internal DbSet<User> Users { get; set; }
     }
 }
