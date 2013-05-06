@@ -22,10 +22,13 @@ namespace APFTestingModel
             this.ExaminerAuthorities = new HashSet<ExaminerAuthority>();
         }
     
+    	public int UserId { get; set; }
+    	public string APFNumber { get; set; }
     
         public virtual ICollection<CandidatePacker> CandidatePackers { get; set; }
         public virtual ICollection<CandidatePilot> CandidatePilots { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<ExaminerAuthority> ExaminerAuthorities { get; set; }
+        public virtual User User { get; set; }
     }
 }
