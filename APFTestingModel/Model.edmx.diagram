@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 
-      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="116">
+      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="86">
         <AssociationConnector Association="APFTestingDBModel.FK_Person_Address" />
         <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="23.5" PointY="2.375" />
         <EntityTypeShape EntityType="APFTestingDBModel.Answer" Width="1.5" PointX="29.75" PointY="14.375" />

@@ -26,7 +26,7 @@ namespace APFTestingModel
     	public string ImagePath { get; set; }
     	public int CategoryId { get; set; }
     	public string Description { get; set; }
-    	public short Category { get; set; }
+    	public APFTestingModel.TheoryQuestionCategory Category { get; set; }
     
         public virtual ICollection<Answer> Answers { get; set; }
         public virtual ICollection<SelectedTheoryQuestion> SelectedTheoryQuestions { get; set; }

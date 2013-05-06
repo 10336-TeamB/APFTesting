@@ -52,4 +52,22 @@ namespace APFTestingModel
         public string HarnessContainerSerialNumber { get; set; }
         public string Note { get; set; }
     }
+
+	public struct TheoryQuestionDetails
+	{
+		public string Description { get; set; }
+		public List<AnswerDetails> Answers { get; set; }
+		public int NumberOfCorrectAnswers { get; set; }
+		public bool IsActive { get; set; }
+		public string ImagePath { get; set; }
+
+	}
+
+	public struct AnswerDetails
+	{
+		public string Description { get; set; }
+		public bool IsCorrect { get; set; }
+		public int DisplayOrderIndex { get; set; }
+	}
+
 }
