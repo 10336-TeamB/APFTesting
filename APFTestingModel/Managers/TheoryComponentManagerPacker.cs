@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
     internal class TheoryComponentManagerPacker : TheoryComponentManager
     {
+        public TheoryComponentManagerPacker() { }
+
         public TheoryComponentManagerPacker(IEnumerable<TheoryQuestion> theoryQuestionsPacker, TheoryComponentFormat activeTheoryFormat) : base(theoryQuestionsPacker, activeTheoryFormat) { }
 
         public override TheoryComponent GenerateTheoryComponent()
@@ -15,11 +17,19 @@ namespace APFTestingModel
             TheoryComponentPacker theoryComponent = new TheoryComponentPacker(activeFormat);
             theoryComponent.SelectedTheoryQuestions = FetchRandomQuestions(activeFormat.NumberOfQuestions, theoryComponent);
             return theoryComponent;
+
         }
 
 		public override TheoryQuestion CreateTheoryQuestion(TheoryQuestionDetails questionDetails)
 		{
 			return new TheoryQuestionPacker(questionDetails);
 		}
+
+
+        public override TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit)
+        {
+            return new TheoryComponentFormatPacker(numberOfQuestions, passMark, timeLimit);
+        }
+
     }
 }

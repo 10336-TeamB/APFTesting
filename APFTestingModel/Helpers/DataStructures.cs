@@ -13,7 +13,9 @@ namespace APFTestingModel
         public DateTime DateOfBirth { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
+
         public string Suburb { get; set; }
+
         public string State { get; set; }
         public string Postcode { get; set; }
         public string ARN { get; set; }
@@ -40,6 +42,19 @@ namespace APFTestingModel
         public Guid Id { get; set; }
         public string Comment { get; set; }
         public int Score { get; set; }
+
+    }
+
+    public struct PackerPracticalResult
+    {
+        public DateTime Date { get; set; }
+        public string CanopyType { get; set; }
+        public string CanopyTypeSerialNumber { get; set; }
+        public string SupervisorId { get; set; }
+        public string HarnessContainerType { get; set; }
+        public string HarnessContainerSerialNumber { get; set; }
+        public string Note { get; set; }
+
     }
 
     public struct PackerPracticalResult
@@ -53,7 +68,17 @@ namespace APFTestingModel
         public string Note { get; set; }
     }
 
-	public struct TheoryQuestionDetails
+    public struct ExaminerDetails
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string APFNumber { get; set; }
+        public List<ExaminerAuthority> authorities { get; set; }
+    }
+	
+		public struct TheoryQuestionDetails
 	{
 		public string Description { get; set; }
 		public List<AnswerDetails> Answers { get; set; }
@@ -69,4 +94,6 @@ namespace APFTestingModel
 		public int DisplayOrderIndex { get; set; }
 	}
 
+
 }
+

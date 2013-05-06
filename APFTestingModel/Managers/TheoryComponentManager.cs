@@ -15,6 +15,10 @@ namespace APFTestingModel
 
         public abstract TheoryComponent GenerateTheoryComponent();
 
+	    public abstract TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit);
+
+        public TheoryComponentManager() { }
+
         public TheoryComponentManager(IEnumerable<TheoryQuestion> theoryQuestions, TheoryComponentFormat activeFormat)
         {
             this.theoryQuestions = theoryQuestions;

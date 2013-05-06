@@ -8,6 +8,11 @@ namespace APFTestingModel
 {
     internal class ExamManagerPilot : ExamManager
     {
+        public ExamManagerPilot(TheoryComponentManagerPilot theoryComponentManagerPilot)
+        {
+            theoryComponentManager = theoryComponentManagerPilot;
+        }
+
         public ExamManagerPilot(TheoryComponentManagerPilot theoryComponentManagerPilot, PracticalComponentManagerPilot practicalComponentManagerPilot)
         {
             theoryComponentManager = theoryComponentManagerPilot;
@@ -21,6 +26,11 @@ namespace APFTestingModel
 
             ExamPilot examPilot = new ExamPilot(examinerId, candidateId, theoryComponentPilot, practicalComponentPilot);
             return examPilot;
+        }
+
+        public override TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit)
+        {
+            return theoryComponentManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
         }
     }
 }

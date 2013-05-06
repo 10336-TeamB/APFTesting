@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using APFTestingMembership;
 
 namespace APFTestingModel
 {
@@ -41,7 +42,6 @@ namespace APFTestingModel
 
             switch (examType)
             {
-
                 case ExamType.PilotExam:
                     activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
                     activePracticalTemplate = _context.PracticalComponentTemplates.Include("AssessmentTaskPilots").OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
@@ -485,6 +485,73 @@ namespace APFTestingModel
 
         #endregion
 
+        #region CRUD Theory Exam Format
+
+        public void CreateTheoryFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit)
+        {
+            // Creates a theory exam manager with no associated data (i.e. existing formats or templates)
+            examManager = ManagerFactory.CreateTheoryExamManager(examType);
+            TheoryComponentFormat format;
+            switch (examType)
+            {
+                case ExamType.PilotExam:
+                    format = examManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
+                    break;
+                case ExamType.PackerExam:
+                    format = examManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
+                    break;
+                default:
+                    throw new BusinessRuleException("Invalid exam type provided");
+            }
+            
+            _context.TheoryComponentFormats.Add(format);
+            _context.SaveChanges();
+        }
+
+        #endregion
+
+        /*=====================*/
+        /*   CREATE EXAMINER   */
+        /*=====================*/
+
+        #region CRUD Examiner
+        
+        private Examiner fetchExaminer(Guid examinerId) 
+        {
+            return _context.People.OfType<Examiner>().Include("ExaminerAuthorities").First(e => e.Id == examinerId);
+        }
+
+        public void CreateExaminer(ExaminerDetails examinerDetails)
+        {
+            Membership membership = new Membership();
+            int userId = membership.RegisterExaminer(examinerDetails.UserName, examinerDetails.Password);
+            Examiner examiner = new Examiner(examinerDetails, userId);
+            _context.People.Add(examiner);
+            _context.SaveChanges();
+        }
+
+        public void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails)
+        {
+            Examiner examiner = fetchExaminer(examinerId);
+            examiner.EditExaminer(examinerDetails);
+            _context.SaveChanges();
+        }
+
+        public void DeleteExaminer(Guid examinerId)
+        {
+            Examiner examiner = fetchExaminer(examinerId);
+            _context.People.Remove(examiner);
+            _context.SaveChanges();
+        }
+
+        public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
+        {
+            Examiner examiner = fetchExaminer(examinerId);
+            examiner.EditActiveStatus(isActive);
+            _context.SaveChanges();
+        }
+
+        #region
 
         //Hook-in test method
         public string TestDBConnection()

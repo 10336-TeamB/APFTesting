@@ -285,7 +285,8 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="APFNumber" Type="char" Nullable="false" MaxLength="6" />
-        </EntityType>
+			<Property Name="IsActive" Type="bit" Nullable="false" />
+		</EntityType>
         <EntityType Name="ExaminerAuthority">
           <Key>
             <PropertyRef Name="ExaminerId" />
@@ -1131,6 +1132,7 @@
           <Property Type="Int32" Name="UserId" Nullable="false" />
           <Property Type="String" Name="APFNumber" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="User" Relationship="APFTestingDBModel.FK_Examiner_User" FromRole="Examiner" ToRole="User" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
         </EntityType>
 
         <EntityType Name="ExamPacker" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" BaseType="APFTestingDBModel.Exam">
@@ -1575,7 +1577,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-
         <EntityType Name="Administrator" BaseType="APFTestingDBModel.Person" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
           <Property Type="Int32" Name="UserId" Nullable="false" />
           <Property Type="Int32" Name="EFRequired" Nullable="false" />
@@ -1615,7 +1616,6 @@
           </ReferentialConstraint>
         </Association>
         <EnumType Name="TheoryQuestionCategory" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.TheoryQuestionCategory" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1720,6 +1720,7 @@
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(APFTestingDBModel.Examiner)">
               <MappingFragment StoreEntitySet="Examiner">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="APFNumber" ColumnName="APFNumber" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
