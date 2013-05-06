@@ -8,6 +8,11 @@ namespace APFTestingModel
 {
     internal class ExamManagerPacker : ExamManager
     {
+        public ExamManagerPacker(TheoryComponentManagerPacker theoryComponentManagerPacker)
+        {
+            theoryComponentManager = theoryComponentManagerPacker;
+        }
+
         public ExamManagerPacker(TheoryComponentManagerPacker theoryComponentManagerPacker, PracticalComponentManagerPacker practicalComponentManagerPacker)
         {
             theoryComponentManager = theoryComponentManagerPacker;
@@ -21,6 +26,11 @@ namespace APFTestingModel
 
             ExamPacker examPacker = new ExamPacker(examinerId, candidateId, theoryComponentPacker, practicalComponentPacker);
             return examPacker;
+        }
+
+        public override TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit)
+        {
+            return theoryComponentManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
         }
     }
 }

@@ -41,7 +41,6 @@ namespace APFTestingModel
 
             switch (examType)
             {
-
                 case ExamType.PilotExam:
                     activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
                     activePracticalTemplate = _context.PracticalComponentTemplates.Include("AssessmentTaskPilots").OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
@@ -469,6 +468,30 @@ namespace APFTestingModel
 
         #endregion
 
+        #region CRUD Theory Exam Format
+
+        public void CreateTheoryFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit)
+        {
+            // Creates a theory exam manager with no associated data (i.e. existing formats or templates)
+            examManager = ManagerFactory.CreateTheoryExamManager(examType);
+            TheoryComponentFormat format;
+            switch (examType)
+            {
+                case ExamType.PilotExam:
+                    format = examManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
+                    break;
+                case ExamType.PackerExam:
+                    format = examManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
+                    break;
+                default:
+                    throw new BusinessRuleException("Invalid exam type provided");
+            }
+            
+            _context.TheoryComponentFormats.Add(format);
+            _context.SaveChanges();
+        }
+
+        #endregion
 
         //Hook-in test method
         public string TestDBConnection()

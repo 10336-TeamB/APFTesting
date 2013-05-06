@@ -28,7 +28,6 @@ namespace APFTestingModel
             return new PracticalComponentManagerPacker(activePracticalTemplate);
         }
 
-        //REFACTORED
         public static ExamManager CreateExamManager(IEnumerable<TheoryQuestion> theoryQuestions, TheoryComponentFormat activeTheoryFormat, PracticalComponentTemplate activePracticalTemplate, ExamType examType)
         {
             ExamManager examManager;
@@ -46,6 +45,20 @@ namespace APFTestingModel
             }
 
             return examManager;
+        }
+
+        // Creates a theory exam manager with no associated data (i.e. existing formats or templates)
+        public static ExamManager CreateTheoryExamManager(ExamType examType)
+        {
+            switch (examType)
+            {
+                case ExamType.PilotExam:
+                    return new ExamManagerPilot(new TheoryComponentManagerPilot());
+                case ExamType.PackerExam:
+                    return new ExamManagerPacker(new TheoryComponentManagerPacker());
+                default:
+                    throw new BusinessRuleException("Invalid exam type provided");
+            }
         }
     }
 }

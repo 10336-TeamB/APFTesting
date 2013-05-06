@@ -16,6 +16,7 @@ namespace APFTestingModel
         protected PracticalComponentManager practicalComponentManager;
         protected TheoryComponentManager theoryComponentManager;
 
-        abstract public Exam GenerateExam(Guid examinerId, Guid candidateId);
+        public abstract Exam GenerateExam(Guid examinerId, Guid candidateId);
+        public abstract TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit);
     }
 }

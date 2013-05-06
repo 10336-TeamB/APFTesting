@@ -8,14 +8,9 @@ namespace APFTestingModel
 {
 	internal partial class TheoryComponentFormatPilot
 	{
-        public TheoryComponentFormatPilot()
-        {
-        }
+        public TheoryComponentFormatPilot() { }
 
-        public TheoryComponentFormatPilot(int numberOfQuestions, int passMark)
-        {
-            NumberOfQuestions = numberOfQuestions;
-            PassMark = passMark;
-        }
+        public TheoryComponentFormatPilot(int numberOfQuestions, int passMark, int timeLimit) 
+            : base(numberOfQuestions, passMark, timeLimit) { }
 	}
 }

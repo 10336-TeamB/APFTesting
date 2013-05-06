@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
     internal class TheoryComponentManagerPilot : TheoryComponentManager
     {
+        public TheoryComponentManagerPilot() { }
+
         public TheoryComponentManagerPilot(IEnumerable<TheoryQuestion> theoryQuestionsPilot, TheoryComponentFormat activeTheoryFormat) : base(theoryQuestionsPilot, activeTheoryFormat) { }
 
         public override TheoryComponent GenerateTheoryComponent()
@@ -15,6 +17,11 @@ namespace APFTestingModel
             TheoryComponentPilot theoryComponent = new TheoryComponentPilot(activeFormat);
             theoryComponent.SelectedTheoryQuestions = FetchRandomQuestions(activeFormat.NumberOfQuestions, theoryComponent);
             return theoryComponent;
+        }
+
+        public override TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit)
+        {
+            return new TheoryComponentFormatPilot(numberOfQuestions, passMark, timeLimit);
         }
     }
 }
