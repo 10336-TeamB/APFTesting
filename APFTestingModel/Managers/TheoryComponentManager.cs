@@ -37,5 +37,12 @@ namespace APFTestingModel
             } while (randomQuestionList.Count < numOfQuestions);
             return randomQuestionList;
         }
+
+		public TheoryQuestion CreateTheoryQuestion(TheoryQuestionDetails questionDetails)
+		{
+
+			return null;
+		}
+
 	}
 }

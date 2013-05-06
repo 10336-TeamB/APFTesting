@@ -262,6 +262,21 @@ namespace APFTestingModel
         #endregion
 
 
+		public void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType)
+		{
+			switch (examType)
+			{
+				case ExamType.PilotExam:
+					createExamManager(ExamType.PilotExam);
+					break;
+				case ExamType.PackerExam:
+					createExamManager(ExamType.PackerExam);
+					break;
+			}
+
+
+		}
+
 
 		/*=========================*/
 		/*      OTHER METHODS      */

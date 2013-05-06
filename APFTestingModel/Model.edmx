@@ -285,8 +285,8 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="APFNumber" Type="char" Nullable="false" MaxLength="6" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
-        </EntityType>
+			<Property Name="IsActive" Type="bit" Nullable="false" />
+		</EntityType>
         <EntityType Name="ExaminerAuthority">
           <Key>
             <PropertyRef Name="ExaminerId" />
@@ -1262,7 +1262,7 @@
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="String" Name="ImagePath" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Int16" Name="Category" Nullable="false" />
+          <Property Type="APFTestingDBModel.TheoryQuestionCategory" Name="Category" Nullable="false" />
           <NavigationProperty Name="Answers" Relationship="APFTestingDBModel.FK_Answer_TheoryQuestion" FromRole="TheoryQuestion" ToRole="Answer" />
 
           <NavigationProperty Name="SelectedTheoryQuestions" Relationship="APFTestingDBModel.FK_SelectedTheoryQuestion_TheoryQuestion" FromRole="TheoryQuestion" ToRole="SelectedTheoryQuestion" />
@@ -1615,6 +1615,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EnumType Name="TheoryQuestionCategory" UnderlyingType="Int16" a:ExternalTypeName="APFTestingModel.TheoryQuestionCategory" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
