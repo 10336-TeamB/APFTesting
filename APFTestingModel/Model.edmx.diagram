@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 
-      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="116">
+      <Diagram DiagramId="ab1a53e9aa5d489586658460db237bc1" Name="Diagram1" ZoomLevel="82">
         <AssociationConnector Association="APFTestingDBModel.FK_Person_Address" />
         <EntityTypeShape EntityType="APFTestingDBModel.Address" Width="1.5" PointX="23.5" PointY="2.375" />
         <EntityTypeShape EntityType="APFTestingDBModel.Answer" Width="1.5" PointX="29.75" PointY="14.375" />
@@ -89,7 +89,11 @@
         </AssociationConnector>
         <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentPacker_PracticalComponentTemplatePacker" />
         <AssociationConnector Association="APFTestingDBModel.FK_PracticalComponentPilot_PracticalComponentTemplatePilot" />
-
+        <EntityTypeShape EntityType="APFTestingDBModel.Administrator" Width="1.5" PointX="10.969528728616204" PointY="10.890591417853996" />
+        <EntityTypeShape EntityType="APFTestingDBModel.User" Width="1.5" PointX="2.622520623087194" PointY="2.990403996310385" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Administrator_User" />
+        <AssociationConnector Association="APFTestingDBModel.FK_Examiner_User" />
+        <InheritanceConnector EntityType="APFTestingDBModel.Administrator" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
