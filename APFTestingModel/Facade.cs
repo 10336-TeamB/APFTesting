@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using APFTestingMembership;
 
 namespace APFTestingModel
 {
@@ -260,6 +261,21 @@ namespace APFTestingModel
         #endregion
 
 
+		public void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType)
+		{
+			switch (examType)
+			{
+				case ExamType.PilotExam:
+					createExamManager(ExamType.PilotExam);
+					break;
+				case ExamType.PackerExam:
+					createExamManager(ExamType.PackerExam);
+					break;
+			}
+
+
+		}
+
 
 		/*=========================*/
 		/*      OTHER METHODS      */
@@ -492,6 +508,49 @@ namespace APFTestingModel
         }
 
         #endregion
+
+        /*=====================*/
+        /*   CREATE EXAMINER   */
+        /*=====================*/
+
+        #region CRUD Examiner
+        
+        private Examiner fetchExaminer(Guid examinerId) 
+        {
+            return _context.People.OfType<Examiner>().Include("ExaminerAuthorities").First(e => e.Id == examinerId);
+        }
+
+        public void CreateExaminer(ExaminerDetails examinerDetails)
+        {
+            Membership membership = new Membership();
+            int userId = membership.RegisterExaminer(examinerDetails.UserName, examinerDetails.Password);
+            Examiner examiner = new Examiner(examinerDetails, userId);
+            _context.People.Add(examiner);
+            _context.SaveChanges();
+        }
+
+        public void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails)
+        {
+            Examiner examiner = fetchExaminer(examinerId);
+            examiner.EditExaminer(examinerDetails);
+            _context.SaveChanges();
+        }
+
+        public void DeleteExaminer(Guid examinerId)
+        {
+            Examiner examiner = fetchExaminer(examinerId);
+            _context.People.Remove(examiner);
+            _context.SaveChanges();
+        }
+
+        public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
+        {
+            Examiner examiner = fetchExaminer(examinerId);
+            examiner.EditActiveStatus(isActive);
+            _context.SaveChanges();
+        }
+
+        #region
 
         //Hook-in test method
         public string TestDBConnection()

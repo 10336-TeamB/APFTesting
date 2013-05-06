@@ -52,6 +52,9 @@
     <Compile Include="Address.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Administrator.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Answer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -97,6 +100,7 @@
     <Compile Include="Interfaces\IAddress.cs" />
     <Compile Include="Interfaces\ICandidatePacker.cs" />
     <Compile Include="Interfaces\ICandidatePilot.cs" />
+    <Compile Include="Interfaces\IExaminer.cs" />
     <Compile Include="Interfaces\IFacade.cs" />
     <Compile Include="Interfaces\ICandidate.cs" />
     <Compile Include="Interfaces\IExam.cs" />
@@ -143,6 +147,7 @@
     <Compile Include="Partials\CandidatePilot.cs" />
     <Compile Include="Partials\CandidatePacker.cs" />
     <Compile Include="Partials\Exam.cs" />
+    <Compile Include="Partials\Examiner.cs" />
     <Compile Include="Partials\ExamPacker.cs" />
     <Compile Include="Partials\ExamPilot.cs" />
     <Compile Include="Partials\Person.cs" />
@@ -167,6 +172,7 @@
     <Compile Include="Managers\PracticalComponentManager.cs" />
     <Compile Include="ExamStateMachine\PracticalComponentFailed.cs" />
     <Compile Include="ExamStateMachine\PracticalComponentCompleted.cs" />
+    <Compile Include="Partials\TheoryQuestion.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -226,6 +232,9 @@
     <Compile Include="TheoryQuestionPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">
@@ -253,7 +262,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\APFTestingMembership\APFTestingMembership.csproj">
+      <Project>{d20d7697-9c41-439c-8f51-bcef6b4d429b}</Project>
+      <Name>APFTestingMembership</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
