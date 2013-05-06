@@ -37,7 +37,7 @@ namespace APFTestingModel.Tests
             }
         }
 
-        public TheoryComponentFormat TheoryComponentFormat = new TheoryComponentFormatPilot(5, 80);
+        public TheoryComponentFormat TheoryComponentFormat = new TheoryComponentFormatPilot(5, 80, 0);
 
         public float Score
 		{

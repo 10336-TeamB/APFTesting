@@ -148,6 +148,7 @@
     <Compile Include="Partials\CandidatePacker.cs" />
     <Compile Include="Partials\Exam.cs" />
     <Compile Include="Partials\Examiner.cs" />
+    <Compile Include="Partials\ExaminerAuthority.cs" />
     <Compile Include="Partials\ExamPacker.cs" />
     <Compile Include="Partials\ExamPilot.cs" />
     <Compile Include="Partials\Person.cs" />

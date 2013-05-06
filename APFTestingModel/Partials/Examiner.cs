@@ -20,7 +20,7 @@ namespace APFTestingModel
             FirstName = examinerDetails.FirstName;
             LastName = examinerDetails.LastName;
             APFNumber = examinerDetails.APFNumber;
-            ExaminerAuthorities = examinerDetails.authorities;
+            ExaminerAuthorities = examinerDetails.Authorities.Select(a => new ExaminerAuthority(Id, a)).ToList();
         }
 
         public void EditActiveStatus(bool isActive)

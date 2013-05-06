@@ -60,8 +60,10 @@ namespace APFTestingModel
         public string UserName { get; set; }
         public string Password { get; set; }
         public string APFNumber { get; set; }
-        public List<ExaminerAuthority> authorities { get; set; }
+        public List<ExamType> Authorities { get; set; }
     }
+
+    
 	
 		public struct TheoryQuestionDetails
 	{

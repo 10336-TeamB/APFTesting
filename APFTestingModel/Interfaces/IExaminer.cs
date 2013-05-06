@@ -12,6 +12,6 @@ namespace APFTestingModel
         string LastName { get; }
         string APFNumber { get; }
         int UserId { get; }
-        ICollection<ExaminerAuthority> ExaminerAuthorities { get; }
+        //ICollection<ExaminerAuthority> ExaminerAuthorities { get; }
     }
 }
