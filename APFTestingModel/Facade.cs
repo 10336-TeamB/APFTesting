@@ -277,6 +277,11 @@ namespace APFTestingModel
 			_context.SaveChanges();
 		}
 
+        public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
+        {
+            return _context.TheoryQuestions;
+        }
+
 
 		/*=========================*/
 		/*      OTHER METHODS      */

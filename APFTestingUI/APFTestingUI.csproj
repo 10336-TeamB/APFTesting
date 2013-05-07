@@ -165,6 +165,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminBaseController.cs" />
+    <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administration\Controllers\QuestionManagementController.cs" />
+    <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
+    <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
+    <Compile Include="Areas\Administration\Models\QuestionManagement\TheoryQuestionItem.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssessmentTaskController.cs" />
@@ -309,6 +316,8 @@
     <Content Include="Scripts\exam.js" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Areas\Administration\Views\Web.config" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\IndexPilot.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -384,6 +393,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

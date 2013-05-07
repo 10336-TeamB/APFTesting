@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-	internal partial class TheoryQuestion
+	internal partial class TheoryQuestion : ITheoryQuestion
 	{
 		public TheoryQuestion(TheoryQuestionDetails questionDetails)
 		{
