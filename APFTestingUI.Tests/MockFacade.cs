@@ -196,5 +196,11 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

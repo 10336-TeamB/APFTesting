@@ -277,6 +277,11 @@ namespace APFTestingModel
 			_context.SaveChanges();
 		}
 
+        public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
+        {
+            return _context.TheoryQuestions;
+        }
+
 
 		/*=========================*/
 		/*      OTHER METHODS      */
@@ -397,13 +402,13 @@ namespace APFTestingModel
 
         public IAssessmentTaskPilot CreateAssessmentTaskPilot(AssessmentTaskPilotDetails details)
         {
-            return createAssessmentTaskPilot(details.Title, details.Details, details.MaxScore);
+            return (IAssessmentTaskPilot)createAssessmentTask(details);
         }
 
-        private AssessmentTaskPilot createAssessmentTaskPilot(string title, string details, int maxScore)
+        private AssessmentTask createAssessmentTask(AssessmentTaskPilotDetails details)
         {
-            //Should creation be associated with the Practical Manager?
-            AssessmentTaskPilot assessmentTask = new AssessmentTaskPilot(title, details, maxScore);
+            examManager = ManagerFactory.CreatePracticalExamManangerPilot();
+            AssessmentTask assessmentTask = (examManager as ExamManagerPilot).CreateAssessmentTask(details);
             _context.AssessmentTasks.Add(assessmentTask);
             _context.SaveChanges();
             return assessmentTask;
@@ -416,19 +421,13 @@ namespace APFTestingModel
 
         public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
         {
-            return editAssessmentTaskPilot(id, details.Title, details.Details, details.MaxScore);
+            return editAssessmentTaskPilot(id, details);
         }
 
-        private AssessmentTaskPilot editAssessmentTaskPilot(Guid id, string title, string details, int maxScore)
+        private AssessmentTaskPilot editAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
         {
-            if (checkIsReferenced(id))
-            {
-                throw new BusinessRuleException("Assessment task is used by one or more templates. It cannot be modified.");
-            }
             var assessmentTask = fetchAssessmentTaskPilot(id);
-            assessmentTask.Title = title;
-            assessmentTask.Details = details;
-            assessmentTask.MaxScore = maxScore;
+            assessmentTask.Edit(details);
             _context.SaveChanges();
             return assessmentTask;
         }
@@ -440,29 +439,15 @@ namespace APFTestingModel
 
         private void deleteAssessmentTaskPilot(Guid id)
         {
-            if (checkIsReferenced(id))
+            try
+            {
+                _context.AssessmentTasks.Remove(fetchAssessmentTaskPilot(id));
+            }
+            catch (Exception)
             {
                 throw new BusinessRuleException("Assessment task is used by one or more templates. It cannot be deleted.");
             }
-            _context.AssessmentTasks.Remove(fetchAssessmentTaskPilot(id));
             _context.SaveChanges();
-        }
-
-        private bool checkIsReferenced(Guid id)
-        {
-            //Need to test this method a bit more
-            return _context.SelectedAssessmentTasks.Any(s => s.AssessmentTaskPilot.Id == id);
-
-            //bool isReferenced = false;
-            //var referencedTemplates = _context.PracticalComponentTemplates.Include("AssessmentTaskPilots").OfType<PracticalComponentTemplatePilot>().Where(t => t.PracticalComponentPilots.Count() > 0).Distinct().ToList();
-            //foreach (var r in referencedTemplates)
-            //{
-            //    if (r.AssessmentTaskPilots.Any(a => a.Id == id))
-            //    {
-            //        isReferenced = true;
-            //    }
-            //}
-            //return isReferenced;
         }
 
         public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()

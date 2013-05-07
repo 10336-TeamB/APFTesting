@@ -17,7 +17,7 @@ namespace APFTestingModel
 
         #endregion
 
-        IEnumerable<IAnswer> ITheoryQuestion.PossibleAnswers
+        IEnumerable<IAnswer> ITheoryQuestion.Answers
         {
             get { return Answers; }
         }
