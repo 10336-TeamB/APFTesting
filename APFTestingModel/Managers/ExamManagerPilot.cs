@@ -27,10 +27,5 @@ namespace APFTestingModel
             ExamPilot examPilot = new ExamPilot(examinerId, candidateId, theoryComponentPilot, practicalComponentPilot);
             return examPilot;
         }
-
-        public override TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit)
-        {
-            return theoryComponentManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
-        }
     }
 }

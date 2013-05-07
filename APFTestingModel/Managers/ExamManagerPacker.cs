@@ -27,10 +27,5 @@ namespace APFTestingModel
             ExamPacker examPacker = new ExamPacker(examinerId, candidateId, theoryComponentPacker, practicalComponentPacker);
             return examPacker;
         }
-
-        public override TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit)
-        {
-            return theoryComponentManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
-        }
     }
 }
