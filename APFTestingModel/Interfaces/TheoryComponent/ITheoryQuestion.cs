@@ -12,7 +12,7 @@ namespace APFTestingModel
         int NumberOfCorrectAnswers { get; }
         bool IsActive { get; }
         string Description { get; }
-        IEnumerable<IAnswer> PossibleAnswers { get; }
+        IEnumerable<IAnswer> Answers { get; }
         string ImagePath { get; }
 
     }

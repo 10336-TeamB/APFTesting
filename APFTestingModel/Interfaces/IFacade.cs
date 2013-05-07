@@ -52,5 +52,7 @@ namespace APFTestingModel
         void DeleteAssessmentTaskPilot(Guid id);
         IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot();
 
+        IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot();
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using APFTestingModel;
+using APFTestingUI.Areas.Administration.Models.QuestionManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,13 @@ namespace APFTestingUI.Areas.Administration.Controllers
     {
         public QuestionManagementController(IFacade facade) : base(facade) { }
         
-        public ActionResult Index()
+        public ActionResult IndexPilot()
         {
-            
+            return View(new IndexPilot(_facade.FetchAllTheoryQuestionsPilot()));
+        }
+
+        public ActionResult IndexPacker()
+        {
             return View();
         }
 
