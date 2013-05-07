@@ -1,0 +1,49 @@
+﻿@model APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement.AssessmentTaskList
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    #Assessment-Tasks-List {
+
+    }
+    
+    #Assessment-Tasks-List .Assessment-Task-Title {
+
+    }
+
+    #Assessment-Tasks-List .Assessment-Task-Max-Score {
+    }
+
+    #Assessment-Tasks-List .Assessment-Task-Actions {
+    }
+
+</style>
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="Assessment-Tasks-List">
+    <tr>
+        <th>Title</th>
+        <th>Details</th>
+        <th>Max Score</th>
+        <th>&nbsp;</th>
+    </tr>
+
+@foreach (var item in Model.AssessmentTasks)
+{
+    <tr>
+        <td class="Assessment-Task-Title">@item.Title</td>
+        <td class="Assessment-Task-Details">@item.Details</td>
+        <td class="Assessment-Task-Max-Score">@item.MaxScore</td>
+        <td class="Assessment-Task-Actions">
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

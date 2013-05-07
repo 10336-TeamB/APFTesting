@@ -174,7 +174,7 @@
     <Compile Include="Areas\Administration\Models\QuestionManagement\TheoryQuestionItem.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AssessmentTaskController.cs" />
+    <Compile Include="Areas\Administration\Controllers\AssessmentTaskController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\DummyPack.cs" />
@@ -212,8 +212,8 @@
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
-    <Compile Include="Models\PracticalManagement\AssessmentTaskItem.cs" />
-    <Compile Include="Models\PracticalManagement\AssessmentTaskList.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskItem.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskList.cs" />
     <Compile Include="Models\Practical\AssessmentTaskInputItem.cs" />
     <Compile Include="Models\Practical\AssessmentTaskDisplayItem.cs" />
     <Compile Include="Models\Practical\PackerEdit.cs" />
@@ -389,7 +389,7 @@
     <Content Include="Views\Practical\PackerView.cshtml" />
     <Content Include="Views\Practical\PackerInput.cshtml" />
     <Content Include="Views\Practical\PackerEdit.cshtml" />
-    <Content Include="Views\AssessmentTask\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\AssessmentTask\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
