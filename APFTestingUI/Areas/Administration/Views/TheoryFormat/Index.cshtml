@@ -1,0 +1,57 @@
+﻿@model APFTestingUI.Areas.Administration.Models.TheoryFormat.Index
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Theory Exam Format Display</h1>
+
+<h2>Pilot Formats</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Active</th>
+            <th>Number of Questions</th>
+            <th>Pass Mark</th>
+            <th>Time Limit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var format in Model.PilotFormats)
+        {
+
+            <tr>
+                <td>@format.IsActive</td>
+                <td>@format.NumberOfQuestions</td>
+                <td>@format.PassMark</td>
+                <td>@format.TimeLimit</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Packer Formats</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Active</th>
+            <th>Number of Questions</th>
+            <th>Pass Mark</th>
+            <th>Time Limit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var format in Model.PackerFormats)
+        {
+
+            <tr>
+                <td>@format.IsActive</td>
+                <td>@format.NumberOfQuestions</td>
+                <td>@format.PassMark</td>
+                <td>@format.TimeLimit</td>
+            </tr>
+        }
+    </tbody>
+</table>
