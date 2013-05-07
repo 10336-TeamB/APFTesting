@@ -51,12 +51,21 @@ namespace APFTestingModel
         IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details);
         void DeleteAssessmentTaskPilot(Guid id);
         IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot();
+        IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid AssessmentTaskId);
 
         IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot();
+
 
         void CreateExaminer(ExaminerDetails examinerDetails);
         void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails);
         void DeleteExaminer(Guid examinerId);
         void EditExaminerActiveStatus(Guid examinerId, bool isActive);
+
+        ITheoryComponentFormat[][] FetchAllTheoryExamFormats();
+        void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit);
+        void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
+        void DeleteTheoryExamFormat(Guid formatId);
+
+
     }
 }

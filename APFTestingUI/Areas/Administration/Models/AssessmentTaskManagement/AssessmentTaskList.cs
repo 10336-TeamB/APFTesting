@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace APFTestingUI.Models.PracticalManagement
+namespace APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement
 {
     public class AssessmentTaskList
     {

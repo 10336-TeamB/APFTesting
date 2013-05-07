@@ -22,5 +22,29 @@ namespace APFTestingUI.Areas.Administration.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult CreatePilot()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreatePilot(Create model)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult CreatePacker()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreatePacker(Create model)
+        {
+            return View();
+        }
+
     }
 }

@@ -170,14 +170,21 @@
     <Compile Include="Areas\Administration\Controllers\ExaminerController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\QuestionManagementController.cs" />
+
     <Compile Include="Areas\Administration\Models\ExaminerManagement\CreateExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\EditExaminer.cs" />
+
+    <Compile Include="Areas\Administration\Controllers\TheoryFormatController.cs" />
+
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
+    <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\TheoryQuestionItem.cs" />
+    <Compile Include="Areas\Administration\Models\TheoryFormat\FormatDisplayItem.cs" />
+    <Compile Include="Areas\Administration\Models\TheoryFormat\Index.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AssessmentTaskController.cs" />
+    <Compile Include="Areas\Administration\Controllers\AssessmentTaskController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\DummyPack.cs" />
@@ -215,8 +222,8 @@
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
-    <Compile Include="Models\PracticalManagement\AssessmentTaskItem.cs" />
-    <Compile Include="Models\PracticalManagement\AssessmentTaskList.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskItem.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskList.cs" />
     <Compile Include="Models\Practical\AssessmentTaskInputItem.cs" />
     <Compile Include="Models\Practical\AssessmentTaskDisplayItem.cs" />
     <Compile Include="Models\Practical\PackerEdit.cs" />
@@ -320,8 +327,19 @@
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Areas\Administration\Views\QuestionManagement\IndexPilot.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Administration\Views\Examiner\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Web.config" />
+=======
+
+    <Content Include="Areas\Administration\Views\AssessmentTask\Details.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Administration\Views\QuestionManagement\CreatePilot.cshtml" />
+
+    <Content Include="Areas\Administration\Views\TheoryFormat\Index.cshtml" />
+
+>>>>>>> 7f58952950eea17629b022744912d87a6b7715f8
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -393,7 +411,7 @@
     <Content Include="Views\Practical\PackerView.cshtml" />
     <Content Include="Views\Practical\PackerInput.cshtml" />
     <Content Include="Views\Practical\PackerEdit.cshtml" />
-    <Content Include="Views\AssessmentTask\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\AssessmentTask\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

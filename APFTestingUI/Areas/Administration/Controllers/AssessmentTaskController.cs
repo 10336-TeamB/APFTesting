@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using APFTestingModel;
-using APFTestingUI.Models.PracticalManagement;
+using APFTestingUI.Controllers;
+using APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement;
 
-namespace APFTestingUI.Controllers
+namespace APFTestingUI.Areas.Administration.Controllers
 {
     public class AssessmentTaskController : BaseController
     {
@@ -15,6 +16,12 @@ namespace APFTestingUI.Controllers
         public ActionResult Index()
         {
             var model = new AssessmentTaskList() { AssessmentTasks  = _facade.FetchAllAssessmentTaskPilot().Select(a => new AssessmentTaskItem(a)).ToList() };
+            return View(model);
+        }
+
+        public ActionResult Details(Guid id)
+        {
+            var model = new AssessmentTaskItem(_facade.FetchAssessmentTaskPilot(id));
             return View(model);
         }
 

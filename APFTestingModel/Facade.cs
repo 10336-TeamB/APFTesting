@@ -414,9 +414,14 @@ namespace APFTestingModel
             return assessmentTask;
         }
 
+        public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid id)
+        {
+            return fetchAssessmentTaskPilot(id);
+        }
+
         private AssessmentTaskPilot fetchAssessmentTaskPilot(Guid id)
         {
-            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().FirstOrDefault(a => a.Id == id);
+            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").FirstOrDefault(a => a.Id == id);
         }
 
         public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
@@ -457,7 +462,7 @@ namespace APFTestingModel
 
         private List<AssessmentTaskPilot> fetchAllAssessmentTaskPilot()
         {
-            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().ToList();
+            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").ToList();
         }
 
 
@@ -465,7 +470,26 @@ namespace APFTestingModel
 
         #region CRUD Theory Exam Format
 
-        public void CreateTheoryFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit)
+        public ITheoryComponentFormat[][] FetchAllTheoryExamFormats()
+        {
+            ITheoryComponentFormat[][] result;
+
+            var formats = _context.TheoryComponentFormats.ToList();
+            var pilotFormats = formats.OfType<TheoryComponentFormatPilot>().ToArray();
+            var packerFormats = formats.OfType<TheoryComponentFormatPacker>().ToArray();
+
+            result = new ITheoryComponentFormat[2][];
+
+            result[0] = new ITheoryComponentFormat[pilotFormats.Length];
+            result[0] = pilotFormats;
+
+            result[1] = new ITheoryComponentFormat[packerFormats.Length];
+            result[1] = packerFormats;
+
+            return result;
+        }
+
+        public void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit)
         {
             // Creates a theory exam manager with no associated data (i.e. existing formats or templates)
             examManager = ManagerFactory.CreateTheoryExamManager(examType);
@@ -486,6 +510,33 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        public void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit)
+        {
+            var format = _context.TheoryComponentFormats.Include("TheoryComponents").FirstOrDefault(f => f.Id == formatId);
+            if (format == null)
+            {
+                throw new BusinessRuleException("Invalid FormatID");
+            }
+            format.Edit(numberOfQuestions, passMark, timeLimit);
+            _context.SaveChanges();
+        }
+
+        public void DeleteTheoryExamFormat(Guid formatId)
+        {
+            var format = _context.TheoryComponentFormats.Include("TheoryComponents").FirstOrDefault(f => f.Id == formatId);
+            if (format == null)
+            {
+                throw new BusinessRuleException("Invalid FormatID");
+            }
+            format.Delete(this);
+        }
+
+        internal void deleteTheoryExamFormat(TheoryComponentFormat format)
+        {
+            _context.TheoryComponentFormats.Remove(format);
+            _context.SaveChanges();
+        }
+        
         #endregion
 
         /*=====================*/

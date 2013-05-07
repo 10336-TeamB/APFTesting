@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using APFTestingModel;
 
-namespace APFTestingUI.Models.PracticalManagement
+namespace APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement
 {
     public class AssessmentTaskItem
     {
@@ -14,11 +14,13 @@ namespace APFTestingUI.Models.PracticalManagement
             Title = assessmentTask.Title;
             Details = assessmentTask.Details;
             MaxScore = assessmentTask.MaxScore;
+            Editable = assessmentTask.EnableChange;
         }
 
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
         public int MaxScore { get; set; }
+        public bool Editable { get; set; }
     }
 }

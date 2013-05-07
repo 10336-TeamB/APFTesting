@@ -6,20 +6,6 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel 
 {
-    //public enum ExamStatus
-    //{
-    //    NoExamCreated = 0,
-    //    ExamCreated = 1,
-    //    TheoryComponentInProgress = 2,
-    //    TheoryComponentFailed = 3,
-    //    TheoryComponentCompleted = 4,
-    //    PracticalComponentFailed = 5,
-    //    PracticalComponentCompleted = 6,
-    //    ExamCompleted = 7,
-    //    ExamVoided = 8,
-    //    Count = 8
-    //}
-
     internal abstract partial class Exam : IExam
     {
         protected ExamState _examState;
@@ -87,7 +73,6 @@ namespace APFTestingModel
             return format;
 		}
         
-        //REFACTORED
         public SelectedTheoryQuestion FetchFirstQuestion()
         {
             SelectedTheoryQuestion question = null;
@@ -144,7 +129,6 @@ namespace APFTestingModel
             _examState.AnswerQuestion(a);
         }
 
-        //REFACTORED
 		public void SubmitTheoryComponent()
 		{
 			Action a = delegate { ExamStatus = (TheoryComponentCompetency) ? ExamStatus.TheoryPassed : ExamStatus.TheoryFailed; };
@@ -159,7 +143,6 @@ namespace APFTestingModel
 			return TheoryComponent;
 		}
 		
-        //REFACTORED
 		public void VoidExam()
 		{
 
@@ -183,7 +166,6 @@ namespace APFTestingModel
 		}
 		
 		#endregion
-
 
         partial void OnExamStatusChanged()
         {

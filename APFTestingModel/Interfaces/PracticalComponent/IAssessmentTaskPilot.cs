@@ -12,5 +12,6 @@ namespace APFTestingModel
         string Title { get; }
         string Details { get; }
         int MaxScore { get; }
+        bool EnableChange { get; }
     }
 }
