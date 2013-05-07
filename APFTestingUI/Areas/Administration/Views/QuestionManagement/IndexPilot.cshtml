@@ -6,3 +6,43 @@
 }
 
 <h2>IndexPilot</h2>
+
+@if (Model.TheoryQuestions.Count() > 0)
+{
+    <table>
+
+        <thead>
+            <tr>
+                <th>Activation</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var question in Model.TheoryQuestions)
+            {
+                <tr>
+                    <td>
+                        @switch (question.IsActive)
+                        {
+                            case true:
+                                <a href="#">
+                                    IMAGE
+                                </a>
+                                break;
+                            case false:
+                                <a href="#">
+                                    IMAGE
+                                </a>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink(question.Description, "#");
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
