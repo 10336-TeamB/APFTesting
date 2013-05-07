@@ -318,6 +318,9 @@
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Areas\Administration\Views\Web.config" />
     <Content Include="Areas\Administration\Views\QuestionManagement\IndexPilot.cshtml" />
+    <Content Include="Areas\Administration\Views\AssessmentTask\Details.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />

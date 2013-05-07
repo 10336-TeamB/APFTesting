@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement
+namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 {
     public class IndexPilot
     {

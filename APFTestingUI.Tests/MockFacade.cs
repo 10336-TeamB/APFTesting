@@ -202,5 +202,11 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid AssessmentTaskId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

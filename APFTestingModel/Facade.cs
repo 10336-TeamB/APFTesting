@@ -414,9 +414,14 @@ namespace APFTestingModel
             return assessmentTask;
         }
 
+        public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid id)
+        {
+            return fetchAssessmentTaskPilot(id);
+        }
+
         private AssessmentTaskPilot fetchAssessmentTaskPilot(Guid id)
         {
-            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().FirstOrDefault(a => a.Id == id);
+            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").FirstOrDefault(a => a.Id == id);
         }
 
         public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
@@ -457,7 +462,7 @@ namespace APFTestingModel
 
         private List<AssessmentTaskPilot> fetchAllAssessmentTaskPilot()
         {
-            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().ToList();
+            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").ToList();
         }
 
 

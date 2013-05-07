@@ -19,9 +19,10 @@ namespace APFTestingUI.Areas.Administration.Controllers
             return View(model);
         }
 
-        public ActionResult Details()
+        public ActionResult Details(Guid id)
         {
-            return View();
+            var model = new AssessmentTaskItem(_facade.FetchAssessmentTaskPilot(id));
+            return View(model);
         }
 
     }

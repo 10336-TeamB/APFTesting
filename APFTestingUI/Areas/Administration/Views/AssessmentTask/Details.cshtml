@@ -2,6 +2,19 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div id="Assessment-Task-Details-View">
+    <h2>Assessment Task Details</h2>
+    @Html.HiddenFor(m => m.Id)
+
+    @Html.LabelFor(m => m.Title): @Html.DisplayFor(m => m.Title)
+    <div class="clear"></div>
+
+    @Html.LabelFor(m => m.Details): @Html.DisplayFor(m => m.Details)
+    <div class="clear"></div>
+
+    @Html.LabelFor(m => m.MaxScore): @Html.DisplayFor(m => m.MaxScore)
+    <div class="clear"></div>
+</div>
