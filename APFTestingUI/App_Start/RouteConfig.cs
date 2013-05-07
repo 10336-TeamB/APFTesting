@@ -25,7 +25,8 @@ namespace APFTestingUI {
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{examId}",
-                defaults: new { controller = "Home", action = "Index", examId = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", examId = UrlParameter.Optional },
+                namespaces: new string[] { "APFTestingUI.Controllers" }
             );
         }
     }
