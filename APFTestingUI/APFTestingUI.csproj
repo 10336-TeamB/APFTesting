@@ -169,9 +169,12 @@
     <Compile Include="Areas\Administration\Controllers\AdminBaseController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\QuestionManagementController.cs" />
+    <Compile Include="Areas\Administration\Controllers\TheoryFormatController.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\TheoryQuestionItem.cs" />
+    <Compile Include="Areas\Administration\Models\TheoryFormat\FormatDisplayItem.cs" />
+    <Compile Include="Areas\Administration\Models\TheoryFormat\Index.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssessmentTaskController.cs" />
@@ -318,6 +321,7 @@
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Areas\Administration\Views\Web.config" />
     <Content Include="Areas\Administration\Views\QuestionManagement\IndexPilot.cshtml" />
+    <Content Include="Areas\Administration\Views\TheoryFormat\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
