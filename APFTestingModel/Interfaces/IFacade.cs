@@ -54,6 +54,11 @@ namespace APFTestingModel
         IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid AssessmentTaskId);
 
         IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot();
-        
+
+        ITheoryComponentFormat[][] FetchAllTheoryExamFormats();
+        void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit);
+        void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
+        void DeleteTheoryExamFormat(Guid formatId);
+
     }
 }

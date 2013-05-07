@@ -205,6 +205,27 @@ namespace APFTestingUI.Tests
 
 
         public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid AssessmentTaskId)
+		{
+			throw new NotImplementedException();
+		}
+		
+		
+        public ITheoryComponentFormat[][] FetchAllTheoryExamFormats()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteTheoryExamFormat(Guid formatId)
         {
             throw new NotImplementedException();
         }

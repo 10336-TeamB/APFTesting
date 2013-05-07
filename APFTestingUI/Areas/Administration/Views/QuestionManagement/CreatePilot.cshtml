@@ -1,0 +1,24 @@
+﻿@model APFTestingUI.Areas.Administration.Models.QuestionManagement.Create
+
+@{
+    ViewBag.Title = "CreatePilot";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreatePilot</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Description) <em>*</em>
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Description)
+    </div>
+    <div class="clear"></div>
+
+    //TODO
+}
+

@@ -24,7 +24,8 @@ namespace APFTestingModel
     
     	public int UserId { get; set; }
     	public string APFNumber { get; set; }
-		public bool IsActive { get; set; }    
+    	public bool IsActive { get; set; }
+    
         public virtual ICollection<CandidatePacker> CandidatePackers { get; set; }
         public virtual ICollection<CandidatePilot> CandidatePilots { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }

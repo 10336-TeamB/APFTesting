@@ -7,42 +7,50 @@
 
 <h2>IndexPilot</h2>
 
-@if (Model.TheoryQuestions.Count() > 0)
-{
-    <table>
+<div>
+    <a href="#">
+        ADD
+    </a>
+</div>
 
-        <thead>
-            <tr>
-                <th>Activation</th>
-                <th>Description</th>
-            </tr>
-        </thead>
+<div>
+    @if (Model.TheoryQuestions.Count() > 0)
+    {
+        <table>
 
-        <tbody>
-            @foreach (var question in Model.TheoryQuestions)
-            {
+            <thead>
                 <tr>
-                    <td>
-                        @switch (question.IsActive)
-                        {
-                            case true:
-                                <a href="#">
-                                    IMAGE
-                                </a>
-                                break;
-                            case false:
-                                <a href="#">
-                                    IMAGE
-                                </a>
-                                break;
-                        }
-                    </td>
-                    <td>
-                        @Html.ActionLink(question.Description, "#");
-                    </td>
+                    <th>Activation</th>
+                    <th>Description</th>
                 </tr>
-            }
-        </tbody>
+            </thead>
 
-    </table>
-}
+            <tbody>
+                @foreach (var question in Model.TheoryQuestions)
+                {
+                    <tr>
+                        <td>
+                            @switch (question.IsActive)
+                            {
+                                case true:
+                                    <a href="#">
+                                        ON
+                                    </a>
+                                    break;
+                                case false:
+                                    <a href="#">
+                                        OFF
+                                    </a>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink(question.Description, "#");
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+</div>
