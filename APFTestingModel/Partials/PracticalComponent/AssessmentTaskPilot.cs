@@ -8,11 +8,24 @@ namespace APFTestingModel
 {
     internal partial class AssessmentTaskPilot : IAssessmentTaskPilot
     {
-        public AssessmentTaskPilot(string title, string details, int maxScore)
+        public AssessmentTaskPilot(AssessmentTaskPilotDetails details)
         {
-            Title = title;
-            Details = details;
-            MaxScore = maxScore;
+            Edit(details);
+        }
+
+        public void Edit(AssessmentTaskPilotDetails details)
+        {
+            if (!EnableChange)
+            {
+                throw new Exception("Assessment task is used by one or more templates. It cannot be modified.");
+            }
+            Title = details.Title;
+            Details = details.Details;
+            MaxScore = details.MaxScore;
+        }
+
+        public bool EnableChange {
+            get { return !this.SelectedAssessmentTasks.Any(); }
         }
     }
 }

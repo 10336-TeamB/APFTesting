@@ -10,6 +10,8 @@ namespace APFTestingModel
     {
         public PracticalComponentManagerPilot(PracticalComponentTemplate activeTemplate) : base(activeTemplate) { }
 
+        public PracticalComponentManagerPilot() { }
+
         public override PracticalComponent GeneratePracticalComponent()
         {
             List<SelectedAssessmentTask> selectedAssessmentTasks = new List<SelectedAssessmentTask>();
@@ -22,6 +24,11 @@ namespace APFTestingModel
             PracticalComponentPilot practicalComponentPilot = new PracticalComponentPilot(activeTemplate, selectedAssessmentTasks);
             
             return practicalComponentPilot;
+        }
+
+        public AssessmentTask CreateAssessmentTask(AssessmentTaskPilotDetails details)
+        {
+            return new AssessmentTaskPilot(details);
         }
     }
 }
