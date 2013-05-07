@@ -76,6 +76,16 @@ namespace APFTestingModel
         public string Password { get; set; }
         public string APFNumber { get; set; }
         public List<ExamType> Authorities { get; set; }
+
+        public ExaminerDetails(string firstName, string lastName, string username, string password, string apfNumber, List<ExamType> authorities) : this()
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            UserName = username;
+            Password = password;
+            APFNumber = apfNumber;
+            Authorities = authorities;
+        }
     }
 	
 		public struct TheoryQuestionDetails

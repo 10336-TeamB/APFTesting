@@ -54,5 +54,9 @@ namespace APFTestingModel
 
         IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot();
 
+        void CreateExaminer(ExaminerDetails examinerDetails);
+        void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails);
+        void DeleteExaminer(Guid examinerId);
+        void EditExaminerActiveStatus(Guid examinerId, bool isActive);
     }
 }

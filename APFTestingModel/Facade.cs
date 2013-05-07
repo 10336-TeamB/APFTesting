@@ -328,7 +328,7 @@ namespace APFTestingModel
                 {
                     tasks.First(t => t.Id == r.Id).RecordResult(r);
                 }
-                catch (ArgumentNullException e)
+                catch (ArgumentNullException)
                 {
                     //TODO: Log exception
                     throw new BusinessRuleException("Error while recording results. The requested result could not be found");
