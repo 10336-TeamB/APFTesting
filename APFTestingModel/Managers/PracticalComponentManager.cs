@@ -12,6 +12,8 @@ namespace APFTestingModel
 
         public abstract PracticalComponent GeneratePracticalComponent();
 
+        public PracticalComponentManager() { }
+
         public PracticalComponentManager(PracticalComponentTemplate activeTemplate)
         {
             this.activeTemplate = activeTemplate;

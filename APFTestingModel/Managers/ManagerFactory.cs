@@ -60,5 +60,11 @@ namespace APFTestingModel
                     throw new BusinessRuleException("Invalid exam type provided");
             }
         }
+
+        // Creates a practical exam manager with no associated data (i.e. existing formats or templates)
+        public static ExamManagerPilot CreatePracticalExamManangerPilot()
+        {
+            return new ExamManagerPilot(new PracticalComponentManagerPilot());
+        }
     }
 }

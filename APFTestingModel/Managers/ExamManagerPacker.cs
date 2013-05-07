@@ -8,6 +8,11 @@ namespace APFTestingModel
 {
     internal class ExamManagerPacker : ExamManager
     {
+        public ExamManagerPacker(PracticalComponentManagerPacker practicalComponentManagerPacker)
+        {
+            this.practicalComponentManager = practicalComponentManager;
+        }
+
         public ExamManagerPacker(TheoryComponentManagerPacker theoryComponentManagerPacker)
         {
             theoryComponentManager = theoryComponentManagerPacker;

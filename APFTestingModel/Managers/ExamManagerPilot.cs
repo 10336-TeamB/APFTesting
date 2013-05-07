@@ -13,6 +13,11 @@ namespace APFTestingModel
             theoryComponentManager = theoryComponentManagerPilot;
         }
 
+        public ExamManagerPilot(PracticalComponentManagerPilot practicalComponentManagerPilot)
+        {
+            practicalComponentManager = practicalComponentManagerPilot;
+        }
+
         public ExamManagerPilot(TheoryComponentManagerPilot theoryComponentManagerPilot, PracticalComponentManagerPilot practicalComponentManagerPilot)
         {
             theoryComponentManager = theoryComponentManagerPilot;
@@ -26,6 +31,11 @@ namespace APFTestingModel
 
             ExamPilot examPilot = new ExamPilot(examinerId, candidateId, theoryComponentPilot, practicalComponentPilot);
             return examPilot;
+        }
+
+        public AssessmentTask CreateAssessmentTask(AssessmentTaskPilotDetails details)
+        {
+            return (practicalComponentManager as PracticalComponentManagerPilot).CreateAssessmentTask(details);
         }
     }
 }
