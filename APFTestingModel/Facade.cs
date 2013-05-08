@@ -547,7 +547,12 @@ namespace APFTestingModel
         
         private Examiner fetchExaminer(Guid examinerId) 
         {
-            return _context.People.OfType<Examiner>().Include("ExaminerAuthorities").First(e => e.Id == examinerId);
+            return _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").First(e => e.Id == examinerId);
+        }
+
+        public IExaminer FetchExaminer(Guid examinerId)
+        {
+            return fetchExaminer(examinerId);
         }
 
         public void CreateExaminer(ExaminerDetails examinerDetails)
@@ -564,6 +569,15 @@ namespace APFTestingModel
             Examiner examiner = fetchExaminer(examinerId);
             examiner.EditExaminer(examinerDetails);
             _context.SaveChanges();
+
+            if (examinerDetails.OldPassword != null && examinerDetails.Password != null)
+            {
+                Membership membership = new Membership();
+                if (!membership.ChangePassword(examiner.Username, examinerDetails.OldPassword, examinerDetails.Password))
+                {
+                    throw new BusinessRuleException("Error changing password");
+                }
+            }
         }
 
         public void DeleteExaminer(Guid examinerId)
@@ -578,6 +592,11 @@ namespace APFTestingModel
             Examiner examiner = fetchExaminer(examinerId);
             examiner.EditActiveStatus(isActive);
             _context.SaveChanges();
+        }
+
+        public IEnumerable<IExaminer> FetchAllExaminers()
+        {
+            return _context.People.OfType<Examiner>();
         }
 
         #endregion

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using APFTestingModel;
 
 namespace APFTestingUI.Areas.Administration.Models.ExaminerManagement
 {
@@ -20,18 +21,27 @@ namespace APFTestingUI.Areas.Administration.Models.ExaminerManagement
         [Display(Name = "APF Number")]
         public string APFNumber { get; set; }
 
-        [Required]
-        [Display(Name = "Username")]
-        public string Username { get; set; }
-
-        [Required]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
+        [Display(Name = "Old Password")]
+        public string OldPassword { get; set; }
+        
+        [Display(Name = "New Password")]
+        public string NewPassword { get; set; }
 
         [Display(Name = "Examiner Pilot")]
         public bool ExaminerPacker { get; set; }
 
         [Display(Name = "Examiner Packer")]
         public bool ExaminerPilot { get; set; }
+
+        public EditExaminer() { }
+
+        public EditExaminer(IExaminer examiner)
+        {
+            FirstName = examiner.FirstName;
+            LastName = examiner.LastName;
+            APFNumber = examiner.APFNumber;
+            ExaminerPacker = examiner.ExaminerAuthorities.Any(a => a.ExamType == ExamType.PackerExam);
+            ExaminerPilot = examiner.ExaminerAuthorities.Any(a => a.ExamType == ExamType.PilotExam);
+        }
     }
 }

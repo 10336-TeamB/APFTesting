@@ -66,6 +66,7 @@ namespace APFTestingModel
         void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
         void DeleteTheoryExamFormat(Guid formatId);
 
-
+        IEnumerable<IExaminer> FetchAllExaminers();
+        IExaminer FetchExaminer(Guid examinerId);
     }
 }

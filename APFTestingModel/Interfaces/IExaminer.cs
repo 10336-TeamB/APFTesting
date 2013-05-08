@@ -8,10 +8,12 @@ namespace APFTestingModel
 {
     public interface IExaminer
     {
+        Guid Id { get; }
         string FirstName { get; }
         string LastName { get; }
         string APFNumber { get; }
         int UserId { get; }
-        //ICollection<ExaminerAuthority> ExaminerAuthorities { get; }
+        string Username { get; }
+        IEnumerable<IExaminerAuthority> ExaminerAuthorities { get; }
     }
 }

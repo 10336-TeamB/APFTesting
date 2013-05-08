@@ -27,5 +27,22 @@ namespace APFTestingModel
         {
             IsActive = isActive;
         }
+
+        public string Username
+        {
+            get
+            {
+                return User.UserName;
+            }
+
+        }
+
+        IEnumerable<IExaminerAuthority> IExaminer.ExaminerAuthorities
+        {
+            get
+            {
+                return ExaminerAuthorities;
+            }
+        } 
     }
 }
