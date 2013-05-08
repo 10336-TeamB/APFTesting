@@ -6,8 +6,13 @@ using System.Web.Mvc;
 
 namespace APFTestingUI.Controllers {
     public class HomeController : Controller {
-        public ActionResult Index() {
-            return RedirectToAction("Index", "Examiner");
+
+        //
+        // GET: /
+
+        public ActionResult Index()
+        {
+            return View();
         }
     }
 }

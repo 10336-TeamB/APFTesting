@@ -6,9 +6,11 @@
 }
 
 
-<h1>Theory Exam Format Display</h1>
+<h1>Theory Exam Format Management</h1>
 
-<h2>Pilot Formats</h2>
+@Html.ActionLink("Add new format", "Create")<br /><br/>
+
+<h3>Pilot Formats</h3>
 <table>
     <thead>
         <tr>
@@ -16,6 +18,7 @@
             <th>Number of Questions</th>
             <th>Pass Mark</th>
             <th>Time Limit</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -27,12 +30,25 @@
                 <td>@format.NumberOfQuestions</td>
                 <td>@format.PassMark</td>
                 <td>@format.TimeLimit</td>
+                <td>
+                    @if (format.AllowEditOrDelete)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { formatId = format.Id })
+                        <text>|</text>
+                        @Html.ActionLink("Delete", "Delete", new { formatId = format.Id }, new { @class = "exam-format-delete" })
+                    }
+                    @if (!format.IsActive)
+                    {
+                        <text>|</text>
+                        @Html.ActionLink("Activate", "Activate", new { formatId = format.Id }, new { @class = "exam-format-activate" })
+                    }
+                </td>
             </tr>
         }
     </tbody>
 </table>
 
-<h2>Packer Formats</h2>
+<h3>Packer Formats</h3>
 <table>
     <thead>
         <tr>
@@ -51,7 +67,25 @@
                 <td>@format.NumberOfQuestions</td>
                 <td>@format.PassMark</td>
                 <td>@format.TimeLimit</td>
+                <td>
+                    @if (format.AllowEditOrDelete)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { formatId = format.Id })
+                        <text>|</text>
+                        @Html.ActionLink("Delete", "Delete", new { formatId = format.Id }, new { @class = "exam-format-delete" })
+                    }
+                    @if (!format.IsActive)
+                    {
+                        <text>|</text>
+                        @Html.ActionLink("Activate", "Activate", new { formatId = format.Id }, new { @class = "exam-format-activate" })
+                    }
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section scripts
+{
+    <script src="~/Scripts/administration.js"></script>
+}

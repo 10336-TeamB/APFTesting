@@ -19,7 +19,7 @@ namespace APFTestingModel
         {
             get
             {
-                return (TheoryComponents.Count == 0);
+                return (TheoryComponents.Count == 0 && !IsActive);
             }
         }
 
@@ -54,6 +54,17 @@ namespace APFTestingModel
                 throw new BusinessRuleException("Error: Can not delete template that has been used");
             }
             facade.deleteTheoryExamFormat(this);
+        }
+
+        public bool Activate()
+        {
+            IsActive = true;
+            return IsActive;
+        }
+        public bool Deactivate()
+        {
+            IsActive = false;
+            return !IsActive;
         }
     }
 }

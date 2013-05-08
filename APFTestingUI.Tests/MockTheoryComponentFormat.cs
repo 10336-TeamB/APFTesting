@@ -33,5 +33,11 @@ namespace APFTestingUI.Tests
         {
             get { return 0; }
         }
+
+
+        public bool AllowEditOrDelete
+        {
+            get { return true; }
+        }
     }
 }

@@ -86,7 +86,7 @@ namespace APFTestingUI.Tests
             return Guid.NewGuid();
         }
 
-		public ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId)
+		public ITheoryComponentFormat FetchTheoryComponentFormatForExam(Guid examId)
 		{
 			return new MockTheoryComponentFormat();
 		}
@@ -231,26 +231,30 @@ namespace APFTestingUI.Tests
         }
 
 
-		public void CreateExaminer(ExaminerDetails examinerDetails)
-		{
-			throw new NotImplementedException();
-		}
+				public void CreateExaminer(ExaminerDetails examinerDetails)
+				{
+					throw new NotImplementedException();
+				}
 
-		public void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails)
-		{
-			throw new NotImplementedException();
-		}
+				public void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails)
+				{
+					throw new NotImplementedException();
+				}
 
-		public void DeleteExaminer(Guid examinerId)
-		{
-			throw new NotImplementedException();
-		}
+				public void DeleteExaminer(Guid examinerId)
+				{
+					throw new NotImplementedException();
+				}
 
-		public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
-		{
-			throw new NotImplementedException();
-		}
+				public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
+				{
+					throw new NotImplementedException();
+				}
 
+        public ITheoryComponentFormat FetchTheoryExamFormatById(Guid formatId)
+        {
+            throw new NotImplementedException();
+        }
 
         public IEnumerable<IExaminer> FetchAllExaminers()
         {

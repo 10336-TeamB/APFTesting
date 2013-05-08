@@ -1,0 +1,65 @@
+﻿@model APFTestingUI.Areas.Administration.Models.TheoryFormat.Create
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create Theory Exam Format</h1>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Create</legend>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExamType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ExamType, Model.ExamTypes, "--Select--")
+            @Html.ValidationMessageFor(model => model.ExamType)
+        </div>
+        <div class="clear"></div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumberOfQuestions)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumberOfQuestions)
+            @Html.ValidationMessageFor(model => model.NumberOfQuestions)
+        </div>
+        <div class="clear"></div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PassMark)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PassMark)
+            @Html.ValidationMessageFor(model => model.PassMark)
+        </div>
+        <div class="clear"></div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TimeLimit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TimeLimit)
+            @Html.ValidationMessageFor(model => model.TimeLimit)
+        </div>
+        <div class="clear"></div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
