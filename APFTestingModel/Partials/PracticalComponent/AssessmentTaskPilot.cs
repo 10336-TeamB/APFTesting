@@ -10,7 +10,10 @@ namespace APFTestingModel
     {
         public AssessmentTaskPilot(AssessmentTaskPilotDetails details)
         {
-            Edit(details);
+            //Edit(details); -- triggers Enable Change which throws null exception
+            Title = details.Title;
+            Details = details.Details;
+            MaxScore = details.MaxScore;
         }
 
         public void Edit(AssessmentTaskPilotDetails details)

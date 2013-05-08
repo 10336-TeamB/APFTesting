@@ -1,12 +1,13 @@
 ﻿@model APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement.AssessmentTaskItem
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Assessment Task Management - Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="Assessment-Task-Details-View">
     <h2>Assessment Task Details</h2>
+
     @Html.HiddenFor(m => m.Id)
 
     @Html.LabelFor(m => m.Title): @Html.DisplayFor(m => m.Title)
@@ -18,3 +19,13 @@
     @Html.LabelFor(m => m.MaxScore): @Html.DisplayFor(m => m.MaxScore)
     <div class="clear"></div>
 </div>
+
+<p>@Html.ActionLink("Back to List","Index")
+    @if (Model.Editable) {
+        @:&nbsp;|&nbsp; 
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id });
+        @:&nbsp;|&nbsp;
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id });
+    }
+
+</p>
