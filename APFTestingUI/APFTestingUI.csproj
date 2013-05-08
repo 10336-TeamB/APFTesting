@@ -170,16 +170,15 @@
     <Compile Include="Areas\Administration\Controllers\ExaminerController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\QuestionManagementController.cs" />
-
     <Compile Include="Areas\Administration\Models\ExaminerManagement\CreateExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\EditExaminer.cs" />
-
     <Compile Include="Areas\Administration\Controllers\TheoryFormatController.cs" />
-
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\TheoryQuestionItem.cs" />
+    <Compile Include="Areas\Administration\Models\TheoryFormat\Create.cs" />
+    <Compile Include="Areas\Administration\Models\TheoryFormat\Edit.cs" />
     <Compile Include="Areas\Administration\Models\TheoryFormat\FormatDisplayItem.cs" />
     <Compile Include="Areas\Administration\Models\TheoryFormat\Index.cs" />
     <Compile Include="Bootstrapper.cs" />
@@ -322,24 +321,22 @@
     <Content Include="Images\sprite-input-buttons.png" />
     <Content Include="Images\sprite-input-buttons2.png" />
     <Content Include="Images\tick.png" />
+    <Content Include="Scripts\administration.js" />
     <Content Include="Scripts\candidate.js" />
     <Content Include="Scripts\exam.js" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Areas\Administration\Views\QuestionManagement\IndexPilot.cshtml" />
-
     <Content Include="Areas\Administration\Views\Examiner\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Web.config" />
-
-
     <Content Include="Areas\Administration\Views\AssessmentTask\Details.cshtml">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Areas\Administration\Views\QuestionManagement\CreatePilot.cshtml" />
-
     <Content Include="Areas\Administration\Views\TheoryFormat\Index.cshtml" />
-
-
+    <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\TheoryFormat\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\TheoryFormat\Create.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -429,6 +426,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Scripts\administration.js</ApplicationManifest>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

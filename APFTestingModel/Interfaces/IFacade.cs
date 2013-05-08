@@ -15,7 +15,7 @@ namespace APFTestingModel
         ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId);
 
         ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex);
-		ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId);
+		ITheoryComponentFormat FetchTheoryComponentFormatForExam(Guid examId);
 		ISelectedTheoryQuestion ResumeTheoryComponent(Guid examId);
         ITheoryComponent FetchTheoryComponentResult(Guid examId);
 
@@ -62,6 +62,7 @@ namespace APFTestingModel
         void EditExaminerActiveStatus(Guid examinerId, bool isActive);
 
         ITheoryComponentFormat[][] FetchAllTheoryExamFormats();
+        ITheoryComponentFormat FetchTheoryExamFormatById(Guid formatId);
         void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit);
         void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
         void DeleteTheoryExamFormat(Guid formatId);

@@ -86,7 +86,7 @@ namespace APFTestingUI.Tests
             return Guid.NewGuid();
         }
 
-		public ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId)
+		public ITheoryComponentFormat FetchTheoryComponentFormatForExam(Guid examId)
 		{
 			return new MockTheoryComponentFormat();
 		}
@@ -250,5 +250,11 @@ namespace APFTestingUI.Tests
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+
+        public ITheoryComponentFormat FetchTheoryExamFormatById(Guid formatId)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

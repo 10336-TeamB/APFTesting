@@ -13,5 +13,6 @@ namespace APFTestingModel
         int PassMark { get; }
         bool IsActive { get; }
         int TimeLimit { get; }
+        bool AllowEditOrDelete { get; }
     }
 }
