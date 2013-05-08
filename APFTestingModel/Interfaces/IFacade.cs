@@ -66,6 +66,6 @@ namespace APFTestingModel
         void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
         void DeleteTheoryExamFormat(Guid formatId);
 
-
+		void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType);
     }
 }

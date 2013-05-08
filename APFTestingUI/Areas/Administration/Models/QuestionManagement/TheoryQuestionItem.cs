@@ -13,16 +13,20 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
             Id = question.Id;
             NumberOfCorrectAnswers = question.NumberOfCorrectAnswers;
             IsActive = question.IsActive;
-            Description = question.Description;
-            ImagePath = question.ImagePath;
+			ImagePath = question.ImagePath;
+			Description = question.Description;
+			Category = question.Category;
             Answers = question.Answers.Select(a => new AnswerItem(a)).ToList();
+			
         }
 
         public Guid Id { get; set; }
         public int NumberOfCorrectAnswers { get; set; }
         public bool IsActive { get; set; }
-        public string Description { get; set; }
-        public string ImagePath { get; set; }
-        public IEnumerable<AnswerItem> Answers { get; set; }
+		public string ImagePath { get; set; }
+		public string Description { get; set; }
+		public TheoryQuestionCategory Category { get; set; }
+		public IEnumerable<AnswerItem> Answers { get; set; }
+		
     }
 }

@@ -88,20 +88,34 @@ namespace APFTestingModel
         }
     }
 	
-		public struct TheoryQuestionDetails
+	public struct TheoryQuestionDetails
 	{
+		public TheoryQuestionDetails(string description, string imagePath, TheoryQuestionCategory category, List<AnswerDetails> answers) : this()
+		{
+			Description = description;
+			ImagePath = imagePath;
+			Category = category;
+			Answers = answers;
+		}
+		
 		public string Description { get; set; }
-		public List<AnswerDetails> Answers { get; set; }
-		public bool IsActive { get; set; }
 		public string ImagePath { get; set; }
 		public TheoryQuestionCategory Category { get; set; }
+		public List<AnswerDetails> Answers { get; set; }
 	}
 
 	public struct AnswerDetails
 	{
-		public string Description { get; set; }
-		public bool IsCorrect { get; set; }
-		public int DisplayOrderIndex { get; set; }
+		public AnswerDetails(string description, bool isCorrect, int displayOrderIndex) : this()
+		{
+			Description = description;
+			IsCorrect = isCorrect;
+			DisplayOrderIndex = displayOrderIndex;
+		}
+
+		public string Description { get; private set; }
+		public bool IsCorrect { get; private set; }
+		public int DisplayOrderIndex { get; private set; }
 	}
 
     public struct AssessmentTaskPilotDetails

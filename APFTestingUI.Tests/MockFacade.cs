@@ -250,5 +250,11 @@ namespace APFTestingUI.Tests
 		{
 			throw new NotImplementedException();
 		}
+
+
+		public void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

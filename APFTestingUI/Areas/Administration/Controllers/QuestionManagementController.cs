@@ -25,13 +25,23 @@ namespace APFTestingUI.Areas.Administration.Controllers
         [HttpGet]
         public ActionResult CreatePilot()
         {
-            return View();
+            return View(new Create());
         }
 
         [HttpPost]
         public ActionResult CreatePilot(Create model)
         {
-            return View();
+			List<AnswerDetails> answers = new List<AnswerDetails>();
+			for (int i = 0; i < model.Answers.Count; i++)
+			{
+				answers.Add(new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect, i+1));
+			}
+
+			var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+
+			_facade.CreateTheoryQuestion(questionPackage, ExamType.PilotExam);
+
+			return View();
         }
 
         [HttpGet]

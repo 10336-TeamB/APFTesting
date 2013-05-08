@@ -19,6 +19,34 @@
     </div>
     <div class="clear"></div>
 
-    //TODO
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Category) <em>*</em>
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.Category, Model.Categories, "--Select--")
+    </div>
+    <div class="clear"></div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Correct</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{ const int answerCount = 2; }
+            @for (int i = 0; i < answerCount; i++)
+            {
+                <tr>
+                    <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
+                    <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+    <input type="submit" value="Create" class="form-button" />
 }
 

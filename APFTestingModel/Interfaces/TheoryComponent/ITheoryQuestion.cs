@@ -11,9 +11,9 @@ namespace APFTestingModel
         Guid Id { get; }
         int NumberOfCorrectAnswers { get; }
         bool IsActive { get; }
-        string Description { get; }
-        IEnumerable<IAnswer> Answers { get; }
-        string ImagePath { get; }
-
+		string ImagePath { get; }
+		string Description { get; }
+		TheoryQuestionCategory Category { get; }
+		IEnumerable<IAnswer> Answers { get; }
     }
 }
