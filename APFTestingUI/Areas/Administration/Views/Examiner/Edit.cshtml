@@ -1,11 +1,11 @@
-﻿@model APFTestingUI.Areas.Administration.Models.ExaminerManagement.CreateExaminer
+﻿@model APFTestingUI.Areas.Administration.Models.ExaminerManagement.EditExaminer
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create Examiner</h1>
+<h1>Edit Examiner</h1>
 <p>Please fill in the fields below to create a new Pilot Candidate.<br />Asterisks (*) are placed next to required fields.</p>
 
 @using (Html.BeginForm()) {
@@ -39,21 +39,21 @@
         <div class="clear"></div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Username) <em>*</em>
+            @Html.LabelFor(model => model.OldPassword)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Username)
+            @Html.EditorFor(model => model.OldPassword)
         </div>
         <div class="clear"></div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Password) <em>*</em>
+            @Html.LabelFor(model => model.NewPassword)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
+            @Html.EditorFor(model => model.NewPassword)
         </div>
         <div class="clear"></div>
-        
+
         <div class="editor-label">
             @Html.LabelFor(model => model.ExaminerPilot)
         </div>
@@ -73,7 +73,7 @@
         <p class="button-container">
             <span class="control-button-span">
                 <input type="reset" value="Reset" class="form-button" />
-                <input type="submit" value="Create" class="form-button" />
+                <input type="submit" value="Edit" class="form-button" />
             </span>
         </p>
     </fieldset>

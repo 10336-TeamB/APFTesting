@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebMatrix.WebData;
+using System.Web.Security;
 
 namespace APFTestingMembership
 {
@@ -15,8 +17,14 @@ namespace APFTestingMembership
 
         public int RegisterExaminer(string username, string password)
         {
+            WebSecurity.CreateUserAndAccount(username, password);
+            Roles.AddUsersToRole(new string[] { username }, "Examiner");
+            return WebSecurity.GetUserId(username);
+        }
 
-            return 0;
+        public bool ChangePassword(string username, string oldPassword, string newPassword)
+        {
+            return WebSecurity.ChangePassword(username, oldPassword, newPassword);
         }
     }
 }

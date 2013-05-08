@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal partial class ExaminerAuthority
+    internal partial class ExaminerAuthority : IExaminerAuthority
     {
         public ExaminerAuthority() { }
 

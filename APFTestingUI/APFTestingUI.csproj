@@ -173,6 +173,7 @@
     <Compile Include="Areas\Administration\Models\ExaminerManagement\CreateExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\EditExaminer.cs" />
     <Compile Include="Areas\Administration\Controllers\TheoryFormatController.cs" />
+    <Compile Include="Areas\Administration\Models\ExaminerManagement\Index.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
@@ -337,6 +338,8 @@
     <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
     <Content Include="Areas\Administration\Views\TheoryFormat\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\TheoryFormat\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Examiner\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Examiner\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
