@@ -229,5 +229,26 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
-    }
+
+
+		public void CreateExaminer(ExaminerDetails examinerDetails)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DeleteExaminer(Guid examinerId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

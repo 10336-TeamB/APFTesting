@@ -327,10 +327,10 @@
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Areas\Administration\Views\QuestionManagement\IndexPilot.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Areas\Administration\Views\Examiner\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Web.config" />
-=======
+
 
     <Content Include="Areas\Administration\Views\AssessmentTask\Details.cshtml">
       <SubType>Code</SubType>
@@ -339,7 +339,7 @@
 
     <Content Include="Areas\Administration\Views\TheoryFormat\Index.cshtml" />
 
->>>>>>> 7f58952950eea17629b022744912d87a6b7715f8
+
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
