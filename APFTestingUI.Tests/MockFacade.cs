@@ -256,5 +256,16 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public IEnumerable<IExaminer> FetchAllExaminers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IExaminer FetchExaminer(Guid examinerId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
