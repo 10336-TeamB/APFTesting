@@ -7,86 +7,86 @@ using System.Threading.Tasks;
 
 namespace APFTestingUI.Tests
 {
-    internal class MockFacade : IFacade
-    {
-        public void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview)
-        {
-            // NO-OP
-        }
+	internal class MockFacade : IFacade
+	{
+		public void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview)
+		{
+			// NO-OP
+		}
 
-        //public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
-        //{
-        //    return Guid.NewGuid();
-        //}
+		//public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
+		//{
+		//    return Guid.NewGuid();
+		//}
 
-        public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)
-        {
-            return new MockTheoryComponentFormat();
-        }
+		public ITheoryComponentFormat CreateTheoryComponentFormat(ExamType examType, int numberOfQuestions, int passMark)
+		{
+			return new MockTheoryComponentFormat();
+		}
 
-        public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
-        {
-            yield return new MockCandidate();
-        }
+		public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
+		{
+			yield return new MockCandidate();
+		}
 
-        public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
-        {
-            return new MockSelectedTheoryQuestion();
-        }
+		public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
+		{
+			return new MockSelectedTheoryQuestion();
+		}
 
-        public ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId)
-        {
-            return new MockSelectedTheoryQuestion();
-        }
+		public ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId)
+		{
+			return new MockSelectedTheoryQuestion();
+		}
 
-        public ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex)
-        {
-            return new MockSelectedTheoryQuestion();
-        }
+		public ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex)
+		{
+			return new MockSelectedTheoryQuestion();
+		}
 
-        public ITheoryComponent FetchTheoryComponentResult(Guid examId)
-        {
-            return new MockTheoryComponent();
-        }
+		public ITheoryComponent FetchTheoryComponentResult(Guid examId)
+		{
+			return new MockTheoryComponent();
+		}
 
-        public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
-        {
-            yield return new MockSelectedTheoryQuestion();
-            yield return new MockSelectedTheoryQuestion();
-            yield return new MockSelectedTheoryQuestion();
-        }
+		public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
+		{
+			yield return new MockSelectedTheoryQuestion();
+			yield return new MockSelectedTheoryQuestion();
+			yield return new MockSelectedTheoryQuestion();
+		}
 
-        public void SubmitTheoryComponent(Guid examId)
-        {
-            // NO-OP
-        }
+		public void SubmitTheoryComponent(Guid examId)
+		{
+			// NO-OP
+		}
 
-        public void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId)
-        {
-            // NO-OP
-        }
+		public void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId)
+		{
+			// NO-OP
+		}
 
-        public void VoidExam(Guid examId)
-        {
-            // NO-OP
-        }
+		public void VoidExam(Guid examId)
+		{
+			// NO-OP
+		}
 
-        public void Dispose()
-        {
-            // NO-OP
-        }
+		public void Dispose()
+		{
+			// NO-OP
+		}
 
-        public void ResetTheoryComponent(Guid examId)
-        {
-            // NO-OP
-        }
+		public void ResetTheoryComponent(Guid examId)
+		{
+			// NO-OP
+		}
 
-        public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
-        {
-            return Guid.NewGuid();
-        }
+		public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
+		{
+			return Guid.NewGuid();
+		}
 
-		public ITheoryComponentFormat FetchTheoryComponentFormat(Guid examId)
+		public ITheoryComponentFormat FetchTheoryComponentFormatForExam(Guid examId)
 		{
 			return new MockTheoryComponentFormat();
 		}
@@ -96,139 +96,139 @@ namespace APFTestingUI.Tests
 			return new MockSelectedTheoryQuestion();
 		}
 
-        public ISelectedTheoryQuestion FetchFirstQuestion(Guid examId)
-        {
-            return new MockSelectedTheoryQuestion();
-        }
+		public ISelectedTheoryQuestion FetchFirstQuestion(Guid examId)
+		{
+			return new MockSelectedTheoryQuestion();
+		}
 
-        public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid candidateId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid CreateCandidate(CandidatePackerDetails details, Guid createdBy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        public void FinalisePractical(Guid examId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public ICandidatePacker FetchPacker(Guid candidateId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICandidatePilot FetchPilot(Guid candidateId)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void EditPilot(Guid candidateId, CandidatePilotDetails details)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EditPacker(Guid candidateId, CandidatePackerDetails details)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public IAssessmentTaskPilot CreateAssessmentTaskPilot(AssessmentTaskPilotDetails details)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAssessmentTaskPilot(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid AssessmentTaskId)
+		public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid candidateId)
 		{
 			throw new NotImplementedException();
 		}
-		
-		
-        public ITheoryComponentFormat[][] FetchAllTheoryExamFormats()
-        {
-            throw new NotImplementedException();
-        }
 
-        public void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit)
-        {
-            throw new NotImplementedException();
-        }
+		public void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results)
+		{
+			throw new NotImplementedException();
+		}
 
-        public void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit)
-        {
-            throw new NotImplementedException();
-        }
+		public Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy)
+		{
+			throw new NotImplementedException();
+		}
 
-        public void DeleteTheoryExamFormat(Guid formatId)
-        {
-            throw new NotImplementedException();
-        }
+		public Guid CreateCandidate(CandidatePackerDetails details, Guid createdBy)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
+		{
+			throw new NotImplementedException();
+		}
+
+
+
+		public void FinalisePractical(Guid examId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public ICandidatePacker FetchPacker(Guid candidateId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public ICandidatePilot FetchPilot(Guid candidateId)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public void EditPilot(Guid candidateId, CandidatePilotDetails details)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EditPacker(Guid candidateId, CandidatePackerDetails details)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public IAssessmentTaskPilot CreateAssessmentTaskPilot(AssessmentTaskPilotDetails details)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DeleteAssessmentTaskPilot(Guid id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid AssessmentTaskId)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public ITheoryComponentFormat[][] FetchAllTheoryExamFormats()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DeleteTheoryExamFormat(Guid formatId)
+		{
+			throw new NotImplementedException();
+		}
 
 
 		public void CreateExaminer(ExaminerDetails examinerDetails)
@@ -246,13 +246,65 @@ namespace APFTestingUI.Tests
 			throw new NotImplementedException();
 		}
 
+		//<<<<<<< HEAD
+		//		public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
+		//		{
+		//			throw new NotImplementedException();
+		//		}
+
+
+		//		public void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType)
+		//		{
+		//			throw new NotImplementedException();
+		//		}
+		//	}
+		//=======
+		//				public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
+		//				{
+		//					throw new NotImplementedException();
+		//				}
+
+		//		public ITheoryComponentFormat FetchTheoryExamFormatById(Guid formatId)
+		//		{
+		//			throw new NotImplementedException();
+		//		}
+
+		//		public IEnumerable<IExaminer> FetchAllExaminers()
+		//		{
+		//			throw new NotImplementedException();
+		//		}
+
+		//		public IExaminer FetchExaminer(Guid examinerId)
+		//		{
+		//			throw new NotImplementedException();
+		//		}
+		//	}
+		//>>>>>>> c178cbe339b4c313694a6eb32c29783266d0f31e
+
+
+
+
 		public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
 		{
 			throw new NotImplementedException();
 		}
 
+		public ITheoryComponentFormat FetchTheoryExamFormatById(Guid formatId)
+		{
+			throw new NotImplementedException();
+		}
 
 		public void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<IExaminer> FetchAllExaminers()
+		{
+			throw new NotImplementedException();
+		}
+
+		public IExaminer FetchExaminer(Guid examinerId)
 		{
 			throw new NotImplementedException();
 		}

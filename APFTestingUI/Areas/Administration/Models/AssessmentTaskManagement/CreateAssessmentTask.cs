@@ -7,27 +7,31 @@ using APFTestingModel;
 
 namespace APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement
 {
-    public class AssessmentTaskItem
+    public class CreateAssessmentTask
     {
-        public AssessmentTaskItem(IAssessmentTaskPilot assessmentTask)
-        {
-            Id = assessmentTask.Id;
-            Title = assessmentTask.Title;
-            Details = assessmentTask.Details;
-            MaxScore = assessmentTask.MaxScore;
-            Editable = assessmentTask.EnableChange;
-        }
-
-        public Guid Id { get; set; }
-
         [Display(Name = "Title")]
+        [Required]
         public string Title { get; set; }
 
         [Display(Name = "Details")]
+        [Required]
         public string Details { get; set; }
 
         [Display(Name = "Max Score")]
+        [Required]
+        [Range(1, Int32.MaxValue)]
         public int MaxScore { get; set; }
-        public bool Editable { get; set; }
+
+        public AssessmentTaskPilotDetails AssessmentTaskDetails { 
+            get
+            {
+                return new AssessmentTaskPilotDetails
+                {
+                    Title = this.Title,
+                    Details = this.Details,
+                    MaxScore = this.MaxScore
+                };
+            }
+        }
     }
 }

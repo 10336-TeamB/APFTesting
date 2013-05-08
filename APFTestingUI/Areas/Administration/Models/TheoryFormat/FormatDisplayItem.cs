@@ -13,7 +13,9 @@ namespace APFTestingUI.Areas.Administration.Models.TheoryFormat
             Id = format.Id;
             NumberOfQuestions = format.NumberOfQuestions;
             PassMark = format.PassMark;
+            IsActive = format.IsActive;
             TimeLimit = format.TimeLimit;
+            AllowEditOrDelete = format.AllowEditOrDelete;
         }
 
         public Guid Id { get; set; }
@@ -21,5 +23,6 @@ namespace APFTestingUI.Areas.Administration.Models.TheoryFormat
         public int PassMark { get; set; }
         public bool IsActive { get; set; }
         public int TimeLimit { get; set; }
+        public bool AllowEditOrDelete { get; set; }
     }
 }

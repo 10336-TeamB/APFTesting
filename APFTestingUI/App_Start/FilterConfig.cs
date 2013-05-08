@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using APFTestingUI.Filters;
 
 namespace APFTestingUI {
     public class FilterConfig
@@ -7,6 +8,7 @@ namespace APFTestingUI {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new InitializeSimpleMembershipAttribute());
         }
     }
 }

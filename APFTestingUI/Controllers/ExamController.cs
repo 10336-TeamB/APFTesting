@@ -25,7 +25,7 @@ namespace APFTestingUI.Controllers
 		{
             //TODO: return all required values from one DB call...
 			var examId = _facade.StartTheoryComponent(examinerId, candidateId);
-			var format = _facade.FetchTheoryComponentFormat(examId);
+			var format = _facade.FetchTheoryComponentFormatForExam(examId);
 
 			var model = new Instructions(examId, format);
 

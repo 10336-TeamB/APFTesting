@@ -1,6 +1,6 @@
 ﻿@model APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement.AssessmentTaskList
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Assessment Task Management";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -46,12 +46,13 @@
         <td class="Assessment-Task-Max-Score">@item.MaxScore</td>
         <td class="Assessment-Task-Actions">
             @Html.ActionLink("Details", "Details", new { id=item.Id })
-            @* Uncomment later 
             @if(item.Editable) 
             {
-                <text>*@ | @Html.ActionLink("Edit", "Edit", new { id=item.Id }) | 
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })@* Uncomment later</text>
-              } *@
+                @:&nbsp;|&nbsp; 
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+                @:&nbsp;|&nbsp;
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            }
         </td>
     </tr>
 }

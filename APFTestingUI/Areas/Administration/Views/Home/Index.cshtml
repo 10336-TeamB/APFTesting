@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Admin Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Temporary Administrator Home Page</h1>
+
+@Html.ActionLink("Manage Examiners", "Index", "Examiner")<br/><br/>
+
+@Html.ActionLink("Manage Theory Exam Formats", "Index", "TheoryFormat")<br/><br/>
+
+@Html.ActionLink("Manage Pilot Assessment Tasks", "Index", "AssessmentTask")<br/><br/>
+
+@Html.ActionLink("Manage Pilot Questions", "IndexPilot", "QuestionManagement")<br/><br/>
+
+@Html.ActionLink("Manage Packer Questions", "IndexPacker", "QuestionManagement")<br/><br/>

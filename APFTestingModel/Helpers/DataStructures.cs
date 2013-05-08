@@ -74,6 +74,7 @@ namespace APFTestingModel
         public string LastName { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+        public string OldPassword { get; set; }
         public string APFNumber { get; set; }
         public List<ExamType> Authorities { get; set; }
 

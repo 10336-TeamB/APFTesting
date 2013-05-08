@@ -18,7 +18,8 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var model = new Index(_facade.FetchAllExaminers());
+            return View(model);
         }
 
         [HttpGet]
@@ -30,24 +31,39 @@ namespace APFTestingUI.Areas.Administration.Controllers
         [HttpPost]
         public ActionResult Create(CreateExaminer model)
         {
-            List<ExamType> authorities = new List<ExamType>();
-            if (model.ExaminerPacker) authorities.Add(ExamType.PackerExam);
-            if (model.ExaminerPilot) authorities.Add(ExamType.PilotExam);
-            ExaminerDetails details = new ExaminerDetails(model.FirstName, model.LastName, model.Username, model.Password, model.APFNumber, authorities);
-            _facade.CreateExaminer(details);
-            return View("Index");
+            if (ModelState.IsValid)
+            {
+                List<ExamType> authorities = new List<ExamType>();
+                if (model.ExaminerPacker) authorities.Add(ExamType.PackerExam);
+                if (model.ExaminerPilot) authorities.Add(ExamType.PilotExam);
+                ExaminerDetails details = new ExaminerDetails(model.FirstName, model.LastName, model.Username, model.Password, model.APFNumber, authorities);
+                _facade.CreateExaminer(details);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
         public ActionResult Edit(Guid examinerId)
         {
-            return View(new EditExaminer());
+            IExaminer examiner = _facade.FetchExaminer(examinerId);
+            EditExaminer model = new EditExaminer(examiner);
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(EditExaminer model)
+        public ActionResult Edit(Guid examinerId, EditExaminer model)
         {
-            return View("Index");
+            List<ExamType> authorities = new List<ExamType>();
+            if (model.ExaminerPacker) authorities.Add(ExamType.PackerExam);
+            if (model.ExaminerPilot) authorities.Add(ExamType.PilotExam);
+            ExaminerDetails details = new ExaminerDetails(model.FirstName, model.LastName, "", model.NewPassword, model.APFNumber, authorities);
+            details.OldPassword = model.OldPassword;
+            _facade.EditExaminer(examinerId, details);
+            return RedirectToAction("Index");
         }
     }
 }

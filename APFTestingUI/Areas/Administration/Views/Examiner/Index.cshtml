@@ -1,0 +1,48 @@
+﻿@model APFTestingUI.Areas.Administration.Models.ExaminerManagement.Index
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Examiner Management</h1>
+
+<style>
+    #Examiner-List .Examiner-APFNumber {
+        width: 20%;
+    }
+
+    #Examiner-List .Examiner-Name {
+        width: 25%;
+    }
+
+    #Examiner-List .Examiner-Task-Actions {
+        width: 55%;
+    }
+
+</style>
+
+@Html.ActionLink("Create Examiner", "Create", "Examiner")
+
+<table id="Examiner-List">
+    <tr>
+        <th>APF Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var examiner in Model.Examiners)
+{
+    <tr>
+        <td class="Examiner-APFNumber">@examiner.APFNumber</td>
+        <td class="Examiner-Name">@examiner.FirstName</td>
+        <td class="Examiner-Name">@examiner.LastName</td>
+        <td class="Examiner-Task-Actions">
+           @Html.ActionLink("Edit", "Edit", "Examiner", new { examinerId = examiner.Id }, new { })
+           | Delete | Activate 
+        </td>
+    </tr>
+}
+
+</table>

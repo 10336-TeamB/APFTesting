@@ -100,6 +100,7 @@
     <Compile Include="Interfaces\IAddress.cs" />
     <Compile Include="Interfaces\ICandidatePacker.cs" />
     <Compile Include="Interfaces\ICandidatePilot.cs" />
+    <Compile Include="Interfaces\IExaminerAuthority.cs" />
     <Compile Include="Interfaces\IExaminer.cs" />
     <Compile Include="Interfaces\IFacade.cs" />
     <Compile Include="Interfaces\ICandidate.cs" />
