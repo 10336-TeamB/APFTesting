@@ -43,6 +43,15 @@ namespace APFTestingModel
             {
                 return ExaminerAuthorities;
             }
-        } 
+        }
+
+        public void Delete(deleteEntityDelegate<Examiner> delete)
+        {
+            if (CandidatePackers.Any() || CandidatePackers.Any())
+            {
+                throw new BusinessRuleException("Examiner cannot be deleted cause it has reference to candidates");
+            }
+            delete(this);
+        }
     }
 }

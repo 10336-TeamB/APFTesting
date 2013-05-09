@@ -585,6 +585,11 @@ namespace APFTestingModel
             return _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").First(e => e.Id == examinerId);
         }
 
+        private Examiner fetchExaminerToDelete(Guid examinerId)
+        {
+            return _context.People.OfType<Examiner>().Include("CandidatePilots").Include("CandidatePackers").Include("ExaminerAuthorities").Include("User").First(e => e.Id == examinerId);
+        }
+
         public IExaminer FetchExaminer(Guid examinerId)
         {
             return fetchExaminer(examinerId);
@@ -619,10 +624,9 @@ namespace APFTestingModel
         public void DeleteExaminer(Guid examinerId)
         {
             string username;
-            Examiner examiner = fetchExaminer(examinerId);
+            Examiner examiner = fetchExaminerToDelete(examinerId);
             username = examiner.Username;
-            _context.People.Remove(examiner);
-            _context.SaveChanges();
+            examiner.Delete(deleteEntity);
            
             Membership membership = new Membership();
             if (!membership.DeleteExaminer(username))
