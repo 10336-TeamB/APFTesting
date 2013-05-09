@@ -20,7 +20,7 @@ namespace APFTestingModel
 		TheoryInProgress = 3,
 		TheoryFailed = 4,
 		TheoryPassed = 5,
-		PracticalEntered = 6,
+        PracticalComponentCompleted = 6,
 		ExamCompleted = 7,
 		ExamVoided = 8
 	}

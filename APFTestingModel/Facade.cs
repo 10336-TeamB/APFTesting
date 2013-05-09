@@ -160,6 +160,32 @@ namespace APFTestingModel
         #endregion
 
 
+        /*=========================*/
+        /*      FINALISE EXAM      */
+        /*=========================*/
+
+        #region Finalise Exam
+
+        internal Exam fetchExam(Guid examId)
+        {
+            var exam = _context.Exams.FirstOrDefault(e => e.Id == examId);
+            if (exam == null)
+            {
+                throw new BusinessRuleException("Exam not found");
+            }
+            return exam;
+        }
+
+        public void FinaliseExam(Guid examId)
+        {
+            var exam = fetchExam(examId);
+            //Create new report
+            //Send report
+            exam.FinaliseExam();
+        }
+
+        #endregion 
+
 
         /*=========================*/
         /*      FETCH METHODS      */
@@ -381,7 +407,7 @@ namespace APFTestingModel
         {
             // Change exam status to finalise practical component
             var exam = _context.Exams.First(e => e.Id == examId);
-            exam.ExamStatus = ExamStatus.PracticalEntered;  
+            exam.ExamStatus = ExamStatus.PracticalComponentCompleted;  
             //Or is it Exam Finalized? - Pradipna 
             //I think we will add it as a seperate action so the examiner can confirm final submission - Adam
             //... :) - Josh
@@ -445,7 +471,12 @@ namespace APFTestingModel
 
         private AssessmentTaskPilot fetchAssessmentTaskPilot(Guid id)
         {
-            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").FirstOrDefault(a => a.Id == id);
+            var assessmentTask = _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").FirstOrDefault(a => a.Id == id);
+            if (assessmentTask == null)
+            {
+                throw new BusinessRuleException("Invalid AssessmentTaskId");
+            }
+            return assessmentTask;
         }
 
         public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
@@ -463,20 +494,8 @@ namespace APFTestingModel
 
         public void DeleteAssessmentTaskPilot(Guid id)
         {
-            deleteAssessmentTaskPilot(id);
-        }
-
-        private void deleteAssessmentTaskPilot(Guid id)
-        {
-            try
-            {
-                _context.AssessmentTasks.Remove(fetchAssessmentTaskPilot(id));
-            }
-            catch (Exception)
-            {
-                throw new BusinessRuleException("Assessment task is used by one or more templates. It cannot be deleted.");
-            }
-            _context.SaveChanges();
+            var assessmentTask = fetchAssessmentTaskPilot(id);
+            assessmentTask.Delete(deleteEntity);
         }
 
         public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()

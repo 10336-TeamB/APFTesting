@@ -10,7 +10,6 @@ namespace APFTestingModel
     {
         public AssessmentTaskPilot(AssessmentTaskPilotDetails details)
         {
-            //Edit(details); -- triggers Enable Change which throws null exception
             Title = details.Title;
             Details = details.Details;
             MaxScore = details.MaxScore;
@@ -27,8 +26,18 @@ namespace APFTestingModel
             MaxScore = details.MaxScore;
         }
 
-        public bool EnableChange {
+        public bool EnableChange
+        {
             get { return !this.SelectedAssessmentTasks.Any(); }
+        }
+
+        internal void Delete(deleteEntityDelegate<AssessmentTaskPilot> delete)
+        {
+            if (!EnableChange)
+            {
+                throw new Exception("Assessment task is used by one or more templates. It cannot be modified.");
+            }
+            delete(this);
         }
     }
 }
