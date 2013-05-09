@@ -8,5 +8,14 @@ namespace APFTestingModel
 {
     internal class PracticalComponentCompleted : ExamState
     {
+        internal override void FinaliseExam(Action action)
+        {
+            action();
+        }
+
+        internal override void FetchPracticalExamResult(Action action)
+        {
+            action();
+        }
     }
 }

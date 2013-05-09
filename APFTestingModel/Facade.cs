@@ -8,6 +8,7 @@ using APFTestingMembership;
 
 namespace APFTestingModel
 {
+    internal delegate void deleteEntityDelegate<T>(T entity);
     public class Facade : IFacade
     {
         private APFTestingDBEntities _context = new APFTestingDBEntities();
@@ -158,6 +159,32 @@ namespace APFTestingModel
 
         #endregion
 
+
+        /*=========================*/
+        /*      FINALISE EXAM      */
+        /*=========================*/
+
+        #region Finalise Exam
+
+        internal Exam fetchExam(Guid examId)
+        {
+            var exam = _context.Exams.FirstOrDefault(e => e.Id == examId);
+            if (exam == null)
+            {
+                throw new BusinessRuleException("Exam not found");
+            }
+            return exam;
+        }
+
+        public void FinaliseExam(Guid examId)
+        {
+            var exam = fetchExam(examId);
+            //Create new report
+            //Send report
+            exam.FinaliseExam();
+        }
+
+        #endregion 
 
 
         /*=========================*/
@@ -407,7 +434,7 @@ namespace APFTestingModel
         {
             // Change exam status to finalise practical component
             var exam = _context.Exams.First(e => e.Id == examId);
-            exam.ExamStatus = ExamStatus.PracticalEntered;  
+            exam.ExamStatus = ExamStatus.PracticalComponentCompleted;  
             //Or is it Exam Finalized? - Pradipna 
             //I think we will add it as a seperate action so the examiner can confirm final submission - Adam
             //... :) - Josh
@@ -471,7 +498,12 @@ namespace APFTestingModel
 
         private AssessmentTaskPilot fetchAssessmentTaskPilot(Guid id)
         {
-            return _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").FirstOrDefault(a => a.Id == id);
+            var assessmentTask = _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").FirstOrDefault(a => a.Id == id);
+            if (assessmentTask == null)
+            {
+                throw new BusinessRuleException("Invalid AssessmentTaskId");
+            }
+            return assessmentTask;
         }
 
         public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
@@ -489,20 +521,8 @@ namespace APFTestingModel
 
         public void DeleteAssessmentTaskPilot(Guid id)
         {
-            deleteAssessmentTaskPilot(id);
-        }
-
-        private void deleteAssessmentTaskPilot(Guid id)
-        {
-            try
-            {
-                _context.AssessmentTasks.Remove(fetchAssessmentTaskPilot(id));
-            }
-            catch (Exception)
-            {
-                throw new BusinessRuleException("Assessment task is used by one or more templates. It cannot be deleted.");
-            }
-            _context.SaveChanges();
+            var assessmentTask = fetchAssessmentTaskPilot(id);
+            assessmentTask.Delete(deleteEntity);
         }
 
         public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()
@@ -588,15 +608,16 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("Invalid FormatID");
             }
-            format.Delete(this);
+            format.Delete(deleteEntity);
         }
 
-        internal void deleteTheoryExamFormat(TheoryComponentFormat format)
+        internal void deleteEntity<T>(T entity)
         {
-            _context.TheoryComponentFormats.Remove(format);
+            var dbSet = _context.Set(entity.GetType());
+            dbSet.Remove(entity);
             _context.SaveChanges();
         }
-        
+
         #endregion
 
         /*=====================*/
@@ -610,6 +631,11 @@ namespace APFTestingModel
             return _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").First(e => e.Id == examinerId);
         }
 
+        private Examiner fetchExaminerToDelete(Guid examinerId)
+        {
+            return _context.People.OfType<Examiner>().Include("CandidatePilots").Include("CandidatePackers").Include("ExaminerAuthorities").Include("User").First(e => e.Id == examinerId);
+        }
+
         public IExaminer FetchExaminer(Guid examinerId)
         {
             return fetchExaminer(examinerId);
@@ -618,6 +644,7 @@ namespace APFTestingModel
         public void CreateExaminer(ExaminerDetails examinerDetails)
         {
             Membership membership = new Membership();
+            examinerDetails.UserName = examinerDetails.APFNumber;
             int userId = membership.RegisterExaminer(examinerDetails.UserName, examinerDetails.Password);
             Examiner examiner = new Examiner(examinerDetails, userId);
             _context.People.Add(examiner);
@@ -642,9 +669,16 @@ namespace APFTestingModel
 
         public void DeleteExaminer(Guid examinerId)
         {
-            Examiner examiner = fetchExaminer(examinerId);
-            _context.People.Remove(examiner);
-            _context.SaveChanges();
+            string username;
+            Examiner examiner = fetchExaminerToDelete(examinerId);
+            username = examiner.Username;
+            examiner.Delete(deleteEntity);
+           
+            Membership membership = new Membership();
+            if (!membership.DeleteExaminer(username))
+            {
+                throw new BusinessRuleException("Cannot delete the examiner from membership");
+            }
         }
 
         public void EditExaminerActiveStatus(Guid examinerId, bool isActive)

@@ -72,7 +72,9 @@ namespace APFTestingModel
 
         IEnumerable<IExaminer> FetchAllExaminers();
         IExaminer FetchExaminer(Guid examinerId);
+
         ITheoryQuestion FetchTheoryQuestion(Guid questionId);
         void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId);
+
     }
 }

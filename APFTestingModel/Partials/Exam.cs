@@ -145,11 +145,14 @@ namespace APFTestingModel
 		
 		public void VoidExam()
 		{
-
 			Action a = delegate { ExamStatus = ExamStatus.ExamVoided; };
-
 			_examState.VoidExam(a);
 		}
+
+        public void FinaliseExam()
+        {
+            Action a = delegate { ExamStatus = ExamStatus.ExamCompleted; };
+        }
 		
 		//HACK: Reset Theory Component - Remove for production
 		public void ResetTheoryComponent()
@@ -186,7 +189,7 @@ namespace APFTestingModel
                 case ExamStatus.TheoryPassed:
                     _examState = new TheoryComponentCompleted();
                     break;
-                case ExamStatus.PracticalEntered:
+                case ExamStatus.PracticalComponentCompleted:
                     _examState = new PracticalComponentCompleted();
                     break;
                 case ExamStatus.ExamCompleted:

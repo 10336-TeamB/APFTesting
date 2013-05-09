@@ -170,11 +170,13 @@
     <Compile Include="Areas\Administration\Controllers\ExaminerController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\QuestionManagementController.cs" />
-    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\EditAssessmentTask.cs" />
+    <Compile Include="Areas\Administration\Controllers\TheoryFormatController.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskItem.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskList.cs" />
     <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\CreateAssessmentTask.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\EditAssessmentTask.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\CreateExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\EditExaminer.cs" />
-    <Compile Include="Areas\Administration\Controllers\TheoryFormatController.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\Index.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
@@ -225,8 +227,6 @@
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
-    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskItem.cs" />
-    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskList.cs" />
     <Compile Include="Models\Practical\AssessmentTaskInputItem.cs" />
     <Compile Include="Models\Practical\AssessmentTaskDisplayItem.cs" />
     <Compile Include="Models\Practical\PackerEdit.cs" />
