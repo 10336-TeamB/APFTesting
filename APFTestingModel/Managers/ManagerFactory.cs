@@ -62,9 +62,17 @@ namespace APFTestingModel
         }
 
         // Creates a practical exam manager with no associated data (i.e. existing formats or templates)
-        public static ExamManagerPilot CreatePracticalExamManangerPilot()
+        public static ExamManager CreatePracticalExamMananger(ExamType examType)
         {
-            return new ExamManagerPilot(new PracticalComponentManagerPilot());
+            switch (examType)
+            {
+                case ExamType.PilotExam:
+                    return new ExamManagerPilot(new PracticalComponentManagerPilot());
+                case ExamType.PackerExam:
+                    return new ExamManagerPacker(new PracticalComponentManagerPacker());
+                default:
+                    throw new BusinessRuleException("Invalid exam type provided");
+            }
         }
     }
 }

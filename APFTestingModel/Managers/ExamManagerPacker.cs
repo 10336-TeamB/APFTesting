@@ -10,7 +10,7 @@ namespace APFTestingModel
     {
         public ExamManagerPacker(PracticalComponentManagerPacker practicalComponentManagerPacker)
         {
-            this.practicalComponentManager = practicalComponentManager;
+            this.practicalComponentManager = practicalComponentManagerPacker;
         }
 
         public ExamManagerPacker(TheoryComponentManagerPacker theoryComponentManagerPacker)
@@ -31,6 +31,11 @@ namespace APFTestingModel
 
             ExamPacker examPacker = new ExamPacker(examinerId, candidateId, theoryComponentPacker, practicalComponentPacker);
             return examPacker;
+        }
+
+        public PracticalComponentTemplate CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks)
+        {
+            return (practicalComponentManager as PracticalComponentManagerPacker).CreatePracticalComponentTemplatePacker(numOfRequiredAssessmentTasks);
         }
     }
 }

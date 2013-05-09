@@ -30,5 +30,10 @@ namespace APFTestingModel
         {
             return new AssessmentTaskPilot(details);
         }
+
+        public PracticalComponentTemplatePilot CreatePracticalComponentTemplatePilot()
+        {
+            return null;
+        }
     }
 }

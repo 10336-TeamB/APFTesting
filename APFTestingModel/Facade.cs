@@ -258,6 +258,16 @@ namespace APFTestingModel
 
             return exam.SelectedAssessmentTasks;
         }
+
+        public IEnumerable<IPracticalComponentTemplatePilot> FetchAllPracticalComponentTemplatePilots()
+        {
+            return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("PracticalComponentPilots").Include("AssessmentTaskPilots").OrderByDescending(t => t.IsActive).ToList();
+        }
+
+        public IEnumerable<IPracticalComponentTemplatePacker> FetchAllPracticalComponentTemplatePackers()
+        {
+            return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().Include("PracticalComponentPackers").OrderByDescending(t => t.IsActive).ToList();
+        }
         
         #endregion
 
@@ -431,7 +441,7 @@ namespace APFTestingModel
 
         private AssessmentTask createAssessmentTask(AssessmentTaskPilotDetails details)
         {
-            examManager = ManagerFactory.CreatePracticalExamManangerPilot();
+            examManager = ManagerFactory.CreatePracticalExamMananger(ExamType.PilotExam);
             AssessmentTask assessmentTask = (examManager as ExamManagerPilot).CreateAssessmentTask(details);
             _context.AssessmentTasks.Add(assessmentTask);
             _context.SaveChanges();
@@ -632,6 +642,28 @@ namespace APFTestingModel
         public IEnumerable<IExaminer> FetchAllExaminers()
         {
             return _context.People.OfType<Examiner>();
+        }
+
+        #endregion
+
+
+        #region CRUD Pilot Practical Template
+
+        public void CreatePracticalComponentTemplatePilot()
+        {
+            examManager = ManagerFactory.CreatePracticalExamMananger(ExamType.PilotExam);
+        }
+
+        #endregion
+
+        #region CRUD Packer Practical Template
+
+        public void CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks)
+        {
+            examManager = ManagerFactory.CreatePracticalExamMananger(ExamType.PackerExam);
+            var template = (examManager as ExamManagerPacker).CreatePracticalComponentTemplatePacker(numOfRequiredAssessmentTasks);
+            _context.PracticalComponentTemplates.Add(template);
+            _context.SaveChanges();
         }
 
         #endregion

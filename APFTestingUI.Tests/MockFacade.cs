@@ -308,5 +308,24 @@ namespace APFTestingUI.Tests
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+
+        public IEnumerable<IPracticalComponentTemplatePilot> FetchAllPracticalComponentTemplatePilots()
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        public IEnumerable<IPracticalComponentTemplatePacker> FetchAllPracticalComponentTemplatePackers()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

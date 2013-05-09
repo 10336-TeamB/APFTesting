@@ -55,6 +55,8 @@ namespace APFTestingModel
 
         IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot();
 
+        IEnumerable<IPracticalComponentTemplatePilot> FetchAllPracticalComponentTemplatePilots();
+        IEnumerable<IPracticalComponentTemplatePacker> FetchAllPracticalComponentTemplatePackers();
 
         void CreateExaminer(ExaminerDetails examinerDetails);
         void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails);
@@ -67,6 +69,7 @@ namespace APFTestingModel
         void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
         void DeleteTheoryExamFormat(Guid formatId);
 
+        void CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks);
 
 		void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType);
 

@@ -5,7 +5,9 @@ namespace APFTestingModel
 {
     public interface IPracticalComponentTemplatePacker
     {
-        Guid Id { get; set; }
+        Guid Id { get; }
+        bool IsActive { get; }
         int NumOfRequiredAssessmentTasks { get; }
+        bool AllowEditOrDelete { get; }
     }
 }
