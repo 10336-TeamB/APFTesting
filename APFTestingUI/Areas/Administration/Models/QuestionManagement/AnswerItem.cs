@@ -14,13 +14,11 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
         {
             Id = answer.Id;
             Description = answer.Description;
-            DisplayOrderIndex = answer.DisplayOrderIndex;
             IsCorrect = answer.IsCorrect;
         }
         
         public Guid Id { get; set; }
         public string Description { get; set; }
-        public int DisplayOrderIndex { get; set; }
         public bool IsCorrect { get; set; }
     }
 }

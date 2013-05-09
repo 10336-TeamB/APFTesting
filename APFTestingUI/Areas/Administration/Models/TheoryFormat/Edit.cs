@@ -25,17 +25,17 @@ namespace APFTestingUI.Areas.Administration.Models.TheoryFormat
         public Guid Id { get; set; }
 
         [Required]
-        [Range(1, 100, ErrorMessage = "An exam must have at least 1 question")]
+        [Range(1, 100, ErrorMessage = "An exam must have between 1 - 100 questions")]
         [Display(Name = "Number of questions")]
         public int NumberOfQuestions { get; set; }
 
         [Required]
-        [Range(1, 100, ErrorMessage = "Pass mark must be greater than 0")]
+        [Range(1, 100, ErrorMessage = "Pass mark must be greater than 0 and not more than 100")]
         [Display(Name = "Pass mark")]
         public int PassMark { get; set; }
 
         [Required]
-        [Range(0, 120, ErrorMessage = "Time limit must be between 0 and 120")]
+        [Range(0, 120, ErrorMessage = "Time limit must be greater than 0 and not more than 100")]
         [Display(Name = "Time limit")]
         public int TimeLimit { get; set; }
     }

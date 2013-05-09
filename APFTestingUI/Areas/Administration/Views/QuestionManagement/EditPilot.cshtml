@@ -1,15 +1,25 @@
-﻿@model APFTestingUI.Areas.Administration.Models.QuestionManagement.Create
+﻿@model APFTestingUI.Areas.Administration.Models.QuestionManagement.Edit
 
 @{
-    ViewBag.Title = "CreatePilot";
+    ViewBag.Title = "EditPilot";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CreatePilot</h2>
+<h2>EditPilot</h2>
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
+    
+    @Html.HiddenFor(model => model.Id);
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.IsActive) <em>*</em>
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.IsActive)
+    </div>
+    <div class="clear"></div>
     
     <div class="editor-label">
         @Html.LabelFor(model => model.Description) <em>*</em>
@@ -27,7 +37,7 @@
     </div>
     <div class="clear"></div>
     
-    <table>
+    <table id="answers-table">
         <thead>
             <tr>
                 <th>Correct</th>
@@ -36,16 +46,25 @@
         </thead>
 
         <tbody>
-            @for (int i = 0; i < 3; i++)
+            @for (int i = 0; i < Model.Answers.Count; i++)
             {
+                
                 <tr>
+                    @Html.HiddenFor(model => model.Answers[i].Id)
                     <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
-                    <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
+                    <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
+                    <td class="delete-answer"><span>delete</span></td>
                 </tr>
             }
         </tbody>
     </table>
     
+    @Html.ActionLink("Delete", "DeletePilot", new { }, new { id = "delete" });
+    
     <input type="submit" value="Create" class="form-button" />
 }
 
+@section scripts
+{
+    <script src="~/Scripts/QuestionManagement.js"></script>
+}

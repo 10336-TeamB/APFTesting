@@ -8,11 +8,18 @@ namespace APFTestingModel
 {
     internal partial class Answer : IAnswer
     {
-		public Answer(AnswerDetails answerDetails)
+		public Answer(AnswerDetails answerDetails, int displayOrderIndex)
 		{
 			Description = answerDetails.Description;
 			IsCorrect = answerDetails.IsCorrect;
-			DisplayOrderIndex = answerDetails.DisplayOrderIndex;
+            DisplayOrderIndex = displayOrderIndex;
 		}
+
+        public void Edit(AnswerDetails answerDetails, int displayOrderIndex)
+        {
+            Description = answerDetails.Description;
+            IsCorrect = answerDetails.IsCorrect;
+            DisplayOrderIndex = displayOrderIndex;
+        }
     }
 }

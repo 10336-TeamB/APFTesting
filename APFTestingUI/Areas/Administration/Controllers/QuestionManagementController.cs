@@ -34,7 +34,8 @@ namespace APFTestingUI.Areas.Administration.Controllers
 			List<AnswerDetails> answers = new List<AnswerDetails>();
 			for (int i = 0; i < model.Answers.Count; i++)
 			{
-				answers.Add(new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect, i+1));
+                var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect);
+                answers.Add(answer);
 			}
 
 			var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
@@ -43,6 +44,38 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
 			return View();
         }
+
+        [HttpGet]
+        public ActionResult EditPilot(Guid questionId)
+        {
+            return View(new Edit(_facade.FetchTheoryQuestion(questionId)));
+        }
+
+        [HttpPost]
+        public ActionResult EditPilot(Edit model)
+        {
+            List<AnswerDetails> answers = new List<AnswerDetails>();
+            for (int i = 0; i < model.Answers.Count; i++)
+            {
+                var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect, model.Answers[i].Id);
+                answers.Add(answer);
+            }
+
+            var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+
+            _facade.EditTheoryQuestion(questionPackage, model.Id);
+
+            return View();
+        }
+
+        public ActionResult DeletePilot()
+        {
+
+
+            return View();
+        }
+
+
 
         [HttpGet]
         public ActionResult CreatePacker()
@@ -55,6 +88,9 @@ namespace APFTestingUI.Areas.Administration.Controllers
         {
             return View();
         }
+
+        
+
 
     }
 }

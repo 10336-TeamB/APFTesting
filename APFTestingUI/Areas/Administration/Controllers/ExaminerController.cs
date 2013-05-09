@@ -5,13 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using APFTestingUI.Areas.Administration.Models.ExaminerManagement;
 using APFTestingModel;
-using APFTestingUI.Controllers;
 using APFTestingUI.Filters;
 
 namespace APFTestingUI.Areas.Administration.Controllers
 {
     [InitializeSimpleMembership]
-    public class ExaminerController : BaseController
+    public class ExaminerController : AdminBaseController
     {
         public ExaminerController(IFacade _facade) : base(_facade) { }
 

@@ -653,7 +653,6 @@ a:active {
 	border: 1px outset rgb(110, 130, 141);
     outline: none;
 }
-}
 
 a.button 
 {
@@ -1610,7 +1609,6 @@ input[type='number']
 
 #form-packer-edit #note
 {
-    width: 
 }
 
 
@@ -1636,4 +1634,13 @@ input[type='number']
 input[type="text"]:disabled
 {
     background-color: rgb(170, 168, 168);
+}
+
+
+#toggle {
+    cursor: pointer;
+}
+
+.delete-answer {
+    cursor:pointer;
 }

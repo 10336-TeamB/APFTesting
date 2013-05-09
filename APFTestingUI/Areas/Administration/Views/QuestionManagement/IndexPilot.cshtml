@@ -45,7 +45,7 @@
                             }
                         </td>
                         <td>
-                            @Html.ActionLink(question.Description, "#");
+                            @Html.ActionLink(question.Description, "EditPilot", new { questionId = question.Id })
                         </td>
                     </tr>
                 }

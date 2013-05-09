@@ -4,12 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using APFTestingModel;
-using APFTestingUI.Controllers;
 using APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement;
 
 namespace APFTestingUI.Areas.Administration.Controllers
 {
-    public class AssessmentTaskController : BaseController
+    public class AssessmentTaskController : AdminBaseController
     {
         public AssessmentTaskController(IFacade facade) : base(facade) { }
 

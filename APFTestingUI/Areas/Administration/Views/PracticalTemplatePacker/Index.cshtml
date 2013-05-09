@@ -1,0 +1,47 @@
+﻿@model APFTestingUI.Areas.Administration.Models.PracticalTemplatePacker.Index
+
+@{
+    ViewBag.Title = "Packer Practical Templates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Packer Practical Templates</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Active</th>
+            <th>Number of Required Demonstration Packs</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var rowNumber = 1;
+         }
+        @foreach (var template in Model.Templates)
+        {
+
+            <tr>
+                <td>@rowNumber</td>
+                <td>@template.IsActive</td>
+                <td>@template.NumOfRequiredAssessmentTasks</td>
+                <td>
+                    @if (template.AllowEditOrDelete)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { templateId = template.Id })
+                        <text>|</text>
+                        @Html.ActionLink("Delete", "Delete", new { templateId = template.Id }, new { @class = "template-delete" })
+                    }
+                    @if (!template.IsActive)
+                    {
+                        <text>|</text>
+                        @Html.ActionLink("Activate", "Activate", new { templateId = template.Id }, new { @class = "template-activate" })
+                    }
+                </td>
+            </tr>
+            rowNumber++;
+        }
+    </tbody>
+</table>
