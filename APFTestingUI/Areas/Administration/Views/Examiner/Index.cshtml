@@ -40,7 +40,14 @@
         <td class="Examiner-Name">@examiner.LastName</td>
         <td class="Examiner-Task-Actions">
            @Html.ActionLink("Edit", "Edit", "Examiner", new { examinerId = examiner.Id }, new { })
-           | Delete | Activate 
+           | 
+           @Html.ActionLink("Delete", "Delete", "Examiner", new { examinerId = examiner.Id }, new { }) 
+           |
+           @if (examiner.IsActive) { 
+                @Html.ActionLink("Deactivate", "Deactivate", "Examiner", new { examinerId = examiner.Id }, new { });
+           } else {
+                @Html.ActionLink("Activate", "Activate", "Examiner", new { examinerId = examiner.Id }, new { });
+           }
         </td>
     </tr>
 }

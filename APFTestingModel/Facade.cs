@@ -591,6 +591,7 @@ namespace APFTestingModel
         public void CreateExaminer(ExaminerDetails examinerDetails)
         {
             Membership membership = new Membership();
+            examinerDetails.UserName = examinerDetails.APFNumber;
             int userId = membership.RegisterExaminer(examinerDetails.UserName, examinerDetails.Password);
             Examiner examiner = new Examiner(examinerDetails, userId);
             _context.People.Add(examiner);
@@ -615,9 +616,17 @@ namespace APFTestingModel
 
         public void DeleteExaminer(Guid examinerId)
         {
+            string username;
             Examiner examiner = fetchExaminer(examinerId);
+            username = examiner.Username;
             _context.People.Remove(examiner);
             _context.SaveChanges();
+           
+            Membership membership = new Membership();
+            if (!membership.DeleteExaminer(username))
+            {
+                throw new BusinessRuleException("Cannot delete the examiner from membership");
+            }
         }
 
         public void EditExaminerActiveStatus(Guid examinerId, bool isActive)

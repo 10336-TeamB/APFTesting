@@ -72,6 +72,5 @@ namespace APFTestingModel
 
         IEnumerable<IExaminer> FetchAllExaminers();
         IExaminer FetchExaminer(Guid examinerId);
-
     }
 }
