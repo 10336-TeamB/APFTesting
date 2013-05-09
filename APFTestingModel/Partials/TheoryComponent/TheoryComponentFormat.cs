@@ -43,7 +43,7 @@ namespace APFTestingModel
             TimeLimit = timeLimit;
         }
 
-        public void Delete(Facade facade)
+        public void Delete(deleteEntityDelegate<TheoryComponentFormat> delete)
         {
             if (IsActive)
             {
@@ -53,7 +53,7 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("Error: Can not delete template that has been used");
             }
-            facade.deleteTheoryExamFormat(this);
+            delete(this);
         }
 
         public bool Activate()

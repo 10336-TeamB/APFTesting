@@ -8,6 +8,7 @@ using APFTestingMembership;
 
 namespace APFTestingModel
 {
+    internal delegate void deleteEntityDelegate<T>(T entity);
     public class Facade : IFacade
     {
         private APFTestingDBEntities _context = new APFTestingDBEntities();
@@ -561,15 +562,16 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("Invalid FormatID");
             }
-            format.Delete(this);
+            format.Delete(deleteEntity);
         }
 
-        internal void deleteTheoryExamFormat(TheoryComponentFormat format)
+        internal void deleteEntity<T>(T entity)
         {
-            _context.TheoryComponentFormats.Remove(format);
+            var dbSet = _context.Set(entity.GetType());
+            dbSet.Remove(entity);
             _context.SaveChanges();
         }
-        
+
         #endregion
 
         /*=====================*/
