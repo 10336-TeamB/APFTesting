@@ -93,12 +93,12 @@ namespace APFTestingModel
 	{
 		public TheoryQuestionDetails(string description, string imagePath, TheoryQuestionCategory category, List<AnswerDetails> answers) : this()
 		{
-			Description = description;
+            Description = description;
 			ImagePath = imagePath;
 			Category = category;
 			Answers = answers;
 		}
-		
+
 		public string Description { get; set; }
 		public string ImagePath { get; set; }
 		public TheoryQuestionCategory Category { get; set; }
@@ -107,16 +107,22 @@ namespace APFTestingModel
 
 	public struct AnswerDetails
 	{
-		public AnswerDetails(string description, bool isCorrect, int displayOrderIndex) : this()
+        public AnswerDetails(string description, bool isCorrect) : this()
+        {
+            Description = description;
+            IsCorrect = isCorrect;
+        }
+        
+        public AnswerDetails(string description, bool isCorrect, Guid id) : this()
 		{
-			Description = description;
+            if (id != null) Id = id;
+            Description = description;
 			IsCorrect = isCorrect;
-			DisplayOrderIndex = displayOrderIndex;
 		}
 
+        public Guid Id { get; private set; }
 		public string Description { get; private set; }
 		public bool IsCorrect { get; private set; }
-		public int DisplayOrderIndex { get; private set; }
 	}
 
     public struct AssessmentTaskPilotDetails

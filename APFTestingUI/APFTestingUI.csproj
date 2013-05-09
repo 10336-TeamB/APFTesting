@@ -178,6 +178,7 @@
     <Compile Include="Areas\Administration\Models\ExaminerManagement\Index.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
+    <Compile Include="Areas\Administration\Models\QuestionManagement\Edit.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\TheoryQuestionItem.cs" />
     <Compile Include="Areas\Administration\Models\TheoryFormat\Create.cs" />
@@ -345,6 +346,7 @@
     <Content Include="Areas\Administration\Views\AssessmentTask\Create.cshtml" />
     <Content Include="Areas\Administration\Views\AssessmentTask\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\AssessmentTask\DeletedConfirmation.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\EditPilot.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -367,6 +369,7 @@
     <Content Include="Scripts\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\modernizr.custom.51211.js" />
     <Content Include="Scripts\practical-packer.js" />
+    <Content Include="Scripts\QuestionManagement.js" />
     <Content Include="Scripts\summary.js" />
     <Content Include="Unity.Mvc3.README.txt" />
     <Content Include="Unity.WebAPI.README.txt" />
@@ -450,7 +453,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49596</DevelopmentServerPort>
+          <DevelopmentServerPort>7833</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1979/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

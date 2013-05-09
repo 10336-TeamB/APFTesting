@@ -308,5 +308,17 @@ namespace APFTestingUI.Tests
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+
+        public ITheoryQuestion FetchTheoryQuestion(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

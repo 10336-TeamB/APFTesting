@@ -284,6 +284,33 @@ namespace APFTestingModel
             return _context.TheoryQuestions;
         }
 
+        public ITheoryQuestion FetchTheoryQuestion(Guid questionId)
+        {
+            return _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+        }
+
+        public void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId)
+        {
+            var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+            question.Edit(questionDetails);
+        }
+
+
+        //public void DeleteTheoryQuestion(Guid questionId)
+        //{
+        //    //var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").First(e => e.Id == examId);
+        //    var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+
+
+        //}
+        //internal void DeleteTheoryQuestion(TheoryQuestion question)
+        //{
+
+        //}
+        //internal void DeleteAnswer(Answer answer)
+        //{
+
+        //}
 
 		/*=========================*/
 		/*      OTHER METHODS      */
