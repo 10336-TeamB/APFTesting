@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebMatrix.WebData;
 using System.Web.Security;
 
+
 namespace APFTestingMembership
 {
     public class Membership
@@ -25,6 +26,12 @@ namespace APFTestingMembership
         public bool ChangePassword(string username, string oldPassword, string newPassword)
         {
             return WebSecurity.ChangePassword(username, oldPassword, newPassword);
+        }
+
+        public bool DeleteExaminer(string username)
+        {
+            Roles.RemoveUserFromRole(username, "Examiner");
+            return System.Web.Security.Membership.DeleteUser(username, true);
         }
     }
 }

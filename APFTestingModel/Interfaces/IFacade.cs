@@ -68,13 +68,16 @@ namespace APFTestingModel
         void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit);
         void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
         void DeleteTheoryExamFormat(Guid formatId);
-
         void CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks);
 
 		void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType);
 
         IEnumerable<IExaminer> FetchAllExaminers();
         IExaminer FetchExaminer(Guid examinerId);
+
+
+        ITheoryQuestion FetchTheoryQuestion(Guid questionId);
+        void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId);
 
     }
 }

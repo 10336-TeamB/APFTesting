@@ -1636,6 +1636,11 @@ input[type="text"]:disabled
     background-color: rgb(170, 168, 168);
 }
 
+
 #toggle {
     cursor: pointer;
+}
+
+.delete-answer {
+    cursor:pointer;
 }

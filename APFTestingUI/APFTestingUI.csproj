@@ -172,20 +172,23 @@
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\PracticalTemplatePilotController.cs" />
     <Compile Include="Areas\Administration\Controllers\QuestionManagementController.cs" />
-    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\EditAssessmentTask.cs" />
+    <Compile Include="Areas\Administration\Controllers\TheoryFormatController.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskItem.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskList.cs" />
     <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\CreateAssessmentTask.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePacker\Create.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePacker\Index.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePacker\PackerTemplateDisplayItem.cs" />
+    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\EditAssessmentTask.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\CreateExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\EditExaminer.cs" />
-    <Compile Include="Areas\Administration\Controllers\TheoryFormatController.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\Index.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\Index.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateTask.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateDisplayItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
+    <Compile Include="Areas\Administration\Models\QuestionManagement\Edit.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\TheoryQuestionItem.cs" />
     <Compile Include="Areas\Administration\Models\TheoryFormat\Create.cs" />
@@ -232,8 +235,6 @@
     <Compile Include="Models\Exam\TheoryComponentResult.cs" />
     <Compile Include="Models\Exam\TheoryComponentSummary.cs" />
     <Compile Include="Models\Exam\VoidExam.cs" />
-    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskItem.cs" />
-    <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskList.cs" />
     <Compile Include="Models\Practical\AssessmentTaskInputItem.cs" />
     <Compile Include="Models\Practical\AssessmentTaskDisplayItem.cs" />
     <Compile Include="Models\Practical\PackerEdit.cs" />
@@ -356,6 +357,7 @@
     <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Index.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Index.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\EditPilot.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -379,6 +381,7 @@
     <Content Include="Scripts\modernizr.custom.51211.js" />
     <Content Include="Scripts\practical-packer.js" />
     <Content Include="Scripts\practical-template.js" />
+    <Content Include="Scripts\QuestionManagement.js" />
     <Content Include="Scripts\summary.js" />
     <Content Include="Unity.Mvc3.README.txt" />
     <Content Include="Unity.WebAPI.README.txt" />
@@ -462,7 +465,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49596</DevelopmentServerPort>
+          <DevelopmentServerPort>7833</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1979/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

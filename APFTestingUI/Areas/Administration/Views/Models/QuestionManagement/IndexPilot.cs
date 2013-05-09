@@ -13,6 +13,6 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
             TheoryQuestions = theoryQuestions.Select(q => new TheoryQuestionItem(q)).ToList();
         }
         
-        public List<TheoryQuestionItem> TheoryQuestions { get; set; }
+        public IEnumerable<TheoryQuestionItem> TheoryQuestions { get; set; }
     }
 }

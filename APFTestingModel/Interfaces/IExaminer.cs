@@ -14,6 +14,7 @@ namespace APFTestingModel
         string APFNumber { get; }
         int UserId { get; }
         string Username { get; }
+        bool IsActive { get; }
         IEnumerable<IExaminerAuthority> ExaminerAuthorities { get; }
     }
 }
