@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using APFTestingModel;
+using APFTestingServices;
 
 namespace APFTestingHookIn {
     
@@ -39,6 +40,14 @@ namespace APFTestingHookIn {
 
 			//_facade.CreateTheoryQuestion(testQuestion, ExamType.PilotExam);
 
+            List<KeyValuePair<string, string>> DemoDetails = new List<KeyValuePair<string, string>>();
+            DemoDetails.Add(new KeyValuePair<string,string>("Name", "SpongeBob"));
+            DemoDetails.Add(new KeyValuePair<string,string>("Mobile", "0452-Underwater"));
+            DemoDetails.Add(new KeyValuePair<string,string>("APF Number", "789456"));
+            DemoDetails.Add(new KeyValuePair<string, string>("Score", "18/20 (90%) -- Pass"));
+
+            GeneratePdf pdfVendingMachine = new GeneratePdf();
+            pdfVendingMachine.CreatePDF(DemoDetails, 2);
 
         }
     }
