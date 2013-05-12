@@ -20,13 +20,13 @@ namespace APFTestingUI.Areas.Administration.Models.AssessmentTaskManagement
 
         public Guid Id { get; set; }
 
-        [Display(Name = "Title")]
+        [Display(Name = "Title:")]
         public string Title { get; set; }
 
-        [Display(Name = "Details")]
+        [Display(Name = "Details:")]
         public string Details { get; set; }
 
-        [Display(Name = "Max Score")]
+        [Display(Name = "Max Score:")]
         public int MaxScore { get; set; }
         public bool Editable { get; set; }
     }

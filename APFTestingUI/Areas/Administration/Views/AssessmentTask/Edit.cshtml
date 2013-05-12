@@ -22,7 +22,7 @@
 
         <div class="editor-field">
             @Html.EditorFor(model => model.Title)
-            @*@Html.ValidationMessageFor(model => model.Title)*@
+            @Html.ValidationMessageFor(model => model.Title)
         </div>
         <div class="clear"></div>
 
@@ -32,7 +32,7 @@
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Details)
-            @*@Html.ValidationMessageFor(model => model.Details)*@
+            @Html.ValidationMessageFor(model => model.Details)
         </div>
         <div class="clear"></div>
 
@@ -42,13 +42,13 @@
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.MaxScore)
-            @*@Html.ValidationMessageFor(model => model.MaxScore)*@
+            @Html.ValidationMessageFor(model => model.MaxScore)
         </div>
         <div class="clear"></div>
 
 
-        <p>
-            <input type="submit" value="Save" />
+        <p class="button-container">
+            <input class="form-button" type="submit" value="Save" />
         </p>
     </fieldset>
 }

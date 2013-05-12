@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using APFTestingModel;
 using APFTestingServices;
 
@@ -47,7 +48,11 @@ namespace APFTestingHookIn {
             DemoDetails.Add(new KeyValuePair<string, string>("Score", "18/20 (90%) -- Pass"));
 
             GeneratePdf pdfVendingMachine = new GeneratePdf();
-            pdfVendingMachine.CreatePDF(DemoDetails, 2);
+            var stream = pdfVendingMachine.CreatePDF(DemoDetails, 2);
+
+            //add thread
+            SendEmail email = new SendEmail();
+            email.MailEmail("teamb@live.com.au", "Test Email", "Please find PDF attached", stream);
 
         }
     }

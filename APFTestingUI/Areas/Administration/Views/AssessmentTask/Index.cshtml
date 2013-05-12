@@ -8,21 +8,26 @@
     #Assessment-Tasks-List {
     }
     
-    #Assessment-Tasks-List .Assessment-Task-Title {
+    #Assessment-Tasks-List td.Assessment-Task-Title {
         width: 20%;
     }
 
-    #Assessment-Tasks-List .Assessment-Task-Details {
-        width: 40%;
+    #Assessment-Tasks-List td.Assessment-Task-Details {
+        width: 50%;
     }
 
-    #Assessment-Tasks-List .Assessment-Task-Max-Score {
+    #Assessment-Tasks-List th.Assessment-Task-Max-Score {
+        text-align: center;
+    }
+
+    #Assessment-Tasks-List td.Assessment-Task-Max-Score {
         width: 10%;
         text-align: center;
     }
 
-    #Assessment-Tasks-List .Assessment-Task-Actions {
+    #Assessment-Tasks-List td.Assessment-Task-Actions {
         width: 20%;
+        padding-left: 30px;
     }
 
 </style>
@@ -32,10 +37,10 @@
 </p>
 <table id="Assessment-Tasks-List">
     <tr>
-        <th>Title</th>
-        <th>Details</th>
-        <th>Max Score</th>
-        <th>&nbsp;</th>
+        <th class="Assessment-Task-Title">Title</th>
+        <th class="Assessment-Task-Details">Details</th>
+        <th class="Assessment-Task-Max-Score">Max Score</th>
+        <th class="Assessment-Task-Actions">&nbsp;</th>
     </tr>
 
 @foreach (var item in Model.AssessmentTasks)
@@ -48,13 +53,26 @@
             @Html.ActionLink("Details", "Details", new { id=item.Id })
             @if(item.Editable) 
             {
-                @:&nbsp;|&nbsp; 
+                @:&nbsp;|&nbsp;
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id })
                 @:&nbsp;|&nbsp;
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class="link-delete"})
+            }
+            else
+            {
+                @:&nbsp;| &nbsp;Edit&nbsp; |&nbsp; Delete
             }
         </td>
     </tr>
 }
 
 </table>
+
+
+@section Scripts {
+    <script>
+        $('.link-delete').on('click', function(e){
+            return confirm('Are you sure you want to delete this Assessment Task?');
+        })
+    </script>
+}

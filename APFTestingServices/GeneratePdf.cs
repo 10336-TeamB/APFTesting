@@ -14,8 +14,6 @@ namespace APFTestingServices
     {
         public List<KeyValuePair<string, string>> ExamDetails = new List<KeyValuePair<string, string>>();
 
-
-
         private PdfDocument _document;
         private MemoryStream _stream;
         private const float _documentWidth = 21.0f;
@@ -65,7 +63,8 @@ namespace APFTestingServices
 
             CreateBody();
 
-            _document.Save("C:/Users/p404/Desktop/test.pdf");
+            //Temporarily removed
+            //_document.Save("C:/Users/p404/Desktop/test.pdf");
             _stream = new MemoryStream();
             _document.Save(_stream, false);
             return _stream;
