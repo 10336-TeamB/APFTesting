@@ -33,5 +33,15 @@ namespace APFTestingMembership
             Roles.RemoveUserFromRole(username, "Examiner");
             return System.Web.Security.Membership.DeleteUser(username, true);
         }
+
+        public bool Login(string username, string password, bool rememberMe = false)
+        {
+            return WebSecurity.Login(username, password, rememberMe);
+        }
+
+        public void Logout()
+        {
+            WebSecurity.Logout();
+        }
     }
 }

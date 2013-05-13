@@ -5,16 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using APFTestingUI.Filters;
 
 namespace APFTestingUI.Controllers
 {
+    [InitializeSimpleMembership]
     public class ExaminerController : BaseController
     {
         public ExaminerController(IFacade facade) : base(facade) { }
 
         //
         // GET: /Examiner/
-
+        [Authorize]
         public ActionResult Index()
         {
             //Displays list of candidates associated to this examiner
@@ -27,6 +29,33 @@ namespace APFTestingUI.Controllers
             ExaminerAuthority.Add(ExamType.PackerExam);
             var model = new Index(_facade.FetchCandidates(ExaminerId), ExaminerId, ExaminerAuthority);
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginModel model)
+        {
+            if (ModelState.IsValid && _facade.Login(model.UserName, model.Password, model.RememberMe))
+            {
+                return RedirectToAction("Index", "Examiner");
+            }
+
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            _facade.Logout();
+            return RedirectToAction("Index", "Examiner");
         }
     }
 }

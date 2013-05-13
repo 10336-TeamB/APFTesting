@@ -79,5 +79,7 @@ namespace APFTestingModel
         ITheoryQuestion FetchTheoryQuestion(Guid questionId);
         void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId);
 
+        bool Login(string username, string password, bool rememberMe);
+        void Logout();
     }
 }

@@ -224,6 +224,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Examiner\CandidateDisplayItem.cs" />
     <Compile Include="Models\Examiner\Index.cs" />
+    <Compile Include="Models\Examiner\Login.cs" />
     <Compile Include="Models\Exam\AnswerDisplayItem.cs" />
     <Compile Include="Models\Exam\AnsweredQuestion.cs" />
     <Compile Include="Models\Exam\ResultAnswerDisplayItem.cs" />
@@ -414,7 +415,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -432,6 +432,7 @@
     <Content Include="Views\Practical\PackerInput.cshtml" />
     <Content Include="Views\Practical\PackerEdit.cshtml" />
     <Content Include="Areas\Administration\Views\AssessmentTask\Index.cshtml" />
+    <Content Include="Views\Examiner\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

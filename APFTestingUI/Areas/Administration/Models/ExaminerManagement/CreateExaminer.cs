@@ -21,10 +21,6 @@ namespace APFTestingUI.Areas.Administration.Models.ExaminerManagement
         public string APFNumber { get; set; }
 
         [Required]
-        [Display(Name = "Username")]
-        public string Username { get; set; }
-
-        [Required]
         [Display(Name = "Password")]
         public string Password { get; set; }
 

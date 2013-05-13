@@ -479,6 +479,18 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        public bool Login(string username, string password, bool rememberMe)
+        {
+            Membership membership = new Membership();
+            return membership.Login(username, password, rememberMe);
+        }
+
+        public void Logout()
+        {
+            Membership membership = new Membership();
+            membership.Logout();
+        }
+
         #endregion
 
         /*=======================================*/
