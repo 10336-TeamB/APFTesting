@@ -37,6 +37,7 @@
     </div>
     <div class="clear"></div>
     
+    <span id="add-answer">Add</span>
     <table id="answers-table">
         <thead>
             <tr>
@@ -50,8 +51,10 @@
             {
                 
                 <tr>
-                    @Html.HiddenFor(model => model.Answers[i].Id)
-                    <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
+                    <td>
+                        @Html.HiddenFor(model => model.Answers[i].Id)
+                        @Html.EditorFor(model => model.Answers[i].IsCorrect)
+                    </td>
                     <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
                     <td class="delete-answer"><span>delete</span></td>
                 </tr>

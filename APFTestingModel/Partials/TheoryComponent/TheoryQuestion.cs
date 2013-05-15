@@ -42,32 +42,46 @@ namespace APFTestingModel
 
         #region Methods
 
-        public void Edit(TheoryQuestionDetails questionDetails)
+		public List<Answer> Edit(TheoryQuestionDetails questionDetails)
         {
             Description = questionDetails.Description;
-            editAnswers(questionDetails.Answers);
+            var answersToDelete = editAnswers(questionDetails.Answers);
             NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect == true);
             IsActive = true;
             ImagePath = questionDetails.ImagePath;
             Category = questionDetails.Category;
+
+			return answersToDelete;
         }
 
         private void constructAnswers(List<AnswerDetails> answers)
         {
-            if (Answers != null) Answers = new List<Answer>();
+            if (Answers == null) Answers = new List<Answer>();
             for (int i = 0; i < answers.Count; i++)
             {
-                var newAnswer = new Answer(answers[i], Answers.Count+1);
+				Answer newAnswer;
+				if (Answers == null)
+				{
+					newAnswer = new Answer(answers[i], 1, this);
+				}
+				else
+				{
+					newAnswer = new Answer(answers[i], Answers.Count + 1, this);
+				}
+				
                 Answers.Add(newAnswer);
             }
 
         }
 
-        private void editAnswers(List<AnswerDetails> answerDetails)
+		private List<Answer> editAnswers(List<AnswerDetails> answerDetails)
         {
             int indexCounter = 0;
             List<Answer> deletionList = new List<Answer>();
-            foreach (var answer in Answers)
+
+			Answers = Answers.OrderBy(a => a.DisplayOrderIndex).ToList();
+			
+			foreach (var answer in Answers)
             {
                 bool exists = false;
                 for (int i = 0; i < answerDetails.Count; i++)
@@ -91,10 +105,14 @@ namespace APFTestingModel
             {
                 Answers.Remove(answer);
             }
-            if (answerDetails.Count > 0)
+            
+			//New Answers
+			if (answerDetails.Count > 0)
             {
                 constructAnswers(answerDetails);
             }
+
+			return deletionList;
         }
 
         #endregion

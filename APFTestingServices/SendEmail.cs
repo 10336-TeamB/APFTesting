@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -29,25 +30,38 @@ namespace APFTestingServices
             var attachment = new Attachment(stream, "ExamResult.pdf", "application/pdf");
             mail.Attachments.Add(attachment);
 
+            Thread emailThread = new Thread(() => SendEmail(senderAddress, mail));
+            emailThread.Start();
+        }
+
+        void SendEmail(string senderAddress, System.Net.Mail.MailMessage mail)
+        {
             SmtpClient client = new SmtpClient();
             client.Credentials = new System.Net.NetworkCredential(senderAddress, "tb123!@#");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
-            try
+
+            int retryTime = 0;
+            const int maxRetryTime = 3;
+            bool sent = false;
+
+            while (sent)
             {
-                client.Send(mail);
-            }
-            catch (Exception ex)
-            {
-                Exception ex2 = ex;
-                string errorMessage = string.Empty;
-                while (ex2 != null)
+                try
                 {
-                    errorMessage += ex2.ToString();
-                    ex2 = ex2.InnerException;
+                    client.Send(mail);
+                    sent = true;
                 }
-                HttpContext.Current.Response.Write(errorMessage);
+                catch (Exception)
+                {
+                    if (retryTime >= maxRetryTime)
+                    {
+                        //PANIC!
+                        return;
+                    }
+                    ++retryTime;
+                }
             }
         }
     }

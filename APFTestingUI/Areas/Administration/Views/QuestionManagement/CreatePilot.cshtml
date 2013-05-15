@@ -27,7 +27,8 @@
     </div>
     <div class="clear"></div>
     
-    <table>
+    <span id="add-answer">Add</span>
+    <table id="answers-table">
         <thead>
             <tr>
                 <th>Correct</th>
@@ -40,7 +41,8 @@
             {
                 <tr>
                     <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
-                    <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
+                    <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
+                    <td class="delete-answer"><span>delete</span></td>
                 </tr>
             }
         </tbody>
@@ -49,3 +51,8 @@
     <input type="submit" value="Create" class="form-button" />
 }
 
+
+@section scripts
+{
+    <script src="~/Scripts/QuestionManagement.js"></script>
+}
