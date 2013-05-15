@@ -21,6 +21,23 @@ namespace APFTestingUI.Areas.Administration.Controllers
             return View(new Index(templates));
         }
 
+        ////
+        //// GET: /Administration/PracticalTemplatePilot/Create
+
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+
+        ////
+        //// POST: /Administration/PracticalTemplatePilot/Create
+
+        //[HttpPost]
+        //public ActionResult Create(Create model)
+        //{
+        //    return RedirectToAction("Index");
+        //}
+
         //
         // GET: /Administration/PracticalTemplatePilot/Delete
 

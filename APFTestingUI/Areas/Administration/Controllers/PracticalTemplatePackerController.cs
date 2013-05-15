@@ -51,18 +51,53 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         //
+        // GET: /Administration/PracticalTemplatePacker/Edit
+
+        public ActionResult Edit(Guid templateId)
+        {
+            var model = new Edit(_facade.FetchPracticalTemplatePackerById(templateId));
+            return View(model);
+        }
+
+        //
+        // POST: /Administration/PracticalTemplatePacker/Edit
+
+        [HttpPost]
+        public ActionResult Edit(Edit model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _facade.EditPracticalComponentTemplatePacker(model.Id, model.NumOfRequiredAssessmentTasks);
+                    return RedirectToAction("Index");
+                }
+                catch (BusinessRuleException e)
+                {
+                    ModelState.AddModelError("Exception", e.Message);
+                }
+            }
+            return View(model);
+        }
+
+        //
         // GET: /Administration/PracticalTemplatePacker/Delete
 
-        public ActionResult Delete()
+        public ActionResult Delete(Guid templateId)
         {
+            // TODO: Need to display a confirmation, plus exceptions if they occur...
+            _facade.DeletePracticalTemplatePacker(templateId);
+
             return RedirectToAction("Index");
         }
 
         //
         // GET: /Administration/PracticalTemplatePacker/Activate
 
-        public ActionResult Activate()
+        public ActionResult Activate(Guid templateId)
         {
+            // TODO: Need to display a confirmation, plus exceptions if they occur...
+            _facade.SetActivePracticalTemplatePacker(templateId);
             return RedirectToAction("Index");
         }
     }

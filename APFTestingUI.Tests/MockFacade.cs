@@ -334,5 +334,38 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public bool Login(string username, string password, bool rememberMe)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Logout()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IPracticalComponentTemplatePacker FetchPracticalTemplatePackerById(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditPracticalComponentTemplatePacker(Guid templateId, int numOfRequiredAssessmentTasks)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void DeletePracticalTemplatePacker(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetActivePracticalTemplatePacker(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,6 +7,8 @@
 
 <h1>Packer Practical Templates</h1>
 
+@Html.ActionLink("Add new template", "Create")<br /><br/>
+
 <table>
     <thead>
         <tr>
@@ -19,7 +21,7 @@
     <tbody>
         @{
             var rowNumber = 1;
-         }
+        }
         @foreach (var template in Model.Templates)
         {
 
@@ -32,12 +34,12 @@
                     {
                         @Html.ActionLink("Edit", "Edit", new { templateId = template.Id })
                         <text>|</text>
-                        @Html.ActionLink("Delete", "Delete", new { templateId = template.Id }, new { @class = "template-delete" })
+                        @Html.ActionLink("Delete", "Delete", new { templateId = template.Id }, new { @class = "delete" })
                     }
                     @if (!template.IsActive)
                     {
                         <text>|</text>
-                        @Html.ActionLink("Activate", "Activate", new { templateId = template.Id }, new { @class = "template-activate" })
+                        @Html.ActionLink("Activate", "Activate", new { templateId = template.Id }, new { @class = "activate" })
                     }
                 </td>
             </tr>
@@ -45,3 +47,8 @@
         }
     </tbody>
 </table>
+
+@section scripts
+{
+    <script src="~/Scripts/administration.js"></script>
+}
