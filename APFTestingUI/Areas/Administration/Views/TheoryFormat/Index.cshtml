@@ -35,12 +35,12 @@
                     {
                         @Html.ActionLink("Edit", "Edit", new { formatId = format.Id })
                         <text>|</text>
-                        @Html.ActionLink("Delete", "Delete", new { formatId = format.Id }, new { @class = "exam-format-delete" })
+                        @Html.ActionLink("Delete", "Delete", new { formatId = format.Id }, new { @class = "delete" })
                     }
                     @if (!format.IsActive)
                     {
                         <text>|</text>
-                        @Html.ActionLink("Activate", "Activate", new { formatId = format.Id }, new { @class = "exam-format-activate" })
+                        @Html.ActionLink("Activate", "Activate", new { formatId = format.Id }, new { @class = "activate" })
                     }
                 </td>
             </tr>

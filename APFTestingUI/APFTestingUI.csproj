@@ -176,6 +176,7 @@
     <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskItem.cs" />
     <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\AssessmentTaskList.cs" />
     <Compile Include="Areas\Administration\Models\AssessmentTaskManagement\CreateAssessmentTask.cs" />
+    <Compile Include="Areas\Administration\Models\PracticalTemplatePacker\Edit.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePacker\Create.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePacker\Index.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePacker\PackerTemplateDisplayItem.cs" />
@@ -359,6 +360,7 @@
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Index.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Create.cshtml" />
     <Content Include="Areas\Administration\Views\QuestionManagement\EditPilot.cshtml" />
+    <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />

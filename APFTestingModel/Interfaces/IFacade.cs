@@ -68,7 +68,12 @@ namespace APFTestingModel
         void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit);
         void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
         void DeleteTheoryExamFormat(Guid formatId);
+
+        IPracticalComponentTemplatePacker FetchPracticalTemplatePackerById(Guid templateId);
         void CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks);
+        void EditPracticalComponentTemplatePacker(Guid templateId, int numOfRequiredAssessmentTasks);
+        void DeletePracticalTemplatePacker(Guid templateId);
+        void SetActivePracticalTemplatePacker(Guid templateId);
 
 		void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType);
 
@@ -81,5 +86,9 @@ namespace APFTestingModel
 
         bool Login(string username, string password, bool rememberMe);
         void Logout();
+
+
+
+        
     }
 }

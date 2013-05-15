@@ -370,36 +370,7 @@ namespace APFTestingModel
 		
       
 
-		public void SetActiveTheoryComponentFormat(Guid formatId)
-		{
-			var theoryComponentFormats = _context.TheoryComponentFormats.ToList();
-            var newFormat = theoryComponentFormats.FirstOrDefault(f => f.Id == formatId);
-            if (newFormat == null)
-            {
-                throw new BusinessRuleException("Invalid FormatID");
-            }
-		    if (newFormat.GetType() == typeof (TheoryComponentFormatPilot))
-		    {
-                var filteredFormats = theoryComponentFormats.OfType<TheoryComponentFormatPilot>().Where(f => f.IsActive).ToList();
-                // Ensuring all formats are not active prior to activating only one.
-                filteredFormats.ForEach(f => f.Deactivate());
-		    }
-            else if (newFormat.GetType() == typeof (TheoryComponentFormatPacker))
-            {
-                var filteredFormats = theoryComponentFormats.OfType<TheoryComponentFormatPacker>().Where(f => f.IsActive).ToList();
-                // Ensuring all formats are not active prior to activating only one.
-                filteredFormats.ForEach(f => f.Deactivate());
-            }
-            else
-            {
-                throw new BusinessRuleException("Unknown theory component format");
-            }
-            
-		    newFormat.Activate();
-            // TODO: Confirm that only one is active?
-
-		    _context.SaveChanges();
-		}
+		
 
         public Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy)
         {
@@ -596,10 +567,15 @@ namespace APFTestingModel
 
         public ITheoryComponentFormat FetchTheoryExamFormatById(Guid formatId)
         {
-            var format = _context.TheoryComponentFormats.FirstOrDefault(f => f.Id == formatId);
+            return fetchTheoryExamFormatById(formatId);
+        }
+
+        private TheoryComponentFormat fetchTheoryExamFormatById(Guid formatId)
+        {
+            var format = _context.TheoryComponentFormats.Include("TheoryComponents").FirstOrDefault(f => f.Id == formatId);
             if (format == null)
             {
-                throw new BusinessRuleException("Invalid FormatID");
+                throw new BusinessRuleException("Invalid Format ID");
             }
             return format;
         }
@@ -627,23 +603,46 @@ namespace APFTestingModel
 
         public void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit)
         {
-            var format = _context.TheoryComponentFormats.Include("TheoryComponents").FirstOrDefault(f => f.Id == formatId);
-            if (format == null)
-            {
-                throw new BusinessRuleException("Invalid FormatID");
-            }
+            var format = fetchTheoryExamFormatById(formatId);
             format.Edit(numberOfQuestions, passMark, timeLimit);
             _context.SaveChanges();
         }
 
         public void DeleteTheoryExamFormat(Guid formatId)
         {
-            var format = _context.TheoryComponentFormats.Include("TheoryComponents").FirstOrDefault(f => f.Id == formatId);
-            if (format == null)
+            var format = fetchTheoryExamFormatById(formatId);
+            format.Delete(deleteEntity);
+        }
+
+        public void SetActiveTheoryComponentFormat(Guid formatId)
+        {
+            var theoryComponentFormats = _context.TheoryComponentFormats.ToList();
+            var newFormat = theoryComponentFormats.FirstOrDefault(f => f.Id == formatId);
+            if (newFormat == null)
             {
                 throw new BusinessRuleException("Invalid FormatID");
             }
-            format.Delete(deleteEntity);
+            if (newFormat.GetType() == typeof(TheoryComponentFormatPilot))
+            {
+                var filteredFormats = theoryComponentFormats.OfType<TheoryComponentFormatPilot>().Where(f => f.IsActive).ToList();
+                // Ensuring all formats are not active prior to activating only one.
+                filteredFormats.ForEach(f => f.Deactivate());
+            }
+            else if (newFormat.GetType() == typeof(TheoryComponentFormatPacker))
+            {
+                var filteredFormats = theoryComponentFormats.OfType<TheoryComponentFormatPacker>().Where(f => f.IsActive).ToList();
+                // Ensuring all formats are not active prior to activating only one.
+                filteredFormats.ForEach(f => f.Deactivate());
+            }
+            else
+            {
+                throw new BusinessRuleException("Unknown theory component format");
+            }
+
+            newFormat.Activate();
+            // TODO: Confirm that only one is active?
+
+            _context.SaveChanges();
         }
 
         internal void deleteEntity<T>(T entity)
@@ -750,12 +749,58 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        public IPracticalComponentTemplatePacker FetchPracticalTemplatePackerById(Guid templateId)
+        {
+            return fetchPracticalTemplatePackerById(templateId);
+        }
+
+        private PracticalComponentTemplatePacker fetchPracticalTemplatePackerById(Guid templateId)
+        {
+            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().Include("PracticalComponentPackers").FirstOrDefault(t => t.Id == templateId);
+            if (template == null)
+            {
+                throw new BusinessRuleException("Invalid Template ID");
+            }
+            return template;
+        }
+
+        public void EditPracticalComponentTemplatePacker(Guid templateId, int numOfRequiredAssessmentTasks)
+        {
+            var template = fetchPracticalTemplatePackerById(templateId);
+            template.Edit(numOfRequiredAssessmentTasks);
+            _context.SaveChanges();
+        }
+
+        public void DeletePracticalTemplatePacker(Guid templateId)
+        {
+            var template = fetchPracticalTemplatePackerById(templateId);
+            template.Delete(deleteEntity);
+            _context.SaveChanges();
+        }
+
+        public void SetActivePracticalTemplatePacker(Guid templateId)
+        {
+            var practicalComponentTemplates = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>();
+            var newTemplate = practicalComponentTemplates.FirstOrDefault(t => t.Id == templateId);
+            if (newTemplate == null)
+            {
+                throw new BusinessRuleException("Invalid FormatID");
+            }
+
+            // Ensuring all formats are not active prior to activating only one.
+            practicalComponentTemplates.Where(f => f.IsActive).ToList().ForEach(t => t.Deactivate());
+            newTemplate.Activate();
+            // TODO: Confirm that only one is active?
+
+            _context.SaveChanges();
+        }
+
         #endregion
 
         //Hook-in test method
         public string TestDBConnection()
         {
-           return _context.TheoryQuestions.FirstOrDefault().Description;
+            return _context.TheoryQuestions.FirstOrDefault().Description;
         }
 		
         public void Dispose()
@@ -847,6 +892,12 @@ namespace APFTestingModel
 		//}
 
 		#endregion
+
+
+
+
+
+
 
 
 

@@ -10,6 +10,7 @@ namespace APFTestingUI.Areas.Administration.Models.PracticalTemplatePacker
     {
         [Required]
         [Display(Name = "# of required demonstrated packs")]
+        [Range(1, 30, ErrorMessage = "The number of required packs must be greater than 0 and not greater than 30")]
         public int NumOfRequiredAssessmentTasks { get; set; }
     }
 }

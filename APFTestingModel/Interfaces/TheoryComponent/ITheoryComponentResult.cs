@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-	internal partial class TheoryQuestion : ITheoryQuestion
-	{
-		//This TheoryQuestion is a lie!!
-	}
+    public interface ITheoryComponentResult
+    {
+        decimal Score { get; }
+        bool IsCompetent { get; }
+    }
 }
