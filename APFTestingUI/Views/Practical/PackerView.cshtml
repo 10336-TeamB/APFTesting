@@ -28,7 +28,15 @@
     var rowStyle = rowCounter % 2 == 0 ? "row-even" : "row-odd";
     <tr class="@rowStyle middle @rowCounter">
         <td>@p.Date</td>
-        <td>@p.CanopyType</td>
+        <td>@if (p.CanopyType.Equals("RamAir"))
+            {
+                @:Ram-Air
+            }
+            else
+            {
+                @p.CanopyType
+            }
+        </td>
         <td>@p.CanopyTypeSerialNumber</td>
         <td>@p.HarnessContainerType</td>
         <td>@p.HarnessContainerSerialNumber</td>

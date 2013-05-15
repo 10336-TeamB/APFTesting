@@ -16,7 +16,8 @@ namespace APFTestingUI.Controllers
 
         //
         // GET: /Examiner/
-        [Authorize]
+        //TODO : uncomment "Authorize"
+        //[Authorize]
         public ActionResult Index()
         {
             //Displays list of candidates associated to this examiner

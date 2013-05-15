@@ -81,8 +81,21 @@ namespace APFTestingUI.Models.Practical
             //HarnessContainerTypeList = new SelectList(harnessList);
 
             var canopyList = Enum.GetValues(typeof(CanopyTypes)).Cast<CanopyTypes>().Select(e => e.ToString()).ToList();
+            var canopyListValueText = new List<KeyValuePair<string, string>>();
+            foreach(var c in canopyList)
+            {
+                var itemKey = c;
+                var itemValue = c;
+                if(c.Equals("RamAir"))
+                {
+                    itemValue = "Ram-Air";
+                }
+                canopyListValueText.Add(new KeyValuePair<string, string>(itemKey, itemValue));
+            }
             var harnessList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().Select(e => e.ToString()).ToList();
-            CanopyTypeList = new SelectList(canopyList.Select(x => new { value = x, text = x }).ToList(), "value", "text", CanopyType);
+            //CanopyTypeList = new SelectList(canopyList.Select(x => new { value = x, text = x }).ToList(), "value", "text", CanopyType);
+            CanopyTypeList = new SelectList(canopyListValueText, "Key", "Value");
+
             HarnessContainerTypeList = new SelectList(harnessList.Select(x => new { value = x, text = x }).ToList(), "value", "text", HarnessContainerType);
         }
     }

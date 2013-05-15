@@ -46,16 +46,15 @@ namespace APFTestingModel
     //Hack: added for UI testing
     public enum CanopyTypes
     {
-        Big,
-        Medium,
-        Small,
+        RamAir,
+        Round,
         Other
     }
     public enum HarnessContainerTypes
     {
-        Circle,
-        Square,
-        Triangle,
+        Tandem,
+        Student,
+        Sport,
         Other
     }
 }
