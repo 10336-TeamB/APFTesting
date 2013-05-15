@@ -323,13 +323,26 @@ namespace APFTestingModel
 
         public ITheoryQuestion FetchTheoryQuestion(Guid questionId)
         {
-            return _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+            var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+			
+			question.Answers = question.Answers.OrderBy(a => a.DisplayOrderIndex).ToList();
+
+			
+
+			return question;
         }
 
         public void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId)
         {
             var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
-            question.Edit(questionDetails);
+            var answersToDelete = question.Edit(questionDetails);
+
+			foreach (var answer in answersToDelete)
+			{
+				_context.Answers.Remove(answer);
+			}
+
+			_context.SaveChanges();
         }
 
 
