@@ -893,6 +893,14 @@ namespace APFTestingModel
 
 		#endregion
 
+        public void TestCode()
+        {
+            IEnumerable<TheoryQuestion> questions = _context.TheoryQuestions;
+            questions = questions.Where(q => q.editableOrDeletable == true);
+
+        }
+
+
 
 
 
