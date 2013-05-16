@@ -23,5 +23,10 @@ namespace APFTestingModel
             IsCorrect = answerDetails.IsCorrect;
             DisplayOrderIndex = displayOrderIndex;
         }
+
+        public void Delete(deleteEntityDelegate<Answer> delete)
+        {
+            delete(this);
+        }
     }
 }

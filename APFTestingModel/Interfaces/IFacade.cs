@@ -87,7 +87,7 @@ namespace APFTestingModel
         bool Login(string username, string password, bool rememberMe);
         void Logout();
 
-
+        void DeleteTheoryQuestion(Guid questionId);
 
         
     }

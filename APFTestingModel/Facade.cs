@@ -318,12 +318,12 @@ namespace APFTestingModel
 
         public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
         {
-            return _context.TheoryQuestions;
+            return _context.TheoryQuestions.Include("SelectedTheoryQuestions").ToList();
         }
 
         public ITheoryQuestion FetchTheoryQuestion(Guid questionId)
         {
-            var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+            var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
 			
 			question.Answers = question.Answers.OrderBy(a => a.DisplayOrderIndex).ToList();
 
@@ -334,7 +334,7 @@ namespace APFTestingModel
 
         public void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId)
         {
-            var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+            var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
             var answersToDelete = question.Edit(questionDetails);
 
 			foreach (var answer in answersToDelete)
@@ -344,6 +344,15 @@ namespace APFTestingModel
 
 			_context.SaveChanges();
         }
+
+        public void DeleteTheoryQuestion(Guid questionId)
+        {
+            var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
+            question.Delete(deleteEntity, deleteEntity);
+
+            _context.SaveChanges();
+        }
+
 
 
         //public void DeleteTheoryQuestion(Guid questionId)
@@ -512,6 +521,7 @@ namespace APFTestingModel
         {
             var assessmentTask = fetchAssessmentTaskPilot(id);
             assessmentTask.Delete(deleteEntity);
+            _context.SaveChanges();
         }
 
         public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()
@@ -595,6 +605,7 @@ namespace APFTestingModel
         {
             var format = fetchTheoryExamFormatById(formatId);
             format.Delete(deleteEntity);
+            _context.SaveChanges();
         }
 
         public void SetActiveTheoryComponentFormat(Guid formatId)
@@ -628,12 +639,7 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-        internal void deleteEntity<T>(T entity)
-        {
-            var dbSet = _context.Set(entity.GetType());
-            dbSet.Remove(entity);
-            _context.SaveChanges();
-        }
+        
 
         #endregion
 
@@ -696,6 +702,7 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("Cannot delete the examiner from membership");
             }
+            _context.SaveChanges();
         }
 
         public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
@@ -790,6 +797,30 @@ namespace APFTestingModel
         {
             _context.Dispose();
         }
+
+        public void TestCode()
+        {
+            IEnumerable<TheoryQuestion> questions = _context.TheoryQuestions.Include("SelectedTheoryQuestions").ToList();
+
+            
+            foreach (var question in questions)
+            {
+                if (question.editableOrDeletable == true)
+                {
+                    Console.WriteLine("{0}\n\n",question.Description);
+                }
+            }
+
+            Console.Read();
+        }
+
+        internal void deleteEntity<T>(T entity)
+        {
+            var dbSet = _context.Set(entity.GetType());
+            dbSet.Remove(entity);
+            //_context.SaveChanges();
+        }
+
     }
 }
 
