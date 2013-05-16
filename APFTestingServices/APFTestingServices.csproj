@@ -47,9 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratePdf.cs" />
+    <Compile Include="PdfGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SendEmail.cs" />
+    <Compile Include="EmailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

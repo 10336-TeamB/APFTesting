@@ -9,13 +9,13 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(false)
     
     <div class="editor-label">
         @Html.LabelFor(model => model.Description) <em>*</em>
     </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description)
     </div>
     <div class="clear"></div>
 
@@ -37,14 +37,30 @@
         </thead>
 
         <tbody>
-            @for (int i = 0; i < 3; i++)
+            @if (Model.Answers == null)
             {
-                <tr>
-                    <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
-                    <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
-                    <td class="delete-answer"><span>delete</span></td>
-                </tr>
+                for (int i = 0; i < 2; i++)
+                {
+                    <tr>
+                        <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
+                        <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
+                        <td class="delete-answer"><span>delete</span></td>
+                    </tr>
+                }
             }
+            else
+            {
+                for (int i = 0; i < Model.Answers.Count; i++)
+                {
+                    <tr>
+                        <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
+                        <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
+                        <td class="delete-answer"><span>delete</span></td>
+                    </tr>
+                }
+            }
+            
+            
         </tbody>
     </table>
     

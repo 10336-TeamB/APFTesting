@@ -11,7 +11,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
     {
         #region Constructors
 
-        public Edit() { }
+        public Edit() { InitialiseCategories(); }
 
         public Edit(ITheoryQuestion question)
 		{
@@ -22,6 +22,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
             Category = question.Category;
             Answers = question.Answers.Select(a => new AnswerItem(a)).ToList();
             InitialiseCategories();
+            editableOrDeletable = question.editableOrDeletable;
 		}
 
 		#endregion
@@ -37,6 +38,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 		public TheoryQuestionCategory Category { get; set; }
 		public SelectList Categories { get; set; }
 		public List<AnswerItem> Answers { get; set; }
+        public bool editableOrDeletable { get; set; }
 
 		#endregion
 

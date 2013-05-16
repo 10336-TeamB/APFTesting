@@ -72,5 +72,25 @@ namespace APFTestingModel
         {
             throw new BusinessRuleException("Action is invalid");
         }
+
+        internal virtual void AddPracticalComponentResult(Action a)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
+
+        internal virtual void SubmitPilotPracticalResults(Action action)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
+
+        internal virtual void EditPackerPracticalResult(Action action)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
+
+        internal virtual void FinalisePractical(Action action)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
     }
 }

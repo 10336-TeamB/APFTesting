@@ -29,7 +29,7 @@ namespace APFTestingUI.Models.Practical
                 CanopyType = "Other";
                 CanopyTypeOther = task.CanopyType;
             }
-            CanopyTypeSerialNumber = task.CanopyTypeSerialNumber;
+            //CanopyTypeSerialNumber = task.CanopyTypeSerialNumber;
             var harnessContainerTypeComparisonList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().Select(e => e.ToString()).ToList();
             if (harnessContainerTypeComparisonList.Contains(task.HarnessContainerType)) 
             {
@@ -40,7 +40,7 @@ namespace APFTestingUI.Models.Practical
                 HarnessContainerType = "Other";
                 HarnessContainerTypeOther = task.HarnessContainerType;
             }
-            HarnessContainerSerialNumber = task.HarnessContainerSerialNumber;
+            //HarnessContainerSerialNumber = task.HarnessContainerSerialNumber;
             Note = task.Note;
             SupervisorId = task.SupervisorId;
 
@@ -62,9 +62,9 @@ namespace APFTestingUI.Models.Practical
         public SelectList CanopyTypeList { get; set; }
         public string CanopyTypeOther { get; set; }
 
-        [Required]
-        [Display(Name = "Canopy Serial No.")]
-        public string CanopyTypeSerialNumber { get; set; }
+        //[Required]
+        //[Display(Name = "Canopy Serial No.")]
+        //public string CanopyTypeSerialNumber { get; set; }
 
         [Required]
         [Display(Name = "Harness/Container Type")]
@@ -72,9 +72,9 @@ namespace APFTestingUI.Models.Practical
         public SelectList HarnessContainerTypeList { get; set; }
         public string HarnessContainerTypeOther { get; set; }
 
-        [Required]
-        [Display(Name = "Harness/Container Serial No.")]
-        public string HarnessContainerSerialNumber { get; set; }
+        //[Required]
+        //[Display(Name = "Harness/Container Serial No.")]
+        //public string HarnessContainerSerialNumber { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
@@ -92,9 +92,9 @@ namespace APFTestingUI.Models.Practical
                 {
                     Date = DateTime.Parse(Date),
                     CanopyType = CanopyType.Equals("Other") ? CanopyTypeOther : CanopyType,
-                    CanopyTypeSerialNumber = CanopyTypeSerialNumber,
+                    //CanopyTypeSerialNumber = CanopyTypeSerialNumber,
                     HarnessContainerType = HarnessContainerType.Equals("Other") ? HarnessContainerTypeOther : HarnessContainerType,
-                    HarnessContainerSerialNumber = HarnessContainerSerialNumber,
+                    //HarnessContainerSerialNumber = HarnessContainerSerialNumber,
                     Note = Note,
                     SupervisorId = SupervisorId
                 };
@@ -111,7 +111,7 @@ namespace APFTestingUI.Models.Practical
                 var itemValue = c;
                 if (c.Equals("RamAir"))
                 {
-                    itemValue = "Ram-Air";
+                    itemValue = "Ram Air";
                 }
                 canopyListValueText.Add(new KeyValuePair<string, string>(itemKey, itemValue));
             }

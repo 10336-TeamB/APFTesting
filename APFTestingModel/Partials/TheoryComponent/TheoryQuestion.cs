@@ -36,6 +36,14 @@ namespace APFTestingModel
             get { return Answers; }
         }
 
+        public bool editableOrDeletable
+        {
+            get
+            {
+                return SelectedTheoryQuestions.Count == 0;
+            }
+        }
+
         #endregion
 
 
@@ -44,14 +52,24 @@ namespace APFTestingModel
 
 		public List<Answer> Edit(TheoryQuestionDetails questionDetails)
         {
-            Description = questionDetails.Description;
-            var answersToDelete = editAnswers(questionDetails.Answers);
-            NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect == true);
-            IsActive = true;
-            ImagePath = questionDetails.ImagePath;
-            Category = questionDetails.Category;
 
-			return answersToDelete;
+            if (editableOrDeletable)
+            {
+                Description = questionDetails.Description;
+                var answersToDelete = editAnswers(questionDetails.Answers);
+                NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect == true);
+                IsActive = true;
+                ImagePath = questionDetails.ImagePath;
+                Category = questionDetails.Category;
+
+                return answersToDelete;
+            }
+            else
+            {
+                throw new BusinessRuleException("Cannot edit question. It is already used in an exam.");
+            }
+            
+            
         }
 
         private void constructAnswers(List<AnswerDetails> answers)
@@ -117,7 +135,19 @@ namespace APFTestingModel
 
         #endregion
 
-        
+        public void Delete(deleteEntityDelegate<TheoryQuestion> deleteQuestion, deleteEntityDelegate<Answer> deleteAnswer)
+        {
+            if (editableOrDeletable)
+            {
+                Answers.ToList().ForEach(a => a.Delete(deleteAnswer));
+
+                deleteQuestion(this);
+            }
+            else
+            {
+                throw new BusinessRuleException("Cannot delete question. It is already used in an exam.");
+            }
+        }
 
         
 

@@ -31,50 +31,104 @@ namespace APFTestingUI.Areas.Administration.Controllers
         [HttpPost]
         public ActionResult CreatePilot(Create model)
         {
-			List<AnswerDetails> answers = new List<AnswerDetails>();
-			for (int i = 0; i < model.Answers.Count; i++)
-			{
-                var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect);
-                answers.Add(answer);
-			}
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //throw new BusinessRuleException("Test Exception");
+                    List<AnswerDetails> answers = new List<AnswerDetails>();
+                    for (int i = 0; i < model.Answers.Count; i++)
+                    {
+                        var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect);
+                        answers.Add(answer);
+                    }
 
-			var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
 
-			_facade.CreateTheoryQuestion(questionPackage, ExamType.PilotExam);
+                    _facade.CreateTheoryQuestion(questionPackage, ExamType.PilotExam);
 
-			return View();
+                    return RedirectToAction("IndexPilot");
+                }
+                catch (BusinessRuleException ex)
+                {
+                    ModelState.AddModelError("Exception", ex.Message);
+                }
+            }
+
+            return View(model);
         }
 
         [HttpGet]
-        public ActionResult EditPilot(Guid questionId)
+        public ActionResult EditPilot(Guid questionId, string errorMessage = "")
         {
-            return View(new Edit(_facade.FetchTheoryQuestion(questionId)));
+            var question = _facade.FetchTheoryQuestion(questionId);
+            if (question.editableOrDeletable)
+            {
+                ModelState.AddModelError("Exception", errorMessage);
+                return View(new Edit(question));
+            }
+            else
+            {
+                return RedirectToAction("IndexPilot");
+            }
+
+            
         }
 
         [HttpPost]
         public ActionResult EditPilot(Edit model)
         {
-            List<AnswerDetails> answers = new List<AnswerDetails>();
-            for (int i = 0; i < model.Answers.Count; i++)
+            //TODO: throw error if any input fields are left blank
+            
+            if (ModelState.IsValid)
             {
-                var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect, model.Answers[i].Id);
-                answers.Add(answer);
+                try
+                {
+                    List<AnswerDetails> answers = new List<AnswerDetails>();
+                    for (int i = 0; i < model.Answers.Count; i++)
+                    {
+                        var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect, model.Answers[i].Id);
+                        answers.Add(answer);
+                    }
+
+                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+
+                    _facade.EditTheoryQuestion(questionPackage, model.Id);
+
+                    return RedirectToAction("IndexPilot");
+                }
+                catch (BusinessRuleException ex)
+                {
+                    ModelState.AddModelError("Exception", ex.Message);
+                }
+                
+                
             }
 
-            var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
-
-            _facade.EditTheoryQuestion(questionPackage, model.Id);
-
-            return View();
+            return View(model);
         }
 
-        public ActionResult DeletePilot()
+        public ActionResult DeletePilot(Guid questionId)
         {
+            try
+            {
+                _facade.DeleteTheoryQuestion(questionId);
+            }
+            catch (BusinessRuleException ex)
+            {
+                return RedirectToAction("EditPilot", new { questionId = questionId, errorMessage = ex.Message });
+            }
 
-
-            return View();
+            return RedirectToAction("IndexPilot");
         }
 
+        public ActionResult ToggleActivationPilot(Guid questionId)
+        {
+            
+            
+            
+            return View();
+        }
 
 
         [HttpGet]
