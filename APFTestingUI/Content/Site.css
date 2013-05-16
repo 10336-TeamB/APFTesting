@@ -1487,20 +1487,20 @@ tr.row-odd
     width: 10%;
 }
 
-#tbl-demonstrated-packs .th-canopy-serial-no
+/*#tbl-demonstrated-packs .th-canopy-serial-no
 {
     width: 10%;
-}
+}*/
 
 #tbl-demonstrated-packs .th-harness-type
 {
     width: 10%;
 }
 
-#tbl-demonstrated-packs .th-harness-serial-no
+/*#tbl-demonstrated-packs .th-harness-serial-no
 {
     width: 10%;
-}
+}*/
 
 #tbl-demonstrated-packs .th-notes
 {
