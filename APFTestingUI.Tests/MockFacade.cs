@@ -328,6 +328,12 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
-		
-	}
+
+
+
+        public void DeleteTheoryQuestion(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
