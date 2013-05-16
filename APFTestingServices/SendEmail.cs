@@ -10,7 +10,7 @@ using System.Web;
 
 namespace APFTestingServices
 {
-    public class SendEmail
+    public class EmailService
     {
         public void MailEmail(string toAddress, string subject, string body, Stream stream)
         {

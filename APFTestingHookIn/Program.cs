@@ -41,18 +41,23 @@ namespace APFTestingHookIn {
 
 			//_facade.CreateTheoryQuestion(testQuestion, ExamType.PilotExam);
 
-            List<KeyValuePair<string, string>> DemoDetails = new List<KeyValuePair<string, string>>();
-            DemoDetails.Add(new KeyValuePair<string,string>("Name", "SpongeBob"));
-            DemoDetails.Add(new KeyValuePair<string,string>("Mobile", "0452-Underwater"));
-            DemoDetails.Add(new KeyValuePair<string,string>("APF Number", "789456"));
-            DemoDetails.Add(new KeyValuePair<string, string>("Score", "18/20 (90%) -- Pass"));
 
-            PdfGenerator pdfVendingMachine = new PdfGenerator();
-            var stream = pdfVendingMachine.CreatePDF(DemoDetails, 2);
+            //List<KeyValuePair<string, string>> DemoDetails = new List<KeyValuePair<string, string>>();
+            //DemoDetails.Add(new KeyValuePair<string,string>("Name", "SpongeBob"));
+            //DemoDetails.Add(new KeyValuePair<string,string>("Mobile", "0452-Underwater"));
+            //DemoDetails.Add(new KeyValuePair<string,string>("APF Number", "789456"));
+            //DemoDetails.Add(new KeyValuePair<string, string>("Score", "18/20 (90%) -- Pass"));
 
-            //add thread
-            EmailService email = new EmailService();
-            email.MailEmail("teamb@live.com.au", "Test Email", "Please find PDF attached", stream);
+            //GeneratePdf pdfVendingMachine = new GeneratePdf();
+            //var stream = pdfVendingMachine.CreatePDF(DemoDetails, 2);
+
+            ////add thread
+            //SendEmail email = new SendEmail();
+            //email.MailEmail("teamb@live.com.au", "Test Email", "Please find PDF attached", stream);
+
+
+            _facade.TestCode();
+
 
         }
     }

@@ -44,9 +44,18 @@
                                     break;
                             }
                         </td>
-                        <td>
-                            @Html.ActionLink(question.Description, "EditPilot", new { questionId = question.Id })
-                        </td>
+                        
+                        @if (question.editableOrDeletable)
+                        {
+                            <td>
+                                Html.ActionLink(question.Description, "EditPilot", new { questionId = question.Id });
+                            </td>
+                        }
+                        else
+                        {
+                            <td>question.Description</td>
+                        }
+                        
                     </tr>
                 }
             </tbody>
