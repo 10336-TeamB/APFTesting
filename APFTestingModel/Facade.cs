@@ -384,7 +384,7 @@ namespace APFTestingModel
         {
             CandidatePacker candidatePacker = new CandidatePacker(details, createdBy);
             _context.People.Add(candidatePacker);
-           _context.SaveChanges();
+            _context.SaveChanges();
             return candidatePacker.Id;
         }
 
@@ -392,19 +392,7 @@ namespace APFTestingModel
         {
             var exam = _context.Exams.OfType<ExamPilot>().Include("PracticalComponentPilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").First(e => examId == e.Id);
 
-            var tasks = exam.SelectedAssessmentTasks;
-            foreach (var r in results)
-            {
-                try
-                {
-                    tasks.First(t => t.Id == r.Id).RecordResult(r);
-                }
-                catch (ArgumentNullException)
-                {
-                    //TODO: Log exception
-                    throw new BusinessRuleException("Error while recording results. The requested result could not be found");
-                }
-            }
+            exam.SubmitPilotPracticalResults(results);
             _context.SaveChanges();
         }
 
@@ -419,19 +407,14 @@ namespace APFTestingModel
         {
             var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);
 
-            AssessmentTaskPacker assessmentTask = exam.AssessmentTasks.First(t => t.Id == taskId);
-            assessmentTask.Edit(result);
+            exam.EditPackerPracticalResult(taskId, result);
             _context.SaveChanges();
         }
 
         public void FinalisePractical(Guid examId)
         {
-            // Change exam status to finalise practical component
             var exam = _context.Exams.First(e => e.Id == examId);
-            exam.ExamStatus = ExamStatus.PracticalComponentCompleted;  
-            //Or is it Exam Finalized? - Pradipna 
-            //I think we will add it as a seperate action so the examiner can confirm final submission - Adam
-            //... :) - Josh
+            exam.FinalisePractical();
             _context.SaveChanges();
         }
 
@@ -807,101 +790,6 @@ namespace APFTestingModel
         {
             _context.Dispose();
         }
-
-		#region Old Code
-
-
-		//private Exam fetchExam(Guid examId)
-		//{
-		//	// Need to catch null value from FirstOrDefault
-		//	var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion").Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers").Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion.Answers").FirstOrDefault(e => e.Id == examId);
-		//	//exam.OnStatusChanged();
-
-		//	return exam;
-		//}
-
-
-		/*
-        public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
-        {
-
-			var candidate = _context.People.Include("Exams").OfType<Candidate>().First(c => c.Id == candidateId);
-
-            //var candidate = fetchCandidate(candidateId);
-
-            
-            //Not right now... - Pradipna
-            return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
-        }
-
-		public ISelectedTheoryQuestion ResumeTheoryComponent(Guid examId)
-		{
-			var exam = _context.Exams.Include("TheoryComponent")
-				.Include("TheoryComponent.SelectedTheoryQuestions")
-				.Include("TheoryComponent.SelectedTheoryQuestions.TheoryQuestion")
-				.Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers")
-				.Include("TheoryComponent.SelectedTheoryQuestions.PossibleAnswers.Answer")
-				.First(e => e.Id == examId);
-		*/
-
-		//public ISelectedTheoryQuestion ResumeTheoryExam(Guid examId)
-		//{
-		//	Exam exam = fetchExam(examId);
-		//	ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(exam.TheoryComponent.CurrentQuestionIndex);
-		//	return question;
-		//}
-
-		//public Guid CreateExam(Guid examinerId, Guid candidateId, ExamType examType)
-		//{
-		//    createExamManager(examType);
-
-		//    //HACK:
-		//    //Candidate candidate = new CandidatePilot();
-		//    //Candidate candidate = _context.Candidates.Include("Exams").First(c => c.id == candidateId);
-		//    Candidate candidate = fetchCandidate(candidateId);
-
-		//    Exam exam;
-		//    if (candidate.LatestExam == null)
-		//    {
-		//        exam = examManager.GenerateExam(examinerId, candidateId);
-		//        // TODO: We may not need this line, as the Exam is associated with context objects already (Format and Template)...
-		//        _context.Exams.Add(exam);
-		//        _context.SaveChanges();
-		//    }
-		//    else
-		//    {
-		//        exam = candidate.LatestExam;
-		//    }
-
-		//    return exam.Id;
-		//}
-
-		//public ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex) 
-		//{
-		//    Exam exam = fetchExam(examId);
-
-		//    //if (questionIndex == 0 && exam.ExamStatus == ExamStatus.ExamCreated)
-		//    //{
-		//    //    exam.StartTheoryExam();
-		//    //}
-
-		//    ISelectedTheoryQuestion question = exam.FetchSpecificQuestion(questionIndex);
-
-		//    _context.SaveChanges();
-		//    return question;
-		//}
-
-		#endregion
-
-
-
-
-
-
-
-
-
-
     }
 }
 
