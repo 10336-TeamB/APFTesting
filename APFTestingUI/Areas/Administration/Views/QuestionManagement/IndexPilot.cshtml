@@ -48,12 +48,12 @@
                         @if (question.editableOrDeletable)
                         {
                             <td>
-                                Html.ActionLink(question.Description, "EditPilot", new { questionId = question.Id });
+                                @Html.ActionLink(question.Description, "EditPilot", new { questionId = question.Id })
                             </td>
                         }
                         else
                         {
-                            <td>question.Description</td>
+                            <td>@question.Description</td>
                         }
                         
                     </tr>

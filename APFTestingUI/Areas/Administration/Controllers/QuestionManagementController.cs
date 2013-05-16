@@ -124,10 +124,9 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult ToggleActivationPilot(Guid questionId)
         {
-            
-            
-            
-            return View();
+            _facade.ToggleTheoryQuestionActivation(questionId);
+
+            return RedirectToAction("IndexPilot");
         }
 
 
