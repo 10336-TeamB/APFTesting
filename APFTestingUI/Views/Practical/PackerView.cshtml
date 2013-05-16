@@ -11,9 +11,7 @@
         <tr>
             <th class="th-date">Date</th>
             <th class="th-canopy-type">Canopy Type</th>
-            @*<th class="th-canopy-serial-no">Canopy Serial No.</th>*@
             <th class="th-harness-type">Harness / Container Type</th>
-            @*<th class="th-harness-serial-no">Harness / Container Serial No.</th>*@
             <th class="th-notes">Notes</th>
             <th class="th-instructor-no">Instructor / Rigger No.</th>
             <th class="th-edit-button"></th>
@@ -28,18 +26,21 @@
     var rowStyle = rowCounter % 2 == 0 ? "row-even" : "row-odd";
     <tr class="@rowStyle middle @rowCounter">
         <td>@p.Date</td>
-        <td>@if (p.CanopyType.Equals("RamAir"))
-            {
-                @:Ram-Air
-            }
-            else
-            {
-                @p.CanopyType
+        <td>
+            @{
+                var canopyType = p.CanopyType[0]+"";
+                for (int i = 1; i < p.CanopyType.Length; i++)
+                {
+                    if (char.IsUpper(p.CanopyType[i]))
+                    {
+                        canopyType += " ";
+                    }
+                    canopyType += p.CanopyType[i];
+                }
+                @canopyType
             }
         </td>
-        @*<td>@p.CanopyTypeSerialNumber</td>*@
         <td>@p.HarnessContainerType</td>
-        @*<td>@p.HarnessContainerSerialNumber</td>*@
         <td>@p.Note</td>
         <td>@p.SupervisorId</td>
         <td>@Html.ActionLink("Edit", "PackerEdit", new { taskId = @p.Id, examId = @Model.ExamId }, new { @class = "examiner-button" })</td>
