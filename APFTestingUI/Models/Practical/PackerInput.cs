@@ -32,9 +32,9 @@ namespace APFTestingUI.Models.Practical
         public SelectList CanopyTypeList { get; set; }
         public string CanopyTypeOther { get; set; }
 
-        [Required]
-        [Display(Name = "Canopy Serial No.")]
-        public string CanopyTypeSerialNumber { get; set; }
+        //[Required]
+        //[Display(Name = "Canopy Serial No.")]
+        //public string CanopyTypeSerialNumber { get; set; }
 
         [Required]
         [Display(Name = "Harness/Container Type")]
@@ -42,9 +42,9 @@ namespace APFTestingUI.Models.Practical
         public SelectList HarnessContainerTypeList { get; set; }
         public string HarnessContainerTypeOther { get; set; }
 
-        [Required]
-        [Display(Name = "Harness/Container Serial No.")]
-        public string HarnessContainerSerialNumber { get; set; }
+        //[Required]
+        //[Display(Name = "Harness/Container Serial No.")]
+        //public string HarnessContainerSerialNumber { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
@@ -62,9 +62,9 @@ namespace APFTestingUI.Models.Practical
                 {
                     Date = DateTime.Parse(Date),
                     CanopyType = CanopyType.Equals("Other") ? CanopyTypeOther : CanopyType,
-                    CanopyTypeSerialNumber = CanopyTypeSerialNumber,
+                    //CanopyTypeSerialNumber = CanopyTypeSerialNumber,
                     HarnessContainerType = HarnessContainerType.Equals("Other") ? HarnessContainerTypeOther : HarnessContainerType,
-                    HarnessContainerSerialNumber = HarnessContainerSerialNumber,
+                    //HarnessContainerSerialNumber = HarnessContainerSerialNumber,
                     Note = Note,
                     SupervisorId = SupervisorId
                 };

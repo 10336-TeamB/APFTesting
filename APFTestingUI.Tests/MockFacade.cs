@@ -369,14 +369,6 @@ namespace APFTestingUI.Tests
         }
 
 
-		public bool Login(string username, string password, bool rememberMe)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Logout()
-		{
-			throw new NotImplementedException();
-		}
+		
 	}
 }

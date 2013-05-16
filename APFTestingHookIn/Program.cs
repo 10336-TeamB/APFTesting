@@ -47,11 +47,11 @@ namespace APFTestingHookIn {
             DemoDetails.Add(new KeyValuePair<string,string>("APF Number", "789456"));
             DemoDetails.Add(new KeyValuePair<string, string>("Score", "18/20 (90%) -- Pass"));
 
-            GeneratePdf pdfVendingMachine = new GeneratePdf();
+            PdfGenerator pdfVendingMachine = new PdfGenerator();
             var stream = pdfVendingMachine.CreatePDF(DemoDetails, 2);
 
             //add thread
-            SendEmail email = new SendEmail();
+            EmailService email = new EmailService();
             email.MailEmail("teamb@live.com.au", "Test Email", "Please find PDF attached", stream);
 
         }
