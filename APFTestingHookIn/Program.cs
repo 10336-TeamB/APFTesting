@@ -56,8 +56,7 @@ namespace APFTestingHookIn {
             //email.MailEmail("teamb@live.com.au", "Test Email", "Please find PDF attached", stream);
 
 
-            _facade.TestCode();
-
+            _facade.FinaliseExam(new Guid("4e757211-8c7d-4f32-a4b0-418a8bfad189"), ExamType.PackerExam);
 
         }
     }

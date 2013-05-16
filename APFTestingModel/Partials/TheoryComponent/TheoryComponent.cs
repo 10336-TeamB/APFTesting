@@ -28,6 +28,14 @@ namespace APFTestingModel
 			}
 		}
 
+        public int NumberOfCorrectlyAnsweredQuestions
+        {
+            get
+            {
+                return SelectedTheoryQuestions.Count(question => question.IsCorrect);
+            }
+        }
+
 		public bool IsCompetent
 		{
 			get { return ((Score * 100.0) >= TheoryComponentFormat.PassMark); }
@@ -36,6 +44,14 @@ namespace APFTestingModel
         IEnumerable<ISelectedTheoryQuestion> ITheoryComponent.SelectedTheoryQuestions
         {
             get { return SelectedTheoryQuestions.OrderBy(q => q.QuestionIndex); }
+        }
+
+        public int NumberOfQuestions
+        {
+            get
+            {
+                return TheoryComponentFormat.NumberOfQuestions;
+            }
         }
 
 		#endregion

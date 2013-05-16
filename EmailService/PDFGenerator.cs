@@ -65,8 +65,8 @@ namespace EmailService
 
             //Temporarily removed
             //_document.Save("C:/Users/p404/Desktop/test.pdf");
-            //_stream = new MemoryStream();
-            //_document.Save(_stream, false);
+            _stream = new MemoryStream();
+            _document.Save(_stream, false);
             return _stream;
         }
 

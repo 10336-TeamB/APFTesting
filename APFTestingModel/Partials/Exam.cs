@@ -140,18 +140,14 @@ namespace APFTestingModel
 			_examState.VoidExam(a);
 		}
 
-        public void FinaliseExam()
-        {
-            Action a = delegate { ExamStatus = ExamStatus.ExamCompleted; };
-            _examState.FinaliseExam(a);
-        }
+        public abstract void FinaliseExam();
 
         public void FinalisePractical()
         {
             Action a = delegate { ExamStatus = ExamStatus.PracticalComponentCompleted; };
             _examState.FinalisePractical(a);
         }
-
+        
 		//HACK: Reset Theory Component - Remove for production
 		public void ResetTheoryComponent()
 		{
