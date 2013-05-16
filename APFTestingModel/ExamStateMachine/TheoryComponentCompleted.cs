@@ -12,5 +12,30 @@ namespace APFTestingModel
         {
             action();
         }
+
+        internal override void AddPracticalComponentResult(Action action)
+        {
+            action();
+        }
+
+        internal override void SubmitPilotPracticalResults(Action action)
+        {
+            action();
+        }
+
+        internal override void EditPackerPracticalResult(Action action)
+        {
+            action();
+        }
+
+        internal override void FinaliseExam(Action action)
+        {
+            action();
+        }
+
+        internal override void FinalisePractical(Action action)
+        {
+            action();
+        }
     }
 }

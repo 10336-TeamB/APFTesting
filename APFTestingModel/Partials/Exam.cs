@@ -49,15 +49,6 @@ namespace APFTestingModel
             }
         }
 
-        //JUST FOR OUR TEST METHOD - Pradipna
-        public ExamState ExamState
-        {
-            get
-            {
-                return _examState;
-            }
-        }
-
         abstract public bool PracticalComponentIsCompetent { get; }
 
         #endregion
@@ -152,8 +143,15 @@ namespace APFTestingModel
         public void FinaliseExam()
         {
             Action a = delegate { ExamStatus = ExamStatus.ExamCompleted; };
+            _examState.FinaliseExam(a);
         }
-		
+
+        public void FinalisePractical()
+        {
+            Action a = delegate { ExamStatus = ExamStatus.PracticalComponentCompleted; };
+            _examState.FinalisePractical(a);
+        }
+
 		//HACK: Reset Theory Component - Remove for production
 		public void ResetTheoryComponent()
 		{

@@ -20,6 +20,7 @@ namespace APFTestingUI.Controllers
         //[Authorize]
         public ActionResult Index()
         {
+            
             //Displays list of candidates associated to this examiner
             //Fetch Canidates that are associated with this examiner.
             //HACK - ExaminerID hardcoded
