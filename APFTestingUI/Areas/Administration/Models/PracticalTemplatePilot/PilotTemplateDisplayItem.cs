@@ -12,13 +12,13 @@ namespace APFTestingUI.Areas.Administration.Models.PracticalTemplatePilot
         {
             Id = template.Id;
             IsActive = template.IsActive;
-            Tasks = template.Tasks.Select(t => new PilotTemplateTask(t)).ToList();
+            Tasks = template.Tasks.Select(t => new PilotTemplateTaskDisplayItem(t)).ToList();
             AllowEditOrDelete = template.AllowEditOrDelete;
         }
 
         public Guid Id { get; set; }
         public bool IsActive { get; set; }
-        public IEnumerable<PilotTemplateTask> Tasks { get; set; }
+        public List<PilotTemplateTaskDisplayItem> Tasks { get; set; }
         public bool AllowEditOrDelete { get; set; }
     }
 }

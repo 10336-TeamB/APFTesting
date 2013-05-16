@@ -28,6 +28,7 @@ namespace APFTestingModel
         public ICollection<SelectedTheoryQuestion> FetchRandomQuestions(int numOfQuestions, TheoryComponent theoryComponent)
         {
             var questionList = theoryQuestions.ToList();
+            questionList = questionList.Where(q => q.IsActive == true).ToList(); //Hope this works
             List<SelectedTheoryQuestion> randomQuestionList = new List<SelectedTheoryQuestion>();
             Random random = new Random();
             int questionIndex = 0;

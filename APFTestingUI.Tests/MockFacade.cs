@@ -245,45 +245,6 @@ namespace APFTestingUI.Tests
 		{
 			throw new NotImplementedException();
 		}
-
-		//<<<<<<< HEAD
-		//		public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
-		//		{
-		//			throw new NotImplementedException();
-		//		}
-
-
-		//		public void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType)
-		//		{
-		//			throw new NotImplementedException();
-		//		}
-		//	}
-		//=======
-		//				public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
-		//				{
-		//					throw new NotImplementedException();
-		//				}
-
-		//		public ITheoryComponentFormat FetchTheoryExamFormatById(Guid formatId)
-		//		{
-		//			throw new NotImplementedException();
-		//		}
-
-		//		public IEnumerable<IExaminer> FetchAllExaminers()
-		//		{
-		//			throw new NotImplementedException();
-		//		}
-
-		//		public IExaminer FetchExaminer(Guid examinerId)
-		//		{
-		//			throw new NotImplementedException();
-		//		}
-		//	}
-		//>>>>>>> c178cbe339b4c313694a6eb32c29783266d0f31e
-
-
-
-
 		public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
 		{
 			throw new NotImplementedException();
@@ -369,6 +330,37 @@ namespace APFTestingUI.Tests
         }
 
 
+        public void DeleteTheoryQuestion(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void DeleteTheoryQuestion(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
+		{
+            throw new NotImplementedException();
+        }
 		
-	}
+        public void ToggleTheoryQuestionActivation(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

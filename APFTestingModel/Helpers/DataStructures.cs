@@ -130,7 +130,5 @@ namespace APFTestingModel
         public string Details { get; set; }
         public int MaxScore { get; set; }
     }
-
-
 }
 

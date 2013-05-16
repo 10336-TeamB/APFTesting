@@ -40,8 +40,6 @@ namespace APFTestingHookIn {
 			//testQuestion.IsActive = true;
 
 			//_facade.CreateTheoryQuestion(testQuestion, ExamType.PilotExam);
-
-
             //List<KeyValuePair<string, string>> DemoDetails = new List<KeyValuePair<string, string>>();
             //DemoDetails.Add(new KeyValuePair<string,string>("Name", "SpongeBob"));
             //DemoDetails.Add(new KeyValuePair<string,string>("Mobile", "0452-Underwater"));
@@ -54,7 +52,6 @@ namespace APFTestingHookIn {
             ////add thread
             //SendEmail email = new SendEmail();
             //email.MailEmail("teamb@live.com.au", "Test Email", "Please find PDF attached", stream);
-
 
             _facade.FinaliseExam(new Guid("4e757211-8c7d-4f32-a4b0-418a8bfad189"), ExamType.PackerExam);
 

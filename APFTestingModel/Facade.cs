@@ -328,12 +328,12 @@ namespace APFTestingModel
 
         public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
         {
-            return _context.TheoryQuestions;
+            return _context.TheoryQuestions.Include("SelectedTheoryQuestions").ToList();
         }
 
         public ITheoryQuestion FetchTheoryQuestion(Guid questionId)
         {
-            var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+            var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
 			
 			question.Answers = question.Answers.OrderBy(a => a.DisplayOrderIndex).ToList();
 
@@ -344,7 +344,7 @@ namespace APFTestingModel
 
         public void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId)
         {
-            var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
+            var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
             var answersToDelete = question.Edit(questionDetails);
 
 			foreach (var answer in answersToDelete)
@@ -353,6 +353,22 @@ namespace APFTestingModel
 			}
 
 			_context.SaveChanges();
+        }
+
+        public void DeleteTheoryQuestion(Guid questionId)
+        {
+            var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
+            question.Delete(deleteEntity, deleteEntity);
+
+            _context.SaveChanges();
+        }
+
+        public void ToggleTheoryQuestionActivation(Guid questionId)
+        {
+            var question = _context.TheoryQuestions.First(q => q.Id == questionId);
+            question.toggleActivation();
+
+            _context.SaveChanges();
         }
 
 
@@ -401,7 +417,6 @@ namespace APFTestingModel
         public void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results)
         {
             var exam = _context.Exams.OfType<ExamPilot>().Include("PracticalComponentPilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").First(e => examId == e.Id);
-
             exam.SubmitPilotPracticalResults(results);
             _context.SaveChanges();
         }
@@ -522,6 +537,7 @@ namespace APFTestingModel
         {
             var assessmentTask = fetchAssessmentTaskPilot(id);
             assessmentTask.Delete(deleteEntity);
+            _context.SaveChanges();
         }
 
         public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()
@@ -605,6 +621,7 @@ namespace APFTestingModel
         {
             var format = fetchTheoryExamFormatById(formatId);
             format.Delete(deleteEntity);
+            _context.SaveChanges();
         }
 
         public void SetActiveTheoryComponentFormat(Guid formatId)
@@ -638,12 +655,7 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-        internal void deleteEntity<T>(T entity)
-        {
-            var dbSet = _context.Set(entity.GetType());
-            dbSet.Remove(entity);
-            _context.SaveChanges();
-        }
+        
 
         #endregion
 
@@ -706,6 +718,7 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("Cannot delete the examiner from membership");
             }
+            _context.SaveChanges();
         }
 
         public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
@@ -725,9 +738,58 @@ namespace APFTestingModel
 
         #region CRUD Pilot Practical Template
 
-        public void CreatePracticalComponentTemplatePilot()
+        public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
+        {
+            return fetchPracticalTemplatePilotById(templateId);
+        }
+
+        private PracticalComponentTemplatePilot fetchPracticalTemplatePilotById(Guid templateId)
+        {
+            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("AssessmentTaskPilots").FirstOrDefault(t => t.Id == templateId);
+            if (template == null)
+            {
+                throw new BusinessRuleException("Invalid Template ID");
+            }
+            return template;
+        }
+
+        public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> taskIds)
         {
             examManager = ManagerFactory.CreatePracticalExamMananger(ExamType.PilotExam);
+            var selectedTasks = fetchSelectedTasks(taskIds);
+            var newTemplate = (examManager as ExamManagerPilot).CreatePracticalComponentTemplatePilot(selectedTasks);
+            _context.PracticalComponentTemplates.Add(newTemplate);
+            _context.SaveChanges();
+            return newTemplate.Id;
+        }
+
+        public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
+        {
+            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.Id == templateId);
+            if (template == null)
+            {
+                throw new BusinessRuleException("Invalid Template ID");
+            }
+            var selectedTasks = fetchSelectedTasks(taskIds);
+            template.Edit(selectedTasks);
+            _context.SaveChanges();
+            return template.Id;
+        }
+
+        private List<AssessmentTaskPilot> fetchSelectedTasks(IEnumerable<Guid> taskIds)
+        {
+            var allTasks = _context.AssessmentTasks.OfType<AssessmentTaskPilot>();
+            var selectedTasks = new List<AssessmentTaskPilot>();
+            foreach (var taskId in taskIds)
+            {
+                var task = allTasks.FirstOrDefault(t => t.Id == taskId);
+                if (task == null)
+                {
+                    throw new BusinessRuleException("Invalid Task ID");
+                }
+                selectedTasks.Add(task);
+            }
+            return selectedTasks;
         }
 
         #endregion
@@ -799,6 +861,29 @@ namespace APFTestingModel
         public void Dispose()
         {
             _context.Dispose();
+        }
+
+        public void TestCode()
+        {
+            IEnumerable<TheoryQuestion> questions = _context.TheoryQuestions.Include("SelectedTheoryQuestions").ToList();
+
+            
+            foreach (var question in questions)
+            {
+                if (question.editableOrDeletable == true)
+                {
+                    Console.WriteLine("{0}\n\n",question.Description);
+                }
+            }
+
+            Console.Read();
+        }
+
+        internal void deleteEntity<T>(T entity)
+        {
+            var dbSet = _context.Set(entity.GetType());
+            dbSet.Remove(entity);
+            //_context.SaveChanges();
         }
     }
 }

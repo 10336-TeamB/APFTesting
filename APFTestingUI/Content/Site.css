@@ -1637,7 +1637,8 @@ input[type="text"]:disabled
 }
 
 
-#toggle {
+
+.toggle {
     cursor: pointer;
 }
 

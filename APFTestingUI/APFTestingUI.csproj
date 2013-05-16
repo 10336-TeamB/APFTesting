@@ -186,8 +186,10 @@
     <Compile Include="Areas\Administration\Models\ExaminerManagement\CreateExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\EditExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\Index.cs" />
+    <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\Edit.cs" />
+    <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\Create.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\Index.cs" />
-    <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateTask.cs" />
+    <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateTaskDisplayItem.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateDisplayItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
@@ -248,6 +250,11 @@
     <Compile Include="Models\Practical\PilotView.cs" />
     <Compile Include="Models\Practical\PilotInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\EmailServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\cross.png" />
@@ -363,6 +370,8 @@
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Create.cshtml" />
     <Content Include="Areas\Administration\Views\QuestionManagement\EditPilot.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Display.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -388,6 +397,13 @@
     <Content Include="Scripts\practical-template.js" />
     <Content Include="Scripts\QuestionManagement.js" />
     <Content Include="Scripts\summary.js" />
+    <Content Include="Service References\EmailServiceReference\EmailServiceOperation.disco" />
+    <Content Include="Service References\EmailServiceReference\configuration91.svcinfo" />
+    <Content Include="Service References\EmailServiceReference\configuration.svcinfo" />
+    <Content Include="Service References\EmailServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <Content Include="Unity.Mvc3.README.txt" />
     <Content Include="Unity.WebAPI.README.txt" />
     <Content Include="Web.config">
@@ -437,6 +453,19 @@
     <Content Include="Views\Practical\PackerEdit.cshtml" />
     <Content Include="Areas\Administration\Views\AssessmentTask\Index.cshtml" />
     <Content Include="Views\Examiner\Login.cshtml" />
+    <Content Include="Service References\EmailServiceReference\EmailServiceOperation.wsdl" />
+    <None Include="Service References\EmailServiceReference\EmailServiceOperation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailServiceReference\EmailServiceOperation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailServiceReference\EmailServiceOperation2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailServiceReference\EmailServiceOperation3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -450,6 +479,12 @@
       <Project>{ecf00d40-4554-4da2-af68-848ff0b6d169}</Project>
       <Name>APFTestingModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EmailServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

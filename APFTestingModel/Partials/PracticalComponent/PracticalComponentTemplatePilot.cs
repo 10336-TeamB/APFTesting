@@ -8,6 +8,10 @@ namespace APFTestingModel
 {
     internal partial class PracticalComponentTemplatePilot : IPracticalComponentTemplatePilot
     {
+        public PracticalComponentTemplatePilot(List<AssessmentTaskPilot> tasks)
+        {
+            AssessmentTaskPilots = tasks;
+        }
 
         public bool AllowEditOrDelete
         {
@@ -17,6 +21,13 @@ namespace APFTestingModel
         public IEnumerable<IAssessmentTaskPilot> Tasks
         {
             get { return AssessmentTaskPilots; }
+        }
+
+        internal void Edit(List<AssessmentTaskPilot> selectedTasks)
+        {
+
+            //TODO: Implement this next!
+            throw new NotImplementedException();
         }
     }
 }

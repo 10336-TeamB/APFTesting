@@ -23,30 +23,31 @@
         @{
             var rowNumber = 1;
          }
-        @foreach (var template in Model.Templates)
+        @for (int i = 0; i < Model.Templates.Count; i++)
         {
             <tr>
                 <td>@rowNumber</td>
-                <td>@template.IsActive</td>
-                <td id="toggle"><span>Click to expand Tasks</span><br />
+                <td>@Model.Templates[i].IsActive</td>
+                <td class="toggle"><span>Click to expand Tasks</span><br />
                     <ul class="hidden tasks">
-                        @foreach (var task in template.Tasks)
+                        @for (int j = 0; j < Model.Templates[i].Tasks.Count; j++)
                         {
-                            <li>@task.Title</li>
+                            <li>@Model.Templates[i].Tasks[j].Title</li>
                         }
                     </ul>
                 </td>
                 <td>
-                    @if (template.AllowEditOrDelete)
+                    @Html.ActionLink("Display", "Display", new { templateId = Model.Templates[i].Id }) |
+                    @if (Model.Templates[i].AllowEditOrDelete)
                     {
-                        @Html.ActionLink("Edit", "Edit", new { templateId = template.Id })
+                        @Html.ActionLink("Edit", "Edit", new { templateId = Model.Templates[i].Id })
                         <text>|</text>
-                        @Html.ActionLink("Delete", "Delete", new { templateId = template.Id }, new { @class = "template-delete" })
+                        @Html.ActionLink("Delete", "Delete", new { templateId = Model.Templates[i].Id }, new { @class = "template-delete" })
                     }
-                    @if (!template.IsActive)
+                    @if (!Model.Templates[i].IsActive)
                     {
                         <text>|</text>
-                        @Html.ActionLink("Activate", "Activate", new { templateId = template.Id }, new { @class = "template-activate" })
+                        @Html.ActionLink("Activate", "Activate", new { templateId = Model.Templates[i].Id }, new { @class = "template-activate" })
                     }
                 </td>
             </tr>

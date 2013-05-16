@@ -31,9 +31,10 @@ namespace APFTestingModel
             return new AssessmentTaskPilot(details);
         }
 
-        public PracticalComponentTemplatePilot CreatePracticalComponentTemplatePilot()
+        public PracticalComponentTemplatePilot CreatePracticalComponentTemplatePilot(List<AssessmentTaskPilot> tasks)
         {
-            return null;
+            var template = new PracticalComponentTemplatePilot(tasks);
+            return template;
         }
     }
 }
