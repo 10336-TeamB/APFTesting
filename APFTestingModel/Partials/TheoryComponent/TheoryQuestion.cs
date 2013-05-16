@@ -36,6 +36,14 @@ namespace APFTestingModel
             get { return Answers; }
         }
 
+        public bool editableOrDeletable
+        {
+            get
+            {
+                return SelectedTheoryQuestions.Count == 0;
+            }
+        }
+
         #endregion
 
 

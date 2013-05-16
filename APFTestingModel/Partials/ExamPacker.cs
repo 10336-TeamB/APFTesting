@@ -29,9 +29,21 @@ namespace APFTestingModel
 
         public void AddPracticalComponentResult(PackerPracticalResult packerResult)
         {
-            AssessmentTaskPacker assessment = new AssessmentTaskPacker(packerResult);
+            Action a = delegate
+            {
+                AssessmentTaskPacker assessment = new AssessmentTaskPacker(packerResult);
+                PracticalComponentPacker.AssessmentTaskPackers.Add(assessment);
+            };
+            _examState.AddPracticalComponentResult(a);
+        }
 
-            PracticalComponentPacker.AssessmentTaskPackers.Add(assessment);
+        public void EditPackerPracticalResult(Guid taskId, PackerPracticalResult result)
+        {
+            Action a = delegate
+            {
+                AssessmentTasks.First(t => t.Id == taskId).Edit(result);
+            };
+            _examState.EditPackerPracticalResult(a);
         }
 
         public ICollection<AssessmentTaskPacker> AssessmentTasks

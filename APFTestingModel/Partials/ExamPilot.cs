@@ -38,5 +38,25 @@ namespace APFTestingModel
             }
         }
 
+        public void SubmitPilotPracticalResults(List<PilotPracticalResult> results)
+        {
+            Action a = delegate
+            {
+                foreach (var r in results)
+                {
+                    try
+                    {
+                        SelectedAssessmentTasks.First(t => t.Id == r.Id).RecordResult(r);
+                    }
+                    catch (ArgumentNullException)
+                    {
+                        //TODO: Log exception
+                        throw new BusinessRuleException("Error while recording results. The requested result could not be found");
+                    }
+                }
+            };
+            _examState.SubmitPilotPracticalResults(a);
+        }
+
     }
 }

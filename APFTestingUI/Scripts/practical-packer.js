@@ -2,7 +2,8 @@
     $('input[type=date]').attr("type", "text");
     $("#Date").datepicker(
         {
-            dateFormat: "dd/mm/yy"
+            dateFormat: "dd/mm/yy",
+            maxDate: new Date
         }
     );
 

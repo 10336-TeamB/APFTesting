@@ -94,7 +94,19 @@
          @Html.DisplayNameFor(model => model.PilotMedical)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.PilotMedical)
+        @{
+            var strPilotMedical = Model.PilotMedical.ToString();
+            var pilotMedical = strPilotMedical[0] + "";
+            for (int i = 1; i < strPilotMedical.Length; i++)
+            {
+                if (char.IsUpper(strPilotMedical[i]))
+                {
+                    pilotMedical += " ";
+                }
+                pilotMedical += strPilotMedical[i];
+            }
+            @pilotMedical
+        }
     </div>
     <div class="clear"></div>
 

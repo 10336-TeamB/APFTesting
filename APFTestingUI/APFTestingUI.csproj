@@ -74,6 +74,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -246,6 +248,11 @@
     <Compile Include="Models\Practical\PilotView.cs" />
     <Compile Include="Models\Practical\PilotInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\EmailServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\cross.png" />
@@ -386,6 +393,13 @@
     <Content Include="Scripts\practical-template.js" />
     <Content Include="Scripts\QuestionManagement.js" />
     <Content Include="Scripts\summary.js" />
+    <Content Include="Service References\EmailServiceReference\EmailServiceOperation.disco" />
+    <Content Include="Service References\EmailServiceReference\configuration91.svcinfo" />
+    <Content Include="Service References\EmailServiceReference\configuration.svcinfo" />
+    <Content Include="Service References\EmailServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <Content Include="Unity.Mvc3.README.txt" />
     <Content Include="Unity.WebAPI.README.txt" />
     <Content Include="Web.config">
@@ -435,6 +449,19 @@
     <Content Include="Views\Practical\PackerEdit.cshtml" />
     <Content Include="Areas\Administration\Views\AssessmentTask\Index.cshtml" />
     <Content Include="Views\Examiner\Login.cshtml" />
+    <Content Include="Service References\EmailServiceReference\EmailServiceOperation.wsdl" />
+    <None Include="Service References\EmailServiceReference\EmailServiceOperation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailServiceReference\EmailServiceOperation1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailServiceReference\EmailServiceOperation2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailServiceReference\EmailServiceOperation3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -448,6 +475,12 @@
       <Project>{ecf00d40-4554-4da2-af68-848ff0b6d169}</Project>
       <Name>APFTestingModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EmailServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
