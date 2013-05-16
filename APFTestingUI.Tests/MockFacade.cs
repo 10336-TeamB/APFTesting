@@ -330,8 +330,35 @@ namespace APFTestingUI.Tests
         }
 
 
+        public void DeleteTheoryQuestion(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public void DeleteTheoryQuestion(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
+		{
+            throw new NotImplementedException();
+        }
+		
+        public void ToggleTheoryQuestionActivation(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks)
         {
             throw new NotImplementedException();
         }

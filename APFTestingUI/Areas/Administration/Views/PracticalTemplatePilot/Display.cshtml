@@ -1,0 +1,37 @@
+﻿@model APFTestingUI.Areas.Administration.Models.PracticalTemplatePilot.PilotTemplateDisplayItem
+
+@{
+    ViewBag.Title = "Pilot Practical Template";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Pilot Practical Template</h1>
+
+<h3>@ViewBag.displayMessage</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Details</th>
+            <th>Max Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var rowNumber = 1;
+         }
+        @foreach (var task in Model.Tasks)
+        {
+            <tr>
+                <td>@rowNumber</td>
+                <td>
+                    <strong>@task.Title</strong><br />
+                    @task.Details
+                </td>
+                <td>@task.MaxScore</td>
+            </tr>
+            rowNumber++;
+        }
+    </tbody>
+</table>

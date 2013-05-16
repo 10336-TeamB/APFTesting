@@ -31,18 +31,31 @@ namespace APFTestingUI.Areas.Administration.Controllers
         [HttpPost]
         public ActionResult CreatePilot(Create model)
         {
-			List<AnswerDetails> answers = new List<AnswerDetails>();
-			for (int i = 0; i < model.Answers.Count; i++)
-			{
-                var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect);
-                answers.Add(answer);
-			}
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //throw new BusinessRuleException("Test Exception");
+                    List<AnswerDetails> answers = new List<AnswerDetails>();
+                    for (int i = 0; i < model.Answers.Count; i++)
+                    {
+                        var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect);
+                        answers.Add(answer);
+                    }
 
-			var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
 
-			_facade.CreateTheoryQuestion(questionPackage, ExamType.PilotExam);
+                    _facade.CreateTheoryQuestion(questionPackage, ExamType.PilotExam);
 
-			return View();
+                    return RedirectToAction("IndexPilot");
+                }
+                catch (BusinessRuleException ex)
+                {
+                    ModelState.AddModelError("Exception", ex.Message);
+                }
+            }
+
+            return View(model);
         }
 
         [HttpGet]
@@ -109,6 +122,12 @@ namespace APFTestingUI.Areas.Administration.Controllers
             return RedirectToAction("IndexPilot");
         }
 
+        public ActionResult ToggleActivationPilot(Guid questionId)
+        {
+            _facade.ToggleTheoryQuestionActivation(questionId);
+
+            return RedirectToAction("IndexPilot");
+        }
 
 
         [HttpGet]

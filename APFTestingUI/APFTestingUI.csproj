@@ -186,8 +186,10 @@
     <Compile Include="Areas\Administration\Models\ExaminerManagement\CreateExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\EditExaminer.cs" />
     <Compile Include="Areas\Administration\Models\ExaminerManagement\Index.cs" />
+    <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\Edit.cs" />
+    <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\Create.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\Index.cs" />
-    <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateTask.cs" />
+    <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateTaskDisplayItem.cs" />
     <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateDisplayItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
@@ -368,6 +370,8 @@
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Create.cshtml" />
     <Content Include="Areas\Administration\Views\QuestionManagement\EditPilot.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Display.cshtml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />

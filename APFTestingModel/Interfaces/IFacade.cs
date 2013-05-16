@@ -69,6 +69,10 @@ namespace APFTestingModel
         void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit);
         void DeleteTheoryExamFormat(Guid formatId);
 
+        IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId);
+        Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks);
+        Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds);
+
         IPracticalComponentTemplatePacker FetchPracticalTemplatePackerById(Guid templateId);
         void CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks);
         void EditPracticalComponentTemplatePacker(Guid templateId, int numOfRequiredAssessmentTasks);
@@ -89,6 +93,7 @@ namespace APFTestingModel
 
         void DeleteTheoryQuestion(Guid questionId);
 
-        
+        void ToggleTheoryQuestionActivation(Guid questionId);
+
     }
 }

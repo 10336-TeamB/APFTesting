@@ -133,8 +133,6 @@ namespace APFTestingModel
 			return deletionList;
         }
 
-        #endregion
-
         public void Delete(deleteEntityDelegate<TheoryQuestion> deleteQuestion, deleteEntityDelegate<Answer> deleteAnswer)
         {
             if (editableOrDeletable)
@@ -148,6 +146,15 @@ namespace APFTestingModel
                 throw new BusinessRuleException("Cannot delete question. It is already used in an exam.");
             }
         }
+
+        public void toggleActivation()
+        {
+            IsActive = !IsActive;
+        }
+
+        #endregion
+
+        
 
         
 
