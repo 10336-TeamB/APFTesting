@@ -329,18 +329,6 @@ namespace APFTestingUI.Tests
             throw new NotImplementedException();
         }
 
-
-		public bool Login(string username, string password, bool rememberMe)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Logout()
-		{
-			throw new NotImplementedException();
-		}
-
-
         public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks)
         {
             throw new NotImplementedException();
@@ -348,11 +336,22 @@ namespace APFTestingUI.Tests
 
 
         public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
+		{
+            throw new NotImplementedException();
+        }
+
+        public void DeleteTheoryQuestion(Guid questionId)
         {
             throw new NotImplementedException();
         }
 
+
         public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
+		{
+            throw new NotImplementedException();
+        }
+		
+        public void ToggleTheoryQuestionActivation(Guid questionId)
         {
             throw new NotImplementedException();
         }

@@ -93,5 +93,7 @@ namespace APFTestingModel
 
         void DeleteTheoryQuestion(Guid questionId);
 
+        void ToggleTheoryQuestionActivation(Guid questionId);
+
     }
 }

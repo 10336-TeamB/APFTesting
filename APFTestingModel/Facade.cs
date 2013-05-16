@@ -353,6 +353,13 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        public void ToggleTheoryQuestionActivation(Guid questionId)
+        {
+            var question = _context.TheoryQuestions.First(q => q.Id == questionId);
+            question.toggleActivation();
+
+            _context.SaveChanges();
+        }
 
 
         //public void DeleteTheoryQuestion(Guid questionId)
