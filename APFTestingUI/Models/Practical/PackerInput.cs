@@ -88,7 +88,7 @@ namespace APFTestingUI.Models.Practical
                 var itemValue = c;
                 if(c.Equals("RamAir"))
                 {
-                    itemValue = "Ram-Air";
+                    itemValue = "Ram Air";
                 }
                 canopyListValueText.Add(new KeyValuePair<string, string>(itemKey, itemValue));
             }
