@@ -19,10 +19,10 @@ namespace APFTestingModel
         {
             Date = result.Date; 
             CanopyType = result.CanopyType;
-            CanopyTypeSerialNumber = result.CanopyTypeSerialNumber;
+            //CanopyTypeSerialNumber = result.CanopyTypeSerialNumber;
             SupervisorId = result.SupervisorId;
             HarnessContainerType = result.HarnessContainerType;
-            HarnessContainerSerialNumber = result.HarnessContainerSerialNumber;
+            //HarnessContainerSerialNumber = result.HarnessContainerSerialNumber;
             Note = result.Note;
         }
     }

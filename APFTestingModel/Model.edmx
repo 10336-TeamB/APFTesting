@@ -226,10 +226,10 @@
           <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="CanopyType" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="CanopyTypeSerialNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CanopyTypeSerialNumber" Type="varchar" MaxLength="50" />
           <Property Name="SupervisorId" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="HarnessContainerType" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="HarnessContainerSerialNumber" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="HarnessContainerSerialNumber" Type="varchar" MaxLength="50" />
           <Property Name="Note" Type="text" />
         </EntityType>
         <EntityType Name="AssessmentTaskPilot">
@@ -285,8 +285,8 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="APFNumber" Type="char" Nullable="false" MaxLength="6" />
-			<Property Name="IsActive" Type="bit" Nullable="false" />
-		</EntityType>
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="ExaminerAuthority">
           <Key>
             <PropertyRef Name="ExaminerId" />
@@ -1078,10 +1078,10 @@
           <Property Type="Guid" Name="PracticalComponentId" Nullable="false" />
           <Property Type="DateTime" Name="Date" Nullable="false" Precision="0" />
           <Property Type="String" Name="CanopyType" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CanopyTypeSerialNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CanopyTypeSerialNumber" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="SupervisorId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="HarnessContainerType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="HarnessContainerSerialNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HarnessContainerSerialNumber" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PracticalComponentPacker" Relationship="APFTestingDBModel.FK_AssessmentTaskPacker_PracticalComponentPacker" FromRole="AssessmentTaskPacker" ToRole="PracticalComponentPacker" />
         </EntityType>

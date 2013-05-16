@@ -11,9 +11,9 @@
         <tr>
             <th class="th-date">Date</th>
             <th class="th-canopy-type">Canopy Type</th>
-            <th class="th-canopy-serial-no">Canopy Serial No.</th>
+            @*<th class="th-canopy-serial-no">Canopy Serial No.</th>*@
             <th class="th-harness-type">Harness / Container Type</th>
-            <th class="th-harness-serial-no">Harness / Container Serial No.</th>
+            @*<th class="th-harness-serial-no">Harness / Container Serial No.</th>*@
             <th class="th-notes">Notes</th>
             <th class="th-instructor-no">Instructor / Rigger No.</th>
             <th class="th-edit-button"></th>
@@ -37,9 +37,9 @@
                 @p.CanopyType
             }
         </td>
-        <td>@p.CanopyTypeSerialNumber</td>
+        @*<td>@p.CanopyTypeSerialNumber</td>*@
         <td>@p.HarnessContainerType</td>
-        <td>@p.HarnessContainerSerialNumber</td>
+        @*<td>@p.HarnessContainerSerialNumber</td>*@
         <td>@p.Note</td>
         <td>@p.SupervisorId</td>
         <td>@Html.ActionLink("Edit", "PackerEdit", new { taskId = @p.Id, examId = @Model.ExamId }, new { @class = "examiner-button" })</td>
