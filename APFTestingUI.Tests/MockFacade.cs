@@ -378,5 +378,22 @@ namespace APFTestingUI.Tests
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+
+        public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

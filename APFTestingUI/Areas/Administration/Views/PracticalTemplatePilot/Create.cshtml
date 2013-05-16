@@ -1,0 +1,52 @@
+﻿@model APFTestingUI.Areas.Administration.Models.PracticalTemplatePilot.Create
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create Pilot Practical Template</h1>
+@using(Html.BeginForm()){
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+
+    <p>Select all tasks to include in the template.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Details</th>
+                <th>Max score</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.Tasks.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.CheckBoxFor(model => model.Tasks[i].Selected)
+                        @Html.HiddenFor(model => model.Tasks[i].Id)
+                    </td>
+                    <td>
+                        <strong>
+                            @Html.DisplayFor(model => model.Tasks[i].Title)
+                            @Html.HiddenFor(model => model.Tasks[i].Title)
+                        </strong><br />
+                        @Html.DisplayFor(model => model.Tasks[i].Details)
+                        @Html.HiddenFor(model => model.Tasks[i].Details)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Tasks[i].MaxScore)
+                        @Html.HiddenFor(model => model.Tasks[i].MaxScore)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+    <p class="button-container">
+            <input type="submit" value="Create" class="form-button"/>
+    </p>
+}

@@ -13,6 +13,6 @@ namespace APFTestingUI.Areas.Administration.Models.PracticalTemplatePilot
             Templates = templates.Select(t => new PilotTemplateDisplayItem(t)).ToList();
         }
 
-        public IEnumerable<PilotTemplateDisplayItem> Templates { get; set; }
+        public List<PilotTemplateDisplayItem> Templates { get; set; }
     }
 }

@@ -392,6 +392,7 @@ namespace APFTestingModel
         {
             var exam = _context.Exams.OfType<ExamPilot>().Include("PracticalComponentPilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").First(e => examId == e.Id);
 
+            //TODO: Move logic into Exam!!!
             var tasks = exam.SelectedAssessmentTasks;
             foreach (var r in results)
             {
@@ -732,9 +733,58 @@ namespace APFTestingModel
 
         #region CRUD Pilot Practical Template
 
-        public void CreatePracticalComponentTemplatePilot()
+        public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
+        {
+            return fetchPracticalTemplatePilotById(templateId);
+        }
+
+        private PracticalComponentTemplatePilot fetchPracticalTemplatePilotById(Guid templateId)
+        {
+            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("AssessmentTaskPilots").FirstOrDefault(t => t.Id == templateId);
+            if (template == null)
+            {
+                throw new BusinessRuleException("Invalid Template ID");
+            }
+            return template;
+        }
+
+        public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> taskIds)
         {
             examManager = ManagerFactory.CreatePracticalExamMananger(ExamType.PilotExam);
+            var selectedTasks = fetchSelectedTasks(taskIds);
+            var newTemplate = (examManager as ExamManagerPilot).CreatePracticalComponentTemplatePilot(selectedTasks);
+            _context.PracticalComponentTemplates.Add(newTemplate);
+            _context.SaveChanges();
+            return newTemplate.Id;
+        }
+
+        public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
+        {
+            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.Id == templateId);
+            if (template == null)
+            {
+                throw new BusinessRuleException("Invalid Template ID");
+            }
+            var selectedTasks = fetchSelectedTasks(taskIds);
+            template.Edit(selectedTasks);
+            _context.SaveChanges();
+            return template.Id;
+        }
+
+        private List<AssessmentTaskPilot> fetchSelectedTasks(IEnumerable<Guid> taskIds)
+        {
+            var allTasks = _context.AssessmentTasks.OfType<AssessmentTaskPilot>();
+            var selectedTasks = new List<AssessmentTaskPilot>();
+            foreach (var taskId in taskIds)
+            {
+                var task = allTasks.FirstOrDefault(t => t.Id == taskId);
+                if (task == null)
+                {
+                    throw new BusinessRuleException("Invalid Task ID");
+                }
+                selectedTasks.Add(task);
+            }
+            return selectedTasks;
         }
 
         #endregion
@@ -892,6 +942,9 @@ namespace APFTestingModel
 		//}
 
 		#endregion
+
+
+
 
 
 

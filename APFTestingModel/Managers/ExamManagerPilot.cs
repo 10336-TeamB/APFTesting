@@ -38,9 +38,9 @@ namespace APFTestingModel
             return (practicalComponentManager as PracticalComponentManagerPilot).CreateAssessmentTask(details);
         }
 
-        public PracticalComponentTemplate CreatePracticalComponentTemplatePilot()
+        public PracticalComponentTemplate CreatePracticalComponentTemplatePilot(List<AssessmentTaskPilot> tasks)
         {
-            return (practicalComponentManager as PracticalComponentManagerPilot).CreatePracticalComponentTemplatePilot();
+            return (practicalComponentManager as PracticalComponentManagerPilot).CreatePracticalComponentTemplatePilot(tasks);
         }
     }
 }

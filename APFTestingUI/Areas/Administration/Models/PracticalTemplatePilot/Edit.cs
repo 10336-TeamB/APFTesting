@@ -6,19 +6,23 @@ using System.Web;
 
 namespace APFTestingUI.Areas.Administration.Models.PracticalTemplatePilot
 {
-    public class PilotTemplateDisplayItem
+    public class Edit
     {
-        public PilotTemplateDisplayItem(IPracticalComponentTemplatePilot template)
+        public Edit(IPracticalComponentTemplatePilot template)
         {
             Id = template.Id;
-            IsActive = template.IsActive;
             Tasks = template.Tasks.Select(t => new PilotTemplateTaskDisplayItem(t)).ToList();
-            AllowEditOrDelete = template.AllowEditOrDelete;
         }
 
         public Guid Id { get; set; }
-        public bool IsActive { get; set; }
         public List<PilotTemplateTaskDisplayItem> Tasks { get; set; }
-        public bool AllowEditOrDelete { get; set; }
+
+        public IEnumerable<Guid> SelectedTasks
+        {
+            get
+            {
+                return Tasks.Where(t => t.Selected).Select(t => t.Id).ToList();
+            }
+        }
     }
 }

@@ -36,7 +36,9 @@ namespace APFTestingModel
 
         public ICollection<AssessmentTaskPacker> AssessmentTasks
         {
-            get { return PracticalComponentPacker.AssessmentTaskPackers; }
+            get { 
+                
+                return PracticalComponentPacker.AssessmentTaskPackers; }
         }
 
         public override bool PracticalComponentIsCompetent 

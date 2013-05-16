@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $("#toggle").click(function () {
-        $("#toggle > ul").slideToggle(100);
+    $(".toggle").click(function () {
+        $(this).children("ul").slideToggle(100);
     });
 });
