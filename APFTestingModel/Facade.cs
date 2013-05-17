@@ -192,6 +192,7 @@ namespace APFTestingModel
             //Create new report
             //Send report
             exam.FinaliseExam();
+
         }
 
         #endregion 
@@ -289,8 +290,6 @@ namespace APFTestingModel
                 .Include("PracticalComponentPilot.SelectedAssessmentTasks")
                 .Include("PracticalComponentPilot.SelectedAssessmentTasks.AssessmentTaskPilot")
                 .FirstOrDefault(e => e.Id == examId);
-
-            FinalisePractical(examId);
 
             return exam.SelectedAssessmentTasks;
         }
@@ -394,10 +393,6 @@ namespace APFTestingModel
 
 		#region Other Methods
 		
-      
-
-		
-
         public Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy)
         {
             CandidatePilot candidatePilot = new CandidatePilot(details, createdBy);
