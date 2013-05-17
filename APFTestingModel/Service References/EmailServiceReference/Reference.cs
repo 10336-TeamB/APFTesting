@@ -129,8 +129,10 @@ namespace APFTestingModel.EmailServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmailServiceOperation/SendEmail", ReplyAction="http://tempuri.org/IEmailServiceOperation/SendEmailResponse")]
         void SendEmail(APFTestingModel.EmailServiceReference.EmailDataContract emailData);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmailServiceOperation/SendEmail", ReplyAction="http://tempuri.org/IEmailServiceOperation/SendEmailResponse")]
-        System.Threading.Tasks.Task SendEmailAsync(APFTestingModel.EmailServiceReference.EmailDataContract emailData);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEmailServiceOperation/SendEmail", ReplyAction="http://tempuri.org/IEmailServiceOperation/SendEmailResponse")]
+        System.IAsyncResult BeginSendEmail(APFTestingModel.EmailServiceReference.EmailDataContract emailData, System.AsyncCallback callback, object asyncState);
+        
+        void EndSendEmail(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -140,6 +142,12 @@ namespace APFTestingModel.EmailServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class EmailServiceOperationClient : System.ServiceModel.ClientBase<APFTestingModel.EmailServiceReference.IEmailServiceOperation>, APFTestingModel.EmailServiceReference.IEmailServiceOperation {
+        
+        private BeginOperationDelegate onBeginSendEmailDelegate;
+        
+        private EndOperationDelegate onEndSendEmailDelegate;
+        
+        private System.Threading.SendOrPostCallback onSendEmailCompletedDelegate;
         
         public EmailServiceOperationClient() {
         }
@@ -160,12 +168,55 @@ namespace APFTestingModel.EmailServiceReference {
                 base(binding, remoteAddress) {
         }
         
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SendEmailCompleted;
+        
         public void SendEmail(APFTestingModel.EmailServiceReference.EmailDataContract emailData) {
             base.Channel.SendEmail(emailData);
         }
         
-        public System.Threading.Tasks.Task SendEmailAsync(APFTestingModel.EmailServiceReference.EmailDataContract emailData) {
-            return base.Channel.SendEmailAsync(emailData);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSendEmail(APFTestingModel.EmailServiceReference.EmailDataContract emailData, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSendEmail(emailData, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndSendEmail(System.IAsyncResult result) {
+            base.Channel.EndSendEmail(result);
+        }
+        
+        private System.IAsyncResult OnBeginSendEmail(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            APFTestingModel.EmailServiceReference.EmailDataContract emailData = ((APFTestingModel.EmailServiceReference.EmailDataContract)(inValues[0]));
+            return this.BeginSendEmail(emailData, callback, asyncState);
+        }
+        
+        private object[] OnEndSendEmail(System.IAsyncResult result) {
+            this.EndSendEmail(result);
+            return null;
+        }
+        
+        private void OnSendEmailCompleted(object state) {
+            if ((this.SendEmailCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SendEmailCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SendEmailAsync(APFTestingModel.EmailServiceReference.EmailDataContract emailData) {
+            this.SendEmailAsync(emailData, null);
+        }
+        
+        public void SendEmailAsync(APFTestingModel.EmailServiceReference.EmailDataContract emailData, object userState) {
+            if ((this.onBeginSendEmailDelegate == null)) {
+                this.onBeginSendEmailDelegate = new BeginOperationDelegate(this.OnBeginSendEmail);
+            }
+            if ((this.onEndSendEmailDelegate == null)) {
+                this.onEndSendEmailDelegate = new EndOperationDelegate(this.OnEndSendEmail);
+            }
+            if ((this.onSendEmailCompletedDelegate == null)) {
+                this.onSendEmailCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSendEmailCompleted);
+            }
+            base.InvokeAsync(this.onBeginSendEmailDelegate, new object[] {
+                        emailData}, this.onEndSendEmailDelegate, this.onSendEmailCompletedDelegate, userState);
         }
     }
 }

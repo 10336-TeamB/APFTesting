@@ -372,6 +372,8 @@
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Create.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Display.cshtml" />
+    <None Include="Properties\PublishProfiles\APFTesting.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
