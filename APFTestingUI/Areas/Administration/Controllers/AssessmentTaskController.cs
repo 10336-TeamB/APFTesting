@@ -51,8 +51,15 @@ namespace APFTestingUI.Areas.Administration.Controllers
         {
             if (ModelState.IsValid)
             {
-                _facade.EditAssessmentTaskPilot(model.Id, model.AssessmentTaskDetails);
-                return RedirectToAction("Index");
+                try
+                {
+                    _facade.EditAssessmentTaskPilot(model.Id, model.AssessmentTaskDetails);
+                    return RedirectToAction("Index");
+                }
+                catch (BusinessRuleException ex)
+                {
+                    ModelState.AddModelError("Exception", ex.Message);
+                }
             }
             return View(model);
         }
@@ -64,9 +71,9 @@ namespace APFTestingUI.Areas.Administration.Controllers
                 _facade.DeleteAssessmentTaskPilot(id);
                 ViewBag.Message = "Assessment Task Deleted";
             }
-            catch(Exception)
+            catch (BusinessRuleException ex)
             {
-                ViewBag.Message = "Assessment Task could not be deleted";
+                ViewBag.Message = ex.Message;
             }
             return View("DeletedConfirmation");
         }

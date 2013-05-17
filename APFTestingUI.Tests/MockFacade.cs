@@ -329,16 +329,12 @@ namespace APFTestingUI.Tests
             throw new NotImplementedException();
         }
 
-        public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks)
+
+        public void DeleteTheoryQuestion(Guid questionId)
         {
             throw new NotImplementedException();
         }
 
-
-        public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
-		{
-            throw new NotImplementedException();
-        }
 
         public void DeleteTheoryQuestion(Guid questionId)
         {
@@ -352,6 +348,17 @@ namespace APFTestingUI.Tests
         }
 		
         public void ToggleTheoryQuestionActivation(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks)
         {
             throw new NotImplementedException();
         }

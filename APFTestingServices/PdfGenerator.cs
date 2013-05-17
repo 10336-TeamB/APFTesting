@@ -106,7 +106,7 @@ namespace APFTestingServices
             
             gfx.DrawString("Practical Exam Result", bodyBoldUnderlined, XBrushes.Black, new XRect(50, coordY, page.Width, CoordY_BB), XStringFormats.TopLeft);
             coordY += 25;
-            gfx.DrawString(String.Format("{0} has successfully demonstrated the required 10 supervised parachute packs", ExamDetails[0].Value),
+            gfx.DrawString(String.Format("{0} has successfully demonstrated the required {1} supervised parachute packs", ExamDetails[0].Value, ExamDetails[++counter].Value),
                 bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.Center);
         }
     }

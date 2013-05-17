@@ -21,7 +21,7 @@ namespace EmailService
 
             string senderAddress = "teamb.email@gmail.com";
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            mail.To.Add(emailData.ToAddress);
+            mail.To.Add("teamb@live.com.au");
             mail.From = new MailAddress(senderAddress, "APFTesting", System.Text.Encoding.UTF8);
             mail.Subject = emailData.Subject;
             mail.SubjectEncoding = System.Text.Encoding.UTF8;

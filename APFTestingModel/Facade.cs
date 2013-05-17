@@ -166,9 +166,19 @@ namespace APFTestingModel
 
         #region Finalise Exam
 
-        internal Exam fetchExam(Guid examId)
+        internal Exam fetchExam(Guid examId, ExamType examType)
         {
-            var exam = _context.Exams.FirstOrDefault(e => e.Id == examId);
+
+            Exam exam;
+            if (examType == ExamType.PackerExam)
+            {
+                exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").FirstOrDefault(e => e.Id == examId);
+            }
+            else
+            {
+                exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").FirstOrDefault(e => e.Id == examId);
+            }
+
             if (exam == null)
             {
                 throw new BusinessRuleException("Exam not found");
@@ -176,9 +186,9 @@ namespace APFTestingModel
             return exam;
         }
 
-        public void FinaliseExam(Guid examId)
+        public void FinaliseExam(Guid examId, ExamType examType)
         {
-            var exam = fetchExam(examId);
+            Exam exam = fetchExam(examId, examType);
             //Create new report
             //Send report
             exam.FinaliseExam();
