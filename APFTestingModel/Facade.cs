@@ -325,10 +325,17 @@ namespace APFTestingModel
 			_context.SaveChanges();
 		}
 
+		//
         public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
         {
-            return _context.TheoryQuestions.Include("SelectedTheoryQuestions").ToList();
+            return _context.TheoryQuestions.OfType<TheoryQuestionPilot>().Include("SelectedTheoryQuestions").ToList();
         }
+
+		public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker()
+		{
+			return _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Include("SelectedTheoryQuestions").ToList();
+		}
+
 
         public ITheoryQuestion FetchTheoryQuestion(Guid questionId)
         {

@@ -17,11 +17,6 @@ namespace APFTestingUI.Areas.Administration.Controllers
             return View(new IndexPilot(_facade.FetchAllTheoryQuestionsPilot()));
         }
 
-        public ActionResult IndexPacker()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult CreatePilot()
         {
@@ -128,6 +123,12 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
             return RedirectToAction("IndexPilot");
         }
+
+
+		public ActionResult IndexPacker()
+		{
+			return View();
+		}
 
 
         [HttpGet]

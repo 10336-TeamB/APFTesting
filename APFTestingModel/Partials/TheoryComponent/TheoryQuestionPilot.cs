@@ -11,6 +11,6 @@ namespace APFTestingModel
 
 		public TheoryQuestionPilot() { }
 
-		public TheoryQuestionPilot(TheoryQuestionDetails questionDetails) : base(questionDetails) { }
+		public TheoryQuestionPilot(TheoryQuestionDetails questionDetails) : base(questionDetails){ }
 	}
 }
