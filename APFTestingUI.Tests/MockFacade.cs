@@ -365,5 +365,11 @@ namespace APFTestingUI.Tests
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+
+        public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
