@@ -24,9 +24,11 @@
 
     // Add state to first exam page loaded for successful back button navigation to first page
     function overwriteInitialHistoryEntry() {
-        var currentIndex = parseInt($("#Index").val()) + 1;
-        var initialTitle = "Question_" + currentIndex;
-        window.history.replaceState({ questionId: currentIndex }, document.title, "/Exam/" + initialTitle);
+        if (window.history.replaceState) {
+            var currentIndex = parseInt($("#Index").val()) + 1;
+            var initialTitle = "Question_" + currentIndex;
+            window.history.replaceState({ questionId: currentIndex }, document.title, "/Exam/" + initialTitle);
+        }
     }
     overwriteInitialHistoryEntry();
 
@@ -191,8 +193,10 @@ function populateAnswers(answers, type, className) {
 }
 
 function updateHistory() {
-    var currentIndex = parseInt($("#Index").val()) + 1;
-    var historyTitle = "Question_" + currentIndex;
-    window.history.pushState({ questionId: currentIndex }, document.title, "/Exam/" + historyTitle);
+    if (window.history.pushState) {
+        var currentIndex = parseInt($("#Index").val()) + 1;
+        var historyTitle = "Question_" + currentIndex;
+        window.history.pushState({ questionId: currentIndex }, document.title, "/Exam/" + historyTitle);
+    }
 }
 

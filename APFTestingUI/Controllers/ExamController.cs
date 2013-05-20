@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace APFTestingUI.Controllers
 {
@@ -13,6 +15,41 @@ namespace APFTestingUI.Controllers
     public class ExamController : BaseController
     {
         public ExamController(IFacade facade) : base(facade) { }
+
+        public void StoreExamCookie(Guid examId)
+        {
+            var hashedId = hashExamId(examId);
+            var value = examId.ToString() + "|" + hashedId;
+            var cookie = new HttpCookie("ExamId", value);
+            Response.Cookies.Add(cookie);
+        }
+
+        private string hashExamId(Guid examId) 
+        {
+            // BAD
+            var password = "f53YvzQbkU6EK10XB0Dd";
+            var modifiedId = examId.ToString() + password;
+            //UTF8Encoding encoding = new UTF8Encoding();
+            //var testBytes = encoding.GetBytes(modifiedId);
+            byte[] input = Encoding.UTF8.GetBytes(modifiedId);
+            //bool equal = testBytes.Equals(input);
+            var sha256 = SHA256.Create();
+            var hash = sha256.ComputeHash(input);
+            return BitConverter.ToString(hash).Replace("-", "");
+        }
+
+        private bool isValidCookie(HttpCookie cookie)
+        {
+            string[] kvp = cookie.Value.Split('|');
+            var examId = kvp[0];
+            var hashedValue = kvp[1];
+            return hashedValue.Equals(hashExamId(new Guid(examId)));
+        }
+
+        private Guid retrieveExamId(HttpCookie cookie)
+        {
+            return new Guid(cookie.Value.Split('|')[0]);
+        }
 
         /*=====================================*/
         /*      INITIATE THEORY COMPONENT      */
@@ -26,11 +63,9 @@ namespace APFTestingUI.Controllers
             //TODO: return all required values from one DB call...
 			var examId = _facade.StartTheoryComponent(examinerId, candidateId);
 			var format = _facade.FetchTheoryComponentFormatForExam(examId);
-
 			var model = new Instructions(examId, format);
 
-            //Hack: Used for temporary links on page - remove for production
-		    ViewBag.ExamId = examId;
+            StoreExamCookie(examId);
 
 			return View(model);
 		}
@@ -54,11 +89,18 @@ namespace APFTestingUI.Controllers
         #region Sit Theory Component
         
         // GET: /Exam/FirstQuestion/
-        public ActionResult FirstQuestion(Guid examId)
+        public ActionResult FirstQuestion()
         {
-            var model = new QuestionDisplayItem(_facade.FetchFirstQuestion(examId), examId);
-            
-            return View("DisplayQuestion", model);
+            var cookie = Request.Cookies.Get("ExamId");
+            Guid examId;
+            if (isValidCookie(cookie))
+            {
+                examId = retrieveExamId(cookie);
+                var model = new QuestionDisplayItem(_facade.FetchFirstQuestion(examId), examId);
+
+                return View("DisplayQuestion", model);
+            }
+            throw new Exception("Suspect tampered cookie");
         }
         
         // GET: /Exam/NextQuestion/
