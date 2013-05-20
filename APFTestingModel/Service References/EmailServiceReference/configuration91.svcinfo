@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="5IDBN8/jfWeteh5YoM/cG52bf70=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="N97Npadx1waWt04fcynSVbRGY1o=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IEmailServiceOperation">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IEmailServiceOperation" contract="EmailServiceReference.IEmailServiceOperation" bindingType="basicHttpBinding" address="http://localhost:5669/EmailServiceOperation.svc" bindingConfiguration="BasicHttpBinding_IEmailServiceOperation">
+    <endpoint name="BasicHttpBinding_IEmailServiceOperation" contract="EmailServiceReference.IEmailServiceOperation" bindingType="basicHttpBinding" address="http://b.programming.sit.edu.au/EmailServiceOperation.svc" bindingConfiguration="BasicHttpBinding_IEmailServiceOperation">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:5669/EmailServiceOperation.svc</serializedValue>
+          <serializedValue>http://b.programming.sit.edu.au/EmailServiceOperation.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

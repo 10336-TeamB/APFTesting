@@ -1,0 +1,67 @@
+﻿@model APFTestingUI.Areas.Administration.Models.QuestionManagement.IndexPacker
+
+@{
+    ViewBag.Title = "IndexPacker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IndexPacker</h2>
+
+<div>
+    <a href='@Url.Action("CreatePacker")'>
+        ADD
+    </a>
+</div>
+
+<div>
+    @if (Model.TheoryQuestions.Count() > 0)
+    {
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Activation</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var question in Model.TheoryQuestions)
+                {
+                    <tr>
+                        <td>
+                            @{ string img = ""; }
+                            @switch (question.IsActive)
+                            {
+                                case true:
+                                    img = "Deactivate";
+                                    break;
+                                case false:
+                                    img = "Activate";
+                                    break;
+                            }
+                            <a href='@Url.Action("ToggleActivationPacker", new { questionId = question.Id })'>
+                                @img
+                            </a>
+                        </td>
+                        
+                        @if (question.editableOrDeletable)
+                        {
+                            <td>
+                                @Html.ActionLink(question.Description, "EditPacker", new { questionId = question.Id })
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@question.Description</td>
+                        }
+                        
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+</div>
+
+

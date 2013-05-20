@@ -17,11 +17,6 @@ namespace APFTestingUI.Areas.Administration.Controllers
             return View(new IndexPilot(_facade.FetchAllTheoryQuestionsPilot()));
         }
 
-        public ActionResult IndexPacker()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult CreatePilot()
         {
@@ -130,19 +125,105 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
 
+		public ActionResult IndexPacker()
+		{
+            //return View(new IndexPilot(_facade.FetchAllTheoryQuestionsPilot()));
+            //FetchAllTheoryQuestionsPacker()
+            return View(new IndexPacker(_facade.FetchAllTheoryQuestionsPacker()));
+		}
+
+
         [HttpGet]
         public ActionResult CreatePacker()
         {
-            return View();
+            return View(new Create());
         }
 
         [HttpPost]
         public ActionResult CreatePacker(Create model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //throw new BusinessRuleException("Test Exception");
+                    List<AnswerDetails> answers = new List<AnswerDetails>();
+                    for (int i = 0; i < model.Answers.Count; i++)
+                    {
+                        var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect);
+                        answers.Add(answer);
+                    }
+
+                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+
+                    _facade.CreateTheoryQuestion(questionPackage, ExamType.PackerExam);
+
+                    return RedirectToAction("IndexPacker");
+                }
+                catch (BusinessRuleException ex)
+                {
+                    ModelState.AddModelError("Exception", ex.Message);
+                }
+            }
+
+            return View(model);
         }
 
-        
+        [HttpGet]
+        public ActionResult EditPacker(Guid questionId, string errorMessage = "")
+        {
+            var question = _facade.FetchTheoryQuestion(questionId);
+            if (question.editableOrDeletable)
+            {
+                ModelState.AddModelError("Exception", errorMessage);
+                return View(new Edit(question));
+            }
+            else
+            {
+                return RedirectToAction("IndexPacker");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditPacker(Edit model)
+        {
+            //TODO: throw error if any input fields are left blank
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    List<AnswerDetails> answers = new List<AnswerDetails>();
+                    for (int i = 0; i < model.Answers.Count; i++)
+                    {
+                        var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect, model.Answers[i].Id);
+                        answers.Add(answer);
+                    }
+
+                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+
+                    _facade.EditTheoryQuestion(questionPackage, model.Id);
+
+                    return RedirectToAction("IndexPacker");
+                }
+                catch (BusinessRuleException ex)
+                {
+                    ModelState.AddModelError("Exception", ex.Message);
+                }
+
+
+            }
+
+            return View(model);
+        }
+
+        public ActionResult ToggleActivationPacker(Guid questionId)
+        {
+            _facade.ToggleTheoryQuestionActivation(questionId);
+
+            return RedirectToAction("IndexPacker");
+        }
+
 
 
     }

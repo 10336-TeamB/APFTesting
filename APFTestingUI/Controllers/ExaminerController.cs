@@ -59,5 +59,11 @@ namespace APFTestingUI.Controllers
             _facade.Logout();
             return RedirectToAction("Index", "Examiner");
         }
+
+        public ActionResult TestEmail()
+        {
+            _facade.FinaliseExam(new Guid("4e757211-8c7d-4f32-a4b0-418a8bfad189"), ExamType.PackerExam);
+            return RedirectToAction("Index", "Examiner");
+        }
     }
 }
