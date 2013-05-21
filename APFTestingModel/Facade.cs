@@ -740,7 +740,7 @@ namespace APFTestingModel
 
         private PracticalComponentTemplatePilot fetchPracticalTemplatePilotById(Guid templateId)
         {
-            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("AssessmentTaskPilots").FirstOrDefault(t => t.Id == templateId);
+            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("AssessmentTaskPilots").Include("PracticalComponentPilots").FirstOrDefault(t => t.Id == templateId);
             if (template == null)
             {
                 throw new BusinessRuleException("Invalid Template ID");
@@ -760,11 +760,11 @@ namespace APFTestingModel
 
         public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
         {
-            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.Id == templateId);
-            if (template == null)
+            if (taskIds.Count() < 1)
             {
-                throw new BusinessRuleException("Invalid Template ID");
+                throw new BusinessRuleException("You must select at least one task for a template.");
             }
+            var template = fetchPracticalTemplatePilotById(templateId);
             var selectedTasks = fetchSelectedTasks(taskIds);
             template.Edit(selectedTasks);
             _context.SaveChanges();

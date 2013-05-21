@@ -335,13 +335,6 @@ namespace APFTestingUI.Tests
             throw new NotImplementedException();
         }
 
-
-        public void DeleteTheoryQuestion(Guid questionId)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
 		{
             throw new NotImplementedException();
@@ -359,6 +352,12 @@ namespace APFTestingUI.Tests
         }
 
         public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void FinaliseExam(Guid examId, ExamType examType)
         {
             throw new NotImplementedException();
         }

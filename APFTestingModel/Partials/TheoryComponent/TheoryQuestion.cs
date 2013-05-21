@@ -57,7 +57,7 @@ namespace APFTestingModel
             {
                 Description = questionDetails.Description;
                 var answersToDelete = editAnswers(questionDetails.Answers);
-                NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect == true);
+                NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect);
                 IsActive = true;
                 ImagePath = questionDetails.ImagePath;
                 Category = questionDetails.Category;

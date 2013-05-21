@@ -13,6 +13,7 @@
 
     <p>Select / Deselect tasks to include in the template.</p>
     
+    <h3>Tasks currently in project</h3>
     <table>
         <thead>
             <tr>
@@ -23,24 +24,60 @@
         </thead>
 
         <tbody>
-            @for (int i = 0; i < Model.Tasks.Count; i++)
+            @for (int i = 0; i < Model.CurrentTasks.Count; i++)
             {
                 <tr>
                     <td>
-                        @Html.CheckBoxFor(model => model.Tasks[i].Selected)
-                        @Html.HiddenFor(model => model.Tasks[i].Id)
+                        @Html.CheckBoxFor(model => model.CurrentTasks[i].Selected)
+                        @Html.HiddenFor(model => model.CurrentTasks[i].Id)
                     </td>
                     <td>
                         <strong>
-                            @Html.DisplayFor(model => model.Tasks[i].Title)
-                            @Html.HiddenFor(model => model.Tasks[i].Title)
+                            @Html.DisplayFor(model => model.CurrentTasks[i].Title)
+                            @Html.HiddenFor(model => model.CurrentTasks[i].Title)
                         </strong><br />
-                        @Html.DisplayFor(model => model.Tasks[i].Details)
-                        @Html.HiddenFor(model => model.Tasks[i].Details)
+                        @Html.DisplayFor(model => model.CurrentTasks[i].Details)
+                        @Html.HiddenFor(model => model.CurrentTasks[i].Details)
                     </td>
                     <td>
-                        @Html.DisplayFor(model => model.Tasks[i].MaxScore)
-                        @Html.HiddenFor(model => model.Tasks[i].MaxScore)
+                        @Html.DisplayFor(model => model.CurrentTasks[i].MaxScore)
+                        @Html.HiddenFor(model => model.CurrentTasks[i].MaxScore)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+    <hr/>
+    <h3>Task pool</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Details</th>
+                <th>Max score</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.AvailableTasks.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.CheckBoxFor(model => model.AvailableTasks[i].Selected)
+                        @Html.HiddenFor(model => model.AvailableTasks[i].Id)
+                    </td>
+                    <td>
+                        <strong>
+                            @Html.DisplayFor(model => model.AvailableTasks[i].Title)
+                            @Html.HiddenFor(model => model.AvailableTasks[i].Title)
+                        </strong><br />
+                        @Html.DisplayFor(model => model.AvailableTasks[i].Details)
+                        @Html.HiddenFor(model => model.AvailableTasks[i].Details)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.AvailableTasks[i].MaxScore)
+                        @Html.HiddenFor(model => model.AvailableTasks[i].MaxScore)
                     </td>
                 </tr>
             }

@@ -372,6 +372,7 @@
     <Content Include="Areas\Administration\Views\PracticalTemplatePacker\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Create.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Display.cshtml" />
+    <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\APFTesting.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />

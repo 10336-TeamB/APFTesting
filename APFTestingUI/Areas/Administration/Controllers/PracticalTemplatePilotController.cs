@@ -56,7 +56,9 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult Edit(Guid templateId)
         {
-            var model = new Edit(_facade.FetchPracticalTemplatePilotById(templateId));
+            var template = _facade.FetchPracticalTemplatePilotById(templateId);
+            var allTasks = _facade.FetchAllAssessmentTaskPilot();
+            var model = new Edit(template, allTasks);
             return View(model);
         }
 
@@ -68,14 +70,22 @@ namespace APFTestingUI.Areas.Administration.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var templateId = _facade.EditPracticalComponentTemplatePilot(model.Id, model.SelectedTasks);
-                    return RedirectToAction("Display", new { templateId, displayMessage = "Template successfully updated." });
-                }
-                catch (BusinessRuleException e) {
-                    ModelState.AddModelError("Exception", e.Message);
-                }
+                //if (model.SelectedTasks.Count() < 1)
+                //{
+                //    ModelState.AddModelError("Exception", "You must select at least one task for a template.");
+                //}
+                //else
+                //{
+                    try
+                    {
+                        var templateId = _facade.EditPracticalComponentTemplatePilot(model.Id, model.SelectedTasks);
+                        return RedirectToAction("Display", new {templateId, displayMessage = "Template successfully updated."});
+                    }
+                    catch (BusinessRuleException e)
+                    {
+                        ModelState.AddModelError("Exception", e.Message);
+                    }
+                //}
             }
             return View(model);
 
