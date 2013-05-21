@@ -169,17 +169,25 @@ namespace APFTestingModel
 
         #region Finalise Exam
 
+        public Exam FetchExam(Guid examId, ExamType examType)
+        {
+            return fetchExam(examId, examType);
+        }
+
+        
         internal Exam fetchExam(Guid examId, ExamType examType)
         {
-
             Exam exam;
-            if (examType == ExamType.PackerExam)
+            switch (examType)
             {
-                exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").FirstOrDefault(e => e.Id == examId);
-            }
-            else
-            {
-                exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").FirstOrDefault(e => e.Id == examId);
+                case ExamType.PilotExam:
+                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").FirstOrDefault(e => e.Id == examId);
+                    break;
+                case ExamType.PackerExam:
+                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").FirstOrDefault(e => e.Id == examId);
+                    break;
+                default:
+                    throw new BusinessRuleException("Invalid Exam Type");
             }
 
             if (exam == null)
@@ -306,6 +314,9 @@ namespace APFTestingModel
         {
             return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().Include("PracticalComponentPackers").OrderByDescending(t => t.IsActive).ToList();
         }
+
+        
+
         
         #endregion
 
@@ -880,6 +891,8 @@ namespace APFTestingModel
         }
 
         #endregion
+
+
 
         //Hook-in test method
         public string TestDBConnection()
