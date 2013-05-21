@@ -1,9 +1,11 @@
 ﻿using APFTestingModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 {
@@ -23,10 +25,17 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 		#region Properties
 
 		public string ImagePath { get; set; }
-		public string Description { get; set; }
-		public TheoryQuestionCategory Category { get; set; }
-		public SelectList Categories { get; set; }
-		public List<AnswerItem> Answers { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+        [Required]
+        public TheoryQuestionCategory Category { get; set; }
+        public SelectList Categories { get; set; }
+
+        public List<AnswerItem> Answers { get; set; }
+
+        public HttpPostedFileBase ImageFile { get; set; }
 
 		#endregion
 

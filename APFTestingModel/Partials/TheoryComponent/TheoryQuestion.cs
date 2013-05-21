@@ -17,7 +17,17 @@ namespace APFTestingModel
 
 		public TheoryQuestion(TheoryQuestionDetails questionDetails)
 		{
-			Description = questionDetails.Description;
+            if (questionDetails.Answers.Count < 2)
+            {
+                throw new BusinessRuleException("A question must have at least 2 answers");
+            }
+
+            if(!questionDetails.Answers.Any(a => a.IsCorrect == true))
+            {
+                throw new BusinessRuleException("A question must have at least 1 correct answer");
+            }
+            
+            Description = questionDetails.Description;
 			constructAnswers(questionDetails.Answers);
 			NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect == true);
 			IsActive = true;
@@ -57,7 +67,7 @@ namespace APFTestingModel
             {
                 Description = questionDetails.Description;
                 var answersToDelete = editAnswers(questionDetails.Answers);
-                NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect == true);
+                NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect);
                 IsActive = true;
                 ImagePath = questionDetails.ImagePath;
                 Category = questionDetails.Category;

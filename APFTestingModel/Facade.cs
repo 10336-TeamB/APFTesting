@@ -750,7 +750,7 @@ namespace APFTestingModel
 
         private PracticalComponentTemplatePilot fetchPracticalTemplatePilotById(Guid templateId)
         {
-            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("AssessmentTaskPilots").FirstOrDefault(t => t.Id == templateId);
+            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("AssessmentTaskPilots").Include("PracticalComponentPilots").FirstOrDefault(t => t.Id == templateId);
             if (template == null)
             {
                 throw new BusinessRuleException("Invalid Template ID");
@@ -770,11 +770,11 @@ namespace APFTestingModel
 
         public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
         {
-            var template = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.Id == templateId);
-            if (template == null)
+            if (taskIds.Count() < 1)
             {
-                throw new BusinessRuleException("Invalid Template ID");
+                throw new BusinessRuleException("You must select at least one task for a template.");
             }
+            var template = fetchPracticalTemplatePilotById(templateId);
             var selectedTasks = fetchSelectedTasks(taskIds);
             template.Edit(selectedTasks);
             _context.SaveChanges();
@@ -795,6 +795,30 @@ namespace APFTestingModel
                 selectedTasks.Add(task);
             }
             return selectedTasks;
+        }
+
+        public void DeletePracticalTemplatePilot(Guid templateId)
+        {
+            var template = fetchPracticalTemplatePilotById(templateId);
+            template.Delete(deleteEntity);
+            _context.SaveChanges();
+        }
+
+        public void SetActivePracticalTemplatePilot(Guid templateId)
+        {
+            var practicalComponentTemplates = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>();
+            var newTemplate = practicalComponentTemplates.FirstOrDefault(t => t.Id == templateId);
+            if (newTemplate == null)
+            {
+                throw new BusinessRuleException("Invalid Template ID");
+            }
+
+            // Ensuring all formats are not active prior to activating only one.
+            practicalComponentTemplates.Where(f => f.IsActive).ToList().ForEach(t => t.Deactivate());
+            newTemplate.Activate();
+            // TODO: Confirm that only one is active?
+
+            _context.SaveChanges();
         }
 
         #endregion
@@ -844,7 +868,7 @@ namespace APFTestingModel
             var newTemplate = practicalComponentTemplates.FirstOrDefault(t => t.Id == templateId);
             if (newTemplate == null)
             {
-                throw new BusinessRuleException("Invalid FormatID");
+                throw new BusinessRuleException("Invalid Template ID");
             }
 
             // Ensuring all formats are not active prior to activating only one.
@@ -888,7 +912,6 @@ namespace APFTestingModel
         {
             var dbSet = _context.Set(entity.GetType());
             dbSet.Remove(entity);
-            //_context.SaveChanges();
         }
     }
 }

@@ -10,12 +10,13 @@ namespace APFTestingUI.Areas.Administration.Models.PracticalTemplatePilot
     public class PilotTemplateTaskDisplayItem
     {
         public PilotTemplateTaskDisplayItem() { }
-        public PilotTemplateTaskDisplayItem(IAssessmentTaskPilot task)
+        public PilotTemplateTaskDisplayItem(IAssessmentTaskPilot task, bool selected = false)
         {
             Id = task.Id;
             Title = task.Title;
             Details = task.Details;
             MaxScore = task.MaxScore.ToString();
+            Selected = selected;
         }
 
         public Guid Id { get; set; }

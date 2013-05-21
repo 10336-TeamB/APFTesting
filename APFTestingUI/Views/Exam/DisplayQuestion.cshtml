@@ -54,7 +54,7 @@
         @if (Model.ImagePath != null && !Model.ImagePath.Equals(""))
         {
             <div class="image-container">
-                <img src="~/Content/Images/@Model.ImagePath" alt="" />
+                <img src="~/QuestionImages/@Model.ImagePath" alt="" />
             </div>
         }
         @foreach (var answer in Model.Answers)

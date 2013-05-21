@@ -12,4 +12,8 @@
         }
         return false;
     });
+
+    $(".toggle").click(function () {
+        $(this).children("ul").slideToggle(100);
+    });
 });

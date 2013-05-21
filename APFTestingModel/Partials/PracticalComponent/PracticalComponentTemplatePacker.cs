@@ -22,7 +22,7 @@ namespace APFTestingModel
         {
             if (!AllowEditOrDelete)
             {
-                throw new BusinessRuleException("Can not edit a template that is active or has been used previously.");
+                throw new BusinessRuleException("Can not edit a template that is active or has been used.");
             }
             NumOfRequiredAssessmentTasks = numOfRequiredAssessmentTasks;
         }
@@ -31,7 +31,7 @@ namespace APFTestingModel
         {
             if (!AllowEditOrDelete)
             {
-                throw new BusinessRuleException("You cannot delete a template that is active or has been used");
+                throw new BusinessRuleException("Can not delete a template that is active or has been used.");
             }
             deleteEntity(this);
         }

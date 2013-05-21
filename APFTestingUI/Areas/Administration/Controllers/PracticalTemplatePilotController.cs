@@ -15,9 +15,10 @@ namespace APFTestingUI.Areas.Administration.Controllers
         //
         // GET: /Administration/PracticalTemplatePilot/Index
 
-        public ActionResult Index()
+        public ActionResult Index(string displayMessage = "")
         {
             var templates = _facade.FetchAllPracticalComponentTemplatePilots();
+            ViewBag.displayMessage = displayMessage;
             return View(new Index(templates));
         }
 
@@ -56,7 +57,9 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult Edit(Guid templateId)
         {
-            var model = new Edit(_facade.FetchPracticalTemplatePilotById(templateId));
+            var template = _facade.FetchPracticalTemplatePilotById(templateId);
+            var allTasks = _facade.FetchAllAssessmentTaskPilot();
+            var model = new Edit(template, allTasks);
             return View(model);
         }
 
@@ -73,7 +76,8 @@ namespace APFTestingUI.Areas.Administration.Controllers
                     var templateId = _facade.EditPracticalComponentTemplatePilot(model.Id, model.SelectedTasks);
                     return RedirectToAction("Display", new { templateId, displayMessage = "Template successfully updated." });
                 }
-                catch (BusinessRuleException e) {
+                catch (BusinessRuleException e)
+                {
                     ModelState.AddModelError("Exception", e.Message);
                 }
             }
@@ -84,17 +88,33 @@ namespace APFTestingUI.Areas.Administration.Controllers
         //
         // GET: /Administration/PracticalTemplatePilot/Delete
 
-        public ActionResult Delete()
+        public ActionResult Delete(Guid templateId)
         {
-            return RedirectToAction("Index");
+            try
+            {
+                _facade.DeletePracticalTemplatePilot(templateId);
+                return RedirectToAction("Index", new { displayMessage = "Template successfully deleted." });
+            }
+            catch (BusinessRuleException e)
+            {
+                return RedirectToAction("Index", new { displayMessage = e.Message });
+            }
         }
 
         //
         // GET: /Administration/PracticalTemplatePilot/Activate
 
-        public ActionResult Activate()
+        public ActionResult Activate(Guid templateId)
         {
-            return RedirectToAction("Index");
+            try
+            {
+                _facade.SetActivePracticalTemplatePilot(templateId);
+                return RedirectToAction("Index", new { displayMessage = "New template has been activated." });
+            }
+            catch (BusinessRuleException e)
+            {
+                return RedirectToAction("Index", new { displayMessage = e.Message });
+            }
         }
     }
 }

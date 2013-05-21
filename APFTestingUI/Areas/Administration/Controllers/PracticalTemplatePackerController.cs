@@ -15,9 +15,10 @@ namespace APFTestingUI.Areas.Administration.Controllers
         //
         // GET: /Administration/PracticalTemplatePacker/Index
 
-        public ActionResult Index()
+        public ActionResult Index(string displayMessage = "")
         {
             var templates = _facade.FetchAllPracticalComponentTemplatePackers();
+            ViewBag.displayMessage = displayMessage;
             return View(new Index(templates));
         }
 
@@ -85,10 +86,15 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult Delete(Guid templateId)
         {
-            // TODO: Need to display a confirmation, plus exceptions if they occur...
-            _facade.DeletePracticalTemplatePacker(templateId);
-
-            return RedirectToAction("Index");
+            try
+            {
+                _facade.DeletePracticalTemplatePacker(templateId);
+                return RedirectToAction("Index", new { displayMessage = "Template successfully deleted." });
+            }
+            catch (BusinessRuleException e)
+            {
+                return RedirectToAction("Index", new { displayMessage = e.Message });
+            }
         }
 
         //
@@ -96,9 +102,15 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult Activate(Guid templateId)
         {
-            // TODO: Need to display a confirmation, plus exceptions if they occur...
-            _facade.SetActivePracticalTemplatePacker(templateId);
-            return RedirectToAction("Index");
+            try
+            {
+                _facade.SetActivePracticalTemplatePacker(templateId);
+                return RedirectToAction("Index", new { displayMessage = "New template has been activated." });
+            }
+            catch (BusinessRuleException e)
+            {
+                return RedirectToAction("Index", new { displayMessage = e.Message });
+            }
         }
     }
 }

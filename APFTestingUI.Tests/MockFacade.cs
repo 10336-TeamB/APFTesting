@@ -335,10 +335,6 @@ namespace APFTestingUI.Tests
             throw new NotImplementedException();
         }
 
-
-        
-
-
         public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
 		{
             throw new NotImplementedException();
@@ -360,7 +356,6 @@ namespace APFTestingUI.Tests
             throw new NotImplementedException();
         }
 
-
 		public void FinaliseExam(Guid examId, ExamType examType)
 		{
 			throw new NotImplementedException();
@@ -368,6 +363,17 @@ namespace APFTestingUI.Tests
 
 
         public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void DeletePracticalTemplatePilot(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetActivePracticalTemplatePilot(Guid templateId)
         {
             throw new NotImplementedException();
         }
