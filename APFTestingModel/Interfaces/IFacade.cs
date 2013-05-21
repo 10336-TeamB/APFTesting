@@ -72,6 +72,8 @@ namespace APFTestingModel
         IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId);
         Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks);
         Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds);
+        void DeletePracticalTemplatePilot(Guid templateId);
+        void SetActivePracticalTemplatePilot(Guid templateId);
 
         IPracticalComponentTemplatePacker FetchPracticalTemplatePackerById(Guid templateId);
         void CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks);
@@ -98,5 +100,7 @@ namespace APFTestingModel
         void FinaliseExam(Guid examId, ExamType examType);
 
         IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker();
+
+        
     }
 }

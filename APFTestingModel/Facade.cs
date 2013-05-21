@@ -797,6 +797,30 @@ namespace APFTestingModel
             return selectedTasks;
         }
 
+        public void DeletePracticalTemplatePilot(Guid templateId)
+        {
+            var template = fetchPracticalTemplatePilotById(templateId);
+            template.Delete(deleteEntity);
+            _context.SaveChanges();
+        }
+
+        public void SetActivePracticalTemplatePilot(Guid templateId)
+        {
+            var practicalComponentTemplates = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>();
+            var newTemplate = practicalComponentTemplates.FirstOrDefault(t => t.Id == templateId);
+            if (newTemplate == null)
+            {
+                throw new BusinessRuleException("Invalid Template ID");
+            }
+
+            // Ensuring all formats are not active prior to activating only one.
+            practicalComponentTemplates.Where(f => f.IsActive).ToList().ForEach(t => t.Deactivate());
+            newTemplate.Activate();
+            // TODO: Confirm that only one is active?
+
+            _context.SaveChanges();
+        }
+
         #endregion
 
         #region CRUD Packer Practical Template
@@ -844,7 +868,7 @@ namespace APFTestingModel
             var newTemplate = practicalComponentTemplates.FirstOrDefault(t => t.Id == templateId);
             if (newTemplate == null)
             {
-                throw new BusinessRuleException("Invalid FormatID");
+                throw new BusinessRuleException("Invalid Template ID");
             }
 
             // Ensuring all formats are not active prior to activating only one.
@@ -888,7 +912,6 @@ namespace APFTestingModel
         {
             var dbSet = _context.Set(entity.GetType());
             dbSet.Remove(entity);
-            //_context.SaveChanges();
         }
     }
 }

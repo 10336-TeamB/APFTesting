@@ -28,7 +28,7 @@ namespace APFTestingModel
 
             if (!AllowEditOrDelete)
             {
-                throw new BusinessRuleException("Can not edit an active or used template");
+                throw new BusinessRuleException("Can not edit a template that is active or has been used.");
             }
             List<AssessmentTaskPilot> deleteList = new List<AssessmentTaskPilot>();
             foreach (var task in AssessmentTaskPilots)
@@ -44,6 +44,27 @@ namespace APFTestingModel
             }
             deleteList.ForEach(t => AssessmentTaskPilots.Remove(t));
             AssessmentTaskPilots = AssessmentTaskPilots.Union(selectedTasks).ToList();
+        }
+
+        internal void Delete(deleteEntityDelegate<PracticalComponentTemplatePilot> deleteEntity)
+        {
+            if (!AllowEditOrDelete)
+            {
+                throw new BusinessRuleException("Can not delete a template that is active or has been used.");
+            }
+            deleteEntity(this);
+        }
+
+        internal bool Activate()
+        {
+            IsActive = true;
+            return IsActive;
+        }
+
+        internal bool Deactivate()
+        {
+            IsActive = false;
+            return !IsActive;
         }
     }
 }

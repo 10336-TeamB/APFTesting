@@ -402,7 +402,6 @@
     <Content Include="Scripts\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\modernizr.custom.51211.js" />
     <Content Include="Scripts\practical-packer.js" />
-    <Content Include="Scripts\practical-template.js" />
     <Content Include="Scripts\QuestionManagement.js" />
     <Content Include="Scripts\summary.js" />
     <Content Include="Service References\EmailServiceReference\EmailServiceOperation.disco" />
