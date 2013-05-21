@@ -204,6 +204,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExamStateMachine\TheoryComponentCompleted.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
     <Compile Include="SelectedAssessmentTask.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -269,6 +270,7 @@
     </None>
     <None Include="output.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings" />
     <None Include="Service References\EmailServiceReference\EmailServiceOperation.wsdl" />
     <None Include="Service References\EmailServiceReference\EmailServiceOperation.xsd">
       <SubType>Designer</SubType>
