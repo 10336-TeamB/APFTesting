@@ -381,6 +381,12 @@ namespace APFTestingModel
         }
 
 
+        public int CountQuestionsWithImages()
+        {
+            return _context.TheoryQuestions.Count(q => q.ImagePath != null);
+        }
+
+
         //public void DeleteTheoryQuestion(Guid questionId)
         //{
         //    //var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").First(e => e.Id == examId);

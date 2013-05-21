@@ -101,6 +101,9 @@ namespace APFTestingModel
 
         IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker();
 
-        
+        int CountQuestionsWithImages();
+
+
+
     }
 }

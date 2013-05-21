@@ -377,5 +377,11 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public int CountQuestionsWithImages()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
