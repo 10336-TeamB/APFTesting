@@ -40,22 +40,25 @@ namespace APFTestingModel
         {
             TheoryComponentFormat activeTheoryFormat;
             PracticalComponentTemplate activePracticalTemplate;
-
+            IEnumerable<TheoryQuestion> questions;
+            
             switch (examType)
             {
                 case ExamType.PilotExam:
                     activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().FirstOrDefault(f => f.IsActive);
                     activePracticalTemplate = _context.PracticalComponentTemplates.Include("AssessmentTaskPilots").OfType<PracticalComponentTemplatePilot>().FirstOrDefault(t => t.IsActive);
+                    questions = _context.TheoryQuestions.OfType<TheoryQuestionPilot>().Include("Answers");
                     break;
                 case ExamType.PackerExam:
                     activeTheoryFormat = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().FirstOrDefault(f => f.IsActive);
                     activePracticalTemplate = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().FirstOrDefault(t => t.IsActive);
+                    questions = _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Include("Answers");
                     break;
                 default:
                     throw new BusinessRuleException("Invalid exam type provided");
             }
 
-            examManager = ManagerFactory.CreateExamManager(_context.TheoryQuestions.Include("Answers"), activeTheoryFormat, activePracticalTemplate, examType);
+            examManager = ManagerFactory.CreateExamManager(questions, activeTheoryFormat, activePracticalTemplate, examType);
         }
 		
 		private Guid CreateExam(Guid examinerId, Person candidate)
@@ -325,10 +328,17 @@ namespace APFTestingModel
 			_context.SaveChanges();
 		}
 
+		//
         public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
         {
-            return _context.TheoryQuestions.Include("SelectedTheoryQuestions").ToList();
+            return _context.TheoryQuestions.OfType<TheoryQuestionPilot>().Include("SelectedTheoryQuestions").ToList();
         }
+
+		public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker()
+		{
+			return _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Include("SelectedTheoryQuestions").ToList();
+		}
+
 
         public ITheoryQuestion FetchTheoryQuestion(Guid questionId)
         {

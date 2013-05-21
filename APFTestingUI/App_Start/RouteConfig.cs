@@ -10,17 +10,17 @@ namespace APFTestingUI {
         public static void RegisterRoutes(RouteCollection routes) {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "Error - 404",
-                "NotFound",
-                new { controller = "Error", action = "NotFound" }
-            );
+            //routes.MapRoute(
+            //    "Error - 404",
+            //    "NotFound",
+            //    new { controller = "Error", action = "NotFound" }
+            //);
 
-            routes.MapRoute(
-                "Error - 500",
-                "ServerError",
-                new { controller = "Error", action = "ServerError" }
-            );
+            //routes.MapRoute(
+            //    "Error - 500",
+            //    "ServerError",
+            //    new { controller = "Error", action = "ServerError" }
+            //);
 
             routes.MapRoute(
                 name: "Default",

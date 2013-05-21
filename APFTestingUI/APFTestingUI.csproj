@@ -194,6 +194,7 @@
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Edit.cs" />
+    <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPacker.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\TheoryQuestionItem.cs" />
     <Compile Include="Areas\Administration\Models\TheoryFormat\Create.cs" />
@@ -373,6 +374,9 @@
     <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Create.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Display.cshtml" />
     <Content Include="Areas\Administration\Views\PracticalTemplatePilot\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\IndexPacker.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\CreatePacker.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\EditPacker.cshtml" />
     <None Include="Properties\PublishProfiles\APFTesting.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />

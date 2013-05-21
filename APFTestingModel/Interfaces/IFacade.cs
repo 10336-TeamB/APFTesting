@@ -96,5 +96,7 @@ namespace APFTestingModel
         void ToggleTheoryQuestionActivation(Guid questionId);
 
         void FinaliseExam(Guid examId, ExamType examType);
+
+        IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker();
     }
 }

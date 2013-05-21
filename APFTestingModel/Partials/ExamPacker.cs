@@ -73,7 +73,7 @@ namespace APFTestingModel
                 examDetails.Add(new KeyValuePair<string, string>("Score", String.Format("{0}/{1} ({2}%) -- Pass", TheoryComponent.NumberOfCorrectlyAnsweredQuestions, TheoryComponent.NumberOfQuestions, TheoryComponent.Score * 100)));
                 examDetails.Add(new KeyValuePair<string, string>("", PracticalComponent.NumOfRequiredAssessmentTasks.ToString()));
                 
-                EmailDataContract data = new EmailDataContract();
+                EmailService.EmailDataContract data = new EmailService.EmailDataContract();
                 
                 data.Exam = examDetails.ToArray();
                 data.ExamType = (int)ExamType.PackerExam;
@@ -82,6 +82,7 @@ namespace APFTestingModel
 
                 EmailServiceOperationClient client = new EmailServiceOperationClient();
                 client.SendEmail(data);
+                client.Close();
 
                 ExamStatus = ExamStatus.ExamCompleted;
             };

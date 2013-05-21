@@ -22,7 +22,7 @@ namespace SurveyUI.Controllers
             // Pass the exception into the view model for administrators eyes only
             //if (User.IsInRole("Administrator"))
             //{
-                ViewBag.ExceptionMessage = Server.GetLastError();
+                ViewBag.ExceptionMessage = Server.GetLastError().Message;
             //}
 
             return View();

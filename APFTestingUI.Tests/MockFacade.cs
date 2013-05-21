@@ -356,8 +356,13 @@ namespace APFTestingUI.Tests
             throw new NotImplementedException();
         }
 
+		public void FinaliseExam(Guid examId, ExamType examType)
+		{
+			throw new NotImplementedException();
+		}
 
-        public void FinaliseExam(Guid examId, ExamType examType)
+
+        public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker()
         {
             throw new NotImplementedException();
         }

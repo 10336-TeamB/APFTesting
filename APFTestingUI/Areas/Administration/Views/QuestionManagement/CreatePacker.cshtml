@@ -1,0 +1,75 @@
+﻿@model APFTestingUI.Areas.Administration.Models.QuestionManagement.Create
+
+@{
+    ViewBag.Title = "CreatePacker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreatePacker</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(false)
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Description) <em>*</em>
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Description)
+    </div>
+    <div class="clear"></div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Category) <em>*</em>
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.Category, Model.Categories)
+    </div>
+    <div class="clear"></div>
+    
+    <span id="add-answer">Add</span>
+    <table id="answers-table">
+        <thead>
+            <tr>
+                <th>Correct</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model.Answers == null)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    <tr>
+                        <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
+                        <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
+                        <td class="delete-answer"><span>delete</span></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Model.Answers.Count; i++)
+                {
+                    <tr>
+                        <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
+                        <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
+                        <td class="delete-answer"><span>delete</span></td>
+                    </tr>
+                }
+            }
+            
+            
+        </tbody>
+    </table>
+    
+    <input type="submit" value="Create" class="form-button" />
+}
+
+
+@section scripts
+{
+    <script src="~/Scripts/QuestionManagement.js"></script>
+}
+
