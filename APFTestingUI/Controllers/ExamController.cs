@@ -29,10 +29,7 @@ namespace APFTestingUI.Controllers
             // BAD
             var password = "f53YvzQbkU6EK10XB0Dd";
             var modifiedId = examId.ToString() + password;
-            //UTF8Encoding encoding = new UTF8Encoding();
-            //var testBytes = encoding.GetBytes(modifiedId);
             byte[] input = Encoding.UTF8.GetBytes(modifiedId);
-            //bool equal = testBytes.Equals(input);
             var sha256 = SHA256.Create();
             var hash = sha256.ComputeHash(input);
             return BitConverter.ToString(hash).Replace("-", "");
@@ -46,9 +43,19 @@ namespace APFTestingUI.Controllers
             return hashedValue.Equals(hashExamId(new Guid(examId)));
         }
 
-        private Guid retrieveExamId(HttpCookie cookie)
+        //private Guid retrieveExamId(HttpCookie cookie)
+        //{
+        //    return new Guid(cookie.Value.Split('|')[0]);
+        //}
+
+        private Guid retrieveExamIdFromCookie(string cookieKey)
         {
-            return new Guid(cookie.Value.Split('|')[0]);
+            var cookie = Request.Cookies.Get(cookieKey);
+            if (isValidCookie(cookie))
+            {
+                return new Guid(cookie.Value.Split('|')[0]);
+            }
+            throw new Exception("Suspect tampered cookie");
         }
 
         /*=====================================*/
@@ -64,19 +71,18 @@ namespace APFTestingUI.Controllers
 			var examId = _facade.StartTheoryComponent(examinerId, candidateId);
 			var format = _facade.FetchTheoryComponentFormatForExam(examId);
 			var model = new Instructions(examId, format);
-
             StoreExamCookie(examId);
-
 			return View(model);
 		}
         
         // GET: /Exam/Resume/
 		public ActionResult Resume(Guid examId)
 		{
-			var model = new QuestionDisplayItem(_facade.ResumeTheoryComponent(examId), examId);
-			
-			return View("DisplayQuestion", model);
+            StoreExamCookie(examId);
+            var model = new QuestionDisplayItem(_facade.ResumeTheoryComponent(examId), examId);
+            return View("DisplayQuestion", model);
 		}
+
 
 		#endregion
 
@@ -91,40 +97,34 @@ namespace APFTestingUI.Controllers
         // GET: /Exam/FirstQuestion/
         public ActionResult FirstQuestion()
         {
-            var cookie = Request.Cookies.Get("ExamId");
-            Guid examId;
-            if (isValidCookie(cookie))
-            {
-                examId = retrieveExamId(cookie);
-                var model = new QuestionDisplayItem(_facade.FetchFirstQuestion(examId), examId);
-
-                return View("DisplayQuestion", model);
-            }
-            throw new Exception("Suspect tampered cookie");
+            Guid examId = retrieveExamIdFromCookie("ExamId");
+            var model = new QuestionDisplayItem(_facade.FetchFirstQuestion(examId), examId);
+            return View("DisplayQuestion", model);
         }
         
         // GET: /Exam/NextQuestion/
-        public ActionResult NextQuestion(Guid examId)
+        public ActionResult NextQuestion()
         {
+            Guid examId = retrieveExamIdFromCookie("ExamId");
             var model = new QuestionDisplayItem(_facade.FetchNextQuestion(examId), examId);
-
             return View("DisplayQuestion", model);
         }
         
         // GET: /Exam/PreviousQuestion/
-        public ActionResult PreviousQuestion(Guid examId)
+        public ActionResult PreviousQuestion()
         {
+            Guid examId = retrieveExamIdFromCookie("ExamId");
             var model = new QuestionDisplayItem(_facade.FetchPreviousQuestion(examId), examId);
-
             return View("DisplayQuestion", model);
         }
 
         // GET: /Exam/ReviewQuestion/
-        public ActionResult ReviewQuestion(Guid examId, int questionIndex)
+        public ActionResult ReviewQuestion(int QuestionNumber)
         {
-            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, questionIndex), examId);
+            --QuestionNumber; //back to index
+            Guid examId = retrieveExamIdFromCookie("ExamId");
+            var model = new QuestionDisplayItem(_facade.FetchSpecificQuestion(examId, QuestionNumber), examId);
             model.IsMarkedForReview = false;
-
             return View(model);
         }
         
@@ -139,36 +139,43 @@ namespace APFTestingUI.Controllers
             switch (question.FormNavDirection)
             {
                 case ExamAction.NextQuestion:
-                    return RedirectToAction("NextQuestion", new { examId = question.ExamId });
+                    return RedirectToAction("NextQuestion");
                 case ExamAction.PreviousQuestion:
-                    return RedirectToAction("PreviousQuestion", new { examId = question.ExamId });
+                    return RedirectToAction("PreviousQuestion");
                 default:
-                    return RedirectToAction("Summary", new { examId = question.ExamId });
+                    return RedirectToAction("Summary");
             }
         }
 		
 		// GET: /Exam/Summary/
-		public ActionResult Summary(Guid examId)
+		public ActionResult Summary()
 		{
-			var model = new TheoryComponentSummary(examId, _facade.FetchTheoryComponentSummary(examId));
-			
-			return View(model);
+            Guid examId = retrieveExamIdFromCookie("ExamId");
+            var model = new TheoryComponentSummary(examId, _facade.FetchTheoryComponentSummary(examId));
+            return View(model);
 		}
 		
 		// GET: /Exam/Submit/
 		[HttpGet]
-		public ActionResult Submit(Guid examId)
+		public ActionResult Submit()
 		{
-			_facade.SubmitTheoryComponent(examId);
-			return RedirectToAction("Result", new { examId });
+            Guid examId = retrieveExamIdFromCookie("ExamId");
+            _facade.SubmitTheoryComponent(examId);
+            return RedirectToAction("Result");
 		}
 
 		// GET: /Exam/Result/
-		public ActionResult Result(Guid examId)
+		public ActionResult Result()
 		{
-			var model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId));
-			
-			return View(model);
+            Guid examId = retrieveExamIdFromCookie("ExamId");
+            if (Request.Cookies["ExamId"] != null)
+            {
+                var cookie = new HttpCookie("ExamId");
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }
+            var model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId));
+            return View(model);
 		}
 
 		// GET: /Exam/DisplayError/
@@ -182,7 +189,6 @@ namespace APFTestingUI.Controllers
 		public ActionResult Void(VoidExam model)
 		{
 			_facade.VoidExam(model.ExamId);
-
 			return RedirectToAction("Index", "Examiner");
 		}
 
