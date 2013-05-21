@@ -36,7 +36,8 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
         public Guid Id { get; set; }
         
         public bool IsActive { get; set; }
-		
+
+        [Required]
         public string ImagePath { get; set; }
 		
         [Required]
@@ -49,6 +50,9 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
         public List<AnswerItem> Answers { get; set; }
         
         public bool editableOrDeletable { get; set; }
+
+        
+        public HttpPostedFileBase ImageFile { get; set; }
 
 		#endregion
 
