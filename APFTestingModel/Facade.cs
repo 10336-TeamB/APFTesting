@@ -169,7 +169,7 @@ namespace APFTestingModel
 
         #region Finalise Exam
 
-        public Exam FetchExam(Guid examId, ExamType examType)
+        public IExam FetchExam(Guid examId, ExamType examType)
         {
             return fetchExam(examId, examType);
         }
