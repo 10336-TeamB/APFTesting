@@ -345,6 +345,7 @@
     <Content Include="Images\sprite-input-buttons.png" />
     <Content Include="Images\sprite-input-buttons2.png" />
     <Content Include="Images\tick.png" />
+    <Content Include="QuestionImages\Alan.gif" />
     <Content Include="Scripts\administration.js" />
     <Content Include="Scripts\candidate.js" />
     <Content Include="Scripts\exam.js" />

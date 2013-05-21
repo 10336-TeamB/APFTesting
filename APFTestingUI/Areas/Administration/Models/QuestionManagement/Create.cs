@@ -35,6 +35,8 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 
         public List<AnswerItem> Answers { get; set; }
 
+        public HttpPostedFileBase ImageFile { get; set; }
+
 		#endregion
 
 
