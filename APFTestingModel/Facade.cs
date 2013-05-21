@@ -168,6 +168,7 @@ namespace APFTestingModel
         /*=========================*/
 
         #region Finalise Exam
+        
 
         public IExam FetchExam(Guid examId, ExamType examType)
         {
@@ -181,12 +182,13 @@ namespace APFTestingModel
             switch (examType)
             {
                 case ExamType.PilotExam:
-                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").FirstOrDefault(e => e.Id == examId);
+                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPilot>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").FirstOrDefault(e => e.Id == examId);
                     break;
                 case ExamType.PackerExam:
                     exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").FirstOrDefault(e => e.Id == examId);
                     break;
                 default:
+                    //This should not occur as ExamType is strongly typed
                     throw new BusinessRuleException("Invalid Exam Type");
             }
 
@@ -203,7 +205,6 @@ namespace APFTestingModel
             //Create new report
             //Send report
             exam.FinaliseExam();
-
         }
 
         #endregion 

@@ -209,6 +209,7 @@
     <Compile Include="Controllers\DummyPack.cs" />
     <Compile Include="Controllers\DummyTask.cs" />
     <Compile Include="Controllers\PracticalController.cs" />
+    <Compile Include="Controllers\CompletedExamController.cs" />
     <Compile Include="CustomValidation\DynamicRange.cs" />
     <Compile Include="Models\Candidate\ViewPacker.cs" />
     <Compile Include="Models\Candidate\ViewPilot.cs" />
@@ -228,6 +229,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CompletedExam\ExamDetailsPacker.cs" />
+    <Compile Include="Models\CompletedExam\ExamDetailsPilot.cs" />
     <Compile Include="Models\Examiner\CandidateDisplayItem.cs" />
     <Compile Include="Models\Examiner\Index.cs" />
     <Compile Include="Models\Examiner\Login.cs" />
@@ -475,6 +478,8 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\CompletedExam\ViewPilotExamResults.cshtml" />
+    <Content Include="Views\CompletedExam\ViewPackerExamResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -514,9 +519,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-
           <DevelopmentServerPort>9592</DevelopmentServerPort>
-
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1979/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

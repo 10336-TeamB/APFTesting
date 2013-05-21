@@ -77,7 +77,14 @@
                             @Html.ActionLink("Input Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
                     </td>
-                    <td class="reset-cell">@Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})</td>
+                    <td class="reset-cell">
+                        @Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})
+                        @if(candidate.PracticalEntered)
+                        {
+                            <br />
+                            @Html.ActionLink("Finalise Exam", "ViewPilotExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { })
+                        }
+                    </td>
                 </tr>
             }
         </tbody>
@@ -133,7 +140,7 @@
                     <td class="input-practical-link">
                         @if (candidate.PracticalEntered)
                         {
-                            <p>Practical completed</p>    
+                            <p>Practical completed</p>  
                         }
                         else if (candidate.TheoryPassed)
                         {
@@ -141,7 +148,14 @@
                         }
                     </td>
                     
-                    <td class="reset-cell">@Html.ActionLink("Reset", "Reset", "Reset", new { examId = @candidate.LatestExamId }, new {})</td>
+                    <td class="reset-cell">
+                        @Html.ActionLink("Reset", "Reset", "Reset", new { examId = @candidate.LatestExamId }, new {})
+                        @if (candidate.PracticalEntered)
+                        {
+                            <br />
+                            @Html.ActionLink("Finalise Exam", "ViewPackerExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { })
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

@@ -104,6 +104,10 @@ namespace APFTestingModel
         int CountQuestionsWithImages();
 
 
+        //WORK IN PROGRESS
+        IExam FetchExam(Guid examId, ExamType examType);
+
+
 
     }
 }
