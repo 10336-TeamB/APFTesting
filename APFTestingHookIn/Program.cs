@@ -1,61 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
-using APFTestingModel;
-using APFTestingServices;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace APFTestingHookIn {
-    
-	class Program 
-	{
-        public static void Main(string[] args)
+namespace APFTestingHookIn
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
-            Facade _facade = new Facade();
-
-			//List<AnswerDetails> testAnswers = new List<AnswerDetails>();
-
-			//AnswerDetails testAnswer01 = new AnswerDetails();
-			//testAnswer01.Description = "Test Answer 1";
-			//testAnswer01.IsCorrect = true;
-			//testAnswer01.DisplayOrderIndex = 1;
-			//testAnswers.Add(testAnswer01);
-
-			//AnswerDetails testAnswer02 = new AnswerDetails();
-			//testAnswer02.Description = "Test Answer 2";
-			//testAnswer02.IsCorrect = true;
-			//testAnswer02.DisplayOrderIndex = 2;
-			//testAnswers.Add(testAnswer02);
-
-			//AnswerDetails testAnswer03 = new AnswerDetails();
-			//testAnswer03.Description = "Test Answer 3";
-			//testAnswer03.IsCorrect = false;
-			//testAnswer03.DisplayOrderIndex = 3;
-			//testAnswers.Add(testAnswer03);
-
-			//TheoryQuestionDetails testQuestion = new TheoryQuestionDetails();
-			//testQuestion.Description = "Test Question 02";
-			//testQuestion.Answers = testAnswers;
-			//testQuestion.Category = TheoryQuestionCategory.General;
-			//testQuestion.ImagePath = "path/path";
-			//testQuestion.IsActive = true;
-
-			//_facade.CreateTheoryQuestion(testQuestion, ExamType.PilotExam);
-            //List<KeyValuePair<string, string>> DemoDetails = new List<KeyValuePair<string, string>>();
-            //DemoDetails.Add(new KeyValuePair<string,string>("Name", "SpongeBob"));
-            //DemoDetails.Add(new KeyValuePair<string,string>("Mobile", "0452-Underwater"));
-            //DemoDetails.Add(new KeyValuePair<string,string>("APF Number", "789456"));
-            //DemoDetails.Add(new KeyValuePair<string, string>("Score", "18/20 (90%) -- Pass"));
-
-            //GeneratePdf pdfVendingMachine = new GeneratePdf();
-            //var stream = pdfVendingMachine.CreatePDF(DemoDetails, 2);
-
-            ////add thread
-            //SendEmail email = new SendEmail();
-            //email.MailEmail("teamb@live.com.au", "Test Email", "Please find PDF attached", stream);
-
-            _facade.FinaliseExam(new Guid("4e757211-8c7d-4f32-a4b0-418a8bfad189"), ExamType.PackerExam);
-
         }
     }
 }
-

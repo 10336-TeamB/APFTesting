@@ -366,5 +366,16 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public void DeletePracticalTemplatePilot(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetActivePracticalTemplatePilot(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

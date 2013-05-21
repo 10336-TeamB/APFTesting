@@ -10,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingModel", "APFTesti
 		{D6E610ED-E37E-4544-BC14-F1AFE26AC99C} = {D6E610ED-E37E-4544-BC14-F1AFE26AC99C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingHookIn", "APFTestingHookIn\APFTestingHookIn.csproj", "{2A30001C-95A0-435F-AC33-9DA03759F798}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingModel.Tests", "APFTestingModel.Tests\APFTestingModel.Tests.csproj", "{C0F00266-3AC0-4E0D-AA0C-099236C3948C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingMembership", "APFTestingMembership\APFTestingMembership.csproj", "{D20D7697-9C41-439C-8F51-BCEF6B4D429B}"
@@ -19,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingServices", "APFTestingServices\APFTestingServices.csproj", "{2FC47278-55DF-48FC-9C9B-97F2A137F7F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{D6E610ED-E37E-4544-BC14-F1AFE26AC99C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APFTestingHookIn", "APFTestingHookIn\APFTestingHookIn.csproj", "{C3742973-57C3-465B-86EA-86E456B51670}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,10 +38,6 @@ Global
 		{ECF00D40-4554-4DA2-AF68-848FF0B6D169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF00D40-4554-4DA2-AF68-848FF0B6D169}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF00D40-4554-4DA2-AF68-848FF0B6D169}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A30001C-95A0-435F-AC33-9DA03759F798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A30001C-95A0-435F-AC33-9DA03759F798}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A30001C-95A0-435F-AC33-9DA03759F798}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A30001C-95A0-435F-AC33-9DA03759F798}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0F00266-3AC0-4E0D-AA0C-099236C3948C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C0F00266-3AC0-4E0D-AA0C-099236C3948C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0F00266-3AC0-4E0D-AA0C-099236C3948C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,6 +54,10 @@ Global
 		{D6E610ED-E37E-4544-BC14-F1AFE26AC99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6E610ED-E37E-4544-BC14-F1AFE26AC99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6E610ED-E37E-4544-BC14-F1AFE26AC99C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3742973-57C3-465B-86EA-86E456B51670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3742973-57C3-465B-86EA-86E456B51670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3742973-57C3-465B-86EA-86E456B51670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3742973-57C3-465B-86EA-86E456B51670}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

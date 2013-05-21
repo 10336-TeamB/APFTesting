@@ -344,6 +344,7 @@
     <Content Include="Images\logo-apf.png" />
     <Content Include="Images\sprite-input-buttons.png" />
     <Content Include="Images\sprite-input-buttons2.png" />
+    <Content Include="Images\tick.gif" />
     <Content Include="Images\tick.png" />
     <Content Include="QuestionImages\Alan.gif" />
     <Content Include="Scripts\administration.js" />
@@ -402,7 +403,6 @@
     <Content Include="Scripts\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\modernizr.custom.51211.js" />
     <Content Include="Scripts\practical-packer.js" />
-    <Content Include="Scripts\practical-template.js" />
     <Content Include="Scripts\QuestionManagement.js" />
     <Content Include="Scripts\summary.js" />
     <Content Include="Service References\EmailServiceReference\EmailServiceOperation.disco" />
@@ -474,6 +474,7 @@
     <None Include="Service References\EmailServiceReference\EmailServiceOperation3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
