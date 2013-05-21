@@ -39,12 +39,14 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         answers.Add(answer);
                     }
 
+                    
                     //Image
                     var fileName = "";
                     if (model.ImageFile.ContentLength > 0)
                     {
                         var extension = model.ImageFile.ContentType.Split('/');
-                        fileName = String.Format("{0}.{1}", "Alan", extension[1]);
+                        var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
+                        fileName = String.Format("{0}.{1}", questionsWithImagesTotal, extension[1]);
                         var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
                         model.ImageFile.SaveAs(path);
                     }
@@ -97,6 +99,8 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         var answer = new AnswerDetails(model.Answers[i].Description, model.Answers[i].IsCorrect, model.Answers[i].Id);
                         answers.Add(answer);
                     }
+
+                    
 
                     var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
 

@@ -31,7 +31,15 @@ namespace APFTestingModel
 			constructAnswers(questionDetails.Answers);
 			NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect == true);
 			IsActive = true;
-			ImagePath = questionDetails.ImagePath;
+            if (questionDetails.ImagePath.Equals(""))
+            {
+                ImagePath = null;
+            }
+            else
+            {
+                ImagePath = questionDetails.ImagePath;
+            }
+            
 			Category = questionDetails.Category;
 		}
 
