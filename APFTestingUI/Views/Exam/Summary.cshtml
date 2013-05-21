@@ -40,7 +40,7 @@
             <dt class="@question.IsMarkedClass@question.IsAnsweredClass">
                 <span class="question-title">
                     <span>Question @questionNumber</span>
-                    @Html.ActionLink("[ go to question ]", "ReviewQuestion", new { examId = @Model.ExamId, questionIndex = @question.Index })
+                    @Html.ActionLink("[ go to question ]", "ReviewQuestion", new { QuestionNumber = questionNumber })
                 </span>
 
             </dt>
@@ -50,7 +50,7 @@
 
     <br />
     <div class="clear"></div>
-    <p class="submit-button-container">@Html.ActionLink("Submit Exam", "Submit", new { examId = @Model.ExamId }, new { @class = "button" })</p>
+    <p class="submit-button-container">@Html.ActionLink("Submit Exam", "Submit", new {  }, new { @class = "button" })</p>
     <div class="clear"></div>
 </div>
 
@@ -58,5 +58,4 @@
 @section scripts
 {
     <script src="~/Scripts/summary.js"></script>
-    <script src="~/Scripts/exam.js"></script>
 }
