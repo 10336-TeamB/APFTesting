@@ -44,7 +44,7 @@
     </hgroup>
 
 
-@using (Html.BeginForm("SubmitAnswer", "Exam", FormMethod.Post, new { id = "QuestionForm" }))
+@using (Html.BeginForm("SubmitAnswer", "Exam", FormMethod.Post))
 {
     @Html.HiddenFor(m => m.ExamId)
     @Html.HiddenFor(m => m.Index)
@@ -54,7 +54,7 @@
         @if (Model.ImagePath != null && !Model.ImagePath.Equals(""))
         {
             <div class="image-container">
-                <img src="~/Content/Images/@Model.ImagePath" alt="" />
+                <img src="~/QuestionImages/@Model.ImagePath" alt="" />
             </div>
         }
         @foreach (var answer in Model.Answers)
@@ -82,7 +82,6 @@
         
             <input id="previous-button" class="button @PreviousHidden" name="NavButton" type="submit" value="Previous" />
             <input id="next-button" class="button @NextHidden" name="NavButton" type="submit" value="Next" />
-
             <input id="summary-button" class="button @SummaryHidden" name="NavButton" type="submit" value="Go To Summary" />
             <span id="mark-for-review">
                 @*@Html.CheckBoxFor(model => model.IsMarkedForReview)*@

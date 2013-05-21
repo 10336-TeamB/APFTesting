@@ -346,6 +346,7 @@
     <Content Include="Images\sprite-input-buttons2.png" />
     <Content Include="Images\tick.gif" />
     <Content Include="Images\tick.png" />
+    <Content Include="QuestionImages\Alan.gif" />
     <Content Include="Scripts\administration.js" />
     <Content Include="Scripts\candidate.js" />
     <Content Include="Scripts\exam.js" />
@@ -513,7 +514,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1238</DevelopmentServerPort>
+          <DevelopmentServerPort>23608</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1979/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

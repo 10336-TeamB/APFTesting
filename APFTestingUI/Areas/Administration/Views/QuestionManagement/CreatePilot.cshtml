@@ -7,7 +7,7 @@
 
 <h2>CreatePilot</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("CreatePilot", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(false)
     
@@ -24,6 +24,14 @@
     </div>
     <div class="editor-field">
         @Html.DropDownListFor(model => model.Category, Model.Categories)
+    </div>
+    <div class="clear"></div>
+    
+    <div class="editor-label">
+        Image <em>*</em>
+    </div>
+    <div class="editor-field">
+        <input type="file" name="ImageFile" accept="image/*" />
     </div>
     <div class="clear"></div>
     

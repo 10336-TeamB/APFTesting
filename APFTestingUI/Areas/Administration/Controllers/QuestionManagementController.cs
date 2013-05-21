@@ -2,6 +2,7 @@
 using APFTestingUI.Areas.Administration.Models.QuestionManagement;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -38,7 +39,18 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         answers.Add(answer);
                     }
 
-                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+                    //Image
+                    var fileName = "";
+                    if (model.ImageFile.ContentLength > 0)
+                    {
+                        var extension = model.ImageFile.ContentType.Split('/');
+                        fileName = String.Format("{0}.{1}", "Alan", extension[1]);
+                        var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+                        model.ImageFile.SaveAs(path);
+                    }
+                    
+                    
+                    var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.CreateTheoryQuestion(questionPackage, ExamType.PilotExam);
 
