@@ -2,13 +2,21 @@
 
 @{
     ViewBag.Title = "ViewPilotExamResults";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>ViewPilotExamResults</h2>
 
 <fieldset>
-    <legend>PilotExamDetails</legend>
+    <legend>ExamDetailsPilot</legend>
+    @Html.HiddenFor(m => m.ExamId)
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ARN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ARN)
+    </div>
+    <div class="clear"></div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.FirstName)
@@ -18,7 +26,6 @@
     </div>
     <div class="clear"></div>
 
-
     <div class="display-label">
          @Html.DisplayNameFor(model => model.LastName)
     </div>
@@ -27,8 +34,116 @@
     </div>
     <div class="clear"></div>
 
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mobile)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DOB)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:dd MMMM yyyy}", Model.DOB)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MedicalExpiryDate)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:dd MMMM yyyy}", Model.MedicalExpiryDate)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasInstrumentRating)
+    </div>
+    <div class="display-field">
+        @if (@Model.HasInstrumentRating)
+        {
+            @:Yes
+        }
+        else
+        {
+            @:No
+        }
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasValidBRF)
+    </div>
+    <div class="display-field">
+        @if (@Model.HasValidBRF)
+        {
+            @:Yes
+        }
+        else
+        {
+            @:No
+        }
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TheoryScore)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:N0}%", Model.TheoryScore * 100)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasPassedTheory)
+    </div>
+    <div class="display-field">
+        @if (@Model.HasPassedTheory)
+        {
+            @:Yes
+        }
+        else
+        {
+            @:No
+        }
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasPassedPractical)
+    </div>
+    <div class="display-field">
+        @if (@Model.HasPassedPractical)
+        {
+            @:Yes
+        }
+        else
+        {
+            @:No
+        }
+    </div>
+    <div class="clear"></div>
+
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Submit", "SubmitPilotExamResults", new { examId = Model.ExamId }) |
+    @Html.ActionLink("Back to List", "Index", "Examiner")
 </p>

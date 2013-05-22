@@ -84,6 +84,11 @@
                             <br />
                             @Html.ActionLink("Finalise Exam", "ViewPilotExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { })
                         }
+                        else if (candidate.LatestExamStatus == APFTestingModel.ExamStatus.ExamCompleted)
+                        {
+                            <br />
+                            @:Finalisation Pending
+                        }
                     </td>
                 </tr>
             }
@@ -154,6 +159,11 @@
                         {
                             <br />
                             @Html.ActionLink("Finalise Exam", "ViewPackerExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { })
+                        }
+                        else if (candidate.LatestExamStatus == APFTestingModel.ExamStatus.ExamCompleted)
+                        {
+                            <br />
+                            @:Finalisation Pending
                         }
                     </td>
                 </tr>

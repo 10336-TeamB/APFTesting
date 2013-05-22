@@ -140,7 +140,16 @@ namespace APFTestingModel
 			_examState.VoidExam(a);
 		}
 
+        //Use to set as ExamCompleted
         public abstract void FinaliseExam();
+        
+        //Used to mark Exam has been successfully sent
+        //I need a better name
+        public void ArchiveExam()
+        {
+            Action a = delegate { ExamStatus = ExamStatus.ExamFinalise; };
+            _examState.FinaliseExam(a);
+        }
 
         public void FinalisePractical()
         {

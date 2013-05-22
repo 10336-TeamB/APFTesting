@@ -394,5 +394,11 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public bool HasPassedPractical(Guid examId, ExamType examType)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

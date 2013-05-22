@@ -2,13 +2,20 @@
 
 @{
     ViewBag.Title = "ViewPackerExamResults";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>ViewPackerExamResults</h2>
 
 <fieldset>
-    <legend>PackerExamDetails</legend>
+    <legend>ExamDetailsPacker</legend>
+    @Html.HiddenFor(m => m.ExamId)
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.APFNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.APFNumber)
+    </div>
+    <div class="clear"></div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.FirstName)
@@ -18,6 +25,7 @@
     </div>
     <div class="clear"></div>
 
+
     <div class="display-label">
          @Html.DisplayNameFor(model => model.LastName)
     </div>
@@ -26,8 +34,54 @@
     </div>
     <div class="clear"></div>
 
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mobile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mobile)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TheoryScore)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:N0}%", Model.TheoryScore * 100)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasPassedTheory)
+    </div>
+    <div class="display-field">
+        @if (@Model.HasPassedTheory)
+        {
+            @:Yes
+        }
+        else
+        {
+            @:No
+        }
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HasPassedPractical)
+    </div>
+    <div class="display-field">
+        @if (@Model.HasPassedPractical)
+        {
+            @:Yes
+        }
+        else
+        {
+            @:No
+        }
+    </div>
+    <div class="clear"></div>
+
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Submit", "SubmitPackerExamResults", new {  examId = Model.ExamId }) |
+    @Html.ActionLink("Back to List", "Index", "Examiner")
 </p>

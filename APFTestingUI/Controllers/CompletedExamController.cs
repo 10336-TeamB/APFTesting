@@ -35,7 +35,9 @@ namespace APFTestingUI.Controllers
         {
             var pilot = _facade.FetchPilot(candidateId);
             var exam = _facade.FetchExam(examId, ExamType.PilotExam);
-            var model = new ExamDetailsPilot(pilot, exam);
+            var theoryComponentResult = _facade.FetchTheoryComponentResult(examId);
+            var hasPassedPractical = _facade.HasPassedPractical(examId, ExamType.PilotExam);
+            var model = new ExamDetailsPilot(pilot, exam, theoryComponentResult, hasPassedPractical);
             return View(model);
         }
 
@@ -43,8 +45,22 @@ namespace APFTestingUI.Controllers
         {
             var packer = _facade.FetchPacker(candidateId);
             var exam = _facade.FetchExam(examId, ExamType.PackerExam);
-            var model = new ExamDetailsPacker(packer, exam);
+            var theoryComponentResult = _facade.FetchTheoryComponentResult(examId);
+            var hasPassedPractical = _facade.HasPassedPractical(examId, ExamType.PackerExam);
+            var model = new ExamDetailsPacker(packer, exam, theoryComponentResult, hasPassedPractical);
             return View(model);
+        }
+
+        public ActionResult SubmitPilotExamResults(Guid examId)
+        {
+            _facade.FinaliseExam(examId, ExamType.PilotExam);
+            return RedirectToAction("Index", "Examiner");
+        }
+
+        public ActionResult SubmitPackerExamResults(Guid examId)
+        {
+            _facade.FinaliseExam(examId, ExamType.PackerExam);
+            return RedirectToAction("Index", "Examiner");
         }
 
     }

@@ -13,6 +13,11 @@ namespace APFTestingModel
             action();
         }
 
+        internal override void FetchTheoryExamResult(Action action)
+        {
+            action();
+        }
+
         internal override void FetchPracticalExamResult(Action action)
         {
             action();

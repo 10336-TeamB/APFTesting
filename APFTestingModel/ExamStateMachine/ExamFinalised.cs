@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal class ExamCompleted : ExamState
+    internal class ExamFinalised : ExamState
     {
-        internal override void ArchiveExam(Action action)
-        {
-            action();
-        }
     }
 }

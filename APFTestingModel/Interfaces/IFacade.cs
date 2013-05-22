@@ -106,8 +106,7 @@ namespace APFTestingModel
 
         //WORK IN PROGRESS
         IExam FetchExam(Guid examId, ExamType examType);
-
-
+        bool HasPassedPractical(Guid examId, ExamType examType);
 
     }
 }

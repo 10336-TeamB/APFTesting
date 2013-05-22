@@ -63,11 +63,6 @@ namespace APFTestingModel
             throw new BusinessRuleException("Action is invalid");
         }
 
-        internal virtual void FinaliseExam(Action action)
-        {
-            throw new BusinessRuleException("Action is invalid");
-        }
-
         internal virtual void FetchPracticalExamResult(Action a)
         {
             throw new BusinessRuleException("Action is invalid");
@@ -92,5 +87,16 @@ namespace APFTestingModel
         {
             throw new BusinessRuleException("Action is invalid");
         }
+
+        internal virtual void FinaliseExam(Action action)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
+
+        internal virtual void ArchiveExam(Action action)
+        {
+            throw new BusinessRuleException("Action is invalid");
+        }
+        
     }
 }

@@ -199,12 +199,23 @@ namespace APFTestingModel
             return exam;
         }
 
+        public bool HasPassedPractical(Guid examId, ExamType examType)
+        {
+            return fetchExam(examId, examType).PracticalComponentIsCompetent;
+        }
+
+
         public void FinaliseExam(Guid examId, ExamType examType)
         {
             Exam exam = fetchExam(examId, examType);
-            //Create new report
-            //Send report
+            
+            //Is this correctly used?
+            //flag to not send email again via UI
             exam.FinaliseExam();
+            //Create new report
+
+            //Send report
+            exam.ArchiveExam();
         }
 
         #endregion 
@@ -900,6 +911,7 @@ namespace APFTestingModel
         #endregion
 
         //Do not expose this method to UI by putting its definition in IFacade. This function is called by email service callback ONLY - Pradipna
+        //Can we add this to Finalise? Maybe using to determine if it has been sent or not (new status ExamArchieved)
         public void FinaliseExamUpdateStatus(Guid examId)
         {
             Exam exam = _context.Exams.First(e => e.Id == examId);

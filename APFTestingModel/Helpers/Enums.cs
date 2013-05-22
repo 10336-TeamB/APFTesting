@@ -22,7 +22,8 @@ namespace APFTestingModel
 		TheoryPassed = 5,
         PracticalComponentCompleted = 6,
 		ExamCompleted = 7,
-		ExamVoided = 8
+		ExamVoided = 8,
+        ExamFinalise = 9
 	}
 
     public enum PilotLicenceType : short

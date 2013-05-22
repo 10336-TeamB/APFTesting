@@ -17,7 +17,10 @@ namespace APFTestingModel
         // TODO - Implement IsCompetent
         public bool IsCompetent
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                return SelectedAssessmentTasks.Sum(s => s.Score) >= (SelectedAssessmentTasks.Sum(s => s.MaxScore) / 2.0);
+            }
         }
 
         public IEnumerable<ISelectedAssessmentTask> AssessmentTasks

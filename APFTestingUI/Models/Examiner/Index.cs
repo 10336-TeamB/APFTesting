@@ -12,7 +12,8 @@ namespace APFTestingUI.Models.Examiner
         {
             ExaminerId = examinerId;
             assignAuthority(examinerAuthority);
-            var allCandidates = candidates.Select(c => new CandidateDisplayItem(c)).ToList();
+            //Maybe change this to status to ExamComplete if we are not showing pending results
+            var allCandidates = candidates.Select(c => new CandidateDisplayItem(c)).Where(c => c.LatestExamStatus != ExamStatus.ExamFinalise).ToList();
             PilotCandidates = allCandidates.Where(c => c.ExamType.Equals("PilotExam")).ToList();
             PackerCandidates = allCandidates.Where(c => c.ExamType.Equals("PackerExam")).ToList();
         }
