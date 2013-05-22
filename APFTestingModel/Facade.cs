@@ -698,7 +698,7 @@ namespace APFTestingModel
         // Used in examiner controller to fetch examiner based on User ID
         public IExaminer FetchExaminer(int userId)
         {
-            var examiner = _context.People.OfType<Examiner>().FirstOrDefault(e => e.UserId == userId);
+            var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").FirstOrDefault(e => e.UserId == userId);
             if (examiner == null)
             {
                 throw new BusinessRuleException("Unknown Examiner Id");
