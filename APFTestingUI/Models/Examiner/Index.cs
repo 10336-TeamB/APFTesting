@@ -10,8 +10,8 @@ namespace APFTestingUI.Models.Examiner
     {
         public Index(IEnumerable<ICandidate> candidates, IExaminer examiner)
         {
-            ExaminerId = examinerId;
-            assignAuthority(examinerAuthority);
+            ExaminerId = examiner.Id;
+            assignAuthority(examiner.ExaminerAuthorities);
             //Maybe change this to status to ExamComplete if we are not showing pending results
             var allCandidates = candidates.Select(c => new CandidateDisplayItem(c)).Where(c => c.LatestExamStatus != ExamStatus.ExamFinalise).ToList();
 
