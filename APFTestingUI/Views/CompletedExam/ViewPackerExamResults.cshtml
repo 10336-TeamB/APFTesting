@@ -1,0 +1,33 @@
+﻿@model APFTestingUI.Models.CompletedExam.ExamDetailsPacker
+
+@{
+    ViewBag.Title = "ViewPackerExamResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewPackerExamResults</h2>
+
+<fieldset>
+    <legend>PackerExamDetails</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div class="clear"></div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

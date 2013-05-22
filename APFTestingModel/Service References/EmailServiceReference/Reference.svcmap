@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="968b224c-3f97-4e7f-bb60-018f0a351c02" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5b641aae-2bbe-4130-aaf9-33c5f2a427c9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,12 @@
     <MetadataSource Address="http://b.programming.sit.edu.au/EmailServiceOperation.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EmailServiceOperation.wsdl" MetadataType="Wsdl" ID="3681bdbc-a648-43c5-921f-f876c20405b8" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?wsdl" />
-    <MetadataFile FileName="EmailServiceOperation.disco" MetadataType="Disco" ID="60699c3e-1dc3-4c51-90e7-5af87684026b" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?disco" />
-    <MetadataFile FileName="EmailServiceOperation.xsd" MetadataType="Schema" ID="df30e03e-7000-45ea-b7c5-e376b592e7d5" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd1" />
-    <MetadataFile FileName="EmailServiceOperation1.xsd" MetadataType="Schema" ID="9c8b9216-fa9a-4d12-981f-03d8d4576c08" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd0" />
-    <MetadataFile FileName="EmailServiceOperation2.xsd" MetadataType="Schema" ID="83b72587-6110-451b-9911-7a61cceac626" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd3" />
-    <MetadataFile FileName="EmailServiceOperation3.xsd" MetadataType="Schema" ID="440d5dbd-0374-4772-87ac-b8dd670abc26" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd2" />
+    <MetadataFile FileName="EmailServiceOperation.wsdl" MetadataType="Wsdl" ID="47390139-51f2-4034-aef4-01c815b59f94" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?wsdl" />
+    <MetadataFile FileName="EmailServiceOperation.disco" MetadataType="Disco" ID="bc0062ef-d040-4595-a424-eacdf37950c4" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?disco" />
+    <MetadataFile FileName="EmailServiceOperation.xsd" MetadataType="Schema" ID="cca510cb-2a31-4736-b9bc-773fc470ac9d" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmailServiceOperation1.xsd" MetadataType="Schema" ID="d118039a-87f3-47cb-ab61-f4b82fc95ee4" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd0" />
+    <MetadataFile FileName="EmailServiceOperation2.xsd" MetadataType="Schema" ID="e6d8aead-adcc-44b7-85b3-b3141472010c" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd3" />
+    <MetadataFile FileName="EmailServiceOperation3.xsd" MetadataType="Schema" ID="5e25ec30-da61-40d8-b212-69c4a43a63e5" SourceId="1" SourceUrl="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -37,7 +37,6 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
         
         public bool IsActive { get; set; }
 
-        [Required]
         public string ImagePath { get; set; }
 		
         [Required]

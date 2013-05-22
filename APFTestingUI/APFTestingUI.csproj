@@ -207,6 +207,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\PracticalController.cs" />
+    <Compile Include="Controllers\CompletedExamController.cs" />
     <Compile Include="CustomValidation\DynamicRange.cs" />
     <Compile Include="Models\Candidate\ViewPacker.cs" />
     <Compile Include="Models\Candidate\ViewPilot.cs" />
@@ -225,6 +226,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CompletedExam\ExamDetailsPacker.cs" />
+    <Compile Include="Models\CompletedExam\ExamDetailsPilot.cs" />
     <Compile Include="Models\Examiner\CandidateDisplayItem.cs" />
     <Compile Include="Models\Examiner\Index.cs" />
     <Compile Include="Models\Examiner\Login.cs" />
@@ -467,6 +470,8 @@
     </None>
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LogoffPartial.cshtml" />
+    <Content Include="Views\CompletedExam\ViewPilotExamResults.cshtml" />
+    <Content Include="Views\CompletedExam\ViewPackerExamResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

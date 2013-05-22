@@ -74,7 +74,7 @@
     <Compile Include="CandidatePilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="EmailServiceOperation.cs" />
+    <Compile Include="EmailServiceCallback.cs" />
     <Compile Include="Exam.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -268,7 +268,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </None>
-    <None Include="output.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings" />
     <None Include="Service References\EmailServiceReference\EmailServiceOperation.wsdl" />

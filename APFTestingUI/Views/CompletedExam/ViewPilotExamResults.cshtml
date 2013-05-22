@@ -1,0 +1,34 @@
+﻿@model APFTestingUI.Models.CompletedExam.ExamDetailsPilot
+
+@{
+    ViewBag.Title = "ViewPilotExamResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewPilotExamResults</h2>
+
+<fieldset>
+    <legend>PilotExamDetails</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+    <div class="clear"></div>
+
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div class="clear"></div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

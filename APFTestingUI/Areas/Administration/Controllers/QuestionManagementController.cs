@@ -43,7 +43,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
                     
                     //Image
                     var fileName = "";
-                    if (model.ImageFile.ContentLength > 0)
+                    if (model.ImageFile != null)
                     {
                         var extension = model.ImageFile.ContentType.Split('/');
                         var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
@@ -102,9 +102,39 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         answers.Add(answer);
                     }
 
-                    
 
-                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+					var fileName = "";
+					if (model.ImageFile != null)
+					{
+						if (model.ImagePath != null)
+						{
+							var pathOfFileToDelete = Path.Combine(Server.MapPath("~/QuestionImages"), model.ImagePath);
+							System.IO.File.Delete(pathOfFileToDelete);
+
+							var extension = (model.ImageFile.ContentType.Split('/'))[1];
+							var currentFileName = (model.ImagePath.Split('.'))[0];
+							fileName = String.Format("{0}.{1}", currentFileName, extension);
+
+							var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+							model.ImageFile.SaveAs(path);
+						}
+						else
+						{
+							var extension = model.ImageFile.ContentType.Split('/');
+							var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
+							fileName = String.Format("{0}.{1}", questionsWithImagesTotal, extension[1]);
+							var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+							model.ImageFile.SaveAs(path);
+						}
+
+						
+					}
+					else
+					{
+						fileName = model.ImagePath;
+					}
+
+					var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.EditTheoryQuestion(questionPackage, model.Id);
 
@@ -143,13 +173,15 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
 
+
+
+
 		public ActionResult IndexPacker()
 		{
             //return View(new IndexPilot(_facade.FetchAllTheoryQuestionsPilot()));
             //FetchAllTheoryQuestionsPacker()
             return View(new IndexPacker(_facade.FetchAllTheoryQuestionsPacker()));
 		}
-
 
         [HttpGet]
         public ActionResult CreatePacker()
@@ -173,7 +205,20 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         answers.Add(answer);
                     }
 
-                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+
+					//Image
+					var fileName = "";
+					if (model.ImageFile != null)
+					{
+						var extension = model.ImageFile.ContentType.Split('/');
+						var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
+						fileName = String.Format("{0}.{1}", questionsWithImagesTotal, extension[1]);
+						var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+						model.ImageFile.SaveAs(path);
+					}
+
+
+					var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.CreateTheoryQuestion(questionPackage, ExamType.PackerExam);
 
@@ -220,7 +265,40 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         answers.Add(answer);
                     }
 
-                    var questionPackage = new TheoryQuestionDetails(model.Description, "", model.Category, answers);
+
+					var fileName = "";
+					if (model.ImageFile != null)
+					{
+						if (model.ImagePath != null)
+						{
+							var pathOfFileToDelete = Path.Combine(Server.MapPath("~/QuestionImages"), model.ImagePath);
+							System.IO.File.Delete(pathOfFileToDelete);
+
+							var extension = (model.ImageFile.ContentType.Split('/'))[1];
+							var currentFileName = (model.ImagePath.Split('.'))[0];
+							fileName = String.Format("{0}.{1}", currentFileName, extension);
+
+							var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+							model.ImageFile.SaveAs(path);
+						}
+						else
+						{
+							var extension = model.ImageFile.ContentType.Split('/');
+							var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
+							fileName = String.Format("{0}.{1}", questionsWithImagesTotal, extension[1]);
+							var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+							model.ImageFile.SaveAs(path);
+						}
+
+
+					}
+					else
+					{
+						fileName = model.ImagePath;
+					}
+
+
+					var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.EditTheoryQuestion(questionPackage, model.Id);
 
