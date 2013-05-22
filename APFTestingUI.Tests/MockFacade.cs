@@ -384,6 +384,10 @@ namespace APFTestingUI.Tests
             throw new NotImplementedException();
         }
 
+        public IExaminer FetchExaminer(int userId)
+        {
+            throw new NotImplementedException();
+        }
 
         public IExam FetchExam(Guid examId, ExamType examType)
         {

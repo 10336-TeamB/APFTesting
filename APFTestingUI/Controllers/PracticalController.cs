@@ -8,6 +8,7 @@ using APFTestingUI.Models.Practical;
 
 namespace APFTestingUI.Controllers
 {
+    [Authorize(Roles = "Examiner")]
     public class PracticalController : BaseController
     {
         public PracticalController(IFacade facade) : base(facade) { }
@@ -38,6 +39,7 @@ namespace APFTestingUI.Controllers
         // POST: /Practical/PilotInput
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult PilotInput(PilotInput model)
         {
             if (ModelState.IsValid)
@@ -93,6 +95,7 @@ namespace APFTestingUI.Controllers
         // POST: /Practical/PackerInput
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult PackerInput(PackerInput model)
         {
             if (ModelState.IsValid)
@@ -124,6 +127,7 @@ namespace APFTestingUI.Controllers
         // POST: /Practical/PackerEdit
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult PackerEdit(PackerEdit model)
         {
             if (ModelState.IsValid)

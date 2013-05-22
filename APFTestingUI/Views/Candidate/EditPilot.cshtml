@@ -12,6 +12,7 @@
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
     var isCheckedTrue = @Model.InstrumentRating ? "Checked" : "";
     var isCheckedFalse = @Model.InstrumentRating ? "" : "Checked";
     <fieldset>

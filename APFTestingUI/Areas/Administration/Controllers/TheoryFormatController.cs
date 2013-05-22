@@ -35,6 +35,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         // POST: /Administration/TheoryFormat/Create
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Create model)
         {
             if (ModelState.IsValid)
@@ -66,6 +67,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         // POST: /Administration/TheoryFormat/Edit
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Edit model)
         {
             if (ModelState.IsValid)

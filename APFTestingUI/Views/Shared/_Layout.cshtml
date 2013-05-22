@@ -23,13 +23,7 @@
                 <div id="logo-area">
                     <a href="/"><img src="~/Images/logo-apf.png" alt="Australian Parachute Federation" /></a>
                 </div>
-                <div class="right">
-                    <div id="login-area">
-                        <ul>
-                            <li>@Html.ActionLink("Logout", "Logout", "Examiner", new { }, new { id = "logout" })</li>
-                        </ul>
-                    </div>
-                </div>
+                @Html.Partial("_LogoffPartial")
             </div>
         </header>
         <div class="gradient-wrapper">

@@ -8,6 +8,7 @@
 <p>Please fill in the fields below to create a new Packer Candidate.<br />Asterisks (*) are placed next to required fields.</p>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
 
     <fieldset>
         <legend>Create Packer</legend>

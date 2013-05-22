@@ -1,0 +1,17 @@
+﻿@if (User.Identity.IsAuthenticated) {
+    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logout-form" })) {
+        @Html.AntiForgeryToken()
+        
+        <div class="size-wrapper">
+            <div class="right">
+                <div id="login-area">
+                    <ul id="login-area-menu">
+                        <li id="login-name">@User.Identity.Name
+                            <li id="logoff">Log off</li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+}

@@ -8,6 +8,8 @@
 
 @using (Html.BeginForm("PilotInput", "Practical", new { candidateId = Model.CandidateId}, FormMethod.Post, new { id = "form-pilot-practical" }))
 {
+    @Html.ValidationSummary(false)
+    @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.CandidateId)
     @Html.HiddenFor(model => model.ExamId)
     <table>

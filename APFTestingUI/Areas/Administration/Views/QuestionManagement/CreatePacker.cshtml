@@ -10,6 +10,7 @@
 @using (Html.BeginForm("CreatePacker", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(false)
+    @Html.AntiForgeryToken()
     
     <div class="editor-label">
         @Html.LabelFor(model => model.Description) <em>*</em>

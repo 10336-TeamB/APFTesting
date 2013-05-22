@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
 
-namespace APFTestingUI
+namespace APFTestingUI.Models
 {
     public class UsersContext : DbContext
     {
@@ -27,13 +27,19 @@ namespace APFTestingUI
         public string UserName { get; set; }
     }
 
-    public class RegisterExternalLoginModel
+    public class LoginModel
     {
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        public string ExternalLoginData { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
     }
 
     public class LocalPasswordModel
@@ -71,12 +77,5 @@ namespace APFTestingUI
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-    }
-
-    public class ExternalLogin
-    {
-        public string Provider { get; set; }
-        public string ProviderDisplayName { get; set; }
-        public string ProviderUserId { get; set; }
     }
 }

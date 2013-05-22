@@ -10,6 +10,7 @@
 @using (Html.BeginForm("EditPacker", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(false)
+    @Html.AntiForgeryToken()
     
     @Html.HiddenFor(model => model.Id);
     

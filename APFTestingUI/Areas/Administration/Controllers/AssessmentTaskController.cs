@@ -30,6 +30,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CreateAssessmentTask model)
         {
             if (ModelState.IsValid)
@@ -47,6 +48,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(EditAssessmentTask model)
         {
             if (ModelState.IsValid)

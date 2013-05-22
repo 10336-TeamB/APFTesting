@@ -30,6 +30,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CreateExaminer model)
         {
             if (ModelState.IsValid)
@@ -56,6 +57,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Guid examinerId, EditExaminer model)
         {
             List<ExamType> authorities = new List<ExamType>();

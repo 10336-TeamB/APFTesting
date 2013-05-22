@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace APFTestingUI.Controllers
 {
+    [Authorize(Roles = "Examiner")]
     public class CandidateController : BaseController
     {
         public CandidateController(IFacade facade) : base(facade) { }
@@ -35,6 +36,7 @@ namespace APFTestingUI.Controllers
         // POST: /Candidate/CreatePilot
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreatePilot(CreatePilot model)
         {
             if (ModelState.IsValid)
@@ -68,6 +70,7 @@ namespace APFTestingUI.Controllers
         // POST: /Candidate/EditPilot
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditPilot(EditPilot model)
         {
             if (ModelState.IsValid)
@@ -111,6 +114,7 @@ namespace APFTestingUI.Controllers
         // POST: /Candidate/CreatePacker
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreatePacker(CreatePacker model)
         {
             if (ModelState.IsValid)
@@ -144,6 +148,7 @@ namespace APFTestingUI.Controllers
         // POST: /Candidate/EditPacker
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditPacker(EditPacker model)
         {
             if (ModelState.IsValid)
