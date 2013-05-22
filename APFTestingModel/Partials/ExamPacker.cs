@@ -72,19 +72,17 @@ namespace APFTestingModel
                 examDetails.Add(new KeyValuePair<string, string>("APF Number", CandidatePacker.APFNumber));
                 examDetails.Add(new KeyValuePair<string, string>("Score", String.Format("{0}/{1} ({2}%) -- Pass", TheoryComponent.NumberOfCorrectlyAnsweredQuestions, TheoryComponent.NumberOfQuestions, TheoryComponent.Score * 100)));
                 examDetails.Add(new KeyValuePair<string, string>("", PracticalComponent.NumOfRequiredAssessmentTasks.ToString()));
-                
-                EmailService.EmailDataContract data = new EmailService.EmailDataContract();
+
+                EmailServiceReference.EmailDataContract data = new EmailServiceReference.EmailDataContract();
                 
                 data.Exam = examDetails.ToArray();
                 data.ExamType = (int)ExamType.PackerExam;
                 data.Body = String.Format("Please find the result for {0} {1} attached.", CandidatePacker.FirstName, CandidatePacker.LastName);
                 data.Subject = "New packer exam";
+                data.ExamId = Id;
 
-                EmailServiceOperationClient client = new EmailServiceOperationClient();
-                client.SendEmail(data);
-                client.Close();
-
-                ExamStatus = ExamStatus.ExamCompleted;
+                EmailServiceCallback emailCallback = new EmailServiceCallback();
+                emailCallback.CallEmailService(data);
             };
             _examState.FinaliseExam(a);
         }

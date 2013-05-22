@@ -899,7 +899,13 @@ namespace APFTestingModel
 
         #endregion
 
-
+        //Do not expose this method to UI by putting its definition in IFacade. This function is called by email service callback ONLY - Pradipna
+        public void FinaliseExamUpdateStatus(Guid examId)
+        {
+            Exam exam = _context.Exams.First(e => e.Id == examId);
+            exam.ExamStatus = ExamStatus.ExamCompleted;
+            _context.SaveChanges();
+        }
 
         //Hook-in test method
         public string TestDBConnection()

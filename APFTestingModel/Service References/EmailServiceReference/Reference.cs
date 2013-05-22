@@ -29,6 +29,9 @@ namespace APFTestingModel.EmailServiceReference {
         private System.Collections.Generic.KeyValuePair<string, string>[] ExamField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid ExamIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ExamTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -69,6 +72,19 @@ namespace APFTestingModel.EmailServiceReference {
                 if ((object.ReferenceEquals(this.ExamField, value) != true)) {
                     this.ExamField = value;
                     this.RaisePropertyChanged("Exam");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid ExamId {
+            get {
+                return this.ExamIdField;
+            }
+            set {
+                if ((this.ExamIdField.Equals(value) != true)) {
+                    this.ExamIdField = value;
+                    this.RaisePropertyChanged("ExamId");
                 }
             }
         }
@@ -123,14 +139,21 @@ namespace APFTestingModel.EmailServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmailServiceReference.IEmailServiceOperation")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmailServiceReference.IEmailServiceOperation", CallbackContract=typeof(APFTestingModel.EmailServiceReference.IEmailServiceOperationCallback))]
     public interface IEmailServiceOperation {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmailServiceOperation/SendEmail", ReplyAction="http://tempuri.org/IEmailServiceOperation/SendEmailResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEmailServiceOperation/SendEmail")]
         void SendEmail(APFTestingModel.EmailServiceReference.EmailDataContract emailData);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmailServiceOperation/SendEmail", ReplyAction="http://tempuri.org/IEmailServiceOperation/SendEmailResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEmailServiceOperation/SendEmail")]
         System.Threading.Tasks.Task SendEmailAsync(APFTestingModel.EmailServiceReference.EmailDataContract emailData);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IEmailServiceOperationCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEmailServiceOperation/EmailIsSent")]
+        void EmailIsSent(System.Guid examId, bool success);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -139,25 +162,26 @@ namespace APFTestingModel.EmailServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class EmailServiceOperationClient : System.ServiceModel.ClientBase<APFTestingModel.EmailServiceReference.IEmailServiceOperation>, APFTestingModel.EmailServiceReference.IEmailServiceOperation {
+    public partial class EmailServiceOperationClient : System.ServiceModel.DuplexClientBase<APFTestingModel.EmailServiceReference.IEmailServiceOperation>, APFTestingModel.EmailServiceReference.IEmailServiceOperation {
         
-        public EmailServiceOperationClient() {
+        public EmailServiceOperationClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public EmailServiceOperationClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public EmailServiceOperationClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public EmailServiceOperationClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public EmailServiceOperationClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public EmailServiceOperationClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public EmailServiceOperationClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public EmailServiceOperationClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public EmailServiceOperationClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public void SendEmail(APFTestingModel.EmailServiceReference.EmailDataContract emailData) {

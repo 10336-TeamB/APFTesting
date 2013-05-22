@@ -11,6 +11,7 @@ namespace EmailService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EmailServiceOperation" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select EmailServiceOperation.svc or EmailServiceOperation.svc.cs at the Solution Explorer and start debugging.
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class EmailServiceOperation : IEmailServiceOperation
     {
         void IEmailServiceOperation.SendEmail(EmailDataContract emailData)
@@ -41,7 +42,24 @@ namespace EmailService
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
 
-            client.Send(mail);
+            bool success = false;
+            int retry = 0;
+            const int maxRetry = 3;
+
+            while (!success && retry < maxRetry) {
+                try
+                {
+                    client.Send(mail);
+                    success = true;
+                }
+                catch (Exception)
+                {
+                    ++retry;
+                }
+            }
+
+            INotification notification = OperationContext.Current.GetCallbackChannel<INotification>();
+            notification.EmailIsSent(emailData.ExamId, success);
         }
     }
 }
