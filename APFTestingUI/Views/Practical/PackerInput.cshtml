@@ -13,6 +13,7 @@
 @using (Html.BeginForm("PackerInput", "Practical", FormMethod.Post, new { id = "form-packer-input" }))
 {
     @Html.ValidationSummary(false)
+    @Html.AntiForgeryToken()
 
     <fieldset>
         <legend>PackerInput</legend>

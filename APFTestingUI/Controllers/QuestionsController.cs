@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace APFTestingUI.Controllers
 {
+    [Authorize]
     public class QuestionsController : ApiController
     {
         private IFacade _facade;

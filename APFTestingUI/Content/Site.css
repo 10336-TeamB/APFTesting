@@ -392,14 +392,14 @@ input[type="radio"], input[type="checkbox"]
         float:left;
     }
 
-    #login-area li
+    /*#login-area li
     {
         margin: 0;
-        /*padding: 0 10px 0 0;*/
+        /*padding: 0 10px 0 0;
         float: left;
-    }
+    }*/
 
-    #login-area a
+    #login-area a, #login-area li
     {
         display: block;
         /*padding: 5px 20px;*/
@@ -409,6 +409,7 @@ input[type="radio"], input[type="checkbox"]
         text-decoration: none;
         color: #ffffff;
         font-size: 1em;
+        cursor: pointer;
     }
 
     #login-area a:hover
@@ -537,10 +538,6 @@ input[type="radio"], input[type="checkbox"]
     text-align: center;
 }
 
-#question-examiner-button:hover {
-
-}
-
 #question-void-button {
     display: block;
     padding: 5px 20px;
@@ -553,7 +550,20 @@ input[type="radio"], input[type="checkbox"]
     font-size: 0.8em;
 }
 
-
+#logoff-button
+{
+    display: block;
+    padding: 5px 20px;
+    background-color: #117523;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.8em;
+    float: left;
+    cursor: pointer;
+    /*border-radius: 5px;*/
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+}
 
 
 
@@ -1377,7 +1387,7 @@ input[type="radio"]:checked + .label-radio {
     padding-bottom: 10px;
 }
 
-    .editor-field input[type="text"], .editor-field input[type="email"], .editor-field input[type="date"], .editor-field textarea
+    .editor-field input[type="text"], .editor-field input[type="email"], .editor-field input[type="date"], .editor-field textarea, .editor-field input[type="password"]
     {
         width: 296px;
         padding: 3px 5px;

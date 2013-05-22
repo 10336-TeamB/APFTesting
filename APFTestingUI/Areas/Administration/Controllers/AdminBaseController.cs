@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace APFTestingUI.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class AdminBaseController : BaseController
     {
         public AdminBaseController(IFacade facade) : base(facade) { }

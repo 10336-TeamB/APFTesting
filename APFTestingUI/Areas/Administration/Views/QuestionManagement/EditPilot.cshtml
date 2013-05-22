@@ -10,6 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(false)
+    @Html.AntiForgeryToken()
     
     @Html.HiddenFor(model => model.Id);
     

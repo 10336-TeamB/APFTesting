@@ -25,6 +25,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreatePilot(Create model)
         {
             if (ModelState.IsValid)
@@ -85,6 +86,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditPilot(Edit model)
         {
             //TODO: throw error if any input fields are left blank
@@ -156,6 +158,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreatePacker(Create model)
         {
             if (ModelState.IsValid)
@@ -201,6 +204,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditPacker(Edit model)
         {
             //TODO: throw error if any input fields are left blank

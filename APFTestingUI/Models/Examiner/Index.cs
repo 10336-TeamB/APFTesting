@@ -8,10 +8,10 @@ namespace APFTestingUI.Models.Examiner
 {
     public class Index
     {
-        public Index(IEnumerable<ICandidate> candidates, Guid examinerId, List<ExamType> examinerAuthority)
+        public Index(IEnumerable<ICandidate> candidates, IExaminer examiner)
         {
-            ExaminerId = examinerId;
-            assignAuthority(examinerAuthority);
+            ExaminerId = examiner.Id;
+            assignAuthority(examiner.ExaminerAuthorities);
             var allCandidates = candidates.Select(c => new CandidateDisplayItem(c)).ToList();
             PilotCandidates = allCandidates.Where(c => c.ExamType.Equals("PilotExam")).ToList();
             PackerCandidates = allCandidates.Where(c => c.ExamType.Equals("PackerExam")).ToList();
@@ -23,15 +23,15 @@ namespace APFTestingUI.Models.Examiner
         public bool PilotAuthorised { get; set; }
         public bool PackerAuthorised { get; set; }
         
-        private void assignAuthority(List<ExamType> examinerAuthority)
+        private void assignAuthority(IEnumerable<IExaminerAuthority> examinerAuthority)
         {
             foreach (var a in examinerAuthority)
             {
-                if (a == ExamType.PilotExam)
+                if (a.ExamType == ExamType.PilotExam)
                 {
                     PilotAuthorised = true;
                 }
-                else if (a == ExamType.PackerExam)
+                else if (a.ExamType == ExamType.PackerExam)
                 {
                     PackerAuthorised = true;
                 }

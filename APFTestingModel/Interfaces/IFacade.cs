@@ -85,6 +85,7 @@ namespace APFTestingModel
 
         IEnumerable<IExaminer> FetchAllExaminers();
         IExaminer FetchExaminer(Guid examinerId);
+        IExaminer FetchExaminer(int userId);
 
 
         ITheoryQuestion FetchTheoryQuestion(Guid questionId);

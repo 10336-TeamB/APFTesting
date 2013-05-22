@@ -46,6 +46,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         // POST: /Administration/PracticalTemplatePilot/Create
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Create model)
         {
             var templateId = _facade.CreatePracticalComponentTemplatePilot(model.SelectedTasks);
@@ -67,6 +68,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         // POST: /Administration/PracticalTemplatePilot/Edit
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Edit model)
         {
             if (ModelState.IsValid)

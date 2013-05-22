@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace APFTestingUI.Controllers
 {
+    [Authorize]
     public class BaseController : Controller
     {
         protected IFacade _facade;

@@ -507,10 +507,6 @@ namespace APFTestingModel
 
         #endregion
 
-        /*=======================================*/
-        /*   CREATE PRACTICAL ASSESSMENT TASKS   */
-        /*=======================================*/
-
         #region CRUD Pilot Practical Assessment tasks
 
         public IAssessmentTaskPilot CreateAssessmentTaskPilot(AssessmentTaskPilotDetails details)
@@ -681,10 +677,6 @@ namespace APFTestingModel
 
         #endregion
 
-        /*=====================*/
-        /*   CREATE EXAMINER   */
-        /*=====================*/
-
         #region CRUD Examiner
         
         private Examiner fetchExaminer(Guid examinerId) 
@@ -700,6 +692,17 @@ namespace APFTestingModel
         public IExaminer FetchExaminer(Guid examinerId)
         {
             return fetchExaminer(examinerId);
+        }
+
+        // Used in examiner controller to fetch examiner based on User ID
+        public IExaminer FetchExaminer(int userId)
+        {
+            var examiner = _context.People.OfType<Examiner>().FirstOrDefault(e => e.UserId == userId);
+            if (examiner == null)
+            {
+                throw new BusinessRuleException("Unknown Examiner Id");
+            }
+            return examiner;
         }
 
         public void CreateExaminer(ExaminerDetails examinerDetails)
@@ -756,7 +759,6 @@ namespace APFTestingModel
         }
 
         #endregion
-
 
         #region CRUD Pilot Practical Template
 
@@ -897,34 +899,10 @@ namespace APFTestingModel
         }
 
         #endregion
-
-
-
-        //Hook-in test method
-        public string TestDBConnection()
-        {
-            return _context.TheoryQuestions.FirstOrDefault().Description;
-        }
 		
         public void Dispose()
         {
             _context.Dispose();
-        }
-
-        public void TestCode()
-        {
-            IEnumerable<TheoryQuestion> questions = _context.TheoryQuestions.Include("SelectedTheoryQuestions").ToList();
-
-            
-            foreach (var question in questions)
-            {
-                if (question.editableOrDeletable == true)
-                {
-                    Console.WriteLine("{0}\n\n",question.Description);
-                }
-            }
-
-            Console.Read();
         }
 
         internal void deleteEntity<T>(T entity)
