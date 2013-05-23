@@ -754,13 +754,13 @@ namespace APFTestingModel
             Examiner examiner = fetchExaminerToDelete(examinerId);
             username = examiner.Username;
             examiner.Delete(deleteEntity);
+            _context.SaveChanges();
            
             Membership membership = new Membership();
             if (!membership.DeleteExaminer(username))
             {
                 throw new BusinessRuleException("Cannot delete the examiner from membership");
             }
-            _context.SaveChanges();
         }
 
         public void EditExaminerActiveStatus(Guid examinerId, bool isActive)

@@ -61,7 +61,7 @@ namespace EmailService
 
             ExamDetails = exam;
 
-            CreateBody();
+            CreateBody(examType);
 
             //Temporarily removed
             //_document.Save("C:/Users/p404/Desktop/test.pdf");
@@ -70,7 +70,7 @@ namespace EmailService
             return _stream;
         }
 
-        public void CreateBody()
+        public void CreateBody(int examType)
         {
             // Doesn't change
             gfx.DrawString("Australian Parachute Federation", h1, XBrushes.Black,
@@ -88,8 +88,9 @@ namespace EmailService
             int labelIndent = 90;
             int dataIndent = 200;
             int counter = 0;
+            int totalDetails = (examType == _examTypePacker) ? 3 : 15;
 
-            for (; counter < 3; ++counter)
+            for (; counter < totalDetails; ++counter)
             {
                 gfx.DrawString(ExamDetails[counter].Key + ":", bodyBold, XBrushes.Black, new XRect(labelIndent, coordY, page.Width, CoordY_BB), XStringFormats.TopLeft);
                 gfx.DrawString(ExamDetails[counter].Value, bodyRegular, XBrushes.Black, new XRect(dataIndent, coordY, page.Width, CoordY_BB), XStringFormats.TopLeft);
@@ -106,8 +107,16 @@ namespace EmailService
 
             gfx.DrawString("Practical Exam Result", bodyBoldUnderlined, XBrushes.Black, new XRect(50, coordY, page.Width, CoordY_BB), XStringFormats.TopLeft);
             coordY += 25;
-            gfx.DrawString(String.Format("{0} has successfully demonstrated the required 10 supervised parachute packs", ExamDetails[0].Value),
-                bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.Center);
+            if (examType == _examTypePacker)
+            {
+                gfx.DrawString(String.Format("{0} has successfully demonstrated the required 10 supervised parachute packs", ExamDetails[0].Value),
+                    bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.Center);
+            }
+            else
+            {
+                gfx.DrawString(String.Format("{0} has successfully passed the practical test", ExamDetails[0].Value),
+                    bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.Center);
+            }
         }
     }
 }
