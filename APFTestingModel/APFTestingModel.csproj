@@ -90,7 +90,8 @@
     <Compile Include="ExamPilot.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ExamStateMachine\ExamFinalised.cs" />
+    <Compile Include="ExamStateMachine\SendingEmailFailed.cs" />
+    <Compile Include="ExamStateMachine\EmailInProgress.cs" />
     <Compile Include="Helpers\DataStructures.cs" />
     <Compile Include="ExamStateMachine\ExamCompleted.cs" />
     <Compile Include="ExamStateMachine\ExamCreated.cs" />

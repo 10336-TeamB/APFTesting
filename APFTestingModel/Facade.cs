@@ -220,14 +220,7 @@ namespace APFTestingModel
         public void FinaliseExam(Guid examId, ExamType examType)
         {
             Exam exam = fetchExam(examId, examType);
-            
-            //Is this correctly used?
-            //flag to not send email again via UI
             exam.FinaliseExam();
-            //Create new report
-
-            //Send report
-            exam.ArchiveExam();
         }
 
         #endregion 
@@ -926,10 +919,10 @@ namespace APFTestingModel
 
         //Do not expose this method to UI by putting its definition in IFacade. This function is called by email service callback ONLY - Pradipna
         //Can we add this to Finalise? Maybe using to determine if it has been sent or not (new status ExamArchieved)
-        public void FinaliseExamUpdateStatus(Guid examId)
+        public void FinaliseExamUpdateStatus(Guid examId, bool success)
         {
             Exam exam = _context.Exams.First(e => e.Id == examId);
-            exam.ExamStatus = ExamStatus.ExamCompleted;
+            exam.ExamStatus = (success) ? ExamStatus.ExamCompleted : ExamStatus.SendingEmailFailed;
             _context.SaveChanges();
         }
 		

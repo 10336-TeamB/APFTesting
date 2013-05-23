@@ -13,11 +13,8 @@ namespace APFTestingModel
 
         public void EmailIsSent(Guid examId, bool success)
         {
-            if (success)
-            {
-                Facade facade = new Facade();
-                facade.FinaliseExamUpdateStatus(examId);
-            }
+            Facade facade = new Facade();
+            facade.FinaliseExamUpdateStatus(examId, success);
         }
 
         public void CallEmailService(EmailServiceReference.EmailDataContract emailData)

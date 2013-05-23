@@ -26,7 +26,7 @@
         @Html.LabelFor(model => model.Description) <em>*</em>
     </div>
     <div class="editor-field">
-        @Html.TextAreaFor(model => model.Description)
+        @Html.EditorFor(model => model.Description)
     </div>
     <div class="clear"></div>
 
@@ -75,7 +75,7 @@
                         @Html.HiddenFor(model => model.Answers[i].Id)
                         @Html.EditorFor(model => model.Answers[i].IsCorrect)
                     </td>
-                    <td>@Html.TextAreaFor(model => model.Answers[i].Description)</td>
+                    <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
                     <td class="delete-answer"><span>delete</span></td>
                 </tr>
             }

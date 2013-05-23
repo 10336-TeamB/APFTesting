@@ -17,20 +17,6 @@ namespace APFTestingUI.Controllers
             return View();
         }
 
-        //Probably wont need this if we call the subtypes directly
-        public ActionResult ViewExamExamResults(Guid candidateId, Guid examId, ExamType examType)
-        {
-            switch (examType)
-            {
-                case ExamType.PilotExam:
-                    return RedirectToAction("ViewPilotExamResults", new { candaidateId = candidateId, examId = examId });
-                case ExamType.PackerExam:
-                    return RedirectToAction("ViewPackerExamResults", new { candaidateId = candidateId, examId = examId });
-                default:
-                    throw new Exception("Invalid Exam Type");
-            }
-        }
-
         public ActionResult ViewPilotExamResults(Guid candidateId, Guid examId)
         {
             var pilot = _facade.FetchPilot(candidateId);

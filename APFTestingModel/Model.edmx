@@ -226,10 +226,8 @@
           <Property Name="PracticalComponentId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="CanopyType" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="CanopyTypeSerialNumber" Type="varchar" MaxLength="50" />
           <Property Name="SupervisorId" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="HarnessContainerType" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="HarnessContainerSerialNumber" Type="varchar" MaxLength="50" />
           <Property Name="Note" Type="text" />
         </EntityType>
         <EntityType Name="AssessmentTaskPilot">
@@ -1037,10 +1035,8 @@
           <Property Type="Guid" Name="PracticalComponentId" Nullable="false" />
           <Property Type="DateTime" Name="Date" Nullable="false" Precision="0" />
           <Property Type="String" Name="CanopyType" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CanopyTypeSerialNumber" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="SupervisorId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="HarnessContainerType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="HarnessContainerSerialNumber" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PracticalComponentPacker" Relationship="APFTestingDBModel.FK_AssessmentTaskPacker_PracticalComponentPacker" FromRole="AssessmentTaskPacker" ToRole="PracticalComponentPacker" />
         </EntityType>
@@ -1577,10 +1573,8 @@
                 <ScalarProperty Name="PracticalComponentId" ColumnName="PracticalComponentId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="CanopyType" ColumnName="CanopyType" />
-                <ScalarProperty Name="CanopyTypeSerialNumber" ColumnName="CanopyTypeSerialNumber" />
                 <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
                 <ScalarProperty Name="HarnessContainerType" ColumnName="HarnessContainerType" />
-                <ScalarProperty Name="HarnessContainerSerialNumber" ColumnName="HarnessContainerSerialNumber" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
               </MappingFragment>
             </EntityTypeMapping>

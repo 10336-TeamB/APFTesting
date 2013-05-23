@@ -83,6 +83,7 @@ namespace APFTestingModel
 
                 EmailServiceCallback emailCallback = new EmailServiceCallback();
                 emailCallback.CallEmailService(data);
+                ExamStatus = ExamStatus.EmailInProgress;
             };
             _examState.FinaliseExam(a);
         }
