@@ -193,6 +193,7 @@
     <Compile Include="Areas\Administration\Models\PracticalTemplatePilot\PilotTemplateDisplayItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\AnswerItem.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Create.cs" />
+    <Compile Include="Areas\Administration\Models\QuestionManagement\Display.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\Edit.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPacker.cs" />
     <Compile Include="Areas\Administration\Models\QuestionManagement\IndexPilot.cs" />
@@ -379,6 +380,8 @@
     <Content Include="Areas\Administration\Views\QuestionManagement\IndexPacker.cshtml" />
     <Content Include="Areas\Administration\Views\QuestionManagement\CreatePacker.cshtml" />
     <Content Include="Areas\Administration\Views\QuestionManagement\EditPacker.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\DisplayPilot.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\DisplayPacker.cshtml" />
     <None Include="Properties\PublishProfiles\APFTesting.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\FTP-A.pubxml" />

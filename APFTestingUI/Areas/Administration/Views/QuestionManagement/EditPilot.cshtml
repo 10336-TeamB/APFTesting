@@ -15,14 +15,6 @@
     @Html.HiddenFor(model => model.Id);
     
     <div class="editor-label">
-        @Html.LabelFor(model => model.IsActive) <em>*</em>
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.IsActive)
-    </div>
-    <div class="clear"></div>
-    
-    <div class="editor-label">
         @Html.LabelFor(model => model.Description) <em>*</em>
     </div>
     <div class="editor-field">
@@ -49,13 +41,22 @@
     </div>
     
     <div class="editor-label">
-        Image <em>*</em>
+        Image
     </div>
     <div class="editor-field">
         <input type="file" name="ImageFile" accept="image/*" />
     </div>
     <div class="clear"></div>
     @Html.HiddenFor(model => model.ImagePath);
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.DeleteImage) <em>*</em>
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.DeleteImage)
+    </div>
+    <div class="clear"></div>
+    
     
     <span id="add-answer">Add</span>
     <table id="answers-table">
