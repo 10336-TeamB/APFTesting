@@ -66,11 +66,6 @@ namespace APFTestingUI.Tests
 			// NO-OP
 		}
 
-		public void VoidExam(Guid examId)
-		{
-			// NO-OP
-		}
-
 		public void Dispose()
 		{
 			// NO-OP
@@ -401,6 +396,12 @@ namespace APFTestingUI.Tests
 
 
         public bool HasPassedPractical(Guid examId, ExamType examType)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void VoidExam(Guid examId, string username, string password)
         {
             throw new NotImplementedException();
         }

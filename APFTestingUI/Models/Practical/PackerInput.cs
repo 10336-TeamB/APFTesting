@@ -46,7 +46,6 @@ namespace APFTestingUI.Models.Practical
         //[Display(Name = "Harness/Container Serial No.")]
         //public string HarnessContainerSerialNumber { get; set; }
 
-        [Required]
         [DataType(DataType.MultilineText)]
         public string Note { get; set; }
 

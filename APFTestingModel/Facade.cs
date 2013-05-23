@@ -153,11 +153,23 @@ namespace APFTestingModel
 			_context.SaveChanges();
 		}
 
-		public void VoidExam(Guid examId)
+		public void VoidExam(Guid examId, string username, string password)
 		{
-			Exam exam = _context.Exams.First(e => e.Id == examId);
-			exam.VoidExam();
-			_context.SaveChanges();
+            Membership membership = new Membership();
+            if (membership.Login(username, password))
+            {
+                Exam exam = _context.Exams.FirstOrDefault(e => e.Id == examId);
+                if (exam == null)
+                {
+                    throw new BusinessRuleException("Invalid Exam ID");
+                }
+                exam.VoidExam();
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new BusinessRuleException("Invalid username or password");
+            }
 		}
 
         #endregion
@@ -182,10 +194,10 @@ namespace APFTestingModel
             switch (examType)
             {
                 case ExamType.PilotExam:
-                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPilot>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").FirstOrDefault(e => e.Id == examId);
+                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPilot>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").FirstOrDefault(e => e.Id == examId);
                     break;
                 case ExamType.PackerExam:
-                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").FirstOrDefault(e => e.Id == examId);
+                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").Include("PracticalComponentPacker.AssessmentTaskPackers").FirstOrDefault(e => e.Id == examId);
                     break;
                 default:
                     //This should not occur as ExamType is strongly typed
