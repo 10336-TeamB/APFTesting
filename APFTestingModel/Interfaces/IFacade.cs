@@ -33,7 +33,7 @@ namespace APFTestingModel
         IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId);
 
         void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId);
-        void VoidExam(Guid examId);
+        void VoidExam(Guid examId, string username, string password);
         void ResetTheoryComponent(Guid examId);
 
         void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results);

@@ -188,7 +188,16 @@ namespace APFTestingUI.Controllers
 		// GET: /Exam/Void/
 		public ActionResult Void(VoidExam model)
 		{
-			_facade.VoidExam(model.ExamId);
+            try
+            {
+                _facade.VoidExam(model.ExamId, model.Username, model.Password);
+            }
+            catch (BusinessRuleException e)
+            {
+                //TODO: Check which user is currently logged in and whether still valid...
+                return RedirectToAction("Resume", new { examId = model.ExamId });
+            }
+            
 			return RedirectToAction("Index", "Examiner");
 		}
 
