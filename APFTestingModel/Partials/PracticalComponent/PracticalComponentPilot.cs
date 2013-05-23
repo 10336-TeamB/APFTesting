@@ -14,7 +14,6 @@ namespace APFTestingModel
             SelectedAssessmentTasks = selectedAssessmentTasks;
         }
 
-        // TODO - Implement IsCompetent
         public bool IsCompetent
         {
             get

@@ -27,9 +27,7 @@ namespace APFTestingModel.Tests
             // Assert
             Assert.AreEqual(assessmentTask.Date, date);
             Assert.AreEqual(assessmentTask.CanopyType, canopyType);
-            Assert.AreEqual(assessmentTask.CanopyTypeSerialNumber, canopySerial);
             Assert.AreEqual(assessmentTask.HarnessContainerType, harnessType);
-            Assert.AreEqual(assessmentTask.HarnessContainerSerialNumber, harnessSerial);
             Assert.AreEqual(assessmentTask.Note, note);
             Assert.AreEqual(assessmentTask.SupervisorId, supervisorId);
 
@@ -69,9 +67,7 @@ namespace APFTestingModel.Tests
             // Assert
             Assert.AreEqual(assessmentTask.Date, dateNew);
             Assert.AreEqual(assessmentTask.CanopyType, canopyTypeNew);
-            Assert.AreEqual(assessmentTask.CanopyTypeSerialNumber, canopySerialNew);
             Assert.AreEqual(assessmentTask.HarnessContainerType, harnessTypeNew);
-            Assert.AreEqual(assessmentTask.HarnessContainerSerialNumber, harnessSerialNew);
             Assert.AreEqual(assessmentTask.Note, noteNew);
             Assert.AreEqual(assessmentTask.SupervisorId, supervisorIdNew);
         }

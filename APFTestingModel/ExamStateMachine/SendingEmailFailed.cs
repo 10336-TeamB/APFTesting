@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
-    internal class ExamFinalised : ExamState
+    internal class SendingEmailFailed : ExamState
     {
+        internal override void FinaliseExam(Action action)
+        {
+            action();
+        }
     }
 }
