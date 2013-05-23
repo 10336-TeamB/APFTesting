@@ -194,7 +194,7 @@ namespace APFTestingModel
             switch (examType)
             {
                 case ExamType.PilotExam:
-                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPilot>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").FirstOrDefault(e => e.Id == examId);
+                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPilot>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").Include("PracticalComponentPilot.SelectedAssessmentTasks.AssessmentTaskPilot").FirstOrDefault(e => e.Id == examId);
                     break;
                 case ExamType.PackerExam:
                     exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").Include("PracticalComponentPacker.AssessmentTaskPackers").FirstOrDefault(e => e.Id == examId);
