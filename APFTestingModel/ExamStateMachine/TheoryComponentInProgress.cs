@@ -8,6 +8,11 @@ namespace APFTestingModel
 {
     internal class TheoryComponentInProgress : ExamState
     {
+        internal override void FetchFirstQuestion(Action action)
+        {
+            action();
+        }
+        
         internal override void FetchNextQuestion(Action action)
         {
             action();

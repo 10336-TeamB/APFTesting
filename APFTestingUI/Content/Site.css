@@ -1655,3 +1655,7 @@ input[type="text"]:disabled
 .delete-answer {
     cursor:pointer;
 }
+
+#admin-menu {
+    text-decoration: none;
+}

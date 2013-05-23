@@ -53,6 +53,8 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
         
         public HttpPostedFileBase ImageFile { get; set; }
 
+        public bool DeleteImage { get; set; }
+
 		#endregion
 
 
