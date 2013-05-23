@@ -260,7 +260,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\cross.png" />
-    <Content Include="Content\images\img-q18-knots.jpg" />
+    <Content Include="QuestionImages\0.jpg" />
     <Content Include="Content\images\tick.png" />
     <Content Include="Content\PIE.htc" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -347,7 +347,6 @@
     <Content Include="Images\sprite-input-buttons2.png" />
     <Content Include="Images\tick.gif" />
     <Content Include="Images\tick.png" />
-    <Content Include="QuestionImages\Alan.gif" />
     <Content Include="Scripts\administration.js" />
     <Content Include="Scripts\candidate.js" />
     <Content Include="Scripts\exam.js" />
@@ -439,7 +438,7 @@
     <Content Include="Views\Exam\Summary.cshtml" />
     <Content Include="Views\Exam\Result.cshtml" />
     <Content Include="Views\Exam\ReviewQuestion.cshtml" />
-    <Content Include="Views\Exam\DisplayError.cshtml" />
+    <Content Include="Views\Error\DisplayError.cshtml" />
     <Content Include="Views\Shared\_QuestionLayout.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\ServerError.cshtml" />

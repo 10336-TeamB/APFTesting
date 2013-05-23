@@ -104,6 +104,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\APFTetingEmailService.pubxml" />
+    <None Include="Properties\PublishProfiles\APF_Email_Service.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
