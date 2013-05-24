@@ -14,7 +14,8 @@ namespace APFTestingUI.Controllers {
 
         public ActionResult Index()
         {
-            if (User.IsInRole("Administrator"))
+			var userRole = User.GetType();
+			if (User.IsInRole("Administrator"))
             {
                 return RedirectToAction("Index", new { area = "Administration", controller = "Home" });
             }
@@ -22,7 +23,7 @@ namespace APFTestingUI.Controllers {
             {
                 return RedirectToAction("Index", "Examiner");
             }
-            throw new Exception("User not valid");
+			return RedirectToAction("Index", "Home");
         }
     }
 }
