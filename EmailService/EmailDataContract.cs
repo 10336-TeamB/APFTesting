@@ -25,6 +25,12 @@ namespace EmailService
         public string Subject { get; set; }
 
         [DataMember]
-        public Guid ExamId {get; set; }
+        public Guid ExamId { get; set; }
+
+        [DataMember]
+        public int RequiredPackerPacks { get; set; }
+
+        [DataMember]
+        public string ExaminerNumber { get; set; }
     }
 }

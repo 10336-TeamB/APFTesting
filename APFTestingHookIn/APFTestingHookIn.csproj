@@ -52,6 +52,10 @@
       <Project>{ecf00d40-4554-4da2-af68-848ff0b6d169}</Project>
       <Name>APFTestingModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\APFTestingServices\APFTestingServices.csproj">
+      <Project>{2fc47278-55df-48fc-9c9b-97f2a137f7f3}</Project>
+      <Name>APFTestingServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

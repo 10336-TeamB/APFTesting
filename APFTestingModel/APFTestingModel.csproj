@@ -213,11 +213,6 @@
     <Compile Include="SelectedTheoryQuestion.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Service References\EmailServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="TheoryComponent.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -272,19 +267,6 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings" />
-    <None Include="Service References\EmailServiceReference\EmailServiceOperation.wsdl" />
-    <None Include="Service References\EmailServiceReference\EmailServiceOperation.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\EmailServiceReference\EmailServiceOperation1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\EmailServiceReference\EmailServiceOperation2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\EmailServiceReference\EmailServiceOperation3.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -297,24 +279,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\EmailServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmailServiceReference\EmailServiceOperation.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmailServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmailServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmailServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
