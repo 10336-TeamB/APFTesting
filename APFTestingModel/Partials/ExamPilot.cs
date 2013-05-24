@@ -107,6 +107,7 @@ namespace APFTestingModel
                 data.Body = String.Format("Please find the result for {0} {1} attached.", CandidatePilot.FirstName, CandidatePilot.LastName);
                 data.Subject = "New packer exam";
                 data.ExamId = Id;
+                
 
                 EmailServiceCallback emailCallback = new EmailServiceCallback();
                 emailCallback.CallEmailService(data);

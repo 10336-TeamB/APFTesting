@@ -33,7 +33,7 @@ namespace EmailService
             get { return coordY + 10; }
         }
 
-        public MemoryStream CreatePDF(List<KeyValuePair<string, string>> exam, int examType)
+        public MemoryStream CreatePDF(List<KeyValuePair<string, string>> exam, string examinerNumber, int examType, int requiredPackerPacks)
         {
             // Create a new PDF document
             _document = new PdfDocument();
@@ -61,7 +61,7 @@ namespace EmailService
 
             ExamDetails = exam;
 
-            CreateBody(examType);
+            CreateBody(examinerNumber, examType, requiredPackerPacks);
 
             //Temporarily removed
             //_document.Save("C:/Users/p404/Desktop/test.pdf");
@@ -70,8 +70,15 @@ namespace EmailService
             return _stream;
         }
 
-        public void CreateBody(int examType)
+        public void CreateBody(string examinerNumber, int examType, int requiredPackerPacks)
         {
+            int dataIndent = 250;
+
+            DateTime date = DateTime.Now;
+            gfx.DrawString(String.Format("{0} {1}", date.ToLongDateString(), date.ToShortTimeString()), bodyRegular, XBrushes.Black,
+             new XRect(50, 10, page.Width, 200.0),
+              XStringFormats.TopLeft);
+
             // Doesn't change
             gfx.DrawString("Australian Parachute Federation", h1, XBrushes.Black,
              new XRect(0, 0, page.Width, 200.0),
@@ -80,13 +87,20 @@ namespace EmailService
              new XRect(0, 0, page.Width, 250.0),
               XStringFormats.Center);
             gfx.DrawLine(new XPen(new XColor()), new Point(50, 140), new Point(550, 140));
+
+            gfx.DrawString("Examiner APF Number:", bodyBold, XBrushes.Black,
+            new XRect(50, 155, page.Width, 220.0),
+             XStringFormats.TopLeft);
+            gfx.DrawString(examinerNumber, bodyRegular, XBrushes.Black,
+            new XRect(dataIndent, 155, page.Width, 220.0),
+             XStringFormats.TopLeft);
+
             gfx.DrawString("Candidate Details", bodyBoldUnderlined, XBrushes.Black,
             new XRect(50, 180, page.Width, 220.0),
              XStringFormats.TopLeft);
 
             coordY = 205;
             int labelIndent = 90;
-            int dataIndent = 200;
             int counter = 0;
             int totalDetails = (examType == _examTypePacker) ? 3 : 15;
 
@@ -109,13 +123,13 @@ namespace EmailService
             coordY += 25;
             if (examType == _examTypePacker)
             {
-                gfx.DrawString(String.Format("{0} has successfully demonstrated the required 10 supervised parachute packs", ExamDetails[0].Value),
+                gfx.DrawString(String.Format("{0} has successfully demonstrated the required {1} supervised parachute packs", ExamDetails[0].Value, requiredPackerPacks),
                     bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.Center);
             }
             else
             {
                 gfx.DrawString(String.Format("{0} has successfully passed the practical test", ExamDetails[0].Value),
-                    bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.Center);
+                    bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.TopCenter);
             }
         }
     }
