@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/EmailService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EmailService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:import schemaLocation="http://b.programming.sit.edu.au/EmailServiceOperation.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="EmailDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Exam" nillable="true" type="q1:ArrayOfKeyValuePairOfstringstring" />
+      <xs:element minOccurs="0" name="ExamId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ExamType" type="xs:int" />
+      <xs:element minOccurs="0" name="ExaminerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequiredPackerPacks" type="xs:int" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailDataContract" nillable="true" type="tns:EmailDataContract" />
+</xs:schema>
