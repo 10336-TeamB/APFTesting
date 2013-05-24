@@ -1,17 +1,17 @@
-﻿$(function () {
-    $("#question-examiner-button").click(function () {
+﻿$(function() {
+    $("#question-examiner-button").click(function() {
         $("#question-void-button").slideToggle(300);
     });
 
-    $("#question-void-button").click(function (e) {
+    $("#question-void-button").click(function(e) {
         e.preventDefault();
         showLightBox("#void-authentication");
     });
 
-    $("#void-cancel").click(function () {
+    $("#void-cancel").click(function() {
         parent.$.fn.colorbox.close();
     });
-})
+});
 
 $(function () {
     $("dd").hide();
@@ -22,3 +22,7 @@ $(function () {
         }
     });
 });
+
+function showLightBox(id) {
+    $.colorbox({ width: "450px", height: "250px", inline: "true", href: id });
+}
