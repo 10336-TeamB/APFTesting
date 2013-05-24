@@ -192,7 +192,7 @@ namespace APFTestingUI.Controllers
             {
                 _facade.VoidExam(model.ExamId, model.Username, model.Password);
             }
-            catch (BusinessRuleException e)
+            catch (BusinessRuleException)
             {
                 //TODO: Check which user is currently logged in and whether still valid...
                 return RedirectToAction("Resume", new { examId = model.ExamId });
