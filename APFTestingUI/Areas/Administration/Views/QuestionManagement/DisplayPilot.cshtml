@@ -5,12 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>DisplayPilot</h1>
+<h1>Pilot Question</h1>
 
 
 <div class="editor-label">
     @Html.LabelFor(model => model.Description)
 </div>
+<div class="clear"></div>
 <div class="editor-field">
     @Html.DisplayFor(model => model.Description)
 </div>
@@ -46,11 +47,11 @@
             <tr>
                 @if (answer.IsCorrect)
                 {
-                    <td>TRUE</td>
+                    <td>YES</td>
                 }
                 else
                 {
-                    <td>FALSE</td>
+                    <td>No</td>
                 }
                 <td>
                     @answer.Description
@@ -61,9 +62,18 @@
 </table>
 
 
-@Html.ActionLink("Home", "IndexPilot")
+@Html.ActionLink("Back", "IndexPilot", new { }, new { @class="examiner-button" })
 
+@if (Model.EditableOrDeletable)
+{
+    @Html.ActionLink("Edit", "EditPilot", new { questionId = Model.Id }, new { @class="examiner-button" })
+    @Html.ActionLink("Delete", "DeletePilot", new { questionId = Model.Id }, new { @class="examiner-button delete" })
+}
 
+@section scripts
+{
+    <script src="~/Scripts/administration.js"></script>
+}
 
 
 

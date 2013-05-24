@@ -23,7 +23,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
             Category = question.Category;
             Answers = question.Answers.Select(a => new AnswerItem(a)).ToList();
             InitialiseCategories();
-            editableOrDeletable = question.editableOrDeletable;
+            editableOrDeletable = question.EditableOrDeletable;
 		}
 
 		#endregion

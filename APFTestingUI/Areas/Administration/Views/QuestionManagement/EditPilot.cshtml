@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>EditPilot</h1>
+<h1>Edit Question - Pilot</h1>
 
 @using (Html.BeginForm("EditPilot", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -15,7 +15,7 @@
     @Html.HiddenFor(model => model.Id);
     
     <div class="editor-label">
-        @Html.LabelFor(model => model.Description) <em>*</em>
+        @Html.LabelFor(model => model.Description)
     </div>
     <div class="editor-field">
         @Html.EditorFor(model => model.Description)
@@ -23,7 +23,7 @@
     <div class="clear"></div>
 
     <div class="editor-label">
-        @Html.LabelFor(model => model.Category) <em>*</em>
+        @Html.LabelFor(model => model.Category)
     </div>
     <div class="editor-field">
         @Html.DropDownListFor(model => model.Category, Model.Categories)
@@ -50,7 +50,7 @@
     @Html.HiddenFor(model => model.ImagePath);
     
     <div class="editor-label">
-        @Html.LabelFor(model => model.DeleteImage) <em>*</em>
+        @Html.LabelFor(model => model.DeleteImage)
     </div>
     <div class="editor-field">
         @Html.EditorFor(model => model.DeleteImage)
@@ -58,7 +58,6 @@
     <div class="clear"></div>
     
     
-    <span id="add-answer">Add</span>
     <table id="answers-table">
         <thead>
             <tr>
@@ -82,13 +81,9 @@
             }
         </tbody>
     </table>
+    <span id="add-answer">+ Add another answer</span><br/><br/>
     
-    if (Model.editableOrDeletable)
-    {
-        @Html.ActionLink("Delete", "DeletePilot", new { questionId = Model.Id }, new { id = "delete" });
-    }
-    
-    
+    @Html.ActionLink("Cancel", "IndexPilot", new { }, new { @class="form-button" })
     <input type="submit" value="Create" class="form-button" />
 }
 

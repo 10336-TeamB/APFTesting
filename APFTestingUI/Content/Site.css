@@ -1673,3 +1673,7 @@ input[type="text"]:disabled
     text-decoration: none;
     color: #D5AE69;
 }
+
+#add-answer {
+    cursor: pointer;
+}

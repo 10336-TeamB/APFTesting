@@ -54,7 +54,7 @@ namespace APFTestingModel
             get { return Answers; }
         }
 
-        public bool editableOrDeletable
+        public bool EditableOrDeletable
         {
             get
             {
@@ -71,7 +71,7 @@ namespace APFTestingModel
 		public List<Answer> Edit(TheoryQuestionDetails questionDetails)
         {
 
-            if (editableOrDeletable)
+            if (EditableOrDeletable)
             {
                 Description = questionDetails.Description;
                 var answersToDelete = editAnswers(questionDetails.Answers);
@@ -160,7 +160,7 @@ namespace APFTestingModel
 
         public void Delete(deleteEntityDelegate<TheoryQuestion> deleteQuestion, deleteEntityDelegate<Answer> deleteAnswer)
         {
-            if (editableOrDeletable)
+            if (EditableOrDeletable)
             {
                 Answers.ToList().ForEach(a => a.Delete(deleteAnswer));
 

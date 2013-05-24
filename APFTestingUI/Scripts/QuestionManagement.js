@@ -61,7 +61,7 @@ function addAnswer() {
                 '</td>',
                     
                 '<td>',
-                    '<textarea cols="20" id="Answers_#__Description" name="Answers[#].Description" rows="2"></textarea>',
+                    '<input class="text-box single-line" type="text" data-val-required="The Description field is required." id="Answers_#__Description" name="Answers[#].Description" />',
                 '</td>',
 
                 '<td class="delete-answer"><span>delete</span></td>',

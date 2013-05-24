@@ -20,7 +20,6 @@
                 <tr>
                     <th>Activate</th>
                     <th>Description</th>
-                    <th>Edit</th>
                 </tr>
             </thead>
 
@@ -48,16 +47,6 @@
                         </td>
 
 
-                        @if (question.editableOrDeletable)
-                        {
-                            <td>
-                                @Html.ActionLink("Edit", "EditPilot", new { questionId = question.Id })
-                            </td>
-                        }
-                        else
-                        {
-                            <td>NOT EDITABLE</td>
-                        }   
                     </tr>
                 }
             </tbody>
