@@ -241,6 +241,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\cross.png" />
+    <Content Include="Images\off.png" />
+    <Content Include="Images\on.png" />
     <Content Include="QuestionImages\0.jpg" />
     <Content Include="Content\images\tick.png" />
     <Content Include="Content\PIE.htc" />

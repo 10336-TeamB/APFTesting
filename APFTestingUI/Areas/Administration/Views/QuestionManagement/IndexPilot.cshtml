@@ -5,22 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>IndexPilot</h1>
+<h1>Theory Questions - Pilot</h1><br/>
 
 <div>
-    <a href='@Url.Action("CreatePilot")'>
-        ADD
-    </a>
-</div>
+    @Html.ActionLink("Add New Question", "CreatePilot", new { }, new { @class="button-add" })
+</div><br/><br/>
 
 <div>
     @if (Model.TheoryQuestions.Count() > 0)
     {
-        <table>
+        <table id="question-list">
 
             <thead>
                 <tr>
-                    <th>Activation</th>
+                    <th>Activate</th>
                     <th>Description</th>
                     <th>Edit</th>
                 </tr>
@@ -31,18 +29,16 @@
                 {
                     <tr>
                         <td>
-                            @{ string img = ""; }
-                            @switch (question.IsActive)
-                            {
-                                case true:
-                                    img = "Deactivate";
-                                    break;
-                                case false:
-                                    img = "Activate";
-                                    break;
-                            }
+                            
                             <a href='@Url.Action("ToggleActivationPilot", new { questionId = question.Id })'>
-                                @img
+                                @if (question.IsActive)
+                                {
+                                    <img src="~/Images/on.png" alt="On button" width="56" height="30" />
+                                }
+                                else
+                                {
+                                    <img src="~/Images/off.png" alt="Off button" width="56" height="30" />
+                                }
                             </a>
                         </td>
                         

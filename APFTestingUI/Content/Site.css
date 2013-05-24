@@ -1659,3 +1659,17 @@ input[type="text"]:disabled
 #admin-menu {
     text-decoration: none;
 }
+
+#question-list td {
+    vertical-align: middle;
+}
+
+#question-list td a {
+    text-decoration: none;
+    color: #DDDDDD;
+}
+
+#question-list td a:hover {
+    text-decoration: none;
+    color: #D5AE69;
+}
