@@ -40,6 +40,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
         public string ImagePath { get; set; }
 		
         [Required]
+        [Display(Name = "Question Description")]
         public string Description { get; set; }
 		
         [Required]
@@ -50,9 +51,9 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
         
         public bool editableOrDeletable { get; set; }
 
-        
         public HttpPostedFileBase ImageFile { get; set; }
 
+        [Display(Name = "Delete Image")]
         public bool DeleteImage { get; set; }
 
 		#endregion

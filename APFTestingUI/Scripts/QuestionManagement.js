@@ -39,10 +39,10 @@ function deleteAnswer(elementToDelete) {
 function showOrHideDeleteBasedOnAnswerCount() {
 
     if ($("#answers-table > tbody > tr").length <= 2) {
-        $(".delete-answer").hide();
+        $(".delete-answer span").hide();
     }
     else {
-        $(".delete-answer").show();
+        $(".delete-answer span").show();
     }
 
 }
@@ -55,7 +55,7 @@ function addAnswer() {
     var answer =
         [
             '<tr>',
-                '<td>',
+                '<td class="td-is-correct">',
                     '<input class="check-box" data-val="true" data-val-required="The IsCorrect field is required." id="Answers_#__IsCorrect" name="Answers[#].IsCorrect" type="checkbox" value="true" />',
                     '<input name="Answers[#].IsCorrect" type="hidden" value="false" />',
                 '</td>',

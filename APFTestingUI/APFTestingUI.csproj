@@ -240,7 +240,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site-v2.css" />
     <Content Include="Content\images\cross.png" />
+    <Content Include="Images\bg-btn-grey-hover.jpg" />
+    <Content Include="Images\bg-btn-grey.jpg" />
     <Content Include="Images\off.png" />
     <Content Include="Images\on.png" />
     <Content Include="QuestionImages\0.jpg" />

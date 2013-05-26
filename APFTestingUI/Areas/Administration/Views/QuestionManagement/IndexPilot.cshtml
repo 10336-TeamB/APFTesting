@@ -18,17 +18,18 @@
 
             <thead>
                 <tr>
-                    <th>Activate</th>
+                    <th class="th-active">Activate</th>
                     <th>Description</th>
                 </tr>
             </thead>
 
             <tbody>
+                @*@{var counter = 0;}*@
                 @foreach (var question in Model.TheoryQuestions)
                 {
+                    //var loopClass = (counter % 2 == 0) ? "row-even" : "row-odd";
                     <tr>
                         <td>
-                            
                             <a href='@Url.Action("ToggleActivationPilot", new { questionId = question.Id })'>
                                 @if (question.IsActive)
                                 {

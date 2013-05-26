@@ -5,13 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<div id="manage-theory-question-wrap" class="details">
 <h1>Pilot Question</h1>
 
 
 <div class="editor-label">
     @Html.LabelFor(model => model.Description)
 </div>
-<div class="clear"></div>
 <div class="editor-field">
     @Html.DisplayFor(model => model.Description)
 </div>
@@ -25,42 +26,51 @@
 </div>
 <div class="clear"></div>
    
-<div>
-    @{ string path = String.Format("~/QuestionImages/{0}", Model.ImagePath); }
-    @if (Model.ImagePath != null)
-    {
-        <img src="@Url.Content(path)" alt="question image"/>
-    }
-</div>
 
-<table>
+@{ string path = String.Format("~/QuestionImages/{0}", Model.ImagePath); }
+@if (Model.ImagePath != null)
+{
+    <div>
+        <img src="@Url.Content(path)" alt="question image"/>
+    </div>
+}
+
+
+<div class="editor-label">
+    <h2 class="label">Possible Answers</h2>
+</div>
+<div class="editor-field">
+    <table>
     <thead>
         <tr>
-            <th>Correct</th>
             <th>Description</th>
+            <th class="th-correct-answer">Correct</th>
         </tr>
     </thead>
-
     <tbody>
         @foreach (var answer in Model.Answers)
         {
             <tr>
-                @if (answer.IsCorrect)
-                {
-                    <td>YES</td>
-                }
-                else
-                {
-                    <td>No</td>
-                }
                 <td>
                     @answer.Description
                 </td>
+                @if (answer.IsCorrect)
+                {
+                    <td class="is-correct">Yes</td>
+                }
+                else
+                {
+                    <td class="is-incorrect">No</td>
+                }
             </tr>
         }
     </tbody>
 </table>
+</div>
 
+
+<br />
+<br />
 
 @Html.ActionLink("Back", "IndexPilot", new { }, new { @class="examiner-button" })
 
@@ -69,6 +79,8 @@
     @Html.ActionLink("Edit", "EditPilot", new { questionId = Model.Id }, new { @class="examiner-button" })
     @Html.ActionLink("Delete", "DeletePilot", new { questionId = Model.Id }, new { @class="examiner-button delete" })
 }
+
+</div>
 
 @section scripts
 {

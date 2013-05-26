@@ -1,22 +1,18 @@
 ﻿@{
-    ViewBag.Title = "Administration";
+    ViewBag.Title = "Admin Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Temporary Administrator Home Page</h1>
+<h1>Administrator Home Page</h1>
 
 <div id="admin-menu">
-    @Html.ActionLink("Manage Examiners", "Index", "Examiner")<br/><br/>
-    
-    @Html.ActionLink("Manage Theory Exam Formats", "Index", "TheoryFormat")<br/><br/>
-    
-    @Html.ActionLink("Manage Pilot Questions", "IndexPilot", "QuestionManagement")<br/><br/>
-    
-    @Html.ActionLink("Manage Packer Questions", "IndexPacker", "QuestionManagement")<br/><br/>
-    
-    @Html.ActionLink("Manage Pilot Practical Templates", "Index", "PracticalTemplatePilot")<br/><br/>
-    
-    @Html.ActionLink("Manage Packer Practical Templates", "Index", "PracticalTemplatePacker")<br/><br/>
-    
-    @Html.ActionLink("Manage Pilot Assessment Tasks", "Index", "AssessmentTask")<br/><br/>
+    <ul>
+        <li>@Html.ActionLink("Manage Examiners", "Index", "Examiner")</li>
+        <li>@Html.ActionLink("Manage Theory Exam Formats", "Index", "TheoryFormat")</li>
+        <li>@Html.ActionLink("Manage Theory Questions - Pilot", "IndexPilot", "QuestionManagement")</li>
+        <li>@Html.ActionLink("Manage Theory Questions - Packer", "IndexPacker", "QuestionManagement")</li>
+        <li>@Html.ActionLink("Manage Pilot Assessment Tasks", "Index", "AssessmentTask")</li>
+        <li>@Html.ActionLink("Manage Practical Templates - Pilot", "Index", "PracticalTemplatePilot")</li>
+        <li>@Html.ActionLink("Manage Practical Templates - Packer", "Index", "PracticalTemplatePacker")</li>
+    </ul>
 </div>

@@ -1,0 +1,1731 @@
+﻿
+/* --------- NEW STYLES ---------  */
+/** RESET */
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+	display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    outline: none;
+}
+
+legend {
+    display: none;
+}
+
+.input-validation-error {
+    background-color: #aa0000;
+}
+
+.validation-summary-errors {
+    color: #aa0000;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+table#exam-summary
+{
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+
+img
+{
+    border: none;
+}
+
+
+/* Colorbox */
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:rgba(0, 0, 0, 0.5);}
+.no-rgba #cboxOverlay {background:#000;}
+#colorbox{outline:0;}
+    #cboxContent{margin-top:20px;background:#000;}
+        .cboxIframe{background:#fff;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{border:5px solid #000; background:rgb(44, 44, 44);}
+.error  #cboxLoadedContent 
+{
+    background-color: rgb(129, 129, 129);
+}
+        #cboxTitle{position:absolute; top:-20px; left:0; color:#ccc;}
+        #cboxCurrent{position:absolute; top:-20px; right:0px; color:#ccc;}
+        #cboxLoadingGraphic{background:url(../Images/loading.gif) no-repeat center center;}
+
+        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+        #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {border:0; padding:0; margin:0; overflow:visible; width:auto; background:none; }
+        
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+        #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {outline:0;}
+        
+        #cboxSlideshow{position:absolute; top:-20px; right:90px; color:#fff;}
+        #cboxPrevious{position:absolute; top:50%; left:5px; margin-top:-32px; background:url(../Images/controls.png) no-repeat top left; width:28px; height:65px; text-indent:-9999px;}
+        #cboxPrevious:hover{background-position:bottom left;}
+        #cboxNext{position:absolute; top:50%; right:5px; margin-top:-32px; background:url(../Images/controls.png) no-repeat top right; width:28px; height:65px; text-indent:-9999px;}
+        #cboxNext:hover{background-position:bottom right;}
+        #cboxClose{position:absolute; top:5px; right:5px; display:block; background:url(../Images/controls.png) no-repeat top center; width:38px; height:19px; text-indent:-9999px;}
+        #cboxClose:hover{background-position:bottom center;}
+
+
+/* BASE */
+/** Elements */
+html
+{
+    background-color: #303030;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-weight: normal;
+}
+
+h1
+{
+    margin: 0 0 1em;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+h2
+{
+    margin: 0 0 1em;
+    font-size: 1.6em;
+    font-weight: normal;
+    text-align: right;
+    color: #CCC;
+}
+
+
+#exam-container h3
+{
+    margin: 0 0 1em;
+    font-size: 2em;
+    font-weight: normal;
+    color: #666;
+}
+
+#exam-container h4
+{
+    font-size: 1.6em;
+    line-height: 1.6em;
+    margin: 0 0 1em;
+    width: 800px;
+}
+
+h5, h6
+{
+    margin: 0 0 1em;
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+a
+{
+    text-decoration: none;
+    color: #5AA8FD;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+input, select, textarea {
+    vertical-align:middle;
+    font-family: 'Ubuntu', sans-serif;
+    border: solid 2px rgb(170, 168, 168);
+    font-size: 16px;
+    color: #dddddd;
+    background-color: rgb(65, 65, 65);
+    border-radius: 4px;
+}
+
+textarea
+{
+    padding: 2px;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    width: 300px;
+    height: 150px;
+    overflow: auto;
+}
+
+body
+{
+    text-align:center;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #303030;
+    color: #dddddd;
+    height: 100%;
+}
+
+p
+{
+    margin: 0 0 1em;
+    font-size: 1.2em;
+}
+
+ul
+{
+    margin: 0 0 1em;
+}
+
+ul, ol 
+{
+    list-style-position: outside;
+    margin-left: 20px;
+}
+
+li
+{
+    margin-bottom: 0.2em;
+}
+
+table
+{
+    border-collapse: separate; /* For IE9 to render shadows */
+}
+
+input[type="radio"], input[type="checkbox"]
+{
+    margin: 0;
+    border: none;
+    background-color: #303030;
+}
+
+/** IDs - structure */
+#global-wrapper
+{
+    text-align: left;
+    position: relative;
+    min-height: 100%;
+}
+
+.lt-ie7 #global-container
+{
+    height: 100%;
+}
+
+#header
+{
+    background-image: linear-gradient(to bottom, #449CC5 7%, #99CDDB 77%);
+    background-image: -o-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -moz-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -webkit-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    background-image: -ms-linear-gradient(top, #449CC5 7%, #99CDDB 77%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#449CC5', EndColorStr='#99CDDB');
+    position: relative;
+}
+
+    #header .size-wrapper
+    {
+        position: relative;
+        min-height: 106px;
+    }
+
+    #logo-area
+    {
+        line-height:0;
+        position: absolute;
+        left: 0;
+        top: 7px;
+    }
+
+    #header .right
+    {
+        float: right;
+        padding-right:10px;
+    }
+
+    #void-area 
+    {
+        float: right;
+        /*padding-top: 10px;*/
+    }
+
+    #void-area ul 
+    {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        float:left;
+        width: 100%;
+    }
+
+    #void-area li 
+    {
+        margin: 0;
+        float: left;
+        display:block;
+    }
+
+    #void-area li span 
+    {
+        display:block;
+        padding:5px;
+    }
+
+    #login-area
+    {
+        float: right;
+        /*padding-top: 10px;*/
+    }
+
+    #login-area ul
+    {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        float:left;
+    }
+
+    /*#login-area li
+    {
+        margin: 0;
+        /*padding: 0 10px 0 0;
+        float: left;
+    }*/
+
+    #login-area a, #login-area li
+    {
+        display: block;
+        /*padding: 5px 20px;*/
+        padding: 10px 25px;
+        background-color: #117523;
+        border-radius: 0 0 5px 5px;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+    #login-area a:hover
+    {
+        text-decoration: none;
+    }
+
+    #login-admin
+    {
+        border-radius: 0 0 5px 5px;
+    }
+
+    #login-examiner
+    {
+        border-radius: 0 0 5px 5px;
+        margin-left:5px;
+    }
+
+
+.gradient-wrapper
+{
+    background:#303030 url('../Images/bg-gradient-grey.gif') 0 0 repeat-x;
+}
+
+#menu
+{
+    font-size: 1em;
+    line-height: 2em;
+    position: relative;
+    z-index: 3;
+}
+
+    #menu .size-wrapper
+    {
+        padding-left: 170px;
+        padding-right: 10px;
+        max-width: 820px;
+    }
+
+    #menu ul
+    {
+        background-color: #117523;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        float: left;
+        width: 100%;
+        border-radius: 0 0 5px 5px;
+        overflow: hidden;
+    }
+
+    #menu li
+    {
+        padding: 0;
+        margin: 0;
+        float: left;
+    }
+
+    #menu a
+    {
+        display: block;
+        padding: 0 20px;
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    #menu a:hover
+    {
+        text-decoration: none;
+        background-color: #34B34A;
+    }
+
+#content
+{
+    font-size: 0.8em;
+    line-height: 1.333em;
+    padding-bottom:42px;
+    /*position: relative;
+    z-index: 1;*/
+}
+
+    #content .size-wrapper
+    {
+        padding: 75px 10px 50px;
+        max-width: 980px;
+    }
+
+#footer
+{
+    height: 42px; /* same as content margin */
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+}
+    #footer .size-wrapper
+    {
+        padding: 10px;
+        max-width: 980px;
+        background-color: #117523;
+        border-radius: 5px 5px 0 0;
+    }
+
+    #copy
+    {
+        margin: 0;
+        text-align: right;
+        font-size: 0.75em;
+        padding: 5px;
+    }
+
+
+/** IDs - style */
+#question-examiner-button
+{
+    display: block;
+    padding: 5px 20px;
+    background-color: #56585B;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.8em;
+    float: left;
+    cursor: pointer;
+    /*border-radius: 5px;*/
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+}
+
+#question-void-button {
+    display: block;
+    padding: 5px 20px;
+    /*background-color: #117523;*/
+    background-color: #AF0202;
+    border-radius: 15px;
+    margin: 3px 0;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.8em;
+}
+
+#logoff-button
+{
+    display: block;
+    padding: 5px 20px;
+    background-color: #117523;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.8em;
+    float: left;
+    cursor: pointer;
+    /*border-radius: 5px;*/
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+}
+
+
+
+/* BASE COLOR IS #35B44B*/
+
+/** Classes - reusable */
+.form-button
+{
+    padding: 5px;
+    text-align: center;
+    outline: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    margin: 0 0 0 20px;
+    color: #ffffff;
+    background-color: #5D5D5D;
+    border: outset 1px #888;
+    border-radius: 2px;
+    padding: 5px 20px 7px 20px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    display: inline-block;
+    text-align: center;
+    line-height: 1.333em;
+    min-width: 80px;
+}
+
+    .form-button:hover
+    {
+        box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+        text-decoration: none;
+    }
+
+    .form-button:active {
+        box-shadow: none;
+        position: relative;
+        top: 2px;
+        outline: none;
+    }
+
+.examiner-button
+{
+    margin: 0px;
+    color: #ffffff;
+    background-color: #5D5D5D;
+    border: outset 1px #888;
+    border-radius: 12px;
+    padding: 5px 20px 7px 20px;
+    font-size: 1.2em;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    display: inline-block;
+    text-align: center;
+    line-height: 1.333em;
+    min-width: 80px;
+}
+
+.examiner-button:hover
+{
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+    text-decoration: none;  
+}
+
+.examiner-button:active {
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+    outline: none;
+}
+a:active {
+    outline:none;
+}
+
+.button
+{
+    min-width: 125px;
+    cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 21px;
+	color: #e0e0e0;
+	padding: 13px 20px;
+	background: rgb(69, 94, 100);
+	border-radius: 6px;
+	border: 1px outset rgb(110, 130, 141);
+	box-shadow:
+		2px 2px 4px rgba(000,000,000,0.2);
+}.button:hover {
+	box-shadow:
+		2px 2px 4px rgba(000,000,000,0.5);
+    text-decoration: none;
+    outline: none;
+ }
+.button:active {
+	position:relative;
+	top:2px;
+	box-shadow: none;
+	border: 1px outset rgb(110, 130, 141);
+    outline: none;
+}
+
+a.button 
+{
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 8px;
+    text-decoration: none;
+}
+
+.lt-ie9 .button
+{
+    behavior: url('/Content/PIE.htc');
+    box-shadow: 1px 1px 4px #000000;
+    position: relative;
+    background: #117523;
+}
+
+.size-wrapper
+{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.green
+{
+    color: #34B34A;
+}
+
+
+
+/* Candidate Page */
+.add-candidate {
+    
+}
+
+.add-candidate span {
+    vertical-align:middle;
+}
+
+.add-candidates-container
+{
+    margin: 2em 0;
+}
+
+#candidate-list-wrapper-packer
+{
+    padding-top: 3em;
+}
+
+    .candidate-list-wrapper h2
+    {
+        text-align: left;
+    }
+
+.candidate-list
+{
+    width:100%;
+}
+
+
+.candidate-list th 
+{
+    font-size: 1.3em;
+    border-top: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-weight: normal;
+    font-family: Verdana;
+}
+
+    .candidate-list td 
+    {
+        vertical-align: middle;
+        padding-top: 0.75em;
+        padding-bottom: 0.75em;
+    }
+
+    .candidate-name a
+    {
+        color: #ffffff;
+    }
+
+.candidate-list-item {
+    height: 60px;
+}
+
+.candidate-list-item .examiner-button {
+    font-size: 1.4em;
+    min-width: 120px;
+    font-weight: 300;
+}
+
+
+.candidate-first-name {
+    width: 12%;
+    padding-right: 0.5%;
+    min-width:120px;
+}
+
+.candidate-last-name {
+    padding-right: 0.5%;
+    min-width:120px;
+}
+
+.candidate-name
+{
+    width: 30%;
+    font-size: 1.6em;
+}
+
+.start-theory-link
+{
+    width: 20%;
+}
+
+.candidate-list p {
+    font-size: 1.3em;
+    margin: 0;
+    color: #999; /* Sorry josh, the tribe has voted, minty green doesn't work here */
+}
+
+.view-results-link {
+    width: 20%;
+}
+
+.th-practical-exam {
+    padding-left: 20px;
+}
+
+.input-practical-link {
+    width: 20%;
+    border-left: solid 1px #666;
+    padding-left: 20px;
+}
+
+.reset-cell
+{
+    width: 10%;
+    font-size: 1em !important;
+}
+
+
+
+
+#add-candidate-link
+{
+    font-size: medium;
+    font-weight: bold;
+    height: 50%;
+}
+
+/* Added by Adam and Joshua */
+#exam-container {
+    
+}
+    #exam-container hgroup
+    {
+        margin: 0 0 1.75em;
+    }
+
+    #exam-container fieldset {
+        margin-bottom: 50px;
+    }
+
+    #exam-container legend {
+        display:none;
+    }
+
+.answer-container {
+    padding: 0 10px 1em;
+    width: 800px;
+}
+
+.answer-container label {
+    font-size: 1.3em;
+    line-height: 1.3;
+}
+
+.answer-checkbox {
+    /*width: 20px;*/
+    border: none;
+}
+
+.answer-radiobutton {
+    /*width: 20px;*/
+    border: none;
+
+}
+
+.answer-description {
+    margin: 0 0 0 10px;
+}
+
+#mark-for-review {
+    /*display:block;*/
+    line-height: 2.5em;
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 1.3em;
+}
+
+    .review-page #mark-for-review
+    {
+        padding-left: 124px;
+    }
+
+#mark-for-review label{
+    display: inline;
+    font-size: 1.2em;
+}
+
+#mark-for-review input[type="checkbox"] {
+    height: 30px;
+    width: 30px;
+    outline: none;
+}
+
+.result-question {
+    padding-bottom: 10px;
+}
+
+.result-question-number {
+    font-size: 2.2em;
+    display: inline-block;
+}
+
+.result-question-description {
+    display: inline-block;
+    width: 850px;
+    padding-left: 30px;
+    vertical-align: top;
+    font-size: 1.1em
+}
+
+.result-answer {
+    padding-top: 3px;
+    padding-bottom: 5px;
+    padding-left: 35px;
+    margin-left: 55px;
+    margin-bottom: 10px;
+    width: 700px;
+}
+
+li.result-answer {
+    list-style-type: none;
+}
+
+#result-home {
+    float: right;
+}
+
+#score {
+    float: right;
+    font-size: 2em;
+}
+
+.correct, .incorrect, .indicate-correct {
+    background-repeat: no-repeat;
+}
+
+.correct {
+    background-image: url("../Images/tick.png");
+}
+
+.incorrect {
+    background-image: url("../Images/cross.png");
+}
+
+.indicate-correct {
+    background-image: url("../Images/arrow.png");
+}
+
+.result-question .correct {
+    border-bottom: solid 3px #00C000;
+    padding-bottom: 7px;
+    background-image: none;
+}
+
+.result-question .incorrect {
+    border-bottom: solid 3px #FF0000;
+    padding-bottom: 7px;
+    background-image: none;
+}
+
+#progress-bar-outer {
+    height: 15px;
+    margin-bottom: 3em;
+    padding: 5px;
+    background-color: #56585B;
+}
+
+#progress-bar-inner {
+    background-color: #99CDDB;
+    width: 0;
+    height: 15px;
+}
+
+#progress-bar-start {
+    float: left;
+    padding: 5px;
+    color: #999;
+}
+
+#progress-bar-end {
+    float: right;
+    padding: 5px;
+    color: #999;
+}
+
+.hidden {
+    display:none;
+}
+
+dt {
+    font-size: 1.4em;
+    padding-left: 50px;
+    margin: 5px 0px;
+    line-height: 1.5em;
+    cursor: pointer;
+}
+
+dd {
+    padding-left: 60px;
+    margin-bottom: 15px;
+}
+
+dt.marked {
+    background: url("../Images/arrow.png") 15px 50% no-repeat;
+}
+
+dt.not-answered .question-title {
+    background-color: rgba(224, 33, 33, 0.45);
+}
+
+.question-title {
+    display: block;
+    padding: 0 10px;
+}
+
+    .question-title span {
+        width: 110px;
+        display: inline-block;
+    }
+
+#content dt a {
+    font-size: .7em;
+    padding-left: 10px;
+    color: #999;
+}
+
+#key-unanswered {
+    background-color: rgba(224, 33, 33, 0.45);
+    padding: 5px;
+    /*margin-left: 20px;*/
+}
+
+#key-marked img {
+    vertical-align: middle;
+}
+
+#key {
+    background-color: rgb(70, 69, 69);
+    padding: 10px 1.5%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border: solid 2px #999;
+    float: right;
+    width: 35%;
+}
+
+    #key p {
+        margin: 5px 0 0 0;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+    }
+
+    #key ul
+    {
+        list-style:none;
+        margin:0;
+        padding:0;
+    }
+
+    #key li
+    {
+        margin:0 0 1em;
+        padding:0;
+    }
+
+#summary .button {
+    float: left;
+    margin-left: 50px;
+}
+
+#summary dl
+{
+    width:60%;
+    float:left;
+}
+
+.submit-button-container
+{
+    margin: 1em 0;
+}
+
+/*Playing with special checkboxes*/
+input[type=checkbox].css-checkbox {
+    display:none;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left:20px;
+    height:15px; 
+    display:inline-block;
+    line-height:15px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:15px;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -15px;
+}
+
+.css-label{
+    background-image:url(http://csscheckbox.com/checkboxes/dark-check-orange.png);
+}
+
+.text-justify {
+    text-align:justify;
+}
+
+#loading {
+    margin: 100px auto;
+    width: 100px;
+    height: 100px;
+    background: url("../Images/ajax-loader.gif") 50% 0 no-repeat;
+}
+
+#previous-button {
+    float: left;
+}
+
+#next-button, #summary-button {
+    float: right;
+}
+
+#navigation-container {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 720px)
+{
+    #previous-button
+    {
+        display:block;
+        float:none;
+        width: 100%;
+    }
+
+    #mark-for-review
+    {
+        display: block;
+        float:none;
+        width: 100%;
+    }
+
+    #next-button
+    {
+        display: block;
+        float:none;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px)
+{
+    #navigation-container
+    {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 320px)
+{
+    #global-wrapper
+    {
+        min-width: 320px;
+    }
+}
+
+#void-popup {
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    width: 980px;
+    height: 80%;
+}
+
+#void-authentication {
+    position: relative;
+    margin: 0 auto;
+    top: 10%;
+    width: 400px;
+    height: 170px;
+    background-color: rgb(44, 44, 44);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#void-authentication input {
+    font-size: 1.2em;
+}
+
+#void-id, #void-password
+{
+    width: 60%;
+    float:left;
+    margin-bottom:15px;
+}
+
+#void-authentication label {
+    font-size: 1.4em;
+    float:left;
+    width:35%;
+    text-align: left;
+    margin-bottom:10px;
+}
+
+#void-authentication br
+{
+    clear:both;
+}
+
+#void-confirm
+{
+    background-color: #5D5D5D;
+    border-radius: 2px;
+    color: #ffffff;
+    border: none;
+    padding: 5px 20px 7px 20px;
+    margin-right: 10px;
+}
+
+#void-cancel
+{
+    background-color: #5D5D5D;
+    border-radius: 2px;
+    color: #ffffff;
+    border: none;
+    padding: 5px 20px 7px 20px;
+}
+
+.reset-cell a{
+    color: rgb(243, 38, 38);
+}
+
+.reset-cell {
+    text-align: right;
+    width: 15%;
+}
+
+thead th {
+    text-align: left;
+    padding: 5px;
+}
+
+td
+{
+    padding: 5px;
+    vertical-align: top;
+}
+
+.td-comments 
+{
+    padding: 20px;
+    font-style:italic;
+    font-size:medium;
+    color:#aabbaa;
+}
+
+
+
+/** Adding some buttons */
+.button-add {
+    color: #efefef;
+    /*background: transparent url('../Images/btn-add-candidate.png') 0 0 no-repeat;
+    width: 88px;*/
+    height: 10px;
+    font-size: 1.3em;
+    line-height: 12px;
+    /*padding: 8px 30px 12px 8px;*/
+    text-align: center;
+    display: inline-block;
+    background-color: #5D5D5D;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    padding: 12px 20px 12px 20px;
+    margin-right:10px;
+    border: outset 2px #999;
+}
+
+a.button-add {
+    text-decoration: none;
+}
+
+.button-add:hover {
+    /*background: transparent url('../Images/btn-add-candidate-click.png') 0 0 no-repeat;*/
+    box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+}
+
+.button-add:active {
+    box-shadow: none;
+    position: relative;
+    top: 2px;    
+}
+
+.answer-checkbox {
+    display:none;
+}
+
+input[type="checkbox"] + .label-checkbox {
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 0 no-repeat;
+    margin: 0;
+    padding:9px 0 9px 40px;
+    display:block;
+}
+
+input[type="checkbox"]:checked + .label-checkbox {
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -198px no-repeat;
+}
+
+#is-marked-for-review
+{
+    display:none;
+}
+
+input[type="checkbox"] + .label-mark-for-review
+{
+    background: transparent url('../Images/sprite-input-buttons2.png') 100% 6px no-repeat;
+    margin: 0;
+    padding:9px 40px 9px 0;
+}
+
+input[type="checkbox"]:checked + .label-mark-for-review
+{
+    background-position:100% -192px;
+}
+
+
+.answer-radiobutton {
+    display:none;
+}
+
+input[type="radio"] + .label-radio {
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -400px no-repeat;
+    margin: 0;
+    padding:9px 0 9px 40px;
+    display:block;
+}
+
+input[type="radio"]:checked + .label-radio {
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -600px no-repeat;
+}
+
+#exam-instructions {
+    font-size: 1.4em;
+    line-height: 1.5;
+}
+
+#error-message {
+    color: rgb(255, 195, 5);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 15px;
+    margin: 20px 0 0 0;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+
+/** Candidate Create Form */
+.candidate-heading
+{
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #999999;
+}
+
+.editor-label
+{
+    float:left;
+    padding-bottom: 10px;
+    width: 190px;
+    padding: 2px;
+    font-size: 1.2em;
+}
+    .editor-label em
+    {
+        color: red;
+    }
+
+    .editor-label small
+    {
+        font-size: 0.9em;
+    }
+
+.editor-field
+{
+    float:left;
+    padding-bottom: 10px;
+}
+
+    .editor-field input[type="text"], .editor-field input[type="email"], .editor-field input[type="date"], .editor-field textarea, .editor-field input[type="password"]
+    {
+        width: 296px;
+        padding: 3px 5px;
+        border-radius: 4px;
+    }
+
+    .editor-field select
+    {
+        padding: 3px;
+    }
+
+    .editor-field option
+    {
+        padding: 3px;
+    }
+
+.display-label
+{
+    float: left; /*padding-bottom: 10px;*/
+    width: 210px;
+    padding: 10px;
+    font-size: 1.7em;
+}
+
+.display-field
+{
+    float: left;
+    padding: 14px 0;
+    font-size: 1.7em;
+    line-height: .6em;
+}
+
+.button-container
+{
+    text-align: right;
+    width: 502px;
+    margin-top: 1em;
+}
+
+.home-button-span
+{
+    float:left;
+}
+
+.control-button-span 
+{
+    float:right;
+}
+
+.control-button-span .examiner-button
+{
+    margin-left:10px;
+}
+
+input:focus {
+    /* IE blue button */
+}
+
+#tbl-demonstrated-packs
+{
+    margin-bottom: 1em;
+}
+
+#tbl-demonstrated-packs thead tr:hover
+{
+    background-color: inherit;
+}
+
+    #tbl-demonstrated-packs tr:hover
+    {
+        background-color: #202020;
+        -moz-transition: background-color 0.5s;
+        -o-transition: background-color 0.5s;
+        -webkit-transition: background-color 0.5s;
+        transition: background-color 0.5s;
+    }
+
+#tbl-demonstrated-packs .examiner-button {
+    border-radius: 5px;
+}
+
+tr.row-even
+{
+    background-color: #252525;
+    -moz-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
+    transition: background-color 0.5s;
+}
+
+tr.row-odd
+{
+    background-color: #2a2a2a;
+    -moz-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
+    transition: background-color 0.5s;
+}
+
+#tbl-demonstrated-packs .th-date
+{
+    width: 10%;
+}
+
+#tbl-demonstrated-packs .th-canopy-type
+{
+    width: 10%;
+}
+
+/*#tbl-demonstrated-packs .th-canopy-serial-no
+{
+    width: 10%;
+}*/
+
+#tbl-demonstrated-packs .th-harness-type
+{
+    width: 10%;
+}
+
+/*#tbl-demonstrated-packs .th-harness-serial-no
+{
+    width: 10%;
+}*/
+
+#tbl-demonstrated-packs .th-notes
+{
+}
+
+#tbl-demonstrated-packs .th-instructor-no
+{
+    width: 10%;
+}
+
+#tbl-demonstrated-packs .th-edit-button
+{
+    width: 10%;
+}
+
+/** Pilot practical : #form-pilot-practical */
+#form-pilot-practical table, #table-practical-pilot-view
+{
+    margin-bottom: 2em;
+    border-bottom: 1px solid #666666;
+}
+
+#form-pilot-practical th, #table-practical-pilot-view th
+{
+    font-size: 1.4em;
+    color: #999999;
+}
+
+#form-pilot-practical td, #table-practical-pilot-view td
+{
+    padding-top: 2em;
+    padding-bottom: 2.5em;
+    border-top: 1px solid #666666;
+}
+
+input[type='number']
+{
+    padding: 2px;
+    margin: 0;
+}
+
+.td-score input[type='number']
+{
+    font-size: 1.5em;
+    line-height: 1.25em;
+    width: 70px;
+    text-align: right;
+
+}
+
+.th-detail
+{
+    width:50%;
+}
+
+.td-detail .max-score, .summary-score
+{
+    font-style: italic;
+    color: #ff9;
+    font-size:medium;
+}
+
+.td-detail h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+#form-pilot-practical p.button-container
+{
+    width: 100%;
+}
+
+#form-pilot-practical .button-container input
+{
+    margin-right:20px;
+}
+
+.button-container input
+{
+    vertical-align: top;
+}
+
+
+/** Packer Practical View : #tbl-demonstrated-packs */
+#tbl-demonstrated-packs th
+{
+    padding: 15px;
+}
+
+#tbl-demonstrated-packs .middle td
+{
+    vertical-align: middle;
+    padding: 0.75em 15px;
+}
+
+/** Packer Practical Input / Edit : #form-packer-input, #form-packer-edit */
+#form-packer-input .editor-label, #form-packer-edit .editor-label
+{
+    width: 220px;
+}
+
+#form-packer-input .button-container, #form-packer-edit .button-container
+{
+    width: 532px;
+}
+
+#form-packer-edit #note
+{
+}
+
+
+/** Candidate View */
+.candidate-view .button-container
+{
+    text-align: left;
+    margin-right: 0;
+}
+
+.candidate-view .display-label 
+{
+    color: #999999;
+}
+
+.in-exam #content
+{
+    background: transparent url('../Images/bg-exam.jpg') 110% 160px no-repeat;
+    min-height: 610px;
+}
+
+
+input[type="text"]:disabled
+{
+    background-color: rgb(170, 168, 168);
+}
+
+
+
+.toggle {
+    cursor: pointer;
+}
+
+.delete-answer {
+    cursor:pointer;
+}
+
+#admin-menu {
+    text-decoration: none;
+}
+
+#question-list td {
+    vertical-align: middle;
+}
+
+#question-list td a {
+    text-decoration: none;
+    color: #DDDDDD;
+}
+
+#question-list td a:hover {
+    text-decoration: none;
+    color: #D5AE69;
+}
+
+#add-answer {
+    cursor: pointer;
+}
+
+
+/* ADMINISTRATION AREA */
+/** HOME */
+#admin-menu {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:14px;
+    line-height:20px;
+    padding: 4px;
+}
+
+#admin-menu ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+#admin-menu li {
+    margin:0 auto;
+    padding:0 7px 15px;
+    width: 300px;
+}
+
+#admin-menu a {
+    display:block;
+    padding:10px 20px;
+    color:#444444;
+    text-decoration:none;
+    border-top:1px solid #dedede;
+    border-right:1px solid #d8d8d8;
+    border-bottom:1px solid #d3d3d3;
+    border-left:1px solid #d6d6d6;
+    background:#aeaeae url('../Images/bg-btn-grey.jpg') 0 0 repeat-x;
+    border-radius:3px;
+    /*box-shadow:#cdcdcd 0px 1px 3px;*/
+}
+
+.rgba #admin-menu a {
+    box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+}
+
+#admin-menu a:hover {
+    text-decoration:none;
+    border-top:1px solid #989898;
+    border-right:1px solid #919191;
+    border-bottom:1px solid #878787;
+    border-left:1px solid #939393;
+    background:#c2c2c2 url('../Images/bg-btn-grey-hover.jpg') 0 0 repeat-x;
+    transition: background 0.1s ease-in-out;
+}
