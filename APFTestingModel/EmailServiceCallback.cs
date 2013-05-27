@@ -21,7 +21,7 @@ namespace APFTestingModel
         {
             InstanceContext context = new InstanceContext(this);
             proxy = new EmailServiceReference.EmailServiceOperationClient(context);
-            proxy.SendEmail(emailData);
+            proxy.SendEmailAsync(emailData);
         }
 
         public void Dispose()

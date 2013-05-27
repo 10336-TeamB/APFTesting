@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="mQoi1jhzE51we4j0bdsr5noJTBU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="EbzsHDSdRqTv60h1+ZSOuKZIaQE=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="wsDualHttpBinding" name="duplexendpoint1">
+    <bindingConfiguration bindingType="wsDualHttpBinding" name="duplexendpoint">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>duplexendpoint1</serializedValue>
+          <serializedValue>duplexendpoint</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -97,7 +97,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="duplexendpoint1" contract="EmailServiceReference.IEmailServiceOperation" bindingType="wsDualHttpBinding" address="http://b.programming.sit.edu.au/EmailServiceOperation.svc" bindingConfiguration="duplexendpoint1">
+    <endpoint name="duplexendpoint" contract="EmailServiceReference.IEmailServiceOperation" bindingType="wsDualHttpBinding" address="http://b.programming.sit.edu.au/EmailServiceOperation.svc" bindingConfiguration="duplexendpoint">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://b.programming.sit.edu.au/EmailServiceOperation.svc</serializedValue>
@@ -109,7 +109,7 @@
           <serializedValue>wsDualHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>duplexendpoint1</serializedValue>
+          <serializedValue>duplexendpoint</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>EmailServiceReference.IEmailServiceOperation</serializedValue>
@@ -172,7 +172,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>duplexendpoint1</serializedValue>
+          <serializedValue>duplexendpoint</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

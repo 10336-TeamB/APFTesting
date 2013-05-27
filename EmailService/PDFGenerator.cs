@@ -102,7 +102,7 @@ namespace EmailService
             coordY = 205;
             int labelIndent = 90;
             int counter = 0;
-            int totalDetails = (examType == _examTypePacker) ? 3 : 15;
+            int totalDetails = ExamDetails.Count - 1;
 
             for (; counter < totalDetails; ++counter)
             {
@@ -124,7 +124,7 @@ namespace EmailService
             if (examType == _examTypePacker)
             {
                 gfx.DrawString(String.Format("{0} has successfully demonstrated the required {1} supervised parachute packs", ExamDetails[0].Value, requiredPackerPacks),
-                    bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.Center);
+                    bodyRegular, XBrushes.Black, new XRect(0, coordY, page.Width, CoordY_BB), XStringFormats.TopCenter);
             }
             else
             {
