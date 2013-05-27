@@ -22,6 +22,7 @@ namespace APFTestingUI.Areas.Administration.Models.ExaminerManagement
 
         [Required]
         [Display(Name = "Password")]
+        [StringLength(50, MinimumLength=7, ErrorMessage="The password length must be between 5 and 50 characters.")]
         public string Password { get; set; }
 
         [Display(Name = "Examiner Pilot")]

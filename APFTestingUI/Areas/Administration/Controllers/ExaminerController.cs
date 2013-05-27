@@ -36,17 +36,23 @@ namespace APFTestingUI.Areas.Administration.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<ExamType> authorities = new List<ExamType>();
-                if (model.ExaminerPacker) authorities.Add(ExamType.PackerExam);
-                if (model.ExaminerPilot) authorities.Add(ExamType.PilotExam);
-                ExaminerDetails details = new ExaminerDetails(model.FirstName, model.LastName, model.Password, model.APFNumber, authorities);
-                _facade.CreateExaminer(details);
-                return RedirectToAction("Index");
+                try
+                {
+                    List<ExamType> authorities = new List<ExamType>();
+                    if (model.ExaminerPacker) authorities.Add(ExamType.PackerExam);
+                    if (model.ExaminerPilot) authorities.Add(ExamType.PilotExam);
+                    ExaminerDetails details = new ExaminerDetails(model.FirstName, model.LastName, model.Password, model.APFNumber, authorities);
+                    _facade.CreateExaminer(details);
+                    return RedirectToAction("Index");
+                }
+                catch (BusinessRuleException ex)
+                {
+
+                    ModelState.AddModelError("Exception", ex.Message);
+                }
+                
             }
-            else
-            {
-                return View();
-            }
+            return View(model);
         }
 
         [HttpGet]

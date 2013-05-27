@@ -12,7 +12,9 @@ namespace APFTestingUI.Areas.Administration.Controllers
     public class QuestionManagementController : AdminBaseController
     {
         public QuestionManagementController(IFacade facade) : base(facade) { }
-        
+
+        #region Pilot
+
         public ActionResult IndexPilot()
         {
             return View(new IndexPilot(_facade.FetchAllTheoryQuestionsPilot()));
@@ -40,7 +42,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         answers.Add(answer);
                     }
 
-                    
+
                     //Image
                     var fileName = "";
                     if (model.ImageFile != null)
@@ -51,8 +53,8 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
                         model.ImageFile.SaveAs(path);
                     }
-                    
-                    
+
+
                     var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.CreateTheoryQuestion(questionPackage, ExamType.PilotExam);
@@ -82,7 +84,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
                 return RedirectToAction("IndexPilot");
             }
 
-            
+
         }
 
         [HttpPost]
@@ -90,7 +92,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         public ActionResult EditPilot(Edit model)
         {
             //TODO: throw error if any input fields are left blank
-            
+
             if (ModelState.IsValid)
             {
                 try
@@ -103,7 +105,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
                     }
 
 
-					var fileName = "";
+                    var fileName = "";
                     if (!model.DeleteImage)
                     {
                         if (model.ImageFile != null)
@@ -139,13 +141,13 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         var pathOfFileToDelete = Path.Combine(Server.MapPath("~/QuestionImages"), model.ImagePath);
                         System.IO.File.Delete(pathOfFileToDelete);
                     }
-                    
 
 
 
-                    
 
-					var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
+
+
+                    var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.EditTheoryQuestion(questionPackage, model.Id);
 
@@ -155,8 +157,8 @@ namespace APFTestingUI.Areas.Administration.Controllers
                 {
                     ModelState.AddModelError("Exception", ex.Message);
                 }
-                
-                
+
+
             }
 
             return View(model);
@@ -189,16 +191,18 @@ namespace APFTestingUI.Areas.Administration.Controllers
             return View(new Display(question));
         }
 
+        #endregion
 
 
 
+        #region Packer
 
-		public ActionResult IndexPacker()
-		{
+        public ActionResult IndexPacker()
+        {
             //return View(new IndexPilot(_facade.FetchAllTheoryQuestionsPilot()));
             //FetchAllTheoryQuestionsPacker()
             return View(new IndexPacker(_facade.FetchAllTheoryQuestionsPacker()));
-		}
+        }
 
         [HttpGet]
         public ActionResult CreatePacker()
@@ -223,19 +227,19 @@ namespace APFTestingUI.Areas.Administration.Controllers
                     }
 
 
-					//Image
-					var fileName = "";
-					if (model.ImageFile != null)
-					{
-						var extension = model.ImageFile.ContentType.Split('/');
-						var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
-						fileName = String.Format("{0}.{1}", questionsWithImagesTotal, extension[1]);
-						var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
-						model.ImageFile.SaveAs(path);
-					}
+                    //Image
+                    var fileName = "";
+                    if (model.ImageFile != null)
+                    {
+                        var extension = model.ImageFile.ContentType.Split('/');
+                        var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
+                        fileName = String.Format("{0}.{1}", questionsWithImagesTotal, extension[1]);
+                        var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+                        model.ImageFile.SaveAs(path);
+                    }
 
 
-					var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
+                    var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.CreateTheoryQuestion(questionPackage, ExamType.PackerExam);
 
@@ -319,7 +323,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         System.IO.File.Delete(pathOfFileToDelete);
                     }
 
-					var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
+                    var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.EditTheoryQuestion(questionPackage, model.Id);
 
@@ -348,6 +352,9 @@ namespace APFTestingUI.Areas.Administration.Controllers
             var question = _facade.FetchTheoryQuestion(questionId);
             return View(new Display(question));
         }
+
+        #endregion
+
 
     }
 }

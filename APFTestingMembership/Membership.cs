@@ -18,6 +18,12 @@ namespace APFTestingMembership
 
         public int RegisterExaminer(string username, string password)
         {
+            if (WebSecurity.UserExists(username))
+            {
+                return -1;
+            }
+            
+            
             WebSecurity.CreateUserAndAccount(username, password);
             Roles.AddUsersToRole(new string[] { username }, "Examiner");
             return WebSecurity.GetUserId(username);
@@ -36,6 +42,11 @@ namespace APFTestingMembership
 
         public bool Login(string username, string password, bool rememberMe = false)
         {
+            if (username == null || password == null)
+            {
+                return false;
+            }
+            
             return WebSecurity.Login(username, password, rememberMe);
         }
 
