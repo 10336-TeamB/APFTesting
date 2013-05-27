@@ -23,7 +23,7 @@ namespace APFTestingUI.Controllers
             {
                 return RedirectToAction("Index", "Examiner");
             }
-			return RedirectToAction("Index", "Home");
+			return RedirectToAction("Login", "Account");
         }
     }
 }
