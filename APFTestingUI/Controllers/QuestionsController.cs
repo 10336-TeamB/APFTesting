@@ -26,7 +26,7 @@ namespace APFTestingUI.Controllers
                 _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
                 //throw new Exception("This is an ADAM test exception message");
             }
-            catch (Exception e)
+            catch (BusinessRuleException e)
             {
                 var resp = new HttpResponseMessage(HttpStatusCode.OK)
                {
