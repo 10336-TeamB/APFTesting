@@ -342,6 +342,7 @@ input[type="radio"], input[type="checkbox"]
         position: absolute;
         left: 0;
         top: 7px;
+        z-index: 100;
     }
 
     #header .right
@@ -1754,6 +1755,12 @@ input[type="text"]:disabled
 {
     text-align:left;
 }
+
+#manage-theory-question-wrap textarea {
+    width: 600px;
+    height: 75px;
+}
+
     
 .th-correct-answer
 {
@@ -1818,7 +1825,13 @@ input[type="submit"]
 
 #manage-theory-question-wrap.details .editor-field
 {
+    font-size: 1.3em;
     width:76%;
+    margin-bottom: 20px;
+}
+
+#manage-theory-question-wrap.details .question-title {
+    padding: 0;
 }
 
 #manage-theory-question-wrap.details .th-correct-answer
@@ -1837,6 +1850,18 @@ input[type="submit"]
     font-size: 1em;
     margin:0;
 }
+
+#manage-theory-question-wrap.details ol {
+    list-style-type: upper-alpha;
+}
+
+
+#manage-theory-question-wrap.details li {
+    list-style-type: upper-alpha;
+    font-size: 1.3em;
+    padding-left: 30px;
+}
+
 
 .is-correct
 {
