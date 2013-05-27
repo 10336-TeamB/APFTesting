@@ -68,11 +68,10 @@ namespace APFTestingModel
             {
                 List<KeyValuePair<string, string>> examDetails = new List<KeyValuePair<string, string>>();
                 examDetails.Add(new KeyValuePair<string, string>("Name", String.Format("{0} {1}", CandidatePacker.FirstName, CandidatePacker.LastName)));
-                examDetails.Add(new KeyValuePair<string, string>("Mobile Number", CandidatePacker.MobileNumber));
-                examDetails.Add(new KeyValuePair<string, string>("APF Number", CandidatePacker.APFNumber));
+                if (CandidatePacker.MobileNumber != null) examDetails.Add(new KeyValuePair<string, string>("Mobile Number", CandidatePacker.MobileNumber));
+                if (CandidatePacker.APFNumber != null) examDetails.Add(new KeyValuePair<string, string>("APF Number", CandidatePacker.APFNumber));
                 examDetails.Add(new KeyValuePair<string, string>("Score", String.Format("{0}/{1} ({2}%) -- Pass", TheoryComponent.NumberOfCorrectlyAnsweredQuestions, TheoryComponent.NumberOfQuestions, TheoryComponent.Score * 100)));
-                examDetails.Add(new KeyValuePair<string, string>("", PracticalComponent.NumOfRequiredAssessmentTasks.ToString()));
-
+                
                 EmailServiceReference.EmailDataContract data = new EmailServiceReference.EmailDataContract();
                 
                 data.Exam = examDetails.ToArray();
@@ -80,6 +79,8 @@ namespace APFTestingModel
                 data.Body = String.Format("Please find the result for {0} {1} attached.", CandidatePacker.FirstName, CandidatePacker.LastName);
                 data.Subject = "New packer exam";
                 data.ExamId = Id;
+                data.ExaminerNumber = Examiner.APFNumber;
+                data.RequiredPackerPacks = PracticalComponent.NumOfRequiredAssessmentTasks;
 
                 EmailServiceCallback emailCallback = new EmailServiceCallback();
                 emailCallback.CallEmailService(data);
