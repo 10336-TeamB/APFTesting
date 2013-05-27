@@ -8,6 +8,7 @@ namespace APFTestingUI {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            // Perhaps InitialiseSimpleMembership should be added here?
         }
     }
 }

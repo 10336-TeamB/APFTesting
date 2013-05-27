@@ -17,9 +17,10 @@ namespace APFTestingUI.Areas.Administration.Controllers
         //
         // GET: /Administration/Examiner/
 
-        public ActionResult Index()
+		public ActionResult Index(string errorMessage = "")
         {
-            var model = new Index(_facade.FetchAllExaminers());
+			ModelState.AddModelError("Exception", errorMessage);
+			var model = new Index(_facade.FetchAllExaminers());
             return View(model);
         }
 
@@ -83,7 +84,14 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult Delete(Guid examinerId)
         {
-            _facade.DeleteExaminer(examinerId);
+			try
+			{
+				_facade.DeleteExaminer(examinerId);
+			}
+			catch (BusinessRuleException ex)
+			{
+				return RedirectToAction("Index", new { errorMessage = ex.Message });
+			}
             return RedirectToAction("Index");
         }
     }

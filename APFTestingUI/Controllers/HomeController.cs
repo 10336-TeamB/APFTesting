@@ -1,12 +1,12 @@
 ﻿using APFTestingModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using APFTestingUI.Filters;
 using System.Web.Mvc;
 
-namespace APFTestingUI.Controllers {
-    public class HomeController : BaseController {
+namespace APFTestingUI.Controllers 
+{
+    [InitializeSimpleMembership]
+    public class HomeController : BaseController
+    {
         public HomeController(IFacade facade) : base(facade) { }
 
         //
@@ -14,7 +14,8 @@ namespace APFTestingUI.Controllers {
 
         public ActionResult Index()
         {
-            if (User.IsInRole("Administrator"))
+			var userRole = User.GetType();
+			if (User.IsInRole("Administrator"))
             {
                 return RedirectToAction("Index", new { area = "Administration", controller = "Home" });
             }
@@ -22,7 +23,7 @@ namespace APFTestingUI.Controllers {
             {
                 return RedirectToAction("Index", "Examiner");
             }
-            throw new Exception("User not valid");
+			return RedirectToAction("Index", "Home");
         }
     }
 }

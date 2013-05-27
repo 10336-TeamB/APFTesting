@@ -72,7 +72,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         public ActionResult EditPilot(Guid questionId, string errorMessage = "")
         {
             var question = _facade.FetchTheoryQuestion(questionId);
-            if (question.editableOrDeletable)
+            if (question.EditableOrDeletable)
             {
                 ModelState.AddModelError("Exception", errorMessage);
                 return View(new Edit(question));
@@ -254,7 +254,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         public ActionResult EditPacker(Guid questionId, string errorMessage = "")
         {
             var question = _facade.FetchTheoryQuestion(questionId);
-            if (question.editableOrDeletable)
+            if (question.EditableOrDeletable)
             {
                 ModelState.AddModelError("Exception", errorMessage);
                 return View(new Edit(question));

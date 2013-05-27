@@ -17,7 +17,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 			Description = question.Description;
 			Category = question.Category;
             Answers = question.Answers.Select(a => new AnswerItem(a)).ToList();
-            editableOrDeletable = question.editableOrDeletable;
+            EditableOrDeletable = question.EditableOrDeletable;
         }
 
         public Guid Id { get; set; }
@@ -27,7 +27,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 		public string Description { get; set; }
 		public TheoryQuestionCategory Category { get; set; }
 		public IEnumerable<AnswerItem> Answers { get; set; }
-        public bool editableOrDeletable { get; set; }
+        public bool EditableOrDeletable { get; set; }
 		
     }
 }

@@ -8,6 +8,8 @@
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Exam" nillable="true" type="q1:ArrayOfKeyValuePairOfstringstring" />
       <xs:element minOccurs="0" name="ExamId" type="ser:guid" />
       <xs:element minOccurs="0" name="ExamType" type="xs:int" />
+      <xs:element minOccurs="0" name="ExaminerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequiredPackerPacks" type="xs:int" />
       <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ToAddress" nillable="true" type="xs:string" />
     </xs:sequence>

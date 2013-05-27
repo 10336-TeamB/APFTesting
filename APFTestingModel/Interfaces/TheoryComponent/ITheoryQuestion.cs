@@ -15,6 +15,6 @@ namespace APFTestingModel
 		string Description { get; }
 		TheoryQuestionCategory Category { get; }
 		IEnumerable<IAnswer> Answers { get; }
-        bool editableOrDeletable { get; }
+        bool EditableOrDeletable { get; }
     }
 }

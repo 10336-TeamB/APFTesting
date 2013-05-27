@@ -18,7 +18,7 @@ namespace EmailService
         {
             PDFGenerator pdfGenerator = new PDFGenerator();
 
-            MemoryStream pdfStream = pdfGenerator.CreatePDF(emailData.Exam, emailData.ExamType);
+            MemoryStream pdfStream = pdfGenerator.CreatePDF(emailData.Exam, emailData.ExaminerNumber, emailData.ExamType, emailData.RequiredPackerPacks);
 
             string senderAddress = "teamb.email@gmail.com";
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();

@@ -194,10 +194,10 @@ namespace APFTestingModel
             switch (examType)
             {
                 case ExamType.PilotExam:
-                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPilot>().Include("CandidatePilot").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").Include("PracticalComponentPilot.SelectedAssessmentTasks.AssessmentTaskPilot").FirstOrDefault(e => e.Id == examId);
+                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("Examiner").OfType<ExamPilot>().Include("CandidatePilot").Include("CandidatePilot.Address").Include("PracticalComponentPilot").Include("PracticalComponentPilot.PracticalComponentTemplatePilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").Include("PracticalComponentPilot.SelectedAssessmentTasks.AssessmentTaskPilot").FirstOrDefault(e => e.Id == examId);
                     break;
                 case ExamType.PackerExam:
-                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").Include("PracticalComponentPacker.AssessmentTaskPackers").FirstOrDefault(e => e.Id == examId);
+                    exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").Include("TheoryComponent.SelectedTheoryQuestions").Include("Examiner").OfType<ExamPacker>().Include("CandidatePacker").Include("PracticalComponentPacker").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").Include("PracticalComponentPacker.AssessmentTaskPackers").FirstOrDefault(e => e.Id == examId);
                     break;
                 default:
                     //This should not occur as ExamType is strongly typed
@@ -462,6 +462,14 @@ namespace APFTestingModel
 
         public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
         {
+            if (result.CanopyType == null)
+            {
+                throw new BusinessRuleException("You must enter Canopy Type");
+            }
+            if (result.HarnessContainerType == null)
+            {
+                throw new BusinessRuleException("You must enter Harness/Container Type");
+            }
             var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);
             exam.AddPracticalComponentResult(result);
             _context.SaveChanges();

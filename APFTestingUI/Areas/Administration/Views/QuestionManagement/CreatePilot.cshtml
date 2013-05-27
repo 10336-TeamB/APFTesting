@@ -1,27 +1,30 @@
 ﻿@model APFTestingUI.Areas.Administration.Models.QuestionManagement.Create
 
 @{
-    ViewBag.Title = "CreatePilot";
+    ViewBag.Title = "Create Pilot Theory Question";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CreatePilot</h2>
 
+<div id="manage-theory-question-wrap">
+<h1>Add Theory Question - Pilot</h1>
+
+<h2>Question Details</h2>
 @using (Html.BeginForm("CreatePilot", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(false)
     @Html.AntiForgeryToken()
 
     <div class="editor-label">
-        @Html.LabelFor(model => model.Description) <em>*</em>
+        @Html.LabelFor(model => model.Description)
     </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description)
     </div>
     <div class="clear"></div>
 
     <div class="editor-label">
-        @Html.LabelFor(model => model.Category) <em>*</em>
+        @Html.LabelFor(model => model.Category)
     </div>
     <div class="editor-field">
         @Html.DropDownListFor(model => model.Category, Model.Categories)
@@ -29,19 +32,21 @@
     <div class="clear"></div>
     
     <div class="editor-label">
-        Image <em>*</em>
+        Image
     </div>
     <div class="editor-field">
         <input type="file" name="ImageFile" accept="image/*" />
     </div>
     <div class="clear"></div>
     
-    <span id="add-answer">Add</span>
+    <br />
+    <hr />
+    <h2>Possible Answers</h2>
     <table id="answers-table">
         <thead>
             <tr>
-                <th>Correct</th>
-                <th>Description</th>
+                <th class="th-correct-answer">Correct Answer(s)</th>
+                <th colspan="2">Answer Description</th>
             </tr>
         </thead>
 
@@ -51,7 +56,7 @@
                 for (int i = 0; i < 2; i++)
                 {
                     <tr>
-                        <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
+                        <td class="td-is-correct">@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
                         <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
                         <td class="delete-answer"><span>delete</span></td>
                     </tr>
@@ -62,7 +67,7 @@
                 for (int i = 0; i < Model.Answers.Count; i++)
                 {
                     <tr>
-                        <td>@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
+                        <td class="td-is-correct">@Html.EditorFor(model => model.Answers[i].IsCorrect)</td>
                         <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
                         <td class="delete-answer"><span>delete</span></td>
                     </tr>
@@ -72,9 +77,16 @@
             
         </tbody>
     </table>
+    <br />
+    <span id="add-answer">+ Add another answer</span><br/><br/>
     
+    
+    <br />
+    <hr />
+    @Html.ActionLink("Cancel", "IndexPilot", new { }, new { @class="form-button" })
     <input type="submit" value="Create" class="form-button" />
 }
+</div>
 
 
 @section scripts

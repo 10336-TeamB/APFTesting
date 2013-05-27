@@ -35,6 +35,12 @@ namespace APFTestingModel.EmailServiceReference {
         private int ExamTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExaminerNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RequiredPackerPacksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SubjectField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -98,6 +104,32 @@ namespace APFTestingModel.EmailServiceReference {
                 if ((this.ExamTypeField.Equals(value) != true)) {
                     this.ExamTypeField = value;
                     this.RaisePropertyChanged("ExamType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ExaminerNumber {
+            get {
+                return this.ExaminerNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExaminerNumberField, value) != true)) {
+                    this.ExaminerNumberField = value;
+                    this.RaisePropertyChanged("ExaminerNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RequiredPackerPacks {
+            get {
+                return this.RequiredPackerPacksField;
+            }
+            set {
+                if ((this.RequiredPackerPacksField.Equals(value) != true)) {
+                    this.RequiredPackerPacksField = value;
+                    this.RaisePropertyChanged("RequiredPackerPacks");
                 }
             }
         }
