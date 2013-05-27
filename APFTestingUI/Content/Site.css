@@ -838,7 +838,6 @@ a.button
     }
 
 .answer-container {
-    padding: 0 10px 1em;
     width: 800px;
 }
 
@@ -1658,4 +1657,211 @@ input[type="text"]:disabled
 
 #admin-menu {
     text-decoration: none;
+}
+
+#question-list td {
+    vertical-align: middle;
+}
+
+#question-list
+{
+    width:90%;
+}
+
+#question-list td a {
+    text-decoration: none;
+    color: #DDDDDD;
+}
+
+#question-list td a:hover {
+    text-decoration: none;
+    color: #D5AE69;
+}
+
+/*#question-list tr:hover
+{
+    background-color: #202020;
+    -moz-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
+    transition: background-color 0.5s;
+}*/
+
+#add-answer {
+    cursor: pointer;
+}
+
+
+/* ADMINISTRATION AREA */
+/** HOME */
+#admin-menu {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:14px;
+    line-height:20px;
+    padding: 4px;
+}
+
+#admin-menu ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+#admin-menu li {
+    margin:0 auto;
+    padding:0 7px 15px;
+    width: 300px;
+}
+
+#admin-menu a {
+    display:block;
+    padding:10px 20px;
+    color:#444444;
+    text-decoration:none;
+    border-top:1px solid #dedede;
+    border-right:1px solid #d8d8d8;
+    border-bottom:1px solid #d3d3d3;
+    border-left:1px solid #d6d6d6;
+    background:#aeaeae url('../Images/bg-btn-grey.jpg') 0 0 repeat-x;
+    border-radius:3px;
+}
+
+.rgba #admin-menu a {
+    box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.75);
+}
+
+#admin-menu a:hover {
+    text-decoration:none;
+    border-top:1px solid #989898;
+    border-right:1px solid #919191;
+    border-bottom:1px solid #878787;
+    border-left:1px solid #939393;
+    background:#c2c2c2 url('../Images/bg-btn-grey-hover.jpg') 0 0 repeat-x;
+    transition: background 0.1s ease-in-out;
+}
+
+/** [Manage] Theory Question - Pilot */
+/*** INDEX */
+.th-active
+{
+    padding-right:20px;
+}
+
+/*** ADD / EDIT */
+#manage-theory-question-wrap h2
+{
+    text-align:left;
+}
+    
+.th-correct-answer
+{
+    width:180px;
+}
+
+#answers-table
+{
+    width:100%;
+}
+
+#answers-table th
+{
+    padding-bottom: 10px;
+    font-size: 1.2em;
+    font-weight:normal;
+}
+
+#answers-table td
+{
+    vertical-align: middle;
+}
+
+#answers-table input[type="text"]
+{
+    width:96%;
+    padding:3px 2%;
+}
+
+#answers-table .td-is-correct
+{
+    padding-left:50px;
+}
+
+#answers-table td.delete-answer
+{
+    width:120px;
+    color: #ff0000;
+}
+
+#add-answer
+{
+    font-size: 1.2em;
+}
+
+input[type="submit"]
+{
+    vertical-align:top;
+}
+
+/*** VIEW */
+#manage-theory-question-wrap.details .examiner-button
+{
+    margin-right:20px;
+}
+
+#manage-theory-question-wrap.details .editor-label
+{
+    width:15%;
+    padding:0 2% 0 0;
+}
+
+#manage-theory-question-wrap.details .editor-field
+{
+    width:76%;
+}
+
+#manage-theory-question-wrap.details .th-correct-answer
+{
+    padding:0;
+    text-align:center;
+}
+
+#manage-theory-question-wrap.details th, #manage-theory-question-wrap.details td
+{
+    padding:0 0 10px;
+}
+
+#manage-theory-question-wrap.details h2.label
+{
+    font-size: 1em;
+    margin:0;
+}
+
+.is-correct
+{
+    color:green;
+    text-align:center;
+}
+
+.is-incorrect
+{
+    color:#ff0000;
+    text-align:center;
+}
+
+
+
+/* Theory Exam */
+.ol-question-list
+{
+    padding-top:0.5em;
+    list-style-type:upper-alpha;
+}
+
+.ol-question-list li
+{
+    margin:0;
+    padding:0.5em 10px 0.5em;
+    vertical-align: middle;
 }

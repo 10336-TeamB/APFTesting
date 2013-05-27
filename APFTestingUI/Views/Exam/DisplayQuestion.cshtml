@@ -57,22 +57,27 @@
                 <img src="~/QuestionImages/@Model.ImagePath" alt="" />
             </div>
         }
+
+        <ol class="ol-question-list">
         @foreach (var answer in Model.Answers)
         {
-            <div class="answer-container">
-                @if (Model.NumberOfCorrectAnswers == 1)
-                {
-                    <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="radio" class="answer-radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
-                    <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-radio">@answer.Description</label>
-                }
-                else
-                {
-                    <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
-                    <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-checkbox">@answer.Description</label>
-                }
+            <li>
+                <div class="answer-container">
+                    @if (Model.NumberOfCorrectAnswers == 1)
+                    {
+                        <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="radio" class="answer-radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                        <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-radio">@answer.Description</label>
+                    }
+                    else
+                    {
+                        <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                        <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-checkbox">@answer.Description</label>
+                    }
                 
-            </div>
+                </div>
+            </li>
         }
+        </ol>
     </fieldset>
     <div id="navigation-container">
         @{

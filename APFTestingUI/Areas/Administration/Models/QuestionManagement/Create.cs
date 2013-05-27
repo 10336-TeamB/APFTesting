@@ -27,6 +27,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 		public string ImagePath { get; set; }
 
         [Required]
+        [Display(Name = "Question Description")]
         public string Description { get; set; }
 
         [Required]

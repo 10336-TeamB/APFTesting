@@ -12,9 +12,7 @@ namespace APFTestingModel.Tests
             // Assemble
             var date = new DateTime(2012, 8, 12);
             var canopyType = "My CanopyType";
-            var canopySerial = "123";
             var harnessType = "My Harness Type";
-            var harnessSerial = "234";
             var note = "This pack was successful";
             var supervisorId = "567891";
 
@@ -39,17 +37,13 @@ namespace APFTestingModel.Tests
             // Assemble
             var dateOld = new DateTime(2012, 8, 12);
             var canopyTypeOld = "My CanopyType";
-            //var canopySerialOld = "123";
             var harnessTypeOld = "My Harness Type";
-            //var harnessSerialOld = "234";
             var noteOld = "This pack was successful";
             var supervisorIdOld = "567891";
 
             var dateNew = DateTime.Now;
             var canopyTypeNew = "New CanopyType";
-            var canopySerialNew = "987";
             var harnessTypeNew = "My Harness Type";
-            var harnessSerialNew = "876";
             var noteNew = "Good pack";
             var supervisorIdNew = "567892";
 
