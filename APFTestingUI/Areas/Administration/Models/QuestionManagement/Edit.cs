@@ -23,7 +23,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
             Category = question.Category;
             Answers = question.Answers.Select(a => new AnswerItem(a)).ToList();
             InitialiseCategories();
-            editableOrDeletable = question.EditableOrDeletable;
+            EditableOrDeletable = question.EditableOrDeletable;
 		}
 
 		#endregion
@@ -49,7 +49,7 @@ namespace APFTestingUI.Areas.Administration.Models.QuestionManagement
 		
         public List<AnswerItem> Answers { get; set; }
         
-        public bool editableOrDeletable { get; set; }
+        public bool EditableOrDeletable { get; set; }
 
         public HttpPostedFileBase ImageFile { get; set; }
 

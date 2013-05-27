@@ -27,7 +27,14 @@ namespace APFTestingUI
             }
 
             int maxValue = (int)maxValueProperty.GetValue(validationContext.ObjectInstance, null);
-            int intValue = Int32.Parse((string)value);
+            
+            int intValue;
+            bool isValid = Int32.TryParse((string)value, out intValue);
+            if (!isValid)
+            {
+                return new ValidationResult(string.Format("The value provided must be an integer"));
+            }
+
             if (maxValue < intValue || intValue < 0)
             {
                 return new ValidationResult(string.Format(ErrorMessage, maxValue));

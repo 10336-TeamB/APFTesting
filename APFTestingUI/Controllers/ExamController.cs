@@ -178,6 +178,14 @@ namespace APFTestingUI.Controllers
             return View(model);
 		}
 
+        
+        public ActionResult ReviewResult(Guid examId)
+        {
+            var model = new TheoryComponentResult(examId, _facade.FetchTheoryComponentResult(examId));
+            return View("Result", model);
+        }
+
+
 		// GET: /Exam/DisplayError/
 		public ActionResult DisplayError(string error)
 		{

@@ -11,9 +11,9 @@
         {
             @Html.HiddenFor(m => m.ExamId)
             <label for="void-id">Examiner ID:</label>
-            <input type="text" placeholder="Examiner ID" id="void-id"/><br/>
+            <input type="text" placeholder="Examiner ID" name="Username" id="void-id"/><br/>
             <label for="void-password">Password:</label>
-            <input type="password" placeholder="Password" id="void-password"/><br/>
+            <input type="password" placeholder="Password" name="Password" id="void-password"/><br/>
             <input id="void-confirm" type="submit" value="Confirm" />
             <input id="void-cancel" type="button" value="Cancel" />
         }
