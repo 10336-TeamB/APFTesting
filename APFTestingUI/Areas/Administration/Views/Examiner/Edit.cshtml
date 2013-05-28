@@ -9,7 +9,7 @@
 <p>Please fill in the fields below to create a new Pilot Candidate.<br />Asterisks (*) are placed next to required fields.</p>
 
 @using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(false)
     @Html.AntiForgeryToken()
 
     <fieldset>

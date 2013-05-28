@@ -18,7 +18,7 @@ namespace APFTestingUI.Areas.Administration.Models.ExaminerManagement
 
         [Required]
         [Display(Name = "APF Number")]
-        [RegularExpression(@"^[0-9]{5,6}$")]
+        [RegularExpression(@"^[0-9]{5,6}$", ErrorMessage = "APF Number must be 5 or 6 digits")]
         public string APFNumber { get; set; }
 
         [Required]

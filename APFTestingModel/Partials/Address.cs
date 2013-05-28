@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace APFTestingModel
@@ -10,6 +11,9 @@ namespace APFTestingModel
     {
         public Address(string address1, string address2, string suburb, string state, string postcode)
         {
+            if (!Regex.IsMatch(postcode, @"^[0-9]{4}$")) {
+                throw new BusinessRuleException("Postcode must have 4 digits");
+            }
             this.Address1 = address1;
             this.Address2 = address2;
             this.Suburb = suburb;
