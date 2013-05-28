@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace APFTestingModel
@@ -16,7 +17,14 @@ namespace APFTestingModel
 
         public void Edit(CandidatePackerDetails details)
         {
-            //TODO: Need to validate these values, incl. Mobile and APF Number
+            if (!Regex.IsMatch(details.APFNumber, @"^[0-9]{5,6}$"))
+            {
+                throw new BusinessRuleException("APF number must be 5 or 6 digits");
+            }
+            if (!Regex.IsMatch(details.Mobile, @"^04[0-9]{8}$"))
+            {
+                throw new BusinessRuleException("Mobile number must only contain numbers and conform to format 0400123123");
+            }
 
             this.FirstName = details.FirstName;
             this.LastName = details.LastName;

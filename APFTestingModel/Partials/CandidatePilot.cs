@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace APFTestingModel
@@ -16,7 +18,24 @@ namespace APFTestingModel
 
         public void Edit(CandidatePilotDetails details)
         {
-            //TODO: Need to validate these values, incl. Mobile and Email
+            if (!Regex.IsMatch(details.Mobile, @"^04[0-9]{8}$"))
+            {
+                throw new BusinessRuleException("Mobile number must only contain numbers and conform to format 0400123123");
+            }
+            if (!Regex.IsMatch(details.ARN, @"^[0-9]{6}$"))
+            {
+                throw new BusinessRuleException("ARN must a 6-digit number");
+            }
+
+            try
+            {
+                var mailAddress = new MailAddress(details.Email);
+            }
+            catch (FormatException e)
+            {
+                throw new BusinessRuleException(e.Message);
+            }
+
             FirstName = details.FirstName;
             LastName = details.LastName;
             DateOfBirth = details.DateOfBirth;
