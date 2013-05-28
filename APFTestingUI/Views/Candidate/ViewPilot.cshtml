@@ -33,12 +33,7 @@
         Address
     </div>
     <div class="display-field">
-        @Model.Address1<br />
-        @if (Model.Address2 != "")
-        {
-            @Model.Address2<br />
-        }
-        @Model.Suburb, @Model.State, @Model.Postcode
+        @Html.Raw(Model.Address.ToHtmlString())
     </div>
     <div class="clear"></div>
 

@@ -166,6 +166,7 @@ function clearAnswers() {
 };
 
 function populateAnswers(answers, type, className) {
+    var alphaCounter = 'A';
     $(answers).each(function (i) {
         var inputValues = {
             id: "ChosenAnswer-" + i,
@@ -184,11 +185,16 @@ function populateAnswers(answers, type, className) {
             'class': "answer-description label-" + type
         };
 
-        var label = $('<label />').text(this.Description).attr(labelValues);
+        var label = $('<label />').attr(labelValues);
 
         $('fieldset').append('<div class="answer-container" id="answer-container-' + i + '" />');
         $('#answer-container-' + i).append(input);
         $('#answer-container-' + i).append(label);
+        $('#answer-container-' + i).find(label).append('<span>' + alphaCounter + ') </span>');
+        $('#answer-container-' + i).find(label).append('<span>' + this.Description  + '</span>');
+        $('#answer-container-' + i).append('<div class="clear"/>');
+
+        alphaCounter = String.fromCharCode(alphaCounter.charCodeAt() + 1);
     });
 }
 

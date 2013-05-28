@@ -16,5 +16,20 @@ namespace APFTestingModel
             this.State = state;
             this.Postcode = postcode;
         }
+
+        public string ToHtmlString()
+        {
+            var br = "<br />";
+            string retStr;
+
+            retStr = Address1 + br;
+            if (Address2 != null)
+            {
+                retStr += Address2 + br;
+            }
+
+            retStr += String.Format("{1}, {2}{0}{3}", br, Suburb, Postcode, State);
+            return retStr;
+        }
     }
 }

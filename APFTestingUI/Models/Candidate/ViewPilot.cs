@@ -16,8 +16,7 @@ namespace APFTestingUI.Models.Candidate
             FirstName = candidate.FirstName;
             LastName = candidate.LastName;
             DateOfBirth = candidate.DateOfBirth;
-            Address1 = candidate.Address.Address1;
-            Address2 = candidate.Address.Address2;
+            Address = candidate.Address;
             Suburb = candidate.Address.Suburb;
             State = candidate.Address.State;
             Postcode = candidate.Address.Postcode;
@@ -45,9 +44,7 @@ namespace APFTestingUI.Models.Candidate
         [Display(Name = "D.O.B.")]
         public DateTime? DateOfBirth { get; set; }
 
-        public string Address1 { get; set; }
-
-        public string Address2 { get; set; }
+        public IAddress Address { get; set; }
 
         public string Suburb { get; set; }
 

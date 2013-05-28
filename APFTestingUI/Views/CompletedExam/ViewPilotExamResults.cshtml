@@ -1,17 +1,17 @@
 ﻿@model APFTestingUI.Models.CompletedExam.ExamDetailsPilot
 
 @{
-    ViewBag.Title = "ViewPilotExamResults";
+    ViewBag.Title = "Pilot Exam Summary";
 }
 
-<h2>ViewPilotExamResults</h2>
+<h2>Pilot Exam Summary</h2>
 
 <fieldset>
-    <legend>ExamDetailsPilot</legend>
+    <legend>Pilot Details</legend>
     @Html.HiddenFor(m => m.ExamId)
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ARN)
+         @Html.DisplayNameFor(model => model.ARN):
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ARN)
@@ -19,7 +19,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.FirstName)
+         @Html.DisplayNameFor(model => model.FirstName):
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.FirstName)
@@ -27,7 +27,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.LastName)
+         @Html.DisplayNameFor(model => model.LastName):
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.LastName)
@@ -35,7 +35,15 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
+         @Html.DisplayNameFor(model => model.Address):
+    </div>
+    <div class="display-field">
+        @Html.Raw(Model.Address.ToHtmlString())
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email):
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Email)
@@ -43,7 +51,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Mobile)
+         @Html.DisplayNameFor(model => model.Mobile):
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Mobile)
@@ -51,7 +59,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Phone)
+         @Html.DisplayNameFor(model => model.Phone):
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Phone)
@@ -59,7 +67,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.DOB)
+         @Html.DisplayNameFor(model => model.DOB):
     </div>
     <div class="display-field">
         @String.Format("{0:dd MMMM yyyy}", Model.DOB)
@@ -67,7 +75,23 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.MedicalExpiryDate)
+         @Html.DisplayNameFor(model => model.LicenseType):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LicenseType)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PilotMedical):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PilotMedical)
+    </div>
+    <div class="clear"></div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MedicalExpiryDate):
     </div>
     <div class="display-field">
         @String.Format("{0:dd MMMM yyyy}", Model.MedicalExpiryDate)
@@ -75,7 +99,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.HasInstrumentRating)
+         @Html.DisplayNameFor(model => model.HasInstrumentRating):
     </div>
     <div class="display-field">
         @if (@Model.HasInstrumentRating)
@@ -90,7 +114,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.HasValidBRF)
+         @Html.DisplayNameFor(model => model.HasValidBRF):
     </div>
     <div class="display-field">
         @if (@Model.HasValidBRF)
@@ -105,7 +129,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.TheoryScore)
+         @Html.DisplayNameFor(model => model.TheoryScore):
     </div>
     <div class="display-field">
         @String.Format("{0:N0}%", Model.TheoryScore * 100)
@@ -113,7 +137,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.HasPassedTheory)
+         @Html.DisplayNameFor(model => model.HasPassedTheory):
     </div>
     <div class="display-field">
         @if (@Model.HasPassedTheory)
@@ -128,7 +152,7 @@
     <div class="clear"></div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.HasPassedPractical)
+         @Html.DisplayNameFor(model => model.HasPassedPractical):
     </div>
     <div class="display-field">
         @if (@Model.HasPassedPractical)

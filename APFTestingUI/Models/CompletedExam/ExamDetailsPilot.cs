@@ -44,7 +44,8 @@ namespace APFTestingUI.Models.CompletedExam
 
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        
+
+        [Display(Name = "Address")]
         public IAddress Address { get; set; }
 
         [Display(Name = "Email Address")]

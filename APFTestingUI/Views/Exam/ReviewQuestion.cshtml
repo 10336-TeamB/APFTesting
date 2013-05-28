@@ -4,6 +4,23 @@
     Layout = "~/Views/Shared/_QuestionLayout.cshtml";
 }
 
+<style>
+    .answer-container > label, .answer-container > input
+    {
+        float:left;
+    }
+    
+    .answer-container > label > span {
+        float:left;
+        margin-left:15px;
+    }
+    
+    .answer-container > label > span + span
+    {
+        width:700px;
+    }
+</style>
+
 <div id="exam-container">
     <h2>@Model.ExamTitle</h2>
     
@@ -21,21 +38,31 @@
     @Html.HiddenFor(m => m.Index)
     @Html.HiddenFor(m => m.NavDirection)
     <fieldset>
-        @foreach (var answer in Model.Answers)
+        @if (Model.ImagePath != null && !Model.ImagePath.Equals(""))
         {
-            <div class="answer-container">
-                @if (Model.NumberOfCorrectAnswers == 1)
-                {
-                    <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="radio" class="answer-radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
-                    <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-radio">@answer.Description</label>
-                }
-                else
-                {
-                    <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
-                    <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-checkbox">@answer.Description</label>
-                }
-               
+            <div class="image-container">
+                <img src="~/QuestionImages/@Model.ImagePath" alt="" />
             </div>
+        }
+
+        @{
+            char alphaCounter = 'A';
+            foreach (var answer in Model.Answers)
+            {
+                <div class="answer-container">
+                    @if (Model.NumberOfCorrectAnswers == 1)
+                    {
+                        <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="radio" class="answer-radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                        <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-radio"><span>@(alphaCounter++))</span> <span>@answer.Description</span></label>
+                    }
+                    else
+                    {
+                        <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
+                        <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-checkbox"><span>@(alphaCounter++))</span> <span>@answer.Description</span></label>
+                    }
+                
+                </div>
+            }
         }
     </fieldset>
     <div id="navigation-container" class="review-page">
