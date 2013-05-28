@@ -19,42 +19,47 @@ namespace EmailService
             PDFGenerator pdfGenerator = new PDFGenerator();
 
             MemoryStream pdfStream = pdfGenerator.CreatePDF(emailData.Exam, emailData.ExaminerNumber, emailData.ExamType, emailData.RequiredPackerPacks);
-
-            string senderAddress = "teamb.email@gmail.com";
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            mail.To.Add("teamb@live.com.au");
-            mail.From = new MailAddress(senderAddress, "APFTesting", System.Text.Encoding.UTF8);
-            mail.Subject = emailData.Subject;
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
-            mail.Body = emailData.Body;
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
-            mail.IsBodyHtml = true;
-            mail.Priority = MailPriority.Normal;
-
-            //from old pdf stream
-            //var stream = new PDFStream().CreatePDF();
-            var attachment = new Attachment(pdfStream, "ExamResult.pdf", "application/pdf");
-            mail.Attachments.Add(attachment);
-
-            SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential(senderAddress, "tb123!@#");
-            client.Port = 587;
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true;
-
             bool success = false;
-            int retry = 0;
-            const int maxRetry = 3;
+            
+            if (pdfStream != null)
+            {
+                string senderAddress = "teamb.email@gmail.com";
+                System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+                mail.To.Add("teamb@live.com.au");
+                mail.From = new MailAddress(senderAddress, "APFTesting", System.Text.Encoding.UTF8);
+                mail.Subject = emailData.Subject;
+                mail.SubjectEncoding = System.Text.Encoding.UTF8;
+                mail.Body = emailData.Body;
+                mail.BodyEncoding = System.Text.Encoding.UTF8;
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.Normal;
 
-            while (!success && retry < maxRetry) {
-                try
+                //from old pdf stream
+                //var stream = new PDFStream().CreatePDF();
+                var attachment = new Attachment(pdfStream, "ExamResult.pdf", "application/pdf");
+                mail.Attachments.Add(attachment);
+
+                SmtpClient client = new SmtpClient();
+                client.Credentials = new System.Net.NetworkCredential(senderAddress, "tb123!@#");
+                client.Port = 587;
+                client.Host = "smtp.gmail.com";
+                client.EnableSsl = true;
+
+                
+                int retry = 0;
+                const int maxRetry = 3;
+
+                while (!success && retry < maxRetry)
                 {
-                    client.Send(mail);
-                    success = true;
-                }
-                catch (Exception)
-                {
-                    ++retry;
+                    try
+                    {
+                        client.Send(mail);
+                        success = true;
+                    }
+                    catch (Exception)
+                    {
+                        ++retry;
+                    }
                 }
             }
 
