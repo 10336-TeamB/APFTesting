@@ -16,6 +16,8 @@ namespace APFTestingModel
 
         public void Edit(CandidatePackerDetails details)
         {
+            //TODO: Need to validate these values, incl. Mobile and APF Number
+
             this.FirstName = details.FirstName;
             this.LastName = details.LastName;
             this.MobileNumber = details.Mobile;

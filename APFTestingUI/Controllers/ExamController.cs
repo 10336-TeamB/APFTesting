@@ -11,7 +11,7 @@ using System.Text;
 
 namespace APFTestingUI.Controllers
 {
-    //TODO: Add authorise attribute for an examiner
+    //TODO: Add authorise attribute for an examiner & Candidate
     public class ExamController : BaseController
     {
         public ExamController(IFacade facade) : base(facade) { }
@@ -26,8 +26,8 @@ namespace APFTestingUI.Controllers
 
         private string hashExamId(Guid examId) 
         {
-            // BAD
-            var password = "f53YvzQbkU6EK10XB0Dd";
+            // BAD - Need to store password outside of public source code
+            var password = "f53YvzQbk27x10XB0Dd";
             var modifiedId = examId.ToString() + password;
             byte[] input = Encoding.UTF8.GetBytes(modifiedId);
             var sha256 = SHA256.Create();
@@ -202,7 +202,8 @@ namespace APFTestingUI.Controllers
             }
             catch (BusinessRuleException)
             {
-                //TODO: Check which user is currently logged in and whether still valid...
+                // TODO: Implement Voiding as an AJAX request, then error message can easily be displayed next to validation form.
+                //TODO: Display error message to the user of failed login...
                 return RedirectToAction("Resume", new { examId = model.ExamId });
             }
             

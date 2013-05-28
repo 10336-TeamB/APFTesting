@@ -12,7 +12,6 @@ namespace APFTestingUI.Models.Candidate
     {
         private const int _arnLength = 6;
         private const int _phoneLength = 10;
-        private const int _mobileLength = 10;
         private const int _postcodeLength = 4;
 
         public EditPilot() 
@@ -86,7 +85,7 @@ namespace APFTestingUI.Models.Candidate
         [StringLength(_phoneLength, MinimumLength = _phoneLength)]
         public string Phone { get; set; }
 
-        [StringLength(_mobileLength, MinimumLength = _mobileLength)]
+        [RegularExpression(@"^04[0-9]{8}$")]
         public string Mobile { get; set; }
 
         [Required]
