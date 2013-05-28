@@ -4,13 +4,11 @@
     ViewBag.Title = "Exam Result";
 }
 
-<hgroup>
-    <h1>Exam Result</h1>
-    <h2>@Model.Message</h2>
-</hgroup>
+<h1>Exam Result</h1>
+<h2>@Model.Message</h2>
 
 <div id="score">You scored @Model.Score</div>
-<p>Please notify your examiner.</p>
+<p id="notify-examiner">Please notify your examiner.</p>
 
 <br/>
 <br/>

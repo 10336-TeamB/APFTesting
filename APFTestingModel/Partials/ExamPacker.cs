@@ -82,9 +82,9 @@ namespace APFTestingModel
                 data.ExaminerNumber = Examiner.APFNumber;
                 data.RequiredPackerPacks = PracticalComponent.NumOfRequiredAssessmentTasks;
 
-                EmailServiceCallback emailCallback = new EmailServiceCallback();
-                emailCallback.CallEmailService(data);
                 ExamStatus = ExamStatus.EmailInProgress;
+                EmailServiceCallback emailCallback = new EmailServiceCallback();
+                emailCallback.CallEmailService(data); 
             };
             _examState.FinaliseExam(a);
         }

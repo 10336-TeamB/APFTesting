@@ -221,6 +221,7 @@ namespace APFTestingModel
         {
             Exam exam = fetchExam(examId, examType);
             exam.FinaliseExam();
+            _context.SaveChanges();
         }
 
         #endregion 

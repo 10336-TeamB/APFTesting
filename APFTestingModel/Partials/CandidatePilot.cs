@@ -18,15 +18,19 @@ namespace APFTestingModel
 
         public void Edit(CandidatePilotDetails details)
         {
-            if (!Regex.IsMatch(details.Mobile, @"^04[0-9]{8}$"))
-            {
-                throw new BusinessRuleException("Mobile number must only contain numbers and conform to format 0400123123");
-            }
             if (!Regex.IsMatch(details.ARN, @"^[0-9]{6}$"))
             {
                 throw new BusinessRuleException("ARN must a 6-digit number");
             }
-
+            if (!Regex.IsMatch(details.Phone, @"^04[0-9]{8,10}$"))
+            {
+                throw new BusinessRuleException("Phone number must have between 8-10 digits");
+            }
+            if (!Regex.IsMatch(details.Mobile, @"^04[0-9]{8}$"))
+            {
+                throw new BusinessRuleException("Mobile number must only contain numbers and conform to format 0400123123");
+            }
+            
             try
             {
                 var mailAddress = new MailAddress(details.Email);

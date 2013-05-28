@@ -10,10 +10,6 @@ namespace APFTestingUI.Models.Candidate
 {
     public class EditPilot
     {
-        private const int _arnLength = 6;
-        private const int _phoneLength = 10;
-        private const int _postcodeLength = 4;
-
         public EditPilot() 
         {
             BuildPilotLicenceSelectList();
@@ -75,17 +71,17 @@ namespace APFTestingUI.Models.Candidate
         public SelectList States { get; set; }
 
         [Required]
-        [StringLength(_postcodeLength, MinimumLength = _postcodeLength)]
+        [RegularExpression(@"^[0-9]{4}$", ErrorMessage = "Postcode must have 4 digits")]
         public string Postcode { get; set; }
 
         [Required]
-        [StringLength(_arnLength, MinimumLength=_arnLength)]
+        [RegularExpression(@"^[0-9]{6}$", ErrorMessage = "ARN must a 6-digit number")]
         public string ARN { get; set; }
 
-        [StringLength(_phoneLength, MinimumLength = _phoneLength)]
+        [RegularExpression(@"^04[0-9]{8,10}$", ErrorMessage = "Phone number must have between 8-10 digits")]
         public string Phone { get; set; }
 
-        [RegularExpression(@"^04[0-9]{8}$")]
+        [RegularExpression(@"^04[0-9]{8}$", ErrorMessage = "Mobile number must be in the format 0400123123")]
         public string Mobile { get; set; }
 
         [Required]
@@ -112,6 +108,7 @@ namespace APFTestingUI.Models.Candidate
 
         [Required]
         [Display(Name = "Valid BFR")]
+        [BooleanMustBeTrue(ErrorMessage = "Pilot must have a valid BFR")]
         public bool ValidBFR { get; set; }
 
         // To return all values to the model using a struct

@@ -74,6 +74,11 @@ legend {
     color: #aa0000;
 }
 
+.field-validation-error {
+    color: #FF8888;
+    padding-left: 20px;
+}
+
 /* change colours to suit your needs */
 ins {
     background-color:#ff9;
@@ -1356,7 +1361,7 @@ input[type="radio"]:checked + .label-radio {
 
 #exam-instructions {
     font-size: 1.4em;
-    line-height: 1.5;
+    line-height: 1.8;
 }
 
 #error-message {
@@ -1714,6 +1719,20 @@ input[type="text"]:disabled
 }
 
 
+/* BASE LAYOUT */
+body.default-layout {
+    background: #303030 url('../Images/bg-texture-grey.jpg') 0 0 repeat;
+}
+
+body.default-layout .gradient-wrapper {
+    background:none;
+}
+
+body.default-layout #header {
+    background: #0c5176 url('../Images/img-cloud.jpg') 250px -40px no-repeat;
+    position: relative;
+}
+
 /* ADMINISTRATION AREA */
 /** HOME */
 #admin-menu {
@@ -1921,4 +1940,15 @@ input[type="submit"]
 .examiner-button.delete 
 {
     margin-left:3px;
+}
+
+#review-checkbox-example {
+    width: 200px;
+    vertical-align: middle;
+    padding-left: 20px;
+}
+
+#notify-examiner {
+    font-size: 1.6em;
+    color: #FFFFFF;
 }

@@ -4,10 +4,45 @@
     ViewBag.Title = "Error";
 }
 
-<div class="error-page-wrapper">
-    <h3>
+
+<style>
+    #error-page-wrapper h2 {
+        text-align:left;
+    }
+
+    #error-img-wrapper {
+        text-align:center;
+    }
+
+    #img-error {
+        width:220px;
+        position: relative;
+        margin:30px auto 10px auto;
+        -moz-animation: 3s ease 0s normal none infinite swing;
+        -moz-transform-origin: center top;
+        -webkit-animation:swing 3s infinite ease-in-out;
+        -webkit-transform-origin:top;
+    }
+    
+    @@-moz-keyframes swing {
+    0%{-moz-transform:rotate(-3deg)}
+    50%{-moz-transform:rotate(3deg)}
+    100%{-moz-transform:rotate(-3deg)}
+    }
+    
+    @@-webkit-keyframes swing {
+    0%{-webkit-transform:rotate(-3deg)}
+    50%{-webkit-transform:rotate(3deg)}
+    100%{-webkit-transform:rotate(-3deg)}
+    }
+
+</style>
+
+<div id="error-page-wrapper">
+    <h2>
         Sorry, an error occurred while processing your request.
-    </h3>
-    <p><img src="../Images/error.png" alt="Error" /></p>
-    <p>@ViewBag.ExceptionMessage</p>
+    </h2>
+    <div id="error-img-wrapper"><img src="../Images/error.png" alt="Error" id="img-error" /></div>
+    <div id="error-msg">@ViewBag.ExceptionMessage</div>
+    <div class="clear"></div>
 </div>

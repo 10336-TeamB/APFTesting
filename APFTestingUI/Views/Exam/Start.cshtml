@@ -7,23 +7,31 @@
 
 
 <div id="exam-container">
-    
-    <h1>Instructions</h1>
+    <h1>Exam Details</h1>
 
     <ul id="exam-instructions">
-        <li>The exam consists of @Model.NumberOfQuestions questions.</li>
+        <li>Number of questions: <strong>@Model.NumberOfQuestions</strong></li>
+
+        <li>Pass mark: <strong>@Model.PassMark%</strong></li>
+
         @if (Model.TimeLimit == 0)
         {
-            <li>There is no time limit for this exam.</li>
+            <li>No time limit</li>
         }
         else
         {
-            <li>You will have a time limit of @Model.TimeLimit minutes to complete the exam.</li>
+            <li>Time limit: <strong>@Model.TimeLimit</strong> minutes.</li>
         }
-        <li>You will need a score of @Model.PassMark% in order to pass.</li>
-        <li>Each question has only one correct answer <strong>UNLESS</strong> stated otherwise in the question.</li>
-        <li>You can mark questions for review and return to them later.</li>
-        <li>Once all questions have been answered a summary page will be displayed. From here you can go back to any question, and marked questions will be highlighted.</li>
+    </ul>
+    <br />
+
+    <h1>Instructions</h1>
+
+    <ul id="exam-instructions">
+        <li>For each question, select only one answer <strong>UNLESS</strong> stated otherwise in the question.</li>
+        <li>A summary page will be displayed once all questions have been answered. From here, you can go back to any question.</li>
+        <li>To mark a question for review, select this checkbox. <img id="review-checkbox-example" src="~/Images/review-checkbox-example.PNG" alt="Review checkbox"</li>
+        <li>Questions marked for review are highlighted on the summary page.</li>
         <li>Good luck!</li>
     </ul>
     <br />

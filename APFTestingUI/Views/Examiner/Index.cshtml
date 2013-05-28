@@ -77,17 +77,21 @@
                             @Html.ActionLink("Input Results", "PilotInput", "Practical", new { examId = candidate.LatestExamId, candidateId = candidate.Id }, new { @class = "examiner-button" })
                         }
                     </td>
-                    <td class="reset-cell">
-                        @Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})
+                    <td class="td-finalise-exam">
+                        @*@Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})*@
+                        
                         @if(candidate.PracticalEntered)
                         {
                             <br />
-                            @Html.ActionLink("Finalise Exam", "ViewPilotExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { })
+                            @Html.ActionLink("Finalise Exam", "ViewPilotExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { @class = "examiner-button" })
                         }
-                        else if (candidate.LatestExamStatus == APFTestingModel.ExamStatus.ExamCompleted)
+                        else if (candidate.LatestExamStatus == APFTestingModel.ExamStatus.EmailInProgress)
                         {
                             <br />
-                            @:Finalisation Pending
+                            <p>Finalisation Pending</p>
+                        } else if (candidate.LatestExamStatus == APFTestingModel.ExamStatus.SendingEmailFailed) {
+                            <br />
+                            @Html.ActionLink("Sending Email Failed, Retry", "ViewPilotExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { @class = "examiner-button" })
                         }
                     </td>
                 </tr>
@@ -153,17 +157,21 @@
                         }
                     </td>
                     
-                    <td class="reset-cell">
-                        @Html.ActionLink("Reset", "Reset", "Reset", new { examId = @candidate.LatestExamId }, new {})
-                        @if (candidate.PracticalEntered)
+                    <td class="td-finalise-exam">
+                        @*@Html.ActionLink("Reset", "Reset", "Reset", new { examId = candidate.LatestExamId }, new {})*@
+                        
+                        @if(candidate.PracticalEntered)
                         {
                             <br />
-                            @Html.ActionLink("Finalise Exam", "ViewPackerExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { })
+                            @Html.ActionLink("Finalise Exam", "ViewPilotExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { @class = "examiner-button" })
                         }
-                        else if (candidate.LatestExamStatus == APFTestingModel.ExamStatus.ExamCompleted)
+                        else if (candidate.LatestExamStatus == APFTestingModel.ExamStatus.EmailInProgress)
                         {
                             <br />
-                            @:Finalisation Pending
+                            <p>Finalisation Pending</p>
+                        } else if (candidate.LatestExamStatus == APFTestingModel.ExamStatus.SendingEmailFailed) {
+                            <br />
+                            @Html.ActionLink("Sending Email Failed, Retry", "ViewPilotExamResults", "CompletedExam", new { candidateId = candidate.Id, examId = candidate.LatestExamId, examType = APFTestingModel.ExamType.PackerExam }, new { @class = "examiner-button" })
                         }
                     </td>
                 </tr>

@@ -15,14 +15,21 @@ namespace SurveyUI.Controllers
             return View();
         }
 
-        public ActionResult ServerError() {
+        public ActionResult ServerError(string errorMessage = "") {
             Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             //Response.TrySkipIisCustomErrors = true;
 
             // Pass the exception into the view model for administrators eyes only
             //if (User.IsInRole("Administrator"))
             //{
-                ViewBag.ExceptionMessage = Server.GetLastError().Message;
+            var lastError = Server.GetLastError();
+            if (lastError != null)
+            {
+                ViewBag.ExceptionMessage = lastError.Message;
+            }
+            else{
+                ViewBag.ExceptionMessage = errorMessage;
+            }
             //}
 
             return View();

@@ -19,15 +19,23 @@ namespace APFTestingUI.Areas.Administration.Models.ExaminerManagement
 
         [Required]
         [Display(Name = "APF Number")]
-        [RegularExpression(@"^[0-9]{5,6}$")]
+        [RegularExpression(@"^[0-9]{5,6}$", ErrorMessage = "APF Number must be 5 or 6 digits")]
         public string APFNumber { get; set; }
 
         [Display(Name = "Old Password")]
+        [StringLength(50, MinimumLength = 7, ErrorMessage = "The password length must be between 5 and 50 characters.")]
+        [DataType(DataType.Password)]
         public string OldPassword { get; set; }
         
         [Display(Name = "New Password")]
         [StringLength(50, MinimumLength = 7, ErrorMessage = "The password length must be between 5 and 50 characters.")]
+        [DataType(DataType.Password)]
         public string NewPassword { get; set; }
+
+        [Display(Name = "Confirm your new Password")]
+        [DataType(DataType.Password)]
+        [Compare("NewPassword")]
+        public string ConfirmPassword { get; set; }
 
         [Display(Name = "Examiner Pilot")]
         public bool ExaminerPacker { get; set; }

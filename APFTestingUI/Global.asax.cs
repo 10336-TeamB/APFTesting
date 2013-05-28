@@ -22,5 +22,15 @@ namespace APFTestingUI {
 
             Bootstrapper.Initialise();
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+
+            if (ex is HttpRequestValidationException)
+            {
+                Response.Redirect("/ServerError?errorMessage=Possible malicious code entered into form", true);
+            }
+        } 
     }
 }

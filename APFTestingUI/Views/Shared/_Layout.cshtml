@@ -14,7 +14,7 @@
     <!--[if lt IE 9]>
     @Scripts.Render("~/Scripts/html5shiv.js")
     <![endif]-->
-   @* @Scripts.Render("~/Scripts/modernizr.custom.51211.js")*@
+    @Scripts.Render("~/Scripts/modernizr.custom.51211.js")
 </head>
 <body>
     <div id="global-wrapper">
@@ -29,6 +29,7 @@
         <div class="gradient-wrapper">
             <div id="content">
                 <div class="size-wrapper">
+
                     @RenderBody()
                     <div class="hidden">
                         <div id="error-message"></div>
@@ -37,7 +38,7 @@
             </div>
             <footer id="footer">
                 <div class="size-wrapper">
-                    <p id="copy">&copy; 2013 Australian Parachute Federation</p>
+                    <p id="copy">&copy; @(DateTime.Now.Year) Australian Parachute Federation</p>
                     <div class="clear"></div>
                 </div>
             </footer>

@@ -190,6 +190,7 @@
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\PracticalController.cs" />
     <Compile Include="Controllers\CompletedExamController.cs" />
+    <Compile Include="CustomValidation\BooleanMustBeTrueAttribute.cs" />
     <Compile Include="CustomValidation\DynamicRange.cs" />
     <Compile Include="Models\Candidate\ViewPacker.cs" />
     <Compile Include="Models\Candidate\ViewPilot.cs" />
@@ -244,9 +245,12 @@
     <Content Include="Content\images\cross.png" />
     <Content Include="Images\bg-btn-grey-hover.jpg" />
     <Content Include="Images\bg-btn-grey.jpg" />
+    <Content Include="Images\bg-texture-grey.jpg" />
     <Content Include="Images\error.png" />
+    <Content Include="Images\img-cloud.jpg" />
     <Content Include="Images\off.png" />
     <Content Include="Images\on.png" />
+    <Content Include="Images\review-checkbox-example.PNG" />
     <Content Include="QuestionImages\0.jpg" />
     <Content Include="Content\images\tick.png" />
     <Content Include="Content\PIE.htc" />
