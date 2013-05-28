@@ -364,7 +364,9 @@ namespace APFTestingModel
 
 		public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker()
 		{
-			return _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Include("SelectedTheoryQuestions").ToList();
+			var questions = _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Include("SelectedTheoryQuestions").ToList();
+
+            return questions;
 		}
 
 
@@ -735,6 +737,11 @@ namespace APFTestingModel
             Membership membership = new Membership();
             examinerDetails.UserName = examinerDetails.APFNumber;
             int userId = membership.RegisterExaminer(examinerDetails.UserName, examinerDetails.Password);
+            if (userId == -1)
+            {
+                throw new BusinessRuleException(String.Format("APF number {0} already exists.", examinerDetails.APFNumber));
+            }
+            
             Examiner examiner = new Examiner(examinerDetails, userId);
             _context.People.Add(examiner);
             _context.SaveChanges();

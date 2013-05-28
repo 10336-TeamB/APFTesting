@@ -64,7 +64,7 @@
                     <td class="view-results-link">
                         @if (candidate.TheoryPassed || candidate.TheoryComponentFailed)
                         {
-                            @Html.ActionLink("View Results", "Result", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
+                            @Html.ActionLink("View Results", "ReviewResult", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
                     </td>
                     <td class="input-practical-link">
@@ -139,7 +139,7 @@
                     <td class="view-results-link">
                         @if (candidate.TheoryPassed || candidate.TheoryComponentFailed)
                         {
-                            @Html.ActionLink("View Results", "Result", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
+                            @Html.ActionLink("View Results", "ReviewResult", "Exam", new { examId = candidate.LatestExamId }, new { @class = "examiner-button" })
                         }
                     </td>
                     <td class="input-practical-link">
