@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace APFTestingModel
@@ -17,6 +18,15 @@ namespace APFTestingModel
 
         public void EditExaminer(ExaminerDetails examinerDetails)
         {
+            if (!Regex.IsMatch(examinerDetails.APFNumber, @"^[0-9]{5,6}$"))
+            {
+                throw new BusinessRuleException("APF number must be 5 or 6 digits");
+            }
+            if (examinerDetails.Authorities.Count == 0)
+            {
+                throw new BusinessRuleException("Examiner must have at least one authority type");
+            }
+
             FirstName = examinerDetails.FirstName;
             LastName = examinerDetails.LastName;
             APFNumber = examinerDetails.APFNumber;

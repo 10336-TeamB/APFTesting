@@ -742,6 +742,7 @@ namespace APFTestingModel
                 throw new BusinessRuleException(String.Format("APF number {0} already exists.", examinerDetails.APFNumber));
             }
             
+            // TODO: Need to validate APF Number
             Examiner examiner = new Examiner(examinerDetails, userId);
             _context.People.Add(examiner);
             _context.SaveChanges();

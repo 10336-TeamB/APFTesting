@@ -9,8 +9,6 @@ namespace APFTestingUI.Models.Candidate
 {
     public class EditPacker
     {
-        private const int _mobileLength = 10;
-
         public EditPacker() { }
 
         public EditPacker(ICandidatePacker candidate)
@@ -34,11 +32,12 @@ namespace APFTestingUI.Models.Candidate
         public string LastName { get; set; }
 
         [Required]
-        [StringLength(_mobileLength, MinimumLength = _mobileLength)]
+        [RegularExpression(@"^04[0-9]{8}$")]
         public string Mobile { get; set; }
 
         [Required]
         [Display(Name = "APF Number")]
+        [RegularExpression(@"^[0-9]{5,6}$")]
         public string APFNumber { get; set; }
 
         // To return all values to the model using a struct

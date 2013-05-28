@@ -19,6 +19,7 @@ namespace APFTestingUI.Areas.Administration.Models.ExaminerManagement
 
         [Required]
         [Display(Name = "APF Number")]
+        [RegularExpression(@"^[0-9]{5,6}$")]
         public string APFNumber { get; set; }
 
         [Display(Name = "Old Password")]
