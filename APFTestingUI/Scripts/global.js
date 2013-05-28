@@ -5,7 +5,7 @@ $(function() {
         $("#logoff").slideToggle();
     });
 
-    $("#logoff").click(function () {
+    $("#button-logoff").click(function () {
         $("#logout-form").submit();
     });
 });

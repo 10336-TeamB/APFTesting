@@ -379,6 +379,8 @@ input[type="radio"], input[type="checkbox"]
         padding:5px;
     }
 
+
+
     #login-area
     {
         float: right;
@@ -393,12 +395,26 @@ input[type="radio"], input[type="checkbox"]
         float:left;
     }
 
-    /*#login-area li
+    #login-area li
     {
         margin: 0;
-        /*padding: 0 10px 0 0;
         float: left;
-    }*/
+        padding: 5px 20px;
+        min-width:90px;
+    }
+
+    #login-area li span
+    {
+        display:block;
+        padding:5px;
+        text-align:center;
+    }
+
+        #login-area li li
+        {
+            padding:0;
+            text-align:center;
+        }
 
     #login-area a, #login-area li
     {
@@ -1295,14 +1311,14 @@ a.button-add {
 }
 
 input[type="checkbox"] + .label-checkbox {
-    background: transparent url('../Images/sprite-input-buttons2.png') 0 0 no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 5px no-repeat;
     margin: 0;
     padding:9px 0 9px 40px;
     display:block;
 }
 
 input[type="checkbox"]:checked + .label-checkbox {
-    background: transparent url('../Images/sprite-input-buttons2.png') 0 -198px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -193px no-repeat;
 }
 
 #is-marked-for-review
@@ -1328,14 +1344,14 @@ input[type="checkbox"]:checked + .label-mark-for-review
 }
 
 input[type="radio"] + .label-radio {
-    background: transparent url('../Images/sprite-input-buttons2.png') 0 -400px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -395px no-repeat;
     margin: 0;
     padding:9px 0 9px 40px;
     display:block;
 }
 
 input[type="radio"]:checked + .label-radio {
-    background: transparent url('../Images/sprite-input-buttons2.png') 0 -600px no-repeat;
+    background: transparent url('../Images/sprite-input-buttons2.png') 0 -595px no-repeat;
 }
 
 #exam-instructions {
@@ -1410,14 +1426,19 @@ input[type="radio"]:checked + .label-radio {
     width: 210px;
     padding: 10px;
     font-size: 1.7em;
+    line-height:1.1em;
+    color:#aaaaaa;
 }
 
 .display-field
 {
     float: left;
-    padding: 14px 0;
+    /*padding: 14px 0;*/
+    /*font-size: 1.7em;*/
+    /*line-height: .6em;*/
+    line-height: 1.1em;
+    padding:10px 0;
     font-size: 1.7em;
-    line-height: .6em;
 }
 
 .button-container
@@ -1853,6 +1874,7 @@ input[type="submit"]
 
 #manage-theory-question-wrap.details ol {
     list-style-type: upper-alpha;
+    list-style-position: inside;
 }
 
 
@@ -1889,4 +1911,14 @@ input[type="submit"]
     margin:0;
     padding:0.5em 10px 0.5em;
     vertical-align: middle;
+}
+
+#manage-theory-question-wrap.details td.alphaCounter
+{
+    padding-right:15px;
+}
+
+.examiner-button.delete 
+{
+    margin-left:3px;
 }

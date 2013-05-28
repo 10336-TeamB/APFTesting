@@ -40,31 +40,29 @@
             </tr>
         </thead>
         <tbody>
-            <ol>
-                @{ var listValue = 1;}
-                @foreach (var answer in Model.Answers)
+            @{
+                char alphaCounter = 'A';
+                foreach (var answer in Model.Answers)
                 {
-                    <tr>
-                        @if (answer.IsCorrect)
-                        {
-                            <td class="is-correct">Yes</td>
-                        }
-                        else
-                        {
-                            <td class="is-incorrect">No</td>
-                        }
-                        <td>
-                            <li value="@listValue">
-                                @answer.Description
-                            </li>
-                        </td>
-                    </tr>
-                    
+                    string spanClass;
+                    string spanValue;
+                    if (answer.IsCorrect)
                     {
-                        listValue++;
+                        spanClass = "is-correct";
+                        spanValue = "Yes";
                     }
+                    else
+                    {
+                        spanClass = "is-incorrect";
+                        spanValue = "No";
+                    }
+                    <tr>
+                        <td><span class="@spanClass">@spanValue</span></td>
+                        <td class="alphaCounter">@(alphaCounter++))</td>
+                        <td>@answer.Description</td>
+                    </tr>
                 }
-            </ol>
+            }
         </tbody>
     </table>
 </div>

@@ -22,8 +22,7 @@ namespace APFTestingMembership
             {
                 return -1;
             }
-            
-            
+
             WebSecurity.CreateUserAndAccount(username, password);
             Roles.AddUsersToRole(new string[] { username }, "Examiner");
             return WebSecurity.GetUserId(username);

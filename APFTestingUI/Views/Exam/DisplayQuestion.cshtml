@@ -4,6 +4,24 @@
     Layout = "~/Views/Shared/_QuestionLayout.cshtml";
 }
 
+<style>
+    .answer-container > label, .answer-container > input
+    {
+        float:left;
+    }
+    
+    .answer-container > label > span {
+        float:left;
+        margin-left:15px;
+    }
+    
+    .answer-container > label > span + span
+    {
+        width:700px;
+    }
+</style>
+
+
 <div class="hidden" id="loading"></div>
 <div id="void-popup" class="hidden">
     <div id="void-authentication">
@@ -58,26 +76,26 @@
             </div>
         }
 
-        <ol class="ol-question-list">
-        @foreach (var answer in Model.Answers)
-        {
-            <li>
+        @{
+            char alphaCounter = 'A';
+            foreach (var answer in Model.Answers)
+            {
                 <div class="answer-container">
                     @if (Model.NumberOfCorrectAnswers == 1)
                     {
                         <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="radio" class="answer-radiobutton" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
-                        <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-radio">@answer.Description</label>
+                        <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-radio"><span>@(alphaCounter++))</span> <span>@answer.Description</span></label>
                     }
                     else
                     {
                         <input id="ChosenAnswer-@answer.DisplayOrderIndex" type="checkbox" class="answer-checkbox" name="ChosenAnswer" value="@answer.DisplayOrderIndex" checked="@answer.IsChecked" />
-                        <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-checkbox">@answer.Description</label>
+                        <label for="ChosenAnswer-@answer.DisplayOrderIndex" class="answer-description label-checkbox"><span>@(alphaCounter++))</span> <span>@answer.Description</span></label>
                     }
-                
-                </div>
-            </li>
+                    <div class="clear"></div>
+                </div> 
+            }
         }
-        </ol>
+        
     </fieldset>
     <div id="navigation-container">
         @{

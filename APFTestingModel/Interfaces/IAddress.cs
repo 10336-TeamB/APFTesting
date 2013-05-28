@@ -13,5 +13,7 @@ namespace APFTestingModel
         string Suburb { get; }
         string State { get; }
         string Postcode { get; }
+
+        string ToHtmlString();
     }
 }
