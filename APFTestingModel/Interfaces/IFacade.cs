@@ -29,7 +29,7 @@ namespace APFTestingModel
         void SubmitTheoryComponent(Guid examId);
 
         IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid candidateId);
-        IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent);
+        IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent, out int requiredNumberOfTasks);
         IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId);
 
         void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId);

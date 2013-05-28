@@ -492,9 +492,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent)
+        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent, out int requiredNumberOfTasks)
         {
             var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").First(e => e.Id == examId);
+            requiredNumberOfTasks = exam.PracticalComponentPacker.NumOfRequiredAssessmentTasks;
             isCompetent = exam.PracticalComponentIsCompetent;
             return exam.AssessmentTasks;
         }
