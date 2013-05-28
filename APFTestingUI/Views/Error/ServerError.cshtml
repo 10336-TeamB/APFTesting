@@ -4,8 +4,10 @@
     ViewBag.Title = "Error";
 }
 
-<h3>
-    Sorry, an error occurred while processing your request.
-</h3>
-
-<div>@ViewBag.ExceptionMessage</div>
+<div class="error-page-wrapper">
+    <h3>
+        Sorry, an error occurred while processing your request.
+    </h3>
+    <p><img src="../Images/error.png" alt="Error" /></p>
+    <p>@ViewBag.ExceptionMessage</p>
+</div>

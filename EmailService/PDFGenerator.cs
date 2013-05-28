@@ -78,7 +78,7 @@ namespace EmailService
             return _stream;
         }
 
-        public PdfCreationResult CreateBody(string examinerNumber, int examType, int requiredPackerPacks)
+        private PdfCreationResult CreateBody(string examinerNumber, int examType, int requiredPackerPacks)
         {
             try
             {
