@@ -1,17 +1,23 @@
-﻿@if (User.Identity.IsAuthenticated) {
+﻿<style>
+    #btn-log-off {
+        color:#ffffff;
+        background-color:green;
+        border:none;
+        border-radius: 0 0 10px 10px;
+        padding:10px 30px;
+        margin:0;
+        cursor: pointer;
+    }
+</style>
+
+@if (User.Identity.IsAuthenticated) {
     using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logout-form" })) {
         @Html.AntiForgeryToken()
         string name = User.Identity.Name;
         <div class="size-wrapper">
             <div class="right">
                 <div id="login-area">
-                    <ul class="login-area-menu">
-                        <li id="login-name"><span>@name</span>
-                            <ul>
-                                <li id="logoff"><span id="button-logoff">Log off</span></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <input id="btn-log-off" type="submit" value="Log Off" />
                     @*<ul id="login-area-menu">
                         <li id="login-name">@User.Identity.Name
                             <span id="logoff">Log off</span>

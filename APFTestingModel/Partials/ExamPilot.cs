@@ -108,11 +108,10 @@ namespace APFTestingModel
                 data.Subject = "New pilot exam";
                 data.ExamId = Id;
                 data.ExaminerNumber = Examiner.APFNumber;
-                
 
+                ExamStatus = ExamStatus.EmailInProgress;
                 EmailServiceCallback emailCallback = new EmailServiceCallback();
                 emailCallback.CallEmailService(data);
-                ExamStatus = ExamStatus.EmailInProgress;
             };
             _examState.FinaliseExam(a);
         }
