@@ -375,6 +375,7 @@
     <None Include="Properties\PublishProfiles\APFTesting.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\FTP-A.pubxml" />
+    <None Include="Properties\PublishProfiles\FTP-B.pubxml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
