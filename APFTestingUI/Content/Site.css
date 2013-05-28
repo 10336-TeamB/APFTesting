@@ -1714,6 +1714,20 @@ input[type="text"]:disabled
 }
 
 
+/* BASE LAYOUT */
+body.default-layout {
+    background: #303030 url('../Images/bg-texture-grey.jpg') 0 0 repeat;
+}
+
+body.default-layout .gradient-wrapper {
+    background:none;
+}
+
+body.default-layout #header {
+    background: #0c5176 url('../Images/img-cloud.jpg') 250px -40px no-repeat;
+    position: relative;
+}
+
 /* ADMINISTRATION AREA */
 /** HOME */
 #admin-menu {

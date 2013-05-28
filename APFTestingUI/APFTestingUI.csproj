@@ -244,7 +244,9 @@
     <Content Include="Content\images\cross.png" />
     <Content Include="Images\bg-btn-grey-hover.jpg" />
     <Content Include="Images\bg-btn-grey.jpg" />
+    <Content Include="Images\bg-texture-grey.jpg" />
     <Content Include="Images\error.png" />
+    <Content Include="Images\img-cloud.jpg" />
     <Content Include="Images\off.png" />
     <Content Include="Images\on.png" />
     <Content Include="QuestionImages\0.jpg" />
