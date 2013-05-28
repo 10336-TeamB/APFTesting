@@ -48,6 +48,14 @@
         <div class="clear"></div>
         
         <div class="editor-label">
+            @Html.LabelFor(model => model.ConfirmPassword) <em>*</em>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ConfirmPassword)
+        </div>
+        <div class="clear"></div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.ExaminerPilot)
         </div>
         <div class="editor-field">
