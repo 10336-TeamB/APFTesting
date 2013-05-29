@@ -167,7 +167,7 @@
     <div class="clear"></div>
 
 </fieldset>
-<p>
-    @Html.ActionLink("Submit", "SubmitPilotExamResults", new { examId = Model.ExamId }) |
-    @Html.ActionLink("Back to List", "Index", "Examiner")
+<p class="button-container">
+    @Html.ActionLink("Cancel", "Index", "Examiner", new {}, new { @class="examiner-button"})
+    @Html.ActionLink("Submit", "SubmitPilotExamResults", new { examId = Model.ExamId }, new { @class="examiner-button"})
 </p>
