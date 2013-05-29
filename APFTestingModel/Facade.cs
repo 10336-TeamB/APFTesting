@@ -136,7 +136,9 @@ namespace APFTestingModel
 		public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
 		{
 			Exam exam = fetchExamForQuestionFetching(examId);
-			return exam.SelectedTheoryQuestions.OrderBy(q => q.QuestionIndex);
+            MergeSort<SelectedTheoryQuestion> mergeSort = new MergeSort<SelectedTheoryQuestion>();
+            List<SelectedTheoryQuestion> sortedQuestions = mergeSort.mergeSort(exam.SelectedTheoryQuestions.ToList());
+			return sortedQuestions;
 		}
 
 		public void SubmitTheoryComponent(Guid examId)

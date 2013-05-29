@@ -101,6 +101,7 @@
     <Compile Include="ExamStateMachine\TheoryComponentFailed.cs" />
     <Compile Include="ExamStateMachine\TheoryComponentInProgress.cs" />
     <Compile Include="Helpers\Enums.cs" />
+    <Compile Include="Helpers\MergeSort.cs" />
     <Compile Include="Interfaces\IAddress.cs" />
     <Compile Include="Interfaces\ICandidatePacker.cs" />
     <Compile Include="Interfaces\ICandidatePilot.cs" />
