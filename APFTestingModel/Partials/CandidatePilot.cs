@@ -33,7 +33,7 @@ namespace APFTestingModel
             
             try
             {
-                var mailAddress = new MailAddress(details.Email);
+                new MailAddress(details.Email);
             }
             catch (FormatException e)
             {

@@ -411,5 +411,11 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public void SubmitPilotPracticalResults(Guid examId, IEnumerable<PilotPracticalResult> results)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

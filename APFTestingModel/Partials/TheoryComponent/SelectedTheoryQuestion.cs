@@ -117,11 +117,12 @@ namespace APFTestingModel
 
         public int CompareTo(object stq)
         {
-            if (this.QuestionIndex == (stq as SelectedTheoryQuestion).QuestionIndex)
+            var selectedQuestion = (SelectedTheoryQuestion)stq;
+            if (this.QuestionIndex == selectedQuestion.QuestionIndex)
             {
                 return 0;
             }
-            else if (this.QuestionIndex < (stq as SelectedTheoryQuestion).QuestionIndex)
+            else if (this.QuestionIndex < selectedQuestion.QuestionIndex)
             {
                 return -1;
             }

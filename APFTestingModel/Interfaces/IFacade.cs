@@ -28,15 +28,15 @@ namespace APFTestingModel
         IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId);
         void SubmitTheoryComponent(Guid examId);
 
-        IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid candidateId);
+        IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid examId);
         IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent, out int requiredNumberOfTasks);
         IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId);
 
-        void SetActiveTheoryComponentFormat(Guid theoryComponentFormatId);
+        void SetActiveTheoryComponentFormat(Guid formatId);
         void VoidExam(Guid examId, string username, string password);
         void ResetTheoryComponent(Guid examId);
 
-        void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results);
+        void SubmitPilotPracticalResults(Guid examId, IEnumerable<PilotPracticalResult> results);
         void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result);
         void EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result);
 
@@ -51,7 +51,7 @@ namespace APFTestingModel
         IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details);
         void DeleteAssessmentTaskPilot(Guid id);
         IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot();
-        IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid AssessmentTaskId);
+        IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid assessmentTaskId);
 
         IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot();
 
@@ -70,7 +70,7 @@ namespace APFTestingModel
         void DeleteTheoryExamFormat(Guid formatId);
 
         IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId);
-        Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> tasks);
+        Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> taskIds);
         Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds);
         void DeletePracticalTemplatePilot(Guid templateId);
         void SetActivePracticalTemplatePilot(Guid templateId);

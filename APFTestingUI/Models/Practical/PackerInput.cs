@@ -73,13 +73,13 @@ namespace APFTestingUI.Models.Practical
         private void buildSelectLists()
         {
             //This does not generate value property for each option
-            //var canopyList = Enum.GetValues(typeof(CanopyTypes));
-            //var harnessList = Enum.GetValues(typeof(HarnessContainerTypes));
+            //var canopyList = Enum.GetValues(typeof(CanopyType));
+            //var harnessList = Enum.GetValues(typeof(HarnessContainerType));
 
             //CanopyTypeList = new SelectList(canopyList);
             //HarnessContainerTypeList = new SelectList(harnessList);
 
-            var canopyList = Enum.GetValues(typeof(CanopyTypes)).Cast<CanopyTypes>().Select(e => e.ToString()).ToList();
+            var canopyList = Enum.GetValues(typeof(CanopyType)).Cast<CanopyType>().Select(e => e.ToString()).ToList();
             var canopyListValueText = new List<KeyValuePair<string, string>>();
             foreach(var c in canopyList)
             {
@@ -91,7 +91,7 @@ namespace APFTestingUI.Models.Practical
                 }
                 canopyListValueText.Add(new KeyValuePair<string, string>(itemKey, itemValue));
             }
-            var harnessList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().Select(e => e.ToString()).ToList();
+            var harnessList = Enum.GetValues(typeof(HarnessContainerType)).Cast<HarnessContainerType>().Select(e => e.ToString()).ToList();
             //CanopyTypeList = new SelectList(canopyList.Select(x => new { value = x, text = x }).ToList(), "value", "text", CanopyType);
             CanopyTypeList = new SelectList(canopyListValueText, "Key", "Value");
 
