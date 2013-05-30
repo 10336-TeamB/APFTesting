@@ -12,7 +12,7 @@
     });
 
     //Delete specified answer
-    $(".delete-answer").click(function () {
+    $(".delete-answer span").click(function () {
 
         deleteAnswer(this);
 
@@ -26,7 +26,8 @@
 function deleteAnswer(elementToDelete) {
     
     if (confirm("Confirm answer deletion.")) {
-        $(elementToDelete).parent().remove();
+        // Deletes the entire row that the delete button is part of
+        $(elementToDelete).parent().parent().remove();
         reIndexAnswers();
     }
     showOrHideDeleteBasedOnAnswerCount();
@@ -75,7 +76,7 @@ function addAnswer() {
     $("#answers-table > tbody").append(answer);
 
     //Apply deletion click event to new answer
-    $("#answers-table > tbody > tr:last > td[class='delete-answer']").click(function () {
+    $("#answers-table > tbody > tr:last > td[class='delete-answer'] > span").click(function () {
 
         deleteAnswer(this);
 
