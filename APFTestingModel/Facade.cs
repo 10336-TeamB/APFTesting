@@ -136,7 +136,9 @@ namespace APFTestingModel
 		public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
 		{
 			Exam exam = fetchExamForQuestionFetching(examId);
-			return exam.SelectedTheoryQuestions.OrderBy(q => q.QuestionIndex);
+            MergeSort<SelectedTheoryQuestion> mergeSort = new MergeSort<SelectedTheoryQuestion>();
+            List<SelectedTheoryQuestion> sortedQuestions = mergeSort.mergeSort(exam.SelectedTheoryQuestions.ToList());
+			return sortedQuestions;
 		}
 
 		public void SubmitTheoryComponent(Guid examId)
@@ -456,7 +458,7 @@ namespace APFTestingModel
             return candidatePacker.Id;
         }
 
-        public void SubmitPilotPracticalResults(Guid examId, List<PilotPracticalResult> results)
+        public void SubmitPilotPracticalResults(Guid examId, IEnumerable<PilotPracticalResult> results)
         {
             var exam = _context.Exams.OfType<ExamPilot>().Include("PracticalComponentPilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").First(e => examId == e.Id);
             exam.SubmitPilotPracticalResults(results);
@@ -493,9 +495,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent)
+        public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent, out int requiredNumberOfTasks)
         {
             var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").First(e => e.Id == examId);
+            requiredNumberOfTasks = exam.PracticalComponentPacker.NumOfRequiredAssessmentTasks;
             isCompetent = exam.PracticalComponentIsCompetent;
             return exam.AssessmentTasks;
         }
@@ -551,17 +554,17 @@ namespace APFTestingModel
             return assessmentTask;
         }
 
-        public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid id)
+        public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid assessmentTaskId)
         {
-            return fetchAssessmentTaskPilot(id);
+            return fetchAssessmentTaskPilot(assessmentTaskId);
         }
 
-        private AssessmentTaskPilot fetchAssessmentTaskPilot(Guid id)
+        private AssessmentTaskPilot fetchAssessmentTaskPilot(Guid assessmentTaskId)
         {
-            var assessmentTask = _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").FirstOrDefault(a => a.Id == id);
+            var assessmentTask = _context.AssessmentTasks.OfType<AssessmentTaskPilot>().Include("SelectedAssessmentTasks").FirstOrDefault(a => a.Id == assessmentTaskId);
             if (assessmentTask == null)
             {
-                throw new BusinessRuleException("Invalid AssessmentTaskId");
+                throw new BusinessRuleException("Invalid Assessment Task Id");
             }
             return assessmentTask;
         }
@@ -680,7 +683,7 @@ namespace APFTestingModel
             var newFormat = theoryComponentFormats.FirstOrDefault(f => f.Id == formatId);
             if (newFormat == null)
             {
-                throw new BusinessRuleException("Invalid FormatID");
+                throw new BusinessRuleException("Invalid Format ID");
             }
             if (newFormat.GetType() == typeof(TheoryComponentFormatPilot))
             {
@@ -949,7 +952,16 @@ namespace APFTestingModel
 		
         public void Dispose()
         {
-            _context.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _context.Dispose();
+            }
         }
 
         internal void deleteEntity<T>(T entity)

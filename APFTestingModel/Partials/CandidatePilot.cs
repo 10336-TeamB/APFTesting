@@ -22,18 +22,18 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("ARN must a 6-digit number");
             }
-            if (!Regex.IsMatch(details.Phone, @"^04[0-9]{8,10}$"))
+            if (details.Phone != null && !Regex.IsMatch(details.Phone, @"^04[0-9]{8,10}$"))
             {
                 throw new BusinessRuleException("Phone number must have between 8-10 digits");
             }
-            if (!Regex.IsMatch(details.Mobile, @"^04[0-9]{8}$"))
+            if (details.Mobile != null && !Regex.IsMatch(details.Mobile, @"^04[0-9]{8}$"))
             {
                 throw new BusinessRuleException("Mobile number must only contain numbers and conform to format 0400123123");
             }
             
             try
             {
-                var mailAddress = new MailAddress(details.Email);
+                new MailAddress(details.Email);
             }
             catch (FormatException e)
             {

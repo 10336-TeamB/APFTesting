@@ -46,13 +46,13 @@ namespace APFTestingModel
     }
 
     //Hack: added for UI testing
-    public enum CanopyTypes
+    public enum CanopyType
     {
         RamAir,
         Round,
         Other
     }
-    public enum HarnessContainerTypes
+    public enum HarnessContainerType
     {
         Tandem,
         Student,

@@ -19,7 +19,7 @@ namespace APFTestingUI.Models.Practical
             ExamId = examId;
             TaskId = task.Id;
             Date = task.Date.ToShortDateString();
-            var canopyTypeComparisonList = Enum.GetValues(typeof(CanopyTypes)).Cast<CanopyTypes>().Select(e => e.ToString()).ToList();
+            var canopyTypeComparisonList = Enum.GetValues(typeof(CanopyType)).Cast<CanopyType>().Select(e => e.ToString()).ToList();
             if (canopyTypeComparisonList.Contains(task.CanopyType))
             {
                 CanopyType = task.CanopyType;
@@ -30,7 +30,7 @@ namespace APFTestingUI.Models.Practical
                 CanopyTypeOther = task.CanopyType;
             }
             //CanopyTypeSerialNumber = task.CanopyTypeSerialNumber;
-            var harnessContainerTypeComparisonList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().Select(e => e.ToString()).ToList();
+            var harnessContainerTypeComparisonList = Enum.GetValues(typeof(HarnessContainerType)).Cast<HarnessContainerType>().Select(e => e.ToString()).ToList();
             if (harnessContainerTypeComparisonList.Contains(task.HarnessContainerType)) 
             {
                 HarnessContainerType = task.HarnessContainerType;
@@ -103,7 +103,7 @@ namespace APFTestingUI.Models.Practical
 
         private void buildSelectLists()
         {
-            var canopyList = Enum.GetValues(typeof(CanopyTypes)).Cast<CanopyTypes>().Select(e => e.ToString()).ToList();
+            var canopyList = Enum.GetValues(typeof(CanopyType)).Cast<CanopyType>().Select(e => e.ToString()).ToList();
             var canopyListValueText = new List<KeyValuePair<string, string>>();
             foreach (var c in canopyList)
             {
@@ -116,7 +116,7 @@ namespace APFTestingUI.Models.Practical
                 canopyListValueText.Add(new KeyValuePair<string, string>(itemKey, itemValue));
             }
             
-            var harnessList = Enum.GetValues(typeof(HarnessContainerTypes)).Cast<HarnessContainerTypes>().Select(e => e.ToString()).ToList();
+            var harnessList = Enum.GetValues(typeof(HarnessContainerType)).Cast<HarnessContainerType>().Select(e => e.ToString()).ToList();
 
             //CanopyTypeList = new SelectList(canopyList.Select(x => new { value = x, text = x }).ToList(), "value", "text", CanopyType);
             CanopyTypeList = new SelectList(canopyListValueText, "Key", "Value", CanopyType);

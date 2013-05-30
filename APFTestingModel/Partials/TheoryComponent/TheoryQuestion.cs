@@ -17,7 +17,7 @@ namespace APFTestingModel
 
 		public TheoryQuestion(TheoryQuestionDetails questionDetails)
 		{
-            if (questionDetails.Answers.Count < 2)
+            if (questionDetails.Answers.Count() < 2)
             {
                 throw new BusinessRuleException("A question must have at least 2 answers");
             }
@@ -28,10 +28,10 @@ namespace APFTestingModel
             }
             
             Description = questionDetails.Description;
-			constructAnswers(questionDetails.Answers);
+			constructAnswers(questionDetails.Answers.ToList());
 			NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect == true);
 			IsActive = true;
-            if (questionDetails.ImagePath.Equals(""))
+            if (String.IsNullOrEmpty(questionDetails.ImagePath))
             {
                 ImagePath = null;
             }
@@ -74,10 +74,10 @@ namespace APFTestingModel
             if (EditableOrDeletable)
             {
                 Description = questionDetails.Description;
-                var answersToDelete = editAnswers(questionDetails.Answers);
+                var answersToDelete = editAnswers(questionDetails.Answers.ToList());
                 NumberOfCorrectAnswers = Answers.Count(a => a.IsCorrect);
                 IsActive = true;
-				if (questionDetails.ImagePath.Equals(""))
+				if (String.IsNullOrEmpty(questionDetails.ImagePath))
 				{
 					ImagePath = null;
 				}
@@ -99,7 +99,10 @@ namespace APFTestingModel
 
         private void constructAnswers(List<AnswerDetails> answers)
         {
-            if (Answers == null) Answers = new List<Answer>();
+            if (Answers == null) 
+            { 
+                Answers = new List<Answer>(); 
+            }
             for (int i = 0; i < answers.Count; i++)
             {
 				Answer newAnswer;

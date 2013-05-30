@@ -5,7 +5,7 @@ using System.Text;
 
 namespace APFTestingModel
 {
-	internal partial class SelectedTheoryQuestion : ISelectedTheoryQuestion
+	internal partial class SelectedTheoryQuestion : ISelectedTheoryQuestion, IComparable
     {
         #region Constructors
 
@@ -114,5 +114,22 @@ namespace APFTestingModel
         }
 
 		#endregion
+
+        public int CompareTo(object stq)
+        {
+            var selectedQuestion = (SelectedTheoryQuestion)stq;
+            if (this.QuestionIndex == selectedQuestion.QuestionIndex)
+            {
+                return 0;
+            }
+            else if (this.QuestionIndex < selectedQuestion.QuestionIndex)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
     }
 }

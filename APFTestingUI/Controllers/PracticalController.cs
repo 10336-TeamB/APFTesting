@@ -77,8 +77,9 @@ namespace APFTestingUI.Controllers
         public ActionResult PackerView(Guid examId)
         {
             bool isCompetent;
-            var packs = _facade.FetchAssessmentTasksPacker(examId, out isCompetent);
-            var model = new PackerView(examId, packs, isCompetent);
+            int requiredNumberOfTasks;
+            var packs = _facade.FetchAssessmentTasksPacker(examId, out isCompetent, out requiredNumberOfTasks);
+            var model = new PackerView(examId, packs, isCompetent, requiredNumberOfTasks);
             return View(model);
         }
 

@@ -15,6 +15,7 @@ namespace APFTestingModel
         {
             Facade facade = new Facade();
             facade.FinaliseExamUpdateStatus(examId, success);
+            facade.Dispose();
         }
 
         public void CallEmailService(EmailServiceReference.EmailDataContract emailData)
@@ -26,7 +27,23 @@ namespace APFTestingModel
 
         public void Dispose()
         {
-            proxy.Close();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                // get rid of managed resources
+                proxy.Close();
+            }
+            // get rid of unmanaged resources
+        }
+
+        ~EmailServiceCallback()
+        {
+            Dispose(true);
         }
     }
 }

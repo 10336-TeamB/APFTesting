@@ -22,7 +22,7 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("APF number must be 5 or 6 digits");
             }
-            if (examinerDetails.Authorities.Count == 0)
+            if (!examinerDetails.Authorities.Any())
             {
                 throw new BusinessRuleException("Examiner must have at least one authority type");
             }

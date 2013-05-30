@@ -19,7 +19,7 @@ namespace APFTestingModel
         {
             if (!EnableChange)
             {
-                throw new Exception("Assessment task is used by one or more templates. It cannot be modified.");
+                throw new BusinessRuleException("Assessment task is used by one or more templates. It cannot be modified.");
             }
             Title = details.Title;
             Details = details.Details;
@@ -35,7 +35,7 @@ namespace APFTestingModel
         {
             if (!EnableChange)
             {
-                throw new Exception("Assessment task is used by one or more templates. It cannot be modified.");
+                throw new BusinessRuleException("Assessment task is used by one or more templates. It cannot be modified.");
             }
             delete(this);
         }

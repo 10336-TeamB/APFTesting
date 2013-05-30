@@ -1678,7 +1678,7 @@ input[type="text"]:disabled
     cursor: pointer;
 }
 
-.delete-answer {
+.delete-answer span {
     cursor:pointer;
 }
 

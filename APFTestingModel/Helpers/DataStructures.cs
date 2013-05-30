@@ -76,9 +76,10 @@ namespace APFTestingModel
         public string Password { get; set; }
         public string OldPassword { get; set; }
         public string APFNumber { get; set; }
-        public List<ExamType> Authorities { get; set; }
+        public IEnumerable<ExamType> Authorities { get; set; }
 
-        public ExaminerDetails(string firstName, string lastName, string password, string apfNumber, List<ExamType> authorities) : this()
+        public ExaminerDetails(string firstName, string lastName, string password, string apfNumber, IEnumerable<ExamType> authorities)
+            : this()
         {
             FirstName = firstName;
             LastName = lastName;
@@ -90,7 +91,7 @@ namespace APFTestingModel
 	
 	public struct TheoryQuestionDetails
 	{
-		public TheoryQuestionDetails(string description, string imagePath, TheoryQuestionCategory category, List<AnswerDetails> answers) : this()
+		public TheoryQuestionDetails(string description, string imagePath, TheoryQuestionCategory category, IEnumerable<AnswerDetails> answers) : this()
 		{
             Description = description;
 			ImagePath = imagePath;
@@ -101,7 +102,7 @@ namespace APFTestingModel
 		public string Description { get; set; }
 		public string ImagePath { get; set; }
 		public TheoryQuestionCategory Category { get; set; }
-		public List<AnswerDetails> Answers { get; set; }
+		public IEnumerable<AnswerDetails> Answers { get; set; }
 	}
 
 	public struct AnswerDetails

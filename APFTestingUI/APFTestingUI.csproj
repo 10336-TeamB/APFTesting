@@ -40,6 +40,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.0.2\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -80,6 +86,7 @@
       <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
@@ -375,6 +382,7 @@
     <None Include="Properties\PublishProfiles\APFTesting.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\FTP-A.pubxml" />
+    <None Include="Properties\PublishProfiles\FTP-B.pubxml" />
     <None Include="Properties\PublishProfiles\Web Deploy - Staging [b].pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -395,7 +403,7 @@
     <Content Include="Scripts\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\modernizr.custom.51211.js" />
     <Content Include="Scripts\practical-packer.js" />
-    <Content Include="Scripts\QuestionManagement.js" />
+    <Content Include="Scripts\question-management.js" />
     <Content Include="Scripts\summary.js" />
     <Content Include="Service References\EmailServiceReference\EmailServiceOperation.disco" />
     <Content Include="Service References\EmailServiceReference\configuration91.svcinfo" />

@@ -38,7 +38,7 @@ namespace APFTestingModel
             }
         }
 
-        public void SubmitPilotPracticalResults(List<PilotPracticalResult> results)
+        public void SubmitPilotPracticalResults(IEnumerable<PilotPracticalResult> results)
         {
             Action a = delegate
             {
