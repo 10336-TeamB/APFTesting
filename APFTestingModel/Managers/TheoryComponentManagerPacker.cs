@@ -26,8 +26,10 @@ namespace APFTestingModel
 		}
 
 
-        public override TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit)
+        public override TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit, int availableQuestions)
         {
+            // validation method declared in the base class
+            validateExamFormatDetails(numberOfQuestions, passMark, timeLimit, availableQuestions);
             return new TheoryComponentFormatPacker(numberOfQuestions, passMark, timeLimit);
         }
 

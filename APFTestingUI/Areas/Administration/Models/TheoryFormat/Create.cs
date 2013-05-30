@@ -26,7 +26,7 @@ namespace APFTestingUI.Areas.Administration.Models.TheoryFormat
         public int PassMark { get; set; }
 
         [Required]
-        [Range(0, 120, ErrorMessage = "Time limit must be greater than 0 and not more than 100")]
+        [Range(0, 120, ErrorMessage = "Time limit must be greater than 0 and not more than 120")]
         [Display(Name = "Time limit")]
         public int TimeLimit { get; set; }
 
