@@ -94,9 +94,9 @@ namespace APFTestingModel
         bool Login(string username, string password, bool rememberMe);
         void Logout();
 
-        void DeleteTheoryQuestion(Guid questionId);
+        void DeleteTheoryQuestion(Guid questionId, ExamType examType, out string imagePath);
 
-        void ToggleTheoryQuestionActivation(Guid questionId);
+        void ToggleTheoryQuestionActivation(Guid questionId, ExamType examType);
 
         void FinaliseExam(Guid examId, ExamType examType);
 

@@ -22,6 +22,12 @@ namespace APFTestingModel
         
 		#region Initiate Theory Component
         
+        /// <summary>
+        /// Checks whether or not the candidate has any incomplete exam and returns the incomplete exam. If candidate doesn't have any incomplete exam, then it creates a new exam and return it.
+        /// </summary>
+        /// <param name="examinerId">Guid Id of the examiner who created the exam</param>
+        /// <param name="candidateId">Guid id of the candidate who is going to take the exam</param>
+        /// <returns>Guid id of the exam</returns>
         public Guid StartTheoryComponent(Guid examinerId, Guid candidateId)
         {
             var candidate = fetchCandidate(candidateId);
@@ -29,6 +35,11 @@ namespace APFTestingModel
             return (candidate.NewExamPossible) ? CreateExam(examinerId, candidate) : candidate.LatestExamId;
         }
 
+        /// <summary>
+        /// Resumes the Theory Component part of the incomplete exam
+        /// </summary>
+        /// <param name="examId">Guid id of the incomplete exam</param>
+        /// <returns>The question that is pointed by the current question index counter</returns>
 		public ISelectedTheoryQuestion ResumeTheoryComponent(Guid examId)
 		{
             var exam = fetchExamForQuestionFetching(examId);
@@ -183,7 +194,12 @@ namespace APFTestingModel
 
         #region Finalise Exam
         
-
+        /// <summary>
+        /// Fetches a single exam from database by passing the Guid id of the exam
+        /// </summary>
+        /// <param name="examId">Guid id of the exam to fetch</param>
+        /// <param name="examType">Exam Type of the exam to fetch</param>
+        /// <returns>Exam that was fetched from the database</returns>
         public IExam FetchExam(Guid examId, ExamType examType)
         {
             return fetchExam(examId, examType);
@@ -213,12 +229,17 @@ namespace APFTestingModel
             return exam;
         }
 
+        //Do we even need this? - Pradipna
         public bool HasPassedPractical(Guid examId, ExamType examType)
         {
             return fetchExam(examId, examType).PracticalComponentIsCompetent;
         }
 
-
+        /// <summary>
+        /// Changes the exam status to 'EmailInProgress' and sends an asynchronous message to WCF email service for sending the exam report to APF Headquaters. WCF service will trigger a callback when it has finished sending email and if it failed to send an email, exam status is changed to 'SendingEmailFailed' otherwise the exam status is changed to 'ExamCompleted'
+        /// </summary>
+        /// <param name="examId">Guid id of the exam that needs to be finalised</param>
+        /// <param name="examType">Exam type of the exam that needs to be finalised</param>
         public void FinaliseExam(Guid examId, ExamType examType)
         {
             Exam exam = fetchExam(examId, examType);
@@ -235,6 +256,11 @@ namespace APFTestingModel
 
         #region Fetch Methods
 
+        /// <summary>
+        /// Fetches the theory component format of the particular exam
+        /// </summary>
+        /// <param name="examId">Guid id of the exam that the theory component format belongs to</param>
+        /// <returns>Theory component format that was fetched</returns>
         public ITheoryComponentFormat FetchTheoryComponentFormatForExam(Guid examId)
         {
             var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").First(e => e.Id == examId);
@@ -242,6 +268,11 @@ namespace APFTestingModel
             return exam.FetchTheoryComponentFormat();
         }
 		
+        /// <summary>
+        /// Fetches the first question of the exam. 
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
+        /// <returns>First question of the exam</returns>
         public ISelectedTheoryQuestion FetchFirstQuestion(Guid examId)
         {
             var exam = fetchExamForQuestionFetching(examId);
@@ -251,6 +282,11 @@ namespace APFTestingModel
             return question;
         }
 		
+        /// <summary>
+        /// Retrieves the list of candidates for the examiner with the id of examinerId
+        /// </summary>
+        /// <param name="examinerId">Guid id of the examiner</param>
+        /// <returns>Readonly list of the candidates</returns>
 		public IEnumerable<ICandidate> FetchCandidates(Guid examinerId)
 		{
             var examiner = _context.People.Include("CandidatePackers").Include("CandidatePilots").Include("CandidatePackers.ExamPackers").Include("CandidatePilots.ExamPilots").OfType<Examiner>().First(e => e.Id == examinerId);
@@ -261,11 +297,21 @@ namespace APFTestingModel
             return candidates;
 		}
 
+        /// <summary>
+        /// Fetches the pilot candidate
+        /// </summary>
+        /// <param name="candidateId">Guid id of the candidate we want to fetch</param>
+        /// <returns>Candidate that was fetched</returns>
         public ICandidatePilot FetchPilot(Guid candidateId)
         {
             return _context.People.OfType<CandidatePilot>().Include("Address").First(c => c.Id == candidateId);
         }
 
+        /// <summary>
+        /// Fetches the packer candidate
+        /// </summary>
+        /// <param name="candidateId">Guid id of the candidate we want to fetch</param>
+        /// <returns>Candidate that was fetched</returns>
         public ICandidatePacker FetchPacker(Guid candidateId)
         {
             return _context.People.OfType<CandidatePacker>().First(c => c.Id == candidateId);
@@ -301,6 +347,11 @@ namespace APFTestingModel
                     .First(e => e.Id == examId);
         }
 
+        /// <summary>
+        /// Fetches the result of theory component part of the exam
+        /// </summary>
+        /// <param name="examId">Guid id of the exam that we want theory componenet of</param>
+        /// <returns>Theory component of the exam</returns>
 		public ITheoryComponent FetchTheoryComponentResult(Guid examId)
 		{
 			var exam = _context.Exams
@@ -315,6 +366,11 @@ namespace APFTestingModel
 			return exam.FetchTheoryComponentResult();
 		}
 
+        /// <summary>
+        /// Fetches the practical assessment task from an exam 
+        /// </summary>
+        /// <param name="examId">Guid id of the exam to fetch assessment task from</param>
+        /// <returns>Assessment task of the exam</returns>
         public IEnumerable<ISelectedAssessmentTask> FetchAssessmentTasksPilot(Guid examId)
         {
             var exam = _context.Exams.OfType<ExamPilot>().Include("PracticalComponentPilot")
@@ -325,11 +381,19 @@ namespace APFTestingModel
             return exam.SelectedAssessmentTasks;
         }
 
+        /// <summary>
+        /// Retrives the list of all the practical component template for the pilot candidates
+        /// </summary>
+        /// <returns>Readonly list of all the practical component template for the pilot candidates</returns>
         public IEnumerable<IPracticalComponentTemplatePilot> FetchAllPracticalComponentTemplatePilots()
         {
             return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("PracticalComponentPilots").Include("AssessmentTaskPilots").OrderByDescending(t => t.IsActive).ToList();
         }
 
+        /// <summary>
+        /// Retrives the list of all the practical component template for the packer candidates
+        /// </summary>
+        /// <returns>Readonly list of all the practical component template for the packer candidates</returns>
         public IEnumerable<IPracticalComponentTemplatePacker> FetchAllPracticalComponentTemplatePackers()
         {
             return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().Include("PracticalComponentPackers").OrderByDescending(t => t.IsActive).ToList();
@@ -340,7 +404,11 @@ namespace APFTestingModel
         
         #endregion
 
-
+        /// <summary>
+        /// Creates a theory question for a particular exam type and adds it to the database
+        /// </summary>
+        /// <param name="questionDetails">Data structure which contains description, options and correct answers of the question that is being created</param>
+        /// <param name="examType">Exam type of the question that is being created</param>
 		public void CreateTheoryQuestion(TheoryQuestionDetails questionDetails, ExamType examType)
 		{
 			switch (examType)
@@ -359,12 +427,19 @@ namespace APFTestingModel
 			_context.SaveChanges();
 		}
 
-		//
+		/// <summary>
+		/// Retrieves a list of all the theory questions for pilot
+		/// </summary>
+		/// <returns>Readonly list of all the questions for pilot</returns>
         public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPilot()
         {
             return _context.TheoryQuestions.OfType<TheoryQuestionPilot>().Include("SelectedTheoryQuestions").ToList();
         }
 
+        /// <summary>
+        /// Retrieves a list of all the theory questions for packer
+        /// </summary>
+        /// <returns>Readonly list of all the questions for packer</returns>
 		public IEnumerable<ITheoryQuestion> FetchAllTheoryQuestionsPacker()
 		{
 			var questions = _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Include("SelectedTheoryQuestions").ToList();
@@ -372,18 +447,25 @@ namespace APFTestingModel
             return questions;
 		}
 
-
+        /// <summary>
+        /// Fetches theory question
+        /// </summary>
+        /// <param name="questionId">Guid id of the theory question to be fetched</param>
+        /// <returns>Theory question that was fetched</returns>
         public ITheoryQuestion FetchTheoryQuestion(Guid questionId)
         {
             var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
 			
 			question.Answers = question.Answers.OrderBy(a => a.DisplayOrderIndex).ToList();
 
-			
-
 			return question;
         }
 
+        /// <summary>
+        /// Edits theory question
+        /// </summary>
+        /// <param name="questionDetails">Data structure which contains updated description, options and correct answers of the question that is being edited</param>
+        /// <param name="questionId">Guid id of the question to be edited</param>
         public void EditTheoryQuestion(TheoryQuestionDetails questionDetails, Guid questionId)
         {
             var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
@@ -397,17 +479,37 @@ namespace APFTestingModel
 			_context.SaveChanges();
         }
 
-        public void DeleteTheoryQuestion(Guid questionId)
+        /// <summary>
+        /// Deletes theory question if it is not referenced by any exam otherwise throws an exception
+        /// </summary>
+        /// <param name="questionId">Guid id of the question to be deleted</param>
+        public void DeleteTheoryQuestion(Guid questionId, ExamType examType, out string imagePath)
         {
+            if (!IsQuestionDeactivationPossible(examType))
+            {
+                throw new BusinessRuleException("Cannot delete Theory Question. Not enough questions for current active format");
+            }
+
             var question = _context.TheoryQuestions.Include("Answers").Include("SelectedTheoryQuestions").First(q => q.Id == questionId);
+            imagePath = question.ImagePath;
             question.Delete(deleteEntity, deleteEntity);
 
             _context.SaveChanges();
         }
 
-        public void ToggleTheoryQuestionActivation(Guid questionId)
+        /// <summary>
+        /// Toggles 
+        /// </summary>
+        /// <param name="questionId"></param>
+        public void ToggleTheoryQuestionActivation(Guid questionId, ExamType examType)
         {
             var question = _context.TheoryQuestions.First(q => q.Id == questionId);
+
+            if (!IsQuestionDeactivationPossible(examType) && question.IsActive)
+            {
+                throw new BusinessRuleException("Cannot deactivate Theory Question. Not enough questions for current active format");
+            }
+
             question.toggleActivation();
 
             _context.SaveChanges();
@@ -419,22 +521,6 @@ namespace APFTestingModel
             return _context.TheoryQuestions.Count(q => q.ImagePath != null);
         }
 
-
-        //public void DeleteTheoryQuestion(Guid questionId)
-        //{
-        //    //var exam = _context.Exams.Include("TheoryComponent").Include("TheoryComponent.TheoryComponentFormat").First(e => e.Id == examId);
-        //    var question = _context.TheoryQuestions.Include("Answers").First(q => q.Id == questionId);
-
-
-        //}
-        //internal void DeleteTheoryQuestion(TheoryQuestion question)
-        //{
-
-        //}
-        //internal void DeleteAnswer(Answer answer)
-        //{
-
-        //}
 
 		/*=========================*/
 		/*      OTHER METHODS      */
@@ -534,6 +620,52 @@ namespace APFTestingModel
         {
             Membership membership = new Membership();
             membership.Logout();
+        }
+
+        public bool IsQuestionDeactivationPossible(ExamType examType) {
+           TheoryComponentFormat format;
+           switch (examType)
+           {
+               case ExamType.PackerExam:
+                   format = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPacker>().First(f => f.IsActive);
+                   if (FetchAllTheoryQuestionsPacker().Where(q => q.IsActive).Count() <= format.NumberOfQuestions)
+                   {
+                       return false;
+                   }
+                   break;
+               case ExamType.PilotExam:
+                   format = _context.TheoryComponentFormats.OfType<TheoryComponentFormatPilot>().First(f => f.IsActive);
+                   if (FetchAllTheoryQuestionsPilot().Where(q => q.IsActive).Count() <= format.NumberOfQuestions)
+                   {
+                       return false;
+                   }
+                   break;
+               default:
+                   throw new BusinessRuleException("Invalid Exam Type");
+           }
+
+           return true;
+        }
+
+        public bool IsFormatActivationPossible(Guid formatId)
+        {
+            TheoryComponentFormat format = _context.TheoryComponentFormats.First(f => f.Id == formatId);
+            if (format is TheoryComponentFormatPacker)
+            {
+                if (FetchAllTheoryQuestionsPacker().Where(q => q.IsActive).Count() < format.NumberOfQuestions)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (FetchAllTheoryQuestionsPilot().Where(q => q.IsActive).Count() < format.NumberOfQuestions)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         #endregion
@@ -675,6 +807,11 @@ namespace APFTestingModel
 
         public void SetActiveTheoryComponentFormat(Guid formatId)
         {
+            if (!IsFormatActivationPossible(formatId))
+            {
+                throw new BusinessRuleException("Cannot activate Theory Format. Not enough questions for selected format");
+            }
+
             var theoryComponentFormats = _context.TheoryComponentFormats.ToList();
             var newFormat = theoryComponentFormats.FirstOrDefault(f => f.Id == formatId);
             if (newFormat == null)

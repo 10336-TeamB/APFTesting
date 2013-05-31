@@ -417,5 +417,16 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public void DeleteTheoryQuestion(Guid questionId, ExamType examType, out string imagePath)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ToggleTheoryQuestionActivation(Guid questionId, ExamType examType)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

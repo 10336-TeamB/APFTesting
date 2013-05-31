@@ -58,7 +58,7 @@ namespace APFTestingModel
         {
             get
             {
-                return SelectedTheoryQuestions.Count == 0;
+                return !SelectedTheoryQuestions.Any();
             }
         }
 

@@ -13,6 +13,50 @@ namespace APFTestingUI.Areas.Administration.Controllers
     {
         public QuestionManagementController(IFacade facade) : base(facade) { }
 
+        private void deleteImage(string path)
+        {
+            var pathOfFileToDelete = Path.Combine(Server.MapPath("~/QuestionImages"), path);
+            System.IO.File.Delete(pathOfFileToDelete);
+        }
+
+        private void manageImage(Edit model, out string fileName)
+        {
+            fileName = "";
+            if (!model.DeleteImage)
+            {
+                if (model.ImageFile != null)
+                {
+                    if (model.ImagePath != null)
+                    {
+                        deleteImage(model.ImagePath);
+
+                        var extension = (model.ImageFile.ContentType.Split('/'))[1];
+                        var currentFileName = (model.ImagePath.Split('.'))[0];
+                        fileName = String.Format("{0}.{1}", currentFileName, extension);
+
+                        var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+                        model.ImageFile.SaveAs(path);
+                    }
+                    else
+                    {
+                        var extension = model.ImageFile.ContentType.Split('/');
+                        var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
+                        fileName = String.Format("{0}.{1}", questionsWithImagesTotal, extension[1]);
+                        var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
+                        model.ImageFile.SaveAs(path);
+                    }
+                }
+                else
+                {
+                    fileName = model.ImagePath;
+                }
+            }
+            else
+            {
+                deleteImage(model.ImagePath);
+            }
+        }
+
         #region Pilot
 
         public ActionResult IndexPilot()
@@ -104,49 +148,9 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         answers.Add(answer);
                     }
 
-
-                    var fileName = "";
-                    if (!model.DeleteImage)
-                    {
-                        if (model.ImageFile != null)
-                        {
-                            if (model.ImagePath != null)
-                            {
-                                var pathOfFileToDelete = Path.Combine(Server.MapPath("~/QuestionImages"), model.ImagePath);
-                                System.IO.File.Delete(pathOfFileToDelete);
-
-                                var extension = (model.ImageFile.ContentType.Split('/'))[1];
-                                var currentFileName = (model.ImagePath.Split('.'))[0];
-                                fileName = String.Format("{0}.{1}", currentFileName, extension);
-
-                                var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
-                                model.ImageFile.SaveAs(path);
-                            }
-                            else
-                            {
-                                var extension = model.ImageFile.ContentType.Split('/');
-                                var questionsWithImagesTotal = _facade.CountQuestionsWithImages();
-                                fileName = String.Format("{0}.{1}", questionsWithImagesTotal, extension[1]);
-                                var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
-                                model.ImageFile.SaveAs(path);
-                            }
-                        }
-                        else
-                        {
-                            fileName = model.ImagePath;
-                        }
-                    }
-                    else
-                    {
-                        var pathOfFileToDelete = Path.Combine(Server.MapPath("~/QuestionImages"), model.ImagePath);
-                        System.IO.File.Delete(pathOfFileToDelete);
-                    }
-
-
-
-
-
-
+                    string fileName;
+                    manageImage(model, out fileName);
+                    
                     var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
 
                     _facade.EditTheoryQuestion(questionPackage, model.Id);
@@ -168,7 +172,12 @@ namespace APFTestingUI.Areas.Administration.Controllers
         {
             try
             {
-                _facade.DeleteTheoryQuestion(questionId);
+                string imagePath;
+                _facade.DeleteTheoryQuestion(questionId, ExamType.PilotExam, out imagePath);
+                if (imagePath != null)
+                {
+                    deleteImage(imagePath);
+                }
             }
             catch (BusinessRuleException ex)
             {
@@ -180,7 +189,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult ToggleActivationPilot(Guid questionId)
         {
-            _facade.ToggleTheoryQuestionActivation(questionId);
+            _facade.ToggleTheoryQuestionActivation(questionId, ExamType.PilotExam);
 
             return RedirectToAction("IndexPilot");
         }
@@ -237,6 +246,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
                         var path = Path.Combine(Server.MapPath("~/QuestionImages"), fileName);
                         model.ImageFile.SaveAs(path);
                     }
+
 
 
                     var questionPackage = new TheoryQuestionDetails(model.Description, fileName, model.Category, answers);
@@ -342,7 +352,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult ToggleActivationPacker(Guid questionId)
         {
-            _facade.ToggleTheoryQuestionActivation(questionId);
+            _facade.ToggleTheoryQuestionActivation(questionId, ExamType.PackerExam);
 
             return RedirectToAction("IndexPacker");
         }
@@ -355,6 +365,24 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         #endregion
 
+        public ActionResult DeletePacker(Guid questionId)
+        {
+            try
+            {
+                string imagePath;
+                _facade.DeleteTheoryQuestion(questionId, ExamType.PackerExam, out imagePath);
+                if (imagePath != null)
+                {
+                    deleteImage(imagePath);
+                }
+            }
+            catch (BusinessRuleException ex)
+            {
+                return RedirectToAction("EditPacker", new { questionId = questionId, errorMessage = ex.Message });
+            }
+
+            return RedirectToAction("IndexPacker");
+        }
 
     }
 }
