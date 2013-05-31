@@ -23,7 +23,7 @@ namespace APFTestingModel
             }
         }
 
-        public void Edit(int numberOfQuestions, int passMark, int timeLimit)
+        public void Edit(int numberOfQuestions, int passMark, int timeLimit, int availableQuestions)
         {
             // Check if active
             if (IsActive)
@@ -37,10 +37,32 @@ namespace APFTestingModel
                 throw new BusinessRuleException("Error: Can not edit template that has been used");
             }
 
-            //If no associations then edit
+            // Validate new details
+            validateExamFormatDetails(numberOfQuestions, passMark, timeLimit, availableQuestions);
+            // If no associations and new details are valid then edit
             NumberOfQuestions = numberOfQuestions;
             PassMark = passMark;
             TimeLimit = timeLimit;
+        }
+
+        private void validateExamFormatDetails(int numberOfQuestions, int passMark, int timeLimit, int availableQuestions)
+        {
+            if (numberOfQuestions <= 0)
+            {
+                throw new BusinessRuleException("Theory exam format must have at least one question.");
+            }
+            if (numberOfQuestions > availableQuestions)
+            {
+                throw new BusinessRuleException(String.Format("Format cannot have {0} questions. Only {1} questions are available", numberOfQuestions, availableQuestions));
+            }
+            if (passMark <= 0 || passMark > 100)
+            {
+                throw new BusinessRuleException("Pass mark must be between 0 and 100.");
+            }
+            if (timeLimit < 0 || timeLimit > 120)
+            {
+                throw new BusinessRuleException("Time limit must be between 0 and 120 minutes.");
+            }
         }
 
         public void Delete(deleteEntityDelegate<TheoryComponentFormat> delete)

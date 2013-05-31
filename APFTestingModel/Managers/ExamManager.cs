@@ -17,9 +17,9 @@ namespace APFTestingModel
 		}
 
         public abstract Exam GenerateExam(Guid examinerId, Guid candidateId);
-        public TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit)
+        public TheoryComponentFormat CreateTheoryExamFormat(int numberOfQuestions, int passMark, int timeLimit, int availableQuestions)
         {
-            return theoryComponentManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
+            return theoryComponentManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit, availableQuestions);
         }
     }
 }

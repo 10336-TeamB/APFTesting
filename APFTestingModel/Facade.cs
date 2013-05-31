@@ -774,14 +774,18 @@ namespace APFTestingModel
         {
             // Creates a theory exam manager with no associated data (i.e. existing formats or templates)
             examManager = ManagerFactory.CreateTheoryExamManager(examType);
+            
             TheoryComponentFormat format;
+            int availableQuestions;
             switch (examType)
             {
                 case ExamType.PilotExam:
-                    format = examManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
+                    availableQuestions = _context.TheoryQuestions.OfType<TheoryQuestionPilot>().Count(q => q.IsActive);
+                    format = examManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit, availableQuestions);
                     break;
                 case ExamType.PackerExam:
-                    format = examManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit);
+                    availableQuestions = _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Count(q => q.IsActive);
+                    format = examManager.CreateTheoryExamFormat(numberOfQuestions, passMark, timeLimit, availableQuestions);
                     break;
                 default:
                     throw new BusinessRuleException("Invalid exam type provided");
@@ -794,7 +798,18 @@ namespace APFTestingModel
         public void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit)
         {
             var format = fetchTheoryExamFormatById(formatId);
-            format.Edit(numberOfQuestions, passMark, timeLimit);
+            int availableQuestions;
+
+            if (format is TheoryComponentFormatPilot)
+            {
+                availableQuestions = _context.TheoryQuestions.OfType<TheoryQuestionPilot>().Count(q => q.IsActive);
+            }
+            else
+            {
+                availableQuestions = _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Count(q => q.IsActive);
+            }
+
+            format.Edit(numberOfQuestions, passMark, timeLimit, availableQuestions);
             _context.SaveChanges();
         }
 
