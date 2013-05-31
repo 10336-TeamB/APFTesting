@@ -666,7 +666,18 @@ namespace APFTestingModel
         public void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit)
         {
             var format = fetchTheoryExamFormatById(formatId);
-            format.Edit(numberOfQuestions, passMark, timeLimit);
+            int availableQuestions;
+
+            if (format is TheoryComponentFormatPilot)
+            {
+                availableQuestions = _context.TheoryQuestions.OfType<TheoryQuestionPilot>().Count(q => q.IsActive);
+            }
+            else
+            {
+                availableQuestions = _context.TheoryQuestions.OfType<TheoryQuestionPacker>().Count(q => q.IsActive);
+            }
+
+            format.Edit(numberOfQuestions, passMark, timeLimit, availableQuestions);
             _context.SaveChanges();
         }
 

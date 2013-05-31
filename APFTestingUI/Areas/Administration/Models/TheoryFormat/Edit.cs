@@ -30,12 +30,12 @@ namespace APFTestingUI.Areas.Administration.Models.TheoryFormat
         public int NumberOfQuestions { get; set; }
 
         [Required]
-        [Range(1, 100, ErrorMessage = "Pass mark must be greater than 0 and not more than 100")]
+        [Range(1, 100, ErrorMessage = "Pass mark must be an integer greater than 0 and not more than 100")]
         [Display(Name = "Pass mark")]
         public int PassMark { get; set; }
 
         [Required]
-        [Range(0, 120, ErrorMessage = "Time limit must be greater than 0 and not more than 120")]
+        [Range(0, 120, ErrorMessage = "Time limit must be an integer greater than 0 and not more than 120")]
         [Display(Name = "Time limit")]
         public int TimeLimit { get; set; }
     }
