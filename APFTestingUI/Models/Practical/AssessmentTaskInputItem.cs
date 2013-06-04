@@ -35,8 +35,9 @@ namespace APFTestingUI.Models.Practical
         
         public string Comment { get; set; }
         
-        [Required]
-        [DynamicRange("MaxScore", ErrorMessage="The score must be between 0 and maximum points")]
+        [Required(ErrorMessage="Please enter a positive whole number for the Score")]
+        [DynamicRange("MaxScore", ErrorMessage="The Score must be a whole number between 0 and the specified maximum")]
+        [RegularExpression("[0-9]{1,}", ErrorMessage = "Please enter a positive whole number for the Score")]
         public string Score { get; set; }
     }
 }

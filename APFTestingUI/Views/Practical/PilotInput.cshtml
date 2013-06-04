@@ -35,7 +35,7 @@
                             @Html.TextAreaFor(model => model.Tasks[i].Comment)
                         </td>
                         <td class="td-score">
-                            @Html.TextBoxFor(model => model.Tasks[i].Score, new { type = "number" })
+                            @Html.TextBoxFor(model => model.Tasks[i].Score, new { type = "number", min="0", max=@Model.Tasks[i].MaxScore })
                         </td>
                     </tr>
                     
