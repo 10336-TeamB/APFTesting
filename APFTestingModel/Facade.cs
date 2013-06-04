@@ -109,6 +109,11 @@ namespace APFTestingModel
 
         #region Sit Theory Component
 
+        /// <summary>
+        /// Fetches the next question pointed by the question index of the exam that is in progress
+        /// </summary>
+        /// <param name="examId">Guid id of the exam in progress</param>
+        /// <returns>The next question</returns>
         public ISelectedTheoryQuestion FetchNextQuestion(Guid examId)
         {
             var exam = fetchExamForQuestionFetching(examId);
@@ -118,6 +123,11 @@ namespace APFTestingModel
             return question;
         }
 
+        /// <summary>
+        /// Fetches the previous question pointed by the question index of the exam that is in progress
+        /// </summary>
+        /// <param name="examId">Guid id of the exam in progress</param>
+        /// <returns>The previous question</returns>
         public ISelectedTheoryQuestion FetchPreviousQuestion(Guid examId)
         {
             var exam = fetchExamForQuestionFetching(examId);
@@ -127,6 +137,12 @@ namespace APFTestingModel
             return question;
         }
 
+        /// <summary>
+        /// Fetches the specific question pointed by the questionIndex passed on the parameter
+        /// </summary>
+        /// <param name="examId">Guid id of the exam in progress</param>
+        /// <param name="questionIndex">Question index of the question to be fetched</param>
+        /// <returns>The fetched question</returns>
         public ISelectedTheoryQuestion FetchSpecificQuestion(Guid examId, int questionIndex)
         {
             var exam = fetchExamForQuestionFetching(examId);
@@ -136,6 +152,13 @@ namespace APFTestingModel
             return question;
         }
 
+        /// <summary>
+        /// Answer the specific question pointed by the question index
+        /// </summary>
+        /// <param name="examId">Guid id of the exam in progress</param>
+        /// <param name="questionIndex">Question index of the question to be fetched</param>
+        /// <param name="selectedAnswers">Answer index</param>
+        /// <param name="markForReview">True if question was marked for review else false</param>
         public void AnswerQuestion(Guid examId, int questionIndex, int[] selectedAnswers, bool markForReview)
         {
 			var exam = fetchExamForQuestionFetching(examId);
@@ -144,6 +167,11 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Fetched the summary of the theory component of the specific exam
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
+        /// <returns>Readonly list of the theory questions</returns>
 		public IEnumerable<ISelectedTheoryQuestion> FetchTheoryComponentSummary(Guid examId)
 		{
 			Exam exam = fetchExamForQuestionFetching(examId);
@@ -152,6 +180,10 @@ namespace APFTestingModel
 			return sortedQuestions;
 		}
 
+        /// <summary>
+        /// Submits the theory component of the exam by changing its status to Passed or Failed
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
 		public void SubmitTheoryComponent(Guid examId)
 		{
 			var exam = _context.Exams
@@ -166,6 +198,12 @@ namespace APFTestingModel
 			_context.SaveChanges();
 		}
 
+        /// <summary>
+        /// Voids an exam by changing its status to Voided
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
+        /// <param name="username">Username of the examiner who is voiding the exam</param>
+        /// <param name="password">Password of the examiner who is voiding the exam</param>
 		public void VoidExam(Guid examId, string username, string password)
 		{
             Membership membership = new Membership();
@@ -498,9 +536,9 @@ namespace APFTestingModel
         }
 
         /// <summary>
-        /// Toggles 
+        /// Toggles the activation status of the question
         /// </summary>
-        /// <param name="questionId"></param>
+        /// <param name="questionId">Guid id of the question</param>
         public void ToggleTheoryQuestionActivation(Guid questionId, ExamType examType)
         {
             var question = _context.TheoryQuestions.First(q => q.Id == questionId);
@@ -515,7 +553,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
-
+        /// <summary>
+        /// Counts the number of questions with images as part of the question
+        /// </summary>
+        /// <returns>Number of questions with images as part of the question</returns>
         public int CountQuestionsWithImages()
         {
             return _context.TheoryQuestions.Count(q => q.ImagePath != null);
@@ -528,6 +569,12 @@ namespace APFTestingModel
 
 		#region Other Methods
 		
+        /// <summary>
+        /// Creates a Pilot candidate
+        /// </summary>
+        /// <param name="details">Details such as Name, APF Number etc</param>
+        /// <param name="createdBy">Guid id of the examiner who created the candidate</param>
+        /// <returns>Guid id of the newly created examiner</returns>
         public Guid CreateCandidate(CandidatePilotDetails details, Guid createdBy)
         {
             CandidatePilot candidatePilot = new CandidatePilot(details, createdBy);
@@ -536,6 +583,12 @@ namespace APFTestingModel
             return candidatePilot.Id;
         }
 
+        /// <summary>
+        /// Creates a Packer candidate
+        /// </summary>
+        /// <param name="details">Details such as Name, APF Number etc</param>
+        /// <param name="createdBy">Guid id of the examiner who created the candidate</param>
+        /// <returns>Guid id of the newly created examiner</returns>
         public Guid CreateCandidate(CandidatePackerDetails details, Guid createdBy)
         {
             CandidatePacker candidatePacker = new CandidatePacker(details, createdBy);
@@ -544,6 +597,11 @@ namespace APFTestingModel
             return candidatePacker.Id;
         }
 
+        /// <summary>
+        /// Submits the practical component results of the pilot candidate and updates the exam status
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
+        /// <param name="results">Readonly list of the results</param>
         public void SubmitPilotPracticalResults(Guid examId, IEnumerable<PilotPracticalResult> results)
         {
             var exam = _context.Exams.OfType<ExamPilot>().Include("PracticalComponentPilot").Include("PracticalComponentPilot.SelectedAssessmentTasks").First(e => examId == e.Id);
@@ -551,6 +609,11 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Submits the practical component results of the packer candidate and updates the exam status
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
+        /// <param name="results">Readonly list of the results</param>
         public void SubmitPackerPracticalResult(Guid examId, PackerPracticalResult result)
         {
             if (result.CanopyType == null)
@@ -566,6 +629,12 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Edits a specific task in the practical component of the packer exam
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
+        /// <param name="taskId">Guid id of the task to be updated</param>
+        /// <param name="result">Result of the task</param>
         public void EditPackerPracticalResult(Guid examId, Guid taskId, PackerPracticalResult result)
         {
             var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);
@@ -574,6 +643,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Finalises the practical component by changing its exam status
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
         public void FinalisePractical(Guid examId)
         {
             var exam = _context.Exams.First(e => e.Id == examId);
@@ -581,6 +654,13 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Fetches the assessment tasks of the packer exam
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
+        /// <param name="isCompetent">Referenced variable that returns whether or not the packer candidate has passed the practical assessment</param>
+        /// <param name="requiredNumberOfTasks">Referenced variable that returns how many tasks are required to pass the practical component</param>
+        /// <returns>Readonly list of the practical assessment tasks of the packer exam</returns>
         public IEnumerable<IAssessmentTaskPacker> FetchAssessmentTasksPacker(Guid examId, out bool isCompetent, out int requiredNumberOfTasks)
         {
             var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").Include("PracticalComponentPacker.PracticalComponentTemplatePacker").First(e => e.Id == examId);
@@ -589,6 +669,12 @@ namespace APFTestingModel
             return exam.AssessmentTasks;
         }
 
+        /// <summary>
+        /// Retrieves a specific practical assessment task of the packer exam
+        /// </summary>
+        /// <param name="examId">Guid id of the exam</param>
+        /// <param name="taskId">Guid id of the task</param>
+        /// <returns>The fetched assessment task</returns>
         public IAssessmentTaskPacker FetchSingleAssessmentTaskPacker(Guid examId, Guid taskId)
         {
             var exam = _context.Exams.OfType<ExamPacker>().Include("PracticalComponentPacker").Include("PracticalComponentPacker.AssessmentTaskPackers").First(e => e.Id == examId);
@@ -596,6 +682,11 @@ namespace APFTestingModel
             return exam.AssessmentTasks.First(at => at.Id == taskId);
         }
 
+        /// <summary>
+        /// Edits the specific packer candidate
+        /// </summary>
+        /// <param name="candidateId">Guid of the packer candidate</param>
+        /// <param name="details">Packer candidate details such as Name, APF Number etc</param>
         public void EditPacker(Guid candidateId, CandidatePackerDetails details)
         {
             var candidate = _context.People.OfType<CandidatePacker>().First(c => c.Id == candidateId);
@@ -603,6 +694,11 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Edits the specific pilot candidate
+        /// </summary>
+        /// <param name="candidateId">Guid of the pilot candidate</param>
+        /// <param name="details">Pilot candidate details such as Name, APF Number etc</param>
         public void EditPilot(Guid candidateId, CandidatePilotDetails details)
         {
             var candidate = _context.People.OfType<CandidatePilot>().Include("Address").First(c => c.Id == candidateId);
@@ -610,18 +706,33 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Logs in the examiner and adminstrator to the system
+        /// </summary>
+        /// <param name="username">Username of the person that is logging in</param>
+        /// <param name="password">Password of the person that is logging in</param>
+        /// <param name="rememberMe">If set to true, temporatily stores credentials</param>
+        /// <returns>Success or failure while logging the user to the system</returns>
         public bool Login(string username, string password, bool rememberMe)
         {
             Membership membership = new Membership();
             return membership.Login(username, password, rememberMe);
         }
 
+        /// <summary>
+        /// Logs out the user from the system
+        /// </summary>
         public void Logout()
         {
             Membership membership = new Membership();
             membership.Logout();
         }
 
+        /// <summary>
+        /// Returns whether or not the deactivation of a question is possible
+        /// </summary>
+        /// <param name="examType">Exam type of the question that is going to be deactivated</param>
+        /// <returns>True if question deactivation is possible, otherwise false</returns>
         public bool IsQuestionDeactivationPossible(ExamType examType) {
            TheoryComponentFormat format;
            switch (examType)
@@ -647,6 +758,11 @@ namespace APFTestingModel
            return true;
         }
 
+        /// <summary>
+        /// Returns whether or not the activation of a format is possible
+        /// </summary>
+        /// <param name="formatId">Guid id of the format we want to activate</param>
+        /// <returns>True if we can activate the format, otherwise false</returns>
         public bool IsFormatActivationPossible(Guid formatId)
         {
             TheoryComponentFormat format = _context.TheoryComponentFormats.First(f => f.Id == formatId);
@@ -672,6 +788,11 @@ namespace APFTestingModel
 
         #region CRUD Pilot Practical Assessment tasks
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="details"></param>
+        /// <returns></returns>
         public IAssessmentTaskPilot CreateAssessmentTaskPilot(AssessmentTaskPilotDetails details)
         {
             return (IAssessmentTaskPilot)createAssessmentTask(details);
