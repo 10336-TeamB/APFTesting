@@ -23,7 +23,7 @@ namespace APFTestingHookIn
 
         Node root = null;
 
-        public void insertValue(T value) {
+        public void InsertValue(T value) {
             if (root == null)
             {
                 root = new Node();
@@ -79,6 +79,37 @@ namespace APFTestingHookIn
             }
 
             return result;
+        }
+
+        public void BalanceTree()
+        {
+            List<T> sortedValues = inOrder(root);
+
+            root = null;
+            balancedBulkInsert(sortedValues);
+        }
+
+        private void balancedBulkInsert(List<T> sortedValues)
+        {
+            int numOfItems = sortedValues.Count;
+            if (numOfItems == 0)
+            {
+                return;
+            }
+            else if (numOfItems == 1)
+            {
+                InsertValue(sortedValues[0]);
+                return;
+            }
+
+            int midValueIndex = numOfItems / 2;
+            List<T> left, right;
+            InsertValue(sortedValues[midValueIndex]);
+            left = sortedValues.GetRange(0, midValueIndex);
+            right = sortedValues.GetRange(midValueIndex + 1, numOfItems - midValueIndex - 1);
+
+            balancedBulkInsert(left);
+            balancedBulkInsert(right);
         }
     }
 }

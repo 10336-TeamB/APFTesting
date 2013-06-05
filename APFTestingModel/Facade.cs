@@ -807,6 +807,11 @@ namespace APFTestingModel
             return assessmentTask;
         }
 
+        /// <summary>
+        /// Fetches specific practical assessment task of pilot exam
+        /// </summary>
+        /// <param name="assessmentTaskId">Guid id of the practical assessment task</param>
+        /// <returns>Practical assessment task that was retrieved</returns>
         public IAssessmentTaskPilot FetchAssessmentTaskPilot(Guid assessmentTaskId)
         {
             return fetchAssessmentTaskPilot(assessmentTaskId);
@@ -822,6 +827,12 @@ namespace APFTestingModel
             return assessmentTask;
         }
 
+        /// <summary>
+        /// Edits a specific practical assessment task of pilot exam
+        /// </summary>
+        /// <param name="id">Guid id of the assessment task</param>
+        /// <param name="details">Contains the result and details of assessment task</param>
+        /// <returns>Assessment task that was edited</returns>
         public IAssessmentTaskPilot EditAssessmentTaskPilot(Guid id, AssessmentTaskPilotDetails details)
         {
             return editAssessmentTaskPilot(id, details);
@@ -835,6 +846,10 @@ namespace APFTestingModel
             return assessmentTask;
         }
 
+        /// <summary>
+        /// Deletes a specific assessment task of pilot exam
+        /// </summary>
+        /// <param name="id">Guid id of the assessment task that needs to be deleted</param>
         public void DeleteAssessmentTaskPilot(Guid id)
         {
             var assessmentTask = fetchAssessmentTaskPilot(id);
@@ -842,6 +857,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Returns a list of all the practical assessment task for pilot exam
+        /// </summary>
+        /// <returns>Readonly list of all the assessment task for pilot exam</returns>
         public IEnumerable<IAssessmentTaskPilot> FetchAllAssessmentTaskPilot()
         {
             return fetchAllAssessmentTaskPilot();
@@ -857,6 +876,10 @@ namespace APFTestingModel
 
         #region CRUD Theory Exam Format
 
+        /// <summary>
+        /// Retrieves all the theory component format from the database
+        /// </summary>
+        /// <returns>2 dimensional array where the '0' index contains pilot formats while '1' index contains packer formats</returns>
         public ITheoryComponentFormat[][] FetchAllTheoryExamFormats()
         {
             ITheoryComponentFormat[][] result;
@@ -876,6 +899,11 @@ namespace APFTestingModel
             return result;
         }
 
+        /// <summary>
+        /// Fetches a specific theory exam format
+        /// </summary>
+        /// <param name="formatId">Guid id of the format</param>
+        /// <returns>Theory component format that was retrieved</returns>
         public ITheoryComponentFormat FetchTheoryExamFormatById(Guid formatId)
         {
             return fetchTheoryExamFormatById(formatId);
@@ -891,6 +919,13 @@ namespace APFTestingModel
             return format;
         }
 
+        /// <summary>
+        /// Creates a new theory component format
+        /// </summary>
+        /// <param name="examType">Type of the exam for which the format is being created</param>
+        /// <param name="numberOfQuestions">Total number of questions for the theory exam</param>
+        /// <param name="passMark">Pass Mark for the theory exam</param>
+        /// <param name="timeLimit">Time limit for the theory exam (Unused by the system right now)</param>
         public void CreateTheoryExamFormat(ExamType examType, int numberOfQuestions, int passMark, int timeLimit)
         {
             // Creates a theory exam manager with no associated data (i.e. existing formats or templates)
@@ -916,6 +951,13 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Edits a specific theory component format
+        /// </summary>
+        /// <param name="formatId">Guid id of the format being edited</param>
+        /// <param name="numberOfQuestions">Number of question for the theory exam</param>
+        /// <param name="passMark">Pass Mark for the theory exam</param>
+        /// <param name="timeLimit">Time limit for the theory exam (Unused by the system right now)</param>
         public void EditTheoryExamFormat(Guid formatId, int numberOfQuestions, int passMark, int timeLimit)
         {
             var format = fetchTheoryExamFormatById(formatId);
@@ -934,6 +976,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Deletes a specific theory component format
+        /// </summary>
+        /// <param name="formatId">Guid id of the format being deleted</param>
         public void DeleteTheoryExamFormat(Guid formatId)
         {
             var format = fetchTheoryExamFormatById(formatId);
@@ -941,6 +987,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Checks whether or not the theory exam format can be activated and if it can be activated, activates it otherwise throws an exception
+        /// </summary>
+        /// <param name="formatId">Guid id of the format being activated</param>
         public void SetActiveTheoryComponentFormat(Guid formatId)
         {
             if (!IsFormatActivationPossible(formatId))
@@ -993,12 +1043,21 @@ namespace APFTestingModel
             return _context.People.OfType<Examiner>().Include("CandidatePilots").Include("CandidatePackers").Include("ExaminerAuthorities").Include("User").First(e => e.Id == examinerId);
         }
 
+        /// <summary>
+        /// Fetches a specific examiner
+        /// </summary>
+        /// <param name="examinerId">Guid id of the examiner</param>
+        /// <returns>Examiner that was retrived</returns>
         public IExaminer FetchExaminer(Guid examinerId)
         {
             return fetchExaminer(examinerId);
         }
 
-        // Used in examiner controller to fetch examiner based on User ID
+        /// <summary>
+        /// Fetches a specific examiner based on their User Id
+        /// </summary>
+        /// <param name="userId">Userid of the examiner</param>
+        /// <returns>Examiner that was retrived</returns>
         public IExaminer FetchExaminer(int userId)
         {
             var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").FirstOrDefault(e => e.UserId == userId);
@@ -1009,6 +1068,10 @@ namespace APFTestingModel
             return examiner;
         }
 
+        /// <summary>
+        /// Creates a new examiner
+        /// </summary>
+        /// <param name="examinerDetails">Details such as Name, APF Number etc of the examiner</param>
         public void CreateExaminer(ExaminerDetails examinerDetails)
         {
             Membership membership = new Membership();
@@ -1025,6 +1088,11 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Edits a specific examiner
+        /// </summary>
+        /// <param name="examinerId">Guid id of the examiner</param>
+        /// <param name="examinerDetails">Details such as Name, APF Number etc of the examiner</param>
         public void EditExaminer(Guid examinerId, ExaminerDetails examinerDetails)
         {
             Examiner examiner = fetchExaminer(examinerId);
@@ -1041,6 +1109,10 @@ namespace APFTestingModel
             }
         }
 
+        /// <summary>
+        /// Deletes a specific examiner
+        /// </summary>
+        /// <param name="examinerId">Guid id of the examiner that needs to be deleted</param>
         public void DeleteExaminer(Guid examinerId)
         {
             string username;
@@ -1056,6 +1128,11 @@ namespace APFTestingModel
             }
         }
 
+        /// <summary>
+        /// Edits the active status of the examiner
+        /// </summary>
+        /// <param name="examinerId">Guid id of the examiner</param>
+        /// <param name="isActive">True if we want to activate the examiner otherwise false</param>
         public void EditExaminerActiveStatus(Guid examinerId, bool isActive)
         {
             Examiner examiner = fetchExaminer(examinerId);
@@ -1063,6 +1140,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Fetches all the examiners in the database
+        /// </summary>
+        /// <returns>Readonly list of all the examiner in the database</returns>
         public IEnumerable<IExaminer> FetchAllExaminers()
         {
             return _context.People.OfType<Examiner>();
@@ -1072,6 +1153,11 @@ namespace APFTestingModel
 
         #region CRUD Pilot Practical Template
 
+        /// <summary>
+        /// Fetch a specific practical template for pilot exam
+        /// </summary>
+        /// <param name="templateId">Guid id of the template</param>
+        /// <returns>Practical template that was fetched</returns>
         public IPracticalComponentTemplatePilot FetchPracticalTemplatePilotById(Guid templateId)
         {
             return fetchPracticalTemplatePilotById(templateId);
@@ -1087,6 +1173,11 @@ namespace APFTestingModel
             return template;
         }
 
+        /// <summary>
+        /// Creates practical component template for pilot exam
+        /// </summary>
+        /// <param name="taskIds">List of task that will be added to the newly created practical template</param>
+        /// <returns>Guid id of the new practical template</returns>
         public Guid CreatePracticalComponentTemplatePilot(IEnumerable<Guid> taskIds)
         {
             examManager = ManagerFactory.CreatePracticalExamMananger(ExamType.PilotExam);
@@ -1097,6 +1188,12 @@ namespace APFTestingModel
             return newTemplate.Id;
         }
 
+        /// <summary>
+        /// Modifies the list of all the tasks of a specific practical component template for pilot exam
+        /// </summary>
+        /// <param name="templateId">Guid id of the template that needs to be edited</param>
+        /// <param name="taskIds">List of tasks that will be in the practical component template</param>
+        /// <returns>Guid id of the practical template that was modified</returns>
         public Guid EditPracticalComponentTemplatePilot(Guid templateId, IEnumerable<Guid> taskIds)
         {
             if (taskIds.Count() < 1)
@@ -1126,6 +1223,10 @@ namespace APFTestingModel
             return selectedTasks;
         }
 
+        /// <summary>
+        /// Deletes a specific practical component template
+        /// </summary>
+        /// <param name="templateId">Guid id of the template</param>
         public void DeletePracticalTemplatePilot(Guid templateId)
         {
             var template = fetchPracticalTemplatePilotById(templateId);
@@ -1133,6 +1234,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Checks whether or the practical template can be activated and if it can be activated, activates it otherwise throws an exception
+        /// </summary>
+        /// <param name="templateId">Guid id of the template</param>
         public void SetActivePracticalTemplatePilot(Guid templateId)
         {
             var practicalComponentTemplates = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>();
@@ -1154,6 +1259,10 @@ namespace APFTestingModel
 
         #region CRUD Packer Practical Template
 
+        /// <summary>
+        /// Creates practical component template for packer exam
+        /// </summary>
+        /// <param name="numOfRequiredAssessmentTasks">Number of assessment task required to successfully complete the practical component of the packer exam</param>
         public void CreatePracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks)
         {
             examManager = ManagerFactory.CreatePracticalExamMananger(ExamType.PackerExam);
@@ -1162,6 +1271,11 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Fetches a specific practical template for packer exam
+        /// </summary>
+        /// <param name="templateId">Guid id of the template</param>
+        /// <returns>Practical template that was retrieved</returns>
         public IPracticalComponentTemplatePacker FetchPracticalTemplatePackerById(Guid templateId)
         {
             return fetchPracticalTemplatePackerById(templateId);
@@ -1177,6 +1291,11 @@ namespace APFTestingModel
             return template;
         }
 
+        /// <summary>
+        /// Modifies a specific practical component template for packer exam
+        /// </summary>
+        /// <param name="templateId">Guid id of the template</param>
+        /// <param name="numOfRequiredAssessmentTasks">Number of assessment task required to successfully complete the practical component of the packer exam</param>
         public void EditPracticalComponentTemplatePacker(Guid templateId, int numOfRequiredAssessmentTasks)
         {
             var template = fetchPracticalTemplatePackerById(templateId);
@@ -1184,6 +1303,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Deletes a specific practical component template for packer exam
+        /// </summary>
+        /// <param name="templateId">Guid id of the template</param>
         public void DeletePracticalTemplatePacker(Guid templateId)
         {
             var template = fetchPracticalTemplatePackerById(templateId);
@@ -1191,6 +1314,10 @@ namespace APFTestingModel
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Activates a specific practical component template for packer exam
+        /// </summary>
+        /// <param name="templateId">Guid id of the template</param>
         public void SetActivePracticalTemplatePacker(Guid templateId)
         {
             var practicalComponentTemplates = _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>();

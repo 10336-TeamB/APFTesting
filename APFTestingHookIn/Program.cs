@@ -19,19 +19,25 @@ namespace APFTestingHookIn
             for (int i = 0; i < 14; ++i)
             {
                 int r = rand.Next();
-                binaryTree.insertValue(r);
+                binaryTree.InsertValue(r);
                 Console.WriteLine(r);
             }
 
-
             List<int> sortedList = binaryTree.TraverseInOrder();
+            binaryTree.BalanceTree();
+            List<int> balancedSortedList = binaryTree.TraverseInOrder();
 
-            Console.WriteLine("\nSorted Data:");
+            Console.WriteLine("\nSorted Data from unbalanced tree:");
             for (int i = 0; i < 14; ++i)
             {
                 Console.WriteLine(sortedList[i]);
             }
 
+            Console.WriteLine("\nSorted Data from balanced tree:");
+            for (int i = 0; i < 14; ++i)
+            {
+                Console.WriteLine(balancedSortedList[i]);
+            }
             Console.ReadKey();
         }
     }
