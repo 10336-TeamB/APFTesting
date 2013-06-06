@@ -8,6 +8,8 @@ namespace APFTestingModel
 {
     internal partial class PracticalComponentTemplatePilot : IPracticalComponentTemplatePilot
     {
+        
+        
         public PracticalComponentTemplatePilot(List<AssessmentTaskPilot> tasks)
         {
             AssessmentTaskPilots = tasks;
