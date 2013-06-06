@@ -135,7 +135,6 @@ namespace APFTestingUI.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditPilot(Edit model)
         {
-            //TODO: throw error if any input fields are left blank
 
             if (ModelState.IsValid)
             {
@@ -283,8 +282,6 @@ namespace APFTestingUI.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditPacker(Edit model)
         {
-            //TODO: throw error if any input fields are left blank
-
             if (ModelState.IsValid)
             {
                 try

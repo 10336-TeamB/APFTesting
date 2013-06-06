@@ -9,7 +9,6 @@ namespace APFTestingModel.Tests
     class MockPracticalComponentPilot : PracticalComponent
     {
        
-        // TODO - Implement IsCompetent
         public bool IsCompetent
         {
             get { return true; }

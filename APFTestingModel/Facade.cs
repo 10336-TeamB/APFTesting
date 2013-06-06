@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using APFTestingMembership;
+using System.Text.RegularExpressions;
 
 namespace APFTestingModel
 {
@@ -90,7 +91,7 @@ namespace APFTestingModel
             return exam.Id;
 		}
 		
-		// HACK: Rest Theory Component
+		// HACK: Reset Theory Component
 		public void ResetTheoryComponent(Guid examId)
 		{
 		    var exam = fetchExamForQuestionFetching(examId);
@@ -436,7 +437,6 @@ namespace APFTestingModel
         {
             return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().Include("PracticalComponentPackers").OrderByDescending(t => t.IsActive).ToList();
         }
-
         
 
         
@@ -1000,6 +1000,7 @@ namespace APFTestingModel
 
             var theoryComponentFormats = _context.TheoryComponentFormats.ToList();
             var newFormat = theoryComponentFormats.FirstOrDefault(f => f.Id == formatId);
+
             if (newFormat == null)
             {
                 throw new BusinessRuleException("Invalid Format ID");
@@ -1020,10 +1021,7 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("Unknown theory component format");
             }
-
             newFormat.Activate();
-            // TODO: Confirm that only one is active?
-
             _context.SaveChanges();
         }
 
@@ -1068,21 +1066,35 @@ namespace APFTestingModel
             return examiner;
         }
 
+        public Guid FetchExaminerIdByUsername(string username)
+        {
+            var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").FirstOrDefault(e => e.Username.Equals(username));
+            if (examiner == null)
+            {
+                throw new BusinessRuleException("Unknown Examiner Name");
+            }
+            return examiner.Id;
+        }
+
         /// <summary>
         /// Creates a new examiner
         /// </summary>
         /// <param name="examinerDetails">Details such as Name, APF Number etc of the examiner</param>
         public void CreateExaminer(ExaminerDetails examinerDetails)
         {
+            if (!Regex.IsMatch(examinerDetails.APFNumber, @"^\d{5,6}$"))
+            {
+                throw new BusinessRuleException("Invalid APF Number");
+            }
+            
             Membership membership = new Membership();
             examinerDetails.UserName = examinerDetails.APFNumber;
             int userId = membership.RegisterExaminer(examinerDetails.UserName, examinerDetails.Password);
             if (userId == -1)
             {
                 throw new BusinessRuleException(String.Format("APF number {0} already exists.", examinerDetails.APFNumber));
-            }
-            
-            // TODO: Need to validate APF Number
+            }  
+
             Examiner examiner = new Examiner(examinerDetails, userId);
             _context.People.Add(examiner);
             _context.SaveChanges();
@@ -1250,7 +1262,6 @@ namespace APFTestingModel
             // Ensuring all formats are not active prior to activating only one.
             practicalComponentTemplates.Where(f => f.IsActive).ToList().ForEach(t => t.Deactivate());
             newTemplate.Activate();
-            // TODO: Confirm that only one is active?
 
             _context.SaveChanges();
         }
@@ -1330,7 +1341,6 @@ namespace APFTestingModel
             // Ensuring all formats are not active prior to activating only one.
             practicalComponentTemplates.Where(f => f.IsActive).ToList().ForEach(t => t.Deactivate());
             newTemplate.Activate();
-            // TODO: Confirm that only one is active?
 
             _context.SaveChanges();
         }
