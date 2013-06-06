@@ -92,7 +92,6 @@ namespace APFTestingModel
             }
         }
 
-        //REFACTORED
         public ExamStatus LatestExamStatus
         {
             get
@@ -106,7 +105,6 @@ namespace APFTestingModel
             }
         }
 
-        //REFACTORED
         public override bool NewExamPossible
         {
             get

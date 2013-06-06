@@ -116,6 +116,10 @@ namespace APFTestingModel
 
         public int CompareTo(object stq)
         {
+            if (!(stq is SelectedTheoryQuestion))
+            {
+                throw new ArgumentException("Cannot compare object of type " + stq.GetType() + " to SelectedTheoryQuestion");
+            }
             var selectedQuestion = (SelectedTheoryQuestion)stq;
             if (this.QuestionIndex == selectedQuestion.QuestionIndex)
             {
