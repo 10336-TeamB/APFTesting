@@ -8,12 +8,18 @@ namespace APFTestingModel
 {
     internal partial class PracticalComponentTemplatePilot : IPracticalComponentTemplatePilot
     {
-        
-        
+        #region Constructors
+
         public PracticalComponentTemplatePilot(List<AssessmentTaskPilot> tasks)
         {
             AssessmentTaskPilots = tasks;
         }
+
+        #endregion
+
+
+
+        #region Properties
 
         public bool AllowEditOrDelete
         {
@@ -24,6 +30,13 @@ namespace APFTestingModel
         {
             get { return AssessmentTaskPilots; }
         }
+
+        #endregion
+
+
+
+        #region Methods
+
 
         internal void Edit(List<AssessmentTaskPilot> selectedTasks)
         {
@@ -68,5 +81,11 @@ namespace APFTestingModel
             IsActive = false;
             return !IsActive;
         }
+
+        #endregion
+
+
+
+
     }
 }
