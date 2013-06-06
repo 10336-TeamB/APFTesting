@@ -50,7 +50,7 @@ namespace APFTestingUI.Models.Candidate
         [RegularExpression(@"^[0-9]{6}$", ErrorMessage = "ARN must a 6-digit number")]
         public string ARN { get; set; }
 
-        [RegularExpression(@"^04[0-9]{8,10}$", ErrorMessage = "Phone number must have between 8-10 digits")]
+        [RegularExpression(@"^[0-9]{8,10}$", ErrorMessage = "Phone number must have between 8-10 digits")]
         public string Phone { get; set; }
 
         [RegularExpression(@"^04[0-9]{8}$", ErrorMessage = "Mobile number must be in the format 0400123123")]

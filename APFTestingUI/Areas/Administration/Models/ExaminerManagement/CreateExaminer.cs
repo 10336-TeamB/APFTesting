@@ -33,10 +33,10 @@ namespace APFTestingUI.Areas.Administration.Models.ExaminerManagement
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Examiner Pilot")]
+        [Display(Name = "Examiner Packer")]
         public bool ExaminerPacker { get; set; }
 
-        [Display(Name = "Examiner Packer")]
+        [Display(Name = "Examiner Pilot")]
         public bool ExaminerPilot { get; set; }
     }
 }

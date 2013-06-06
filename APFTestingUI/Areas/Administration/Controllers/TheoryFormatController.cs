@@ -90,7 +90,6 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult Activate(Guid formatId)
         {
-            // TODO: Need to display a confirmation, plus exceptions if they occur...
             _facade.SetActiveTheoryComponentFormat(formatId);
             return RedirectToAction("Index");
         }
@@ -100,7 +99,6 @@ namespace APFTestingUI.Areas.Administration.Controllers
 
         public ActionResult Delete(Guid formatId)
         {
-            // TODO: Need to display a confirmation, plus exceptions if they occur...
             _facade.DeleteTheoryExamFormat(formatId);
             return RedirectToAction("Index");
         }

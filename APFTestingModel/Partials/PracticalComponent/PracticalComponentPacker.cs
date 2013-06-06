@@ -13,7 +13,6 @@ namespace APFTestingModel
             PracticalComponentTemplatePacker = (PracticalComponentTemplatePacker)activeTemplate;
         }
 
-        // TODO - Implement IsCompetent
         public bool IsCompetent
         {
             get 

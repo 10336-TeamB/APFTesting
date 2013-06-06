@@ -43,8 +43,7 @@ namespace APFTestingUI.Controllers
             {
                 try
                 {
-                    //TODO: Use proper examinerId
-                    var examinerId = new Guid("0099dcce-110a-4144-8ecb-80788f41e8ff");
+                    var examinerId = _facade.FetchExaminerIdByUsername(User.Identity.Name);
                     var candidateId = _facade.CreateCandidate(model.Values, examinerId);
                     return RedirectToAction("ViewPilot", new { candidateId });
                 }
@@ -121,8 +120,7 @@ namespace APFTestingUI.Controllers
             {
                 try
                 {
-                    //TODO: Use proper examinerId
-                    var examinerId = new Guid("0099dcce-110a-4144-8ecb-80788f41e8ff");
+                    var examinerId = _facade.FetchExaminerIdByUsername(User.Identity.Name);
                     var candidateId = _facade.CreateCandidate(model.Values, examinerId);
                     return RedirectToAction("ViewPacker", new { candidateId });
                 }

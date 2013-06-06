@@ -60,13 +60,10 @@ namespace APFTestingModel
             get { return Address; }
         }
 
-        // Hardcoded values to allow facade to work with UI.
         public Exam LatestExam
         {
-            //HACK - returning static exam
             get
             {
-                //return null;
                 Exam exam = ExamPilots.OrderBy(e => e.CreatedDate).LastOrDefault();
 
                 return exam;

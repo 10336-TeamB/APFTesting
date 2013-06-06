@@ -428,5 +428,11 @@ namespace APFTestingUI.Tests
         {
             throw new NotImplementedException();
         }
+
+
+        public Guid FetchExaminerIdByUsername(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

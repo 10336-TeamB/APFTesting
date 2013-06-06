@@ -11,7 +11,6 @@ namespace APFTestingModel
 
         public SelectedTheoryQuestion(TheoryComponent theoryComponent, TheoryQuestion randomQuestion, int questionIndex)
         {
-            // TODO: Complete member initialization
             this.TheoryComponent = theoryComponent;
             this.QuestionIndex = questionIndex;
             this.IsMarkedForReview = false;

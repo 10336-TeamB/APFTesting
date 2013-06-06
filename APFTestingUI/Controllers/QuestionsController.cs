@@ -24,7 +24,6 @@ namespace APFTestingUI.Controllers
             try
             {
                 _facade.AnswerQuestion(question.ExamId, question.Index, question.ChosenAnswer, question.IsMarkedForReview);
-                //throw new Exception("This is an ADAM test exception message");
             }
             catch (BusinessRuleException e)
             {
@@ -35,7 +34,6 @@ namespace APFTestingUI.Controllers
                throw new HttpResponseException(resp);
             }
        
-            //TODO: These Facade requests will also need exception handling for the view.
             switch (question.NavDirection)
             {
                 case ExamAction.NextQuestion:

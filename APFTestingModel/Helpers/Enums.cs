@@ -45,7 +45,6 @@ namespace APFTestingModel
         General = 1
     }
 
-    //Hack: added for UI testing
     public enum CanopyType
     {
         RamAir,

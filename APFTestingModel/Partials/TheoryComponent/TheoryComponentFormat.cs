@@ -69,11 +69,11 @@ namespace APFTestingModel
         {
             if (IsActive)
             {
-                throw new BusinessRuleException("Error: Cannot delete an active template");
+                throw new BusinessRuleException("Cannot delete an active template");
             }
             if (!AllowEditOrDelete)
             {
-                throw new BusinessRuleException("Error: Can not delete template that has been used");
+                throw new BusinessRuleException("Cannot delete template that has been used");
             }
             delete(this);
         }

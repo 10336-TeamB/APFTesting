@@ -12,14 +12,17 @@ namespace APFTestingHookIn
     {
         static void Main(string[] args)
         {
-            BinaryTree<int> binaryTree = new BinaryTree<int>();
+            DoubleLinkedList<int> linkedList = new DoubleLinkedList<int>();
 
+            BinaryTree<int> binaryTree = new BinaryTree<int>();
+            
             Console.WriteLine("Unsorted Data:");
             Random rand = new Random();
             for (int i = 0; i < 14; ++i)
             {
                 int r = rand.Next();
                 binaryTree.InsertValue(r);
+                linkedList.InsertFront(r);
                 Console.WriteLine(r);
             }
 
@@ -38,6 +41,12 @@ namespace APFTestingHookIn
             {
                 Console.WriteLine(balancedSortedList[i]);
             }
+
+            Console.WriteLine("\nData from linked list:");
+            foreach (int i in linkedList) {
+                Console.WriteLine(i);
+            }
+
             Console.ReadKey();
         }
     }
