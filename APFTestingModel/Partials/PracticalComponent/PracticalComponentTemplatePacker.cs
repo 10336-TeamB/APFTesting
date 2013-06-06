@@ -8,15 +8,30 @@ namespace APFTestingModel
 {
     internal partial class PracticalComponentTemplatePacker : IPracticalComponentTemplatePacker
     {
+
+        #region Constructors
+
         public PracticalComponentTemplatePacker(int numOfRequiredAssessmentTasks)
         {
             NumOfRequiredAssessmentTasks = numOfRequiredAssessmentTasks;
         }
 
+        #endregion
+
+
+
+        #region Properties
+
         public bool AllowEditOrDelete
         {
-            get { return PracticalComponentPackers.Count == 0 && !IsActive;  }
+            get { return PracticalComponentPackers.Count == 0 && !IsActive; }
         }
+
+        #endregion
+
+
+
+        #region Methods
 
         internal void Edit(int numOfRequiredAssessmentTasks)
         {
@@ -47,5 +62,8 @@ namespace APFTestingModel
             IsActive = false;
             return !IsActive;
         }
+
+        #endregion
+        
     }
 }
