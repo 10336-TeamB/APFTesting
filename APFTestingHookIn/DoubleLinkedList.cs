@@ -74,6 +74,7 @@ namespace APFTestingHookIn
             else
             {
                 Begin.Previous = new Iterator();
+                Begin.Previous.Next = Begin;
                 Begin = Begin.Previous;
                 Begin.Value = value;
             }

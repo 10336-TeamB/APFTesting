@@ -22,7 +22,7 @@ namespace APFTestingHookIn
             {
                 int r = rand.Next();
                 binaryTree.InsertValue(r);
-                linkedList.InsertBack(r);
+                linkedList.InsertFront(r);
                 Console.WriteLine(r);
             }
 
