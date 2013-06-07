@@ -153,5 +153,20 @@ namespace APFTestingModel.Tests
 
 
 
+        [TestMethod]
+        [ExpectedException(typeof(BusinessRuleException))]
+        public void Edit_NotEditable_ThrowError()
+        {
+            //=== ASSEMBLE ===
+            var template = new PracticalComponentTemplatePilot();
+            template.Activate();
+            var taskList = new List<AssessmentTaskPilot>();
+
+            //=== ACT ===
+            template.Edit(taskList);
+
+            //=== ASSERT===
+            //Expected Expection
+        }
     }
 }
