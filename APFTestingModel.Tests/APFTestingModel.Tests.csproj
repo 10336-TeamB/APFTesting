@@ -60,6 +60,7 @@
     <Compile Include="PracticalComponentTemplatePackerTests.cs" />
     <Compile Include="PracticalComponentTemplatePilotTests.cs" />
     <Compile Include="SelectedAssessmentTaskTest.cs" />
+    <Compile Include="TheoryComponentFormatPilotTests.cs" />
     <Compile Include="TheoryComponentTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectedTheoryQuestionTest.cs" />
