@@ -9,6 +9,7 @@ namespace APFTestingUI {
         {
             filters.Add(new HandleErrorAttribute());
             // Perhaps InitialiseSimpleMembership should be added here?
+            filters.Add(new InitializeSimpleMembershipAttribute());
         }
     }
 }

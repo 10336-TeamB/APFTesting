@@ -4,7 +4,6 @@ using System.Web.Mvc;
 
 namespace APFTestingUI.Controllers 
 {
-    [InitializeSimpleMembership]
     public class HomeController : BaseController
     {
         public HomeController(IFacade facade) : base(facade) { }

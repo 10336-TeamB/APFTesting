@@ -148,5 +148,37 @@ namespace APFTestingModel.Tests
             }
             Assert.AreEqual(format, null);
         }
+
+        [TestMethod]
+        public void FetchNextQuestionSuccessfully()
+        {
+            //Assemble
+            TheoryComponentPilot theoryComponent = new TheoryComponentPilot(new TheoryComponentFormatPilot() { NumberOfQuestions = 6 });
+            List<SelectedTheoryQuestion> questions = new List<SelectedTheoryQuestion>();
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 1 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 2 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 3 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 4 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 5 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 6 });
+
+            theoryComponent.SelectedTheoryQuestions = questions;
+            Exam exam = new ExamPilot(Guid.NewGuid(), Guid.NewGuid(), theoryComponent, null);
+            exam.ExamStatus = ExamStatus.TheoryInProgress;
+            SelectedTheoryQuestion question;
+
+            //Act
+            try
+            {
+                question = exam.FetchNextQuestion();
+            }
+            catch (BusinessRuleException)
+            {
+                question = null;
+            }
+
+            //Assert
+            Assert.AreNotEqual(question, null);
+        }
     }
 }

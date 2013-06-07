@@ -7,7 +7,6 @@ using APFTestingModel;
 
 namespace APFTestingUI.Controllers
 {
-    [InitializeSimpleMembership]
     public class AccountController : BaseController
     {
         public AccountController(IFacade facade) : base(facade) { }
