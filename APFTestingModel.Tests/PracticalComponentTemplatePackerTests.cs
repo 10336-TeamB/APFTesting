@@ -115,5 +115,23 @@ namespace APFTestingModel.Tests
             Assert.AreEqual(expected, actual, "The current value of NumOfRequiredAssessmentTasks property does not equal the value provided to the constructor.");
         }
 
+
+        [TestMethod]
+        [ExpectedException(typeof(BusinessRuleException))]
+        public void Edit_NotEditable_ThrowError()
+        {
+            //=== ASSEMBLE ===
+            var template = new PracticalComponentTemplatePacker();
+            template.Activate();
+
+            //=== ACT ===
+            template.Edit(1);
+
+            //=== ASSERT===
+            //Expected Expection
+        }
+
+
+
     }
 }
