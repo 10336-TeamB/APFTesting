@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
@@ -22,7 +19,7 @@ namespace APFTestingModel
             {
                 throw new BusinessRuleException("ARN must a 6-digit number");
             }
-            if (details.Phone != null && !Regex.IsMatch(details.Phone, @"^04[0-9]{8,10}$"))
+            if (details.Phone != null && !Regex.IsMatch(details.Phone, @"^[0-9]{8,10}$"))
             {
                 throw new BusinessRuleException("Phone number must have between 8-10 digits");
             }
@@ -101,7 +98,7 @@ namespace APFTestingModel
                 {
                     return ExamStatus.NoExam;
                 }
-                return (ExamStatus)latestExam.ExamStatus;
+                return latestExam.ExamStatus;
             }
         }
 
