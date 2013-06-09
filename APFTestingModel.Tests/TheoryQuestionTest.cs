@@ -11,6 +11,7 @@ namespace APFTestingModel.Tests
     public class TheoryQuestionTest
     {      
         [TestMethod]
+        //TODO: Needs naming
         public void TestMethod1()
         {
             // Arrange
@@ -18,14 +19,13 @@ namespace APFTestingModel.Tests
             dummyAnswers.Add(new Answer() { Description = "Over 9000" });
             var fixture = new TheoryQuestionPilot();
             fixture.Answers = dummyAnswers;
-            var expected = dummyAnswers;
-
+           
             // Act
+            var expected = dummyAnswers;
+            var actual = fixture.Answers;
+            
             // Assert
-
-
-            //
-            //
+            Assert.AreEqual(expected, actual);
         }
     }
 }

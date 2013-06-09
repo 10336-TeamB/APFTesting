@@ -52,12 +52,15 @@
   <ItemGroup>
     <Compile Include="AnswerTest.cs" />
     <Compile Include="ExamTest.cs" />
-    <Compile Include="MockPossibleAnswer.cs" />
-    <Compile Include="MockPracticalComponentPilot.cs" />
-    <Compile Include="MockSelectedTheoryQuestion.cs" />
-    <Compile Include="MockTheoryComponentPilot.cs" />
+    <Compile Include="Mocks\MockPossibleAnswer.cs" />
+    <Compile Include="Mocks\MockPracticalComponentPilot.cs" />
+    <Compile Include="Mocks\MockSelectedTheoryQuestion.cs" />
+    <Compile Include="Mocks\MockTheoryComponentPilot.cs" />
     <Compile Include="PracticalComponentPackerTest.cs" />
+    <Compile Include="PracticalComponentTemplatePackerTests.cs" />
+    <Compile Include="PracticalComponentTemplatePilotTests.cs" />
     <Compile Include="SelectedAssessmentTaskTest.cs" />
+    <Compile Include="TheoryComponentFormatPilotTests.cs" />
     <Compile Include="TheoryComponentTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectedTheoryQuestionTest.cs" />
@@ -78,9 +81,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mocks\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

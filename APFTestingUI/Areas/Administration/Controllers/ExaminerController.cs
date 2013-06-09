@@ -9,7 +9,6 @@ using APFTestingUI.Filters;
 
 namespace APFTestingUI.Areas.Administration.Controllers
 {
-    [InitializeSimpleMembership]
     public class ExaminerController : AdminBaseController
     {
         public ExaminerController(IFacade _facade) : base(_facade) { }

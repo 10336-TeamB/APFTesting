@@ -12,18 +12,177 @@ namespace APFTestingModel.Tests
     public class ExamTest
     {
         [TestMethod]
-        public void OnExamStatusChangedTest()
+        public void FetchTheoryFormatSuccessfully()
         {
             //Assemble
-            MockTheoryComponentPilot mockTheoryComponent = new MockTheoryComponentPilot();
-            var exam = new ExamPilot(Guid.NewGuid(), Guid.NewGuid(), new TheoryComponentPilot(new TheoryComponentFormatPilot() { NumberOfQuestions = 10, PassMark = 80 }), new PracticalComponentPilot());
-        
-            //Action
-            exam.ExamStatus = ExamStatus.TheoryPassed;
+            Exam exam = new ExamPilot(Guid.NewGuid(), Guid.NewGuid(), new TheoryComponentPilot(new TheoryComponentFormatPilot()), null);
             
+            //Act
+            TheoryComponentFormatPilot format = (TheoryComponentFormatPilot)exam.FetchTheoryComponentFormat();
+
             //Assert
-            //Assert.AreEqual((new TheoryComponentCompleted()).GetType(), exam.ExamState.GetType());
+            Assert.IsNotNull(format);
         }
 
+        [TestMethod]
+        public void FetchTheoryFormatUnSuccessfully()
+        {
+            //Assemble
+            Exam exam = new ExamPilot(Guid.NewGuid(), Guid.NewGuid(), new TheoryComponentPilot(new TheoryComponentFormatPilot()), null);
+            TheoryComponentFormatPilot nonNullFormat = (TheoryComponentFormatPilot)exam.FetchTheoryComponentFormat(), format;
+            
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.EmailInProgress;
+            format = nonNullFormat;
+
+            // TODO: What is this doing? Should you expect an excpetion?
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            Assert.IsNull(format);
+
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.ExamCompleted;
+            format = nonNullFormat;
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            // TODO: Should use IsNull
+            Assert.AreEqual(format, null);
+
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.ExamVoided;
+            format = nonNullFormat;
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            Assert.AreEqual(format, null);
+
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.NoExam;
+            format = nonNullFormat;
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            Assert.AreEqual(format, null);
+
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.PracticalComponentCompleted;
+            format = nonNullFormat;
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            Assert.AreEqual(format, null);
+
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.SendingEmailFailed;
+            format = nonNullFormat;
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            Assert.AreEqual(format, null);
+
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.TheoryFailed;
+            format = nonNullFormat;
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            Assert.AreEqual(format, null);
+
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.TheoryInProgress;
+            format = nonNullFormat;
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            Assert.AreEqual(format, null);
+
+            //Act and Assert
+            exam.ExamStatus = ExamStatus.TheoryPassed;
+            format = nonNullFormat;
+            try
+            {
+                exam.FetchTheoryComponentFormat();
+            }
+            catch
+            {
+                format = null;
+            }
+            Assert.AreEqual(format, null);
+        }
+
+        [TestMethod]
+        public void FetchNextQuestionSuccessfully()
+        {
+            //Assemble
+            TheoryComponentPilot theoryComponent = new TheoryComponentPilot(new TheoryComponentFormatPilot() { NumberOfQuestions = 6 });
+            List<SelectedTheoryQuestion> questions = new List<SelectedTheoryQuestion>();
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 1 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 2 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 3 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 4 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 5 });
+            questions.Add(new SelectedTheoryQuestion() { QuestionIndex = 6 });
+
+            theoryComponent.SelectedTheoryQuestions = questions;
+            Exam exam = new ExamPilot(Guid.NewGuid(), Guid.NewGuid(), theoryComponent, null);
+            exam.ExamStatus = ExamStatus.TheoryInProgress;
+            SelectedTheoryQuestion question;
+
+            //Act
+            try
+            {
+                question = exam.FetchNextQuestion();
+            }
+            catch (BusinessRuleException)
+            {
+                question = null;
+            }
+
+            //Assert
+            //TODO: Should use IsNotNull
+            Assert.AreNotEqual(question, null);
+        }
     }
 }
