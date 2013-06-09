@@ -535,12 +535,27 @@ input[type="radio"], input[type="checkbox"]
         border-radius: 5px 5px 0 0;
     }
 
+    #help
+    {
+        margin: 0;
+        text-align: left;
+        font-size: 0.75em;
+        padding: 5px;
+        float:left;
+    }
+
+    #help a
+    {
+        color:#dddddd;
+    }
+
     #copy
     {
         margin: 0;
         text-align: right;
         font-size: 0.75em;
         padding: 5px;
+        float:right;
     }
 
 

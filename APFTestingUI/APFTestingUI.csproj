@@ -379,6 +379,7 @@
     <Content Include="Areas\Administration\Views\QuestionManagement\EditPacker.cshtml" />
     <Content Include="Areas\Administration\Views\QuestionManagement\DisplayPilot.cshtml" />
     <Content Include="Areas\Administration\Views\QuestionManagement\DisplayPacker.cshtml" />
+    <Content Include="Content\files\User-Manual.pdf" />
     <None Include="Properties\PublishProfiles\APF.pubxml" />
     <None Include="Properties\PublishProfiles\APFTesting.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
@@ -511,9 +512,10 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>9592</DevelopmentServerPort>
+          <DevelopmentServerPort>3732</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1979/</IISUrl>
+          <IISUrl>
+          </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
