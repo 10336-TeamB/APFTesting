@@ -1068,7 +1068,7 @@ namespace APFTestingModel
 
         public Guid FetchExaminerIdByUsername(string username)
         {
-            var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").FirstOrDefault(e => e.Username.Equals(username));
+            var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").FirstOrDefault(e => e.APFNumber.Equals(username));
             if (examiner == null)
             {
                 throw new BusinessRuleException("Unknown Examiner Name");
