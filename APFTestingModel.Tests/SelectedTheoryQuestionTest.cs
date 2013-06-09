@@ -17,7 +17,7 @@ namespace APFTestingModel.Tests
             var result = smallerQuestion.CompareTo(largerQuestion);
 
             //Assert
-            Assert.AreEqual<int>(result, -1);
+            Assert.AreEqual(-1, result);
         }
 
         [TestMethod]
@@ -31,7 +31,7 @@ namespace APFTestingModel.Tests
             var result = largerQuestion.CompareTo(smallerQuestion);
 
             //Assert
-            Assert.AreEqual<int>(result, 1);
+            Assert.AreEqual(1, result);
         }
 
         [TestMethod]
@@ -45,7 +45,7 @@ namespace APFTestingModel.Tests
             var result = question1.CompareTo(question2);
 
             //Assert
-            Assert.AreEqual<int>(result, 0);
+            Assert.AreEqual(0, result);
         }
 
         [TestMethod]
@@ -58,7 +58,7 @@ namespace APFTestingModel.Tests
             var result = question.ExamType;
 
             //Assert
-            Assert.AreEqual<ExamType>(result, ExamType.PilotExam);
+            Assert.AreEqual(ExamType.PilotExam, result);
         }
 
         [TestMethod]
@@ -71,7 +71,7 @@ namespace APFTestingModel.Tests
             var result = question.ExamType;
 
             //Assert
-            Assert.AreEqual<ExamType>(result, ExamType.PackerExam);
+            Assert.AreEqual(ExamType.PackerExam, result);
         }
 
         [TestMethod]

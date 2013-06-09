@@ -21,8 +21,8 @@ namespace APFTestingModel.Tests
             selectedAssessmentTask.RecordResult(new PilotPracticalResult() { Comment = "Comment", Score = 8 });
 
             //Assert
-            Assert.AreEqual(selectedAssessmentTask.Comment, "Comment");
-            Assert.AreEqual(selectedAssessmentTask.Score, 8);
+            Assert.AreEqual("Comment", selectedAssessmentTask.Comment);
+            Assert.AreEqual(8, selectedAssessmentTask.Score);
         }
     }
 }

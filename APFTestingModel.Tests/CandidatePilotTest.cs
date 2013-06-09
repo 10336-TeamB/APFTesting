@@ -14,19 +14,19 @@ namespace APFTestingModel.Tests
             var candidate = new CandidatePilot();
 
             //Assert
-            Assert.AreEqual(candidate.FirstName, null);
-            Assert.AreEqual(candidate.LastName, null);
-            Assert.AreEqual(candidate.DateOfBirth, DateTime.MinValue);
-            Assert.AreEqual(candidate.Address, null);
-            Assert.AreEqual(candidate.ARN, null);
-            Assert.AreEqual(candidate.PhoneNumber, null);
-            Assert.AreEqual(candidate.MobileNumber, null);
-            Assert.AreEqual(candidate.Email, null);
-            Assert.AreEqual(candidate.PilotLicenceType, (PilotLicenceType)0);
-            Assert.AreEqual(candidate.InstrumentRating, false);
-            Assert.AreEqual(candidate.PilotMedicalType, (PilotMedicalType)0);
-            Assert.AreEqual(candidate.PilotMedicalExpiryDate, DateTime.MinValue);
-            Assert.AreEqual(candidate.ValidBFR, false);
+            Assert.IsNull(candidate.FirstName);
+            Assert.IsNull(candidate.LastName);
+            Assert.AreEqual(DateTime.MinValue, candidate.DateOfBirth);
+            Assert.IsNull(candidate.Address);
+            Assert.IsNull(candidate.ARN);
+            Assert.IsNull(candidate.PhoneNumber);
+            Assert.IsNull(candidate.MobileNumber);
+            Assert.IsNull(candidate.Email);
+            Assert.AreEqual((PilotLicenceType)0, candidate.PilotLicenceType);
+            Assert.IsFalse(candidate.InstrumentRating);
+            Assert.AreEqual((PilotMedicalType)0, candidate.PilotMedicalType);
+            Assert.AreEqual(DateTime.MinValue, candidate.PilotMedicalExpiryDate);
+            Assert.IsFalse(candidate.ValidBFR);
         }
 
         [TestMethod]
@@ -37,24 +37,24 @@ namespace APFTestingModel.Tests
             var candidate = new CandidatePilot(createPilotDetails(), guid);
 
             // Assert
-            Assert.AreEqual(candidate.CreatedBy, guid);
-            Assert.AreEqual(candidate.FirstName, "Adam");
-            Assert.AreEqual(candidate.LastName, "Smith");
-            Assert.AreEqual(candidate.DateOfBirth, new DateTime(1950, 1, 1));
-            Assert.AreEqual(candidate.Address.Address1, "Unit 1");
-            Assert.AreEqual(candidate.Address.Address2, "1 Test Drive");
-            Assert.AreEqual(candidate.Address.Suburb, "Aardvark Central");
-            Assert.AreEqual(candidate.Address.State, "AAA");
-            Assert.AreEqual(candidate.Address.Postcode, "0001");
-            Assert.AreEqual(candidate.ARN, "000001");
-            Assert.AreEqual(candidate.PhoneNumber, "0000000001");
-            Assert.AreEqual(candidate.MobileNumber, "0400000001");
-            Assert.AreEqual(candidate.Email, "a@a.com");
-            Assert.AreEqual(candidate.PilotLicenceType, PilotLicenceType.CPL);
-            Assert.AreEqual(candidate.InstrumentRating, true);
-            Assert.AreEqual(candidate.PilotMedicalType, PilotMedicalType.ClassOne);
-            Assert.AreEqual(candidate.PilotMedicalExpiryDate, new DateTime(2001, 1, 1));
-            Assert.AreEqual(candidate.ValidBFR, true);
+            Assert.AreEqual(guid, candidate.CreatedBy);
+            Assert.AreEqual("Adam", candidate.FirstName);
+            Assert.AreEqual("Smith", candidate.LastName);
+            Assert.AreEqual(new DateTime(1950, 1, 1), candidate.DateOfBirth);
+            Assert.AreEqual("Unit 1", candidate.Address.Address1);
+            Assert.AreEqual("1 Test Drive", candidate.Address.Address2);
+            Assert.AreEqual("Aardvark Central", candidate.Address.Suburb);
+            Assert.AreEqual("AAA", candidate.Address.State);
+            Assert.AreEqual("0001", candidate.Address.Postcode);
+            Assert.AreEqual("000001", candidate.ARN);
+            Assert.AreEqual("0000000001", candidate.PhoneNumber);
+            Assert.AreEqual("0400000001", candidate.MobileNumber);
+            Assert.AreEqual("a@a.com", candidate.Email);
+            Assert.AreEqual(PilotLicenceType.CPL, candidate.PilotLicenceType);
+            Assert.IsTrue(candidate.InstrumentRating);
+            Assert.AreEqual(PilotMedicalType.ClassOne, candidate.PilotMedicalType);
+            Assert.AreEqual(new DateTime(2001, 1, 1), candidate.PilotMedicalExpiryDate);
+            Assert.IsTrue(candidate.ValidBFR);
         }
 
         [TestMethod]
@@ -67,23 +67,23 @@ namespace APFTestingModel.Tests
             candidate.Edit(createPilotDetails());
 
             // Assert
-            Assert.AreEqual(candidate.FirstName, "Adam");
-            Assert.AreEqual(candidate.LastName, "Smith");
-            Assert.AreEqual(candidate.DateOfBirth, new DateTime(1950, 1, 1));
-            Assert.AreEqual(candidate.Address.Address1, "Unit 1");
-            Assert.AreEqual(candidate.Address.Address2, "1 Test Drive");
-            Assert.AreEqual(candidate.Address.Suburb, "Aardvark Central");
-            Assert.AreEqual(candidate.Address.State, "AAA");
-            Assert.AreEqual(candidate.Address.Postcode, "0001");
-            Assert.AreEqual(candidate.ARN, "000001");
-            Assert.AreEqual(candidate.PhoneNumber, "0000000001");
-            Assert.AreEqual(candidate.MobileNumber, "0400000001");
-            Assert.AreEqual(candidate.Email, "a@a.com");
-            Assert.AreEqual(candidate.PilotLicenceType, PilotLicenceType.CPL);
-            Assert.AreEqual(candidate.InstrumentRating, true);
-            Assert.AreEqual(candidate.PilotMedicalType, PilotMedicalType.ClassOne);
-            Assert.AreEqual(candidate.PilotMedicalExpiryDate, new DateTime(2001, 1, 1));
-            Assert.AreEqual(candidate.ValidBFR, true);
+            Assert.AreEqual("Adam", candidate.FirstName);
+            Assert.AreEqual("Smith", candidate.LastName);
+            Assert.AreEqual(new DateTime(1950, 1, 1), candidate.DateOfBirth);
+            Assert.AreEqual("Unit 1", candidate.Address.Address1);
+            Assert.AreEqual("1 Test Drive", candidate.Address.Address2);
+            Assert.AreEqual("Aardvark Central", candidate.Address.Suburb);
+            Assert.AreEqual("AAA", candidate.Address.State);
+            Assert.AreEqual("0001", candidate.Address.Postcode);
+            Assert.AreEqual("000001", candidate.ARN);
+            Assert.AreEqual("0000000001", candidate.PhoneNumber);
+            Assert.AreEqual("0400000001", candidate.MobileNumber);
+            Assert.AreEqual("a@a.com", candidate.Email);
+            Assert.AreEqual(PilotLicenceType.CPL, candidate.PilotLicenceType);
+            Assert.IsTrue(candidate.InstrumentRating);
+            Assert.AreEqual(PilotMedicalType.ClassOne, candidate.PilotMedicalType);
+            Assert.AreEqual(new DateTime(2001, 1, 1), candidate.PilotMedicalExpiryDate);
+            Assert.IsTrue(candidate.ValidBFR);
         }
 
         private CandidatePilotDetails createPilotDetails()
@@ -119,7 +119,7 @@ namespace APFTestingModel.Tests
             var result = candidate.ExamType;
                 
             // Assert
-            Assert.AreEqual(result, ExamType.PilotExam);
+            Assert.AreEqual(ExamType.PilotExam, result);
         }
 
         [TestMethod]
@@ -132,7 +132,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, true);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -152,7 +152,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, true);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -172,7 +172,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, true);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -192,7 +192,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, false);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
@@ -212,7 +212,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, false);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
@@ -232,7 +232,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, false);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
@@ -252,7 +252,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, false);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
@@ -272,7 +272,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, false);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
@@ -292,7 +292,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, false);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
@@ -312,7 +312,7 @@ namespace APFTestingModel.Tests
             var result = candidate.NewExamPossible;
 
             // Assert
-            Assert.AreEqual(result, false);
+            Assert.IsFalse(result);
         }
     }
 }

@@ -8,20 +8,26 @@ using System.Threading.Tasks;
 namespace APFTestingModel.Tests
 {
     [TestClass]
-    class TheoryComponentFormatPilotTests
+    public class TheoryComponentFormatPilotTests
     {
         [TestMethod]
         public void ConstructorIntIntInt_InitializeProperties()
         {
-            //Act
+            // Assemble
             var expectedQuestionCount = 10;
             var expectedPassMark = 10;
             var expectedTimeLimit = 0;
             var format = new TheoryComponentFormatPilot(expectedQuestionCount, expectedPassMark, expectedTimeLimit);
 
-            //Assert
-
-
+            // Act
+            var actualQuestionCount = format.NumberOfQuestions;
+            var actualPassMark = format.PassMark;
+            var actualTimeLimit = format.TimeLimit;
+            
+            // Assert
+            Assert.AreEqual(expectedQuestionCount, actualQuestionCount);
+            Assert.AreEqual(expectedPassMark, actualPassMark);
+            Assert.AreEqual(expectedTimeLimit, actualTimeLimit);
         }
     }
 }

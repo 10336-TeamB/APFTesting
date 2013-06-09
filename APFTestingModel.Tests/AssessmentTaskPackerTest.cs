@@ -23,11 +23,11 @@ namespace APFTestingModel.Tests
             var assessmentTask = new AssessmentTaskPacker(dummyResult);
 
             // Assert
-            Assert.AreEqual(assessmentTask.Date, date);
-            Assert.AreEqual(assessmentTask.CanopyType, canopyType);
-            Assert.AreEqual(assessmentTask.HarnessContainerType, harnessType);
-            Assert.AreEqual(assessmentTask.Note, note);
-            Assert.AreEqual(assessmentTask.SupervisorId, supervisorId);
+            Assert.AreEqual(date, assessmentTask.Date);
+            Assert.AreEqual(canopyType, assessmentTask.CanopyType);
+            Assert.AreEqual(harnessType, assessmentTask.HarnessContainerType);
+            Assert.AreEqual(note, assessmentTask.Note);
+            Assert.AreEqual(supervisorId, assessmentTask.SupervisorId);
 
         }
 
@@ -59,11 +59,11 @@ namespace APFTestingModel.Tests
             assessmentTask.Edit(dummyResult2);
 
             // Assert
-            Assert.AreEqual(assessmentTask.Date, dateNew);
-            Assert.AreEqual(assessmentTask.CanopyType, canopyTypeNew);
-            Assert.AreEqual(assessmentTask.HarnessContainerType, harnessTypeNew);
-            Assert.AreEqual(assessmentTask.Note, noteNew);
-            Assert.AreEqual(assessmentTask.SupervisorId, supervisorIdNew);
+            Assert.AreEqual(dateNew, assessmentTask.Date);
+            Assert.AreEqual(canopyTypeNew, assessmentTask.CanopyType);
+            Assert.AreEqual(harnessTypeNew, assessmentTask.HarnessContainerType);
+            Assert.AreEqual(noteNew, assessmentTask.Note);
+            Assert.AreEqual(supervisorIdNew, assessmentTask.SupervisorId);
         }
     }
 }

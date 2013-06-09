@@ -21,7 +21,7 @@ namespace APFTestingModel.Tests
             TheoryComponentFormatPilot format = (TheoryComponentFormatPilot)exam.FetchTheoryComponentFormat();
 
             //Assert
-            Assert.AreNotEqual(format, null);
+            Assert.IsNotNull(format);
         }
 
         [TestMethod]
@@ -34,6 +34,8 @@ namespace APFTestingModel.Tests
             //Act and Assert
             exam.ExamStatus = ExamStatus.EmailInProgress;
             format = nonNullFormat;
+
+            // TODO: What is this doing? Should you expect an excpetion?
             try
             {
                 exam.FetchTheoryComponentFormat();
@@ -42,7 +44,7 @@ namespace APFTestingModel.Tests
             {
                 format = null;
             }
-            Assert.AreEqual(format, null);
+            Assert.IsNull(format);
 
             //Act and Assert
             exam.ExamStatus = ExamStatus.ExamCompleted;
@@ -55,6 +57,7 @@ namespace APFTestingModel.Tests
             {
                 format = null;
             }
+            // TODO: Should use IsNull
             Assert.AreEqual(format, null);
 
             //Act and Assert
@@ -178,6 +181,7 @@ namespace APFTestingModel.Tests
             }
 
             //Assert
+            //TODO: Should use IsNotNull
             Assert.AreNotEqual(question, null);
         }
     }
