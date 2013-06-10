@@ -56,6 +56,7 @@
     <Compile Include="Mocks\MockPracticalComponentPilot.cs" />
     <Compile Include="Mocks\MockSelectedTheoryQuestion.cs" />
     <Compile Include="Mocks\MockTheoryComponentPilot.cs" />
+    <Compile Include="Mocks\MockTheoryQuestion.cs" />
     <Compile Include="PracticalComponentPackerTest.cs" />
     <Compile Include="PracticalComponentTemplatePackerTests.cs" />
     <Compile Include="PracticalComponentTemplatePilotTests.cs" />

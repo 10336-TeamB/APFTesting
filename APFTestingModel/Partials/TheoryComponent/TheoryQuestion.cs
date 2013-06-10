@@ -182,20 +182,5 @@ namespace APFTestingModel
 
         #endregion
 
-        
-
-        
-
-        //public void Delete(Facade facade)
-        //{
-        //    if (SelectedTheoryQuestions.Count == 0)
-        //    {
-        //        foreach (var answer in Answers)
-        //        {
-        //            facade.DeleteAnswer(answer);
-        //        }
-        //        facade.DeleteTheoryQuestion(this);
-        //    }
-        //}
     }
 }

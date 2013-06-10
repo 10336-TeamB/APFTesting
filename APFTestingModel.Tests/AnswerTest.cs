@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using APFTestingModel.Tests.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace APFTestingModel.Tests
@@ -7,20 +9,62 @@ namespace APFTestingModel.Tests
     public class AnswerTest
     {
         [TestMethod]
-        public void AnswerGetDescription()
+        public void Constructor_SetsCorrectValues()
         {
-            // Assemble
-            var fixture = new Answer();
-            fixture.Description = "Hello world";
-            var expected = "Hello world";
-            var expected2 = "Hello Earth";
+            //Arrange
+            TheoryQuestion question = new MockTheoryQuestion();
+            var questionId = Guid.NewGuid();
+            question.Id = questionId;
+            var answerDetails = new AnswerDetails("answer description", true);
 
-            // Act
-            var actual = fixture.Description;
+            //Act
+            Answer answer = new Answer(answerDetails, 1, question);
 
-            // Assert
-            Assert.AreEqual(expected, actual);
-            Assert.AreNotEqual(expected2, actual);
+            var expectedAnswerDetail = "answer description";
+            var expectedAnswerOrderIndex = 1;
+            var expectedQuestionId = questionId;
+            var expectedAnswerIsCorrect = true;
+
+            var actualAnswerDetail = answer.Description;
+            var actualAnswerOrderIndex = answer.DisplayOrderIndex;
+            var actualAnswerQuestionId = answer.TheoryQuestion.Id;
+            var actualAnswerIsCorrect = answer.IsCorrect;
+
+            //Assert
+            Assert.AreEqual(expectedAnswerDetail, actualAnswerDetail);
+            Assert.AreEqual(expectedAnswerOrderIndex, actualAnswerOrderIndex);
+            Assert.AreEqual(expectedQuestionId, actualAnswerQuestionId);
+            Assert.AreEqual(expectedAnswerIsCorrect, actualAnswerIsCorrect);
+        }
+
+        [TestMethod]
+        public void Edit_UpdatesValues()
+        {
+            //Arrange
+            TheoryQuestion question = new MockTheoryQuestion();
+            var questionId = Guid.NewGuid();
+            question.Id = questionId;
+            var answerId = Guid.NewGuid();
+            var answerDetails = new AnswerDetails("answer description", true);
+            var answerDetails2 = new AnswerDetails("answer description 2", false);
+
+            Answer answer = new Answer(answerDetails, 1, question);
+
+            //Act
+            answer.Edit(answerDetails2, 2);
+
+            var expectedAnswerDetail = "answer description 2";
+            var expectedAnswerOrderIndex = 2;
+            var expectedAnswerIsCorrect = false;
+
+            var actualAnswerDetail = answer.Description;
+            var actualAnswerOrderIndex = answer.DisplayOrderIndex;
+            var ActualAnswerIsCorrect = answer.IsCorrect;
+
+            //Assert
+            Assert.AreEqual(expectedAnswerDetail, actualAnswerDetail);
+            Assert.AreEqual(expectedAnswerOrderIndex, actualAnswerOrderIndex);
+            Assert.AreEqual(expectedAnswerIsCorrect, ActualAnswerIsCorrect);
         }
     }
 }

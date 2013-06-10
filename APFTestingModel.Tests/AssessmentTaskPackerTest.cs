@@ -7,7 +7,7 @@ namespace APFTestingModel.Tests
     public class AssessmentTaskPackerTest
     {
         [TestMethod]
-        public void AssessmentTaskConstructionWithResult()
+        public void Construction_SetsCorrectValues()
         {
             // Assemble
             var date = new DateTime(2012, 8, 12);
@@ -32,7 +32,7 @@ namespace APFTestingModel.Tests
         }
 
         [TestMethod]
-        public void AssessmentTaskEditResult()
+        public void Edit_UpdatesToCorrectValues()
         {
             // Assemble
             var dateOld = new DateTime(2012, 8, 12);
@@ -47,10 +47,8 @@ namespace APFTestingModel.Tests
             var noteNew = "Good pack";
             var supervisorIdNew = "567892";
 
-            //var dummyResult = new PackerPracticalResult() { Date = dateOld, CanopyType = canopyTypeOld, CanopyTypeSerialNumber = canopySerialOld, HarnessContainerType = harnessTypeOld, HarnessContainerSerialNumber = harnessSerialOld, Note = noteOld, SupervisorId = supervisorIdOld };
             var dummyResult = new PackerPracticalResult() { Date = dateOld, CanopyType = canopyTypeOld, HarnessContainerType = harnessTypeOld, Note = noteOld, SupervisorId = supervisorIdOld };
             
-            //var dummyResult2 = new PackerPracticalResult() { Date = dateNew, CanopyType = canopyTypeNew, CanopyTypeSerialNumber = canopySerialNew, HarnessContainerType = harnessTypeNew, HarnessContainerSerialNumber = harnessSerialNew, Note = noteNew, SupervisorId = supervisorIdNew };
             var dummyResult2 = new PackerPracticalResult() { Date = dateNew, CanopyType = canopyTypeNew, HarnessContainerType = harnessTypeNew, Note = noteNew, SupervisorId = supervisorIdNew };
             
             var assessmentTask = new AssessmentTaskPacker(dummyResult);
