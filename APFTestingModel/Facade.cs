@@ -1058,7 +1058,7 @@ namespace APFTestingModel
         /// <returns>Examiner that was retrived</returns>
         public IExaminer FetchExaminer(int userId)
         {
-            var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").FirstOrDefault(e => e.UserId == userId);
+            var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").FirstOrDefault(e => e.UserId == userId);
             if (examiner == null)
             {
                 throw new BusinessRuleException("Unknown Examiner Id");
@@ -1068,7 +1068,7 @@ namespace APFTestingModel
 
         public Guid FetchExaminerIdByUsername(string username)
         {
-            var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").Include("User").FirstOrDefault(e => e.APFNumber.Equals(username));
+            var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").FirstOrDefault(e => e.APFNumber.Equals(username));
             if (examiner == null)
             {
                 throw new BusinessRuleException("Unknown Examiner Name");
