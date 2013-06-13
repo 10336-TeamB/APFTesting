@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
+    /// <summary>
+    /// Class that sorts data using merge sort
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class MergeSort<T> where T : IComparable
     {
         private List<T> merge(List<T> left, List<T> right)
@@ -43,6 +47,11 @@ namespace APFTestingModel
             return result;
         }
 
+        /// <summary>
+        /// Sorts the data using merge sort
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public List<T> mergeSort(List<T> data)
         {
             if (data.Count() <= 1)

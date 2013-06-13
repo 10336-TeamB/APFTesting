@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace APFTestingModel
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IPossibleAnswer
     {
         string Description { get; }
