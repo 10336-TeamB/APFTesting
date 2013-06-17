@@ -31,9 +31,9 @@
     }
 
 </style>
-<h1>Assessment Task Management</h1>
+<h1>Pilot Assessment Task Management</h1>
 <p>
-    @Html.ActionLink("Create New Assessment Task", "Create")
+    @Html.ActionLink("Add New Task", "Create", new { }, new { @class = "button-add" })
 </p>
 <table id="Assessment-Tasks-List">
     <tr>
@@ -56,7 +56,7 @@
                 @:&nbsp;|&nbsp;
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id })
                 @:&nbsp;|&nbsp;
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class="link-delete"})
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class="delete"})
             }
             else
             {
@@ -70,9 +70,5 @@
 
 
 @section Scripts {
-    <script>
-        $('.link-delete').on('click', function(e){
-            return confirm('Are you sure you want to delete this Assessment Task?');
-        })
-    </script>
+    <script src="~/Scripts/administration.js"></script>
 }

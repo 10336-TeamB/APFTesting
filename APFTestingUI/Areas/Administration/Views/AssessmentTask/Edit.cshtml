@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit Pilot Practical Assessment Task Details</h1>
+<h1>Edit Assessment Task</h1>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -48,13 +48,13 @@
 
 
         <p class="button-container">
+            @Html.ActionLink("Cancel", "Index", new { }, new { @class = "form-button" })
             <input class="form-button" type="submit" value="Save" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
