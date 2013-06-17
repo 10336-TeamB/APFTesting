@@ -426,7 +426,7 @@ namespace APFTestingModel
         /// <returns>Readonly list of all the practical component template for the pilot candidates</returns>
         public IEnumerable<IPracticalComponentTemplatePilot> FetchAllPracticalComponentTemplatePilots()
         {
-            return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("PracticalComponentPilots").Include("AssessmentTaskPilots").OrderByDescending(t => t.IsActive).ToList();
+            return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePilot>().Include("PracticalComponentPilots").Include("AssessmentTaskPilots").ToList();
         }
 
         /// <summary>
@@ -435,7 +435,7 @@ namespace APFTestingModel
         /// <returns>Readonly list of all the practical component template for the packer candidates</returns>
         public IEnumerable<IPracticalComponentTemplatePacker> FetchAllPracticalComponentTemplatePackers()
         {
-            return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().Include("PracticalComponentPackers").OrderByDescending(t => t.IsActive).ToList();
+            return _context.PracticalComponentTemplates.OfType<PracticalComponentTemplatePacker>().Include("PracticalComponentPackers").OrderBy(t => t.NumOfRequiredAssessmentTasks).ToList();
         }
         
 

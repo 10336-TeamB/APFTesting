@@ -20,20 +20,16 @@
             @Html.LabelFor(model => model.NumOfRequiredAssessmentTasks)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.NumOfRequiredAssessmentTasks)
+            @Html.TextBoxFor(model => model.NumOfRequiredAssessmentTasks, new { type = "number"})
             @Html.ValidationMessageFor(model => model.NumOfRequiredAssessmentTasks)
         </div>
         <div class="clear"></div>
-
-        <p class="button-container">
-            <input type="submit" value="Save" class="form-button" />
-        </p>
+        
+        <br/>
+        @Html.ActionLink("Cancel", "Index", new { }, new { @class = "form-button"})
+        <input type="submit" value="Save" class="form-button" />
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

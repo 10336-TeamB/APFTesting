@@ -245,7 +245,8 @@ a
 
 a:hover
 {
-    text-decoration: underline;
+    text-decoration: none;
+    color: #D5AE69;
 }
 
 input, select, textarea {

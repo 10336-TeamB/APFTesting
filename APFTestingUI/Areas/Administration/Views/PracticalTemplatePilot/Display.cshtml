@@ -22,7 +22,7 @@
     <tbody>
         @{
             var rowNumber = 1;
-         }
+        }
         @foreach (var task in Model.Tasks)
         {
             <tr>
@@ -37,3 +37,14 @@
         }
     </tbody>
 </table>
+<br/>
+<p class="button-container">
+@Html.ActionLink("Back", "Index", new { }, new { @class = "form-button" })
+@if (Model.AllowEditOrDelete) {
+    @Html.ActionLink("Edit", "Edit", new { templateId = Model.Id }, new { @class = "form-button" });
+    @Html.ActionLink("Delete", "Delete", new { templateId = Model.Id }, new { @class="form-button delete"});
+}
+    </p>
+@section scripts {
+    <script src="~/Scripts/administration.js"></script>
+}

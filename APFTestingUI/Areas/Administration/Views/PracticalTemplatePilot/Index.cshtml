@@ -10,7 +10,7 @@
 
 <h3>@ViewBag.displayMessage</h3><br />
 
-@Html.ActionLink("Add new template", "Create")<br /><br/>
+@Html.ActionLink("Add New Template", "Create", new { }, new { @class = "button-add" })<br /><br/>
 
 <table>
     <thead>
@@ -27,10 +27,24 @@
          }
         @for (int i = 0; i < Model.Templates.Count; i++)
         {
+            string rowClass;
             <tr>
                 <td>@rowNumber</td>
-                <td>@Model.Templates[i].IsActiveText</td>
-                <td class="toggle"><span>Click to expand Tasks</span><br />
+                <td>
+                        @if (Model.Templates[i].IsActive)
+                        {
+                            <img src="~/Images/on.png" alt="On button" width="56" height="30" />
+                            rowClass = "row-highlight";
+                        }
+                        else
+                        {
+                            <a href='@Url.Action("Activate", new { templateId = Model.Templates[i].Id })'>
+                                <img src="~/Images/off.png" alt="Off button" width="56" height="30" />
+                            </a>
+                            rowClass = "";
+                        }
+                    </td>
+                <td class="toggle @rowClass"><span>Click to expand Tasks</span><br />
                     <ul class="hidden tasks">
                         @for (int j = 0; j < Model.Templates[i].Tasks.Count; j++)
                         {
@@ -39,18 +53,15 @@
                     </ul>
                 </td>
                 <td>
-                    @Html.ActionLink("Display", "Display", new { templateId = Model.Templates[i].Id }) |
+                    @Html.ActionLink("Display", "Display", new { templateId = Model.Templates[i].Id })
                     @if (Model.Templates[i].AllowEditOrDelete)
                     {
+                        <text>|</text>
                         @Html.ActionLink("Edit", "Edit", new { templateId = Model.Templates[i].Id })
                         <text>|</text>
                         @Html.ActionLink("Delete", "Delete", new { templateId = Model.Templates[i].Id }, new { @class = "delete" })
                     }
-                    @if (!Model.Templates[i].IsActive)
-                    {
-                        <text>|</text>
-                        @Html.ActionLink("Activate", "Activate", new { templateId = Model.Templates[i].Id }, new { @class = "activate" })
-                    }
+                    
                 </td>
             </tr>
             rowNumber++;

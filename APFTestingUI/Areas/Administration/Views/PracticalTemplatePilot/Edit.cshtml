@@ -85,6 +85,7 @@
     </table>
     
     <p class="button-container">
-            <input type="submit" value="Submit" class="form-button"/>
+        @Html.ActionLink("Cancel", "Index", new { }, new { @class = "form-button" })
+        <input type="submit" value="Submit" class="form-button"/>
     </p>
 }
