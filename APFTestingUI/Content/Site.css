@@ -1967,3 +1967,89 @@ input[type="submit"]
     font-size: 1.6em;
     color: #FFFFFF;
 }
+
+#manage-theory-question-wrap h2
+{
+    text-align:left;
+}
+
+.th-correct-answer
+{
+    width:180px;
+}
+
+
+#answers-table {
+    width:100%;
+}
+
+    #answers-table th {
+        padding-bottom: 10px;
+        font-size: 1.2em;
+        font-weight:normal;
+    }
+
+    #answers-table td {
+        vertical-align: middle;
+    }
+
+#answers-table input[type="text"] {
+    width:97%;
+    padding:3px 1%;
+}
+
+    #answers-table .td-is-correct {
+        padding-left:50px;
+    }
+
+    #answers-table td.delete-answer {
+        width:120px;
+        color: #ff0000;
+    }
+#add-answer {
+    font-size: 1.2em;
+}
+
+input[type="submit"] {
+    vertical-align: top;
+}
+
+.row-highlight {
+    background-color: #222222;
+}
+
+
+
+#manage-exam-format-wrap td {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+#manage-exam-format-wrap h2 {
+    text-align: left;
+    font-size: 1.6em
+}
+
+#manage-exam-format-wrap th {
+    text-align: center;
+}
+
+#manage-exam-format-wrap .status {
+    width: 10%;
+}
+
+#manage-exam-format-wrap .questions {
+    width: 20%;
+}
+
+#manage-exam-format-wrap .pass-mark {
+    width: 20%;
+}
+
+#manage-exam-format-wrap .time-limit {
+    width: 20%;
+}
+
+#manage-exam-format-wrap .edit-delete {
+    width: 30%;
+}

@@ -380,6 +380,10 @@
     <Content Include="Areas\Administration\Views\QuestionManagement\DisplayPilot.cshtml" />
     <Content Include="Areas\Administration\Views\QuestionManagement\DisplayPacker.cshtml" />
     <Content Include="Content\files\User-Manual.pdf" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\_DisplayQuestion.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\_CreateQuestion.cshtml" />
+    <Content Include="Areas\Administration\Views\QuestionManagement\_EditQuestion.cshtml" />
+    <Content Include="Areas\Administration\Views\TheoryFormat\_DisplayFormat.cshtml" />
     <None Include="Properties\PublishProfiles\APF.pubxml" />
     <None Include="Properties\PublishProfiles\APFTesting.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />

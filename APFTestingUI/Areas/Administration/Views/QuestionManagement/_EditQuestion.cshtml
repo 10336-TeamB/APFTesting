@@ -1,0 +1,76 @@
+﻿@model APFTestingUI.Areas.Administration.Models.QuestionManagement.Edit
+
+@Html.HiddenFor(model => model.Id)
+        
+<div class="editor-label">
+    @Html.LabelFor(model => model.Description)
+</div>
+<div class="editor-field editor-field-description">
+    @Html.TextAreaFor(model => model.Description)
+</div>
+<div class="clear"></div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Category)
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.Category, Model.Categories)
+</div>
+<div class="clear"></div>
+
+<div>
+    @{ string path = String.Format("~/QuestionImages/{0}", Model.ImagePath); }
+    @if (Model.ImagePath != null)
+    {
+        <img src="@Url.Content(path)" alt="question image"/>
+    }
+    
+    
+</div>
+
+<div class="editor-label">
+    Image
+</div>
+<div class="editor-field">
+    <input type="file" name="ImageFile" accept="image/*" />
+</div>
+<div class="clear"></div>
+@Html.HiddenFor(model => model.ImagePath)
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.DeleteImage)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.DeleteImage)
+</div>
+<div class="clear"></div>
+
+<br />
+<hr />
+<h2>Possible Answers</h2>
+<table id="answers-table">
+    <thead>
+        <tr>
+            <th class="th-correct-answer">Correct Answer(s)</th>
+            <th colspan="2">Answer Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (int i = 0; i < Model.Answers.Count; i++)
+        {
+            
+            <tr>
+                <td class="td-is-correct">
+                    @Html.HiddenFor(model => model.Answers[i].Id)
+                    @Html.EditorFor(model => model.Answers[i].IsCorrect)
+                </td>
+                <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
+                <td class="delete-answer"><span>delete</span></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<span id="add-answer">+ Add another answer</span><br/><br/>

@@ -1,0 +1,30 @@
+﻿@model APFTestingUI.Areas.Administration.Models.TheoryFormat.FormatDisplayItem
+@{
+    var highlight = Model.IsActive ? "row-highlight" : "";       
+}
+<tr>
+    <td>
+            @if (Model.IsActive)
+            {
+                <img src="~/Images/on.png" alt="On button" width="56" height="30" />
+            }
+            else
+            {
+                <a href='@Url.Action("Activate", new { formatId = Model.Id })'>
+                    <img src="~/Images/off.png" alt="Off button" width="56" height="30" />
+                </a>
+            }
+    </td>
+    <td class="@highlight">@Model.NumberOfQuestions</td>
+    <td class="@highlight">@Model.PassMark</td>
+    <td class="@highlight">@Model.TimeLimit</td>
+    <td>
+        @if (Model.AllowEditOrDelete)
+        {
+            @Html.ActionLink("Edit", "Edit", new { formatId = Model.Id })
+            <text>|</text>
+            @Html.ActionLink("Delete", "Delete", new { formatId = Model.Id }, new { @class = "delete" })
+        }
+        
+    </td>
+</tr>

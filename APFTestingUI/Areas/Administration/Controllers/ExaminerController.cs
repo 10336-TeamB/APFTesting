@@ -66,6 +66,7 @@ namespace APFTestingUI.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Guid examinerId, EditExaminer model)
         {
+            //TODO: Separate concerns of Editing examiner details and changing password
             List<ExamType> authorities = new List<ExamType>();
             if (model.ExaminerPacker) authorities.Add(ExamType.PackerExam);
             if (model.ExaminerPilot) authorities.Add(ExamType.PilotExam);

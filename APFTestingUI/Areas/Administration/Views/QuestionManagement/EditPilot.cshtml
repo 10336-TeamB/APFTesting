@@ -5,158 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    #manage-theory-question-wrap h2
-    {
-        text-align:left;
-    }
-    
-    .th-correct-answer
-    {
-        width:180px;
-    }
-
-
-    #answers-table
-    {
-        width:100%;
-    }
-
-        #answers-table th
-        {
-            padding-bottom: 10px;
-            font-size: 1.2em;
-            font-weight:normal;
-        }
-
-        #answers-table td
-        {
-            vertical-align: middle;
-        }
-
-    #answers-table input[type="text"]
-    {
-        width:97%;
-        padding:3px 1%;
-    }
-
-        #answers-table .td-is-correct
-        {
-            padding-left:50px;
-        }
-
-        #answers-table td.delete-answer
-        {
-            width:120px;
-            color: #ff0000;
-        }
-    #add-answer
-    {
-        font-size: 1.2em;
-    }
-
-    input[type="submit"]
-    {
-        vertical-align: top;
-    }
-</style>
-
-
 <div id="manage-theory-question-wrap">
 
-<h1>Edit Theory Question - Pilot</h1>
-
-<h2>Question Details</h2>
-
-@using (Html.BeginForm("EditPilot", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(false)
-    @Html.AntiForgeryToken()
+    <h1>Edit Theory Question - Pilot</h1>
     
-    @Html.HiddenFor(model => model.Id);
-    
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Description)
-    </div>
-    <div class="editor-field editor-field-description">
-        @Html.TextAreaFor(model => model.Description)
-    </div>
-    <div class="clear"></div>
-
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Category)
-    </div>
-    <div class="editor-field">
-        @Html.DropDownListFor(model => model.Category, Model.Categories)
-    </div>
-    <div class="clear"></div>
-    
-    <div>
-        @{ string path = String.Format("~/QuestionImages/{0}", Model.ImagePath); }
-        @if (Model.ImagePath != null)
-        {
-            <img src="@Url.Content(path)" alt="question image"/>
-        }
+    @using (Html.BeginForm("EditPilot", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(false)
+        @Html.AntiForgeryToken()
+        
+        @Html.Partial("_EditQuestion", Model)
         
         
-    </div>
+        <br />
+        <hr />
+        @Html.ActionLink("Cancel", "IndexPilot", new { }, new { @class="form-button" })
+        <input type="submit" value="Save" class="form-button" />
+    }
     
-    <div class="editor-label">
-        Image
-    </div>
-    <div class="editor-field">
-        <input type="file" name="ImageFile" accept="image/*" />
-    </div>
-    <div class="clear"></div>
-    @Html.HiddenFor(model => model.ImagePath);
-    
-    <div class="editor-label">
-        @Html.LabelFor(model => model.DeleteImage)
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.DeleteImage)
-    </div>
-    <div class="clear"></div>
-    
-    <br />
-    <hr />
-    <h2>Possible Answers</h2>
-    <table id="answers-table">
-        <thead>
-            <tr>
-                <th class="th-correct-answer">Correct Answer(s)</th>
-                <th colspan="2">Answer Description</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @for (int i = 0; i < Model.Answers.Count; i++)
-            {
-                
-                <tr>
-                    <td class="td-is-correct">
-                        @Html.HiddenFor(model => model.Answers[i].Id)
-                        @Html.EditorFor(model => model.Answers[i].IsCorrect)
-                    </td>
-                    <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
-                    <td class="delete-answer"><span>delete</span></td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    
-    <br />
-    <span id="add-answer">+ Add another answer</span><br/><br/>
-    
-    
-    <br />
-    <hr />
-    @Html.ActionLink("Cancel", "IndexPilot", new { }, new { @class="form-button" })
-    <input type="submit" value="Save" class="form-button" />
-}
-
-
-
 </div>
 
 @section scripts

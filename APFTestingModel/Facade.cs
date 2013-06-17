@@ -885,8 +885,8 @@ namespace APFTestingModel
             ITheoryComponentFormat[][] result;
 
             var formats = _context.TheoryComponentFormats.Include("TheoryComponents").ToList();
-            var pilotFormats = formats.OfType<TheoryComponentFormatPilot>().OrderByDescending(f => f.IsActive).ToArray();
-            var packerFormats = formats.OfType<TheoryComponentFormatPacker>().OrderByDescending(f => f.IsActive).ToArray();
+            var pilotFormats = formats.OfType<TheoryComponentFormatPilot>().OrderBy(f => f.NumberOfQuestions).ToArray();
+            var packerFormats = formats.OfType<TheoryComponentFormatPacker>().OrderBy(f => f.NumberOfQuestions).ToArray();
 
             result = new ITheoryComponentFormat[2][];
 
@@ -1158,7 +1158,7 @@ namespace APFTestingModel
         /// <returns>Readonly list of all the examiner in the database</returns>
         public IEnumerable<IExaminer> FetchAllExaminers()
         {
-            return _context.People.OfType<Examiner>();
+            return _context.People.OfType<Examiner>().Include("CandidatePilots").Include("CandidatePackers");
         }
 
         #endregion

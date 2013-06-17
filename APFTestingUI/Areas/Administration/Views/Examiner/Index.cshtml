@@ -10,6 +10,23 @@
 @Html.ValidationSummary(false)
 
 <style>
+    #Examiner-List {
+        font-size: 1.4em;
+
+    }
+
+    #Examiner-List th {
+        text-align: left;
+    }
+
+    #Examiner-List tr {
+        height: 30px;
+    }
+
+    #Examiner-List tr.highlight {
+        background-color: #222222;
+    }
+
     #Examiner-List .Examiner-APFNumber {
         width: 20%;
     }
@@ -19,12 +36,13 @@
     }
 
     #Examiner-List .Examiner-Task-Actions {
-        width: 55%;
+        width: 30%;
     }
-
 </style>
 
-@Html.ActionLink("Create Examiner", "Create", "Examiner")
+@Html.ActionLink("Add New Examiner", "Create", "Examiner", new { @class="button-add" })
+<br/>
+<br/>
 
 <table id="Examiner-List">
     <tr>
@@ -33,25 +51,41 @@
         <th>Last Name</th>
         <th>Actions</th>
     </tr>
-
-@foreach (var examiner in Model.Examiners)
-{
-    <tr>
-        <td class="Examiner-APFNumber">@examiner.APFNumber</td>
-        <td class="Examiner-Name">@examiner.FirstName</td>
-        <td class="Examiner-Name">@examiner.LastName</td>
-        <td class="Examiner-Task-Actions">
-           @Html.ActionLink("Edit", "Edit", "Examiner", new { examinerId = examiner.Id }, new { })
-           | 
-           @Html.ActionLink("Delete", "Delete", "Examiner", new { examinerId = examiner.Id }, new { }) 
-           |
-           @if (examiner.IsActive) { 
-                @Html.ActionLink("Deactivate", "Deactivate", "Examiner", new { examinerId = examiner.Id }, new { });
-           } else {
-                @Html.ActionLink("Activate", "Activate", "Examiner", new { examinerId = examiner.Id }, new { });
-           }
-        </td>
-    </tr>
-}
+    @{
+        int counter = 0;
+        string rowClass = "";
+    }
+    @foreach (var examiner in Model.Examiners)
+    {
+        if (counter%2 == 0)
+        {
+            rowClass = "highlight";
+        }
+        else
+        {
+            rowClass = "";
+        }
+           
+        counter = ++counter % 2;   
+        <tr class="@rowClass">
+            <td class="Examiner-APFNumber">@examiner.APFNumber</td>
+            <td class="Examiner-Name">@examiner.FirstName</td>
+            <td class="Examiner-Name">@examiner.LastName</td>
+            <td class="Examiner-Task-Actions">
+                @Html.ActionLink("Edit", "Edit", "Examiner", new { examinerId = examiner.Id }, new { })
+                | 
+                @if (examiner.Deleteable)
+                {
+                    @Html.ActionLink("Delete", "Delete", "Examiner", new {examinerId = examiner.Id}, new {}) 
+                    <text>|</text>
+                }
+                @if (examiner.IsActive) { 
+                    @Html.ActionLink("Deactivate", "Deactivate", "Examiner", new { examinerId = examiner.Id }, new { });
+                } else {
+                    @Html.ActionLink("Activate", "Activate", "Examiner", new { examinerId = examiner.Id }, new { });
+                }
+            </td>
+        </tr>
+    }
 
 </table>

@@ -5,94 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit Question - Packer</h1>
+<div id="manage-theory-question-wrap">
 
-@using (Html.BeginForm("EditPacker", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(false)
-    @Html.AntiForgeryToken()
+    <h1>Edit Theory Question - Packer</h1>
     
-    @Html.HiddenFor(model => model.Id);
-    
-    
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Description) <em>*</em>
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Description)
-    </div>
-    <div class="clear"></div>
-
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Category) <em>*</em>
-    </div>
-    <div class="editor-field">
-        @Html.DropDownListFor(model => model.Category, Model.Categories)
-    </div>
-    <div class="clear"></div>
-    
-    <div>
-        @{ string path = String.Format("~/QuestionImages/{0}", Model.ImagePath); }
-        @if (Model.ImagePath != null)
-        {
-            <img src="@Url.Content(path)" alt="question image"/>
-        }
-        
-        
-    </div>
-    
-    <div class="editor-label">
-        Image <em>*</em>
-    </div>
-    <div class="editor-field">
-        <input type="file" name="ImageFile" accept="image/*" />
-    </div>
-    <div class="clear"></div>
-    @Html.HiddenFor(model => model.ImagePath);
-    
-    
-    <div class="editor-label">
-        @Html.LabelFor(model => model.DeleteImage) <em>*</em>
-    </div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.DeleteImage)
-    </div>
-    <div class="clear"></div>
-    
-    
-    <span id="add-answer">Add</span>
-    <table id="answers-table">
-        <thead>
-            <tr>
-                <th>Correct</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @for (int i = 0; i < Model.Answers.Count; i++)
-            {
-                
-                <tr>
-                    <td>
-                        @Html.HiddenFor(model => model.Answers[i].Id)
-                        @Html.EditorFor(model => model.Answers[i].IsCorrect)
-                    </td>
-                    <td>@Html.EditorFor(model => model.Answers[i].Description)</td>
-                    <td class="delete-answer"><span>delete</span></td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    
-    if (Model.EditableOrDeletable)
+    @using (Html.BeginForm("EditPacker", "QuestionManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        @Html.ActionLink("Delete", "#", new { questionId = Model.Id }, new { id = "delete" });
+        @Html.ValidationSummary(false)
+        @Html.AntiForgeryToken()
+
+        @Html.Partial("_EditQuestion", Model)
+        
+        
+        <br />
+        <hr />
+        @Html.ActionLink("Cancel", "IndexPacker", new { }, new { @class="form-button" })
+        <input type="submit" value="Confirm" class="form-button" />
     }
     
-    
-    <input type="submit" value="Confirm" class="form-button" />
-}
+</div>
 
 @section scripts
 {

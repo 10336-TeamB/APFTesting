@@ -55,9 +55,14 @@ namespace APFTestingModel
             }
         }
 
+        public bool Deleteable
+        {
+            get { return !(CandidatePilots.Any() || CandidatePackers.Any()); }
+        }
+
         public void Delete(deleteEntityDelegate<Examiner> delete)
         {
-            if (CandidatePilots.Any() || CandidatePackers.Any())
+            if (!Deleteable)
             {
                 throw new BusinessRuleException("You can not delete an examiner who has associated candidates.");
             }

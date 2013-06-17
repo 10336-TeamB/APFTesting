@@ -42,16 +42,12 @@
             @Html.ValidationMessageFor(model => model.TimeLimit)
         </div>
         <div class="clear"></div>
-
-        <p class="button-container">
+        
+        <br/>
+            @Html.ActionLink("Cancel", "Index", new { }, new { @class = "form-button" })
             <input type="submit" value="Save" class="form-button" />
-        </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

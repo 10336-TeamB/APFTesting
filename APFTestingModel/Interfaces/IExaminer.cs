@@ -40,6 +40,10 @@ namespace APFTestingModel
         /// </summary>
         bool IsActive { get; }
         /// <summary>
+        /// Is deleting of examiner possible
+        /// </summary>
+        bool Deleteable { get; }
+        /// <summary>
         /// List of examiner authority
         /// </summary>
         IEnumerable<IExaminerAuthority> ExaminerAuthorities { get; }

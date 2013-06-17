@@ -8,21 +8,18 @@
 <h1>Theory Questions - Packer</h1>
 
 <div>
-    <a href='@Url.Action("CreatePacker")'>
-        ADD
-    </a>
-</div>
+    @Html.ActionLink("Add New Question", "CreatePacker", new { }, new { @class="button-add" })
+</div><br/><br/>
 
 <div>
     @if (Model.TheoryQuestions.Count() > 0)
     {
-        <table>
+        <table id="question-list">
 
             <thead>
                 <tr>
-                    <th>Activation</th>
+                    <th class="th-active">Status</th>
                     <th>Description</th>
-                    <th>Edit</th>
                 </tr>
             </thead>
 
@@ -31,36 +28,21 @@
                 {
                     <tr>
                         <td>
-                            @{ string img = ""; }
-                            @switch (question.IsActive)
-                            {
-                                case true:
-                                    img = "Deactivate";
-                                    break;
-                                case false:
-                                    img = "Activate";
-                                    break;
-                            }
                             <a href='@Url.Action("ToggleActivationPacker", new { questionId = question.Id })'>
-                                @img
+                                @if (question.IsActive)
+                                {
+                                    <img src="~/Images/on.png" alt="On button" width="56" height="30" />
+                                }
+                                else
+                                {
+                                    <img src="~/Images/off.png" alt="Off button" width="56" height="30" />
+                                }
                             </a>
                         </td>
                         
                         <td>
-                            @Html.ActionLink(question.Description, "DisplayPilot", new { questionId = question.Id })
+                            @Html.ActionLink(question.Description, "DisplayPacker", new { questionId = question.Id })
                         </td>
-
-
-                        @if (question.EditableOrDeletable)
-                        {
-                            <td>
-                                @Html.ActionLink("Edit", "EditPilot", new { questionId = question.Id })
-                            </td>
-                        }
-                        else
-                        {
-                            <td>NOT EDITABLE</td>
-                        }   
                         
                     </tr>
                 }
