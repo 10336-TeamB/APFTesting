@@ -139,7 +139,7 @@ namespace APFTestingModel
         }
 
         /// <summary>
-        /// Fetches the specific question pointed by the questionIndex passed on the parameter
+        /// Fetches the specific question pointed by the questionIndex passed in the parameter
         /// </summary>
         /// <param name="examId">Guid id of the exam in progress</param>
         /// <param name="questionIndex">Question index of the question to be fetched</param>
@@ -269,6 +269,12 @@ namespace APFTestingModel
         }
 
         //Do we even need this? - Pradipna
+        /// <summary>
+        /// Returns whether the practical component was successfully completed or not
+        /// </summary>
+        /// <param name="examId">Guid if of the exam</param>
+        /// <param name="examType">Type of the exam</param>
+        /// <returns>True if the practical component was successfully completed, otherwise false</returns>
         public bool HasPassedPractical(Guid examId, ExamType examType)
         {
             return fetchExam(examId, examType).PracticalComponentIsCompetent;
@@ -421,7 +427,7 @@ namespace APFTestingModel
         }
 
         /// <summary>
-        /// Retrives the list of all the practical component template for the pilot candidates
+        /// Retrieves a list of all the practical component template for the pilot candidates
         /// </summary>
         /// <returns>Readonly list of all the practical component template for the pilot candidates</returns>
         public IEnumerable<IPracticalComponentTemplatePilot> FetchAllPracticalComponentTemplatePilots()
@@ -430,7 +436,7 @@ namespace APFTestingModel
         }
 
         /// <summary>
-        /// Retrives the list of all the practical component template for the packer candidates
+        /// Retrieves a list of all the practical component template for the packer candidates
         /// </summary>
         /// <returns>Readonly list of all the practical component template for the packer candidates</returns>
         public IEnumerable<IPracticalComponentTemplatePacker> FetchAllPracticalComponentTemplatePackers()
@@ -554,9 +560,9 @@ namespace APFTestingModel
         }
 
         /// <summary>
-        /// Counts the number of questions with images as part of the question
+        /// Counts the number of questions with images
         /// </summary>
-        /// <returns>Number of questions with images as part of the question</returns>
+        /// <returns>Number of questions with images</returns>
         public int CountQuestionsWithImages()
         {
             return _context.TheoryQuestions.Count(q => q.ImagePath != null);
@@ -707,10 +713,10 @@ namespace APFTestingModel
         }
 
         /// <summary>
-        /// Logs in the examiner and adminstrator to the system
+        /// Logs in users to the system
         /// </summary>
-        /// <param name="username">Username of the person that is logging in</param>
-        /// <param name="password">Password of the person that is logging in</param>
+        /// <param name="username">Username of the user that is logging in</param>
+        /// <param name="password">Password of the user that is logging in</param>
         /// <param name="rememberMe">If set to true, temporatily stores credentials</param>
         /// <returns>Success or failure while logging the user to the system</returns>
         public bool Login(string username, string password, bool rememberMe)
@@ -1045,7 +1051,7 @@ namespace APFTestingModel
         /// Fetches a specific examiner
         /// </summary>
         /// <param name="examinerId">Guid id of the examiner</param>
-        /// <returns>Examiner that was retrived</returns>
+        /// <returns>Examiner that was retrieved</returns>
         public IExaminer FetchExaminer(Guid examinerId)
         {
             return fetchExaminer(examinerId);
@@ -1055,7 +1061,7 @@ namespace APFTestingModel
         /// Fetches a specific examiner based on their User Id
         /// </summary>
         /// <param name="userId">Userid of the examiner</param>
-        /// <returns>Examiner that was retrived</returns>
+        /// <returns>Examiner that was retrieved</returns>
         public IExaminer FetchExaminer(int userId)
         {
             var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").FirstOrDefault(e => e.UserId == userId);
@@ -1066,6 +1072,11 @@ namespace APFTestingModel
             return examiner;
         }
 
+        /// <summary>
+        /// Fetches examiner Id by passing the username of an examiner
+        /// </summary>
+        /// <param name="username">Username of the examiner</param>
+        /// <returns>Guid id of the examiner</returns>
         public Guid FetchExaminerIdByUsername(string username)
         {
             var examiner = _context.People.OfType<Examiner>().Include("ExaminerAuthorities").FirstOrDefault(e => e.APFNumber.Equals(username));
@@ -1166,7 +1177,7 @@ namespace APFTestingModel
         #region CRUD Pilot Practical Template
 
         /// <summary>
-        /// Fetch a specific practical template for pilot exam
+        /// Fetches a specific practical template for pilot exam
         /// </summary>
         /// <param name="templateId">Guid id of the template</param>
         /// <returns>Practical template that was fetched</returns>
@@ -1247,7 +1258,7 @@ namespace APFTestingModel
         }
 
         /// <summary>
-        /// Checks whether or the practical template can be activated and if it can be activated, activates it otherwise throws an exception
+        /// Checks whether or not the practical template can be activated and if it can be activated, activates it otherwise throws an exception
         /// </summary>
         /// <param name="templateId">Guid id of the template</param>
         public void SetActivePracticalTemplatePilot(Guid templateId)
