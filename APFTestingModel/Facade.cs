@@ -10,6 +10,9 @@ using System.Text.RegularExpressions;
 namespace APFTestingModel
 {
     internal delegate void deleteEntityDelegate<T>(T entity);
+    /// <summary>
+    /// Facade
+    /// </summary>
     public class Facade : IFacade
     {
         private APFTestingDBEntities _context = new APFTestingDBEntities();
