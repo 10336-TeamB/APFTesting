@@ -73,7 +73,7 @@
 
         <p class="button-container">
             <span class="control-button-span">
-                <input type="reset" value="Reset" class="form-button" />
+                @Html.ActionLink("Cancel", "Index", new { }, new { @class = "form-button" })
                 <input type="submit" value="Create" class="form-button" />
             </span>
         </p>

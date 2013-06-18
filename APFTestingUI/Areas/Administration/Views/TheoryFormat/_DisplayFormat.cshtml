@@ -18,7 +18,7 @@
     <td class="@highlight">@Model.NumberOfQuestions</td>
     <td class="@highlight">@Model.PassMark</td>
     <td class="@highlight">@Model.TimeLimit</td>
-    <td>
+    <td class="TheoryFormat-Task-Actions">
         @if (Model.AllowEditOrDelete)
         {
             @Html.ActionLink("Edit", "Edit", new { formatId = Model.Id })

@@ -246,6 +246,21 @@ a
 a:hover
 {
     text-decoration: none;
+}
+
+.Examiner-Task-Actions a:hover {
+    color: #D5AE69;
+}
+
+.Assessment-Task-Actions a:hover {
+    color: #D5AE69;
+}
+
+.TheoryFormat-Task-Actions a:hover {
+    color: #D5AE69;
+}
+
+.Practical-Template-Actions a:hover {
     color: #D5AE69;
 }
 
