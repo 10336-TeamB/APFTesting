@@ -31,6 +31,10 @@ namespace APFTestingModel
 		{
 			get
 			{
+                if (!PossibleAnswers.Any())
+                {
+                    throw new BusinessRuleException("No Answers Available");
+                }
                 if (PossibleAnswers.Any(pa => pa.IsCorrect == false))
 			    {
 			        return false;
