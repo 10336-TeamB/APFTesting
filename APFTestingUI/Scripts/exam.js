@@ -129,6 +129,7 @@ function renderQuestion(data) {
     var numOfCorrectAnswers = data["NumberOfCorrectAnswers"];
     var type = numOfCorrectAnswers == 1 ? "radio" : "checkbox";
     var className = numOfCorrectAnswers == 1 ? "answer-radiobutton" : "answer-checkbox";
+    var imagePath = data["ImagePath"];
 
     $("#progress-bar-inner").animate({"width": examProgress + "%"}, 100);
     document.title = "Question " + (index + 1);
@@ -138,6 +139,10 @@ function renderQuestion(data) {
     $("#Index").val(index);
     if (isMarkedForReview) {
         $("#is-marked-for-review").prop('checked', true);
+    }
+
+    if (imagePath != null) {
+        $('fieldset').append('<div class="image-container"><img src="/QuestionImages/' + imagePath + '" alt="" /></div>');
     }
         
     populateAnswers(answers, type, className);
